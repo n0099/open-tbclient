@@ -18,8 +18,14 @@ public final class c implements com.kwad.sdk.core.d<AdMatrixInfo.ActionBarInfoNe
         if (jSONObject == null) {
             jSONObject = new JSONObject();
         }
-        com.kwad.sdk.utils.r.a(jSONObject, "maxTimeOut", actionBarInfoNew.maxTimeOut);
-        com.kwad.sdk.utils.r.a(jSONObject, "cardType", actionBarInfoNew.cardType);
+        long j = actionBarInfoNew.maxTimeOut;
+        if (j != 0) {
+            com.kwad.sdk.utils.r.putValue(jSONObject, "maxTimeOut", j);
+        }
+        int i = actionBarInfoNew.cardType;
+        if (i != 0) {
+            com.kwad.sdk.utils.r.putValue(jSONObject, "cardType", i);
+        }
         return jSONObject;
     }
 

@@ -15,6 +15,7 @@ public class HybridLoadMsg extends a implements Serializable {
     public String interval;
     public int loadType;
     public String packageUrl;
+    public double ratioCount;
     public String sceneId;
     public int state;
     public String url;
@@ -46,6 +47,11 @@ public class HybridLoadMsg extends a implements Serializable {
 
     public HybridLoadMsg setPackageUrl(String str) {
         this.packageUrl = str;
+        return this;
+    }
+
+    public HybridLoadMsg setRatioCount(double d) {
+        this.ratioCount = d;
         return this;
     }
 

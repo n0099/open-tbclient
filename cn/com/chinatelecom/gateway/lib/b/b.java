@@ -1,251 +1,243 @@
 package cn.com.chinatelecom.gateway.lib.b;
 
-import android.os.Build;
+import android.content.Context;
 import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.browser.SearchJsBridge;
+import cn.com.chinatelecom.gateway.lib.c.f;
+import cn.com.chinatelecom.gateway.lib.c.q;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.exoplayer2.text.ttml.TtmlNode;
-import com.meizu.cloud.pushsdk.notification.model.AppIconSetting;
-import com.meizu.cloud.pushsdk.notification.model.NotificationStyle;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.Locale;
+import java.net.URLEncoder;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Queue;
+import java.util.concurrent.ConcurrentLinkedQueue;
+import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
+    public static final byte[] a;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
-    public String d;
-    public String e;
-    public String f;
-    public String g;
-    public String h;
-    public String i;
-    public String j;
-    public String k;
-    public String l;
-    public String m;
-    public String n;
-    public int o;
-    public String p;
-    public long q;
-    public long r;
-    public String s;
-    public StringBuffer t;
-    public long u;
-    public long v;
-    public String w;
 
-    public b(String str) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1293545212, "Lcn/com/chinatelecom/gateway/lib/b/b;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-1293545212, "Lcn/com/chinatelecom/gateway/lib/b/b;");
+                return;
+            }
+        }
+        a = new byte[]{15, 31, 94, 10, 90, 15, 91, 24, 10, 30, 88, 7, 89, 10, 95, 30};
+    }
+
+    public b() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        this.t = new StringBuffer();
-        this.c = "";
-        this.e = "";
-        this.n = "";
-        this.m = "";
-        this.p = "";
-        this.a = "1.1";
-        long currentTimeMillis = System.currentTimeMillis();
-        this.u = currentTimeMillis;
-        this.b = a(currentTimeMillis);
-        this.d = "";
-        this.f = "";
-        this.g = Build.BRAND;
-        this.h = Build.MODEL;
-        this.i = "Android";
-        this.j = Build.VERSION.RELEASE;
-        this.k = "SDK-JJ-v3.7.3";
-        this.l = str;
-        this.s = "0";
-        this.w = "";
     }
 
-    public static String a(long j) {
-        InterceptResult invokeJ;
+    public static void a(Context context, String str) {
+        char c;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65537, null, j)) == null) {
+        if (interceptable == null || interceptable.invokeLL(65541, null, context, str) == null) {
+            int hashCode = str.hashCode();
+            int i = 0;
+            if (hashCode == 64897) {
+                if (str.equals("ALL")) {
+                    c = 0;
+                }
+                c = 65535;
+            } else if (hashCode != 78159) {
+                if (hashCode == 66247144 && str.equals("ERROR")) {
+                    c = 1;
+                }
+                c = 65535;
+            } else {
+                if (str.equals("OFF")) {
+                    c = 2;
+                }
+                c = 65535;
+            }
+            if (c != 0) {
+                if (c == 1) {
+                    i = -1;
+                } else if (c == 2) {
+                    i = -2;
+                }
+            }
             try {
-                return new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS", Locale.CHINA).format(new Date(j));
+                f.a(context, "key_c_l_l_v", i);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public static void a(Context context, List list) {
+        int b;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(65542, null, context, list) == null) || (b = b(context)) == -2) {
+            return;
+        }
+        q.a();
+        q.a(new c(context, list, b));
+    }
+
+    public static /* synthetic */ void a(Context context, Queue queue, int i) {
+        String str;
+        JSONObject jSONObject;
+        JSONArray jSONArray = new JSONArray();
+        if (queue != null && !queue.isEmpty()) {
+            Iterator it = queue.iterator();
+            int i2 = 0;
+            while (it.hasNext()) {
+                try {
+                    jSONObject = new JSONObject((String) it.next());
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                if (i != -1 || jSONObject.getInt("rt") != 0) {
+                    jSONArray.put(jSONObject);
+                    i2++;
+                    if (i2 > 10) {
+                        break;
+                    }
+                }
+            }
+        }
+        if (jSONArray.length() > 0) {
+            try {
+                str = cn.com.chinatelecom.gateway.lib.a.a.a(jSONArray.toString(), cn.com.chinatelecom.gateway.lib.a.f.a(a));
+            } catch (Exception e2) {
+                e2.printStackTrace();
+                str = null;
+            }
+        } else {
+            str = "";
+        }
+        if (TextUtils.isEmpty(str)) {
+            return;
+        }
+        a.a(context, str);
+    }
+
+    public static int b(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, context)) == null) {
+            try {
+                return f.b(context, "key_c_l_l_v", 0);
             } catch (Throwable th) {
                 th.printStackTrace();
+                return 0;
+            }
+        }
+        return invokeL.intValue;
+    }
+
+    public static String b(Context context, Queue queue) {
+        InterceptResult invokeLL;
+        String a2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65545, null, context, queue)) == null) {
+            JSONArray jSONArray = new JSONArray();
+            String jSONArray2 = jSONArray.toString();
+            if (!queue.isEmpty()) {
+                Iterator it = queue.iterator();
+                while (it.hasNext()) {
+                    try {
+                        jSONArray.put(new JSONObject((String) it.next()));
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+            if (jSONArray.length() <= 0) {
                 return "";
             }
-        }
-        return (String) invokeJ.objValue;
-    }
-
-    public b a(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            this.o = i;
-            return this;
-        }
-        return (b) invokeI.objValue;
-    }
-
-    public b a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            this.d = str;
-            return this;
-        }
-        return (b) invokeL.objValue;
-    }
-
-    public b b(long j) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j)) == null) {
-            this.q = j;
-            return this;
-        }
-        return (b) invokeJ.objValue;
-    }
-
-    public b b(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            this.e = str;
-            return this;
-        }
-        return (b) invokeL.objValue;
-    }
-
-    public b c(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            this.f = str;
-            return this;
-        }
-        return (b) invokeL.objValue;
-    }
-
-    public b d(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
-            this.m = str;
-            return this;
-        }
-        return (b) invokeL.objValue;
-    }
-
-    public b e(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
-            this.n = str;
-            return this;
-        }
-        return (b) invokeL.objValue;
-    }
-
-    public b f(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
-            this.p = str;
-            return this;
-        }
-        return (b) invokeL.objValue;
-    }
-
-    public b g(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) {
-            if (!TextUtils.isEmpty(str)) {
-                this.s = str;
+            String jSONArray3 = jSONArray.toString();
+            if (!TextUtils.isEmpty(jSONArray3)) {
+                try {
+                    a2 = cn.com.chinatelecom.gateway.lib.a.b.a(cn.com.chinatelecom.gateway.lib.a.a.b(jSONArray3, cn.com.chinatelecom.gateway.lib.a.f.a(a)));
+                } catch (Exception e2) {
+                    e = e2;
+                }
+                try {
+                    jSONArray2 = URLEncoder.encode(a2, "UTF-8");
+                } catch (Exception e3) {
+                    e = e3;
+                    jSONArray2 = a2;
+                    e.printStackTrace();
+                    return a.a("https://api-e189.21cn.com/gw/client/accountMsg.do", jSONArray2);
+                }
             }
-            return this;
+            return a.a("https://api-e189.21cn.com/gw/client/accountMsg.do", jSONArray2);
         }
-        return (b) invokeL.objValue;
+        return (String) invokeLL.objValue;
     }
 
-    public b h(String str) {
-        InterceptResult invokeL;
+    public static synchronized Queue b(Context context, List list, int i) {
+        InterceptResult invokeLLI;
+        ConcurrentLinkedQueue concurrentLinkedQueue;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, str)) == null) {
-            StringBuffer stringBuffer = this.t;
-            stringBuffer.append(str);
-            stringBuffer.append("\n");
-            return this;
-        }
-        return (b) invokeL.objValue;
-    }
-
-    public b i(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, str)) == null) {
-            this.w = str;
-            return this;
-        }
-        return (b) invokeL.objValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            try {
-                long currentTimeMillis = System.currentTimeMillis();
-                this.v = currentTimeMillis;
-                this.r = currentTimeMillis - this.u;
-                JSONObject jSONObject = new JSONObject();
-                jSONObject.put("v", this.a);
-                jSONObject.put("t", this.b);
-                jSONObject.put("tag", this.c);
-                jSONObject.put("ai", this.d);
-                jSONObject.put(AppIconSetting.DEFAULT_LARGE_ICON, this.e);
-                jSONObject.put(NotificationStyle.NOTIFICATION_STYLE, this.f);
-                jSONObject.put(TtmlNode.TAG_BR, this.g);
-                jSONObject.put("ml", this.h);
-                jSONObject.put("os", this.i);
-                jSONObject.put(SearchJsBridge.COOKIE_OV, this.j);
-                jSONObject.put("sv", this.k);
-                jSONObject.put("ri", this.l);
-                jSONObject.put("api", this.m);
-                jSONObject.put("p", this.n);
-                jSONObject.put("rt", this.o);
-                jSONObject.put("msg", this.p);
-                jSONObject.put("st", this.q);
-                jSONObject.put("tt", this.r);
-                jSONObject.put("ot", this.s);
-                jSONObject.put("ep", this.t.toString());
-                jSONObject.put("aip", this.w);
-                return jSONObject.toString();
-            } catch (Throwable th) {
-                th.printStackTrace();
-                return "";
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65546, null, context, list, i)) == null) {
+            synchronized (b.class) {
+                concurrentLinkedQueue = new ConcurrentLinkedQueue();
+                String a2 = a.a(context);
+                if (!TextUtils.isEmpty(a2)) {
+                    try {
+                        JSONArray jSONArray = new JSONArray(cn.com.chinatelecom.gateway.lib.a.a.c(a2, cn.com.chinatelecom.gateway.lib.a.f.a(a)));
+                        int length = jSONArray.length();
+                        for (int i2 = 0; i2 < length && i2 <= 10; i2++) {
+                            JSONObject jSONObject = jSONArray.getJSONObject(i2);
+                            if (jSONObject != null) {
+                                concurrentLinkedQueue.add(jSONObject.toString());
+                            }
+                        }
+                        a.a(context, "");
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+                if (i == -1) {
+                    Iterator it = list.iterator();
+                    while (it.hasNext()) {
+                        String str = (String) it.next();
+                        try {
+                            if (new JSONObject(str).getInt("rt") != 0) {
+                                concurrentLinkedQueue.add(str);
+                            }
+                        } catch (Exception e2) {
+                            e2.printStackTrace();
+                        }
+                    }
+                } else if (i == 0) {
+                    concurrentLinkedQueue.addAll(list);
+                }
+                while (concurrentLinkedQueue.size() > 10) {
+                    concurrentLinkedQueue.poll();
+                }
             }
+            return concurrentLinkedQueue;
         }
-        return (String) invokeV.objValue;
+        return (Queue) invokeLLI.objValue;
     }
 }

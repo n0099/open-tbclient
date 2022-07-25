@@ -94,17 +94,17 @@ public class w79 {
     public interface e extends h89.b {
         void a(ICaptureResult iCaptureResult);
 
-        void c();
+        void b();
 
-        void d(int i);
+        void c(int i);
+
+        void d();
 
         void e();
 
-        void f();
+        void f(int i, int i2);
 
-        void g(int i, int i2);
-
-        void h(boolean z);
+        void g(boolean z);
     }
 
     /* loaded from: classes7.dex */

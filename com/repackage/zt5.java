@@ -93,12 +93,12 @@ public class zt5 extends jx5<ThreadData> implements hy5 {
         this.s = new a(this);
         this.i = tbPageContext;
         View h = h();
-        this.l = h.findViewById(R.id.obfuscated_res_0x7f0907b7);
-        this.m = h.findViewById(R.id.obfuscated_res_0x7f091aa9);
-        this.n = h.findViewById(R.id.obfuscated_res_0x7f091aab);
+        this.l = h.findViewById(R.id.obfuscated_res_0x7f0907b5);
+        this.m = h.findViewById(R.id.obfuscated_res_0x7f091a83);
+        this.n = h.findViewById(R.id.obfuscated_res_0x7f091a85);
         this.j = (RelativeLayout) h.findViewById(R.id.obfuscated_res_0x7f0901e0);
         this.o = (TextView) h.findViewById(R.id.obfuscated_res_0x7f0901f4);
-        this.p = (TextView) h.findViewById(R.id.obfuscated_res_0x7f091e2a);
+        this.p = (TextView) h.findViewById(R.id.obfuscated_res_0x7f091e30);
         this.r = (RelativeLayout) h.findViewById(R.id.obfuscated_res_0x7f0901bd);
         this.q = (TextView) h.findViewById(R.id.obfuscated_res_0x7f09021a);
     }

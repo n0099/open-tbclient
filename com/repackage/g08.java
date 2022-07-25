@@ -93,7 +93,7 @@ public class g08 extends Dialog {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
             super.onCreate(bundle);
             requestWindowFeature(1);
-            setContentView(R.layout.obfuscated_res_0x7f0d06c8);
+            setContentView(R.layout.obfuscated_res_0x7f0d06d2);
             Display defaultDisplay = ((WindowManager) this.a.getSystemService("window")).getDefaultDisplay();
             WindowManager.LayoutParams attributes = getWindow().getAttributes();
             attributes.width = defaultDisplay.getWidth();
@@ -101,10 +101,10 @@ public class g08 extends Dialog {
             getWindow().setBackgroundDrawableResource(R.color.transparent);
             getWindow().setDimAmount(this.d);
             getWindow().setGravity(80);
-            getWindow().setWindowAnimations(R.style.obfuscated_res_0x7f1003c8);
+            getWindow().setWindowAnimations(R.style.obfuscated_res_0x7f1003cb);
             setCanceledOnTouchOutside(true);
             setCancelable(true);
-            LinearLayout linearLayout = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091b72);
+            LinearLayout linearLayout = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091b4c);
             this.c = linearLayout;
             linearLayout.setOnClickListener(new a(this));
             if (this.b == null) {

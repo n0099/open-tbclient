@@ -73,11 +73,11 @@ public class ou5 extends an<ev5, CardViewHolder<cw5>> {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view2, viewGroup, ev5Var, cardViewHolder})) == null) {
-            if (cardViewHolder.c() == null) {
+            if (cardViewHolder.b() == null) {
                 return null;
             }
-            Z(ev5Var, cardViewHolder.c());
-            return cardViewHolder.c().h();
+            Z(ev5Var, cardViewHolder.b());
+            return cardViewHolder.b().h();
         }
         return (View) invokeCommon.objValue;
     }

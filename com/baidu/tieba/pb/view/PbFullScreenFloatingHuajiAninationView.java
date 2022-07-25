@@ -27,7 +27,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.pi;
 import com.repackage.qg;
-import com.repackage.rw4;
+import com.repackage.sw4;
 /* loaded from: classes3.dex */
 public class PbFullScreenFloatingHuajiAninationView extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
@@ -141,7 +141,7 @@ public class PbFullScreenFloatingHuajiAninationView extends RelativeLayout {
                 return;
             }
         }
-        s = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702cd);
+        s = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702cb);
         t = pi.k(TbadkCoreApplication.getInst());
     }
 
@@ -185,14 +185,14 @@ public class PbFullScreenFloatingHuajiAninationView extends RelativeLayout {
     public final void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0679, this);
-            this.a = (ImageView) findViewById(R.id.obfuscated_res_0x7f0917ae);
-            this.b = (ImageView) findViewById(R.id.obfuscated_res_0x7f0917b0);
-            this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f0917b1);
-            this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f0917b2);
-            this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f0917b3);
-            this.f = (ImageView) findViewById(R.id.obfuscated_res_0x7f0917b4);
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f0917af);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0683, this);
+            this.a = (ImageView) findViewById(R.id.obfuscated_res_0x7f091789);
+            this.b = (ImageView) findViewById(R.id.obfuscated_res_0x7f09178b);
+            this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f09178c);
+            this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f09178d);
+            this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f09178e);
+            this.f = (ImageView) findViewById(R.id.obfuscated_res_0x7f09178f);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f09178a);
             this.g = textView;
             textView.setX((t - s) / 2);
             e(TbadkCoreApplication.getInst().getSkinType());
@@ -260,7 +260,7 @@ public class PbFullScreenFloatingHuajiAninationView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
             SkinManager.setBackgroundColor(this, R.color.black_alpha60);
-            rw4 activitySwitch = TbadkCoreApplication.getInst().getActivitySwitch();
+            sw4 activitySwitch = TbadkCoreApplication.getInst().getActivitySwitch();
             if (activitySwitch == null || !activitySwitch.a()) {
                 i2 = R.drawable.obfuscated_res_0x7f0806f4;
                 i3 = R.drawable.obfuscated_res_0x7f0806f2;

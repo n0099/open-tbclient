@@ -26,16 +26,23 @@ public abstract class yh9 implements KsRewardVideoAd.RewardAdInteractionListener
     }
 
     @Override // com.kwad.sdk.api.KsRewardVideoAd.RewardAdInteractionListener
+    public void onExtraRewardVerify(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+        }
+    }
+
+    @Override // com.kwad.sdk.api.KsRewardVideoAd.RewardAdInteractionListener
     public void onRewardStepVerify(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048576, this, i, i2) == null) {
+        if (interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2) == null) {
         }
     }
 
     @Override // com.kwad.sdk.api.KsRewardVideoAd.RewardAdInteractionListener
     public void onVideoSkipToEnd(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
+        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) == null) {
         }
     }
 }

@@ -21,7 +21,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.ai8;
 import com.repackage.pi;
-import com.repackage.rl4;
+import com.repackage.sl4;
 /* loaded from: classes3.dex */
 public class ShowPicCardView extends FrameLayout implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
@@ -60,12 +60,12 @@ public class ShowPicCardView extends FrameLayout implements View.OnClickListener
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.h = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d06e8, (ViewGroup) this, true);
-            this.c = (TbImageView) findViewById(R.id.obfuscated_res_0x7f0918dc);
+            this.h = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d06f2, (ViewGroup) this, true);
+            this.c = (TbImageView) findViewById(R.id.obfuscated_res_0x7f0918b7);
             this.d = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0903cb);
-            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f0920d7);
-            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f09075c);
-            this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f091d82);
+            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f0920d9);
+            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f09075b);
+            this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f091d88);
         }
     }
 
@@ -88,7 +88,7 @@ public class ShowPicCardView extends FrameLayout implements View.OnClickListener
         if (!(interceptable == null || interceptable.invokeL(1048579, this, view2) == null) || (ai8Var = this.b) == null) {
             return;
         }
-        rl4.o(this.a, ai8Var.e());
+        sl4.o(this.a, ai8Var.e());
     }
 
     public void setData(ai8 ai8Var) {
@@ -129,7 +129,7 @@ public class ShowPicCardView extends FrameLayout implements View.OnClickListener
         addView(this.c);
         FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.d.getLayoutParams();
         layoutParams.width = k;
-        layoutParams.height = pi.f(this.a, R.dimen.obfuscated_res_0x7f070238);
+        layoutParams.height = pi.f(this.a, R.dimen.obfuscated_res_0x7f070236);
         removeView(this.d);
         addView(this.d, layoutParams);
     }

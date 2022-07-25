@@ -11,8 +11,8 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public final class DownloadServiceConnectChangedEvent extends b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ConnectStatus c;
-    public final Class<?> d;
+    public final ConnectStatus avH;
+    public final Class<?> avI;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes5.dex */
@@ -94,13 +94,13 @@ public final class DownloadServiceConnectChangedEvent extends b {
                 return;
             }
         }
-        this.c = connectStatus;
-        this.d = cls;
+        this.avH = connectStatus;
+        this.avI = cls;
     }
 
-    public final ConnectStatus a() {
+    public final ConnectStatus DU() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.c : (ConnectStatus) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.avH : (ConnectStatus) invokeV.objValue;
     }
 }

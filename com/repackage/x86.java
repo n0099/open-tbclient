@@ -171,7 +171,7 @@ public class x86 {
                 if (list == null) {
                     list = new LinkedList<>();
                 }
-                for (DownloadData downloadData : f15.k().j()) {
+                for (DownloadData downloadData : g15.k().j()) {
                     for (String str : this.a.b) {
                         if (downloadData.getType() == 11 && downloadData.getId().equals(str)) {
                             list.add(downloadData);
@@ -228,14 +228,14 @@ public class x86 {
     public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            f15.k().i(11);
+            g15.k().i(11);
         }
     }
 
     public void e(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            f15.k().f(str, 11);
+            g15.k().f(str, 11);
         }
     }
 
@@ -287,15 +287,15 @@ public class x86 {
                     downloadData.setWidth(200);
                     downloadData.setHeight(200);
                 } else {
-                    downloadData.setStatusMsg(TbadkApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f04fa));
+                    downloadData.setStatusMsg(TbadkApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f04f6));
                     downloadData.setStatus(2);
                 }
             } else {
-                downloadData.setStatusMsg(TbadkApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f04fa));
+                downloadData.setStatusMsg(TbadkApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f04f6));
                 downloadData.setStatus(2);
             }
         } else {
-            downloadData.setStatusMsg(TbadkApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f04fa));
+            downloadData.setStatusMsg(TbadkApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f04f6));
             downloadData.setStatus(2);
         }
         StringBuilder sb = new StringBuilder();
@@ -309,6 +309,6 @@ public class x86 {
         sb.append(str);
         downloadData.setPath(sb.toString());
         BdLog.d("download:path:" + downloadData.getPath());
-        f15.k().m(downloadData, this.c);
+        g15.k().m(downloadData, this.c);
     }
 }

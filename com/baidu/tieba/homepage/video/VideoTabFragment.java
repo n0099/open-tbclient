@@ -23,7 +23,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.a27;
 import com.repackage.ge6;
-import com.repackage.s55;
+import com.repackage.t55;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
@@ -64,14 +64,14 @@ public class VideoTabFragment extends BaseFragment implements ge6 {
         }
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragment, com.repackage.v85
+    @Override // com.baidu.tbadk.core.BaseFragment, com.repackage.w85
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "a067" : (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragment, com.repackage.v85
+    @Override // com.baidu.tbadk.core.BaseFragment, com.repackage.w85
     public List<String> getCurrentPageSourceKeyList() {
         InterceptResult invokeV;
         ArrayList arrayList;
@@ -156,7 +156,7 @@ public class VideoTabFragment extends BaseFragment implements ge6 {
             if (a27Var != null) {
                 a27Var.n();
             }
-            s55.e().b();
+            t55.e().b();
         }
     }
 

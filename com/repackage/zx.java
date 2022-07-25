@@ -57,12 +57,12 @@ public class zx extends xw {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.repackage.gx
     /* renamed from: t */
-    public void a(nn4 nn4Var) {
+    public void a(on4 on4Var) {
         SmartAppBottomLayout smartAppBottomLayout;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, nn4Var) == null) || (smartAppBottomLayout = this.h) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, on4Var) == null) || (smartAppBottomLayout = this.h) == null) {
             return;
         }
-        smartAppBottomLayout.a(nn4Var);
+        smartAppBottomLayout.a(on4Var);
     }
 }

@@ -51,10 +51,10 @@ public class sl8 {
                 if (!StringUtils.isNull(TbadkCoreApplication.getCurrentAccount()) && TbadkCoreApplication.getInst().getActivityPrizeData().isUserSatisfy()) {
                     String h5Url = TbadkCoreApplication.getInst().getActivityPrizeData().getH5Url();
                     if (!StringUtils.isNull(h5Url)) {
-                        xt4 k = xt4.k();
+                        yt4 k = yt4.k();
                         if (k.h("activity_prize_get_tip" + TbadkCoreApplication.getCurrentAccount(), true)) {
                             UrlManager.getInstance().dealOneLink((TbPageContext<?>) this.a.getPageContext(), new String[]{h5Url}, true);
-                            xt4 k2 = xt4.k();
+                            yt4 k2 = yt4.k();
                             k2.u("activity_prize_get_tip" + TbadkCoreApplication.getCurrentAccount(), false);
                         }
                     }
@@ -87,7 +87,7 @@ public class sl8 {
             if (TbSingleton.getInstance().canShowPermDialog()) {
                 MessageManager.getInstance().sendMessage(new CustomMessage(2921360, this.b));
             }
-            kn4.b().l("1", "");
+            ln4.b().l("1", "");
             nl8 nl8Var = this.c;
             if (nl8Var == null || nl8Var.i() == null) {
                 return;

@@ -1,16 +1,7 @@
 package com.repackage;
 
-import android.app.AppOpsManager;
-import android.app.usage.UsageStats;
-import android.app.usage.UsageStatsManager;
-import android.content.pm.PackageInfo;
-import android.content.pm.PackageManager;
-import android.os.Process;
-import android.text.TextUtils;
 import android.util.Log;
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.appsearchlib.Info;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -18,15 +9,54 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Calendar;
-import java.util.List;
+import com.meizu.cloud.pushsdk.platform.message.BasicPushStatus;
+import com.repackage.v53;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class vs3 extends ms3 {
+public class vs3 extends ns3 {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean c;
     public transient /* synthetic */ FieldHolder $fh;
+
+    /* loaded from: classes7.dex */
+    public class a implements v53.f {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ md2 a;
+
+        public a(vs3 vs3Var, md2 md2Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {vs3Var, md2Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = md2Var;
+        }
+
+        @Override // com.repackage.v53.f
+        public void a(int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+                if (i == -1) {
+                    vs3.c(this.a, "202");
+                } else if (i != 1) {
+                    this.a.onFail(101, "noPermission");
+                } else {
+                    vs3.c(this.a, BasicPushStatus.SUCCESS_CODE);
+                }
+            }
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -41,12 +71,12 @@ public class vs3 extends ms3 {
                 return;
             }
         }
-        c = rg1.a;
+        c = sg1.a;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public vs3() {
-        super("GetAppUseDuration");
+        super("addShortcutToDesktop");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -62,70 +92,42 @@ public class vs3 extends ms3 {
         }
     }
 
-    @Override // com.repackage.ms3
-    public hs1 a(@NonNull JSONObject jSONObject, @NonNull ld2 ld2Var) {
+    public static void c(md2 md2Var, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65539, null, md2Var, str) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("data", str);
+            } catch (JSONException e) {
+                if (c) {
+                    e.printStackTrace();
+                }
+            }
+            md2Var.a(jSONObject);
+        }
+    }
+
+    @Override // com.repackage.ns3
+    public is1 a(JSONObject jSONObject, md2 md2Var) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, jSONObject, ld2Var)) == null) {
-            if (jSONObject == null) {
-                ld2Var.onFail(202, "params may be error");
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, jSONObject, md2Var)) == null) {
+            i03 b0 = i03.b0();
+            if (b0 != null && b0.w() != null && b0.W() != null) {
+                if (v53.s(b0.w(), b0.W().K(), b0.W().H()) == 1) {
+                    c(md2Var, Info.kBaiduPIDValue);
+                    return null;
+                }
+                v53.j(b0.w(), b0.W(), 1, new a(this, md2Var));
                 return null;
             }
+            md2Var.onFail(100, "swan or activity is null");
             if (c) {
-                Log.e("GetAppUseDuration", "params is " + jSONObject.toString());
-            }
-            String optString = jSONObject.optString("packageName");
-            if (TextUtils.isEmpty(optString)) {
-                ld2Var.onFail(202, "params may be error");
-            } else {
-                b(optString, ld2Var);
+                Log.d("AddShortcutToDesktop", "swan or activity is null");
+                return null;
             }
             return null;
         }
-        return (hs1) invokeLL.objValue;
-    }
-
-    public final void b(String str, @NonNull ld2 ld2Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, ld2Var) == null) {
-            try {
-                if (c()) {
-                    PackageInfo packageInfo = AppRuntime.getAppContext().getPackageManager().getPackageInfo(str, 0);
-                    if (packageInfo != null) {
-                        List<UsageStats> queryUsageStats = ((UsageStatsManager) AppRuntime.getAppContext().getSystemService("usagestats")).queryUsageStats(3, packageInfo.firstInstallTime, Calendar.getInstance().getTimeInMillis());
-                        if (queryUsageStats.size() == 0) {
-                            ld2Var.onFail(101, "noPermission");
-                            return;
-                        }
-                        for (UsageStats usageStats : queryUsageStats) {
-                            if (TextUtils.equals(usageStats.getPackageName(), str)) {
-                                JSONObject jSONObject = new JSONObject();
-                                JSONObject jSONObject2 = new JSONObject();
-                                jSONObject2.put("appUseDuration", usageStats.getTotalTimeInForeground());
-                                jSONObject.put("data", jSONObject2);
-                                ld2Var.a(jSONObject);
-                                return;
-                            }
-                        }
-                        ld2Var.onFail(31016, "no package info");
-                        return;
-                    }
-                    ld2Var.onFail(31016, "no package info");
-                    return;
-                }
-                ld2Var.onFail(101, "noPermission");
-            } catch (PackageManager.NameNotFoundException e) {
-                e.printStackTrace();
-                ld2Var.onFail(31011, "app is not installed");
-            } catch (JSONException e2) {
-                e2.printStackTrace();
-            }
-        }
-    }
-
-    public final boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? ((AppOpsManager) AppRuntime.getAppContext().getSystemService("appops")).checkOpNoThrow("android:get_usage_stats", Process.myUid(), AppRuntime.getAppContext().getPackageName()) == 0 : invokeV.booleanValue;
+        return (is1) invokeLL.objValue;
     }
 }

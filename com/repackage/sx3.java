@@ -1,43 +1,17 @@
 package com.repackage;
+
+import androidx.annotation.NonNull;
 /* loaded from: classes7.dex */
 public interface sx3 {
-    String a();
+    boolean a(@NonNull String str, @NonNull String str2, @NonNull String str3, @NonNull boolean z, @NonNull nd2 nd2Var);
 
-    String b();
+    void b(String str, String str2, String str3, String str4, String str5);
 
-    String c();
+    void c(@NonNull String str);
 
-    String d();
+    void d(@NonNull String str, @NonNull String str2);
 
-    String e();
+    void e(@NonNull String str);
 
-    String f();
-
-    String g();
-
-    String h();
-
-    String i();
-
-    String j();
-
-    String k();
-
-    String l();
-
-    String m();
-
-    String n();
-
-    String o();
-
-    String p();
-
-    String q();
-
-    String r();
-
-    String s();
-
-    String t();
+    void f(@NonNull String str);
 }

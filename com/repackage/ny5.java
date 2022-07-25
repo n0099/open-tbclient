@@ -22,7 +22,7 @@ import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes6.dex */
-public abstract class ny5 extends nn4 implements PreLoadImageProvider {
+public abstract class ny5 extends on4 implements PreLoadImageProvider {
     public static /* synthetic */ Interceptable $ic;
     public static final BdUniqueId D;
     public static final BdUniqueId E;
@@ -273,8 +273,8 @@ public abstract class ny5 extends nn4 implements PreLoadImageProvider {
         return (ArrayList) invokeV.objValue;
     }
 
-    @Override // com.repackage.nn4
-    public kp4 getNegFeedBackData() {
+    @Override // com.repackage.on4
+    public lp4 getNegFeedBackData() {
         InterceptResult invokeV;
         SparseArray<String> sparseArray;
         Interceptable interceptable = $ic;
@@ -282,21 +282,21 @@ public abstract class ny5 extends nn4 implements PreLoadImageProvider {
             if (getThreadData() == null || (sparseArray = this.feedBackReasonMap) == null || sparseArray.size() <= 0) {
                 return null;
             }
-            kp4 kp4Var = new kp4();
-            kp4Var.o(getThreadData().getTid());
-            kp4Var.k(getThreadData().getFid());
-            kp4Var.n(getThreadData().getNid());
-            kp4Var.j(this.feedBackReasonMap);
-            kp4Var.k = this.b;
-            kp4Var.l = this.c;
-            kp4Var.m = this.h;
-            kp4Var.n = getThreadData().threadType;
-            return kp4Var;
+            lp4 lp4Var = new lp4();
+            lp4Var.o(getThreadData().getTid());
+            lp4Var.k(getThreadData().getFid());
+            lp4Var.n(getThreadData().getNid());
+            lp4Var.j(this.feedBackReasonMap);
+            lp4Var.k = this.b;
+            lp4Var.l = this.c;
+            lp4Var.m = this.h;
+            lp4Var.n = getThreadData().threadType;
+            return lp4Var;
         }
-        return (kp4) invokeV.objValue;
+        return (lp4) invokeV.objValue;
     }
 
-    @Override // com.repackage.nn4
+    @Override // com.repackage.on4
     public String getPbInputLocate() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -306,7 +306,7 @@ public abstract class ny5 extends nn4 implements PreLoadImageProvider {
         return (String) invokeV.objValue;
     }
 
-    @Override // com.repackage.nn4
+    @Override // com.repackage.on4
     public ThreadData getThreadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

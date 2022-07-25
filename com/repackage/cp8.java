@@ -326,7 +326,7 @@ public class cp8 {
                 if (ji.c()) {
                     l(jSONObject, i);
                 }
-                if (this.b.size() >= zy4.a() || z) {
+                if (this.b.size() >= az4.a() || z) {
                     n(new bp8(this.b, i));
                     this.b.clear();
                     this.a = null;

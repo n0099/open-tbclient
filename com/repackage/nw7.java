@@ -38,7 +38,7 @@ public class nw7 {
     public BaseFragmentActivity a;
     public NewWriteModel b;
     public LocationModel c;
-    public l35 d;
+    public m35 d;
     public NewWriteModel.e e;
     public GetEmotionPidModel f;
     public EmotionImageData g;
@@ -77,12 +77,12 @@ public class nw7 {
         }
 
         @Override // com.baidu.tbadk.img.GetEmotionPidModel.b
-        public void a(p45 p45Var) {
+        public void a(q45 q45Var) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, p45Var) == null) || p45Var == null || TextUtils.isEmpty(p45Var.a)) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, q45Var) == null) || q45Var == null || TextUtils.isEmpty(q45Var.a)) {
                 return;
             }
-            this.a.setPicId(p45Var.a);
+            this.a.setPicId(q45Var.a);
             this.d.l(this.a, this.b, this.c);
         }
 
@@ -121,20 +121,20 @@ public class nw7 {
         }
 
         @Override // com.baidu.tieba.tbadkCore.writeModel.NewWriteModel.e
-        public void callback(boolean z, PostWriteCallBackData postWriteCallBackData, fy4 fy4Var, WriteData writeData, AntiData antiData) {
+        public void callback(boolean z, PostWriteCallBackData postWriteCallBackData, gy4 gy4Var, WriteData writeData, AntiData antiData) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), postWriteCallBackData, fy4Var, writeData, antiData}) == null) {
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), postWriteCallBackData, gy4Var, writeData, antiData}) == null) {
                 if (writeData == null) {
                     writeData = this.a.b.V();
                 }
                 if (z) {
                     this.a.j();
-                } else if (writeData != null && fy4Var != null && !TextUtils.isEmpty(fy4Var.d())) {
-                    writeData.setVcodeMD5(fy4Var.b());
-                    writeData.setVcodeUrl(fy4Var.c());
-                    writeData.setVcodeExtra(fy4Var.a());
-                    if (ve5.b(fy4Var.d())) {
-                        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new NewVcodeActivityConfig(this.a.a.getPageContext().getPageActivity(), 25017, writeData, false, fy4Var.d())));
+                } else if (writeData != null && gy4Var != null && !TextUtils.isEmpty(gy4Var.d())) {
+                    writeData.setVcodeMD5(gy4Var.b());
+                    writeData.setVcodeUrl(gy4Var.c());
+                    writeData.setVcodeExtra(gy4Var.a());
+                    if (ve5.b(gy4Var.d())) {
+                        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new NewVcodeActivityConfig(this.a.a.getPageContext().getPageActivity(), 25017, writeData, false, gy4Var.d())));
                     } else {
                         MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new VcodeActivityConfig(this.a.a.getPageContext().getPageActivity(), writeData, 25017)));
                     }
@@ -142,7 +142,7 @@ public class nw7 {
                     MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AccountAccessActivityConfig(this.a.a.getPageContext().getPageActivity(), 25017, writeData, postWriteCallBackData.getAccessState())));
                 }
                 if (this.a.e != null) {
-                    this.a.e.callback(z, postWriteCallBackData, fy4Var, writeData, antiData);
+                    this.a.e.callback(z, postWriteCallBackData, gy4Var, writeData, antiData);
                 }
             }
         }
@@ -248,7 +248,7 @@ public class nw7 {
         this.h = pbModel;
         this.i = jr7Var;
         if (!ni.z()) {
-            this.a.showToast(R.string.obfuscated_res_0x7f0f0c2b);
+            this.a.showToast(R.string.obfuscated_res_0x7f0f0c17);
         } else if (g(this.a.getPageContext(), 11042)) {
             if (TextUtils.isEmpty(emotionImageData.getPicId())) {
                 if (TextUtils.isEmpty(emotionImageData.getPicUrl())) {
@@ -257,16 +257,16 @@ public class nw7 {
                 if (this.f == null) {
                     this.f = new GetEmotionPidModel();
                 }
-                l35 l35Var = this.d;
-                if (l35Var != null) {
-                    l35Var.a();
+                m35 m35Var = this.d;
+                if (m35Var != null) {
+                    m35Var.a();
                 }
                 this.f.B(emotionImageData.getPicUrl(), new a(this, emotionImageData, pbModel, jr7Var));
                 return;
             }
-            l35 l35Var2 = this.d;
-            if (l35Var2 != null) {
-                l35Var2.a();
+            m35 m35Var2 = this.d;
+            if (m35Var2 != null) {
+                m35Var2.a();
             }
             l(emotionImageData, pbModel, jr7Var);
         }
@@ -329,10 +329,10 @@ public class nw7 {
         }
     }
 
-    public void n(l35 l35Var) {
+    public void n(m35 m35Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, l35Var) == null) {
-            this.d = l35Var;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, m35Var) == null) {
+            this.d = m35Var;
         }
     }
 }

@@ -82,11 +82,11 @@ public class xy7 extends uy7 {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                if (view2.getId() == R.id.obfuscated_res_0x7f091a2e) {
+                if (view2.getId() == R.id.obfuscated_res_0x7f091a08) {
                     if (this.a.K(11009)) {
                         this.a.M(8);
                     }
-                } else if (view2.getId() == R.id.obfuscated_res_0x7f091d51 && this.a.K(11009)) {
+                } else if (view2.getId() == R.id.obfuscated_res_0x7f091d57 && this.a.K(11009)) {
                     this.a.M(3);
                 }
             }
@@ -131,7 +131,7 @@ public class xy7 extends uy7 {
     }
 
     /* loaded from: classes7.dex */
-    public class c implements jd5<ShareItem> {
+    public class c implements kd5<ShareItem> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ int a;
@@ -157,7 +157,7 @@ public class xy7 extends uy7 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.jd5
+        @Override // com.repackage.kd5
         /* renamed from: a */
         public void onReturnDataInUI(ShareItem shareItem) {
             Interceptable interceptable = $ic;
@@ -296,7 +296,7 @@ public class xy7 extends uy7 {
             this.w = new tu7(this.b.B(), qr7.a);
             this.u = new cv7(this.b.B(), tr7.O0);
             this.x = new au7(this.b.B(), ir7.c);
-            yt7 yt7Var = new yt7(this.b.B(), eo4.e);
+            yt7 yt7Var = new yt7(this.b.B(), fo4.e);
             this.y = yt7Var;
             yt7Var.g0(true);
             this.z = new qu7(this.b.B());

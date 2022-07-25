@@ -24,7 +24,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.fd7;
-import com.repackage.ga5;
+import com.repackage.ha5;
 import com.repackage.hd7;
 import com.repackage.jc7;
 import com.repackage.nh8;
@@ -184,7 +184,7 @@ public class SingleLineCardView extends BaseCardView<SingleLineCard> {
     public void t(SingleLineCard singleLineCard, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, singleLineCard, i) == null) {
-            ga5.a(this.i, getRootView());
+            ha5.a(this.i, getRootView());
             SkinManager.setBackgroundColor(this.n, R.color.CAM_X0308);
             if (singleLineCard != null) {
                 setBgColor(singleLineCard);
@@ -290,12 +290,12 @@ public class SingleLineCardView extends BaseCardView<SingleLineCard> {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d01b5, (ViewGroup) null);
             this.m = linearLayout;
-            this.n = (View) l(linearLayout, R.id.obfuscated_res_0x7f09126f);
-            this.o = (TbImageView) l(this.m, R.id.obfuscated_res_0x7f09126e);
-            this.p = (TextView) l(this.m, R.id.obfuscated_res_0x7f0920bc);
-            this.q = (TextView) l(this.m, R.id.obfuscated_res_0x7f0920e2);
-            this.r = (MoreButton) l(this.m, R.id.obfuscated_res_0x7f0914a3);
-            this.s = (ImageView) l(this.m, R.id.obfuscated_res_0x7f091b23);
+            this.n = (View) l(linearLayout, R.id.obfuscated_res_0x7f09124b);
+            this.o = (TbImageView) l(this.m, R.id.obfuscated_res_0x7f09124a);
+            this.p = (TextView) l(this.m, R.id.obfuscated_res_0x7f0920be);
+            this.q = (TextView) l(this.m, R.id.obfuscated_res_0x7f0920e4);
+            this.r = (MoreButton) l(this.m, R.id.obfuscated_res_0x7f09147e);
+            this.s = (ImageView) l(this.m, R.id.obfuscated_res_0x7f091afd);
             return this.m;
         }
         return (View) invokeV.objValue;

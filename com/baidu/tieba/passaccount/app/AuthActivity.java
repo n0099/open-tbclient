@@ -350,7 +350,7 @@ public class AuthActivity extends BaseActivity {
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bundle) == null) {
             super.onCreate(bundle);
             try {
-                setContentView(R.layout.obfuscated_res_0x7f0d04e1);
+                setContentView(R.layout.obfuscated_res_0x7f0d04eb);
                 PassManagerStatic.A();
                 init();
                 setupViews();
@@ -388,7 +388,7 @@ public class AuthActivity extends BaseActivity {
                 this.sapiWebView.setWebviewClientCallback(new c(this));
                 this.sapiWebView.loadUrl(j());
             } else if (i == 1) {
-                setTitleText(R.string.obfuscated_res_0x7f0f1086);
+                setTitleText(R.string.obfuscated_res_0x7f0f0abd);
                 SapiAccountManager.getInstance().getAccountService().webLogin(this, this.w);
                 this.sapiWebView.loadUrl(m(), k());
                 this.sapiWebView.setChangePwdCallback(new d(this));

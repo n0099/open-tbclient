@@ -4,17 +4,17 @@ public interface s {
 
     /* loaded from: classes5.dex */
     public interface a {
-        int b();
+        int getSpeed();
     }
 
     /* loaded from: classes5.dex */
     public interface b {
-        void a();
+        void U(long j);
 
-        void a(long j);
+        void end(long j);
 
-        void b(long j);
+        void reset();
 
-        void c(long j);
+        void start(long j);
     }
 }

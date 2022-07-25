@@ -29,7 +29,7 @@ import com.repackage.f58;
 import com.repackage.g58;
 import com.repackage.ni;
 import com.repackage.nn;
-import com.repackage.p95;
+import com.repackage.q95;
 import com.repackage.t28;
 import java.util.List;
 import tbclient.User;
@@ -295,11 +295,11 @@ public class PersonCenterThreadTabFragment extends PersonCenterTabBaseFragment i
             if (a2 > 0) {
                 j = System.currentTimeMillis() - a2;
             }
-            p95 p95Var = new p95(1010, true, responsedMessage, 0L, b2, c2, false, 0L, 0L, j);
+            q95 q95Var = new q95(1010, true, responsedMessage, 0L, b2, c2, false, 0L, 0L, j);
             if (f < 3600000) {
-                p95Var.b("profileTime", String.valueOf(f));
+                q95Var.b("profileTime", String.valueOf(f));
             }
-            p95Var.c();
+            q95Var.c();
             t28.d().k(0L);
         }
     }
@@ -379,7 +379,7 @@ public class PersonCenterThreadTabFragment extends PersonCenterTabBaseFragment i
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048588, this, layoutInflater, viewGroup, bundle)) == null) {
-            View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d06ae, viewGroup, false);
+            View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d06b8, viewGroup, false);
             g58 g58Var = new g58(getPageContext(), inflate, this);
             this.b = g58Var;
             g58Var.m(1012);
@@ -458,7 +458,7 @@ public class PersonCenterThreadTabFragment extends PersonCenterTabBaseFragment i
         hideNetRefreshView(g58Var.f());
         if (ni.z()) {
             if (z && l) {
-                showLoadingView(this.b.f(), false, getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07028a));
+                showLoadingView(this.b.f(), false, getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070288));
             }
             G1(true);
             p1();

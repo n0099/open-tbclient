@@ -1,19 +1,19 @@
 package com.kwad.sdk.core.videocache;
 
 import android.support.v4.media.session.PlaybackStateCompat;
-import com.kwad.sdk.utils.aj;
+import com.kwad.sdk.utils.am;
 import java.lang.Thread;
 import java.util.concurrent.atomic.AtomicInteger;
 /* loaded from: classes5.dex */
 public class j {
-    public final l a;
-    public final com.kwad.sdk.core.videocache.a b;
-    public volatile Thread f;
-    public volatile boolean g;
-    public final Object c = new Object();
-    public final Object d = new Object();
-    public volatile int h = -1;
-    public final AtomicInteger e = new AtomicInteger();
+    public final l aeN;
+    public final com.kwad.sdk.core.videocache.a aeO;
+    public volatile Thread aeS;
+    public volatile boolean hx;
+    public final Object aeP = new Object();
+    public final Object aeQ = new Object();
+    public volatile int aeT = -1;
+    public final AtomicInteger aeR = new AtomicInteger();
 
     /* loaded from: classes5.dex */
     public class a implements Runnable {
@@ -26,63 +26,75 @@ public class j {
 
         @Override // java.lang.Runnable
         public final void run() {
-            j.this.e();
+            j.this.vW();
         }
     }
 
     public j(l lVar, com.kwad.sdk.core.videocache.a aVar) {
-        this.a = (l) aj.a(lVar);
-        this.b = (com.kwad.sdk.core.videocache.a) aj.a(aVar);
+        this.aeN = (l) am.checkNotNull(lVar);
+        this.aeO = (com.kwad.sdk.core.videocache.a) am.checkNotNull(aVar);
     }
 
-    private void a(long j, long j2) {
-        b(j, j2);
-        synchronized (this.c) {
-            this.c.notifyAll();
+    private void d(long j, long j2) {
+        e(j, j2);
+        synchronized (this.aeP) {
+            this.aeP.notifyAll();
         }
     }
 
-    public static void a(Throwable th) {
+    private void e(long j, long j2) {
+        int i = (j2 > 0L ? 1 : (j2 == 0L ? 0 : -1));
+        int i2 = i == 0 ? 100 : (int) ((((float) j) / ((float) j2)) * 100.0f);
+        boolean z = i2 != this.aeT;
+        if ((i >= 0) && z) {
+            aZ(i2);
+        }
+        this.aeT = i2;
+    }
+
+    private boolean isStopped() {
+        return Thread.currentThread().isInterrupted() || this.hx;
+    }
+
+    public static void onError(Throwable th) {
         if (th instanceof InterruptedProxyCacheException) {
-            com.kwad.sdk.core.d.b.a("ProxyCache", "ProxyCache is interrupted");
+            com.kwad.sdk.core.e.b.d("ProxyCache", "ProxyCache is interrupted");
         } else {
-            com.kwad.sdk.core.d.b.e("ProxyCache", "ProxyCache error");
+            com.kwad.sdk.core.e.b.e("ProxyCache", "ProxyCache error");
         }
     }
 
-    private void b() {
-        int i = this.e.get();
+    private void tryComplete() {
+        synchronized (this.aeQ) {
+            if (!isStopped() && this.aeO.vJ() == this.aeN.length()) {
+                this.aeO.complete();
+            }
+        }
+    }
+
+    private void vT() {
+        int i = this.aeR.get();
         if (i <= 0) {
             return;
         }
-        this.e.set(0);
+        this.aeR.set(0);
         throw new ProxyCacheException("Error reading source " + i + " times");
     }
 
-    private void b(long j, long j2) {
-        int i = (j2 > 0L ? 1 : (j2 == 0L ? 0 : -1));
-        int i2 = i == 0 ? 100 : (int) ((((float) j) / ((float) j2)) * 100.0f);
-        boolean z = i2 != this.h;
-        if ((i >= 0) && z) {
-            a(i2);
-        }
-        this.h = i2;
-    }
-
-    private synchronized void c() {
-        boolean z = (this.f == null || this.f.getState() == Thread.State.TERMINATED) ? false : true;
-        if (!this.g && !this.b.d() && !z) {
+    private synchronized void vU() {
+        boolean z = (this.aeS == null || this.aeS.getState() == Thread.State.TERMINATED) ? false : true;
+        if (!this.hx && !this.aeO.isCompleted() && !z) {
             a aVar = new a(this, (byte) 0);
-            this.f = new Thread(aVar, "Source reader for " + this.a);
-            this.f.start();
+            this.aeS = new Thread(aVar, "Source reader for " + this.aeN);
+            this.aeS.start();
         }
     }
 
-    private void d() {
-        synchronized (this.c) {
+    private void vV() {
+        synchronized (this.aeP) {
             try {
                 try {
-                    this.c.wait(1000L);
+                    this.aeP.wait(1000L);
                 } catch (InterruptedException e) {
                     throw new ProxyCacheException("Waiting source data is interrupted!", e);
                 }
@@ -99,28 +111,28 @@ public class j {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public void e() {
+    public void vW() {
         long j = -1;
         long j2 = 0;
         try {
-            j2 = this.b.a();
-            this.a.a(j2);
-            j = this.a.a();
+            j2 = this.aeO.vJ();
+            this.aeN.I(j2);
+            j = this.aeN.length();
             byte[] bArr = new byte[8192];
             while (true) {
-                int a2 = this.a.a(bArr);
-                if (a2 == -1) {
-                    g();
-                    f();
+                int read = this.aeN.read(bArr);
+                if (read == -1) {
+                    tryComplete();
+                    vX();
                     break;
                 }
-                synchronized (this.d) {
-                    if (!h()) {
-                        this.b.a(bArr, a2);
+                synchronized (this.aeQ) {
+                    if (!isStopped()) {
+                        this.aeO.d(bArr, read);
                     }
                 }
                 break;
-                a(j2, j);
+                d(j2, j);
             }
         } finally {
             try {
@@ -129,61 +141,49 @@ public class j {
         }
     }
 
-    private void f() {
-        this.h = 100;
-        a(this.h);
+    private void vX() {
+        this.aeT = 100;
+        aZ(this.aeT);
     }
 
-    private void g() {
-        synchronized (this.d) {
-            if (!h() && this.b.a() == this.a.a()) {
-                this.b.c();
-            }
-        }
-    }
-
-    private boolean h() {
-        return Thread.currentThread().isInterrupted() || this.g;
-    }
-
-    private void i() {
+    private void vY() {
         try {
-            this.a.b();
+            this.aeN.close();
         } catch (ProxyCacheException e) {
-            a(new ProxyCacheException("Error closing source " + this.a, e));
+            onError(new ProxyCacheException("Error closing source " + this.aeN, e));
         }
     }
 
     public final int a(byte[] bArr, long j, int i) {
-        k.a(bArr, j, 8192);
-        while (!this.b.d() && this.b.a() < PlaybackStateCompat.ACTION_PLAY_FROM_URI + j && !this.g) {
-            c();
-            d();
-            b();
+        k.b(bArr, j, 8192);
+        while (!this.aeO.isCompleted() && this.aeO.vJ() < PlaybackStateCompat.ACTION_PLAY_FROM_URI + j && !this.hx) {
+            vU();
+            vV();
+            vT();
         }
-        int a2 = this.b.a(bArr, j, 8192);
-        if (this.b.d() && this.h != 100) {
-            this.h = 100;
-            a(100);
+        int a2 = this.aeO.a(bArr, j, 8192);
+        if (this.aeO.isCompleted() && this.aeT != 100) {
+            this.aeT = 100;
+            aZ(100);
         }
         return a2;
     }
 
-    public final void a() {
-        synchronized (this.d) {
-            com.kwad.sdk.core.d.b.a("ProxyCache", "Shutdown proxy for " + this.a);
-            try {
-                this.g = true;
-                if (this.f != null) {
-                    this.f.interrupt();
-                }
-                this.b.b();
-            } catch (ProxyCacheException e) {
-                a(e);
-            }
-        }
+    public void aZ(int i) {
     }
 
-    public void a(int i) {
+    public final void shutdown() {
+        synchronized (this.aeQ) {
+            com.kwad.sdk.core.e.b.d("ProxyCache", "Shutdown proxy for " + this.aeN);
+            try {
+                this.hx = true;
+                if (this.aeS != null) {
+                    this.aeS.interrupt();
+                }
+                this.aeO.close();
+            } catch (ProxyCacheException e) {
+                onError(e);
+            }
+        }
     }
 }

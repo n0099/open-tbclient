@@ -10,19 +10,19 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.kwad.sdk.utils.az;
+import com.kwad.sdk.utils.bd;
 import java.util.HashSet;
 import java.util.Set;
 /* loaded from: classes5.dex */
 public final class d {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Set<com.kwad.components.ad.reward.c.j> a;
+    public final Set<com.kwad.components.ad.reward.d.i> lB;
 
     /* loaded from: classes5.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
-        public static final d a;
+        public static final d lE;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -38,7 +38,7 @@ public final class d {
                     return;
                 }
             }
-            a = new d((byte) 0);
+            lE = new d((byte) 0);
         }
     }
 
@@ -55,53 +55,60 @@ public final class d {
                 return;
             }
         }
-        this.a = new HashSet();
+        this.lB = new HashSet();
     }
 
     public /* synthetic */ d(byte b) {
         this();
     }
 
-    public static d a() {
+    /* JADX INFO: Access modifiers changed from: private */
+    public void b(@Nullable com.kwad.components.core.webview.b.a.n nVar) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(65539, this, nVar) == null) || this.lB.size() == 0) {
+            return;
+        }
+        for (com.kwad.components.ad.reward.d.i iVar : this.lB) {
+            iVar.a(nVar);
+        }
+    }
+
+    public static d fc() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.a : (d) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? a.lE : (d) invokeV.objValue;
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void b(@Nullable com.kwad.components.core.webview.b.kwai.m mVar) {
+    public final void a(com.kwad.components.ad.reward.d.i iVar) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, mVar) == null) || this.a.size() == 0) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, iVar) == null) || iVar == null) {
             return;
         }
-        for (com.kwad.components.ad.reward.c.j jVar : this.a) {
-            jVar.a(mVar);
+        this.lB.add(iVar);
+    }
+
+    public final void b(com.kwad.components.ad.reward.d.i iVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, iVar) == null) {
+            this.lB.remove(iVar);
         }
     }
 
-    public final void a(com.kwad.components.ad.reward.c.j jVar) {
+    public final void c(@Nullable com.kwad.components.core.webview.b.a.n nVar) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, jVar) == null) || jVar == null) {
-            return;
-        }
-        this.a.add(jVar);
-    }
-
-    public final void a(@Nullable com.kwad.components.core.webview.b.kwai.m mVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, mVar) == null) {
-            az.a(new Runnable(this, mVar) { // from class: com.kwad.components.ad.reward.d.1
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, nVar) == null) {
+            bd.runOnUiThread(new Runnable(this, nVar) { // from class: com.kwad.components.ad.reward.d.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ com.kwad.components.core.webview.b.kwai.m a;
-                public final /* synthetic */ d b;
+                public final /* synthetic */ com.kwad.components.core.webview.b.a.n lC;
+                public final /* synthetic */ d lD;
 
                 {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {this, mVar};
+                        Object[] objArr = {this, nVar};
                         interceptable2.invokeUnInit(65536, newInitContext);
                         int i = newInitContext.flag;
                         if ((i & 1) != 0) {
@@ -111,25 +118,18 @@ public final class d {
                             return;
                         }
                     }
-                    this.b = this;
-                    this.a = mVar;
+                    this.lD = this;
+                    this.lC = nVar;
                 }
 
                 @Override // java.lang.Runnable
                 public final void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.b.b(this.a);
+                        this.lD.b(this.lC);
                     }
                 }
             });
-        }
-    }
-
-    public final void b(com.kwad.components.ad.reward.c.j jVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jVar) == null) {
-            this.a.remove(jVar);
         }
     }
 }

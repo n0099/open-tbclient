@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.td5;
+import com.repackage.ud5;
 import tbclient.GetDislikeList.DataReq;
 import tbclient.GetDislikeList.GetDislikeListReqIdl;
 /* loaded from: classes4.dex */
@@ -45,7 +45,7 @@ public class ForbiddenForumReqMsg extends NetMessage {
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
             DataReq.Builder builder = new DataReq.Builder();
             if (z || SocketAddCommonParamSwitch.getIsOn()) {
-                td5.a(builder, true);
+                ud5.a(builder, true);
             }
             builder.user_id = Long.valueOf(TbadkCoreApplication.getCurrentAccountId());
             builder.rn = Integer.valueOf(this.pageSize);

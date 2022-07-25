@@ -48,7 +48,7 @@ public class nq5 extends jx5<jp5> {
 
         /* renamed from: com.repackage.nq5$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class C0693a extends AlaBannerViewHolder<SdkLiveInfoData> {
+        public class C0539a extends AlaBannerViewHolder<SdkLiveInfoData> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public View a;
@@ -59,7 +59,7 @@ public class nq5 extends jx5<jp5> {
             public final /* synthetic */ a f;
 
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-            public C0693a(a aVar, View view2) {
+            public C0539a(a aVar, View view2) {
                 super(view2);
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
@@ -83,9 +83,9 @@ public class nq5 extends jx5<jp5> {
             public void b(View view2) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) {
-                    this.c = (TabLiveStageLiveView) view2.findViewById(R.id.obfuscated_res_0x7f091e1d);
-                    this.a = view2.findViewById(R.id.obfuscated_res_0x7f091a7f);
-                    this.b = view2.findViewById(R.id.obfuscated_res_0x7f091a80);
+                    this.c = (TabLiveStageLiveView) view2.findViewById(R.id.obfuscated_res_0x7f091e23);
+                    this.a = view2.findViewById(R.id.obfuscated_res_0x7f091a59);
+                    this.b = view2.findViewById(R.id.obfuscated_res_0x7f091a5a);
                 }
             }
 
@@ -190,7 +190,7 @@ public class nq5 extends jx5<jp5> {
         public AlaBannerViewHolder a(ViewGroup viewGroup, int i) {
             InterceptResult invokeLI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, viewGroup, i)) == null) ? new C0693a(this, LayoutInflater.from(this.a.getContext()).inflate(R.layout.obfuscated_res_0x7f0d07f6, viewGroup, false)) : (AlaBannerViewHolder) invokeLI.objValue;
+            return (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, viewGroup, i)) == null) ? new C0539a(this, LayoutInflater.from(this.a.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0800, viewGroup, false)) : (AlaBannerViewHolder) invokeLI.objValue;
         }
     }
 
@@ -227,7 +227,7 @@ public class nq5 extends jx5<jp5> {
     public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d07f5 : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d07ff : invokeV.intValue;
     }
 
     @Override // com.repackage.jx5
@@ -262,10 +262,10 @@ public class nq5 extends jx5<jp5> {
     public final void x() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.k = h().findViewById(R.id.obfuscated_res_0x7f091a7e);
-            this.m = (TextView) h().findViewById(R.id.obfuscated_res_0x7f091a81);
-            this.l = h().findViewById(R.id.obfuscated_res_0x7f091a7d);
-            this.i = (AlaBannerRecyclerView) h().findViewById(R.id.obfuscated_res_0x7f091ab7);
+            this.k = h().findViewById(R.id.obfuscated_res_0x7f091a58);
+            this.m = (TextView) h().findViewById(R.id.obfuscated_res_0x7f091a5b);
+            this.l = h().findViewById(R.id.obfuscated_res_0x7f091a57);
+            this.i = (AlaBannerRecyclerView) h().findViewById(R.id.obfuscated_res_0x7f091a91);
             this.i.setLayoutManager(new LinearLayoutManager(getContext(), 0, false));
             z();
             AlaBannerRecyclerAdapter alaBannerRecyclerAdapter = new AlaBannerRecyclerAdapter(getContext(), this.r, false);

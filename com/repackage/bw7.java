@@ -135,15 +135,15 @@ public class bw7 {
     public final void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            View inflate = LayoutInflater.from(this.a.getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0600, (ViewGroup) null);
+            View inflate = LayoutInflater.from(this.a.getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d060a, (ViewGroup) null);
             this.c = inflate;
             inflate.setOnTouchListener(this.b);
-            View findViewById = this.c.findViewById(R.id.obfuscated_res_0x7f091743);
+            View findViewById = this.c.findViewById(R.id.obfuscated_res_0x7f09171e);
             this.d = findViewById;
             findViewById.setVisibility(8);
-            this.e = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f091742);
-            this.f = this.c.findViewById(R.id.obfuscated_res_0x7f0915c1);
-            this.g = this.c.findViewById(R.id.obfuscated_res_0x7f0915c2);
+            this.e = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f09171d);
+            this.f = this.c.findViewById(R.id.obfuscated_res_0x7f09159c);
+            this.g = this.c.findViewById(R.id.obfuscated_res_0x7f09159d);
             this.c.setOnLongClickListener(new a(this));
         }
     }
@@ -166,7 +166,7 @@ public class bw7 {
     public void g(jr7 jr7Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, jr7Var) == null) {
-            ArrayList<on4> actDatas = jr7Var.O().getActDatas();
+            ArrayList<pn4> actDatas = jr7Var.O().getActDatas();
             if (actDatas != null && actDatas.size() > 0) {
                 this.e.setText(String.valueOf(actDatas.get(0).f()));
                 this.d.setVisibility(0);

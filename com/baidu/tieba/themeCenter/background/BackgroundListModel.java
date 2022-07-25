@@ -23,7 +23,7 @@ import com.repackage.ln8;
 import com.repackage.mn8;
 import com.repackage.po8;
 import com.repackage.wh8;
-import com.repackage.xt4;
+import com.repackage.yt4;
 import com.repackage.za;
 import java.util.ArrayList;
 import java.util.List;
@@ -159,7 +159,7 @@ public class BackgroundListModel extends BdBaseModel<BackgroundListActivity> {
                     if (propId == this.a.a.C1() && (R = this.a.R(propId)) != null) {
                         TiebaStatic.log(new StatisticItem("c10286").param("obj_id", propId).param("obj_type", R.getFreeUserLevel()));
                     }
-                    xt4 k = xt4.k();
+                    yt4 k = yt4.k();
                     k.w("current_used_personal_background_" + TbadkCoreApplication.getCurrentAccount(), propId);
                     this.a.X(propId);
                     this.a.f.a(responsedMessage.getError(), responsedMessage.getErrorString(), this.a.b, this.a.d);
@@ -210,7 +210,7 @@ public class BackgroundListModel extends BdBaseModel<BackgroundListActivity> {
         DressItemData dressItemData = new DressItemData();
         this.e = dressItemData;
         dressItemData.setPropsId(0);
-        this.e.setTitle(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0485));
+        this.e.setTitle(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0484));
         ArrayList arrayList = new ArrayList();
         this.d = arrayList;
         arrayList.add(this.e);

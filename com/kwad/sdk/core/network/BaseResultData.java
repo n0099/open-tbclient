@@ -2,7 +2,8 @@ package com.kwad.sdk.core.network;
 
 import android.text.TextUtils;
 import androidx.annotation.Nullable;
-import com.kwad.sdk.utils.at;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.kwad.sdk.utils.ax;
 import com.kwad.sdk.utils.r;
 import java.io.Serializable;
 import org.json.JSONObject;
@@ -19,12 +20,12 @@ public abstract class BaseResultData implements com.kwad.sdk.core.b, Serializabl
 
     public JSONObject baseToJson() {
         JSONObject jSONObject = new JSONObject();
-        r.a(jSONObject, "llsid", this.llsid);
-        r.a(jSONObject, "extra", this.extra);
-        r.a(jSONObject, "result", this.result);
-        r.a(jSONObject, "hasAd", this.hasAd);
-        r.a(jSONObject, "errorMsg", this.errorMsg);
-        r.a(jSONObject, "cookie", this.cookie);
+        r.putValue(jSONObject, "llsid", this.llsid);
+        r.putValue(jSONObject, "extra", this.extra);
+        r.putValue(jSONObject, TiebaStatic.LogFields.RESULT, this.result);
+        r.putValue(jSONObject, "hasAd", this.hasAd);
+        r.putValue(jSONObject, "errorMsg", this.errorMsg);
+        r.putValue(jSONObject, "cookie", this.cookie);
         return jSONObject;
     }
 
@@ -46,24 +47,24 @@ public abstract class BaseResultData implements com.kwad.sdk.core.b, Serializabl
             return;
         }
         this.llsid = jSONObject.optLong("llsid");
-        this.result = jSONObject.optInt("result");
+        this.result = jSONObject.optInt(TiebaStatic.LogFields.RESULT);
         this.hasAd = jSONObject.optBoolean("hasAd");
         this.errorMsg = jSONObject.optString("errorMsg");
         String optString = jSONObject.optString("extra");
-        if (!at.a(optString)) {
-            this.extra = com.kwad.sdk.core.a.d.b(optString);
+        if (!ax.dT(optString)) {
+            this.extra = com.kwad.sdk.core.a.d.getResponseData(optString);
         }
-        com.kwad.sdk.components.f fVar = (com.kwad.sdk.components.f) com.kwad.sdk.components.c.a(com.kwad.sdk.components.f.class);
+        com.kwad.sdk.components.f fVar = (com.kwad.sdk.components.f) com.kwad.sdk.components.c.f(com.kwad.sdk.components.f.class);
         if (fVar != null) {
-            fVar.a(jSONObject.optString("egid"));
-            fVar.a(jSONObject.optLong("gidExpireTimeMs"));
+            fVar.an(jSONObject.optString("egid"));
+            fVar.m(jSONObject.optLong("gidExpireTimeMs"));
         }
         String optString2 = jSONObject.optString("cookie");
         this.cookie = optString2;
         if (TextUtils.isEmpty(optString2)) {
             return;
         }
-        e.a().a(this.cookie);
+        e.ty().bU(this.cookie);
     }
 
     @Override // com.kwad.sdk.core.b

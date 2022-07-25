@@ -57,7 +57,7 @@ public class ya6 extends an<za6, ComplaintBarlordViewHolder> {
                 if (this.a.i == 1 || this.a.i == 4) {
                     str = str + "?isNightModel=1";
                 }
-                CustomMessage customMessage = new CustomMessage(2002001, new TbWebViewActivityConfig(this.a.a, this.a.a.getString(R.string.obfuscated_res_0x7f0f0417), str, true));
+                CustomMessage customMessage = new CustomMessage(2002001, new TbWebViewActivityConfig(this.a.a, this.a.a.getString(R.string.obfuscated_res_0x7f0f0416), str, true));
                 customMessage.setTag(this.a.e);
                 MessageManager.getInstance().sendMessage(customMessage);
             }

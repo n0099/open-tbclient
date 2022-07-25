@@ -1,32 +1,65 @@
 package com.repackage;
 
 import android.content.Context;
-import android.content.ContextWrapper;
-import com.baidu.searchbox.common.runtime.AppRuntime;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.RelativeLayout;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public abstract class d03 extends ContextWrapper implements k03 {
+public class d03 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public View a;
+    public View b;
+    public Context c;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public d03() {
-        super(AppRuntime.getApplication());
+    public d03(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.b = null;
+        this.c = context;
+    }
+
+    public d03 a(View view2, View view3) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view2, view3)) == null) {
+            this.a = view2;
+            if (view2 != null && (view2.getParent() instanceof ViewGroup)) {
+                ViewGroup viewGroup = (ViewGroup) this.a.getParent();
+                int indexOfChild = viewGroup.indexOfChild(this.a);
+                View view4 = this.b;
+                if (view4 != null) {
+                    viewGroup.removeView(view4);
+                }
+                this.b = view3;
+                view3.setLayoutParams(this.a.getLayoutParams());
+                viewGroup.addView(this.b, indexOfChild);
+                if (viewGroup instanceof RelativeLayout) {
+                    this.a.setVisibility(4);
+                } else {
+                    this.a.setVisibility(8);
+                }
+                return this;
+            }
+            return this;
+        }
+        return (d03) invokeLL.objValue;
     }
 }

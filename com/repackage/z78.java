@@ -70,8 +70,8 @@ public class z78 {
     public void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.a.setContentView(R.layout.obfuscated_res_0x7f0d06fb);
-            View findViewById = this.a.findViewById(R.id.obfuscated_res_0x7f091cc9);
+            this.a.setContentView(R.layout.obfuscated_res_0x7f0d0705);
+            View findViewById = this.a.findViewById(R.id.obfuscated_res_0x7f091ccf);
             this.b = findViewById;
             this.c = new t78(this.a, findViewById);
             this.d = new v78(this.a, this.b);
@@ -91,7 +91,7 @@ public class z78 {
             this.c.j(i);
             this.d.j(i);
             this.e.g(i);
-            ga5.a(this.a.getPageContext(), this.b);
+            ha5.a(this.a.getPageContext(), this.b);
         }
     }
 

@@ -71,7 +71,7 @@ public class StyleTemplatesConfig extends BaseOfflineCompoJsonParse<StyleTemplat
             if (jSONObject == null) {
                 jSONObject = new JSONObject();
             }
-            r.a(jSONObject, "styleTemplates", styleTemplatesConfig.styleTemplates);
+            r.putValue(jSONObject, "styleTemplates", styleTemplatesConfig.styleTemplates);
             return jSONObject;
         }
         return (JSONObject) invokeLL.objValue;

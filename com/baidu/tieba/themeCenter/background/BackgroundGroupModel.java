@@ -23,7 +23,7 @@ import com.repackage.mn8;
 import com.repackage.po8;
 import com.repackage.sn8;
 import com.repackage.wh8;
-import com.repackage.xt4;
+import com.repackage.yt4;
 import com.repackage.za;
 import java.util.List;
 /* loaded from: classes4.dex */
@@ -140,7 +140,7 @@ public class BackgroundGroupModel extends BdBaseModel<BackgroundGroupActivity> {
                     if (propId == this.a.a.C1() && (I = this.a.I(propId)) != null) {
                         TiebaStatic.log(new StatisticItem("c10286").param("obj_id", propId).param("obj_type", I.getFreeUserLevel()));
                     }
-                    xt4 k = xt4.k();
+                    yt4 k = yt4.k();
                     k.w("current_used_personal_background_" + TbadkCoreApplication.getCurrentAccount(), propId);
                     this.a.O(propId);
                     this.a.d.a(responsedMessage.getError(), responsedMessage.getErrorString(), this.a.b, this.a.c);

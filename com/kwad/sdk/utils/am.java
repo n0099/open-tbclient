@@ -1,92 +1,45 @@
 package com.kwad.sdk.utils;
 
-import android.os.Build;
 import android.text.TextUtils;
+import androidx.annotation.Nullable;
 /* loaded from: classes5.dex */
 public final class am {
-    public static String a;
-    public static String b;
-
-    public static boolean a() {
-        return a("EMUI");
-    }
-
-    public static boolean a(String str) {
-        String upperCase;
-        String str2 = a;
-        if (str2 != null) {
-            return str2.contains(str);
+    public static String T(String str, @Nullable String str2) {
+        if (TextUtils.isEmpty(str)) {
+            a(new NullPointerException("Argument cannot be null " + str2));
         }
-        String a2 = au.a("ro.build.version.opporom");
-        b = a2;
-        if (TextUtils.isEmpty(a2)) {
-            String a3 = au.a("ro.vivo.os.version");
-            b = a3;
-            if (TextUtils.isEmpty(a3)) {
-                String a4 = au.a("ro.build.version.emui");
-                b = a4;
-                if (TextUtils.isEmpty(a4)) {
-                    String a5 = au.a("ro.miui.ui.version.name");
-                    b = a5;
-                    if (TextUtils.isEmpty(a5)) {
-                        String a6 = au.a("ro.product.system.manufacturer");
-                        b = a6;
-                        if (TextUtils.isEmpty(a6)) {
-                            String a7 = au.a("ro.smartisan.version");
-                            b = a7;
-                            if (TextUtils.isEmpty(a7)) {
-                                String str3 = "SAMSUNG";
-                                if (!au.a("ro.product.manufacturer").toUpperCase().contains("SAMSUNG")) {
-                                    String str4 = Build.DISPLAY;
-                                    b = str4;
-                                    str3 = "FLYME";
-                                    if (!str4.toUpperCase().contains("FLYME")) {
-                                        b = "unknown";
-                                        upperCase = Build.MANUFACTURER.toUpperCase();
-                                    }
-                                }
-                                a = str3;
-                                return a.contains(str);
-                            }
-                            upperCase = "SMARTISAN";
-                        } else {
-                            upperCase = "OnePlus";
-                        }
-                    } else {
-                        upperCase = "MIUI";
-                    }
-                } else {
-                    upperCase = "EMUI";
-                }
-            } else {
-                upperCase = "VIVO";
-            }
-        } else {
-            upperCase = "OPPO";
+        return str;
+    }
+
+    public static void a(RuntimeException runtimeException) {
+        com.kwad.sdk.core.e.b.printStackTrace(runtimeException);
+    }
+
+    public static void c(Object... objArr) {
+        for (int i = 0; i < 2; i++) {
+            checkNotNull(objArr[i]);
         }
-        a = upperCase;
-        return a.contains(str);
     }
 
-    public static boolean b() {
-        return a("MIUI");
-    }
-
-    public static boolean c() {
-        return a("FLYME");
-    }
-
-    public static String d() {
-        if (a == null) {
-            a("");
+    public static void checkArgument(boolean z, @Nullable Object obj) {
+        if (z) {
+            return;
         }
-        return a;
+        a(new IllegalArgumentException("Expression cannot be false " + obj));
     }
 
-    public static String e() {
-        if (b == null) {
-            a("");
+    public static <T> T checkNotNull(T t) {
+        return (T) e(t, "");
+    }
+
+    public static String dQ(String str) {
+        return T(str, "");
+    }
+
+    public static <T> T e(T t, @Nullable String str) {
+        if (t == null) {
+            a(new NullPointerException("Argument cannot be null " + str));
         }
-        return b;
+        return t;
     }
 }

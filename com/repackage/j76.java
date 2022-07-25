@@ -520,7 +520,7 @@ public class j76 {
                 this.j.setBackgroundResource(R.drawable.obfuscated_res_0x7f0804cb);
             } else {
                 SkinManager.setViewTextColor(this.h, (int) R.color.CAM_X0105);
-                ur4 d2 = ur4.d(this.d);
+                vr4 d2 = vr4.d(this.d);
                 d2.n(R.string.J_X06);
                 d2.f(R.color.CAM_X0205);
                 SkinManager.setViewTextColor(this.j, (int) R.color.CAM_X0302);
@@ -535,7 +535,7 @@ public class j76 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             this.n = !this.n;
-            xt4.k().u("key_recently_visited_forum_extend_state", this.n);
+            yt4.k().u("key_recently_visited_forum_extend_state", this.n);
             if (this.n) {
                 TiebaStatic.log(new StatisticItem("c13003"));
             } else {
@@ -568,7 +568,7 @@ public class j76 {
             }
             ViewEventCenter viewEventCenter = this.p;
             if (viewEventCenter != null) {
-                viewEventCenter.dispatchMvcEvent(new x75(10, null, null, null));
+                viewEventCenter.dispatchMvcEvent(new y75(10, null, null, null));
             }
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2007009, 2));
         } else {
@@ -576,7 +576,7 @@ public class j76 {
             this.i.setVisibility(0);
             ViewEventCenter viewEventCenter2 = this.p;
             if (viewEventCenter2 != null) {
-                viewEventCenter2.dispatchMvcEvent(new x75(11, null, null, null));
+                viewEventCenter2.dispatchMvcEvent(new y75(11, null, null, null));
             }
         }
         this.m.k(this.o);
@@ -676,7 +676,7 @@ public class j76 {
             return;
         }
         if (z) {
-            xt4 k2 = xt4.k();
+            yt4 k2 = yt4.k();
             if (!k2.h("recnbar" + TbadkCoreApplication.getCurrentAccount(), false)) {
                 this.e.setVisibility(0);
                 G();
@@ -711,26 +711,26 @@ public class j76 {
     public final void p() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            this.n = xt4.k().h("key_recently_visited_forum_extend_state", true);
+            this.n = yt4.k().h("key_recently_visited_forum_extend_state", true);
         }
     }
 
     public final void q() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
-            View inflate = this.a.getPageActivity().getLayoutInflater().inflate(R.layout.obfuscated_res_0x7f0d071c, (ViewGroup) null);
+            View inflate = this.a.getPageActivity().getLayoutInflater().inflate(R.layout.obfuscated_res_0x7f0d0726, (ViewGroup) null);
             this.c = inflate;
-            this.d = inflate.findViewById(R.id.obfuscated_res_0x7f091a7b);
-            this.e = this.c.findViewById(R.id.obfuscated_res_0x7f0920cc);
-            this.h = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f0920bc);
-            ImageView imageView = (ImageView) this.c.findViewById(R.id.obfuscated_res_0x7f09091d);
+            this.d = inflate.findViewById(R.id.obfuscated_res_0x7f091a55);
+            this.e = this.c.findViewById(R.id.obfuscated_res_0x7f0920ce);
+            this.h = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f0920be);
+            ImageView imageView = (ImageView) this.c.findViewById(R.id.obfuscated_res_0x7f090916);
             this.i = imageView;
             imageView.setOnClickListener(new c(this));
-            TextView textView = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f0907e5);
+            TextView textView = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f0907e3);
             this.j = textView;
             textView.setOnClickListener(new d(this));
-            this.l = this.c.findViewById(R.id.obfuscated_res_0x7f090c3c);
-            this.k = (RecyclerView) this.c.findViewById(R.id.obfuscated_res_0x7f0912d2);
+            this.l = this.c.findViewById(R.id.obfuscated_res_0x7f090c35);
+            this.k = (RecyclerView) this.c.findViewById(R.id.obfuscated_res_0x7f0912ae);
             RecentlyVisitedForumListAdapter recentlyVisitedForumListAdapter = new RecentlyVisitedForumListAdapter(this.a);
             this.m = recentlyVisitedForumListAdapter;
             this.k.setAdapter(recentlyVisitedForumListAdapter);

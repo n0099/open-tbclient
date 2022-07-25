@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.py4;
+import com.repackage.qy4;
 import com.repackage.v47;
 import org.apache.http.message.BasicNameValuePair;
 /* loaded from: classes3.dex */
@@ -83,7 +83,7 @@ public class StrangerListAdapter extends v47 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048579, this, aVar, imMessageCenterShowItemData) == null) {
             if (imMessageCenterShowItemData != null) {
-                imMessageCenterShowItemData.setMsgContent(TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f1219));
+                imMessageCenterShowItemData.setMsgContent(TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f11c8));
             }
             super.j(aVar, imMessageCenterShowItemData);
         }
@@ -96,7 +96,7 @@ public class StrangerListAdapter extends v47 {
         if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048580, this, imMessageCenterShowItemData, i, str)) == null) {
             String str2 = "";
             int i2 = 0;
-            if (!py4.d().t()) {
+            if (!qy4.d().t()) {
                 str = "";
                 i = 0;
             }

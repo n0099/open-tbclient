@@ -58,8 +58,8 @@ public class yw5 extends AlertDialog {
             if (window != null) {
                 window.setDimAmount(0.0f);
                 window.setContentView(R.layout.obfuscated_res_0x7f0d03b2);
-                this.a = window.findViewById(R.id.obfuscated_res_0x7f092116);
-                this.b = (TextView) window.findViewById(R.id.obfuscated_res_0x7f09211f);
+                this.a = window.findViewById(R.id.obfuscated_res_0x7f092118);
+                this.b = (TextView) window.findViewById(R.id.obfuscated_res_0x7f092121);
                 if (!StringUtils.isNull(this.c)) {
                     this.b.setText(this.c);
                 }

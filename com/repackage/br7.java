@@ -244,7 +244,7 @@ public class br7 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
             if (z) {
-                this.i.setText(R.string.obfuscated_res_0x7f0f0f9e);
+                this.i.setText(R.string.obfuscated_res_0x7f0f0f87);
                 SkinManager.setViewTextColor(this.i, R.color.CAM_X0109, 1);
                 this.i.setEnabled(false);
                 return;
@@ -294,7 +294,7 @@ public class br7 {
         }
         textView.setText(excellentPbThreadInfo.title);
         if (!StringUtils.isNull(excellentPbThreadInfo.forum.forum_name) && excellentPbThreadInfo.forum.forum_id != null && excellentPbThreadInfo.excid.longValue() > 0) {
-            zm4.c().h(excellentPbThreadInfo.forum.forum_name);
+            an4.c().h(excellentPbThreadInfo.forum.forum_name);
             this.j.setVisibility(0);
             i(context, excellentPbThreadInfo.forum.forum_name);
             BarImageView barImageView = this.g;

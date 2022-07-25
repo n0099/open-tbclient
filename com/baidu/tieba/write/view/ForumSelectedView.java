@@ -21,7 +21,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ur4;
+import com.repackage.vr4;
 /* loaded from: classes4.dex */
 public class ForumSelectedView extends RelativeLayout implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
@@ -86,7 +86,7 @@ public class ForumSelectedView extends RelativeLayout implements View.OnClickLis
         this.b.setImageDrawable(WebPManager.getPureDrawable(R.drawable.icon_pure_ba16, SkinManager.getColor(R.color.CAM_X0105), WebPManager.ResourceStateType.NORMAL));
         SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0105);
         SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0109);
-        ur4 d = ur4.d(this.d);
+        vr4 d = vr4.d(this.d);
         d.n(R.string.J_X06);
         d.f(R.color.CAM_X0206);
         SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.e, R.drawable.icon_pure_list_arrow16_right_svg, R.color.CAM_X0107, SvgManager.SvgResourceStateType.NORMAL);

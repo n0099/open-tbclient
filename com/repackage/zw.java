@@ -49,9 +49,9 @@ public class zw extends sw implements gx<ThreadData>, hx {
         m(z);
     }
 
-    public void k(nn4 nn4Var, boolean z) {
+    public void k(on4 on4Var, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, nn4Var, z) == null) {
+        if (interceptable == null || interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, on4Var, z) == null) {
             this.f = z;
             t(0);
             o(true);

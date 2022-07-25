@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.ng;
-import com.repackage.td5;
+import com.repackage.ud5;
 import com.squareup.wire.Message;
 import tbclient.User;
 import tbclient.UserPost.DataReq;
@@ -321,7 +321,7 @@ public class UserPostPageRequestMessage extends NetMessage {
                 builder.begin_thread_id = l;
             }
             if (z || SocketAddCommonParamSwitch.getIsOn()) {
-                td5.a(builder, true);
+                ud5.a(builder, true);
             }
             UserPostReqIdl.Builder builder2 = new UserPostReqIdl.Builder();
             builder2.data = builder.build(false);

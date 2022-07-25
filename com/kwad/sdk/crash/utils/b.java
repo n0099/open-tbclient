@@ -7,22 +7,22 @@ import java.net.URLConnection;
 import java.util.zip.ZipFile;
 /* loaded from: classes5.dex */
 public final class b {
-    public static void a(Closeable closeable) {
-        if (closeable != null) {
-            try {
-                closeable.close();
-            } catch (IOException unused) {
-            }
-        }
-    }
-
     public static void a(URLConnection uRLConnection) {
         if (uRLConnection instanceof HttpURLConnection) {
             ((HttpURLConnection) uRLConnection).disconnect();
         }
     }
 
-    public static void a(ZipFile zipFile) {
+    public static void closeQuietly(Closeable closeable) {
+        if (closeable != null) {
+            try {
+                closeable.close();
+            } catch (Exception unused) {
+            }
+        }
+    }
+
+    public static void closeQuietly(ZipFile zipFile) {
         if (zipFile == null) {
             return;
         }

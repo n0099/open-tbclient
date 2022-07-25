@@ -80,7 +80,7 @@ public class MsgMidViewItemAdapter extends MsgCommonItemAdapter<f47> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), view2, viewGroup, chatMessage, msgViewHolder})) == null) {
             super.S(i, view2, viewGroup, chatMessage, msgViewHolder);
-            msgViewHolder.c().p(chatMessage);
+            msgViewHolder.b().p(chatMessage);
             this.i.getLayoutMode().k(false);
             this.i.getLayoutMode().j(view2);
             return view2;

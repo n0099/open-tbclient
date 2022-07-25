@@ -1,18 +1,20 @@
 package com.kwad.sdk.core.b.kwai;
 
 import com.ksad.annotation.invoker.InvokeBy;
-import com.kwad.components.ad.splashscreen.local.SplashSkipViewModel;
-import com.kwad.components.ad.splashscreen.monitor.SplashMonitorInfo;
-import com.kwad.components.ad.splashscreen.preload.SplashPreloadManager;
+import com.kwad.components.ad.reward.b.e;
+import com.kwad.components.ad.reward.l;
+import com.kwad.components.ad.reward.monitor.RewardMonitorInfo;
+import com.kwad.components.ad.reward.monitor.RewardWebViewInfo;
 /* loaded from: classes5.dex */
 public final class bb {
-    @InvokeBy(invokerClass = cz.class, methodId = "registerHolder")
-    public static void a() {
-        cz.a().put(SplashPreloadManager.PreLoadPara.class, new ef());
-        cz.a().put(com.kwad.components.ad.splashscreen.local.c.class, new ez());
-        cz.a().put(SplashMonitorInfo.class, new fa());
-        cz.a().put(SplashPreloadManager.PreLoadItem.class, new ee());
-        cz.a().put(com.kwad.components.ad.splashscreen.local.a.class, new ey());
-        cz.a().put(SplashSkipViewModel.class, new fb());
+    @InvokeBy(invokerClass = dd.class, methodId = "registerHolder")
+    public static void tl() {
+        dd.tm().put(com.kwad.components.ad.reward.e.b.class, new eo());
+        dd.tm().put(RewardMonitorInfo.class, new ep());
+        dd.tm().put(RewardWebViewInfo.class, new eq());
+        dd.tm().put(e.a.class, new by());
+        dd.tm().put(com.kwad.components.ad.reward.b.b.class, new df());
+        dd.tm().put(com.kwad.components.ad.reward.model.b.class, new al());
+        dd.tm().put(l.c.class, new aw());
     }
 }

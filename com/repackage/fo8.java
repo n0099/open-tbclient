@@ -124,7 +124,7 @@ public class fo8 extends BaseAdapter {
             } else {
                 view2 = LayoutInflater.from(this.b.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0165, viewGroup, false);
                 aVar = new a();
-                aVar.a = view2.findViewById(R.id.obfuscated_res_0x7f092157);
+                aVar.a = view2.findViewById(R.id.obfuscated_res_0x7f092159);
                 aVar.b = (BubbleItemView) view2.findViewById(R.id.obfuscated_res_0x7f090368);
                 aVar.c = (BubbleItemView) view2.findViewById(R.id.obfuscated_res_0x7f090369);
                 view2.setTag(aVar);

@@ -22,7 +22,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.fun.ad.sdk.FunNativeAd2;
 import com.repackage.hr6;
-import com.repackage.ur4;
+import com.repackage.vr4;
 /* loaded from: classes3.dex */
 public class FunAdSmallPicView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
@@ -91,9 +91,9 @@ public class FunAdSmallPicView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             WebPManager.setPureDrawable(this.c, R.drawable.icon_pure_card_close22, R.color.CAM_X0111, null);
-            ur4.d(this.e).v(R.color.CAM_X0105);
-            ur4.d(this.d).v(R.color.CAM_X0109);
-            ur4.d(this.f).v(R.color.CAM_X0109);
+            vr4.d(this.e).v(R.color.CAM_X0105);
+            vr4.d(this.d).v(R.color.CAM_X0109);
+            vr4.d(this.f).v(R.color.CAM_X0109);
             this.a.setBorderColor(SkinManager.getColor(R.color.CAM_X0401));
         }
     }

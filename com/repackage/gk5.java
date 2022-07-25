@@ -58,9 +58,9 @@ public class gk5 {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d0025, (ViewGroup) null);
             this.c = linearLayout;
-            this.d = (LinearLayout) linearLayout.findViewById(R.id.obfuscated_res_0x7f0906b5);
+            this.d = (LinearLayout) linearLayout.findViewById(R.id.obfuscated_res_0x7f0906b4);
             this.e = (TbSettingTextTipView) this.c.findViewById(R.id.obfuscated_res_0x7f090323);
-            this.g = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f0922a1);
+            this.g = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f0922a3);
             this.f = (TbSettingTextTipView) this.c.findViewById(R.id.obfuscated_res_0x7f090052);
             this.e.a();
             this.f.a();
@@ -90,7 +90,7 @@ public class gk5 {
         if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
             this.b.getLayoutMode().k(i == 1);
             this.b.getLayoutMode().j(this.c);
-            ur4 d = ur4.d(this.g);
+            vr4 d = vr4.d(this.g);
             d.v(R.color.CAM_X0109);
             d.f(R.color.CAM_X0204);
         }

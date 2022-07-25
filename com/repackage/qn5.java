@@ -15,7 +15,7 @@ import java.util.Map;
 @Singleton
 @Service
 /* loaded from: classes7.dex */
-public class qn5 implements wl3 {
+public class qn5 implements xl3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -33,38 +33,38 @@ public class qn5 implements wl3 {
         }
     }
 
-    @Override // com.repackage.yl3
-    public void a(e13 e13Var) {
+    @Override // com.repackage.zl3
+    public void a(f13 f13Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, e13Var) == null) || e13Var == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, f13Var) == null) || f13Var == null) {
             return;
         }
-        e13Var.b(new sn5(e13Var));
-        e13Var.b(new ln5(e13Var));
-        e13Var.b(new wh3(e13Var));
-        e13Var.b(new yh3(e13Var));
-        e13Var.b(new ai3(e13Var));
-        e13Var.b(new v23(e13Var));
-        e13Var.b(new w23(e13Var));
-        e13Var.b(new w43(e13Var));
-        e13Var.b(new bi3(e13Var));
-        e13Var.b(new zm1(e13Var));
-        e13Var.b(new pn5(e13Var));
+        f13Var.b(new sn5(f13Var));
+        f13Var.b(new ln5(f13Var));
+        f13Var.b(new xh3(f13Var));
+        f13Var.b(new zh3(f13Var));
+        f13Var.b(new bi3(f13Var));
+        f13Var.b(new w23(f13Var));
+        f13Var.b(new x23(f13Var));
+        f13Var.b(new x43(f13Var));
+        f13Var.b(new ci3(f13Var));
+        f13Var.b(new an1(f13Var));
+        f13Var.b(new pn5(f13Var));
     }
 
-    @Override // com.repackage.yl3
+    @Override // com.repackage.zl3
     @Nullable
-    public Map<String, Object> b(@NonNull io1 io1Var) {
+    public Map<String, Object> b(@NonNull jo1 jo1Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, io1Var)) == null) ? SwanApi$$ModulesProvider.getV8ApiModules(io1Var) : (Map) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jo1Var)) == null) ? SwanApi$$ModulesProvider.getV8ApiModules(jo1Var) : (Map) invokeL.objValue;
     }
 
-    @Override // com.repackage.yl3
+    @Override // com.repackage.zl3
     @Nullable
-    public Map<String, Object> c(@NonNull io1 io1Var) {
+    public Map<String, Object> c(@NonNull jo1 jo1Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, io1Var)) == null) ? SwanApi$$ModulesProvider.getWebviewApiModules(io1Var) : (Map) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jo1Var)) == null) ? SwanApi$$ModulesProvider.getWebviewApiModules(jo1Var) : (Map) invokeL.objValue;
     }
 }

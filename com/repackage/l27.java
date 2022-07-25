@@ -32,7 +32,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.fu4;
+import com.repackage.gu4;
 import com.repackage.ny;
 import java.util.ArrayList;
 import java.util.LinkedList;
@@ -50,9 +50,9 @@ public class l27 {
     public BigdaySwipeRefreshLayout e;
     public ky6 f;
     public bz6 g;
-    public k55 h;
+    public l55 h;
     public PbListView i;
-    public j55 j;
+    public k55 j;
     public b27 k;
     public View l;
     public FrameLayout m;
@@ -65,13 +65,13 @@ public class l27 {
     public boolean t;
     public boolean u;
     public BdUniqueId v;
-    public fu4.h w;
-    public fu4.f x;
+    public gu4.h w;
+    public gu4.f x;
     public CustomMessageListener y;
     public CustomMessageListener z;
 
     /* loaded from: classes6.dex */
-    public class a implements fu4.h {
+    public class a implements gu4.h {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ l27 a;
@@ -94,7 +94,7 @@ public class l27 {
             this.a = l27Var;
         }
 
-        @Override // com.repackage.fu4.h
+        @Override // com.repackage.gu4.h
         public void a(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
@@ -104,7 +104,7 @@ public class l27 {
     }
 
     /* loaded from: classes6.dex */
-    public class b implements fu4.f {
+    public class b implements gu4.f {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ l27 a;
@@ -127,7 +127,7 @@ public class l27 {
             this.a = l27Var;
         }
 
-        @Override // com.repackage.fu4.f
+        @Override // com.repackage.gu4.f
         public void a(View view2, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLZ(1048576, this, view2, z) == null) {
@@ -249,10 +249,10 @@ public class l27 {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof KeyEvent)) {
                 KeyEvent keyEvent = (KeyEvent) customResponsedMessage.getData();
-                if (keyEvent.getAction() != 0 || keyEvent.getKeyCode() != 24 || (q = this.a.q()) == null || q.c() == null) {
+                if (keyEvent.getAction() != 0 || keyEvent.getKeyCode() != 24 || (q = this.a.q()) == null || q.b() == null) {
                     return;
                 }
-                q.c().o(new ny.a(3));
+                q.b().o(new ny.a(3));
             }
         }
     }
@@ -292,7 +292,7 @@ public class l27 {
                 this.a.n.k(view2);
             }
             if (view2.getTag() instanceof HomePageCardVideoViewHolder) {
-                ((HomePageCardVideoViewHolder) view2.getTag()).c().stopPlay();
+                ((HomePageCardVideoViewHolder) view2.getTag()).b().stopPlay();
             }
         }
     }
@@ -424,8 +424,8 @@ public class l27 {
             i68Var.r(!z);
             ThreadCardViewHolder q = q();
             boolean z2 = false;
-            if (q != null && q.c() != null) {
-                z2 = q.c().o(new ny.a(8, Boolean.valueOf(z)));
+            if (q != null && q.b() != null) {
+                z2 = q.b().o(new ny.a(8, Boolean.valueOf(z)));
             }
             if (z2) {
                 return;
@@ -441,9 +441,9 @@ public class l27 {
     public void C() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            j55 j55Var = this.j;
-            if (j55Var != null) {
-                j55Var.n();
+            k55 k55Var = this.j;
+            if (k55Var != null) {
+                k55Var.n();
             }
             Z(null);
             ky6 ky6Var = this.f;
@@ -546,7 +546,7 @@ public class l27 {
         }
     }
 
-    public void M(fu4.g gVar) {
+    public void M(gu4.g gVar) {
         ky6 ky6Var;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048588, this, gVar) == null) || (ky6Var = this.f) == null) {
@@ -595,7 +595,7 @@ public class l27 {
             this.d.setNextPage(this.i);
         }
         this.i.t(pi.f(this.b.getPageActivity(), R.dimen.tbds178));
-        this.i.C(this.b.getResources().getString(R.string.obfuscated_res_0x7f0f153d));
+        this.i.C(this.b.getResources().getString(R.string.obfuscated_res_0x7f0f14ec));
         this.i.B(onClickListener);
         this.i.f();
     }
@@ -610,7 +610,7 @@ public class l27 {
             this.d.setNextPage(this.i);
         }
         this.i.t(pi.f(this.b.getPageActivity(), R.dimen.tbds178));
-        this.i.C(this.b.getResources().getString(R.string.obfuscated_res_0x7f0f0a2c));
+        this.i.C(this.b.getResources().getString(R.string.obfuscated_res_0x7f0f0a18));
         this.i.B(null);
         this.i.Q();
     }
@@ -621,9 +621,9 @@ public class l27 {
             return;
         }
         if (this.j == null) {
-            j55 j55Var = new j55(this.b.getPageActivity());
-            this.j = j55Var;
-            j55Var.onChangeSkinType();
+            k55 k55Var = new k55(this.b.getPageActivity());
+            this.j = k55Var;
+            k55Var.onChangeSkinType();
         }
         this.j.attachView(this.c, false);
     }
@@ -632,11 +632,11 @@ public class l27 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048596, this, onClickListener) == null) {
             if (this.h == null) {
-                this.h = new k55(this.b.getPageActivity(), onClickListener);
+                this.h = new l55(this.b.getPageActivity(), onClickListener);
             }
             this.h.p();
             this.h.m(null);
-            this.h.n(this.b.getResources().getString(R.string.obfuscated_res_0x7f0f0f9b));
+            this.h.n(this.b.getResources().getString(R.string.obfuscated_res_0x7f0f0f84));
             this.h.i(R.drawable.new_pic_emotion_08);
             this.h.l(0);
             this.h.attachView(this.m, false);
@@ -647,11 +647,11 @@ public class l27 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
             if (this.h == null) {
-                this.h = new k55(this.b.getPageActivity(), null);
+                this.h = new l55(this.b.getPageActivity(), null);
             }
             this.h.e();
             this.h.i(R.drawable.new_pic_emotion_03);
-            this.h.o(this.b.getString(R.string.obfuscated_res_0x7f0f0c44));
+            this.h.o(this.b.getString(R.string.obfuscated_res_0x7f0f0c30));
             this.h.attachView(this.m, false);
         }
     }
@@ -666,7 +666,7 @@ public class l27 {
             this.d.setNextPage(this.i);
         }
         this.i.t(pi.f(this.b.getPageActivity(), R.dimen.tbds178));
-        this.i.C(this.b.getResources().getString(R.string.obfuscated_res_0x7f0f1540));
+        this.i.C(this.b.getResources().getString(R.string.obfuscated_res_0x7f0f14ef));
         this.i.B(null);
         this.i.f();
     }
@@ -687,7 +687,7 @@ public class l27 {
         i68Var.x();
     }
 
-    public void Z(fu4.i iVar) {
+    public void Z(gu4.i iVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048601, this, iVar) == null) {
             this.e.z(iVar);
@@ -709,14 +709,14 @@ public class l27 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048603, this) == null) {
             int skinType = TbadkCoreApplication.getInst().getSkinType();
-            j55 j55Var = this.j;
-            if (j55Var != null) {
-                j55Var.r(TbadkCoreApplication.getInst().getSkinType());
+            k55 k55Var = this.j;
+            if (k55Var != null) {
+                k55Var.r(TbadkCoreApplication.getInst().getSkinType());
                 this.j.onChangeSkinType();
             }
-            k55 k55Var = this.h;
-            if (k55Var != null) {
-                k55Var.onChangeSkinType();
+            l55 l55Var = this.h;
+            if (l55Var != null) {
+                l55Var.onChangeSkinType();
             }
             ky6 ky6Var = this.f;
             if (ky6Var != null) {
@@ -818,21 +818,21 @@ public class l27 {
     }
 
     public void u() {
-        j55 j55Var;
+        k55 k55Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048610, this) == null) || (j55Var = this.j) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048610, this) == null) || (k55Var = this.j) == null) {
             return;
         }
-        j55Var.dettachView(this.c);
+        k55Var.dettachView(this.c);
     }
 
     public void v() {
-        k55 k55Var;
+        l55 l55Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048611, this) == null) || (k55Var = this.h) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048611, this) == null) || (l55Var = this.h) == null) {
             return;
         }
-        k55Var.dettachView(this.m);
+        l55Var.dettachView(this.m);
         this.h = null;
     }
 
@@ -851,11 +851,11 @@ public class l27 {
     public final void x() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048613, this) == null) {
-            View inflate = LayoutInflater.from(this.b.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d088c, (ViewGroup) null);
+            View inflate = LayoutInflater.from(this.b.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0896, (ViewGroup) null);
             this.c = inflate;
             inflate.setPadding(0, 0, 0, TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
-            this.m = (FrameLayout) this.c.findViewById(R.id.obfuscated_res_0x7f0923e6);
-            BdTypeRecyclerView bdTypeRecyclerView = (BdTypeRecyclerView) this.c.findViewById(R.id.obfuscated_res_0x7f0923e9);
+            this.m = (FrameLayout) this.c.findViewById(R.id.obfuscated_res_0x7f0923e8);
+            BdTypeRecyclerView bdTypeRecyclerView = (BdTypeRecyclerView) this.c.findViewById(R.id.obfuscated_res_0x7f0923eb);
             this.d = bdTypeRecyclerView;
             bdTypeRecyclerView.setLayoutManager(new LinearLayoutManager(this.b.getPageActivity()));
             int dimenPixelSize = UtilHelper.getDimenPixelSize(R.dimen.M_W_X004);
@@ -869,7 +869,7 @@ public class l27 {
             this.n = i68Var;
             i68Var.v(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
             this.n.u(this.v);
-            this.e = (BigdaySwipeRefreshLayout) this.c.findViewById(R.id.obfuscated_res_0x7f0923ea);
+            this.e = (BigdaySwipeRefreshLayout) this.c.findViewById(R.id.obfuscated_res_0x7f0923ec);
             ky6 ky6Var = new ky6(this.b);
             this.f = ky6Var;
             this.e.setProgressView(ky6Var);
@@ -893,7 +893,7 @@ public class l27 {
             this.g = bz6Var;
             bz6Var.a(this.v);
             this.k.i(this.g);
-            this.l = this.c.findViewById(R.id.obfuscated_res_0x7f0923e3);
+            this.l = this.c.findViewById(R.id.obfuscated_res_0x7f0923e5);
             n();
         }
     }
@@ -902,11 +902,11 @@ public class l27 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048614, this)) == null) {
-            j55 j55Var = this.j;
-            if (j55Var == null) {
+            k55 k55Var = this.j;
+            if (k55Var == null) {
                 return false;
             }
-            return j55Var.isViewAttached();
+            return k55Var.isViewAttached();
         }
         return invokeV.booleanValue;
     }

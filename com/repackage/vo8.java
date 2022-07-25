@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.cr4;
+import com.repackage.dr4;
 /* loaded from: classes7.dex */
 public class vo8 {
     public static /* synthetic */ Interceptable $ic;
@@ -61,7 +61,7 @@ public class vo8 {
     }
 
     /* loaded from: classes7.dex */
-    public class b implements cr4.e {
+    public class b implements dr4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ BlockPopInfoData a;
@@ -86,18 +86,18 @@ public class vo8 {
             this.a = blockPopInfoData;
         }
 
-        @Override // com.repackage.cr4.e
-        public void onClick(cr4 cr4Var) {
+        @Override // com.repackage.dr4.e
+        public void onClick(dr4 dr4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, cr4Var) == null) {
-                cr4Var.dismiss();
+            if (interceptable == null || interceptable.invokeL(1048576, this, dr4Var) == null) {
+                dr4Var.dismiss();
                 TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_ANTI_DIALOG_NEG_CLICK).param("obj_locate", this.b.c).param("obj_type", this.a.win_type));
             }
         }
     }
 
     /* loaded from: classes7.dex */
-    public class c implements cr4.e {
+    public class c implements dr4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ BlockPopInfoData a;
@@ -122,10 +122,10 @@ public class vo8 {
             this.a = blockPopInfoData;
         }
 
-        @Override // com.repackage.cr4.e
-        public void onClick(cr4 cr4Var) {
+        @Override // com.repackage.dr4.e
+        public void onClick(dr4 dr4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, cr4Var) == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, dr4Var) == null) {
                 this.b.e(this.a);
                 TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_ANTI_DIALOG_POS_CLICK).param("obj_locate", this.b.c).param("obj_type", this.a.win_type));
             }
@@ -191,7 +191,7 @@ public class vo8 {
         if ((i != 1 && i != 2 && i != 3 && i != 4) || oi.isEmpty(currentAccount) || oi.isEmpty(str)) {
             return;
         }
-        xt4 k = xt4.k();
+        yt4 k = yt4.k();
         boolean z = false;
         boolean h = k.h(str + i + currentAccount, false);
         if ((!oi.isEmpty(str2) || i == 4) && !oi.isEmpty(str3) && ((!oi.isEmpty(str4) || i == 4) && !oi.isEmpty(str5))) {
@@ -200,7 +200,7 @@ public class vo8 {
         if (h || !z) {
             return;
         }
-        xt4 k2 = xt4.k();
+        yt4 k2 = yt4.k();
         k2.u(str + i + currentAccount, true);
         h(blockPopInfoData);
         TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_ANTI_DIALOG_SHOW).param("obj_locate", this.c).param("obj_type", i));
@@ -237,11 +237,11 @@ public class vo8 {
         if (!(interceptable == null || interceptable.invokeL(1048581, this, blockPopInfoData) == null) || blockPopInfoData == null || (b2 = z8.g().b()) == null) {
             return;
         }
-        cr4 cr4Var = new cr4(b2);
-        cr4Var.setMessage(blockPopInfoData.block_info);
-        cr4Var.setNegativeButton(blockPopInfoData.ok_info, new b(this, blockPopInfoData));
-        cr4Var.setPositiveButton(blockPopInfoData.ahead_info, new c(this, blockPopInfoData));
-        cr4Var.create(((e9) b2).getPageContext());
-        cr4Var.show();
+        dr4 dr4Var = new dr4(b2);
+        dr4Var.setMessage(blockPopInfoData.block_info);
+        dr4Var.setNegativeButton(blockPopInfoData.ok_info, new b(this, blockPopInfoData));
+        dr4Var.setPositiveButton(blockPopInfoData.ahead_info, new c(this, blockPopInfoData));
+        dr4Var.create(((e9) b2).getPageContext());
+        dr4Var.show();
     }
 }

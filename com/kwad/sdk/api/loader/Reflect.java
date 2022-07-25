@@ -1,5 +1,6 @@
 package com.kwad.sdk.api.loader;
 
+import androidx.annotation.Nullable;
 import java.lang.reflect.AccessibleObject;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
@@ -9,8 +10,8 @@ import java.lang.reflect.Modifier;
 import java.util.Arrays;
 /* loaded from: classes5.dex */
 public final class Reflect {
+    public final Class<?> RO;
     public final Object a;
-    public final Class<?> b;
 
     /* loaded from: classes5.dex */
     public static class ReflectException extends RuntimeException {
@@ -34,123 +35,123 @@ public final class Reflect {
 
     /* loaded from: classes5.dex */
     public static class a {
-        public static final Method a;
+        public static final Method RP;
+        public static final Method RQ;
+        public static final Method RR;
+        public static final Method RS;
+        public static final Method RT;
+        public static final Method RU;
+        public static final Method RV;
+        public static final Method RW;
+        public static final Method RX;
+        public static final Method RY;
+        public static final Method RZ;
+        public static final Method Sa;
+        public static final Method Sb;
         public static final Method b;
-        public static final Method c;
-        public static final Method d;
-        public static final Method e;
-        public static final Method f;
-        public static final Method g;
-        public static final Method h;
-        public static final Method i;
-        public static final Method j;
-        public static final Method k;
-        public static final Method l;
-        public static final Method m;
-        public static final Method n;
 
         static {
             try {
-                a = Class.class.getDeclaredMethod("forName", String.class);
+                RP = Class.class.getDeclaredMethod("forName", String.class);
                 b = Class.class.getDeclaredMethod("forName", String.class, Boolean.TYPE, ClassLoader.class);
-                c = Class.class.getDeclaredMethod("getDeclaredField", String.class);
-                d = Class.class.getDeclaredMethod("getDeclaredFields", new Class[0]);
-                e = Class.class.getDeclaredMethod("getDeclaredMethod", String.class, Class[].class);
-                f = Class.class.getDeclaredMethod("getDeclaredMethods", new Class[0]);
-                g = Class.class.getDeclaredMethod("getDeclaredConstructor", Class[].class);
-                h = Class.class.getDeclaredMethod("getDeclaredConstructors", new Class[0]);
-                i = Class.class.getDeclaredMethod("getField", String.class);
-                j = Class.class.getDeclaredMethod("getFields", new Class[0]);
-                k = Class.class.getDeclaredMethod("getMethod", String.class, Class[].class);
-                l = Class.class.getDeclaredMethod("getMethods", new Class[0]);
-                m = Class.class.getDeclaredMethod("getConstructor", Class[].class);
-                n = Class.class.getDeclaredMethod("getConstructors", new Class[0]);
-            } catch (NoSuchMethodException e2) {
-                throw new ReflectException(e2);
-            }
-        }
-
-        public static Class a(String str) {
-            try {
-                return (Class) a.invoke(null, str);
-            } catch (Exception e2) {
-                ClassNotFoundException classNotFoundException = new ClassNotFoundException();
-                classNotFoundException.initCause(e2);
-                throw classNotFoundException;
+                RQ = Class.class.getDeclaredMethod("getDeclaredField", String.class);
+                RR = Class.class.getDeclaredMethod("getDeclaredFields", new Class[0]);
+                RS = Class.class.getDeclaredMethod("getDeclaredMethod", String.class, Class[].class);
+                RT = Class.class.getDeclaredMethod("getDeclaredMethods", new Class[0]);
+                RU = Class.class.getDeclaredMethod("getDeclaredConstructor", Class[].class);
+                RV = Class.class.getDeclaredMethod("getDeclaredConstructors", new Class[0]);
+                RW = Class.class.getDeclaredMethod("getField", String.class);
+                RX = Class.class.getDeclaredMethod("getFields", new Class[0]);
+                RY = Class.class.getDeclaredMethod("getMethod", String.class, Class[].class);
+                RZ = Class.class.getDeclaredMethod("getMethods", new Class[0]);
+                Sa = Class.class.getDeclaredMethod("getConstructor", Class[].class);
+                Sb = Class.class.getDeclaredMethod("getConstructors", new Class[0]);
+            } catch (NoSuchMethodException e) {
+                throw new ReflectException(e);
             }
         }
 
         public static Constructor a(Class cls, Class<?>... clsArr) {
             try {
-                return (Constructor) g.invoke(cls, clsArr);
-            } catch (Exception e2) {
+                return (Constructor) RU.invoke(cls, clsArr);
+            } catch (Exception e) {
                 NoSuchMethodException noSuchMethodException = new NoSuchMethodException();
-                noSuchMethodException.initCause(e2);
+                noSuchMethodException.initCause(e);
                 throw noSuchMethodException;
             }
         }
 
         public static Field a(Class cls, String str) {
             try {
-                return (Field) c.invoke(cls, str);
-            } catch (Exception e2) {
+                return (Field) RQ.invoke(cls, str);
+            } catch (Exception e) {
                 NoSuchFieldException noSuchFieldException = new NoSuchFieldException();
-                noSuchFieldException.initCause(e2);
+                noSuchFieldException.initCause(e);
                 throw noSuchFieldException;
             }
         }
 
         public static Method a(Class cls, String str, Class<?>... clsArr) {
             try {
-                return (Method) e.invoke(cls, str, clsArr);
-            } catch (Exception e2) {
+                return (Method) RS.invoke(cls, str, clsArr);
+            } catch (Exception e) {
                 NoSuchMethodException noSuchMethodException = new NoSuchMethodException();
-                noSuchMethodException.initCause(e2);
+                noSuchMethodException.initCause(e);
                 throw noSuchMethodException;
-            }
-        }
-
-        public static Method[] a(Class cls) {
-            try {
-                return (Method[]) f.invoke(cls, new Object[0]);
-            } catch (Exception e2) {
-                throw new ReflectException(e2);
             }
         }
 
         public static Field b(Class cls, String str) {
             try {
-                return (Field) i.invoke(cls, str);
-            } catch (Exception e2) {
+                return (Field) RW.invoke(cls, str);
+            } catch (Exception e) {
                 NoSuchFieldException noSuchFieldException = new NoSuchFieldException();
-                noSuchFieldException.initCause(e2);
+                noSuchFieldException.initCause(e);
                 throw noSuchFieldException;
             }
         }
 
         public static Method b(Class cls, String str, Class<?>... clsArr) {
             try {
-                return (Method) k.invoke(cls, str, clsArr);
-            } catch (Exception e2) {
+                return (Method) RY.invoke(cls, str, clsArr);
+            } catch (Exception e) {
                 NoSuchMethodException noSuchMethodException = new NoSuchMethodException();
-                noSuchMethodException.initCause(e2);
+                noSuchMethodException.initCause(e);
                 throw noSuchMethodException;
             }
         }
 
-        public static Method[] b(Class cls) {
+        public static Class bf(String str) {
             try {
-                return (Method[]) l.invoke(cls, new Object[0]);
-            } catch (Exception e2) {
-                throw new ReflectException(e2);
+                return (Class) RP.invoke(null, str);
+            } catch (Exception e) {
+                ClassNotFoundException classNotFoundException = new ClassNotFoundException();
+                classNotFoundException.initCause(e);
+                throw classNotFoundException;
             }
         }
 
-        public static Constructor[] c(Class cls) {
+        public static Method[] c(Class cls) {
             try {
-                return (Constructor[]) h.invoke(cls, new Object[0]);
-            } catch (Exception e2) {
-                throw new ReflectException(e2);
+                return (Method[]) RT.invoke(cls, new Object[0]);
+            } catch (Exception e) {
+                throw new ReflectException(e);
+            }
+        }
+
+        public static Method[] d(Class cls) {
+            try {
+                return (Method[]) RZ.invoke(cls, new Object[0]);
+            } catch (Exception e) {
+                throw new ReflectException(e);
+            }
+        }
+
+        public static Constructor[] e(Class cls) {
+            try {
+                return (Constructor[]) RV.invoke(cls, new Object[0]);
+            } catch (Exception e) {
+                throw new ReflectException(e);
             }
         }
     }
@@ -164,7 +165,7 @@ public final class Reflect {
     }
 
     public Reflect(Class<?> cls, Object obj) {
-        this.b = cls;
+        this.RO = cls;
         this.a = obj;
     }
 
@@ -174,10 +175,6 @@ public final class Reflect {
 
     public static Reflect a(Class<?> cls, Object obj) {
         return new Reflect(cls, obj);
-    }
-
-    public static Reflect a(Object obj) {
-        return new Reflect(obj == null ? Object.class : obj.getClass(), obj);
     }
 
     public static Reflect a(Constructor<?> constructor, Object... objArr) {
@@ -193,14 +190,15 @@ public final class Reflect {
             a(method);
             if (method.getReturnType() == Void.TYPE) {
                 method.invoke(obj, objArr);
-                return a(obj);
+                return b(obj);
             }
-            return a(method.invoke(obj, objArr));
+            return b(method.invoke(obj, objArr));
         } catch (Exception e) {
             throw new ReflectException(e);
         }
     }
 
+    @Nullable
     public static <T extends AccessibleObject> T a(T t) {
         if (t == null) {
             return null;
@@ -218,7 +216,7 @@ public final class Reflect {
     }
 
     private Method a(String str, Class<?>[] clsArr) {
-        Class<?> cls = this.b;
+        Class<?> cls = this.RO;
         try {
             return a.b(cls, str, clsArr);
         } catch (NoSuchMethodException unused) {
@@ -252,6 +250,10 @@ public final class Reflect {
         return false;
     }
 
+    public static Reflect b(Object obj) {
+        return new Reflect(obj == null ? Object.class : obj.getClass(), obj);
+    }
+
     public static Class<?> b(Class<?> cls) {
         if (cls == null) {
             return null;
@@ -259,25 +261,17 @@ public final class Reflect {
         return cls.isPrimitive() ? Boolean.TYPE == cls ? Boolean.class : Integer.TYPE == cls ? Integer.class : Long.TYPE == cls ? Long.class : Short.TYPE == cls ? Short.class : Byte.TYPE == cls ? Byte.class : Double.TYPE == cls ? Double.class : Float.TYPE == cls ? Float.class : Character.TYPE == cls ? Character.class : Void.TYPE == cls ? Void.class : cls : cls;
     }
 
-    public static Class<?> c(String str) {
+    private Reflect bb(String str) {
         try {
-            return a.a(str);
+            Field bc = bc(str);
+            return a(bc.getType(), bc.get(this.a));
         } catch (Exception e) {
             throw new ReflectException(e);
         }
     }
 
-    private Reflect d(String str) {
-        try {
-            Field e = e(str);
-            return a(e.getType(), e.get(this.a));
-        } catch (Exception e2) {
-            throw new ReflectException(e2);
-        }
-    }
-
-    private Field e(String str) {
-        Class<?> cls = this.b;
+    private Field bc(String str) {
+        Class<?> cls = this.RO;
         try {
             return (Field) a(a.b(cls, str));
         } catch (NoSuchFieldException e) {
@@ -295,14 +289,22 @@ public final class Reflect {
         }
     }
 
+    public static Class<?> be(String str) {
+        try {
+            return a.bf(str);
+        } catch (Exception e) {
+            throw new ReflectException(e);
+        }
+    }
+
     public final Reflect a(String str, Object obj) {
         try {
-            Field e = e(str);
-            if ((e.getModifiers() & 16) == 16) {
+            Field bc = bc(str);
+            if ((bc.getModifiers() & 16) == 16) {
                 try {
                     Field a2 = a.a(Field.class, "modifiers");
                     a2.setAccessible(true);
-                    a2.setInt(e, e.getModifiers() & (-17));
+                    a2.setInt(bc, bc.getModifiers() & (-17));
                 } catch (NoSuchFieldException unused) {
                 }
             }
@@ -310,10 +312,10 @@ public final class Reflect {
             if (obj instanceof Reflect) {
                 obj = ((Reflect) obj).a;
             }
-            e.set(obj2, obj);
+            bc.set(obj2, obj);
             return this;
-        } catch (Exception e2) {
-            throw new ReflectException(e2);
+        } catch (Exception e) {
+            throw new ReflectException(e);
         }
     }
 
@@ -323,30 +325,30 @@ public final class Reflect {
             try {
                 return a(a(str, clsArr), this.a, objArr);
             } catch (NoSuchMethodException unused) {
-                Class<?> cls = this.b;
-                Method[] b2 = a.b(cls);
-                int length = b2.length;
+                Class<?> cls = this.RO;
+                Method[] d = a.d(cls);
+                int length = d.length;
                 int i = 0;
                 while (true) {
                     if (i < length) {
-                        method = b2[i];
+                        method = d[i];
                         if (a(method, str, clsArr)) {
                             break;
                         }
                         i++;
                     } else {
                         loop1: while (true) {
-                            Method[] a2 = a.a(cls);
-                            int length2 = a2.length;
+                            Method[] c = a.c(cls);
+                            int length2 = c.length;
                             for (int i2 = 0; i2 < length2; i2++) {
-                                method = a2[i2];
+                                method = c[i2];
                                 if (a(method, str, clsArr)) {
                                     break loop1;
                                 }
                             }
                             cls = cls.getSuperclass();
                             if (cls == null) {
-                                throw new NoSuchMethodException("No similar method " + str + " with params " + Arrays.toString(clsArr) + " could be found on type " + this.b + ".");
+                                throw new NoSuchMethodException("No similar method " + str + " with params " + Arrays.toString(clsArr) + " could be found on type " + this.RO + ".");
                             }
                         }
                     }
@@ -359,24 +361,24 @@ public final class Reflect {
     }
 
     public final Reflect a(Class<?>[] clsArr, Object... objArr) {
-        Constructor[] c;
+        Constructor[] e;
         try {
-            return a(a.a(this.b, clsArr), objArr);
-        } catch (NoSuchMethodException e) {
-            for (Constructor constructor : a.c(this.b)) {
+            return a(a.a(this.RO, clsArr), objArr);
+        } catch (NoSuchMethodException e2) {
+            for (Constructor constructor : a.e(this.RO)) {
                 if (a(constructor.getParameterTypes(), clsArr)) {
                     return a(constructor, objArr);
                 }
             }
-            throw new ReflectException(e);
+            throw new ReflectException(e2);
         }
     }
 
-    public final <T> T a(String str) {
-        return (T) d(str).a;
+    public final <T> T ba(String str) {
+        return (T) bb(str).a;
     }
 
-    public final Reflect b(String str) {
+    public final Reflect bd(String str) {
         return a(str, new Class[0], new Object[0]);
     }
 

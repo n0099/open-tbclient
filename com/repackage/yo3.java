@@ -1,34 +1,19 @@
 package com.repackage;
 
-import com.baidu.pyramid.annotation.Autowired;
-import com.baidu.pyramid.annotation.Inject;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-@Autowired
+import com.baidu.searchbox.http.callback.ResponseCallback;
+import com.baidu.swan.game.ad.entity.AdResponseInfo;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class yo3 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface yo3 {
+    void a(String str, JSONObject jSONObject, ResponseCallback<AdResponseInfo> responseCallback);
 
-    @Inject(force = false)
-    public static zo3 a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? zw3.a() : (zo3) invokeV.objValue;
-    }
+    void b(String str, JSONObject jSONObject, ResponseCallback<qo3> responseCallback);
 
-    @Inject
-    public static ap3 b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? tj2.a() : (ap3) invokeV.objValue;
-    }
+    void c(String str, ResponseCallback<zn3> responseCallback);
 
-    @Inject
-    public static bp3 c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? new uj2() : (bp3) invokeV.objValue;
-    }
+    void d(String str);
+
+    void e(String str);
+
+    void f(String str, ResponseCallback<AdResponseInfo> responseCallback);
 }

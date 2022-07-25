@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.cd5;
+import com.repackage.dd5;
 import com.repackage.uy8;
 import com.repackage.wy8;
 import java.util.ArrayList;
@@ -142,7 +142,7 @@ public class StickerLayout extends FrameLayout {
                 return null;
             }
             e();
-            return cd5.c(this);
+            return dd5.c(this);
         }
         return (Bitmap) invokeV.objValue;
     }

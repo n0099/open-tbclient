@@ -37,10 +37,10 @@ public class OfflineMemExceptionMessage extends ExceptionMessage {
     @Override // com.kwad.sdk.crash.model.message.ExceptionMessage, com.kwad.sdk.core.b
     public JSONObject toJson() {
         JSONObject json = super.toJson();
-        r.a(json, REASON, this.mReason);
-        r.a(json, MSG_QUEUE_DETAIL, this.mMessageQueueDetail);
-        r.a(json, THREAD_DETAIL, this.mThreadDetail);
-        r.a(json, THREAD_STATUS, this.mThreadStatus);
+        r.putValue(json, REASON, this.mReason);
+        r.putValue(json, MSG_QUEUE_DETAIL, this.mMessageQueueDetail);
+        r.putValue(json, THREAD_DETAIL, this.mThreadDetail);
+        r.putValue(json, THREAD_STATUS, this.mThreadStatus);
         return json;
     }
 }

@@ -20,19 +20,19 @@ public class fb implements iu<fb, Object>, Serializable, Cloneable {
     public static final jc a;
 
     /* renamed from: a  reason: collision with other field name */
-    public static final jk f1068a;
+    public static final jk f348a;
     public static final jc b;
     public static final jc c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
-    public String f1069a;
+    public String f349a;
 
     /* renamed from: a  reason: collision with other field name */
-    public List<fa> f1070a;
+    public List<fa> f350a;
 
     /* renamed from: b  reason: collision with other field name */
-    public String f1071b;
+    public String f351b;
 
     static {
         InterceptResult invokeClinit;
@@ -47,7 +47,7 @@ public class fb implements iu<fb, Object>, Serializable, Cloneable {
                 return;
             }
         }
-        f1068a = new jk("StatsEvents");
+        f348a = new jk("StatsEvents");
         a = new jc("", Constants.GZIP_CAST_TYPE, (short) 1);
         b = new jc("", Constants.GZIP_CAST_TYPE, (short) 2);
         c = new jc("", (byte) 15, (short) 3);
@@ -85,8 +85,8 @@ public class fb implements iu<fb, Object>, Serializable, Cloneable {
                 return;
             }
         }
-        this.f1069a = str;
-        this.f1070a = list;
+        this.f349a = str;
+        this.f350a = list;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -100,21 +100,21 @@ public class fb implements iu<fb, Object>, Serializable, Cloneable {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, fbVar)) == null) {
             if (fb.class.equals(fbVar.getClass())) {
-                int compareTo = Boolean.valueOf(m1262a()).compareTo(Boolean.valueOf(fbVar.m1262a()));
+                int compareTo = Boolean.valueOf(m324a()).compareTo(Boolean.valueOf(fbVar.m324a()));
                 if (compareTo != 0) {
                     return compareTo;
                 }
-                if (!m1262a() || (a4 = iv.a(this.f1069a, fbVar.f1069a)) == 0) {
+                if (!m324a() || (a4 = iv.a(this.f349a, fbVar.f349a)) == 0) {
                     int compareTo2 = Boolean.valueOf(b()).compareTo(Boolean.valueOf(fbVar.b()));
                     if (compareTo2 != 0) {
                         return compareTo2;
                     }
-                    if (!b() || (a3 = iv.a(this.f1071b, fbVar.f1071b)) == 0) {
+                    if (!b() || (a3 = iv.a(this.f351b, fbVar.f351b)) == 0) {
                         int compareTo3 = Boolean.valueOf(c()).compareTo(Boolean.valueOf(fbVar.c()));
                         if (compareTo3 != 0) {
                             return compareTo3;
                         }
-                        if (!c() || (a2 = iv.a(this.f1070a, fbVar.f1070a)) == 0) {
+                        if (!c() || (a2 = iv.a(this.f350a, fbVar.f350a)) == 0) {
                             return 0;
                         }
                         return a2;
@@ -132,7 +132,7 @@ public class fb implements iu<fb, Object>, Serializable, Cloneable {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            this.f1071b = str;
+            this.f351b = str;
             return this;
         }
         return (fb) invokeL.objValue;
@@ -141,9 +141,9 @@ public class fb implements iu<fb, Object>, Serializable, Cloneable {
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            if (this.f1069a == null) {
+            if (this.f349a == null) {
                 throw new jg("Required field 'uuid' was not present! Struct: " + toString());
-            } else if (this.f1070a != null) {
+            } else if (this.f350a != null) {
             } else {
                 throw new jg("Required field 'events' was not present! Struct: " + toString());
             }
@@ -156,31 +156,31 @@ public class fb implements iu<fb, Object>, Serializable, Cloneable {
         if (interceptable != null && interceptable.invokeL(1048579, this, jfVar) != null) {
             return;
         }
-        jfVar.m1487a();
+        jfVar.m549a();
         while (true) {
-            jc m1483a = jfVar.m1483a();
-            byte b2 = m1483a.a;
+            jc m545a = jfVar.m545a();
+            byte b2 = m545a.a;
             if (b2 == 0) {
                 jfVar.f();
                 a();
                 return;
             }
-            short s = m1483a.f1529a;
+            short s = m545a.f809a;
             if (s == 1) {
                 if (b2 == 11) {
-                    this.f1069a = jfVar.m1488a();
+                    this.f349a = jfVar.m550a();
                     jfVar.g();
                 }
                 ji.a(jfVar, b2);
                 jfVar.g();
             } else if (s != 2) {
                 if (s == 3 && b2 == 15) {
-                    jd m1484a = jfVar.m1484a();
-                    this.f1070a = new ArrayList(m1484a.f1530a);
-                    for (int i = 0; i < m1484a.f1530a; i++) {
+                    jd m546a = jfVar.m546a();
+                    this.f350a = new ArrayList(m546a.f810a);
+                    for (int i = 0; i < m546a.f810a; i++) {
                         fa faVar = new fa();
                         faVar.a(jfVar);
-                        this.f1070a.add(faVar);
+                        this.f350a.add(faVar);
                     }
                     jfVar.i();
                     jfVar.g();
@@ -189,7 +189,7 @@ public class fb implements iu<fb, Object>, Serializable, Cloneable {
                 jfVar.g();
             } else {
                 if (b2 == 11) {
-                    this.f1071b = jfVar.m1488a();
+                    this.f351b = jfVar.m550a();
                     jfVar.g();
                 }
                 ji.a(jfVar, b2);
@@ -199,34 +199,34 @@ public class fb implements iu<fb, Object>, Serializable, Cloneable {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m1262a() {
+    public boolean m324a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f1069a != null : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f349a != null : invokeV.booleanValue;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m1263a(fb fbVar) {
+    public boolean m325a(fb fbVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, fbVar)) == null) {
             if (fbVar == null) {
                 return false;
             }
-            boolean m1262a = m1262a();
-            boolean m1262a2 = fbVar.m1262a();
-            if ((m1262a || m1262a2) && !(m1262a && m1262a2 && this.f1069a.equals(fbVar.f1069a))) {
+            boolean m324a = m324a();
+            boolean m324a2 = fbVar.m324a();
+            if ((m324a || m324a2) && !(m324a && m324a2 && this.f349a.equals(fbVar.f349a))) {
                 return false;
             }
             boolean b2 = b();
             boolean b3 = fbVar.b();
-            if ((b2 || b3) && !(b2 && b3 && this.f1071b.equals(fbVar.f1071b))) {
+            if ((b2 || b3) && !(b2 && b3 && this.f351b.equals(fbVar.f351b))) {
                 return false;
             }
             boolean c2 = c();
             boolean c3 = fbVar.c();
             if (c2 || c3) {
-                return c2 && c3 && this.f1070a.equals(fbVar.f1070a);
+                return c2 && c3 && this.f350a.equals(fbVar.f350a);
             }
             return true;
         }
@@ -238,41 +238,41 @@ public class fb implements iu<fb, Object>, Serializable, Cloneable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, jfVar) == null) {
             a();
-            jfVar.a(f1068a);
-            if (this.f1069a != null) {
+            jfVar.a(f348a);
+            if (this.f349a != null) {
                 jfVar.a(a);
-                jfVar.a(this.f1069a);
+                jfVar.a(this.f349a);
                 jfVar.b();
             }
-            if (this.f1071b != null && b()) {
+            if (this.f351b != null && b()) {
                 jfVar.a(b);
-                jfVar.a(this.f1071b);
+                jfVar.a(this.f351b);
                 jfVar.b();
             }
-            if (this.f1070a != null) {
+            if (this.f350a != null) {
                 jfVar.a(c);
-                jfVar.a(new jd((byte) 12, this.f1070a.size()));
-                for (fa faVar : this.f1070a) {
+                jfVar.a(new jd((byte) 12, this.f350a.size()));
+                for (fa faVar : this.f350a) {
                     faVar.b(jfVar);
                 }
                 jfVar.e();
                 jfVar.b();
             }
             jfVar.c();
-            jfVar.m1491a();
+            jfVar.m553a();
         }
     }
 
     public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f1071b != null : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f351b != null : invokeV.booleanValue;
     }
 
     public boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f1070a != null : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f350a != null : invokeV.booleanValue;
     }
 
     public boolean equals(Object obj) {
@@ -280,7 +280,7 @@ public class fb implements iu<fb, Object>, Serializable, Cloneable {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, obj)) == null) {
             if (obj != null && (obj instanceof fb)) {
-                return m1263a((fb) obj);
+                return m325a((fb) obj);
             }
             return false;
         }
@@ -302,7 +302,7 @@ public class fb implements iu<fb, Object>, Serializable, Cloneable {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
             StringBuilder sb = new StringBuilder("StatsEvents(");
             sb.append("uuid:");
-            String str = this.f1069a;
+            String str = this.f349a;
             if (str == null) {
                 sb.append(StringUtil.NULL_STRING);
             } else {
@@ -311,7 +311,7 @@ public class fb implements iu<fb, Object>, Serializable, Cloneable {
             if (b()) {
                 sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
                 sb.append("operator:");
-                String str2 = this.f1071b;
+                String str2 = this.f351b;
                 if (str2 == null) {
                     sb.append(StringUtil.NULL_STRING);
                 } else {
@@ -320,7 +320,7 @@ public class fb implements iu<fb, Object>, Serializable, Cloneable {
             }
             sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
             sb.append("events:");
-            List<fa> list = this.f1070a;
+            List<fa> list = this.f350a;
             if (list == null) {
                 sb.append(StringUtil.NULL_STRING);
             } else {

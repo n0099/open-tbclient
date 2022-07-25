@@ -35,8 +35,8 @@ public class ld8 extends kd8 {
     public RoundRelativeLayout X;
     public TbImageView Y;
     public TextView Z;
-    public TextView g0;
-    public ImageView h0;
+    public TextView a0;
+    public ImageView b0;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ld8(Context context, boolean z, int i, fg8 fg8Var) {
@@ -67,7 +67,7 @@ public class ld8 extends kd8 {
     public View A() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? LayoutInflater.from(TbadkCoreApplication.getInst().getContext()).inflate(R.layout.obfuscated_res_0x7f0d07b2, (ViewGroup) null) : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? LayoutInflater.from(TbadkCoreApplication.getInst().getContext()).inflate(R.layout.obfuscated_res_0x7f0d07bc, (ViewGroup) null) : (View) invokeV.objValue;
     }
 
     public final void A0() {
@@ -130,13 +130,13 @@ public class ld8 extends kd8 {
                 this.Y.setImageBitmap(this.S.a());
                 this.V.setText(this.S.d());
             }
-            WebPManager.setPureDrawable(this.h0, R.drawable.obfuscated_res_0x7f08099d, R.color.CAM_X0101, null);
-            ur4.d(this.Z).v(R.color.CAM_X0101);
-            ur4.d(this.g0).v(R.color.CAM_X0101);
-            ur4 d = ur4.d(this.V);
+            WebPManager.setPureDrawable(this.b0, R.drawable.obfuscated_res_0x7f08099d, R.color.CAM_X0101, null);
+            vr4.d(this.Z).v(R.color.CAM_X0101);
+            vr4.d(this.a0).v(R.color.CAM_X0101);
+            vr4 d = vr4.d(this.V);
             d.A(R.string.F_X02);
             d.v(R.color.CAM_X0102);
-            ur4.d(this.W).v(R.color.CAM_X0103);
+            vr4.d(this.W).v(R.color.CAM_X0103);
             super.l0();
         }
     }
@@ -158,18 +158,18 @@ public class ld8 extends kd8 {
     public final void y0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.T = (RoundRelativeLayout) this.b.findViewById(R.id.obfuscated_res_0x7f091e20);
-            this.U = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f091e1f);
-            this.X = (RoundRelativeLayout) this.b.findViewById(R.id.obfuscated_res_0x7f091254);
-            this.Y = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f091e23);
-            this.V = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091e22);
-            this.W = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091e21);
-            this.Z = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f092295);
-            this.g0 = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f092294);
-            this.h0 = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f090ea8);
+            this.T = (RoundRelativeLayout) this.b.findViewById(R.id.obfuscated_res_0x7f091e26);
+            this.U = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f091e25);
+            this.X = (RoundRelativeLayout) this.b.findViewById(R.id.obfuscated_res_0x7f091230);
+            this.Y = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f091e29);
+            this.V = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091e28);
+            this.W = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091e27);
+            this.Z = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f092297);
+            this.a0 = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f092296);
+            this.b0 = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f090ea1);
             A0();
-            this.T.setRoundLayoutRadius(sr4.y(R.string.J_X06));
-            this.X.setRoundLayoutRadius(sr4.y(R.string.J_X04));
+            this.T.setRoundLayoutRadius(tr4.y(R.string.J_X06));
+            this.X.setRoundLayoutRadius(tr4.y(R.string.J_X04));
         }
     }
 

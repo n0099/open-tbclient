@@ -15,17 +15,17 @@ public final class b extends com.kwad.sdk.mvp.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     @NonNull
-    public c.a a;
+    public KsNativeAd.VideoPlayListener jA;
     @NonNull
-    public KsNativeAd.VideoPlayListener b;
+    public c.a jC;
     @NonNull
-    public AdBasePvFrameLayout c;
+    public AdBasePvFrameLayout jK;
     @NonNull
-    public AdTemplate d;
+    public com.kwad.components.ad.e.b.a jM;
+    @NonNull
+    public AdTemplate mAdTemplate;
     @Nullable
-    public com.kwad.components.core.c.a.b e;
-    @NonNull
-    public com.kwad.components.ad.e.b.a f;
+    public com.kwad.components.core.c.a.c mApkDownloadHelper;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -42,14 +42,14 @@ public final class b extends com.kwad.sdk.mvp.a {
     }
 
     @Override // com.kwad.sdk.mvp.a
-    public final void a() {
+    public final void release() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            com.kwad.components.core.c.a.b bVar = this.e;
-            if (bVar != null) {
-                bVar.i();
+            com.kwad.components.core.c.a.c cVar = this.mApkDownloadHelper;
+            if (cVar != null) {
+                cVar.clear();
             }
-            this.f.e();
+            this.jM.release();
         }
     }
 }

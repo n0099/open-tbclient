@@ -12,8 +12,8 @@ import com.kwad.components.core.video.h;
 public final class e extends c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public com.kwad.components.core.page.a.a b;
-    public g c;
+    public com.kwad.components.core.page.a.a mPlayModule;
+    public g mVideoPlayStateListener;
 
     public e() {
         Interceptable interceptable = $ic;
@@ -28,10 +28,10 @@ public final class e extends c {
                 return;
             }
         }
-        this.c = new h(this) { // from class: com.kwad.components.core.page.kwai.e.1
+        this.mVideoPlayStateListener = new h(this) { // from class: com.kwad.components.core.page.kwai.e.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ e a;
+            public final /* synthetic */ e Gj;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -48,28 +48,28 @@ public final class e extends c {
                         return;
                     }
                 }
-                this.a = this;
+                this.Gj = this;
             }
 
             @Override // com.kwad.components.core.video.h, com.kwad.components.core.video.g
-            public final void a(int i3, int i4) {
+            public final void onVideoPlayCompleted() {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                }
+            }
+
+            @Override // com.kwad.components.core.video.h, com.kwad.components.core.video.g
+            public final void onVideoPlayError(int i3, int i4) {
                 Activity activity;
                 Interceptable interceptable2 = $ic;
-                if (!(interceptable2 == null || interceptable2.invokeII(1048576, this, i3, i4) == null) || (activity = ((c) this.a).a.L) == null) {
+                if (!(interceptable2 == null || interceptable2.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i3, i4) == null) || (activity = this.Gj.Gi.getActivity()) == null) {
                     return;
                 }
                 activity.finish();
             }
 
             @Override // com.kwad.components.core.video.h, com.kwad.components.core.video.g
-            public final void c() {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                }
-            }
-
-            @Override // com.kwad.components.core.video.h, com.kwad.components.core.video.g
-            public final void d() {
+            public final void onVideoPlayStart() {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
                 }
@@ -78,22 +78,22 @@ public final class e extends c {
     }
 
     @Override // com.kwad.components.core.page.kwai.c, com.kwad.sdk.mvp.Presenter
-    public final void a() {
+    public final void aq() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            super.a();
-            com.kwad.components.core.page.a.a aVar = ((c) this).a.a;
-            this.b = aVar;
-            aVar.a(this.c);
+            super.aq();
+            com.kwad.components.core.page.a.a aVar = this.Gi.mPlayModule;
+            this.mPlayModule = aVar;
+            aVar.a(this.mVideoPlayStateListener);
         }
     }
 
     @Override // com.kwad.sdk.mvp.Presenter
-    public final void k_() {
+    public final void onUnbind() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            super.k_();
-            this.b.b(this.c);
+            super.onUnbind();
+            this.mPlayModule.b(this.mVideoPlayStateListener);
         }
     }
 }

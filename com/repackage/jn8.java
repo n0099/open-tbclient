@@ -84,7 +84,7 @@ public class jn8 {
     public final boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? xt4.k().l("pref_key_stat_sdk_enable", 1) != 0 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? yt4.k().l("pref_key_stat_sdk_enable", 1) != 0 : invokeV.booleanValue;
     }
 
     public void e(Context context, String str, boolean z) {

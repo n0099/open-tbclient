@@ -1,165 +1,34 @@
 package com.repackage;
 
+import android.app.Activity;
 import android.content.Context;
-import com.baidu.adp.lib.featureSwitch.SwitchManager;
+import android.content.res.Resources;
+import android.view.View;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.pyramid.annotation.Singleton;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.searchbox.network.outback.IOutbackClientIPProvider;
-import com.baidu.searchbox.network.outback.IOutbackContext;
-import com.baidu.searchbox.network.outback.core.CallFactory;
-import com.baidu.searchbox.network.outback.statistics.IAdditionalRecord;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.switchs.BdNetTypeSwitch;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.mvc.core.ViewEventCenter;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.u40;
-import com.repackage.v50;
-import java.util.HashMap;
-import javax.net.ssl.HostnameVerifier;
-import javax.net.ssl.SSLSession;
-import okhttp3.OkHttpClient;
-import okhttp3.internal.tls.OkHostnameVerifier;
-@Singleton
-@Service
+import com.repackage.a85;
 /* loaded from: classes6.dex */
-public class i85 implements IOutbackContext {
+public abstract class i85<D, S extends a85> implements lh8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public HashMap<String, CallFactory.CallFactoryProducer> a;
-    public CallFactory.CallFactoryProducer b;
-    public CallFactory.CallFactoryProducer c;
-    public int d;
+    public D a;
+    public S b;
+    public final View c;
+    public TbPageContext<?> d;
 
-    /* loaded from: classes6.dex */
-    public class a implements HostnameVerifier {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a(i85 i85Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {i85Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // javax.net.ssl.HostnameVerifier
-        public boolean verify(String str, SSLSession sSLSession) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, sSLSession)) == null) ? OkHostnameVerifier.INSTANCE.verify(str, sSLSession) : invokeLL.booleanValue;
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class b implements IAdditionalRecord {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public b(i85 i85Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {i85Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // com.baidu.searchbox.network.outback.statistics.IAdditionalRecord
-        public long getAppLaunchTimeStamp() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return 0L;
-            }
-            return invokeV.longValue;
-        }
-
-        @Override // com.baidu.searchbox.network.outback.statistics.IAdditionalRecord
-        public String getClientIPV6() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return null;
-            }
-            return (String) invokeV.objValue;
-        }
-
-        @Override // com.baidu.searchbox.network.outback.statistics.IAdditionalRecord
-        public String getHttpDnsAreaInfo() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                return null;
-            }
-            return (String) invokeV.objValue;
-        }
-
-        @Override // com.baidu.searchbox.network.outback.statistics.IAdditionalRecord
-        public long getHttpDnsAreaInfoLastUpdateTime() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-                return 0L;
-            }
-            return invokeV.longValue;
-        }
-
-        @Override // com.baidu.searchbox.network.outback.statistics.IAdditionalRecord
-        public int getIpStack() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-                return 0;
-            }
-            return invokeV.intValue;
-        }
-
-        @Override // com.baidu.searchbox.network.outback.statistics.IAdditionalRecord
-        public int getNetworkQuality() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-                return 0;
-            }
-            return invokeV.intValue;
-        }
-
-        @Override // com.baidu.searchbox.network.outback.statistics.IAdditionalRecord
-        public String getProcessName() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-                return null;
-            }
-            return (String) invokeV.objValue;
-        }
-    }
-
-    public i85() {
+    public i85(TbPageContext<?> tbPageContext, View view2, ViewEventCenter viewEventCenter) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, view2, viewEventCenter};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -169,61 +38,71 @@ public class i85 implements IOutbackContext {
                 return;
             }
         }
-        this.d = SwitchManager.getInstance().findType(BdNetTypeSwitch.KEY);
-        TbadkCoreApplication.getInst().setBdNetType(this.d);
-        OkHttpClient build = new OkHttpClient.Builder().hostnameVerifier(new a(this)).build();
-        u40.b bVar = new u40.b();
-        bVar.p(build);
-        this.b = bVar.n();
-        this.c = new v50.a().a();
-        HashMap<String, CallFactory.CallFactoryProducer> hashMap = new HashMap<>();
-        this.a = hashMap;
-        hashMap.put(this.b.getEngineName(), this.b);
-        this.a.put(this.c.getEngineName(), this.c);
+        this.d = tbPageContext;
+        this.c = view2;
     }
 
-    @Override // com.baidu.searchbox.network.outback.IOutbackContext
-    public CallFactory.CallFactoryProducer getBackupCallFactoryProducer() {
+    public TbPageContext<?> b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (CallFactory.CallFactoryProducer) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.d : (TbPageContext) invokeV.objValue;
     }
 
-    @Override // com.baidu.searchbox.network.outback.IOutbackContext
-    public IOutbackClientIPProvider getClientIPProvider() {
+    public View c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return null;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.c : (View) invokeV.objValue;
+    }
+
+    public S d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.b : (S) invokeV.objValue;
+    }
+
+    public String e(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) ? getResources().getString(i) : (String) invokeI.objValue;
+    }
+
+    public void f(D d) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, d) == null) {
+            this.a = d;
         }
-        return (IOutbackClientIPProvider) invokeV.objValue;
     }
 
-    @Override // com.baidu.searchbox.network.outback.IOutbackContext
+    public void g(D d, S s) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048581, this, d, s) == null) {
+            f(d);
+            h(s);
+        }
+    }
+
+    public Activity getActivity() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.d.getPageActivity() : (Activity) invokeV.objValue;
+    }
+
     public Context getContext() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? AppRuntime.getAppContext() : (Context) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.d.getContext() : (Context) invokeV.objValue;
     }
 
-    @Override // com.baidu.searchbox.network.outback.IOutbackContext
-    public CallFactory.CallFactoryProducer getDefaultCallFactoryProducer() {
+    public Resources getResources() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? BdNetTypeSwitch.isOkHttp(this.d) ? this.b : this.c : (CallFactory.CallFactoryProducer) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.d.getResources() : (Resources) invokeV.objValue;
     }
 
-    @Override // com.baidu.searchbox.network.outback.IOutbackContext
-    public IAdditionalRecord getIAdditionalRecord() {
-        InterceptResult invokeV;
+    public void h(S s) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? new b(this) : (IAdditionalRecord) invokeV.objValue;
-    }
-
-    @Override // com.baidu.searchbox.network.outback.IOutbackContext
-    public HashMap<String, CallFactory.CallFactoryProducer> getOutbackEngines() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.a : (HashMap) invokeV.objValue;
+        if (interceptable == null || interceptable.invokeL(1048585, this, s) == null) {
+            this.b = s;
+        }
     }
 }

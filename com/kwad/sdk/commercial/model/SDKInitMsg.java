@@ -4,7 +4,7 @@ import android.content.Context;
 import android.os.Looper;
 import com.ksad.json.annotation.KsJson;
 import com.kwad.sdk.core.response.kwai.a;
-import com.kwad.sdk.utils.ak;
+import com.kwad.sdk.utils.an;
 import java.io.Serializable;
 @KsJson
 /* loaded from: classes5.dex */
@@ -23,10 +23,11 @@ public class SDKInitMsg extends a implements Serializable {
     public int initStatus;
     public int initThread;
     public long launchIntervalTime;
+    public double ratioCount;
     public long totalDurationTime;
 
     public SDKInitMsg(Context context) {
-        this.initProcess = ak.b(context) ? 1 : 2;
+        this.initProcess = an.isInMainProcess(context) ? 1 : 2;
         this.initThread = Looper.getMainLooper() != Looper.myLooper() ? 2 : 1;
     }
 
@@ -47,6 +48,11 @@ public class SDKInitMsg extends a implements Serializable {
 
     public SDKInitMsg setLaunchIntervalTime(long j) {
         this.launchIntervalTime = j;
+        return this;
+    }
+
+    public SDKInitMsg setRatioCount(double d) {
+        this.ratioCount = d;
         return this;
     }
 

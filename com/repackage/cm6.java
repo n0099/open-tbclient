@@ -76,11 +76,11 @@ public class cm6 extends cd6<ICardInfo, LegoItemHolder> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i), view2, viewGroup, iCardInfo, legoItemHolder})) == null) {
             super.S(i, view2, viewGroup, iCardInfo, legoItemHolder);
-            View b = legoItemHolder.b();
-            if (b != null && iCardInfo != null) {
-                ((pd7) b).update(iCardInfo);
+            View a = legoItemHolder.a();
+            if (a != null && iCardInfo != null) {
+                ((pd7) a).update(iCardInfo);
             }
-            return b;
+            return a;
         }
         return (View) invokeCommon.objValue;
     }

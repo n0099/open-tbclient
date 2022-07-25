@@ -510,24 +510,24 @@ public class VideoEffectLayout extends LinearLayout implements VideoEffectButton
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048588, this) == null) && this.f == null) {
             this.f = new ArrayList();
-            l(R.drawable.obfuscated_res_0x7f080559, q(R.string.obfuscated_res_0x7f0f061c), "origin");
-            l(R.drawable.obfuscated_res_0x7f08055d, q(R.string.obfuscated_res_0x7f0f0619), "hongkong");
-            l(R.drawable.obfuscated_res_0x7f080560, q(R.string.obfuscated_res_0x7f0f061d), "refreshing");
-            l(R.drawable.obfuscated_res_0x7f08055c, q(R.string.obfuscated_res_0x7f0f0617), "girly");
-            l(R.drawable.obfuscated_res_0x7f080557, q(R.string.obfuscated_res_0x7f0f0614), "concrete");
-            l(R.drawable.obfuscated_res_0x7f080564, q(R.string.obfuscated_res_0x7f0f0621), "warm");
-            l(R.drawable.obfuscated_res_0x7f080556, q(R.string.obfuscated_res_0x7f0f0613), "cold");
-            l(R.drawable.obfuscated_res_0x7f08055e, q(R.string.obfuscated_res_0x7f0f061a), "Japanese");
-            l(R.drawable.obfuscated_res_0x7f080558, q(R.string.obfuscated_res_0x7f0f0618), "cruz");
-            l(R.drawable.obfuscated_res_0x7f080553, q(R.string.obfuscated_res_0x7f0f0610), "abao");
-            l(R.drawable.obfuscated_res_0x7f08055a, q(R.string.obfuscated_res_0x7f0f0615), "dew");
-            l(R.drawable.obfuscated_res_0x7f080562, q(R.string.obfuscated_res_0x7f0f061f), "slowlived");
-            l(R.drawable.obfuscated_res_0x7f080563, q(R.string.obfuscated_res_0x7f0f0620), "sweet");
-            l(R.drawable.obfuscated_res_0x7f080555, q(R.string.obfuscated_res_0x7f0f0612), "boardwalk");
-            l(R.drawable.obfuscated_res_0x7f08055f, q(R.string.obfuscated_res_0x7f0f061b), "keylime");
-            l(R.drawable.obfuscated_res_0x7f08055b, q(R.string.obfuscated_res_0x7f0f0616), "electric");
-            l(R.drawable.obfuscated_res_0x7f080561, q(R.string.obfuscated_res_0x7f0f061e), "silver");
-            l(R.drawable.obfuscated_res_0x7f080554, q(R.string.obfuscated_res_0x7f0f0611), "blackwhite");
+            l(R.drawable.obfuscated_res_0x7f080559, q(R.string.obfuscated_res_0x7f0f0618), "origin");
+            l(R.drawable.obfuscated_res_0x7f08055d, q(R.string.obfuscated_res_0x7f0f0615), "hongkong");
+            l(R.drawable.obfuscated_res_0x7f080560, q(R.string.obfuscated_res_0x7f0f0619), "refreshing");
+            l(R.drawable.obfuscated_res_0x7f08055c, q(R.string.obfuscated_res_0x7f0f0613), "girly");
+            l(R.drawable.obfuscated_res_0x7f080557, q(R.string.obfuscated_res_0x7f0f0610), "concrete");
+            l(R.drawable.obfuscated_res_0x7f080564, q(R.string.obfuscated_res_0x7f0f061d), "warm");
+            l(R.drawable.obfuscated_res_0x7f080556, q(R.string.obfuscated_res_0x7f0f060f), "cold");
+            l(R.drawable.obfuscated_res_0x7f08055e, q(R.string.obfuscated_res_0x7f0f0616), "Japanese");
+            l(R.drawable.obfuscated_res_0x7f080558, q(R.string.obfuscated_res_0x7f0f0614), "cruz");
+            l(R.drawable.obfuscated_res_0x7f080553, q(R.string.obfuscated_res_0x7f0f060c), "abao");
+            l(R.drawable.obfuscated_res_0x7f08055a, q(R.string.obfuscated_res_0x7f0f0611), "dew");
+            l(R.drawable.obfuscated_res_0x7f080562, q(R.string.obfuscated_res_0x7f0f061b), "slowlived");
+            l(R.drawable.obfuscated_res_0x7f080563, q(R.string.obfuscated_res_0x7f0f061c), "sweet");
+            l(R.drawable.obfuscated_res_0x7f080555, q(R.string.obfuscated_res_0x7f0f060e), "boardwalk");
+            l(R.drawable.obfuscated_res_0x7f08055f, q(R.string.obfuscated_res_0x7f0f0617), "keylime");
+            l(R.drawable.obfuscated_res_0x7f08055b, q(R.string.obfuscated_res_0x7f0f0612), "electric");
+            l(R.drawable.obfuscated_res_0x7f080561, q(R.string.obfuscated_res_0x7f0f061a), "silver");
+            l(R.drawable.obfuscated_res_0x7f080554, q(R.string.obfuscated_res_0x7f0f060d), "blackwhite");
         }
     }
 
@@ -542,15 +542,15 @@ public class VideoEffectLayout extends LinearLayout implements VideoEffectButton
         if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
             this.i = "2";
             this.l = n(R.drawable.obfuscated_res_0x7f08022f, 1, "2", wp8.b(2));
-            this.j = q(R.string.obfuscated_res_0x7f0f061c);
-            this.m = n(R.drawable.obfuscated_res_0x7f080559, 2, q(R.string.obfuscated_res_0x7f0f061c), "origin");
+            this.j = q(R.string.obfuscated_res_0x7f0f0618);
+            this.m = n(R.drawable.obfuscated_res_0x7f080559, 2, q(R.string.obfuscated_res_0x7f0f0618), "origin");
             StickerItem stickerItem = new StickerItem();
             stickerItem.id = -1;
             stickerItem.name = "nosticker";
             this.o = stickerItem;
-            this.k = getResources().getString(R.string.obfuscated_res_0x7f0f0b1a);
-            getResources().getString(R.string.obfuscated_res_0x7f0f0b1a);
-            new MusicData(com.baidu.tieba.external.music.data.MusicData.MUSIC_NORMAL_ID, 1, getResources().getString(R.string.obfuscated_res_0x7f0f0b1a));
+            this.k = getResources().getString(R.string.obfuscated_res_0x7f0f0b06);
+            getResources().getString(R.string.obfuscated_res_0x7f0f0b06);
+            new MusicData(com.baidu.tieba.external.music.data.MusicData.MUSIC_NORMAL_ID, 1, getResources().getString(R.string.obfuscated_res_0x7f0f0b06));
         }
     }
 
@@ -559,14 +559,14 @@ public class VideoEffectLayout extends LinearLayout implements VideoEffectButton
         if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
             this.s = new Handler();
             r();
-            LinearLayout.inflate(getContext(), R.layout.obfuscated_res_0x7f0d048d, this);
-            HListView hListView = (HListView) findViewById(R.id.obfuscated_res_0x7f090840);
+            LinearLayout.inflate(getContext(), R.layout.obfuscated_res_0x7f0d048c, this);
+            HListView hListView = (HListView) findViewById(R.id.obfuscated_res_0x7f09083e);
             this.a = hListView;
             hListView.setDividerWidth(getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701f9));
-            this.a.setSelector(getResources().getDrawable(R.drawable.obfuscated_res_0x7f0811a4));
-            HListView hListView2 = (HListView) findViewById(R.id.obfuscated_res_0x7f091e3b);
+            this.a.setSelector(getResources().getDrawable(R.drawable.obfuscated_res_0x7f0811a8));
+            HListView hListView2 = (HListView) findViewById(R.id.obfuscated_res_0x7f091e41);
             this.b = hListView2;
-            hListView2.setSelector(getResources().getDrawable(R.drawable.obfuscated_res_0x7f0811a4));
+            hListView2.setSelector(getResources().getDrawable(R.drawable.obfuscated_res_0x7f0811a8));
             rr8 rr8Var = new rr8();
             this.c = rr8Var;
             this.a.setAdapter((ListAdapter) rr8Var);
@@ -658,7 +658,7 @@ public class VideoEffectLayout extends LinearLayout implements VideoEffectButton
             return;
         }
         rr8Var.c();
-        this.k = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0b1a);
+        this.k = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0b06);
     }
 
     public void v() {

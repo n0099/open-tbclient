@@ -21,7 +21,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.df6;
-import com.repackage.nr4;
+import com.repackage.or4;
 /* loaded from: classes5.dex */
 public class df6 {
     public static /* synthetic */ Interceptable $ic;
@@ -32,7 +32,7 @@ public class df6 {
     public hw8 d;
     public AcceleratorNetModel.b e;
     public ef6 f;
-    public nr4.e g;
+    public or4.e g;
     public AcceleratorData h;
     public int i;
     public int j;
@@ -317,15 +317,15 @@ public class df6 {
     public final void t() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            this.g = new nr4.e() { // from class: com.repackage.bf6
+            this.g = new or4.e() { // from class: com.repackage.bf6
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
-                @Override // com.repackage.nr4.e
-                public final void N(nr4 nr4Var, int i, View view2) {
+                @Override // com.repackage.or4.e
+                public final void N(or4 or4Var, int i, View view2) {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeLIL(1048576, this, nr4Var, i, view2) == null) {
-                        df6.this.w(nr4Var, i, view2);
+                    if (interceptable2 == null || interceptable2.invokeLIL(1048576, this, or4Var, i, view2) == null) {
+                        df6.this.w(or4Var, i, view2);
                     }
                 }
             };
@@ -359,7 +359,7 @@ public class df6 {
         }
     }
 
-    public /* synthetic */ void w(nr4 nr4Var, int i, View view2) {
+    public /* synthetic */ void w(or4 or4Var, int i, View view2) {
         this.i = i;
         z();
     }

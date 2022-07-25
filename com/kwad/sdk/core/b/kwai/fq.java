@@ -1,65 +1,57 @@
 package com.kwad.sdk.core.b.kwai;
 
-import com.baidu.searchbox.launch.stats.SpeedStatsMainTable;
-import com.kwad.sdk.core.response.model.PhotoInfo;
+import com.kwad.sdk.core.response.model.TemplateConfig;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public final class fq implements com.kwad.sdk.core.d<PhotoInfo.VideoInfo> {
+public final class fq implements com.kwad.sdk.core.d<TemplateConfig> {
     /* renamed from: a  reason: avoid collision after fix types in other method */
-    public static void a2(PhotoInfo.VideoInfo videoInfo, JSONObject jSONObject) {
+    public static void a2(TemplateConfig templateConfig, JSONObject jSONObject) {
         if (jSONObject == null) {
             return;
         }
-        videoInfo.videoUrl = jSONObject.optString("videoUrl");
-        if (jSONObject.opt("videoUrl") == JSONObject.NULL) {
-            videoInfo.videoUrl = "";
+        templateConfig.h5Url = jSONObject.optString("h5Url");
+        if (jSONObject.opt("h5Url") == JSONObject.NULL) {
+            templateConfig.h5Url = "";
         }
-        videoInfo.manifest = jSONObject.optString("manifest");
-        if (jSONObject.opt("manifest") == JSONObject.NULL) {
-            videoInfo.manifest = "";
+        templateConfig.h5Version = jSONObject.optString("h5Version");
+        if (jSONObject.opt("h5Version") == JSONObject.NULL) {
+            templateConfig.h5Version = "";
         }
-        videoInfo.firstFrame = jSONObject.optString(SpeedStatsMainTable.FIRST_FRAME_STAGE);
-        if (jSONObject.opt(SpeedStatsMainTable.FIRST_FRAME_STAGE) == JSONObject.NULL) {
-            videoInfo.firstFrame = "";
+        templateConfig.h5Checksum = jSONObject.optString("h5Checksum");
+        if (jSONObject.opt("h5Checksum") == JSONObject.NULL) {
+            templateConfig.h5Checksum = "";
         }
-        videoInfo.duration = jSONObject.optLong("duration");
-        videoInfo.size = jSONObject.optInt("size");
-        videoInfo.width = jSONObject.optInt("width");
-        videoInfo.height = jSONObject.optInt("height");
-        videoInfo.leftRatio = jSONObject.optDouble("leftRatio");
-        videoInfo.topRatio = jSONObject.optDouble("topRatio");
-        videoInfo.widthRatio = jSONObject.optDouble("widthRatio", new Double("1.0f").doubleValue());
-        videoInfo.heightRatio = jSONObject.optDouble("heightRatio", new Double("1.0f").doubleValue());
     }
 
     /* renamed from: b  reason: avoid collision after fix types in other method */
-    public static JSONObject b2(PhotoInfo.VideoInfo videoInfo, JSONObject jSONObject) {
+    public static JSONObject b2(TemplateConfig templateConfig, JSONObject jSONObject) {
         if (jSONObject == null) {
             jSONObject = new JSONObject();
         }
-        com.kwad.sdk.utils.r.a(jSONObject, "videoUrl", videoInfo.videoUrl);
-        com.kwad.sdk.utils.r.a(jSONObject, "manifest", videoInfo.manifest);
-        com.kwad.sdk.utils.r.a(jSONObject, SpeedStatsMainTable.FIRST_FRAME_STAGE, videoInfo.firstFrame);
-        com.kwad.sdk.utils.r.a(jSONObject, "duration", videoInfo.duration);
-        com.kwad.sdk.utils.r.a(jSONObject, "size", videoInfo.size);
-        com.kwad.sdk.utils.r.a(jSONObject, "width", videoInfo.width);
-        com.kwad.sdk.utils.r.a(jSONObject, "height", videoInfo.height);
-        com.kwad.sdk.utils.r.a(jSONObject, "leftRatio", videoInfo.leftRatio);
-        com.kwad.sdk.utils.r.a(jSONObject, "topRatio", videoInfo.topRatio);
-        com.kwad.sdk.utils.r.a(jSONObject, "widthRatio", videoInfo.widthRatio);
-        com.kwad.sdk.utils.r.a(jSONObject, "heightRatio", videoInfo.heightRatio);
+        String str = templateConfig.h5Url;
+        if (str != null && !str.equals("")) {
+            com.kwad.sdk.utils.r.putValue(jSONObject, "h5Url", templateConfig.h5Url);
+        }
+        String str2 = templateConfig.h5Version;
+        if (str2 != null && !str2.equals("")) {
+            com.kwad.sdk.utils.r.putValue(jSONObject, "h5Version", templateConfig.h5Version);
+        }
+        String str3 = templateConfig.h5Checksum;
+        if (str3 != null && !str3.equals("")) {
+            com.kwad.sdk.utils.r.putValue(jSONObject, "h5Checksum", templateConfig.h5Checksum);
+        }
         return jSONObject;
     }
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.kwad.sdk.core.b, org.json.JSONObject] */
     @Override // com.kwad.sdk.core.d
-    public final /* bridge */ /* synthetic */ void a(PhotoInfo.VideoInfo videoInfo, JSONObject jSONObject) {
-        a2(videoInfo, jSONObject);
+    public final /* bridge */ /* synthetic */ void a(TemplateConfig templateConfig, JSONObject jSONObject) {
+        a2(templateConfig, jSONObject);
     }
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.kwad.sdk.core.b, org.json.JSONObject] */
     @Override // com.kwad.sdk.core.d
-    public final /* bridge */ /* synthetic */ JSONObject b(PhotoInfo.VideoInfo videoInfo, JSONObject jSONObject) {
-        return b2(videoInfo, jSONObject);
+    public final /* bridge */ /* synthetic */ JSONObject b(TemplateConfig templateConfig, JSONObject jSONObject) {
+        return b2(templateConfig, jSONObject);
     }
 }

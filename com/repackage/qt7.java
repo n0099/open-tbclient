@@ -71,12 +71,12 @@ public class qt7 {
             if (this.a.getPageActivity() != null && pbModel != null && (jr7Var = pbModel.G) != null) {
                 if ("3".equals(jr7Var.g0)) {
                     MainTabActivityConfig createNormalCfg = new MainTabActivityConfig(this.a.getPageActivity()).createNormalCfg(2);
-                    createNormalCfg.setSubTabName(this.a.getString(R.string.obfuscated_res_0x7f0f1366));
+                    createNormalCfg.setSubTabName(this.a.getString(R.string.obfuscated_res_0x7f0f1315));
                     this.a.sendMessage(new CustomMessage(2015002, createNormalCfg));
                     return true;
                 }
-                String q = xt4.k().q("key_pb_back_sid1", "");
-                String q2 = xt4.k().q("key_pb_back_sid2", "");
+                String q = yt4.k().q("key_pb_back_sid1", "");
+                String q2 = yt4.k().q("key_pb_back_sid2", "");
                 if (TextUtils.isEmpty(q) || UbsABTestDataManager.getInstance().getABTestSwitchData(q) == null) {
                     str = (TextUtils.isEmpty(q2) || UbsABTestDataManager.getInstance().getABTestSwitchData(q2) == null) ? null : "2";
                 } else {

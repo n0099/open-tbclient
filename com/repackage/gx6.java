@@ -83,12 +83,12 @@ public class gx6 extends an<ny6, CardViewHolder<qx5>> {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view2, viewGroup, ny6Var, cardViewHolder})) == null) {
-            if (cardViewHolder.c() == null) {
+            if (cardViewHolder.b() == null) {
                 return null;
             }
-            cardViewHolder.c().i(ny6Var);
+            cardViewHolder.b().i(ny6Var);
             cy5.b().a(new StatisticItem("c10714").param(TiebaStatic.Params.OBJ_PARAM3, ux5.e()));
-            return cardViewHolder.b();
+            return cardViewHolder.a();
         }
         return (View) invokeCommon.objValue;
     }

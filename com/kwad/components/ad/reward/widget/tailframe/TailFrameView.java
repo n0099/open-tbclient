@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.kwad.components.ad.reward.l;
+import com.kwad.components.ad.reward.k;
 import com.kwad.sdk.core.imageloader.KSImageLoader;
 import com.kwad.sdk.core.response.model.AdInfo;
 import com.kwad.sdk.core.response.model.AdTemplate;
@@ -25,8 +25,8 @@ import org.json.JSONObject;
 public class TailFrameView extends KSFrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public com.kwad.components.ad.reward.widget.tailframe.a a;
-    public l b;
+    public k nM;
+    public com.kwad.components.ad.reward.widget.tailframe.a xe;
 
     /* loaded from: classes5.dex */
     public static class a extends com.kwad.components.ad.reward.widget.tailframe.a implements com.kwad.sdk.widget.c {
@@ -35,6 +35,42 @@ public class TailFrameView extends KSFrameLayout {
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a() {
+            super(R.layout.obfuscated_res_0x7f0d047a);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+        }
+
+        @Override // com.kwad.components.ad.reward.widget.tailframe.a
+        public final void a(@NonNull AdTemplate adTemplate, JSONObject jSONObject, com.kwad.components.ad.reward.widget.tailframe.b bVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLL(1048576, this, adTemplate, jSONObject, bVar) == null) {
+                super.a(adTemplate, jSONObject, bVar);
+                KSImageLoader.loadImage(this.wV, com.kwad.sdk.core.response.a.a.K(this.mAdInfo), this.mAdTemplate);
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public static class b extends com.kwad.components.ad.reward.widget.tailframe.a implements com.kwad.sdk.widget.c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public ImageView xf;
+        public ImageView xg;
+        public ImageView xh;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public b() {
             super(R.layout.obfuscated_res_0x7f0d047b);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -51,26 +87,44 @@ public class TailFrameView extends KSFrameLayout {
             }
         }
 
+        private void jm() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(65537, this) == null) {
+                KSImageLoader.loadImage(this.xf, com.kwad.sdk.core.response.a.a.K(this.mAdInfo), this.mAdTemplate);
+                KSImageLoader.loadImage(this.xg, com.kwad.sdk.core.response.a.a.K(this.mAdInfo), this.mAdTemplate);
+                KSImageLoader.loadImage(this.xh, com.kwad.sdk.core.response.a.a.K(this.mAdInfo), this.mAdTemplate);
+            }
+        }
+
+        @Override // com.kwad.components.ad.reward.widget.tailframe.a
+        public final void E(Context context) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
+                super.E(context);
+                this.xf = (ImageView) this.wU.findViewById(R.id.obfuscated_res_0x7f0911c1);
+                this.xg = (ImageView) this.wU.findViewById(R.id.obfuscated_res_0x7f0911c2);
+                this.xh = (ImageView) this.wU.findViewById(R.id.obfuscated_res_0x7f0911c3);
+            }
+        }
+
         @Override // com.kwad.components.ad.reward.widget.tailframe.a
         public final void a(@NonNull AdTemplate adTemplate, JSONObject jSONObject, com.kwad.components.ad.reward.widget.tailframe.b bVar) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLL(1048576, this, adTemplate, jSONObject, bVar) == null) {
+            if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, adTemplate, jSONObject, bVar) == null) {
                 super.a(adTemplate, jSONObject, bVar);
-                KSImageLoader.loadImage(this.d, com.kwad.sdk.core.response.a.a.k(this.b), this.a);
+                jm();
             }
         }
     }
 
     /* loaded from: classes5.dex */
-    public static class b extends com.kwad.components.ad.reward.widget.tailframe.a implements com.kwad.sdk.widget.c {
+    public static class c extends com.kwad.components.ad.reward.widget.tailframe.a implements com.kwad.sdk.widget.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public ImageView f;
-        public ImageView g;
-        public ImageView h;
+        public View xi;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b() {
+        public c() {
             super(R.layout.obfuscated_res_0x7f0d047c);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -87,23 +141,26 @@ public class TailFrameView extends KSFrameLayout {
             }
         }
 
-        private void d() {
+        private void jm() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(65537, this) == null) {
-                KSImageLoader.loadImage(this.f, com.kwad.sdk.core.response.a.a.k(this.b), this.a);
-                KSImageLoader.loadImage(this.g, com.kwad.sdk.core.response.a.a.k(this.b), this.a);
-                KSImageLoader.loadImage(this.h, com.kwad.sdk.core.response.a.a.k(this.b), this.a);
+                AdInfo.AdMaterialInfo.MaterialFeature au = com.kwad.sdk.core.response.a.a.au(this.mAdInfo);
+                int i = au.width;
+                int i2 = au.height;
+                int screenWidth = com.kwad.sdk.b.kwai.a.getScreenWidth(this.wU.getContext());
+                ViewGroup.LayoutParams layoutParams = this.wV.getLayoutParams();
+                layoutParams.width = screenWidth;
+                layoutParams.height = (int) (screenWidth * (i2 / i));
+                KSImageLoader.loadImage(this.wV, au.coverUrl, this.mAdTemplate);
             }
         }
 
         @Override // com.kwad.components.ad.reward.widget.tailframe.a
-        public final void a(Context context) {
+        public final void E(Context context) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-                super.a(context);
-                this.f = (ImageView) this.c.findViewById(R.id.obfuscated_res_0x7f0911e5);
-                this.g = (ImageView) this.c.findViewById(R.id.obfuscated_res_0x7f0911e6);
-                this.h = (ImageView) this.c.findViewById(R.id.obfuscated_res_0x7f0911e7);
+                super.E(context);
+                this.xi = this.wU.findViewById(R.id.obfuscated_res_0x7f092390);
             }
         }
 
@@ -112,70 +169,13 @@ public class TailFrameView extends KSFrameLayout {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, adTemplate, jSONObject, bVar) == null) {
                 super.a(adTemplate, jSONObject, bVar);
-                d();
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public static class c extends com.kwad.components.ad.reward.widget.tailframe.a implements com.kwad.sdk.widget.c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public View f;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public c() {
-            super(R.layout.obfuscated_res_0x7f0d047d);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-        }
-
-        private void d() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(65537, this) == null) {
-                AdInfo.AdMaterialInfo.MaterialFeature Q = com.kwad.sdk.core.response.a.a.Q(this.b);
-                int i = Q.width;
-                int i2 = Q.height;
-                int c = com.kwad.sdk.b.kwai.a.c(this.c.getContext());
-                ViewGroup.LayoutParams layoutParams = this.d.getLayoutParams();
-                layoutParams.width = c;
-                layoutParams.height = (int) (c * (i2 / i));
-                KSImageLoader.loadImage(this.d, Q.coverUrl, this.a);
-            }
-        }
-
-        @Override // com.kwad.components.ad.reward.widget.tailframe.a
-        public final void a(Context context) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-                super.a(context);
-                this.f = this.c.findViewById(R.id.obfuscated_res_0x7f09238e);
-            }
-        }
-
-        @Override // com.kwad.components.ad.reward.widget.tailframe.a
-        public final void a(@NonNull AdTemplate adTemplate, JSONObject jSONObject, com.kwad.components.ad.reward.widget.tailframe.b bVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, adTemplate, jSONObject, bVar) == null) {
-                super.a(adTemplate, jSONObject, bVar);
-                if (com.kwad.sdk.core.response.a.d.q(this.a)) {
-                    this.f.setVisibility(8);
-                    this.e.setVisibility(8);
-                    View view2 = this.c;
+                if (com.kwad.sdk.core.response.a.d.p(this.mAdTemplate)) {
+                    this.xi.setVisibility(8);
+                    this.bq.setVisibility(8);
+                    View view2 = this.wU;
                     view2.setBackgroundColor(ContextCompat.getColor(view2.getContext(), R.color.obfuscated_res_0x7f060765));
                 }
-                d();
+                jm();
             }
         }
     }
@@ -187,7 +187,7 @@ public class TailFrameView extends KSFrameLayout {
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public d() {
-            super(R.layout.obfuscated_res_0x7f0d047e);
+            super(R.layout.obfuscated_res_0x7f0d047d);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -208,13 +208,13 @@ public class TailFrameView extends KSFrameLayout {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLL(1048576, this, adTemplate, jSONObject, bVar) == null) {
                 super.a(adTemplate, jSONObject, bVar);
-                if (com.kwad.sdk.core.response.a.d.q(this.a)) {
-                    View view2 = this.c;
+                if (com.kwad.sdk.core.response.a.d.p(this.mAdTemplate)) {
+                    View view2 = this.wU;
                     view2.setBackgroundColor(ContextCompat.getColor(view2.getContext(), R.color.obfuscated_res_0x7f060765));
-                    this.d.setVisibility(8);
-                    this.e.setVisibility(8);
+                    this.wV.setVisibility(8);
+                    this.bq.setVisibility(8);
                 }
-                KSImageLoader.loadImage(this.d, com.kwad.sdk.core.response.a.a.k(this.b), this.a);
+                KSImageLoader.loadImage(this.wV, com.kwad.sdk.core.response.a.a.K(this.mAdInfo), this.mAdTemplate);
             }
         }
     }
@@ -302,53 +302,53 @@ public class TailFrameView extends KSFrameLayout {
         }
     }
 
-    private void a(boolean z, boolean z2) {
+    private void d(boolean z, boolean z2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) && this.a == null) {
-            this.a = z ? z2 ? new d() : new c() : z2 ? new b() : new a();
+        if ((interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) && this.xe == null) {
+            this.xe = z ? z2 ? new d() : new c() : z2 ? new b() : new a();
         }
     }
 
     public final void a(Context context, boolean z, boolean z2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{context, Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
-            a(z, z2);
-            this.a.a(context);
-            this.a.a(z, z2);
-            addView(this.a.a(), -1, -1);
+            d(z, z2);
+            this.xe.E(context);
+            this.xe.d(z, z2);
+            addView(this.xe.ji(), -1, -1);
         }
     }
 
     public final void a(com.kwad.components.ad.reward.widget.tailframe.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) {
-            this.a.a(this.b);
-            com.kwad.components.ad.reward.widget.tailframe.a aVar = this.a;
-            l lVar = this.b;
-            aVar.a(lVar.g, lVar.e, bVar);
+            this.xe.setCallerContext(this.nM);
+            com.kwad.components.ad.reward.widget.tailframe.a aVar = this.xe;
+            k kVar = this.nM;
+            aVar.a(kVar.mAdTemplate, kVar.mReportExtData, bVar);
         }
     }
 
-    public final void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.a.c();
-        }
-    }
-
-    public final void d() {
+    public final void destroy() {
         com.kwad.components.ad.reward.widget.tailframe.a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (aVar = this.a) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (aVar = this.xe) == null) {
             return;
         }
-        aVar.b();
+        aVar.destroy();
     }
 
-    public void setCallerContext(l lVar) {
+    public final void iP() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, lVar) == null) {
-            this.b = lVar;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.xe.iP();
+        }
+    }
+
+    public void setCallerContext(k kVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, kVar) == null) {
+            this.nM = kVar;
         }
     }
 }

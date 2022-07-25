@@ -143,16 +143,16 @@ public class AlaAllGameLiveEntryActivity extends BaseFragmentActivity {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             LinearLayout linearLayout = (LinearLayout) View.inflate(getPageContext().getPageActivity(), R.layout.obfuscated_res_0x7f0d00e2, null);
             this.a = linearLayout;
-            NavigationBar navigationBar = (NavigationBar) linearLayout.findViewById(R.id.obfuscated_res_0x7f092437);
+            NavigationBar navigationBar = (NavigationBar) linearLayout.findViewById(R.id.obfuscated_res_0x7f092439);
             this.b = navigationBar;
             navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
             this.b.setCenterTextTitle(getResources().getString(R.string.obfuscated_res_0x7f0f01fb));
-            LinearLayout linearLayout2 = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f091ca5);
+            LinearLayout linearLayout2 = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f091cab);
             this.c = linearLayout2;
-            TextView textView = (TextView) linearLayout2.findViewById(R.id.obfuscated_res_0x7f091ccf);
+            TextView textView = (TextView) linearLayout2.findViewById(R.id.obfuscated_res_0x7f091cd5);
             this.d = textView;
             textView.setClickable(false);
-            this.e = (ImageView) this.c.findViewById(R.id.obfuscated_res_0x7f091cb7);
+            this.e = (ImageView) this.c.findViewById(R.id.obfuscated_res_0x7f091cbd);
             this.c.setOnClickListener(new a(this));
             if (this.j == 1) {
                 this.c.setVisibility(0);
@@ -160,7 +160,7 @@ public class AlaAllGameLiveEntryActivity extends BaseFragmentActivity {
                 this.c.setVisibility(8);
             }
             this.h = (LinearLayout) LayoutInflater.from(getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d00e4, (ViewGroup) null);
-            this.g = this.a.findViewById(R.id.obfuscated_res_0x7f091c8f);
+            this.g = this.a.findViewById(R.id.obfuscated_res_0x7f091c95);
             this.i = new lt5(getPageContext());
             NoScrollGridView noScrollGridView = (NoScrollGridView) this.a.findViewById(R.id.obfuscated_res_0x7f0901e2);
             this.f = noScrollGridView;

@@ -34,12 +34,12 @@ public class ng7 implements PayChannelService {
 
         /* renamed from: com.repackage.ng7$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class C0689a implements ITiebaPayCallback {
+        public class C0534a implements ITiebaPayCallback {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ IPayCallback a;
 
-            public C0689a(a aVar, IPayCallback iPayCallback) {
+            public C0534a(a aVar, IPayCallback iPayCallback) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -118,7 +118,7 @@ public class ng7 implements PayChannelService {
             }
             this.a.c();
             if (this.a.a != null) {
-                this.a.a.pay(hashMap.remove("channel"), hashMap, new C0689a(this, iPayCallback));
+                this.a.a.pay(hashMap.remove("channel"), hashMap, new C0534a(this, iPayCallback));
             } else if (iPayCallback != null) {
                 iPayCallback.onPayResult(2, null);
             }

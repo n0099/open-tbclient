@@ -83,7 +83,7 @@ public class HeaderComponentMultiView extends FrameLayout implements yk6 {
             View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0310, (ViewGroup) null);
             this.a = inflate;
             addView(inflate);
-            RecyclerView recyclerView = (RecyclerView) this.a.findViewById(R.id.obfuscated_res_0x7f09067b);
+            RecyclerView recyclerView = (RecyclerView) this.a.findViewById(R.id.obfuscated_res_0x7f09067a);
             this.b = recyclerView;
             recyclerView.getLayoutParams().width = k;
             this.b.setLayoutManager(new LinearLayoutManager(getContext(), 0, false));

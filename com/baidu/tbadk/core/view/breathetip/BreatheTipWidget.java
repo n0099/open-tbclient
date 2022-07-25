@@ -17,13 +17,13 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.ef;
 import com.repackage.ff;
 import com.repackage.gf;
-import com.repackage.nu4;
 import com.repackage.ou4;
 import com.repackage.pu4;
 import com.repackage.qg;
 import com.repackage.qu4;
 import com.repackage.ru4;
 import com.repackage.su4;
+import com.repackage.tu4;
 /* loaded from: classes3.dex */
 public class BreatheTipWidget {
     public static /* synthetic */ Interceptable $ic;
@@ -31,10 +31,10 @@ public class BreatheTipWidget {
     public transient /* synthetic */ FieldHolder $fh;
     public final Context a;
     public ff b;
-    public ru4 c;
+    public su4 c;
     public BreatheTipView d;
     public View e;
-    public su4 f;
+    public tu4 f;
     public final Runnable g;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
@@ -313,26 +313,26 @@ public class BreatheTipWidget {
         }
     }
 
-    public BreatheTipWidget f(ou4 ou4Var, nu4 nu4Var) {
+    public BreatheTipWidget f(pu4 pu4Var, ou4 ou4Var) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ou4Var, nu4Var)) == null) {
-            PointType pointType = nu4Var.a;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pu4Var, ou4Var)) == null) {
+            PointType pointType = ou4Var.a;
             if (pointType == PointType.LOTTIE) {
-                this.c = new pu4(this.a);
-            } else if (pointType == PointType.DRAWABLE) {
                 this.c = new qu4(this.a);
+            } else if (pointType == PointType.DRAWABLE) {
+                this.c = new ru4(this.a);
             }
             if (this.d == null) {
                 this.d = new BreatheTipView(this.a);
             }
-            ru4 ru4Var = this.c;
-            if (ru4Var != null) {
-                ru4Var.a(nu4Var);
+            su4 su4Var = this.c;
+            if (su4Var != null) {
+                su4Var.a(ou4Var);
             }
             BreatheTipView breatheTipView = this.d;
             if (breatheTipView != null) {
-                breatheTipView.setData(ou4Var);
+                breatheTipView.setData(pu4Var);
             }
             return this;
         }
@@ -357,9 +357,9 @@ public class BreatheTipWidget {
                 return false;
             }
             h = true;
-            su4 su4Var = new su4();
-            this.f = su4Var;
-            su4Var.h(this.d, this.c, this.e);
+            tu4 tu4Var = new tu4();
+            this.f = tu4Var;
+            tu4Var.h(this.d, this.c, this.e);
             gf gfVar = new gf();
             gfVar.c(0);
             gfVar.j(this.e);

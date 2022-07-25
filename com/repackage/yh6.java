@@ -68,18 +68,18 @@ public class yh6 extends cd6<ThreadData, AutoVideoCardViewHolder<ThreadData>> im
             if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, threadData) == null) || view2 == null || threadData == null) {
                 return;
             }
-            if (view2.getId() != R.id.obfuscated_res_0x7f09232d && view2.getId() != R.id.obfuscated_res_0x7f09230c) {
-                if (view2.getId() == R.id.obfuscated_res_0x7f09203e) {
+            if (view2.getId() != R.id.obfuscated_res_0x7f09232f && view2.getId() != R.id.obfuscated_res_0x7f09230e) {
+                if (view2.getId() == R.id.obfuscated_res_0x7f092042) {
                     do6.e(threadData, 5, this.b.e, this.b.v, this.b.a0());
-                } else if (view2.getId() == R.id.obfuscated_res_0x7f090e87) {
+                } else if (view2.getId() == R.id.obfuscated_res_0x7f090e80) {
                     do6.e(threadData, 3, this.b.e, this.b.v, this.b.a0());
                 } else if (view2 instanceof ThreadGodReplyLayout) {
                     do6.e(threadData, 15, this.b.e, this.b.v, this.b.a0());
-                } else if (view2.getId() == R.id.obfuscated_res_0x7f091d51) {
+                } else if (view2.getId() == R.id.obfuscated_res_0x7f091d57) {
                     do6.e(threadData, 14, this.b.e, this.b.v, this.b.a0());
-                } else if (view2.getId() == R.id.obfuscated_res_0x7f090e65) {
+                } else if (view2.getId() == R.id.obfuscated_res_0x7f090e5e) {
                     do6.e(threadData, 12, this.b.e, this.b.v, this.b.a0());
-                } else if (view2.getId() == R.id.obfuscated_res_0x7f090e7d) {
+                } else if (view2.getId() == R.id.obfuscated_res_0x7f090e76) {
                     do6.e(threadData, 13, this.b.e, this.b.v, this.b.a0());
                 } else {
                     do6.e(threadData, 1, this.b.e, this.b.v, this.b.a0());
@@ -87,9 +87,9 @@ public class yh6 extends cd6<ThreadData, AutoVideoCardViewHolder<ThreadData>> im
             } else {
                 do6.e(threadData, 2, this.b.e, this.b.v, this.b.a0());
             }
-            if (view2.getId() == R.id.obfuscated_res_0x7f09232d || view2.getId() == R.id.obfuscated_res_0x7f09230c) {
+            if (view2.getId() == R.id.obfuscated_res_0x7f09232f || view2.getId() == R.id.obfuscated_res_0x7f09230e) {
                 fo6.k().h(this.b.v, threadData, 2);
-            } else if (view2.getId() == R.id.obfuscated_res_0x7f09202a) {
+            } else if (view2.getId() == R.id.obfuscated_res_0x7f09202e) {
                 if (threadData.getTaskInfoStatus() == 2 && threadData.getTaskInfoData() != null) {
                     String d = threadData.getTaskInfoData().d();
                     if (StringUtils.isNull(d)) {
@@ -143,10 +143,10 @@ public class yh6 extends cd6<ThreadData, AutoVideoCardViewHolder<ThreadData>> im
                 ThreadData threadData = (ThreadData) nnVar;
                 threadData.objType = 1;
                 if (this.a.x != null) {
-                    this.a.x.a(threadCardViewHolder.b(), threadData);
+                    this.a.x.a(threadCardViewHolder.a(), threadData);
                 }
-                ThreadCardUtils.jumpToPB((nn4) threadData, view2.getContext(), this.a.u, false);
-                threadCardViewHolder.c().o(new ny.a(1));
+                ThreadCardUtils.jumpToPB((on4) threadData, view2.getContext(), this.a.u, false);
+                threadCardViewHolder.b().o(new ny.a(1));
             }
         }
     }
@@ -263,28 +263,28 @@ public class yh6 extends cd6<ThreadData, AutoVideoCardViewHolder<ThreadData>> im
             exVar.x("frs");
             bVar.h(exVar);
             ey eyVar = new ey(this.k.getPageActivity());
-            tn4 tn4Var = new tn4();
+            un4 un4Var = new un4();
             if (100 == a0().tabType) {
-                tn4Var.b = 25;
+                un4Var.b = 25;
                 eyVar.y(19);
                 eyVar.D(14);
             } else {
-                tn4Var.b = 2;
+                un4Var.b = 2;
                 eyVar.y(2);
                 eyVar.D(1);
             }
-            tn4Var.h = 2;
-            eyVar.w(tn4Var);
+            un4Var.h = 2;
+            eyVar.w(un4Var);
             eyVar.z(this.u);
             eyVar.c(16);
             bVar.m(eyVar);
             cy i = bVar.i();
             AutoVideoCardViewHolder autoVideoCardViewHolder = new AutoVideoCardViewHolder(i);
-            autoVideoCardViewHolder.k(this.e);
+            autoVideoCardViewHolder.j(this.e);
             i.p(this.x);
             i.r(this.u);
             V(new b(this));
-            autoVideoCardViewHolder.o();
+            autoVideoCardViewHolder.n();
             return autoVideoCardViewHolder;
         }
         return (AutoVideoCardViewHolder) invokeL.objValue;
@@ -306,7 +306,7 @@ public class yh6 extends cd6<ThreadData, AutoVideoCardViewHolder<ThreadData>> im
             }
             fo6.k().c(this.v, threadData);
             do6.o(threadData, this.e, this.v, a0());
-            oq4 taskInfoData = threadData.getTaskInfoData();
+            pq4 taskInfoData = threadData.getTaskInfoData();
             if (taskInfoData != null) {
                 String f = taskInfoData.f();
                 String d = taskInfoData.d();
@@ -333,15 +333,15 @@ public class yh6 extends cd6<ThreadData, AutoVideoCardViewHolder<ThreadData>> im
             if (threadData != null) {
                 threadData.updateShowStatus();
                 if ((threadData.getThreadVideoInfo() != null ? (char) 2 : (char) 1) == 2) {
-                    autoVideoCardViewHolder.w(w0(threadData));
+                    autoVideoCardViewHolder.v(w0(threadData));
                 }
-                autoVideoCardViewHolder.c().f().c(32);
-                autoVideoCardViewHolder.g(threadData);
-                autoVideoCardViewHolder.c().onChangeSkinType(this.k, TbadkCoreApplication.getInst().getSkinType());
-                autoVideoCardViewHolder.c().p(this.x);
-                bd6.i(autoVideoCardViewHolder.c().f(), this.j);
+                autoVideoCardViewHolder.b().f().c(32);
+                autoVideoCardViewHolder.f(threadData);
+                autoVideoCardViewHolder.b().onChangeSkinType(this.k, TbadkCoreApplication.getInst().getSkinType());
+                autoVideoCardViewHolder.b().p(this.x);
+                bd6.i(autoVideoCardViewHolder.b().f(), this.j);
             }
-            return autoVideoCardViewHolder.b();
+            return autoVideoCardViewHolder.a();
         }
         return (View) invokeCommon.objValue;
     }

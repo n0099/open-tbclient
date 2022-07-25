@@ -20,7 +20,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.n64;
+import com.repackage.o64;
 /* loaded from: classes2.dex */
 public class SwanAppMenuItemView extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
@@ -29,7 +29,7 @@ public class SwanAppMenuItemView extends RelativeLayout {
     public TextView b;
     public TextView c;
     public ImageView d;
-    public n64 e;
+    public o64 e;
     public int f;
     public int g;
     public boolean h;
@@ -61,9 +61,9 @@ public class SwanAppMenuItemView extends RelativeLayout {
 
         @Override // java.lang.Runnable
         public void run() {
-            n64 n64Var;
+            o64 o64Var;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (n64Var = this.a.e) == null || n64Var.d() == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (o64Var = this.a.e) == null || o64Var.d() == null) {
                 return;
             }
             SwanAppMenuItemView swanAppMenuItemView = this.a;
@@ -109,10 +109,10 @@ public class SwanAppMenuItemView extends RelativeLayout {
         return (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j)) == null) ? j <= 99 ? String.valueOf(j) : "99+" : (String) invokeJ.objValue;
     }
 
-    public final Drawable b(n64 n64Var) {
+    public final Drawable b(o64 o64Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, n64Var)) == null) ? n64Var.a(getContext()) : (Drawable) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, o64Var)) == null) ? o64Var.a(getContext()) : (Drawable) invokeL.objValue;
     }
 
     public final int c(int i) {
@@ -120,7 +120,7 @@ public class SwanAppMenuItemView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
             Resources resources = getResources();
-            return (int) (((i * 0.5d) + (resources.getDimension(R.dimen.obfuscated_res_0x7f0700e4) * 0.5d)) - resources.getDimension(R.dimen.obfuscated_res_0x7f0700e5));
+            return (int) (((i * 0.5d) + (resources.getDimension(R.dimen.obfuscated_res_0x7f0700e2) * 0.5d)) - resources.getDimension(R.dimen.obfuscated_res_0x7f0700e3));
         }
         return invokeI.intValue;
     }
@@ -138,25 +138,25 @@ public class SwanAppMenuItemView extends RelativeLayout {
         }
     }
 
-    public final void e(n64 n64Var, int i) {
+    public final void e(o64 o64Var, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048580, this, n64Var, i) == null) {
+        if (interceptable == null || interceptable.invokeLI(1048580, this, o64Var, i) == null) {
             this.b.setEllipsize(TextUtils.TruncateAt.END);
-            this.b.setAlpha(n64Var.i() ? 1.0f : 0.3f);
-            this.a.setEnabled(n64Var.i());
+            this.b.setAlpha(o64Var.i() ? 1.0f : 0.3f);
+            this.a.setEnabled(o64Var.i());
             this.a.setScaleType(ImageView.ScaleType.CENTER);
             this.a.setVisibility(0);
-            g(n64Var);
-            f(n64Var, i);
+            g(o64Var);
+            f(o64Var, i);
         }
     }
 
-    public final void f(n64 n64Var, int i) {
+    public final void f(o64 o64Var, int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(1048581, this, n64Var, i) == null) || n64Var == null) {
+        if (!(interceptable == null || interceptable.invokeLI(1048581, this, o64Var, i) == null) || o64Var == null) {
             return;
         }
-        int f = n64Var.f();
+        int f = o64Var.f();
         if (f == 0) {
             this.c.setVisibility(8);
             this.c.setVisibility(8);
@@ -167,14 +167,14 @@ public class SwanAppMenuItemView extends RelativeLayout {
                 return;
             }
             this.c.setVisibility(8);
-            this.d.setImageDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f0810c1));
+            this.d.setImageDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f0810c5));
             this.d.setVisibility(0);
         } else if (i <= 0) {
         } else {
             this.d.setVisibility(8);
-            this.c.setText(a(n64Var.e()));
-            this.c.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060a44));
-            this.c.setBackground(getResources().getDrawable(R.drawable.obfuscated_res_0x7f0810c0));
+            this.c.setText(a(o64Var.e()));
+            this.c.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060a34));
+            this.c.setBackground(getResources().getDrawable(R.drawable.obfuscated_res_0x7f0810c4));
             ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.c.getLayoutParams();
             marginLayoutParams.leftMargin = c(i);
             this.c.setLayoutParams(marginLayoutParams);
@@ -182,27 +182,27 @@ public class SwanAppMenuItemView extends RelativeLayout {
         }
     }
 
-    public final void g(n64 n64Var) {
+    public final void g(o64 o64Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048582, this, n64Var) == null) || n64Var == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048582, this, o64Var) == null) || o64Var == null) {
             return;
         }
         setAlpha(1.0f);
-        this.b.setText(n64Var.h(getContext()));
-        Drawable b = b(n64Var);
+        this.b.setText(o64Var.h(getContext()));
+        Drawable b = b(o64Var);
         if (b != null) {
             this.a.setImageDrawable(b);
-            this.a.setImageLevel(n64Var.b());
+            this.a.setImageLevel(o64Var.b());
         }
     }
 
-    public void h(n64 n64Var, int i) {
+    public void h(o64 o64Var, int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(1048583, this, n64Var, i) == null) || n64Var == null) {
+        if (!(interceptable == null || interceptable.invokeLI(1048583, this, o64Var, i) == null) || o64Var == null) {
             return;
         }
-        e(n64Var, i);
-        this.e = n64Var;
+        e(o64Var, i);
+        this.e = o64Var;
     }
 
     @Override // android.view.View
@@ -215,8 +215,8 @@ public class SwanAppMenuItemView extends RelativeLayout {
             int y = (int) motionEvent.getY();
             int action = motionEvent.getAction();
             if (action == 0) {
-                n64 n64Var = this.e;
-                if (n64Var != null && n64Var.d() != null) {
+                o64 o64Var = this.e;
+                if (o64Var != null && o64Var.d() != null) {
                     removeCallbacks(this.i);
                     this.h = false;
                     this.f = x;

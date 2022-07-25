@@ -300,13 +300,13 @@ public class oh5 {
         if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.d == null) {
             return;
         }
-        Dialog dialog = new Dialog(this.a, R.style.obfuscated_res_0x7f1003a3);
+        Dialog dialog = new Dialog(this.a, R.style.obfuscated_res_0x7f1003a6);
         this.l = dialog;
         dialog.setCancelable(this.e.S);
         this.l.setContentView(this.d);
         Window window = this.l.getWindow();
         if (window != null) {
-            window.setWindowAnimations(R.style.obfuscated_res_0x7f1003c9);
+            window.setWindowAnimations(R.style.obfuscated_res_0x7f1003cc);
             window.setGravity(17);
         }
         this.l.setOnDismissListener(new f(this));
@@ -384,10 +384,10 @@ public class oh5 {
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -2, 80);
             LayoutInflater from = LayoutInflater.from(this.a);
             if (o()) {
-                ViewGroup viewGroup = (ViewGroup) from.inflate(R.layout.obfuscated_res_0x7f0d0487, (ViewGroup) null, false);
+                ViewGroup viewGroup = (ViewGroup) from.inflate(R.layout.obfuscated_res_0x7f0d0486, (ViewGroup) null, false);
                 this.d = viewGroup;
                 viewGroup.setBackgroundColor(0);
-                ViewGroup viewGroup2 = (ViewGroup) this.d.findViewById(R.id.obfuscated_res_0x7f0906b5);
+                ViewGroup viewGroup2 = (ViewGroup) this.d.findViewById(R.id.obfuscated_res_0x7f0906b4);
                 this.b = viewGroup2;
                 layoutParams.leftMargin = 30;
                 layoutParams.rightMargin = 30;
@@ -399,14 +399,14 @@ public class oh5 {
                 if (eh5Var.y == null) {
                     eh5Var.y = (ViewGroup) ((Activity) this.a).getWindow().getDecorView();
                 }
-                ViewGroup viewGroup3 = (ViewGroup) from.inflate(R.layout.obfuscated_res_0x7f0d0487, this.e.y, false);
+                ViewGroup viewGroup3 = (ViewGroup) from.inflate(R.layout.obfuscated_res_0x7f0d0486, this.e.y, false);
                 this.c = viewGroup3;
                 viewGroup3.setLayoutParams(new FrameLayout.LayoutParams(-1, -1));
                 int i = this.e.P;
                 if (i != -1) {
                     this.c.setBackgroundColor(i);
                 }
-                ViewGroup viewGroup4 = (ViewGroup) this.c.findViewById(R.id.obfuscated_res_0x7f0906b5);
+                ViewGroup viewGroup4 = (ViewGroup) this.c.findViewById(R.id.obfuscated_res_0x7f0906b4);
                 this.b = viewGroup4;
                 viewGroup4.setLayoutParams(layoutParams);
             }
@@ -472,7 +472,7 @@ public class oh5 {
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048591, this, z)) == null) {
             ViewGroup viewGroup = this.c;
             if (viewGroup != null) {
-                View findViewById = viewGroup.findViewById(R.id.obfuscated_res_0x7f09169e);
+                View findViewById = viewGroup.findViewById(R.id.obfuscated_res_0x7f091679);
                 if (z) {
                     findViewById.setOnTouchListener(this.p);
                 } else {

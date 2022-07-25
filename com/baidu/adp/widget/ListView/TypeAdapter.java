@@ -54,7 +54,7 @@ public class TypeAdapter extends BaseAdapter implements sn<nn> {
             this.itemView.setTag(this);
         }
 
-        public View b() {
+        public View a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.itemView : (View) invokeV.objValue;

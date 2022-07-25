@@ -8,16 +8,16 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.UiThread;
 import com.kwad.sdk.api.core.ResContext;
-import com.kwad.sdk.core.d.b;
+import com.kwad.sdk.core.e.b;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 /* loaded from: classes5.dex */
 public class Presenter {
-    public View b;
-    public Object c;
-    public final List<Presenter> a = new ArrayList();
-    public PresenterState d = PresenterState.INIT;
+    public Object ajn;
+    public View mRootView;
+    public final List<Presenter> ajm = new ArrayList();
+    public PresenterState ajo = PresenterState.INIT;
 
     /* loaded from: classes5.dex */
     public enum PresenterState {
@@ -29,12 +29,12 @@ public class Presenter {
         CREATE(1) { // from class: com.kwad.sdk.mvp.Presenter.PresenterState.2
             @Override // com.kwad.sdk.mvp.Presenter.PresenterState
             public final void performCallState(Presenter presenter) {
-                for (Presenter presenter2 : presenter.a) {
+                for (Presenter presenter2 : presenter.ajm) {
                     try {
-                        presenter2.c(presenter.b);
+                        presenter2.B(presenter.mRootView);
                     } catch (Exception e) {
-                        com.kwad.sdk.service.a.a(e);
-                        b.a(e);
+                        com.kwad.sdk.service.a.gatherException(e);
+                        b.printStackTrace(e);
                     }
                 }
             }
@@ -42,12 +42,12 @@ public class Presenter {
         BIND(2) { // from class: com.kwad.sdk.mvp.Presenter.PresenterState.3
             @Override // com.kwad.sdk.mvp.Presenter.PresenterState
             public final void performCallState(Presenter presenter) {
-                for (Presenter presenter2 : presenter.a) {
+                for (Presenter presenter2 : presenter.ajm) {
                     try {
-                        presenter2.a(presenter.c);
+                        presenter2.e(presenter.ajn);
                     } catch (Exception e) {
-                        com.kwad.sdk.service.a.a(e);
-                        b.a(e);
+                        com.kwad.sdk.service.a.gatherException(e);
+                        b.printStackTrace(e);
                     }
                 }
             }
@@ -55,12 +55,12 @@ public class Presenter {
         UNBIND(3) { // from class: com.kwad.sdk.mvp.Presenter.PresenterState.4
             @Override // com.kwad.sdk.mvp.Presenter.PresenterState
             public final void performCallState(Presenter presenter) {
-                for (Presenter presenter2 : presenter.a) {
+                for (Presenter presenter2 : presenter.ajm) {
                     try {
-                        presenter2.o();
+                        presenter2.bt();
                     } catch (Exception e) {
-                        com.kwad.sdk.service.a.a(e);
-                        b.a(e);
+                        com.kwad.sdk.service.a.gatherException(e);
+                        b.printStackTrace(e);
                     }
                 }
             }
@@ -68,12 +68,12 @@ public class Presenter {
         DESTROY(4) { // from class: com.kwad.sdk.mvp.Presenter.PresenterState.5
             @Override // com.kwad.sdk.mvp.Presenter.PresenterState
             public final void performCallState(Presenter presenter) {
-                for (Presenter presenter2 : presenter.a) {
+                for (Presenter presenter2 : presenter.ajm) {
                     try {
-                        presenter2.p();
+                        presenter2.destroy();
                     } catch (Exception e) {
-                        com.kwad.sdk.service.a.a(e);
-                        b.a(e);
+                        com.kwad.sdk.service.a.gatherException(e);
+                        b.printStackTrace(e);
                     }
                 }
             }
@@ -92,114 +92,114 @@ public class Presenter {
         public abstract void performCallState(Presenter presenter);
     }
 
-    private boolean d() {
-        return this.d.index() >= PresenterState.CREATE.index();
+    private boolean xP() {
+        return this.ajo.index() >= PresenterState.CREATE.index();
     }
 
-    public void a() {
+    @UiThread
+    public final void B(View view2) {
+        this.ajo = PresenterState.CREATE;
+        this.mRootView = view2;
+        onCreate();
+        this.ajo.performCallState(this);
     }
 
     public final void a(Presenter presenter) {
-        this.a.add(presenter);
-        if (!d() || presenter.d()) {
+        this.ajm.add(presenter);
+        if (!xP() || presenter.xP()) {
             return;
         }
-        c(this.b);
+        B(this.mRootView);
+    }
+
+    public void aq() {
     }
 
     @UiThread
-    public final void a(@NonNull Object obj) {
-        if (this.d != PresenterState.INIT) {
+    public final void bt() {
+        this.ajo = PresenterState.UNBIND;
+        onUnbind();
+        this.ajo.performCallState(this);
+    }
+
+    @UiThread
+    public final void destroy() {
+        if (this.ajo == PresenterState.BIND) {
+            bt();
+        }
+        this.ajo = PresenterState.DESTROY;
+        onDestroy();
+        this.ajo.performCallState(this);
+    }
+
+    @UiThread
+    public final void e(@NonNull Object obj) {
+        if (this.ajo != PresenterState.INIT) {
             PresenterState presenterState = PresenterState.DESTROY;
         }
-        if (this.d == PresenterState.BIND) {
-            o();
+        if (this.ajo == PresenterState.BIND) {
+            bt();
         }
-        this.d = PresenterState.BIND;
-        this.c = obj;
-        a();
-        this.d.performCallState(this);
+        this.ajo = PresenterState.BIND;
+        this.ajn = obj;
+        aq();
+        this.ajo.performCallState(this);
     }
 
-    public final <T extends View> T b(int i) {
-        return (T) this.b.findViewById(i);
-    }
-
-    @UiThread
-    public final void c(View view2) {
-        this.d = PresenterState.CREATE;
-        this.b = view2;
-        i_();
-        this.d.performCallState(this);
-    }
-
-    public void e_() {
-    }
-
-    public void i_() {
-    }
-
-    public void k_() {
-    }
-
-    @UiThread
-    public final void o() {
-        this.d = PresenterState.UNBIND;
-        k_();
-        this.d.performCallState(this);
-    }
-
-    @UiThread
-    public final void p() {
-        if (this.d == PresenterState.BIND) {
-            o();
-        }
-        this.d = PresenterState.DESTROY;
-        e_();
-        this.d.performCallState(this);
-    }
-
-    public final View q() {
-        return this.b;
-    }
-
-    public final List<Presenter> r() {
-        return this.a;
+    public final <T extends View> T findViewById(int i) {
+        return (T) this.mRootView.findViewById(i);
     }
 
     @Nullable
     @UiThread
-    public final Activity s() {
-        Context u = u();
+    public final Activity getActivity() {
+        Context context = getContext();
         HashSet hashSet = new HashSet();
         do {
-            hashSet.add(u);
-            if (!(u instanceof ContextWrapper)) {
+            hashSet.add(context);
+            if (!(context instanceof ContextWrapper)) {
                 return null;
             }
-            if (u instanceof Activity) {
-                return (Activity) u;
+            if (context instanceof Activity) {
+                return (Activity) context;
             }
-            if (u instanceof ResContext) {
-                Context delegatedContext = ((ResContext) u).getDelegatedContext();
+            if (context instanceof ResContext) {
+                Context delegatedContext = ((ResContext) context).getDelegatedContext();
                 if (delegatedContext instanceof Activity) {
                     return (Activity) delegatedContext;
                 }
             }
-            u = ((ContextWrapper) u).getBaseContext();
-        } while (!hashSet.contains(u));
+            context = ((ContextWrapper) context).getBaseContext();
+        } while (!hashSet.contains(context));
         return null;
     }
 
-    public final Object t() {
-        return this.c;
-    }
-
-    public final Context u() {
-        View view2 = this.b;
+    public final Context getContext() {
+        View view2 = this.mRootView;
         if (view2 == null) {
             return null;
         }
         return view2.getContext();
+    }
+
+    public final View getRootView() {
+        return this.mRootView;
+    }
+
+    public void onCreate() {
+    }
+
+    public void onDestroy() {
+    }
+
+    public void onUnbind() {
+    }
+
+    public final List<Presenter> xQ() {
+        return this.ajm;
+    }
+
+    public final Object xR() {
+        return this.ajn;
     }
 }

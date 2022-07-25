@@ -14,9 +14,9 @@ import com.kwad.components.offline.api.IOfflineCompo;
 import com.kwad.components.offline.api.tk.IOfflineCompoTachikomaView;
 import com.kwad.components.offline.api.tk.ITkOfflineCompo;
 import com.kwad.components.offline.api.tk.model.StyleTemplate;
-import com.kwad.components.offline.tk.kwai.c;
+import com.kwad.components.offline.tk.kwai.d;
 import com.kwad.sdk.api.SdkConfig;
-import com.kwad.sdk.components.g;
+import com.kwad.sdk.components.h;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class TkCompoImpl extends DefaultOfflineCompo implements com.kwad.components.core.offline.api.kwai.a {
@@ -80,7 +80,7 @@ public class TkCompoImpl extends DefaultOfflineCompo implements com.kwad.compone
     }
 
     @Override // com.kwad.components.core.offline.api.kwai.a
-    public g getView(Context context, String str, int i, int i2) {
+    public h getView(Context context, String str, int i, int i2) {
         InterceptResult invokeLLII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLII = interceptable.invokeLLII(1048581, this, context, str, i, i2)) == null) {
@@ -88,9 +88,9 @@ public class TkCompoImpl extends DefaultOfflineCompo implements com.kwad.compone
             if (view2 == null) {
                 return null;
             }
-            return new c(view2);
+            return new d(view2);
         }
-        return (g) invokeLLII.objValue;
+        return (h) invokeLLII.objValue;
     }
 
     @Override // com.kwad.components.core.offline.init.DefaultOfflineCompo, com.kwad.sdk.components.a

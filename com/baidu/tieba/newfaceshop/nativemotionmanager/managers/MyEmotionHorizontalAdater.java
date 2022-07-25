@@ -54,7 +54,7 @@ public class MyEmotionHorizontalAdater extends BaseAdapter {
             this.a = (EmotionManageHorizontalView) view2;
         }
 
-        public void d(EmotionPackageData emotionPackageData, int i) {
+        public void c(EmotionPackageData emotionPackageData, int i) {
             EmotionManageHorizontalView emotionManageHorizontalView;
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeLI(1048576, this, emotionPackageData, i) == null) || (emotionManageHorizontalView = this.a) == null || emotionPackageData == null) {
@@ -198,7 +198,7 @@ public class MyEmotionHorizontalAdater extends BaseAdapter {
             if (emotionGridViewHolder == null) {
                 emotionGridViewHolder = (EmotionGridViewHolder) view2.getTag();
             }
-            emotionGridViewHolder.d(this.a.get(i), this.e);
+            emotionGridViewHolder.c(this.a.get(i), this.e);
             HListView listView = emotionGridViewHolder.a.getListView();
             eo7.a aVar = this.b.get(i);
             if (aVar != null) {

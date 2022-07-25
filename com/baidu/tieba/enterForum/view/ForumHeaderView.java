@@ -61,10 +61,10 @@ public class ForumHeaderView extends LinearLayout implements View.OnClickListene
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             setOrientation(1);
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d048e, (ViewGroup) this, true);
-            this.a = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091ca5);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f091ccf);
-            this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f091cb7);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d048d, (ViewGroup) this, true);
+            this.a = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091cab);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f091cd5);
+            this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f091cbd);
             setDescendantFocusability(262144);
             this.a.setOnClickListener(this);
         }

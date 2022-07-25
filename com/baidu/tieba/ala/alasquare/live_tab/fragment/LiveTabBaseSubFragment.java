@@ -12,14 +12,14 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.k55;
+import com.repackage.l55;
 /* loaded from: classes3.dex */
 public abstract class LiveTabBaseSubFragment extends BaseFragment {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
     public LinearLayout b;
-    public k55 c;
+    public l55 c;
     public boolean d;
     public boolean e;
     public int f;
@@ -88,9 +88,9 @@ public abstract class LiveTabBaseSubFragment extends BaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
             super.onChangeSkinType(i);
-            k55 k55Var = this.c;
-            if (k55Var != null) {
-                k55Var.onChangeSkinType();
+            l55 l55Var = this.c;
+            if (l55Var != null) {
+                l55Var.onChangeSkinType();
             }
         }
     }
@@ -123,11 +123,11 @@ public abstract class LiveTabBaseSubFragment extends BaseFragment {
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             this.b.setVisibility(0);
             if (this.c == null) {
-                this.c = new k55(this.a, null);
+                this.c = new l55(this.a, null);
             }
             this.c.e();
             this.c.i(R.drawable.new_pic_emotion_03);
-            this.c.o(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0c44));
+            this.c.o(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0c30));
             this.c.onChangeSkinType();
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -1);
             if (this.c.b() == null || this.c.b().getParent() != null) {

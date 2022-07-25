@@ -225,9 +225,9 @@ public class nj7 {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             rj7.d b2 = this.m.b();
             if (b2 == null) {
-                pi.N(this.a.getPageActivity(), R.string.obfuscated_res_0x7f0f13a6);
+                pi.N(this.a.getPageActivity(), R.string.obfuscated_res_0x7f0f1355);
             } else if (b2.j == 1 && b2.k) {
-                pi.N(this.a.getPageActivity(), R.string.obfuscated_res_0x7f0f1423);
+                pi.N(this.a.getPageActivity(), R.string.obfuscated_res_0x7f0f13d2);
             } else {
                 t(b2.e, b2.f / 100, b2.h, b2.j);
                 if (this.B == 26) {
@@ -277,22 +277,22 @@ public class nj7 {
             Integer valueOf4 = Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080605);
             Integer valueOf5 = Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080607);
             if (i == 1) {
-                linkedHashMap.put(this.a.getPageActivity().getResources().getString(R.string.obfuscated_res_0x7f0f0aaf), valueOf5);
-                linkedHashMap.put(this.a.getPageActivity().getResources().getString(R.string.obfuscated_res_0x7f0f0aad), valueOf4);
-                linkedHashMap.put(this.a.getPageActivity().getResources().getString(R.string.obfuscated_res_0x7f0f0aab), valueOf3);
-                linkedHashMap.put(this.a.getPageActivity().getResources().getString(R.string.obfuscated_res_0x7f0f0ab0), valueOf2);
-                linkedHashMap.put(this.a.getPageActivity().getResources().getString(R.string.obfuscated_res_0x7f0f0aae), valueOf);
+                linkedHashMap.put(this.a.getPageActivity().getResources().getString(R.string.obfuscated_res_0x7f0f0a9b), valueOf5);
+                linkedHashMap.put(this.a.getPageActivity().getResources().getString(R.string.obfuscated_res_0x7f0f0a99), valueOf4);
+                linkedHashMap.put(this.a.getPageActivity().getResources().getString(R.string.obfuscated_res_0x7f0f0a97), valueOf3);
+                linkedHashMap.put(this.a.getPageActivity().getResources().getString(R.string.obfuscated_res_0x7f0f0a9c), valueOf2);
+                linkedHashMap.put(this.a.getPageActivity().getResources().getString(R.string.obfuscated_res_0x7f0f0a9a), valueOf);
             } else if (i == 2) {
-                linkedHashMap.put(this.a.getPageActivity().getResources().getString(R.string.obfuscated_res_0x7f0f0aaf), valueOf5);
-                linkedHashMap.put(this.a.getPageActivity().getResources().getString(R.string.obfuscated_res_0x7f0f0aad), valueOf4);
-                linkedHashMap.put(this.a.getPageActivity().getResources().getString(R.string.obfuscated_res_0x7f0f0aa8), Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080602));
-                linkedHashMap.put(this.a.getPageActivity().getResources().getString(R.string.obfuscated_res_0x7f0f0aa7), Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080601));
-                linkedHashMap.put(this.a.getPageActivity().getResources().getString(R.string.obfuscated_res_0x7f0f0aaa), Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080604));
-                linkedHashMap.put(this.a.getPageActivity().getResources().getString(R.string.obfuscated_res_0x7f0f0aac), Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080603));
-                linkedHashMap.put(this.a.getPageActivity().getResources().getString(R.string.obfuscated_res_0x7f0f0aab), valueOf3);
-                linkedHashMap.put(this.a.getPageActivity().getResources().getString(R.string.obfuscated_res_0x7f0f0ab0), valueOf2);
-                linkedHashMap.put(this.a.getPageActivity().getResources().getString(R.string.obfuscated_res_0x7f0f0aae), valueOf);
-                linkedHashMap.put(this.a.getPageActivity().getResources().getString(R.string.obfuscated_res_0x7f0f0aa9), Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080606));
+                linkedHashMap.put(this.a.getPageActivity().getResources().getString(R.string.obfuscated_res_0x7f0f0a9b), valueOf5);
+                linkedHashMap.put(this.a.getPageActivity().getResources().getString(R.string.obfuscated_res_0x7f0f0a99), valueOf4);
+                linkedHashMap.put(this.a.getPageActivity().getResources().getString(R.string.obfuscated_res_0x7f0f0a94), Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080602));
+                linkedHashMap.put(this.a.getPageActivity().getResources().getString(R.string.obfuscated_res_0x7f0f0a93), Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080601));
+                linkedHashMap.put(this.a.getPageActivity().getResources().getString(R.string.obfuscated_res_0x7f0f0a96), Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080604));
+                linkedHashMap.put(this.a.getPageActivity().getResources().getString(R.string.obfuscated_res_0x7f0f0a98), Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080603));
+                linkedHashMap.put(this.a.getPageActivity().getResources().getString(R.string.obfuscated_res_0x7f0f0a97), valueOf3);
+                linkedHashMap.put(this.a.getPageActivity().getResources().getString(R.string.obfuscated_res_0x7f0f0a9c), valueOf2);
+                linkedHashMap.put(this.a.getPageActivity().getResources().getString(R.string.obfuscated_res_0x7f0f0a9a), valueOf);
+                linkedHashMap.put(this.a.getPageActivity().getResources().getString(R.string.obfuscated_res_0x7f0f0a95), Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080606));
             }
             for (Map.Entry entry : linkedHashMap.entrySet()) {
                 pj7 pj7Var = new pj7();
@@ -308,19 +308,19 @@ public class nj7 {
     public final void o() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.c = (RelativeLayout) this.b.findViewById(R.id.obfuscated_res_0x7f091b5c);
-            this.d = (HListView) this.b.findViewById(R.id.obfuscated_res_0x7f091986);
-            this.i = (LinearLayout) this.b.findViewById(R.id.obfuscated_res_0x7f091ad1);
-            this.e = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f091ad2);
-            this.f = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0919b1);
-            this.g = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0919aa);
-            this.h = (GridView) this.b.findViewById(R.id.obfuscated_res_0x7f0919a0);
-            this.k = (NoNetworkView) this.b.findViewById(R.id.obfuscated_res_0x7f092439);
-            this.j = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f09144a);
-            this.l = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f092252);
-            this.d.setBackgroundResource(R.drawable.obfuscated_res_0x7f0811a4);
+            this.c = (RelativeLayout) this.b.findViewById(R.id.obfuscated_res_0x7f091b36);
+            this.d = (HListView) this.b.findViewById(R.id.obfuscated_res_0x7f091961);
+            this.i = (LinearLayout) this.b.findViewById(R.id.obfuscated_res_0x7f091aab);
+            this.e = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f091aac);
+            this.f = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f09198c);
+            this.g = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091985);
+            this.h = (GridView) this.b.findViewById(R.id.obfuscated_res_0x7f09197b);
+            this.k = (NoNetworkView) this.b.findViewById(R.id.obfuscated_res_0x7f09243b);
+            this.j = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091426);
+            this.l = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f092254);
+            this.d.setBackgroundResource(R.drawable.obfuscated_res_0x7f0811a8);
             this.d.setOnItemClickListener(this.D);
-            this.d.setSelector(this.a.getPageActivity().getResources().getDrawable(R.drawable.obfuscated_res_0x7f0811a4));
+            this.d.setSelector(this.a.getPageActivity().getResources().getDrawable(R.drawable.obfuscated_res_0x7f0811a8));
             this.h.setVerticalSpacing(this.a.getPageActivity().getResources().getDimensionPixelSize(R.dimen.tbds58));
             this.h.setHorizontalSpacing(this.a.getPageActivity().getResources().getDimensionPixelSize(R.dimen.tbds108));
             this.j.setOnClickListener(this.E);
@@ -412,12 +412,12 @@ public class nj7 {
         if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), Integer.valueOf(i)}) == null) {
             PayConfig payConfig = new PayConfig(1, "0", String.valueOf(j), String.valueOf(j2), String.valueOf(j3), true, this.C.booleanValue(), PageDialogHelper$PayForm.NOT_SET, this.z, this.A);
             payConfig.setTitle(this.v);
-            payConfig.setOrderName(this.w + this.a.getPageActivity().getString(R.string.obfuscated_res_0x7f0f0aa6, new Object[]{String.valueOf(j3)}));
+            payConfig.setOrderName(this.w + this.a.getPageActivity().getString(R.string.obfuscated_res_0x7f0f0a92, new Object[]{String.valueOf(j3)}));
             payConfig.setAutoPay(i);
             if (this.B == 23) {
                 payConfig.paymentPosKey = PayConfig.PAYMENT_POS_KEY_MANGA;
             }
-            e95.c().a(payConfig, this.a.getPageActivity());
+            f95.c().a(payConfig, this.a.getPageActivity());
         }
     }
 
@@ -475,7 +475,7 @@ public class nj7 {
     public final void x(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048588, this, j) == null) {
-            this.j.setText(this.a.getPageActivity().getResources().getString(R.string.obfuscated_res_0x7f0f13a4, "" + (j / 100)));
+            this.j.setText(this.a.getPageActivity().getResources().getString(R.string.obfuscated_res_0x7f0f1353, "" + (j / 100)));
         }
     }
 
@@ -486,21 +486,21 @@ public class nj7 {
             int i = this.x;
             if (2 == i) {
                 if (this.y == 2) {
-                    string = this.a.getPageActivity().getString(R.string.obfuscated_res_0x7f0f043d, new Object[]{this.t});
+                    string = this.a.getPageActivity().getString(R.string.obfuscated_res_0x7f0f043c, new Object[]{this.t});
                 } else {
-                    string = this.a.getPageActivity().getString(R.string.obfuscated_res_0x7f0f0512, new Object[]{this.t});
+                    string = this.a.getPageActivity().getString(R.string.obfuscated_res_0x7f0f050e, new Object[]{this.t});
                 }
                 this.w = this.t;
             } else if (1 == i) {
                 long j = this.y;
                 if (j == 1) {
-                    string = this.a.getPageActivity().getString(R.string.obfuscated_res_0x7f0f043d, new Object[]{this.u});
+                    string = this.a.getPageActivity().getString(R.string.obfuscated_res_0x7f0f043c, new Object[]{this.u});
                 } else {
-                    string = j == 0 ? this.a.getPageActivity().getString(R.string.obfuscated_res_0x7f0f0512, new Object[]{this.u}) : null;
+                    string = j == 0 ? this.a.getPageActivity().getString(R.string.obfuscated_res_0x7f0f050e, new Object[]{this.u}) : null;
                 }
                 this.w = this.u;
             } else {
-                string = this.a.getPageActivity().getString(R.string.obfuscated_res_0x7f0f0512, new Object[]{this.u});
+                string = this.a.getPageActivity().getString(R.string.obfuscated_res_0x7f0f050e, new Object[]{this.u});
                 this.w = this.u;
             }
             this.v = string;

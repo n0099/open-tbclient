@@ -176,10 +176,10 @@ public class e20 extends x10 {
     public static class c<T extends b> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public List<C0617c<T>> a;
+        public List<C0466c<T>> a;
 
         /* loaded from: classes5.dex */
-        public class a implements Comparator<C0617c<T>> {
+        public class a implements Comparator<C0466c<T>> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -202,15 +202,15 @@ public class e20 extends x10 {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // java.util.Comparator
             /* renamed from: a */
-            public int compare(C0617c<T> c0617c, C0617c<T> c0617c2) {
+            public int compare(C0466c<T> c0466c, C0466c<T> c0466c2) {
                 InterceptResult invokeLL;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, c0617c, c0617c2)) == null) ? c0617c.a - c0617c2.a : invokeLL.intValue;
+                return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, c0466c, c0466c2)) == null) ? c0466c.a - c0466c2.a : invokeLL.intValue;
             }
         }
 
         /* loaded from: classes5.dex */
-        public class b implements Comparator<C0617c<T>> {
+        public class b implements Comparator<C0466c<T>> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -233,22 +233,22 @@ public class e20 extends x10 {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // java.util.Comparator
             /* renamed from: a */
-            public int compare(C0617c<T> c0617c, C0617c<T> c0617c2) {
+            public int compare(C0466c<T> c0466c, C0466c<T> c0466c2) {
                 InterceptResult invokeLL;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, c0617c, c0617c2)) == null) ? c0617c2.a - c0617c.a : invokeLL.intValue;
+                return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, c0466c, c0466c2)) == null) ? c0466c2.a - c0466c.a : invokeLL.intValue;
             }
         }
 
         /* renamed from: com.repackage.e20$c$c  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public static class C0617c<T> {
+        public static class C0466c<T> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public int a;
             public T b;
 
-            public C0617c(T t) {
+            public C0466c(T t) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -296,18 +296,18 @@ public class e20 extends x10 {
             this.a = new ArrayList();
         }
 
-        public C0617c a(T t) {
+        public C0466c a(T t) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, t)) == null) {
-                C0617c<T> c0617c = new C0617c<>(t);
-                this.a.add(c0617c);
-                return c0617c;
+                C0466c<T> c0466c = new C0466c<>(t);
+                this.a.add(c0466c);
+                return c0466c;
             }
-            return (C0617c) invokeL.objValue;
+            return (C0466c) invokeL.objValue;
         }
 
-        public List<C0617c<T>> b() {
+        public List<C0466c<T>> b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -318,7 +318,7 @@ public class e20 extends x10 {
             return (List) invokeV.objValue;
         }
 
-        public List<C0617c<T>> c() {
+        public List<C0466c<T>> c() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
@@ -1246,16 +1246,16 @@ public class e20 extends x10 {
         return (x10.e) invokeL.objValue;
     }
 
-    public final d j(String str, int i2, List<c.C0617c<a>> list, List<c.C0617c<g>> list2, int i3, i iVar) {
+    public final d j(String str, int i2, List<c.C0466c<a>> list, List<c.C0466c<g>> list2, int i3, i iVar) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{str, Integer.valueOf(i2), list, list2, Integer.valueOf(i3), iVar})) == null) {
-            for (c.C0617c<a> c0617c : list) {
-                for (c.C0617c<g> c0617c2 : list2) {
-                    d e2 = d.e(c0617c2.a(), c0617c.a());
+            for (c.C0466c<a> c0466c : list) {
+                for (c.C0466c<g> c0466c2 : list2) {
+                    d e2 = d.e(c0466c2.a(), c0466c.a());
                     if (t(str, i2, e2, i3, iVar)) {
-                        c0617c.c();
-                        c0617c2.c();
+                        c0466c.c();
+                        c0466c2.c();
                         return e2;
                     }
                 }

@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.de5;
 import com.repackage.he5;
-import com.repackage.jd5;
+import com.repackage.kd5;
 import com.repackage.v57;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -102,9 +102,9 @@ public class UpdatesModel {
         return (List) invokeL.objValue;
     }
 
-    public static void deleteUpdatesData(UpdatesItemData updatesItemData, jd5<Boolean> jd5Var) {
+    public static void deleteUpdatesData(UpdatesItemData updatesItemData, kd5<Boolean> kd5Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, updatesItemData, jd5Var) == null) || updatesItemData == null) {
+        if (!(interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, updatesItemData, kd5Var) == null) || updatesItemData == null) {
             return;
         }
         he5.c(new de5<Boolean>(updatesItemData) { // from class: com.baidu.tieba.im.model.UpdatesModel.2
@@ -138,12 +138,12 @@ public class UpdatesModel {
                 Interceptable interceptable2 = $ic;
                 return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? Boolean.valueOf(v57.f().a(this.val$data.getNotice_id())) : (Boolean) invokeV.objValue;
             }
-        }, jd5Var);
+        }, kd5Var);
     }
 
-    public static void requestUpdatesDataFromDB(jd5<LinkedList<GroupNewsPojo>> jd5Var) {
+    public static void requestUpdatesDataFromDB(kd5<LinkedList<GroupNewsPojo>> kd5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65541, null, jd5Var) == null) {
+        if (interceptable == null || interceptable.invokeL(65541, null, kd5Var) == null) {
             he5.c(new de5<LinkedList<GroupNewsPojo>>() { // from class: com.baidu.tieba.im.model.UpdatesModel.4
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
@@ -169,13 +169,13 @@ public class UpdatesModel {
                     Interceptable interceptable2 = $ic;
                     return (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? v57.f().c(0L, Integer.MAX_VALUE, 0, "group_intro_change' , 'group_level_up' , 'group_name_change' , 'group_notice_change' , 'dismiss_group' , 'kick_out' , 'group_event_info' , 'group_activitys_change") : (LinkedList) invokeV.objValue;
                 }
-            }, jd5Var);
+            }, kd5Var);
         }
     }
 
-    public static void updateUpdatesData(jd5<Boolean> jd5Var, UpdatesItemData... updatesItemDataArr) {
+    public static void updateUpdatesData(kd5<Boolean> kd5Var, UpdatesItemData... updatesItemDataArr) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65542, null, jd5Var, updatesItemDataArr) == null) || updatesItemDataArr == null) {
+        if (!(interceptable == null || interceptable.invokeLL(65542, null, kd5Var, updatesItemDataArr) == null) || updatesItemDataArr == null) {
             return;
         }
         LinkedList linkedList = new LinkedList();
@@ -213,7 +213,7 @@ public class UpdatesModel {
                 Interceptable interceptable2 = $ic;
                 return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? v57.f().m(this.val$list) : (Boolean) invokeV.objValue;
             }
-        }, jd5Var);
+        }, kd5Var);
     }
 
     public void addSelect(UpdatesItemData updatesItemData) {
@@ -249,9 +249,9 @@ public class UpdatesModel {
         }
     }
 
-    public void deleteDatas(jd5<Boolean> jd5Var) {
+    public void deleteDatas(kd5<Boolean> kd5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, jd5Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048580, this, kd5Var) == null) {
             he5.c(new de5<Boolean>(this) { // from class: com.baidu.tieba.im.model.UpdatesModel.3
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
@@ -283,7 +283,7 @@ public class UpdatesModel {
                     Interceptable interceptable2 = $ic;
                     return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? Boolean.valueOf(v57.f().b(this.this$0.dataToDelete)) : (Boolean) invokeV.objValue;
                 }
-            }, jd5Var);
+            }, kd5Var);
         }
     }
 

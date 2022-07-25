@@ -33,14 +33,14 @@ import com.repackage.be6;
 import com.repackage.bh8;
 import com.repackage.dj6;
 import com.repackage.fj6;
-import com.repackage.fq4;
+import com.repackage.gq4;
 import com.repackage.li6;
 import com.repackage.mi6;
 import com.repackage.ng;
 import com.repackage.oi;
-import com.repackage.q55;
 import com.repackage.qk6;
 import com.repackage.qr6;
+import com.repackage.r55;
 import com.repackage.ue6;
 import com.repackage.wc6;
 import com.repackage.xh8;
@@ -88,7 +88,7 @@ public class FRSExtraStatic {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2003008 && (customResponsedMessage.getData() instanceof AbsDelegateAdapterList)) {
                 AbsDelegateAdapterList absDelegateAdapterList = (AbsDelegateAdapterList) customResponsedMessage.getData();
-                absDelegateAdapterList.add(new FrsSchoolRecommendAdapter(null, fq4.c, null));
+                absDelegateAdapterList.add(new FrsSchoolRecommendAdapter(null, gq4.c, null));
                 absDelegateAdapterList.add(new li6(null, zy5.g, true));
                 absDelegateAdapterList.add(new mi6(null, xh8.d, null));
                 absDelegateAdapterList.add(new xj6(null, qr6.e, null));
@@ -248,7 +248,7 @@ public class FRSExtraStatic {
                             if (be6Var.getContext() == null) {
                                 continue;
                             } else {
-                                q55 b = qk6Var.b();
+                                r55 b = qk6Var.b();
                                 if (b == null) {
                                     return;
                                 }

@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Window;
 import android.view.WindowManager;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mytransformapp.util.LogUtil;
@@ -94,7 +93,7 @@ public class ShareActivity extends Activity {
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, str) == null) {
                         Intent intent = new Intent();
                         Bundle bundle = new Bundle();
-                        bundle.putString(ShareLoginModel.AUTH_PASS_SDK_VERSION, "9.5.5");
+                        bundle.putString(ShareLoginModel.AUTH_PASS_SDK_VERSION, "9.6.3.3");
                         bundle.putString(ShareLoginModel.AUTH_APP_PKG_NAME, this.this$0.getPackageName());
                         bundle.putString(ShareLoginModel.INVALIDATE_BDUSS, str);
                         intent.putExtras(bundle);
@@ -112,7 +111,7 @@ public class ShareActivity extends Activity {
                         if (sapiAccount != null) {
                             bundle.putParcelable(ShareLoginModel.SHARE_ACCOUNT_INFO, sapiAccount);
                         }
-                        bundle.putString(ShareLoginModel.AUTH_PASS_SDK_VERSION, "9.5.5");
+                        bundle.putString(ShareLoginModel.AUTH_PASS_SDK_VERSION, "9.6.3.3");
                         bundle.putString(ShareLoginModel.AUTH_APP_PKG_NAME, this.this$0.getPackageName());
                         if (SapiContext.getInstance().shareLivingunameEnable()) {
                             intent.putExtra(ShareLoginModel.FACE_LOGIN_UIDS, SapiContext.getInstance().getV2FaceLivingUnames());
@@ -156,7 +155,7 @@ public class ShareActivity extends Activity {
     }
 
     @Override // android.app.Activity
-    public void onCreate(@Nullable Bundle bundle) {
+    public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
             super.onCreate(bundle);

@@ -50,7 +50,7 @@ public class ad8 extends xc8 {
                 intent.putExtra("android.intent.extra.TEXT", str);
                 intent.setType("text/plain");
                 Context context = this.b;
-                if (fd8.startActivity(context, Intent.createChooser(intent, context.getString(R.string.obfuscated_res_0x7f0f1174)))) {
+                if (fd8.startActivity(context, Intent.createChooser(intent, context.getString(R.string.obfuscated_res_0x7f0f1123)))) {
                     if (ed8Var != null) {
                         ed8Var.e1(0, 1);
                         return;
@@ -63,7 +63,7 @@ public class ad8 extends xc8 {
                     return;
                 }
             }
-            pi.N(d(), R.string.obfuscated_res_0x7f0f1147);
+            pi.N(d(), R.string.obfuscated_res_0x7f0f10f6);
             if (ed8Var != null) {
                 ed8Var.e1(0, 2);
             }

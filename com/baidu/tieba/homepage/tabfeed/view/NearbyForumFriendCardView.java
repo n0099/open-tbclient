@@ -25,9 +25,9 @@ import com.repackage.gx;
 import com.repackage.hx;
 import com.repackage.im7;
 import com.repackage.jm7;
-import com.repackage.p05;
-import com.repackage.ur4;
+import com.repackage.q05;
 import com.repackage.uz6;
+import com.repackage.vr4;
 import java.util.LinkedList;
 /* loaded from: classes3.dex */
 public class NearbyForumFriendCardView extends LinearLayout implements hx, gx<jm7>, View.OnClickListener {
@@ -69,17 +69,17 @@ public class NearbyForumFriendCardView extends LinearLayout implements hx, gx<jm
     public final void b(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d05ed, (ViewGroup) this, true);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d05f7, (ViewGroup) this, true);
             setOrientation(1);
             setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f09225f);
-            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f09225e);
-            this.f = (ImageView) findViewById(R.id.obfuscated_res_0x7f090fb0);
-            this.d = findViewById(R.id.obfuscated_res_0x7f0915a4);
-            this.g = findViewById(R.id.obfuscated_res_0x7f0915a2);
-            this.h = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0915a1);
-            this.b = findViewById(R.id.obfuscated_res_0x7f09124a);
-            BdTypeRecyclerView bdTypeRecyclerView = (BdTypeRecyclerView) findViewById(R.id.obfuscated_res_0x7f091abb);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f092261);
+            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f092260);
+            this.f = (ImageView) findViewById(R.id.obfuscated_res_0x7f090fa9);
+            this.d = findViewById(R.id.obfuscated_res_0x7f09157f);
+            this.g = findViewById(R.id.obfuscated_res_0x7f09157d);
+            this.h = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f09157c);
+            this.b = findViewById(R.id.obfuscated_res_0x7f091226);
+            BdTypeRecyclerView bdTypeRecyclerView = (BdTypeRecyclerView) findViewById(R.id.obfuscated_res_0x7f091a95);
             this.i = bdTypeRecyclerView;
             bdTypeRecyclerView.setLayoutManager(new LinearLayoutManager(context));
             this.d.setOnClickListener(this);
@@ -90,7 +90,7 @@ public class NearbyForumFriendCardView extends LinearLayout implements hx, gx<jm
     public final void c(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) {
-            this.j = new im7(context, p05.l, 1);
+            this.j = new im7(context, q05.l, 1);
             LinkedList linkedList = new LinkedList();
             linkedList.add(this.j);
             this.i.a(linkedList);
@@ -125,17 +125,17 @@ public class NearbyForumFriendCardView extends LinearLayout implements hx, gx<jm
             return;
         }
         HomeGroupUbsUIHelper.handleLineColor(this.g);
-        ur4 d = ur4.d(this.c);
+        vr4 d = vr4.d(this.c);
         d.v(R.color.CAM_X0105);
         d.z(R.dimen.T_X07);
         d.A(R.string.F_X02);
-        ur4 d2 = ur4.d(this.e);
+        vr4 d2 = vr4.d(this.e);
         d2.v(R.color.CAM_X0109);
         d2.z(R.dimen.T_X08);
         d2.A(R.string.F_X01);
         SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f, R.drawable.obfuscated_res_0x7f08092f, R.color.CAM_X0109, SvgManager.SvgResourceStateType.NORMAL);
         this.a = i;
-        ur4 d3 = ur4.d(this.h);
+        vr4 d3 = vr4.d(this.h);
         d3.n(R.string.J_X06);
         d3.f(R.color.CAM_X0205);
     }
@@ -143,7 +143,7 @@ public class NearbyForumFriendCardView extends LinearLayout implements hx, gx<jm
     @Override // android.view.View.OnClickListener
     public void onClick(View view2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, view2) == null) || view2.getId() != R.id.obfuscated_res_0x7f0915a4 || getContext() == null || this.k == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, view2) == null) || view2.getId() != R.id.obfuscated_res_0x7f09157f || getContext() == null || this.k == null) {
             return;
         }
         new NearbyFriendsActivityConfig(getContext(), this.k.a).start();

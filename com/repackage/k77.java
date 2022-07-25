@@ -86,12 +86,12 @@ public class k77 {
     public void b() {
         RecommendDetailActivity recommendDetailActivity;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (recommendDetailActivity = this.a) != null && ny4.L(String.valueOf(recommendDetailActivity.c))) {
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (recommendDetailActivity = this.a) != null && oy4.L(String.valueOf(recommendDetailActivity.c))) {
             this.e.J(this.a.e, 12, false);
             RecommendDetailActivity recommendDetailActivity2 = this.a;
             this.t = recommendDetailActivity2.c;
             this.f.setText(UtilHelper.getFixedText(recommendDetailActivity2.d, 7));
-            this.g.setText(this.a.getString(R.string.obfuscated_res_0x7f0f0cc3));
+            this.g.setText(this.a.getString(R.string.obfuscated_res_0x7f0f0caf));
             e();
         }
     }
@@ -159,33 +159,33 @@ public class k77 {
         if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || (recommendDetailActivity = this.a) == null) {
             return;
         }
-        recommendDetailActivity.setContentView(R.layout.obfuscated_res_0x7f0d0721);
-        this.b = this.a.findViewById(R.id.obfuscated_res_0x7f091b72);
-        NavigationBar navigationBar = (NavigationBar) this.a.findViewById(R.id.obfuscated_res_0x7f092437);
+        recommendDetailActivity.setContentView(R.layout.obfuscated_res_0x7f0d072b);
+        this.b = this.a.findViewById(R.id.obfuscated_res_0x7f091b4c);
+        NavigationBar navigationBar = (NavigationBar) this.a.findViewById(R.id.obfuscated_res_0x7f092439);
         this.c = navigationBar;
         navigationBar.showBottomLine();
         this.c.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        k(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0f7a));
-        this.d = (NoNetworkView) this.a.findViewById(R.id.obfuscated_res_0x7f092439);
-        LinearLayout linearLayout = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f0906c1);
+        k(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0f63));
+        this.d = (NoNetworkView) this.a.findViewById(R.id.obfuscated_res_0x7f09243b);
+        LinearLayout linearLayout = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f0906c0);
         this.o = linearLayout;
         linearLayout.setVisibility(8);
-        this.p = (RelativeLayout) this.a.findViewById(R.id.obfuscated_res_0x7f0906c0);
-        this.q = (RelativeLayout) this.a.findViewById(R.id.obfuscated_res_0x7f0906b8);
-        this.r = this.a.findViewById(R.id.obfuscated_res_0x7f0907bd);
-        HeadImageView headImageView = (HeadImageView) this.a.findViewById(R.id.obfuscated_res_0x7f092320);
+        this.p = (RelativeLayout) this.a.findViewById(R.id.obfuscated_res_0x7f0906bf);
+        this.q = (RelativeLayout) this.a.findViewById(R.id.obfuscated_res_0x7f0906b7);
+        this.r = this.a.findViewById(R.id.obfuscated_res_0x7f0907bb);
+        HeadImageView headImageView = (HeadImageView) this.a.findViewById(R.id.obfuscated_res_0x7f092322);
         this.e = headImageView;
         headImageView.setIsRound(true);
-        this.f = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f09232d);
-        this.g = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f092350);
-        this.h = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f092327);
-        this.i = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f090f16);
-        this.j = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f091ead);
-        SettingTextSwitchView settingTextSwitchView = (SettingTextSwitchView) this.a.findViewById(R.id.obfuscated_res_0x7f091eae);
+        this.f = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f09232f);
+        this.g = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f092352);
+        this.h = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f092329);
+        this.i = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f090f0f);
+        this.j = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f091eb1);
+        SettingTextSwitchView settingTextSwitchView = (SettingTextSwitchView) this.a.findViewById(R.id.obfuscated_res_0x7f091eb2);
         this.l = settingTextSwitchView;
         settingTextSwitchView.setSwitchStateChangeListener(this.a);
-        this.k = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f091eb0);
-        SettingTextSwitchView settingTextSwitchView2 = (SettingTextSwitchView) this.a.findViewById(R.id.obfuscated_res_0x7f091eb1);
+        this.k = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f091eb4);
+        SettingTextSwitchView settingTextSwitchView2 = (SettingTextSwitchView) this.a.findViewById(R.id.obfuscated_res_0x7f091eb5);
         this.m = settingTextSwitchView2;
         settingTextSwitchView2.setSwitchStateChangeListener(this.a);
     }
@@ -227,15 +227,15 @@ public class k77 {
         }
         SkinManager.setBackgroundColor(this.p, R.color.CAM_X0201);
         SkinManager.setBackgroundColor(this.q, R.color.CAM_X0201);
-        ur4 d = ur4.d(this.f);
+        vr4 d = vr4.d(this.f);
         d.A(R.string.F_X02);
         d.z(R.dimen.T_X04);
         d.v(R.color.CAM_X0105);
-        ur4 d2 = ur4.d(this.g);
+        vr4 d2 = vr4.d(this.g);
         d2.A(R.string.F_X01);
         d2.z(R.dimen.T_X08);
         d2.v(R.color.CAM_X0109);
-        ur4 d3 = ur4.d(this.h);
+        vr4 d3 = vr4.d(this.h);
         d3.A(R.string.F_X01);
         d3.z(R.dimen.obfuscated_res_0x7f0702b7);
         d3.v(R.color.CAM_X0105);
@@ -298,7 +298,7 @@ public class k77 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
             if (this.n == null) {
-                this.n = NoDataViewFactory.a(this.a.getPageContext().getPageActivity(), this.b, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NODATA, pi.f(TbadkCoreApplication.getInst().getContext(), R.dimen.obfuscated_res_0x7f0702a0)), NoDataViewFactory.e.a(i), null);
+                this.n = NoDataViewFactory.a(this.a.getPageContext().getPageActivity(), this.b, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NODATA, pi.f(TbadkCoreApplication.getInst().getContext(), R.dimen.obfuscated_res_0x7f07029e)), NoDataViewFactory.e.a(i), null);
             }
             this.n.setTextOption(NoDataViewFactory.e.a(i));
             this.n.f(this.a.getPageContext(), TbadkApplication.getInst().getSkinType());
@@ -317,7 +317,7 @@ public class k77 {
         if (!StringUtils.isNull(recommendDetailActivity.d) && !this.a.d.equals(userInfoBigVip.user_name)) {
             RecommendDetailActivity recommendDetailActivity2 = this.a;
             str = recommendDetailActivity2.d;
-            if (ny4.L(String.valueOf(recommendDetailActivity2.c))) {
+            if (oy4.L(String.valueOf(recommendDetailActivity2.c))) {
                 b();
                 return;
             }
@@ -327,7 +327,7 @@ public class k77 {
         this.t = userInfoBigVip.user_id.longValue();
         this.f.setText(fixedText);
         this.g.setText(userInfoBigVip.user_type);
-        this.s = ny4.L(String.valueOf(this.t));
+        this.s = oy4.L(String.valueOf(this.t));
         if (!StringUtils.isNull(userInfoBigVip.user_detail) && !this.s) {
             this.q.setVisibility(0);
             this.r.setVisibility(0);

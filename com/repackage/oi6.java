@@ -60,19 +60,19 @@ public class oi6 extends an<ti6, ForumRuleDetailBottomVH> {
         }
         forumRuleDetailBottomVH.b.setDefaultBgResource(R.drawable.obfuscated_res_0x7f080b9b);
         forumRuleDetailBottomVH.b.J(ti6Var.a(), 10, false);
-        String string = TbadkApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f06a5);
+        String string = TbadkApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f06a1);
         EMTextView eMTextView = forumRuleDetailBottomVH.d;
         eMTextView.setText(ti6Var.b() + string);
         forumRuleDetailBottomVH.f.setDefaultBgResource(R.drawable.obfuscated_res_0x7f080b9b);
         forumRuleDetailBottomVH.f.J(ti6Var.d(), 12, false);
         forumRuleDetailBottomVH.g.setText(ti6Var.c());
         if (ForumRulesShowActivityConfig.FORUM_RULE_EDIT_FROM_SHOW.equals(this.j)) {
-            forumRuleDetailBottomVH.c(String.valueOf(System.currentTimeMillis() / 1000));
+            forumRuleDetailBottomVH.b(String.valueOf(System.currentTimeMillis() / 1000));
         } else {
-            forumRuleDetailBottomVH.h.setText(String.format(TbadkApplication.getInst().getString(R.string.obfuscated_res_0x7f0f06ac), ti6Var.g()));
-            forumRuleDetailBottomVH.e.setText(String.format(TbadkApplication.getInst().getString(R.string.obfuscated_res_0x7f0f06ac), ti6Var.g()));
+            forumRuleDetailBottomVH.h.setText(String.format(TbadkApplication.getInst().getString(R.string.obfuscated_res_0x7f0f06a8), ti6Var.g()));
+            forumRuleDetailBottomVH.e.setText(String.format(TbadkApplication.getInst().getString(R.string.obfuscated_res_0x7f0f06a8), ti6Var.g()));
         }
-        forumRuleDetailBottomVH.d(TbadkCoreApplication.getInst().getSkinType());
+        forumRuleDetailBottomVH.c(TbadkCoreApplication.getInst().getSkinType());
     }
 
     public void a0(ForumRuleDetailBottomVH forumRuleDetailBottomVH) {
@@ -80,7 +80,7 @@ public class oi6 extends an<ti6, ForumRuleDetailBottomVH> {
         if (!(interceptable == null || interceptable.invokeL(1048579, this, forumRuleDetailBottomVH) == null) || forumRuleDetailBottomVH == null) {
             return;
         }
-        forumRuleDetailBottomVH.d(TbadkCoreApplication.getInst().getSkinType());
+        forumRuleDetailBottomVH.c(TbadkCoreApplication.getInst().getSkinType());
     }
 
     /* JADX DEBUG: Method merged with bridge method */

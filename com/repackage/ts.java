@@ -217,13 +217,13 @@ public class ts<K, V> implements Iterable<Map.Entry<K, V>> {
         this.d = 0;
     }
 
-    public int b() {
+    public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.d : invokeV.intValue;
     }
 
-    public c<K, V> d(K k) {
+    public c<K, V> c(K k) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, k)) == null) {
@@ -236,30 +236,49 @@ public class ts<K, V> implements Iterable<Map.Entry<K, V>> {
         return (c) invokeL.objValue;
     }
 
-    public V e(K k, V v) {
+    public V d(K k, V v) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, k, v)) == null) {
-            c<K, V> d2 = d(k);
-            if (d2 != null) {
-                return d2.b;
+            c<K, V> c2 = c(k);
+            if (c2 != null) {
+                return c2.b;
             }
-            f(k, v);
+            e(k, v);
             return null;
         }
         return (V) invokeLL.objValue;
     }
 
+    public c<K, V> e(K k, V v) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, k, v)) == null) {
+            c<K, V> cVar = new c<>(k, v);
+            this.d++;
+            c<K, V> cVar2 = this.b;
+            if (cVar2 == null) {
+                this.a = cVar;
+                this.b = cVar;
+                return cVar;
+            }
+            cVar2.c = cVar;
+            this.b = cVar;
+            return cVar;
+        }
+        return (c) invokeLL.objValue;
+    }
+
     public boolean equals(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, obj)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, obj)) == null) {
             if (obj == this) {
                 return true;
             }
             if (obj instanceof ts) {
                 ts tsVar = (ts) obj;
-                if (b() != tsVar.b()) {
+                if (a() != tsVar.a()) {
                     return false;
                 }
                 Iterator<Map.Entry<K, V>> it = iterator();
@@ -278,26 +297,7 @@ public class ts<K, V> implements Iterable<Map.Entry<K, V>> {
         return invokeL.booleanValue;
     }
 
-    public c<K, V> f(K k, V v) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, k, v)) == null) {
-            c<K, V> cVar = new c<>(k, v);
-            this.d++;
-            c<K, V> cVar2 = this.b;
-            if (cVar2 == null) {
-                this.a = cVar;
-                this.b = cVar;
-                return cVar;
-            }
-            cVar2.c = cVar;
-            this.b = cVar;
-            return cVar;
-        }
-        return (c) invokeLL.objValue;
-    }
-
-    public ts<K, V>.d g() {
+    public ts<K, V>.d f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {

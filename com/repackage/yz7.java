@@ -45,7 +45,7 @@ public class yz7 {
         this.c = null;
         this.d = null;
         this.e = null;
-        View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d08ec, (ViewGroup) null);
+        View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d08f6, (ViewGroup) null);
         this.a = inflate;
         this.b = (HeadImageView) inflate.findViewById(R.id.obfuscated_res_0x7f092569);
         this.c = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f09256b);

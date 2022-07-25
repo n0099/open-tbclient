@@ -25,6 +25,7 @@ import com.baidu.sapi2.shell.listener.WebAuthListener;
 import com.baidu.sapi2.shell.result.WebAuthResult;
 import com.baidu.sapi2.utils.SapiUtils;
 import com.baidu.sapi2.utils.enums.SocialType;
+import com.baidu.sapi2.views.logindialog.view.AgreementView;
 import com.baidu.tbadk.core.atomData.LoginActivityConfig;
 import com.baidu.tbadk.core.atomData.TbWebViewActivityConfig;
 import com.baidu.tbadk.core.util.DialogLoginHelper;
@@ -140,7 +141,7 @@ public class yp7 implements xp7, View.OnClickListener {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, oneKeyLoginResult) == null) {
                 this.a.a.closeLoadingDialog();
-                this.a.a.showToast(String.format(this.a.a.getString(R.string.obfuscated_res_0x7f0f0cda), Integer.valueOf(oneKeyLoginResult.getResultCode()), oneKeyLoginResult.getResultMsg()));
+                this.a.a.showToast(String.format(this.a.a.getString(R.string.obfuscated_res_0x7f0f0cc6), Integer.valueOf(oneKeyLoginResult.getResultCode()), oneKeyLoginResult.getResultMsg()));
                 this.a.a.T0();
             }
         }
@@ -202,7 +203,7 @@ public class yp7 implements xp7, View.OnClickListener {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, webAuthResult) == null) {
                 this.b.a.closeLoadingDialog();
-                this.b.a.showToast(String.format(this.b.a.getString(R.string.obfuscated_res_0x7f0f13d1), Integer.valueOf(webAuthResult.getResultCode()), webAuthResult.getResultMsg()));
+                this.b.a.showToast(String.format(this.b.a.getString(R.string.obfuscated_res_0x7f0f1380), Integer.valueOf(webAuthResult.getResultCode()), webAuthResult.getResultMsg()));
                 this.b.a.T0();
             }
         }
@@ -291,30 +292,30 @@ public class yp7 implements xp7, View.OnClickListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, loginDialogActivity, viewGroup) == null) {
             this.a = loginDialogActivity;
-            View inflate = LayoutInflater.from(loginDialogActivity).inflate(R.layout.obfuscated_res_0x7f0d0647, viewGroup, true);
-            this.b = inflate.findViewById(R.id.obfuscated_res_0x7f09076e);
-            this.c = inflate.findViewById(R.id.obfuscated_res_0x7f090786);
-            this.g = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f090791);
+            View inflate = LayoutInflater.from(loginDialogActivity).inflate(R.layout.obfuscated_res_0x7f0d0651, viewGroup, true);
+            this.b = inflate.findViewById(R.id.obfuscated_res_0x7f09076d);
+            this.c = inflate.findViewById(R.id.obfuscated_res_0x7f090785);
+            this.g = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f09078f);
             this.d = inflate.findViewById(R.id.obfuscated_res_0x7f09062e);
             this.e = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f09062f);
-            this.k = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090792);
-            this.l = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090790);
-            this.m = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092334);
-            this.n = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091399);
-            this.o = inflate.findViewById(R.id.obfuscated_res_0x7f091a2d);
+            this.k = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090790);
+            this.l = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09078e);
+            this.m = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092336);
+            this.n = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091375);
+            this.o = inflate.findViewById(R.id.obfuscated_res_0x7f091a07);
             this.p = inflate.findViewById(R.id.obfuscated_res_0x7f0924dd);
             this.q = inflate.findViewById(R.id.obfuscated_res_0x7f0924e0);
             this.r = inflate.findViewById(R.id.obfuscated_res_0x7f092563);
-            this.s = inflate.findViewById(R.id.obfuscated_res_0x7f0914b5);
+            this.s = inflate.findViewById(R.id.obfuscated_res_0x7f091490);
             this.f = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f0905e2);
             this.h = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f0905de);
-            this.t = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09209a);
-            this.u = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09166f);
-            this.v = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09209b);
+            this.t = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09209e);
+            this.u = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09164a);
+            this.v = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09209f);
             this.w = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090163);
-            this.x = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09209c);
-            this.y = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091992);
-            this.z = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09209d);
+            this.x = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0920a0);
+            this.y = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09196d);
+            this.z = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0920a1);
             this.b.setOnClickListener(this);
             this.d.setOnClickListener(this);
             this.e.setOnClickListener(this);
@@ -340,7 +341,7 @@ public class yp7 implements xp7, View.OnClickListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             LoginDialogActivity loginDialogActivity = this.a;
-            new TbWebViewActivityConfig(loginDialogActivity, loginDialogActivity.getResources().getString(R.string.obfuscated_res_0x7f0f0cd1), "https://passport.baidu.com/static/passpc-account/html/protocal.html", false).start();
+            new TbWebViewActivityConfig(loginDialogActivity, loginDialogActivity.getResources().getString(R.string.obfuscated_res_0x7f0f0cbd), "https://passport.baidu.com/static/passpc-account/html/protocal.html", false).start();
         }
     }
 
@@ -390,12 +391,12 @@ public class yp7 implements xp7, View.OnClickListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
             if (i == 1) {
-                this.u.setText(R.string.obfuscated_res_0x7f0f0cd2);
+                this.u.setText(R.string.obfuscated_res_0x7f0f0cbe);
             } else if (i == 2) {
-                this.u.setText(R.string.obfuscated_res_0x7f0f0cd3);
+                this.u.setText(R.string.obfuscated_res_0x7f0f0cbf);
             } else if (i != 3) {
             } else {
-                this.u.setText(R.string.obfuscated_res_0x7f0f0cd4);
+                this.u.setText(R.string.obfuscated_res_0x7f0f0cc0);
             }
         }
     }
@@ -416,14 +417,14 @@ public class yp7 implements xp7, View.OnClickListener {
             int i = this.A;
             if (i == 1) {
                 LoginDialogActivity loginDialogActivity = this.a;
-                new TbWebViewActivityConfig(loginDialogActivity, loginDialogActivity.getResources().getString(R.string.obfuscated_res_0x7f0f0cd2), "https://ms.zzx9.cn/html/oauth/protocol2.html", false).start();
+                new TbWebViewActivityConfig(loginDialogActivity, loginDialogActivity.getResources().getString(R.string.obfuscated_res_0x7f0f0cbe), AgreementView.s, false).start();
             } else if (i == 2) {
                 LoginDialogActivity loginDialogActivity2 = this.a;
-                new TbWebViewActivityConfig(loginDialogActivity2, loginDialogActivity2.getResources().getString(R.string.obfuscated_res_0x7f0f0cd3), "https://e.189.cn/sdk/agreement/detail.do?hidetop=true", false).start();
+                new TbWebViewActivityConfig(loginDialogActivity2, loginDialogActivity2.getResources().getString(R.string.obfuscated_res_0x7f0f0cbf), "https://e.189.cn/sdk/agreement/detail.do?hidetop=true", false).start();
             } else if (i != 3) {
             } else {
                 LoginDialogActivity loginDialogActivity3 = this.a;
-                new TbWebViewActivityConfig(loginDialogActivity3, loginDialogActivity3.getResources().getString(R.string.obfuscated_res_0x7f0f0cd4), "https://wap.cmpassport.com/resources/html/contract.html", false).start();
+                new TbWebViewActivityConfig(loginDialogActivity3, loginDialogActivity3.getResources().getString(R.string.obfuscated_res_0x7f0f0cc0), "https://wap.cmpassport.com/resources/html/contract.html", false).start();
             }
         }
     }
@@ -445,7 +446,7 @@ public class yp7 implements xp7, View.OnClickListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
             LoginDialogActivity loginDialogActivity = this.a;
-            new TbWebViewActivityConfig(loginDialogActivity, loginDialogActivity.getResources().getString(R.string.obfuscated_res_0x7f0f0cd5), "http://privacy.baidu.com/mdetail?id=288", false).start();
+            new TbWebViewActivityConfig(loginDialogActivity, loginDialogActivity.getResources().getString(R.string.obfuscated_res_0x7f0f0cc1), "http://privacy.baidu.com/mdetail?id=288", false).start();
         }
     }
 
@@ -453,54 +454,54 @@ public class yp7 implements xp7, View.OnClickListener {
     public void n(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
-            ur4 d = ur4.d(this.c);
+            vr4 d = vr4.d(this.c);
             d.m(1);
             d.n(R.string.J_X14);
             d.f(R.color.CAM_X0207);
             SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.e, R.drawable.obfuscated_res_0x7f080900, R.color.CAM_X0105, SvgManager.SvgResourceStateType.NORMAL_PRESS);
-            ur4 d2 = ur4.d(this.k);
+            vr4 d2 = vr4.d(this.k);
             d2.v(R.color.CAM_X0105);
             d2.z(R.dimen.T_X05);
             d2.A(R.string.F_X02);
-            ur4 d3 = ur4.d(this.l);
+            vr4 d3 = vr4.d(this.l);
             d3.v(R.color.CAM_X0108);
             d3.z(R.dimen.T_X08);
             d3.A(R.string.F_X01);
-            ur4 d4 = ur4.d(this.m);
+            vr4 d4 = vr4.d(this.m);
             d4.v(R.color.CAM_X0105);
             d4.z(R.dimen.T_X03);
             d4.A(R.string.F_X02);
-            ur4 d5 = ur4.d(this.n);
+            vr4 d5 = vr4.d(this.n);
             d5.v(R.color.CAM_X0101);
             d5.z(R.dimen.T_X05);
             d5.A(R.string.F_X01);
             d5.n(R.string.J_X01);
             d5.f(R.color.CAM_X0302);
-            ur4 d6 = ur4.d(this.t);
+            vr4 d6 = vr4.d(this.t);
             d6.v(R.color.CAM_X0108);
             d6.z(R.dimen.T_X08);
             d6.A(R.string.F_X01);
-            ur4 d7 = ur4.d(this.v);
+            vr4 d7 = vr4.d(this.v);
             d7.v(R.color.CAM_X0108);
             d7.z(R.dimen.T_X08);
             d7.A(R.string.F_X01);
-            ur4 d8 = ur4.d(this.x);
+            vr4 d8 = vr4.d(this.x);
             d8.v(R.color.CAM_X0108);
             d8.z(R.dimen.T_X08);
             d8.A(R.string.F_X01);
-            ur4 d9 = ur4.d(this.z);
+            vr4 d9 = vr4.d(this.z);
             d9.v(R.color.CAM_X0108);
             d9.z(R.dimen.T_X08);
             d9.A(R.string.F_X01);
-            ur4 d10 = ur4.d(this.u);
+            vr4 d10 = vr4.d(this.u);
             d10.v(R.color.CAM_X0108);
             d10.z(R.dimen.T_X08);
             d10.A(R.string.F_X02);
-            ur4 d11 = ur4.d(this.w);
+            vr4 d11 = vr4.d(this.w);
             d11.v(R.color.CAM_X0108);
             d11.z(R.dimen.T_X08);
             d11.A(R.string.F_X02);
-            ur4 d12 = ur4.d(this.y);
+            vr4 d12 = vr4.d(this.y);
             d12.v(R.color.CAM_X0108);
             d12.z(R.dimen.T_X08);
             d12.A(R.string.F_X02);
@@ -519,13 +520,13 @@ public class yp7 implements xp7, View.OnClickListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048589, this, view2) == null) {
             int id = view2.getId();
-            if (id == R.id.obfuscated_res_0x7f09076e || id == R.id.obfuscated_res_0x7f09062e || id == R.id.obfuscated_res_0x7f09062f) {
+            if (id == R.id.obfuscated_res_0x7f09076d || id == R.id.obfuscated_res_0x7f09062e || id == R.id.obfuscated_res_0x7f09062f) {
                 e();
-            } else if (id == R.id.obfuscated_res_0x7f091399) {
+            } else if (id == R.id.obfuscated_res_0x7f091375) {
                 if (f()) {
                     i();
                 }
-            } else if (id == R.id.obfuscated_res_0x7f091a2d) {
+            } else if (id == R.id.obfuscated_res_0x7f091a07) {
                 if (f()) {
                     o();
                 }
@@ -541,13 +542,13 @@ public class yp7 implements xp7, View.OnClickListener {
                 if (f()) {
                     s();
                 }
-            } else if (id == R.id.obfuscated_res_0x7f0914b5) {
+            } else if (id == R.id.obfuscated_res_0x7f091490) {
                 l();
-            } else if (id == R.id.obfuscated_res_0x7f09166f) {
+            } else if (id == R.id.obfuscated_res_0x7f09164a) {
                 k();
             } else if (id == R.id.obfuscated_res_0x7f090163) {
                 d();
-            } else if (id == R.id.obfuscated_res_0x7f091992) {
+            } else if (id == R.id.obfuscated_res_0x7f09196d) {
                 m();
             }
         }

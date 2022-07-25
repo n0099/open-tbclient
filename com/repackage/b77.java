@@ -59,7 +59,7 @@ public class b77 extends xa {
                     messageSyncMessage = (MessageSyncMessage) socketResponsedMessage.getOrginalMessage();
                 }
                 if (messageSyncMessage != null) {
-                    mt4.a("im", messageSyncMessage.getClientLogID(), messageSyncMessage.getCmd(), IMTrackDatabase.AckEnum.TABLE_NAME, socketResponsedMessage.getError(), socketResponsedMessage.getErrorString(), new Object[0]);
+                    nt4.a("im", messageSyncMessage.getClientLogID(), messageSyncMessage.getCmd(), IMTrackDatabase.AckEnum.TABLE_NAME, socketResponsedMessage.getError(), socketResponsedMessage.getErrorString(), new Object[0]);
                 }
                 if (socketResponsedMessage.getError() == 110000) {
                     MessageManager.getInstance().dispatchResponsedMessage(new ResponseUnLoginMessage());

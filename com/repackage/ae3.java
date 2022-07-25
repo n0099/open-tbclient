@@ -1,17 +1,35 @@
 package com.repackage;
 
+import android.annotation.SuppressLint;
+import android.net.Uri;
 import android.text.TextUtils;
 import android.util.Log;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.yy.hiidostatis.defs.obj.ParamableElem;
+import java.io.File;
+import java.io.UnsupportedEncodingException;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.net.URLDecoder;
+import java.net.URLEncoder;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+import java.util.regex.Pattern;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class ae3 {
+public final class ae3 {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
@@ -29,130 +47,469 @@ public class ae3 {
                 return;
             }
         }
-        a = rg1.a;
+        a = sg1.a;
     }
 
-    public static String a() {
-        InterceptResult invokeV;
+    public static String a(String str, String str2, String str3) {
+        InterceptResult invokeLLL;
+        StringBuilder sb;
+        StringBuilder sb2;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? h03.M() != null ? h03.M().b : "" : (String) invokeV.objValue;
-    }
-
-    public static String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? vc3.b(vc3.a(), "yyyy-MM-dd") : (String) invokeV.objValue;
-    }
-
-    public static int c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            JSONObject d = d(a());
-            if (d != null) {
-                return d.optInt("launch_count", 0);
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, str, str2, str3)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return str;
             }
-            return 0;
+            String str4 = str2 + "=";
+            int indexOf = str.indexOf("?");
+            String str5 = null;
+            if (indexOf < 0) {
+                int indexOf2 = str.indexOf("#");
+                if (indexOf2 < 0) {
+                    sb2 = new StringBuilder(str);
+                } else {
+                    str5 = str.substring(indexOf2);
+                    sb2 = new StringBuilder(str.substring(0, indexOf2));
+                }
+                sb2.append("?");
+                sb2.append(str4);
+                sb2.append(str3);
+                if (str5 != null) {
+                    sb2.append(str5);
+                }
+                return sb2.toString();
+            }
+            if (str.indexOf("&" + str4, indexOf) < 0) {
+                if (str.indexOf("?" + str4, indexOf) < 0) {
+                    int indexOf3 = str.indexOf("#");
+                    if (indexOf3 < 0) {
+                        sb = new StringBuilder(str);
+                    } else {
+                        str5 = str.substring(indexOf3);
+                        str = str.substring(0, indexOf3);
+                        sb = new StringBuilder(str);
+                    }
+                    if (!str.endsWith("&") && !str.endsWith("?")) {
+                        sb.append("&");
+                    }
+                    sb.append(str4);
+                    sb.append(str3);
+                    if (str5 != null) {
+                        sb.append(str5);
+                    }
+                    return sb.toString();
+                }
+                return str;
+            }
+            return str;
         }
-        return invokeV.intValue;
+        return (String) invokeLLL.objValue;
     }
 
-    public static JSONObject d(String str) {
+    public static String b(String str, Map<String, String> map) {
+        InterceptResult invokeLL;
+        String str2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, map)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return str;
+            }
+            String s = s(map);
+            if (TextUtils.isEmpty(s)) {
+                return str;
+            }
+            StringBuilder sb = new StringBuilder();
+            int indexOf = str.indexOf("?");
+            int indexOf2 = str.indexOf("#");
+            if (indexOf2 > 0 && indexOf > indexOf2) {
+                indexOf = -1;
+            }
+            if (indexOf2 < 0) {
+                sb.append(str);
+                str2 = "";
+            } else {
+                String substring = str.substring(indexOf2);
+                sb.append((CharSequence) str, 0, indexOf2);
+                str2 = substring;
+            }
+            if (indexOf < 0) {
+                sb.append("?");
+                sb.append(s);
+                sb.append(str2);
+                return sb.toString();
+            }
+            if (sb.charAt(sb.length() - 1) != '&' && sb.charAt(sb.length() - 1) != '?') {
+                sb.append("&");
+            }
+            sb.append(s);
+            sb.append(str2);
+            return sb.toString();
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public static List<String> c(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
-            String string = v83.a().getString("dailyInfo", "");
-            if (a) {
-                Log.i("SwanAppUserVisitInfoUtils", "dailyInfo:" + string);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            ArrayList arrayList = new ArrayList();
+            if (TextUtils.isEmpty(str)) {
+                return arrayList;
             }
-            JSONObject jSONObject = null;
             try {
-                JSONObject jSONObject2 = TextUtils.isEmpty(string) ? new JSONObject() : new JSONObject(string);
-                if (f(jSONObject2)) {
-                    jSONObject2.put("date", b());
+                for (String str2 : str.split("&")) {
+                    arrayList.add(str2);
                 }
-                jSONObject = jSONObject2.optJSONObject(str);
-                if (jSONObject == null) {
-                    jSONObject2.put(str, new JSONObject());
-                    v83.a().putString("dailyInfo", jSONObject2.toString());
-                    return jSONObject;
-                }
-            } catch (JSONException e) {
+            } catch (Exception unused) {
                 if (a) {
-                    Log.e("SwanAppUserVisitInfoUtils", e.getMessage());
+                    Log.d("addQueryList", com.baidu.pass.biometrics.face.liveness.b.a.g0);
                 }
             }
-            return jSONObject;
+            return arrayList;
         }
-        return (JSONObject) invokeL.objValue;
+        return (List) invokeL.objValue;
     }
 
-    public static long e() {
-        InterceptResult invokeV;
+    public static boolean d(String str, StringBuffer stringBuffer) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            long currentTimeMillis = System.currentTimeMillis();
-            JSONObject d = d(a());
-            long optLong = d != null ? d.optLong("foreground_aiapp_last_time_local", 0L) : 0L;
-            if (d != null) {
-                return d.optLong("visit_duration", 0L) + (currentTimeMillis - optLong);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, stringBuffer)) == null) {
+            boolean z = false;
+            if (!TextUtils.isEmpty(str)) {
+                try {
+                    URL url = new URL(str);
+                    String protocol = url.getProtocol();
+                    String host = url.getHost();
+                    if (!TextUtils.isEmpty(protocol) && !TextUtils.isEmpty(host)) {
+                        z = ("http".equals(protocol) || "https".equals(protocol)) ? true : true;
+                        stringBuffer.append(protocol);
+                        stringBuffer.append("://");
+                        stringBuffer.append(host);
+                    }
+                    stringBuffer.append(str);
+                } catch (MalformedURLException unused) {
+                    stringBuffer.append(str);
+                }
             }
-            return 0L;
+            return z;
         }
-        return invokeV.longValue;
+        return invokeLL.booleanValue;
     }
 
-    public static boolean f(JSONObject jSONObject) {
+    public static String e(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, jSONObject)) == null) {
-            String b = b();
-            String optString = jSONObject.optString("date", "");
-            return TextUtils.isEmpty(optString) || !optString.equals(b);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return str;
+            }
+            try {
+                return URLDecoder.decode(str.replaceAll("%(?![0-9a-fA-F]{2})", "%25"), "UTF-8");
+            } catch (UnsupportedEncodingException e) {
+                e.printStackTrace();
+                return str;
+            } catch (IllegalArgumentException e2) {
+                e2.printStackTrace();
+                return str;
+            }
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String f(@Nullable String str) {
+        InterceptResult invokeL;
+        int indexOf;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) ? (!TextUtils.isEmpty(str) && (indexOf = str.indexOf("?")) > 0) ? str.substring(0, indexOf) : str : (String) invokeL.objValue;
+    }
+
+    public static String g(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) ? h(f(str)) : (String) invokeL.objValue;
+    }
+
+    public static String h(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return str;
+            }
+            if (str.startsWith(File.separator)) {
+                str = str.substring(1);
+            }
+            return str.endsWith(File.separator) ? str.substring(0, str.length() - 1) : str;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String i(String str, Set<String> set) {
+        InterceptResult invokeLL;
+        String[] split;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65545, null, str, set)) == null) {
+            if (TextUtils.isEmpty(str) || set == null || (split = str.split("&")) == null || split.length == 0) {
+                return null;
+            }
+            StringBuilder sb = new StringBuilder();
+            for (String str2 : split) {
+                String[] split2 = str2.split("=");
+                if (split2.length > 0 && !set.contains(split2[0])) {
+                    sb.append(str2);
+                    sb.append("&");
+                }
+            }
+            int length = sb.length();
+            if (length > 0) {
+                int i = length - 1;
+                if (sb.charAt(i) == '&') {
+                    sb.deleteCharAt(i);
+                }
+            }
+            return sb.toString();
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public static String j(Uri uri) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, uri)) == null) {
+            if (uri == null) {
+                return "";
+            }
+            List<String> pathSegments = uri.getPathSegments();
+            if (pathSegments == null || pathSegments.isEmpty()) {
+                return null;
+            }
+            return pathSegments.get(0);
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String k(String str, String str2, String str3, long j) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65547, null, new Object[]{str, str2, str3, Long.valueOf(j)})) == null) {
+            return str2 + "=" + str3 + ";domain=" + str + ";path=/;max-age=" + j + ParamableElem.DIVIDE_PARAM;
+        }
+        return (String) invokeCommon.objValue;
+    }
+
+    public static String l(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65548, null, str, str2)) == null) {
+            if (!TextUtils.isEmpty(str)) {
+                String[] split = str.split(ParamableElem.DIVIDE_PARAM);
+                int length = split.length;
+                for (int i = 0; i != length; i++) {
+                    String trim = split[i].trim();
+                    String[] split2 = trim.split("=");
+                    if (split2.length >= 2 && TextUtils.equals(str2, split2[0])) {
+                        if (split2.length == 2) {
+                            return split2[1];
+                        }
+                        return trim.substring(split2[0].length() + 1);
+                    }
+                }
+            }
+            return null;
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public static String m(Uri uri, Set<String> set) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65549, null, uri, set)) == null) {
+            if (uri == null) {
+                return "";
+            }
+            if (set != null && set.size() != 0) {
+                String uri2 = uri.toString();
+                String query = uri.getQuery();
+                if (TextUtils.isEmpty(query)) {
+                    return uri2;
+                }
+                String i = i(query, set);
+                Uri.Builder builder = new Uri.Builder();
+                builder.scheme(uri.getScheme());
+                builder.authority(uri.getAuthority());
+                builder.path(uri.getPath());
+                if (!TextUtils.isEmpty(i)) {
+                    builder.query(i);
+                }
+                return builder.build().toString();
+            }
+            return uri.toString();
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public static String n(@NonNull String str, @NonNull Uri uri, boolean z) {
+        InterceptResult invokeLLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65550, null, str, uri, z)) == null) {
+            String path = uri.getPath();
+            if (TextUtils.isEmpty(path)) {
+                return null;
+            }
+            String substring = path.substring(str.length() + 1);
+            if (substring.endsWith(File.separator)) {
+                substring = substring.substring(0, substring.length() - 1);
+            }
+            String replaceAll = substring.replaceAll("/+", "/");
+            return (z || !replaceAll.startsWith(File.separator)) ? replaceAll : replaceAll.substring(1);
+        }
+        return (String) invokeLLZ.objValue;
+    }
+
+    public static String o(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65551, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return str;
+            }
+            int indexOf = str.indexOf("?");
+            if (indexOf > 0) {
+                return str.substring(indexOf + 1);
+            }
+            return null;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static Uri p(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65552, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return null;
+            }
+            if (!str.startsWith("http://") && !str.startsWith("https://") && !str.startsWith("file://") && !str.startsWith("content://")) {
+                if (str.startsWith("/")) {
+                    return Uri.fromFile(new File(str));
+                }
+                return null;
+            }
+            return Uri.parse(str);
+        }
+        return (Uri) invokeL.objValue;
+    }
+
+    public static boolean q(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65553, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return false;
+            }
+            String host = Uri.parse(str).getHost();
+            if (TextUtils.isEmpty(host)) {
+                return false;
+            }
+            return host.endsWith(".baidu.com") || host.equals("baidu.com");
         }
         return invokeL.booleanValue;
     }
 
-    public static void g(long j) {
+    public static boolean r(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(65543, null, j) == null) {
-            i(a(), "foreground_aiapp_last_time_local", Long.valueOf(j));
-        }
+        return (interceptable == null || (invokeL = interceptable.invokeL(65554, null, str)) == null) ? Pattern.compile("(https?|ftp|file)://[-A-Za-z0-9+&@#/%?=~_|!:,.;{]+[-A-Za-z0-9+&@#/%=~_|}]|(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?).*").matcher(str).matches() : invokeL.booleanValue;
     }
 
-    public static void h() {
+    @SuppressLint({"BDThrowableCheck"})
+    public static String s(Map<String, String> map) {
+        InterceptResult invokeL;
+        String encode;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65544, null) == null) {
-            i(a(), "visit_duration", Long.valueOf(e()));
-        }
-    }
-
-    public static void i(String str, String str2, Object obj) {
-        JSONObject jSONObject;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65545, null, str, str2, obj) == null) {
-            String string = v83.a().getString("dailyInfo", "");
-            if (a) {
-                Log.i("SwanAppUserVisitInfoUtils", TextUtils.isEmpty(string) ? "dailyinfo is null" : string);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65555, null, map)) == null) {
+            if (map == null) {
+                return "";
             }
+            StringBuilder sb = new StringBuilder();
+            for (String str : map.keySet()) {
+                if (sb.length() > 0) {
+                    sb.append("&");
+                }
+                String str2 = map.get(str);
+                if (str != null) {
+                    try {
+                        encode = URLEncoder.encode(str, "UTF-8");
+                    } catch (UnsupportedEncodingException e) {
+                        if (a) {
+                            throw new RuntimeException("This method requires UTF-8 encoding support", e);
+                        }
+                    }
+                } else {
+                    encode = "";
+                }
+                sb.append(encode);
+                sb.append("=");
+                sb.append(str2 != null ? URLEncoder.encode(str2, "UTF-8") : "");
+            }
+            return sb.toString();
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static Map<String, String> t(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65556, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return null;
+            }
+            HashMap hashMap = new HashMap();
+            for (String str2 : str.split("&")) {
+                String[] split = str2.split("=");
+                hashMap.put(e(split[0]), split.length > 1 ? e(split[1]) : "");
+            }
+            return hashMap;
+        }
+        return (Map) invokeL.objValue;
+    }
+
+    public static String u(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65557, null, str, str2)) == null) {
             try {
-                if (TextUtils.isEmpty(string)) {
-                    jSONObject = new JSONObject();
-                } else {
-                    jSONObject = new JSONObject(string);
-                }
-                JSONObject optJSONObject = jSONObject.optJSONObject(str);
-                if (optJSONObject != null) {
-                    optJSONObject.put(str2, obj);
-                } else {
-                    jSONObject.put(str, new JSONObject());
-                }
-                v83.a().putString("dailyInfo", jSONObject.toString());
-            } catch (JSONException e) {
-                if (a) {
-                    Log.e("SwanAppUserVisitInfoUtils", e.getMessage());
-                }
+                JSONObject jSONObject = new JSONObject();
+                jSONObject.put("errcode", str);
+                jSONObject.put(StatConstants.KEY_EXT_ERR_MSG, str2);
+                return jSONObject.toString();
+            } catch (JSONException unused) {
+                return "";
             }
         }
+        return (String) invokeLL.objValue;
+    }
+
+    public static Uri v(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65558, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return null;
+            }
+            return Uri.fromFile(new File(str));
+        }
+        return (Uri) invokeL.objValue;
+    }
+
+    public static String w(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65559, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return null;
+            }
+            return Uri.fromFile(new File(str)).toString();
+        }
+        return (String) invokeL.objValue;
     }
 }

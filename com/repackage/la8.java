@@ -72,21 +72,21 @@ public class la8 {
         }
         this.a = new RemoteViews(TbadkCoreApplication.getInst().getPackageName(), (int) R.layout.obfuscated_res_0x7f0d0234);
         c(i);
-        this.a.setTextViewText(R.id.obfuscated_res_0x7f0907ff, TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0cce));
-        this.a.setImageViewResource(R.id.obfuscated_res_0x7f0907ed, R.drawable.obfuscated_res_0x7f080def);
-        this.a.setImageViewResource(R.id.obfuscated_res_0x7f0907f0, R.drawable.obfuscated_res_0x7f080ded);
-        this.a.setTextViewText(R.id.obfuscated_res_0x7f0907eb, downloadData.getUser_name());
+        this.a.setTextViewText(R.id.obfuscated_res_0x7f0907fd, TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0cba));
+        this.a.setImageViewResource(R.id.obfuscated_res_0x7f0907eb, R.drawable.obfuscated_res_0x7f080def);
+        this.a.setImageViewResource(R.id.obfuscated_res_0x7f0907ee, R.drawable.obfuscated_res_0x7f080ded);
+        this.a.setTextViewText(R.id.obfuscated_res_0x7f0907e9, downloadData.getUser_name());
         jg.h().m(downloadData.getApp_icon(), 17, new a(this), BdUniqueId.gen());
         Intent intent = new Intent(TbadkCoreApplication.getInst().getContext(), DownloadReceiver.class);
         intent.setPackage(TbadkCoreApplication.getInst().getPackageName());
         intent.setAction(DownloadReceiver.ACTION_PAUSE_DOWNLOAD);
         intent.putExtra(DownloadReceiver.DOWNLOAD_DATA, downloadData);
-        this.a.setOnClickPendingIntent(R.id.obfuscated_res_0x7f0907ed, PendingIntent.getBroadcast(TbadkCoreApplication.getInst(), downloadData.getNotifyId(), intent, 134217728));
+        this.a.setOnClickPendingIntent(R.id.obfuscated_res_0x7f0907eb, PendingIntent.getBroadcast(TbadkCoreApplication.getInst(), downloadData.getNotifyId(), intent, 134217728));
         Intent intent2 = new Intent(TbadkCoreApplication.getInst().getContext(), DownloadReceiver.class);
         intent2.setAction(DownloadReceiver.ACTION_CANCEL_DOWNLOAD);
         intent2.putExtra(DownloadReceiver.DOWNLOAD_DATA, downloadData);
         intent2.setPackage(TbadkCoreApplication.getInst().getPackageName());
-        this.a.setOnClickPendingIntent(R.id.obfuscated_res_0x7f0907f0, PendingIntent.getBroadcast(TbadkCoreApplication.getInst(), downloadData.getNotifyId(), intent2, 134217728));
+        this.a.setOnClickPendingIntent(R.id.obfuscated_res_0x7f0907ee, PendingIntent.getBroadcast(TbadkCoreApplication.getInst(), downloadData.getNotifyId(), intent2, 134217728));
     }
 
     public RemoteViews b() {
@@ -104,24 +104,24 @@ public class la8 {
             } else {
                 str = "0%";
             }
-            this.a.setProgressBar(R.id.obfuscated_res_0x7f0907fd, 100, i, false);
-            this.a.setTextViewText(R.id.obfuscated_res_0x7f0907fe, str);
+            this.a.setProgressBar(R.id.obfuscated_res_0x7f0907fb, 100, i, false);
+            this.a.setTextViewText(R.id.obfuscated_res_0x7f0907fc, str);
         }
     }
 
     public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.a.setTextViewText(R.id.obfuscated_res_0x7f0907ff, TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f050d));
-            this.a.setImageViewResource(R.id.obfuscated_res_0x7f0907ed, R.drawable.obfuscated_res_0x7f080df0);
+            this.a.setTextViewText(R.id.obfuscated_res_0x7f0907fd, TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0509));
+            this.a.setImageViewResource(R.id.obfuscated_res_0x7f0907eb, R.drawable.obfuscated_res_0x7f080df0);
         }
     }
 
     public void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.a.setTextViewText(R.id.obfuscated_res_0x7f0907ff, TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0cce));
-            this.a.setImageViewResource(R.id.obfuscated_res_0x7f0907ed, R.drawable.obfuscated_res_0x7f080def);
+            this.a.setTextViewText(R.id.obfuscated_res_0x7f0907fd, TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0cba));
+            this.a.setImageViewResource(R.id.obfuscated_res_0x7f0907eb, R.drawable.obfuscated_res_0x7f080def);
         }
     }
 }

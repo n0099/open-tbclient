@@ -1,7 +1,6 @@
 package com.kwad.components.ad.draw.a.b;
 
 import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -15,10 +14,10 @@ import com.kwad.components.core.video.h;
 public final class a extends com.kwad.components.ad.draw.kwai.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public DrawVideoTailFrame b;
+    public DrawVideoTailFrame bQ;
     @Nullable
-    public com.kwad.components.ad.h.b c;
-    public g d;
+    public com.kwad.components.ad.i.b bb;
+    public g mVideoPlayStateListener;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -33,10 +32,10 @@ public final class a extends com.kwad.components.ad.draw.kwai.a {
                 return;
             }
         }
-        this.d = new h(this) { // from class: com.kwad.components.ad.draw.a.b.a.1
+        this.mVideoPlayStateListener = new h(this) { // from class: com.kwad.components.ad.draw.a.b.a.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ a a;
+            public final /* synthetic */ a bR;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -53,18 +52,18 @@ public final class a extends com.kwad.components.ad.draw.kwai.a {
                         return;
                     }
                 }
-                this.a = this;
+                this.bR = this;
             }
 
             @Override // com.kwad.components.core.video.h, com.kwad.components.core.video.g
-            public final void d() {
+            public final void onVideoPlayCompleted() {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                    super.d();
-                    if (this.a.c == null || !this.a.c.e()) {
-                        this.a.d();
+                    super.onVideoPlayCompleted();
+                    if (this.bR.bb == null || !this.bR.bb.ay()) {
+                        this.bR.aN();
                     } else {
-                        this.a.b.setVisibility(8);
+                        this.bR.bQ.setVisibility(8);
                     }
                 }
             }
@@ -72,46 +71,46 @@ public final class a extends com.kwad.components.ad.draw.kwai.a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void d() {
+    public void aN() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
-            this.b.a();
-            this.b.setVisibility(0);
+        if (interceptable == null || interceptable.invokeV(65538, this) == null) {
+            this.bQ.aW();
+            this.bQ.setVisibility(0);
         }
     }
 
     @Override // com.kwad.components.ad.draw.kwai.a, com.kwad.sdk.mvp.Presenter
-    public final void a() {
+    public final void aq() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            super.a();
-            com.kwad.components.ad.draw.kwai.b bVar = ((com.kwad.components.ad.draw.kwai.a) this).a;
-            this.c = bVar.g;
-            this.b.a(bVar.c);
-            this.b.setAdBaseFrameLayout(((com.kwad.components.ad.draw.kwai.a) this).a.b);
-            this.b.setApkDownloadHelper(((com.kwad.components.ad.draw.kwai.a) this).a.d);
-            this.b.setVisibility(8);
-            this.b.setAdInteractionListener(((com.kwad.components.ad.draw.kwai.a) this).a.a);
-            ((com.kwad.components.ad.draw.kwai.a) this).a.e.a(this.d);
+            super.aq();
+            com.kwad.components.ad.draw.kwai.b bVar = this.aK;
+            this.bb = bVar.bb;
+            this.bQ.c(bVar.mAdTemplate);
+            this.bQ.setAdBaseFrameLayout(this.aK.mRootContainer);
+            this.bQ.setApkDownloadHelper(this.aK.mApkDownloadHelper);
+            this.bQ.setVisibility(8);
+            this.bQ.setAdInteractionListener(this.aK.aJ);
+            this.aK.aL.a(this.mVideoPlayStateListener);
         }
     }
 
     @Override // com.kwad.sdk.mvp.Presenter
-    public final void i_() {
+    public final void onCreate() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            super.i_();
-            this.b = (DrawVideoTailFrame) b(R.id.obfuscated_res_0x7f0911de);
+            super.onCreate();
+            this.bQ = (DrawVideoTailFrame) findViewById(R.id.obfuscated_res_0x7f0911ba);
         }
     }
 
     @Override // com.kwad.sdk.mvp.Presenter
-    public final void k_() {
+    public final void onUnbind() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            super.k_();
-            ((com.kwad.components.ad.draw.kwai.a) this).a.e.b(this.d);
-            this.b.b();
+            super.onUnbind();
+            this.aK.aL.b(this.mVideoPlayStateListener);
+            this.bQ.release();
         }
     }
 }

@@ -19,7 +19,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.l45;
+import com.repackage.m45;
 import com.repackage.pi;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -1499,7 +1499,7 @@ public class TbConfig {
                 i = 60;
             }
             if (MAX_PHOTO_MEMORY_CACHE != i) {
-                l45.k().t(i);
+                m45.k().t(i);
             }
             MAX_PHOTO_MEMORY_CACHE = i;
         }

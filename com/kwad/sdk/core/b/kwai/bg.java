@@ -1,68 +1,86 @@
 package com.kwad.sdk.core.b.kwai;
 
-import com.kwad.sdk.core.response.model.CouponInfo;
+import com.kwad.sdk.contentalliance.coupon.model.ActivityInfo;
+import com.kwad.sdk.core.response.model.SdkConfigData;
+import com.kwad.sdk.core.response.model.TemplateConfig;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public final class bg implements com.kwad.sdk.core.d<CouponInfo> {
+public final class bg implements com.kwad.sdk.core.d<SdkConfigData.CouponActiveConfig> {
     /* renamed from: a  reason: avoid collision after fix types in other method */
-    public static void a2(CouponInfo couponInfo, JSONObject jSONObject) {
+    public static void a2(SdkConfigData.CouponActiveConfig couponActiveConfig, JSONObject jSONObject) {
         if (jSONObject == null) {
             return;
         }
-        couponInfo.displayName = jSONObject.optString("displayName");
-        if (jSONObject.opt("displayName") == JSONObject.NULL) {
-            couponInfo.displayName = "";
+        couponActiveConfig.popUpShowTimeSeconds = jSONObject.optInt("popUpShowTimeSeconds");
+        couponActiveConfig.title = jSONObject.optString("title");
+        if (jSONObject.opt("title") == JSONObject.NULL) {
+            couponActiveConfig.title = "";
         }
-        couponInfo.displayTitle = jSONObject.optString("displayTitle");
-        if (jSONObject.opt("displayTitle") == JSONObject.NULL) {
-            couponInfo.displayTitle = "";
+        couponActiveConfig.secondTitle = jSONObject.optString("secondTitle");
+        if (jSONObject.opt("secondTitle") == JSONObject.NULL) {
+            couponActiveConfig.secondTitle = "";
         }
-        couponInfo.displayValue = jSONObject.optString("displayValue");
-        if (jSONObject.opt("displayValue") == JSONObject.NULL) {
-            couponInfo.displayValue = "";
+        couponActiveConfig.bottomTitle = jSONObject.optString("bottomTitle");
+        if (jSONObject.opt("bottomTitle") == JSONObject.NULL) {
+            couponActiveConfig.bottomTitle = "";
         }
-        couponInfo.displayBase = jSONObject.optString("displayBase");
-        if (jSONObject.opt("displayBase") == JSONObject.NULL) {
-            couponInfo.displayBase = "";
-        }
-        couponInfo.displayType = jSONObject.optString("displayType");
-        if (jSONObject.opt("displayType") == JSONObject.NULL) {
-            couponInfo.displayType = "";
-        }
-        couponInfo.displayActionWords = jSONObject.optString("displayActionWords");
-        if (jSONObject.opt("displayActionWords") == JSONObject.NULL) {
-            couponInfo.displayActionWords = "";
-        }
-        couponInfo.displayDiscount = jSONObject.optString("displayDiscount");
-        if (jSONObject.opt("displayDiscount") == JSONObject.NULL) {
-            couponInfo.displayDiscount = "";
-        }
+        couponActiveConfig.videoThreshold = jSONObject.optInt("videoThreshold");
+        couponActiveConfig.videoSeconds = jSONObject.optInt("videoSeconds");
+        TemplateConfig templateConfig = new TemplateConfig();
+        couponActiveConfig.couponOpenConfig = templateConfig;
+        templateConfig.parseJson(jSONObject.optJSONObject("couponOpenConfig"));
+        TemplateConfig templateConfig2 = new TemplateConfig();
+        couponActiveConfig.couponInfoConfig = templateConfig2;
+        templateConfig2.parseJson(jSONObject.optJSONObject("couponInfoConfig"));
+        ActivityInfo activityInfo = new ActivityInfo();
+        couponActiveConfig.activityInfo = activityInfo;
+        activityInfo.parseJson(jSONObject.optJSONObject("activityInfo"));
     }
 
     /* renamed from: b  reason: avoid collision after fix types in other method */
-    public static JSONObject b2(CouponInfo couponInfo, JSONObject jSONObject) {
+    public static JSONObject b2(SdkConfigData.CouponActiveConfig couponActiveConfig, JSONObject jSONObject) {
         if (jSONObject == null) {
             jSONObject = new JSONObject();
         }
-        com.kwad.sdk.utils.r.a(jSONObject, "displayName", couponInfo.displayName);
-        com.kwad.sdk.utils.r.a(jSONObject, "displayTitle", couponInfo.displayTitle);
-        com.kwad.sdk.utils.r.a(jSONObject, "displayValue", couponInfo.displayValue);
-        com.kwad.sdk.utils.r.a(jSONObject, "displayBase", couponInfo.displayBase);
-        com.kwad.sdk.utils.r.a(jSONObject, "displayType", couponInfo.displayType);
-        com.kwad.sdk.utils.r.a(jSONObject, "displayActionWords", couponInfo.displayActionWords);
-        com.kwad.sdk.utils.r.a(jSONObject, "displayDiscount", couponInfo.displayDiscount);
+        int i = couponActiveConfig.popUpShowTimeSeconds;
+        if (i != 0) {
+            com.kwad.sdk.utils.r.putValue(jSONObject, "popUpShowTimeSeconds", i);
+        }
+        String str = couponActiveConfig.title;
+        if (str != null && !str.equals("")) {
+            com.kwad.sdk.utils.r.putValue(jSONObject, "title", couponActiveConfig.title);
+        }
+        String str2 = couponActiveConfig.secondTitle;
+        if (str2 != null && !str2.equals("")) {
+            com.kwad.sdk.utils.r.putValue(jSONObject, "secondTitle", couponActiveConfig.secondTitle);
+        }
+        String str3 = couponActiveConfig.bottomTitle;
+        if (str3 != null && !str3.equals("")) {
+            com.kwad.sdk.utils.r.putValue(jSONObject, "bottomTitle", couponActiveConfig.bottomTitle);
+        }
+        int i2 = couponActiveConfig.videoThreshold;
+        if (i2 != 0) {
+            com.kwad.sdk.utils.r.putValue(jSONObject, "videoThreshold", i2);
+        }
+        int i3 = couponActiveConfig.videoSeconds;
+        if (i3 != 0) {
+            com.kwad.sdk.utils.r.putValue(jSONObject, "videoSeconds", i3);
+        }
+        com.kwad.sdk.utils.r.a(jSONObject, "couponOpenConfig", couponActiveConfig.couponOpenConfig);
+        com.kwad.sdk.utils.r.a(jSONObject, "couponInfoConfig", couponActiveConfig.couponInfoConfig);
+        com.kwad.sdk.utils.r.a(jSONObject, "activityInfo", couponActiveConfig.activityInfo);
         return jSONObject;
     }
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.kwad.sdk.core.b, org.json.JSONObject] */
     @Override // com.kwad.sdk.core.d
-    public final /* bridge */ /* synthetic */ void a(CouponInfo couponInfo, JSONObject jSONObject) {
-        a2(couponInfo, jSONObject);
+    public final /* bridge */ /* synthetic */ void a(SdkConfigData.CouponActiveConfig couponActiveConfig, JSONObject jSONObject) {
+        a2(couponActiveConfig, jSONObject);
     }
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.kwad.sdk.core.b, org.json.JSONObject] */
     @Override // com.kwad.sdk.core.d
-    public final /* bridge */ /* synthetic */ JSONObject b(CouponInfo couponInfo, JSONObject jSONObject) {
-        return b2(couponInfo, jSONObject);
+    public final /* bridge */ /* synthetic */ JSONObject b(SdkConfigData.CouponActiveConfig couponActiveConfig, JSONObject jSONObject) {
+        return b2(couponActiveConfig, jSONObject);
     }
 }

@@ -75,18 +75,18 @@ public class BdLayerTitleBarView extends FrameLayout implements View.OnClickList
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            LayoutInflater.from(this.a).cloneInContext(this.a).inflate(R.layout.obfuscated_res_0x7f0d05da, this);
-            this.b = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f0913d9);
-            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f0913e6);
+            LayoutInflater.from(this.a).cloneInContext(this.a).inflate(R.layout.obfuscated_res_0x7f0d05e4, this);
+            this.b = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f0913b5);
+            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f0913c2);
             this.c = imageView;
             imageView.setOnClickListener(this);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f0913e7);
-            BdVideoBattery bdVideoBattery = (BdVideoBattery) findViewById(R.id.obfuscated_res_0x7f0913d8);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f0913c3);
+            BdVideoBattery bdVideoBattery = (BdVideoBattery) findViewById(R.id.obfuscated_res_0x7f0913b4);
             this.e = bdVideoBattery;
             bdVideoBattery.setImage(R.drawable.obfuscated_res_0x7f080dac);
-            this.f = (BdTextProgressView) findViewById(R.id.obfuscated_res_0x7f0913e1);
+            this.f = (BdTextProgressView) findViewById(R.id.obfuscated_res_0x7f0913bd);
             f();
-            this.h = findViewById(R.id.obfuscated_res_0x7f09213f);
+            this.h = findViewById(R.id.obfuscated_res_0x7f092141);
         }
     }
 

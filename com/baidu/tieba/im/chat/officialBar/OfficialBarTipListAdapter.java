@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.pi;
-import com.repackage.py4;
+import com.repackage.qy4;
 import com.repackage.v47;
 import org.apache.http.message.BasicNameValuePair;
 /* loaded from: classes3.dex */
@@ -106,7 +106,7 @@ public class OfficialBarTipListAdapter extends v47 {
         if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048581, this, imMessageCenterShowItemData, i, str)) == null) {
             String str2 = "";
             int i2 = 0;
-            if (!py4.d().n()) {
+            if (!qy4.d().n()) {
                 str = "";
                 i = 0;
             }

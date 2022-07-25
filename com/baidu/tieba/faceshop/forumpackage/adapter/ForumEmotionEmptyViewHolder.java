@@ -163,7 +163,7 @@ public class ForumEmotionEmptyViewHolder extends TypeAdapter.ViewHolder {
         this.a = (ForumEmotionEmptyView) view2;
     }
 
-    public final void c(ca6 ca6Var, x96 x96Var) {
+    public final void b(ca6 ca6Var, x96 x96Var) {
         String string;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, ca6Var, x96Var) == null) {
@@ -173,9 +173,9 @@ public class ForumEmotionEmptyViewHolder extends TypeAdapter.ViewHolder {
                 TextView filterView = this.a.getFilterView();
                 filterDropDownView.setVisibility(0);
                 if (ca6Var.a() == 0) {
-                    string = resources.getString(R.string.obfuscated_res_0x7f0f0669);
+                    string = resources.getString(R.string.obfuscated_res_0x7f0f0665);
                 } else {
-                    string = resources.getString(R.string.obfuscated_res_0x7f0f066a);
+                    string = resources.getString(R.string.obfuscated_res_0x7f0f0666);
                 }
                 filterView.setText(string);
                 if (ca6Var.b()) {
@@ -192,10 +192,10 @@ public class ForumEmotionEmptyViewHolder extends TypeAdapter.ViewHolder {
         }
     }
 
-    public void d(ba6 ba6Var, int i, ca6 ca6Var, x96 x96Var) {
+    public void c(ba6 ba6Var, int i, ca6 ca6Var, x96 x96Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ba6Var, i, ca6Var, x96Var) == null) {
-            c(ca6Var, x96Var);
+            b(ca6Var, x96Var);
         }
     }
 }

@@ -59,7 +59,7 @@ public class dr5 extends an<mr5, ConcernTabEmptyView.ViewHolder> {
             if (viewHolder == null) {
                 return null;
             }
-            return viewHolder.b();
+            return viewHolder.a();
         }
         return (View) invokeCommon.objValue;
     }

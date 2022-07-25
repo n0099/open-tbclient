@@ -53,7 +53,7 @@ public class ua6 extends cd6<va6, ManitoHeaderItemViewHolder> {
     public ManitoHeaderItemViewHolder M(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) ? new ManitoHeaderItemViewHolder(LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0536, (ViewGroup) null)) : (ManitoHeaderItemViewHolder) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) ? new ManitoHeaderItemViewHolder(LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0540, (ViewGroup) null)) : (ManitoHeaderItemViewHolder) invokeL.objValue;
     }
 
     public View m0(int i, View view2, ViewGroup viewGroup, va6 va6Var, ManitoHeaderItemViewHolder manitoHeaderItemViewHolder) {
@@ -62,10 +62,10 @@ public class ua6 extends cd6<va6, ManitoHeaderItemViewHolder> {
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, va6Var, manitoHeaderItemViewHolder})) == null) {
             super.S(i, view2, viewGroup, va6Var, manitoHeaderItemViewHolder);
             if (manitoHeaderItemViewHolder.b != this.n) {
-                SkinManager.setBackgroundColor(manitoHeaderItemViewHolder.b(), R.color.CAM_X0201);
+                SkinManager.setBackgroundColor(manitoHeaderItemViewHolder.a(), R.color.CAM_X0201);
                 SkinManager.setViewTextColor(manitoHeaderItemViewHolder.a, R.color.CAM_X0105, 1);
             }
-            manitoHeaderItemViewHolder.a.setText(String.format(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f067b), Integer.valueOf(va6Var.a())));
+            manitoHeaderItemViewHolder.a.setText(String.format(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0677), Integer.valueOf(va6Var.a())));
             manitoHeaderItemViewHolder.b = this.n;
             return view2;
         }

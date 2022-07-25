@@ -396,7 +396,7 @@ public class p89 extends BaseEffectProcessor implements SurfaceTexture.OnFrameAv
                 if (this.a.r == null || this.a.o == null) {
                     return;
                 }
-                this.a.r.b(this.a.o);
+                this.a.r.d(this.a.o);
             }
         }
 
@@ -684,11 +684,11 @@ public class p89 extends BaseEffectProcessor implements SurfaceTexture.OnFrameAv
     public interface l {
         void a(ICaptureResult iCaptureResult);
 
-        void b(SurfaceTexture surfaceTexture);
+        void b();
 
-        void c();
+        void c(int i);
 
-        void d(int i);
+        void d(SurfaceTexture surfaceTexture);
 
         void e(int i, int i2, int i3, int i4);
 
@@ -868,12 +868,12 @@ public class p89 extends BaseEffectProcessor implements SurfaceTexture.OnFrameAv
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, sticker)) == null) {
-            int i2 = !sticker.isSupport(dd0.a0()) ? R.string.obfuscated_res_0x7f0f1215 : 0;
+            int i2 = !sticker.isSupport(dd0.a0()) ? R.string.obfuscated_res_0x7f0f11c4 : 0;
             if (TextUtils.isEmpty(sticker.getPath()) || !new File(sticker.getPath()).exists()) {
-                i2 = R.string.obfuscated_res_0x7f0f120a;
+                i2 = R.string.obfuscated_res_0x7f0f11b9;
             }
             if (!dd0.k1(sticker.getPath())) {
-                i2 = R.string.obfuscated_res_0x7f0f120b;
+                i2 = R.string.obfuscated_res_0x7f0f11ba;
             }
             if (i2 != 0) {
                 o99.a().post(new g(this, i2));
@@ -1140,7 +1140,7 @@ public class p89 extends BaseEffectProcessor implements SurfaceTexture.OnFrameAv
             if (!this.y || faceResultData == null) {
                 l lVar = this.r;
                 if (lVar != null) {
-                    lVar.d(5);
+                    lVar.c(5);
                     return;
                 }
                 return;
@@ -1148,7 +1148,7 @@ public class p89 extends BaseEffectProcessor implements SurfaceTexture.OnFrameAv
             int H = this.B ? H(faceResultData) : x(faceResultData);
             l lVar2 = this.r;
             if (lVar2 != null) {
-                lVar2.d(H);
+                lVar2.c(H);
             }
             if (this.B) {
                 return;
@@ -1435,7 +1435,7 @@ public class p89 extends BaseEffectProcessor implements SurfaceTexture.OnFrameAv
             }
             l lVar = this.r;
             if (lVar != null) {
-                lVar.c();
+                lVar.b();
             }
             this.a = dd0.V(this.c, K, ed0.b());
             E(this.A);
@@ -1474,7 +1474,7 @@ public class p89 extends BaseEffectProcessor implements SurfaceTexture.OnFrameAv
             if (lVar == null || (surfaceTexture = this.o) == null) {
                 return;
             }
-            lVar.b(surfaceTexture);
+            lVar.d(surfaceTexture);
         }
     }
 

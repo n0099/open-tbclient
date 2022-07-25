@@ -56,18 +56,18 @@ import com.repackage.he6;
 import com.repackage.kd6;
 import com.repackage.kh8;
 import com.repackage.le6;
-import com.repackage.lp4;
-import com.repackage.mt4;
+import com.repackage.mp4;
 import com.repackage.ng;
 import com.repackage.ni;
 import com.repackage.nn;
+import com.repackage.nt4;
 import com.repackage.oi;
 import com.repackage.op6;
-import com.repackage.p95;
 import com.repackage.pi;
 import com.repackage.pp6;
-import com.repackage.qq4;
+import com.repackage.q95;
 import com.repackage.re6;
+import com.repackage.rq4;
 import com.repackage.s98;
 import com.repackage.sj8;
 import com.repackage.td6;
@@ -545,13 +545,13 @@ public class FrsModelController extends BdBaseModel<BaseFragmentActivity> implem
                 long currentTimeMillis2 = System.currentTimeMillis();
                 FrsFragment frsFragment2 = this.a;
                 frsFragment.D = currentTimeMillis2 - frsFragment2.C;
-                p95 p95Var = new p95(i, z, responsedMessage, frsFragment2.E, frsFragment2.F, frsFragment2.D, false, frsFragment2.G, frsFragment2.H, this.A);
+                q95 q95Var = new q95(i, z, responsedMessage, frsFragment2.E, frsFragment2.F, frsFragment2.D, false, frsFragment2.G, frsFragment2.H, this.A);
                 FrsFragment frsFragment3 = this.a;
                 frsFragment3.F = 0L;
                 frsFragment3.E = 0L;
                 pp6.f(this, frsFragment3.B);
                 this.a.B = -1L;
-                p95Var.c();
+                q95Var.c();
             }
         }
     }
@@ -580,7 +580,7 @@ public class FrsModelController extends BdBaseModel<BaseFragmentActivity> implem
                 Object[] objArr = new Object[2];
                 objArr[0] = TiebaStatic.Params.H5_FORUM_NAME;
                 objArr[1] = frsRequestData != null ? frsRequestData.E() : null;
-                mt4.a("frs", j2, cmd, "http_resp", error, errorString, objArr);
+                nt4.a("frs", j2, cmd, "http_resp", error, errorString, objArr);
             }
             if (!this.B) {
                 this.B = true;
@@ -600,14 +600,14 @@ public class FrsModelController extends BdBaseModel<BaseFragmentActivity> implem
             long currentTimeMillis2 = System.currentTimeMillis();
             FrsFragment frsFragment2 = this.a;
             frsFragment.D = currentTimeMillis2 - frsFragment2.C;
-            p95 p95Var = new p95(1000, z, responsedMessage, frsFragment2.E, frsFragment2.F, frsFragment2.D, false, frsFragment2.G, frsFragment2.H, this.A);
+            q95 q95Var = new q95(1000, z, responsedMessage, frsFragment2.E, frsFragment2.F, frsFragment2.D, false, frsFragment2.G, frsFragment2.H, this.A);
             int i = this.h;
             if (i == 4) {
-                p95Var.B = this.A;
-                p95Var.e(true);
+                q95Var.B = this.A;
+                q95Var.e(true);
             } else if (i == 3) {
-                p95Var.C = this.A;
-                p95Var.e(false);
+                q95Var.C = this.A;
+                q95Var.e(false);
             }
         }
     }
@@ -643,7 +643,7 @@ public class FrsModelController extends BdBaseModel<BaseFragmentActivity> implem
                 objArr[1] = frsRequestData != null ? frsRequestData.E() : null;
                 objArr[2] = "seq_id";
                 objArr[3] = Long.valueOf(mvcSocketResponsedMessage.sequenceID);
-                mt4.a("frs", j2, cmd, "socket_resp", error, errorString, objArr);
+                nt4.a("frs", j2, cmd, "socket_resp", error, errorString, objArr);
             }
         }
     }
@@ -740,23 +740,23 @@ public class FrsModelController extends BdBaseModel<BaseFragmentActivity> implem
         return invokeLL.booleanValue;
     }
 
-    public void K(lp4 lp4Var) {
+    public void K(mp4 mp4Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048586, this, lp4Var) == null) || lp4Var == null || StringUtils.isNull(lp4Var.getId()) || ListUtils.isEmpty(this.c)) {
+        if (!(interceptable == null || interceptable.invokeL(1048586, this, mp4Var) == null) || mp4Var == null || StringUtils.isNull(mp4Var.getId()) || ListUtils.isEmpty(this.c)) {
             return;
         }
         if (this.r == 1) {
-            this.b.addMyNewThread(lp4Var);
+            this.b.addMyNewThread(mp4Var);
         }
         int g0 = g0();
         Iterator<nn> it = this.c.iterator();
         while (it.hasNext()) {
             nn next = it.next();
-            if ((next instanceof qq4) && lp4Var.getId().equals(((qq4) next).s.getId())) {
+            if ((next instanceof rq4) && mp4Var.getId().equals(((rq4) next).s.getId())) {
                 return;
             }
         }
-        this.c.add(g0, lp4Var);
+        this.c.add(g0, mp4Var);
     }
 
     public void K0(int i, boolean z) {
@@ -1226,8 +1226,8 @@ public class FrsModelController extends BdBaseModel<BaseFragmentActivity> implem
                 Iterator<nn> it = this.c.iterator();
                 while (it.hasNext()) {
                     nn next = it.next();
-                    if (next instanceof qq4) {
-                        if (((qq4) next).s.getIs_top() == 0) {
+                    if (next instanceof rq4) {
+                        if (((rq4) next).s.getIs_top() == 0) {
                             break;
                         }
                         i++;

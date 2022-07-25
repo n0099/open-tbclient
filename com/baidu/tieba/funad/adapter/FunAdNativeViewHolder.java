@@ -80,13 +80,13 @@ public class FunAdNativeViewHolder extends TypeAdapter.ViewHolder {
         public void onAdClicked(String str, String str2, String str3) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, str3) == null) {
-                StatisticItem param = new StatisticItem(TbadkCoreStatisticKey.FUN_AD_CLICK).param("obj_source", 6).param(TiebaStatic.Params.AD_BEAR_PLACE, this.c.h()).param("obj_type", this.c.g()).param("obj_locate", 0).param(TiebaStatic.Params.OBJ_TO, str2).param(TiebaStatic.Params.OBJ_PARAM2, str3);
-                if ("a006".equals(this.c.g())) {
+                StatisticItem param = new StatisticItem(TbadkCoreStatisticKey.FUN_AD_CLICK).param("obj_source", 6).param(TiebaStatic.Params.AD_BEAR_PLACE, this.c.g()).param("obj_type", this.c.f()).param("obj_locate", 0).param(TiebaStatic.Params.OBJ_TO, str2).param(TiebaStatic.Params.OBJ_PARAM2, str3);
+                if ("a006".equals(this.c.f())) {
                     param.param(TiebaStatic.Params.OBJ_PARAM3, this.a);
                     param.param("obj_param1", br6.a);
                 }
                 hr6.a(param, this.b);
-                hr6.N(0, FunAdRecordHttpMessage.CLICK_AD_RECORD, this.c.g(), this.b);
+                hr6.N(0, FunAdRecordHttpMessage.CLICK_AD_RECORD, this.c.f(), this.b);
                 TiebaStatic.log(param);
             }
         }
@@ -102,12 +102,12 @@ public class FunAdNativeViewHolder extends TypeAdapter.ViewHolder {
         public void onAdError(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-                StatisticItem param = new StatisticItem(TbadkCoreStatisticKey.FUN_AD_SHOW).param("obj_source", 6).param(TiebaStatic.Params.AD_BEAR_PLACE, this.c.h()).param("obj_type", this.c.g()).param("obj_locate", 1);
-                if ("a006".equals(this.c.g())) {
+                StatisticItem param = new StatisticItem(TbadkCoreStatisticKey.FUN_AD_SHOW).param("obj_source", 6).param(TiebaStatic.Params.AD_BEAR_PLACE, this.c.g()).param("obj_type", this.c.f()).param("obj_locate", 1);
+                if ("a006".equals(this.c.f())) {
                     param.param("obj_param1", br6.a);
                 }
                 hr6.a(param, this.b);
-                hr6.N(1, FunAdRecordHttpMessage.SHOW_AD_RECORD, this.c.g(), this.b);
+                hr6.N(1, FunAdRecordHttpMessage.SHOW_AD_RECORD, this.c.f(), this.b);
                 TiebaStatic.log(param);
             }
         }
@@ -116,16 +116,16 @@ public class FunAdNativeViewHolder extends TypeAdapter.ViewHolder {
         public void onAdShow(String str, String str2, String str3) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLL(1048580, this, str, str2, str3) == null) {
-                this.c.j(str2);
-                this.c.i(str3);
+                this.c.i(str2);
+                this.c.h(str3);
                 StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.FUN_AD_SHOW);
-                statisticItem.param("obj_source", 6).param(TiebaStatic.Params.AD_BEAR_PLACE, this.c.h()).param("obj_type", this.c.g()).param("obj_locate", 0).param(TiebaStatic.Params.OBJ_TO, str2).param(TiebaStatic.Params.OBJ_PARAM2, str3);
-                if ("a006".equals(this.c.g())) {
+                statisticItem.param("obj_source", 6).param(TiebaStatic.Params.AD_BEAR_PLACE, this.c.g()).param("obj_type", this.c.f()).param("obj_locate", 0).param(TiebaStatic.Params.OBJ_TO, str2).param(TiebaStatic.Params.OBJ_PARAM2, str3);
+                if ("a006".equals(this.c.f())) {
                     statisticItem.param(TiebaStatic.Params.OBJ_PARAM3, this.a);
                     statisticItem.param("obj_param1", br6.a);
                 }
                 hr6.a(statisticItem, this.b);
-                hr6.N(0, FunAdRecordHttpMessage.SHOW_AD_RECORD, this.c.g(), this.b);
+                hr6.N(0, FunAdRecordHttpMessage.SHOW_AD_RECORD, this.c.f(), this.b);
                 TiebaStatic.log(statisticItem);
             }
         }
@@ -154,57 +154,57 @@ public class FunAdNativeViewHolder extends TypeAdapter.ViewHolder {
         this.b = activity;
     }
 
-    public final boolean c(FunNativeAd2 funNativeAd2) {
+    public final boolean b(FunNativeAd2 funNativeAd2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, funNativeAd2)) == null) ? (hr6.f(funNativeAd2) == null && hr6.e(funNativeAd2) == null) ? false : true : invokeL.booleanValue;
     }
 
-    public String d() {
+    public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f : (String) invokeV.objValue;
     }
 
-    public String e() {
+    public String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.e : (String) invokeV.objValue;
     }
 
-    public FunAbsAdView f() {
+    public FunAbsAdView e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.c : (FunAbsAdView) invokeV.objValue;
     }
 
-    public String g() {
+    public String f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? "personalize".equals(this.h) ? "a002" : this.a == AdvertAppInfo.E ? "a006" : "a005" : (String) invokeV.objValue;
     }
 
-    public String h() {
+    public String g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? "pb".equals(this.h) ? this.a == AdvertAppInfo.F ? "2" : "1" : "" : (String) invokeV.objValue;
     }
 
-    public void i(String str) {
+    public void h(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
             this.f = str;
         }
     }
 
-    public void j(String str) {
+    public void i(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
             this.e = str;
         }
     }
 
-    public void k(View.OnClickListener onClickListener) {
+    public void j(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, onClickListener) == null) || this.c.getFeedBackView() == null) {
             return;
@@ -213,28 +213,28 @@ public class FunAdNativeViewHolder extends TypeAdapter.ViewHolder {
         this.c.setFeedBackListener(onClickListener);
     }
 
-    public void l(String str) {
+    public void k(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
             this.h = str;
         }
     }
 
-    public void m(String str) {
+    public void l(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
             this.g = str;
         }
     }
 
-    public void n(String str) {
+    public void m(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, str) == null) {
             this.d = str;
         }
     }
 
-    public void o(@NonNull mi8 mi8Var, int i) {
+    public void n(@NonNull mi8 mi8Var, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048588, this, mi8Var, i) == null) {
             Object d = mi8Var.d();
@@ -258,14 +258,14 @@ public class FunAdNativeViewHolder extends TypeAdapter.ViewHolder {
             Object obj = d;
             if (obj == null) {
                 this.c.d(8);
-                if ("a006".equals(g())) {
-                    TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.FUN_AD_FRS_FLOOR_SHOW).param("obj_source", 6).param("obj_type", g()).param("obj_locate", 1).param(TiebaStatic.Params.OBJ_PARAM3, i).param("obj_param1", br6.a));
+                if ("a006".equals(f())) {
+                    TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.FUN_AD_FRS_FLOOR_SHOW).param("obj_source", 6).param("obj_type", f()).param("obj_locate", 1).param(TiebaStatic.Params.OBJ_PARAM3, i).param("obj_param1", br6.a));
                     return;
                 }
                 return;
             }
-            if ("a006".equals(g())) {
-                TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.FUN_AD_FRS_FLOOR_SHOW).param("obj_source", 6).param("obj_type", g()).param("obj_locate", 0).param(TiebaStatic.Params.OBJ_PARAM3, i).param("obj_param1", br6.a));
+            if ("a006".equals(f())) {
+                TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.FUN_AD_FRS_FLOOR_SHOW).param("obj_source", 6).param("obj_type", f()).param("obj_locate", 0).param(TiebaStatic.Params.OBJ_PARAM3, i).param("obj_param1", br6.a));
             }
             this.c.d(0);
             this.c.f(mi8Var, this.b);
@@ -273,7 +273,7 @@ public class FunAdNativeViewHolder extends TypeAdapter.ViewHolder {
             FunNativeAd2 funNativeAd22 = (FunNativeAd2) obj;
             ViewGroup c = this.c.c(funNativeAd22);
             zq6.m().G(this.b, obj, new a(this, i, mi8Var), c, this.c.getClickViews(), this.c.getCreativeViews(), this.c.getLogItem(), this.d);
-            if (c(funNativeAd22) && c != null && (c.getParent() instanceof ViewGroup)) {
+            if (b(funNativeAd22) && c != null && (c.getParent() instanceof ViewGroup)) {
                 ViewGroup viewGroup = (ViewGroup) c.getParent();
                 if (viewGroup.getChildCount() > 1) {
                     int childCount = viewGroup.getChildCount() - 1;

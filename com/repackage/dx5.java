@@ -56,58 +56,28 @@ public class dx5 implements cx5, View.OnClickListener {
         this.a = f;
         this.o = f;
         this.p = 0.0f;
-        a();
-    }
-
-    public boolean a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            LinearLayout linearLayout = (LinearLayout) this.b.getPageActivity().findViewById(R.id.obfuscated_res_0x7f09048b);
-            this.c = linearLayout;
-            ur4 d = ur4.d(linearLayout);
-            d.n(R.string.J_X05);
-            d.f(R.color.CAM_X0214);
-            this.d = (ImageView) this.b.getPageActivity().findViewById(R.id.obfuscated_res_0x7f091a5f);
-            this.i = (RelativeLayout) this.b.getPageActivity().findViewById(R.id.obfuscated_res_0x7f091a60);
-            this.g = (ImageView) this.b.getPageActivity().findViewById(R.id.obfuscated_res_0x7f091a5d);
-            this.l = (RelativeLayout) this.b.getPageActivity().findViewById(R.id.obfuscated_res_0x7f091a5e);
-            this.f = (ImageView) this.b.getPageActivity().findViewById(R.id.obfuscated_res_0x7f091a5b);
-            this.k = (RelativeLayout) this.b.getPageActivity().findViewById(R.id.obfuscated_res_0x7f091a5c);
-            this.e = (ImageView) this.b.getPageActivity().findViewById(R.id.obfuscated_res_0x7f091a57);
-            this.j = (RelativeLayout) this.b.getPageActivity().findViewById(R.id.obfuscated_res_0x7f091a58);
-            this.h = (ImageView) this.b.getPageActivity().findViewById(R.id.obfuscated_res_0x7f091a59);
-            this.m = (RelativeLayout) this.b.getPageActivity().findViewById(R.id.obfuscated_res_0x7f091a5a);
-            g();
-            this.i.setOnClickListener(this);
-            this.l.setOnClickListener(this);
-            this.k.setOnClickListener(this);
-            this.j.setOnClickListener(this);
-            this.m.setOnClickListener(this);
-            return true;
-        }
-        return invokeV.booleanValue;
+        e();
     }
 
     @Override // com.repackage.cx5
-    public int b() {
+    public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.c.getVisibility() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.c.getVisibility() : invokeV.intValue;
+    }
+
+    @Override // com.repackage.cx5
+    public void b(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            this.c.setVisibility(i);
+        }
     }
 
     @Override // com.repackage.cx5
     public void c(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            this.c.setVisibility(i);
-        }
-    }
-
-    @Override // com.repackage.cx5
-    public void d(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
             this.i.setVisibility(i);
             if (i == 8) {
                 this.p = 1.7777778f;
@@ -117,10 +87,40 @@ public class dx5 implements cx5, View.OnClickListener {
     }
 
     @Override // com.repackage.cx5
-    public float e() {
+    public float d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.p : invokeV.floatValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.p : invokeV.floatValue;
+    }
+
+    public boolean e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            LinearLayout linearLayout = (LinearLayout) this.b.getPageActivity().findViewById(R.id.obfuscated_res_0x7f09048b);
+            this.c = linearLayout;
+            vr4 d = vr4.d(linearLayout);
+            d.n(R.string.J_X05);
+            d.f(R.color.CAM_X0214);
+            this.d = (ImageView) this.b.getPageActivity().findViewById(R.id.obfuscated_res_0x7f091a39);
+            this.i = (RelativeLayout) this.b.getPageActivity().findViewById(R.id.obfuscated_res_0x7f091a3a);
+            this.g = (ImageView) this.b.getPageActivity().findViewById(R.id.obfuscated_res_0x7f091a37);
+            this.l = (RelativeLayout) this.b.getPageActivity().findViewById(R.id.obfuscated_res_0x7f091a38);
+            this.f = (ImageView) this.b.getPageActivity().findViewById(R.id.obfuscated_res_0x7f091a35);
+            this.k = (RelativeLayout) this.b.getPageActivity().findViewById(R.id.obfuscated_res_0x7f091a36);
+            this.e = (ImageView) this.b.getPageActivity().findViewById(R.id.obfuscated_res_0x7f091a31);
+            this.j = (RelativeLayout) this.b.getPageActivity().findViewById(R.id.obfuscated_res_0x7f091a32);
+            this.h = (ImageView) this.b.getPageActivity().findViewById(R.id.obfuscated_res_0x7f091a33);
+            this.m = (RelativeLayout) this.b.getPageActivity().findViewById(R.id.obfuscated_res_0x7f091a34);
+            g();
+            this.i.setOnClickListener(this);
+            this.l.setOnClickListener(this);
+            this.k.setOnClickListener(this);
+            this.j.setOnClickListener(this);
+            this.m.setOnClickListener(this);
+            return true;
+        }
+        return invokeV.booleanValue;
     }
 
     public void f(float f) {
@@ -169,19 +169,19 @@ public class dx5 implements cx5, View.OnClickListener {
     public void onClick(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, view2) == null) {
-            if (view2.getId() == R.id.obfuscated_res_0x7f091a60) {
+            if (view2.getId() == R.id.obfuscated_res_0x7f091a3a) {
                 this.p = 0.0f;
                 f(this.a);
-            } else if (view2.getId() == R.id.obfuscated_res_0x7f091a5e) {
+            } else if (view2.getId() == R.id.obfuscated_res_0x7f091a38) {
                 this.p = 1.7777778f;
                 f(1.7777778f);
-            } else if (view2.getId() == R.id.obfuscated_res_0x7f091a5c) {
+            } else if (view2.getId() == R.id.obfuscated_res_0x7f091a36) {
                 this.p = 1.3333334f;
                 f(1.3333334f);
-            } else if (view2.getId() == R.id.obfuscated_res_0x7f091a58) {
+            } else if (view2.getId() == R.id.obfuscated_res_0x7f091a32) {
                 this.p = 0.5625f;
                 f(0.5625f);
-            } else if (view2.getId() == R.id.obfuscated_res_0x7f091a5a) {
+            } else if (view2.getId() == R.id.obfuscated_res_0x7f091a34) {
                 this.p = 1.0f;
                 f(1.0f);
             }
@@ -217,6 +217,6 @@ public class dx5 implements cx5, View.OnClickListener {
         this.a = 1.7777778f;
         this.o = 1.7777778f;
         this.p = 0.0f;
-        a();
+        e();
     }
 }

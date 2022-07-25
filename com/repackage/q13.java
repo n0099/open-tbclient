@@ -1,6 +1,8 @@
 package com.repackage;
 
 import android.content.Context;
+import android.util.Log;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
@@ -13,19 +15,20 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
 @Deprecated
-/* loaded from: classes6.dex */
-public class q13 extends e23 {
+/* loaded from: classes7.dex */
+public class q13 extends f23 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public om1 c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public q13(e13 e13Var) {
-        super(e13Var, "/swanAPI/isLoginSync");
+    public q13(f13 f13Var) {
+        super(f13Var, "/swanAPI/getSlaveIdSync");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {e13Var};
+            Object[] objArr = {f13Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -39,28 +42,38 @@ public class q13 extends e23 {
         }
     }
 
-    @Override // com.repackage.e23
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, h03 h03Var) {
+    @Override // com.repackage.f23
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, i03 i03Var) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, h03Var)) == null) {
-            if (h03Var == null) {
-                hx1.c("isLogin", "swanApp is null");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "empty swanApp");
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, i03Var)) == null) {
+            if (f23.b) {
+                Log.d("GetSlaveIdSyncAction", "handle entity: " + unitedSchemeEntity.toString());
+            }
+            if (this.c == null) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
                 return false;
             }
-            boolean e = h03Var.N().e(context);
             try {
                 JSONObject jSONObject = new JSONObject();
-                jSONObject.put("isLogin", e);
+                jSONObject.put("slaveId", this.c.b());
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0);
                 return true;
-            } catch (JSONException unused) {
-                hx1.c("isLogin", "json parse fail");
+            } catch (JSONException e) {
+                if (f23.b) {
+                    Log.d("GetSlaveIdSyncAction", Log.getStackTraceString(e));
+                }
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
                 return false;
             }
         }
         return invokeLLLL.booleanValue;
+    }
+
+    public void j(om1 om1Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, om1Var) == null) {
+            this.c = om1Var;
+        }
     }
 }

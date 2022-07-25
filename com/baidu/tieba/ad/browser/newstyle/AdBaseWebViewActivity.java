@@ -32,7 +32,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.an4;
+import com.repackage.bn4;
 import com.repackage.di5;
 import com.repackage.ei;
 import com.repackage.ni;
@@ -211,7 +211,7 @@ public abstract class AdBaseWebViewActivity extends BaseActivity<AdBaseWebViewAc
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 if (!ni.z()) {
-                    this.a.showToast(R.string.obfuscated_res_0x7f0f0c2b);
+                    this.a.showToast(R.string.obfuscated_res_0x7f0f0c17);
                     return;
                 }
                 this.a.a.f();
@@ -381,7 +381,7 @@ public abstract class AdBaseWebViewActivity extends BaseActivity<AdBaseWebViewAc
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048581, this, str, str2, str3, str4)) == null) {
             ShareItem shareItem = new ShareItem();
             if (StringUtils.isNull(this.d, true)) {
-                shareItem.u = getResources().getString(R.string.obfuscated_res_0x7f0f114b);
+                shareItem.u = getResources().getString(R.string.obfuscated_res_0x7f0f10fa);
             } else {
                 shareItem.u = this.d;
             }
@@ -450,7 +450,7 @@ public abstract class AdBaseWebViewActivity extends BaseActivity<AdBaseWebViewAc
         }
     }
 
-    @Override // com.baidu.tbadk.BaseActivity, com.repackage.v85
+    @Override // com.baidu.tbadk.BaseActivity, com.repackage.w85
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -516,7 +516,7 @@ public abstract class AdBaseWebViewActivity extends BaseActivity<AdBaseWebViewAc
         this.a.v(z);
         setUseStyleImmersiveSticky(intent.getBooleanExtra(WebViewActivityConfig.TAG_NEED_STYLE_IMMERSIVE_STICKY, true));
         if (TextUtils.isEmpty(this.b)) {
-            pi.O(getPageContext().getPageActivity(), getResources().getString(R.string.obfuscated_res_0x7f0f14e5));
+            pi.O(getPageContext().getPageActivity(), getResources().getString(R.string.obfuscated_res_0x7f0f1494));
             return;
         }
         if (this.b.contains("useImmersive=0") && "Meizu".equalsIgnoreCase(Build.BRAND)) {
@@ -628,7 +628,7 @@ public abstract class AdBaseWebViewActivity extends BaseActivity<AdBaseWebViewAc
         String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
-            an4.b c2 = an4.b().c(TbadkCoreApplication.getCurrentBduss());
+            bn4.b c2 = bn4.b().c(TbadkCoreApplication.getCurrentBduss());
             String str2 = "";
             if (c2 != null) {
                 String str3 = c2.a;
@@ -694,7 +694,7 @@ public abstract class AdBaseWebViewActivity extends BaseActivity<AdBaseWebViewAc
             } else if (id == R.id.obfuscated_res_0x7f0924d2) {
                 this.a.c();
                 ei.a(this.b);
-                pi.O(view2.getContext(), view2.getResources().getString(R.string.obfuscated_res_0x7f0f0446));
+                pi.O(view2.getContext(), view2.getResources().getString(R.string.obfuscated_res_0x7f0f0445));
             }
         }
     }

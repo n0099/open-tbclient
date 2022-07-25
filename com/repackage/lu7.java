@@ -20,16 +20,16 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 /* loaded from: classes6.dex */
-public class lu7 extends l15 {
+public class lu7 extends m15 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public PbEditorData.ThreadData a;
-    public k15 b;
+    public l15 b;
     public boolean c;
     public boolean d;
 
     /* loaded from: classes6.dex */
-    public class a implements k15 {
+    public class a implements l15 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ku7 a;
@@ -54,19 +54,19 @@ public class lu7 extends l15 {
             this.a = ku7Var;
         }
 
-        @Override // com.repackage.k15
-        public void C(j15 j15Var) {
+        @Override // com.repackage.l15
+        public void C(k15 k15Var) {
             ku7 ku7Var;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, j15Var) == null) || (ku7Var = this.a) == null || ku7Var.a() == null || j15Var == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, k15Var) == null) || (ku7Var = this.a) == null || ku7Var.a() == null || k15Var == null) {
                 return;
             }
             if (this.b.b != null) {
-                this.b.b.C(j15Var);
+                this.b.b.C(k15Var);
             }
-            int i = j15Var.a;
+            int i = k15Var.a;
             if (i == 18) {
-                if (j15Var.c != null) {
+                if (k15Var.c != null) {
                     this.a.l();
                     return;
                 }
@@ -81,12 +81,12 @@ public class lu7 extends l15 {
                 nj8.a().f(true);
                 MessageManager.getInstance().dispatchResponsedMessage(new ResponsedSelectLocation(false, null, null, null));
             } else if (i == 32) {
-                this.a.a().A(new j15(1, 11, null));
+                this.a.a().A(new k15(1, 11, null));
             } else if (i == 36) {
                 if (this.b.h(this.a.getContext().getPageContext(), 11040)) {
                     this.a.m();
                 }
-            } else if (i == 43 && !id5.c(this.a.getContext().getPageContext(), true, false)) {
+            } else if (i == 43 && !jd5.c(this.a.getContext().getPageContext(), true, false)) {
                 HotSelectActivityConfig hotSelectActivityConfig = new HotSelectActivityConfig(this.a.getContext().getActivity(), 25004, HotSelectActivityConfig.FROM_PB);
                 if (this.b.a != null) {
                     hotSelectActivityConfig.setForumExtra(ng.g(this.b.a.getForumId(), 0L), this.b.a.getFirstDir(), this.b.a.getSecondDir());
@@ -113,8 +113,8 @@ public class lu7 extends l15 {
         this.d = false;
     }
 
-    @Override // com.repackage.l15
-    public n15 b(Context context) {
+    @Override // com.repackage.m15
+    public o15 b(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
@@ -135,15 +135,15 @@ public class lu7 extends l15 {
             editorTools.C(true);
             return new ku7(editorTools);
         }
-        return (n15) invokeL.objValue;
+        return (o15) invokeL.objValue;
     }
 
-    @Override // com.repackage.l15
-    public void c(n15 n15Var) {
+    @Override // com.repackage.m15
+    public void c(o15 o15Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, n15Var) == null) && (n15Var instanceof ku7)) {
-            EditorTools a2 = n15Var.a();
-            a aVar = new a(this, (ku7) n15Var);
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, o15Var) == null) && (o15Var instanceof ku7)) {
+            EditorTools a2 = o15Var.a();
+            a aVar = new a(this, (ku7) o15Var);
             a2.setActionListener(16, aVar);
             a2.setActionListener(14, aVar);
             a2.setActionListener(15, aVar);
@@ -160,52 +160,52 @@ public class lu7 extends l15 {
         }
     }
 
-    @Override // com.repackage.l15
-    public void d(n15 n15Var) {
+    @Override // com.repackage.m15
+    public void d(o15 o15Var) {
         CustomResponsedMessage runTask;
-        u15 u15Var;
+        v15 v15Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, n15Var) == null) {
-            EditorTools a2 = n15Var.a();
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, o15Var) == null) {
+            EditorTools a2 = o15Var.a();
             ArrayList arrayList = new ArrayList();
             arrayList.add(5);
             if (!this.c) {
                 arrayList.add(10);
-                a2.d(new g25(a2.getContext(), 1));
+                a2.d(new h25(a2.getContext(), 1));
             }
             if (!this.d) {
                 arrayList.add(6);
                 arrayList.add(9);
                 PbEditorData.ThreadData threadData = this.a;
                 String forumName = threadData != null ? threadData.getForumName() : "";
-                if (ik8.a() && mh8.a(forumName, Boolean.TRUE) && (runTask = MessageManager.getInstance().runTask(new CustomMessage<>(2001448, a2.getContext()), u15.class)) != null && (u15Var = (u15) runTask.getData()) != null) {
-                    u15Var.l = 2;
-                    a2.d(u15Var);
+                if (ik8.a() && mh8.a(forumName, Boolean.TRUE) && (runTask = MessageManager.getInstance().runTask(new CustomMessage<>(2001448, a2.getContext()), v15.class)) != null && (v15Var = (v15) runTask.getData()) != null) {
+                    v15Var.l = 2;
+                    a2.d(v15Var);
                 }
-                a2.d(new w15(a2.getContext(), 4));
+                a2.d(new x15(a2.getContext(), 4));
                 if (!this.c) {
-                    CustomResponsedMessage runTask2 = MessageManager.getInstance().runTask(new CustomMessage<>(2001339, a2.getContext()), u15.class);
+                    CustomResponsedMessage runTask2 = MessageManager.getInstance().runTask(new CustomMessage<>(2001339, a2.getContext()), v15.class);
                     if (runTask2 != null && runTask2.getData() != null) {
-                        u15 u15Var2 = (u15) runTask2.getData();
-                        u15Var2.l = 6;
-                        a2.d(u15Var2);
+                        v15 v15Var2 = (v15) runTask2.getData();
+                        v15Var2.l = 6;
+                        a2.d(v15Var2);
                     }
-                    CustomResponsedMessage runTask3 = MessageManager.getInstance().runTask(new CustomMessage<>(2001342, a2.getContext()), u15.class);
+                    CustomResponsedMessage runTask3 = MessageManager.getInstance().runTask(new CustomMessage<>(2001342, a2.getContext()), v15.class);
                     if (runTask3 != null && runTask3.getData() != null) {
-                        u15 u15Var3 = (u15) runTask3.getData();
-                        u15Var3.l = 7;
-                        a2.d(u15Var3);
+                        v15 v15Var3 = (v15) runTask3.getData();
+                        v15Var3.l = 7;
+                        a2.d(v15Var3);
                     }
                 }
                 if (!"PbChosenActivity".equals(a2.getContext().getClass().getSimpleName()) && !this.c) {
-                    a2.d(new c25(a2.getContext(), 5));
+                    a2.d(new d25(a2.getContext(), 5));
                 }
             }
             if (!this.c && !this.d) {
                 arrayList.add(8);
             }
             a2.h(arrayList);
-            u15 n = a2.n(5);
+            v15 n = a2.n(5);
             if (n != null) {
                 n.l = 3;
                 if (this.c || this.d) {
@@ -214,7 +214,7 @@ public class lu7 extends l15 {
             }
             a2.f();
             if (this.c || this.d) {
-                a2.A(new j15(35, 5, Boolean.FALSE));
+                a2.A(new k15(35, 5, Boolean.FALSE));
             }
         }
     }
@@ -247,10 +247,10 @@ public class lu7 extends l15 {
         }
     }
 
-    public void k(k15 k15Var) {
+    public void k(l15 l15Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, k15Var) == null) {
-            this.b = k15Var;
+        if (interceptable == null || interceptable.invokeL(1048582, this, l15Var) == null) {
+            this.b = l15Var;
         }
     }
 

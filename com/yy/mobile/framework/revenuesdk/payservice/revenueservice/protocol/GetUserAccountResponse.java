@@ -1,6 +1,7 @@
 package com.yy.mobile.framework.revenuesdk.payservice.revenueservice.protocol;
 
 import com.baidu.searchbox.retrieve.log.bean.FetchLog;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -53,7 +54,7 @@ public class GetUserAccountResponse implements IBaseJsonResponse {
                 JSONObject jSONObject = new JSONObject(str);
                 this.seq = jSONObject.optString("seq", "");
                 this.uid = jSONObject.optLong("uid", 0L);
-                this.result = jSONObject.optInt("result", 0);
+                this.result = jSONObject.optInt(TiebaStatic.LogFields.RESULT, 0);
                 this.message = jSONObject.optString("message", "");
                 this.imid = jSONObject.optLong("imid", 0L);
                 this.minAmountLimit = jSONObject.optLong("minAmountLimit", 0L);

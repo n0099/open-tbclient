@@ -8,14 +8,14 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.do4;
+import com.repackage.eo4;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class AlaLiveUserInfoData extends do4 implements Serializable {
+public class AlaLiveUserInfoData extends eo4 implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ALA_AUTHENT_STATUS_FAILED = 3;
     public static final int ALA_AUTHENT_STATUS_NOT = 0;
@@ -83,7 +83,7 @@ public class AlaLiveUserInfoData extends do4 implements Serializable {
         this.isNewGiftPriceStrategy = false;
     }
 
-    @Override // com.repackage.do4
+    @Override // com.repackage.eo4
     public void parserJson(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {

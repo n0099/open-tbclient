@@ -25,14 +25,14 @@ public class gu7 extends BaseAdapter implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
-    public o45 b;
+    public p45 b;
     public LinkedList<ImageFileInfo> c;
     public int d;
     public int e;
     public c f;
 
     /* loaded from: classes6.dex */
-    public class a implements k45 {
+    public class a implements l45 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ViewGroup a;
@@ -55,7 +55,7 @@ public class gu7 extends BaseAdapter implements View.OnClickListener {
             this.a = viewGroup;
         }
 
-        @Override // com.repackage.k45
+        @Override // com.repackage.l45
         public void a(ym ymVar, String str, boolean z) {
             TbImageView tbImageView;
             Interceptable interceptable = $ic;
@@ -150,7 +150,7 @@ public class gu7 extends BaseAdapter implements View.OnClickListener {
             }
         }
         this.a = null;
-        this.b = new o45();
+        this.b = new p45();
         this.c = null;
         this.a = context;
         int k = pi.k(context);
@@ -164,7 +164,7 @@ public class gu7 extends BaseAdapter implements View.OnClickListener {
             return;
         }
         int i = this.d;
-        ImageOperation g = x45.g(i, i);
+        ImageOperation g = y45.g(i, i);
         imageFileInfo.clearPageActions();
         imageFileInfo.addPageAction(g);
         if (imageFileInfo.getImageType() == 0) {
@@ -175,7 +175,7 @@ public class gu7 extends BaseAdapter implements View.OnClickListener {
             } else {
                 this.b.d(imageFileInfo, new a(this, viewGroup), true);
             }
-            dVar.a.setTagStr(this.a.getString(R.string.obfuscated_res_0x7f0f051e));
+            dVar.a.setTagStr(this.a.getString(R.string.obfuscated_res_0x7f0f051a));
         } else if (imageFileInfo.getImageType() == 1) {
             String filePath = imageFileInfo.getFilePath();
             if (!oi.isEmpty(filePath) && filePath.startsWith(SmallTailInfo.EMOTION_PREFIX)) {
@@ -248,10 +248,10 @@ public class gu7 extends BaseAdapter implements View.OnClickListener {
         if (interceptable == null || (invokeILL = interceptable.invokeILL(1048582, this, i, view2, viewGroup)) == null) {
             if (view2 == null) {
                 dVar = new d();
-                view3 = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0678, (ViewGroup) null);
-                dVar.a = (TbImageView) view3.findViewById(R.id.obfuscated_res_0x7f090fb6);
-                dVar.b = (LinearLayout) view3.findViewById(R.id.obfuscated_res_0x7f091230);
-                dVar.c = (ImageView) view3.findViewById(R.id.obfuscated_res_0x7f090751);
+                view3 = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0682, (ViewGroup) null);
+                dVar.a = (TbImageView) view3.findViewById(R.id.obfuscated_res_0x7f090faf);
+                dVar.b = (LinearLayout) view3.findViewById(R.id.obfuscated_res_0x7f09120c);
+                dVar.c = (ImageView) view3.findViewById(R.id.obfuscated_res_0x7f090750);
                 dVar.a.setOnClickListener(this);
                 dVar.a.setTagTextSize(pi.f(this.a, R.dimen.tbds30));
                 dVar.a.setDrawBorder(true);
@@ -288,12 +288,12 @@ public class gu7 extends BaseAdapter implements View.OnClickListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, view2) == null) {
             int id = view2.getId();
-            if (id == R.id.obfuscated_res_0x7f091230 && (view2.getTag() instanceof Integer)) {
+            if (id == R.id.obfuscated_res_0x7f09120c && (view2.getTag() instanceof Integer)) {
                 c cVar2 = this.f;
                 if (cVar2 != null) {
                     cVar2.y1(((Integer) view2.getTag()).intValue());
                 }
-            } else if (id == R.id.obfuscated_res_0x7f090fb6 && (view2.getTag(view2.getId()) instanceof Integer) && (cVar = this.f) != null) {
+            } else if (id == R.id.obfuscated_res_0x7f090faf && (view2.getTag(view2.getId()) instanceof Integer) && (cVar = this.f) != null) {
                 cVar.o0(((Integer) view2.getTag(view2.getId())).intValue());
             }
         }

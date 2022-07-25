@@ -24,7 +24,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.an;
-import com.repackage.ev4;
+import com.repackage.fv4;
 import com.repackage.mr7;
 import com.repackage.pi;
 import tbclient.ApkDetail;
@@ -76,7 +76,7 @@ public class PbFirstFloorItemAdapter extends an<mr7, PbFirstFloorItemViewHolder>
                 if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                     int intValue = this.a.a.button_link_type.intValue();
                     ApkDetail apkDetail = this.a.a.apk_detail;
-                    int a = ev4.a(intValue, apkDetail != null ? apkDetail.pkg_source.intValue() : 0);
+                    int a = fv4.a(intValue, apkDetail != null ? apkDetail.pkg_source.intValue() : 0);
                     ItemData itemData = new ItemData();
                     itemData.parseProto(this.a.a);
                     ItemCardHelper.q(this.b.b.getPosition(), this.a.a.item_id.longValue(), this.b.b.z(itemData), this.a.b, a, "", 2);
@@ -115,7 +115,7 @@ public class PbFirstFloorItemAdapter extends an<mr7, PbFirstFloorItemViewHolder>
             this.b = (ItemCardView) viewGroup.getChildAt(2);
         }
 
-        public void d() {
+        public void c() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 SkinManager.setBackgroundColor(this.c, R.color.CAM_X0203);
@@ -124,11 +124,11 @@ public class PbFirstFloorItemAdapter extends an<mr7, PbFirstFloorItemViewHolder>
             }
         }
 
-        public void e(mr7 mr7Var) {
+        public void d(mr7 mr7Var) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, mr7Var) == null) {
                 if (mr7Var != null) {
-                    this.a.setText(this.d.a.getText(R.string.obfuscated_res_0x7f0f0f9f));
+                    this.a.setText(this.d.a.getText(R.string.obfuscated_res_0x7f0f0f88));
                     ItemData itemData = new ItemData();
                     itemData.parseProto(mr7Var.a);
                     this.b.setData(itemData, 17, mr7Var.b);
@@ -252,9 +252,9 @@ public class PbFirstFloorItemAdapter extends an<mr7, PbFirstFloorItemViewHolder>
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, mr7Var, pbFirstFloorItemViewHolder})) == null) {
             if (mr7Var != null && mr7Var.a != null) {
-                pbFirstFloorItemViewHolder.e(mr7Var);
+                pbFirstFloorItemViewHolder.d(mr7Var);
             }
-            pbFirstFloorItemViewHolder.d();
+            pbFirstFloorItemViewHolder.c();
             StatisticItem statisticItem = new StatisticItem("c14070");
             statisticItem.param("tid", mr7Var.b);
             statisticItem.param("obj_locate", mr7Var.a.item_id.longValue());

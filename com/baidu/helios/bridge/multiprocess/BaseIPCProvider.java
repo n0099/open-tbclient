@@ -36,12 +36,12 @@ public abstract class BaseIPCProvider extends ContentProvider {
 
         /* renamed from: com.baidu.helios.bridge.multiprocess.BaseIPCProvider$a$a  reason: collision with other inner class name */
         /* loaded from: classes2.dex */
-        public class C0095a implements q10.c<String> {
+        public class C0096a implements q10.c<String> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ f a;
 
-            public C0095a(a aVar, f fVar) {
+            public C0096a(a aVar, f fVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -129,7 +129,7 @@ public abstract class BaseIPCProvider extends ContentProvider {
         public void a(String str, Bundle bundle, f fVar) throws RemoteException {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, str, bundle, fVar) == null) {
-                this.f.a().a(str, bundle, new C0095a(this, fVar));
+                this.f.a().a(str, bundle, new C0096a(this, fVar));
             }
         }
 

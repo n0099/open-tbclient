@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.bs6;
 import com.repackage.d9;
 import com.repackage.wh8;
-import com.repackage.xo4;
+import com.repackage.yo4;
 import com.repackage.za;
 /* loaded from: classes3.dex */
 public class SendGiftModel extends BdBaseModel<GiftTabActivity> {
@@ -159,13 +159,13 @@ public class SendGiftModel extends BdBaseModel<GiftTabActivity> {
         registerListener(this.c);
     }
 
-    public void B(xo4 xo4Var, int i, String str, long j, String str2, long j2, long j3) {
+    public void B(yo4 yo4Var, int i, String str, long j, String str2, long j2, long j3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{xo4Var, Integer.valueOf(i), str, Long.valueOf(j), str2, Long.valueOf(j2), Long.valueOf(j3)}) == null) {
-            if (i > 0 && xo4Var != null && j > 0) {
-                if (xo4Var.f == 5) {
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{yo4Var, Integer.valueOf(i), str, Long.valueOf(j), str2, Long.valueOf(j2), Long.valueOf(j3)}) == null) {
+            if (i > 0 && yo4Var != null && j > 0) {
+                if (yo4Var.f == 5) {
                     SendFreeGiftRequest sendFreeGiftRequest = new SendFreeGiftRequest();
-                    sendFreeGiftRequest.setGiftId(xo4Var.a);
+                    sendFreeGiftRequest.setGiftId(yo4Var.a);
                     sendFreeGiftRequest.setToUserId(j);
                     sendFreeGiftRequest.setToUserName(str2);
                     sendFreeGiftRequest.setSceneFrom(str);
@@ -176,7 +176,7 @@ public class SendGiftModel extends BdBaseModel<GiftTabActivity> {
                     return;
                 }
                 PlaceOrderRequest placeOrderRequest = new PlaceOrderRequest();
-                placeOrderRequest.setGiftId(xo4Var.a);
+                placeOrderRequest.setGiftId(yo4Var.a);
                 placeOrderRequest.setToUserId(j);
                 placeOrderRequest.setToUserName(str2);
                 placeOrderRequest.setSceneFrom(str);
@@ -184,8 +184,8 @@ public class SendGiftModel extends BdBaseModel<GiftTabActivity> {
                 placeOrderRequest.setThreadId(j2);
                 placeOrderRequest.setPostId(j3);
                 placeOrderRequest.accountId = j;
-                placeOrderRequest.accountType = xo4Var.r;
-                placeOrderRequest.currency = xo4Var.s;
+                placeOrderRequest.accountType = yo4Var.r;
+                placeOrderRequest.currency = yo4Var.s;
                 sendMessage(placeOrderRequest);
                 return;
             }

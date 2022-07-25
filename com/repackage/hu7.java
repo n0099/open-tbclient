@@ -69,7 +69,7 @@ public class hu7 extends du7<PostData, PbFirstFloorViewHolder> {
     public Context F;
     public int G;
     public ls7 H;
-    public jy5<nn4> I;
+    public jy5<on4> I;
     public qw.a J;
     public int o;
     public boolean p;
@@ -146,7 +146,7 @@ public class hu7 extends du7<PostData, PbFirstFloorViewHolder> {
     }
 
     /* loaded from: classes6.dex */
-    public class b extends jy5<nn4> {
+    public class b extends jy5<on4> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ hu7 b;
@@ -172,14 +172,14 @@ public class hu7 extends du7<PostData, PbFirstFloorViewHolder> {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.repackage.jy5
         /* renamed from: d */
-        public void a(View view2, nn4 nn4Var) {
+        public void a(View view2, on4 on4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, nn4Var) == null) {
-                super.a(view2, nn4Var);
-                if (nn4Var == null || nn4Var.getThreadData() == null || nn4Var.getThreadData().originalThreadData == null || this.b.t == null) {
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, on4Var) == null) {
+                super.a(view2, on4Var);
+                if (on4Var == null || on4Var.getThreadData() == null || on4Var.getThreadData().originalThreadData == null || this.b.t == null) {
                     return;
                 }
-                OriginalThreadInfo originalThreadInfo = nn4Var.getThreadData().originalThreadData;
+                OriginalThreadInfo originalThreadInfo = on4Var.getThreadData().originalThreadData;
                 String Q = this.b.t.Q();
                 String str = originalThreadInfo.f;
                 int i = 1;
@@ -222,12 +222,12 @@ public class hu7 extends du7<PostData, PbFirstFloorViewHolder> {
         }
 
         @Override // com.repackage.qw.a
-        public void a(nn4 nn4Var) {
+        public void a(on4 on4Var) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, nn4Var) == null) || nn4Var == null || nn4Var.getThreadData() == null || nn4Var.getThreadData().originalThreadData == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, on4Var) == null) || on4Var == null || on4Var.getThreadData() == null || on4Var.getThreadData().originalThreadData == null) {
                 return;
             }
-            OriginalThreadInfo originalThreadInfo = nn4Var.getThreadData().originalThreadData;
+            OriginalThreadInfo originalThreadInfo = on4Var.getThreadData().originalThreadData;
             PbActivityConfig pbActivityConfig = new PbActivityConfig(this.a.F);
             pbActivityConfig.createNormalCfg(originalThreadInfo.f, originalThreadInfo.n, null);
             pbActivityConfig.setForumId(String.valueOf(originalThreadInfo.e));
@@ -492,7 +492,7 @@ public class hu7 extends du7<PostData, PbFirstFloorViewHolder> {
             pbFirstFloorViewHolder.b.setOnClickListener(null);
         }
         if (postData.B() == 1) {
-            pbFirstFloorViewHolder.d(this.t, this.j.v0(), postData.O);
+            pbFirstFloorViewHolder.c(this.t, this.j.v0(), postData.O);
             g0(pbFirstFloorViewHolder.e, view2, this.E);
             if (postData.s() != null) {
                 long userIdLong = postData.s().getUserIdLong();
@@ -513,7 +513,7 @@ public class hu7 extends du7<PostData, PbFirstFloorViewHolder> {
             }
             jr7 jr7Var2 = this.t;
             if (jr7Var2 != null && jr7Var2.O() != null && this.t.O().getYulePostActivityData() != null) {
-                ar4 yulePostActivityData = this.t.O().getYulePostActivityData();
+                br4 yulePostActivityData = this.t.O().getYulePostActivityData();
                 String a2 = yulePostActivityData.a();
                 if (StringUtils.isNull(yulePostActivityData.b())) {
                     return;
@@ -536,11 +536,11 @@ public class hu7 extends du7<PostData, PbFirstFloorViewHolder> {
         }
         pbFirstFloorViewHolder.e.getLayoutStrategy().x(R.drawable.pic_video);
         SparseArray sparseArray = new SparseArray();
-        sparseArray.put(R.id.obfuscated_res_0x7f091eed, postData);
-        sparseArray.put(R.id.obfuscated_res_0x7f091f09, postData);
-        sparseArray.put(R.id.obfuscated_res_0x7f091f0b, view2);
-        sparseArray.put(R.id.obfuscated_res_0x7f091f17, Integer.valueOf(i));
-        sparseArray.put(R.id.obfuscated_res_0x7f091f16, Integer.valueOf(postData.B()));
+        sparseArray.put(R.id.obfuscated_res_0x7f091ef1, postData);
+        sparseArray.put(R.id.obfuscated_res_0x7f091f0d, postData);
+        sparseArray.put(R.id.obfuscated_res_0x7f091f0f, view2);
+        sparseArray.put(R.id.obfuscated_res_0x7f091f1b, Integer.valueOf(i));
+        sparseArray.put(R.id.obfuscated_res_0x7f091f1a, Integer.valueOf(postData.B()));
         boolean z6 = postData.g0() || postData.f0(false);
         if (z6) {
             if (this.u == null) {
@@ -558,7 +558,7 @@ public class hu7 extends du7<PostData, PbFirstFloorViewHolder> {
         }
         pbFirstFloorViewHolder.e.setLinkTextColor(SkinManager.getColor(R.color.CAM_X0304));
         if (this.p) {
-            pbFirstFloorViewHolder.e.getLayoutStrategy().g(R.drawable.obfuscated_res_0x7f0811a4);
+            pbFirstFloorViewHolder.e.getLayoutStrategy().g(R.drawable.obfuscated_res_0x7f0811a8);
         } else {
             pbFirstFloorViewHolder.e.getLayoutStrategy().g(R.drawable.icon_click);
         }
@@ -649,51 +649,51 @@ public class hu7 extends du7<PostData, PbFirstFloorViewHolder> {
                     z3 = false;
                 }
                 int i2 = postData.B() == 1 ? 0 : 1;
-                sparseArray.put(R.id.obfuscated_res_0x7f091efd, postData.J());
+                sparseArray.put(R.id.obfuscated_res_0x7f091f01, postData.J());
                 if (!z) {
-                    sparseArray.put(R.id.obfuscated_res_0x7f091f30, Boolean.TRUE);
+                    sparseArray.put(R.id.obfuscated_res_0x7f091f34, Boolean.TRUE);
                     if (postData.s() != null) {
-                        sparseArray.put(R.id.obfuscated_res_0x7f091efa, postData.s().getUserName());
-                        sparseArray.put(R.id.obfuscated_res_0x7f091efb, postData.s().getName_show());
-                        sparseArray.put(R.id.obfuscated_res_0x7f091efc, postData.s().getPortrait());
+                        sparseArray.put(R.id.obfuscated_res_0x7f091efe, postData.s().getUserName());
+                        sparseArray.put(R.id.obfuscated_res_0x7f091eff, postData.s().getName_show());
+                        sparseArray.put(R.id.obfuscated_res_0x7f091f00, postData.s().getPortrait());
                     }
                     jr7 jr7Var11 = this.t;
                     if (jr7Var11 != null) {
-                        sparseArray.put(R.id.obfuscated_res_0x7f091f0c, Integer.valueOf(jr7Var11.V()));
+                        sparseArray.put(R.id.obfuscated_res_0x7f091f10, Integer.valueOf(jr7Var11.V()));
                     }
                 } else {
-                    sparseArray.put(R.id.obfuscated_res_0x7f091f30, Boolean.FALSE);
+                    sparseArray.put(R.id.obfuscated_res_0x7f091f34, Boolean.FALSE);
                 }
                 if (!z3) {
-                    sparseArray.put(R.id.obfuscated_res_0x7f091f44, Boolean.TRUE);
-                    sparseArray.put(R.id.obfuscated_res_0x7f091f04, Integer.valueOf(TbadkCoreApplication.getCurrentMemberType()));
+                    sparseArray.put(R.id.obfuscated_res_0x7f091f48, Boolean.TRUE);
+                    sparseArray.put(R.id.obfuscated_res_0x7f091f08, Integer.valueOf(TbadkCoreApplication.getCurrentMemberType()));
                     if (postData.s() != null) {
-                        sparseArray.put(R.id.obfuscated_res_0x7f091f40, postData.s().getUserId());
-                        sparseArray.put(R.id.obfuscated_res_0x7f091f41, postData.s().getUserName());
-                        sparseArray.put(R.id.obfuscated_res_0x7f091f3f, postData.s().getName_show());
+                        sparseArray.put(R.id.obfuscated_res_0x7f091f44, postData.s().getUserId());
+                        sparseArray.put(R.id.obfuscated_res_0x7f091f45, postData.s().getUserName());
+                        sparseArray.put(R.id.obfuscated_res_0x7f091f43, postData.s().getName_show());
                     }
                     jr7 jr7Var12 = this.t;
                     if (jr7Var12 != null && jr7Var12.O() != null) {
-                        sparseArray.put(R.id.obfuscated_res_0x7f091f43, this.t.O().getId());
+                        sparseArray.put(R.id.obfuscated_res_0x7f091f47, this.t.O().getId());
                     }
-                    sparseArray.put(R.id.obfuscated_res_0x7f091f42, postData.J());
+                    sparseArray.put(R.id.obfuscated_res_0x7f091f46, postData.J());
                 } else {
-                    sparseArray.put(R.id.obfuscated_res_0x7f091f44, Boolean.FALSE);
+                    sparseArray.put(R.id.obfuscated_res_0x7f091f48, Boolean.FALSE);
                 }
                 if (!z2) {
-                    sparseArray.put(R.id.obfuscated_res_0x7f091f2e, Boolean.TRUE);
-                    sparseArray.put(R.id.obfuscated_res_0x7f091f01, Boolean.valueOf(z6));
-                    sparseArray.put(R.id.obfuscated_res_0x7f091ef0, Boolean.valueOf(z4));
-                    sparseArray.put(R.id.obfuscated_res_0x7f091ef1, Integer.valueOf(i2));
-                    sparseArray.put(R.id.obfuscated_res_0x7f091eef, postData.J());
+                    sparseArray.put(R.id.obfuscated_res_0x7f091f32, Boolean.TRUE);
+                    sparseArray.put(R.id.obfuscated_res_0x7f091f05, Boolean.valueOf(z6));
+                    sparseArray.put(R.id.obfuscated_res_0x7f091ef4, Boolean.valueOf(z4));
+                    sparseArray.put(R.id.obfuscated_res_0x7f091ef5, Integer.valueOf(i2));
+                    sparseArray.put(R.id.obfuscated_res_0x7f091ef3, postData.J());
                     jr7 jr7Var13 = this.t;
                     if (jr7Var13 != null) {
-                        sparseArray.put(R.id.obfuscated_res_0x7f091f0c, Integer.valueOf(jr7Var13.V()));
+                        sparseArray.put(R.id.obfuscated_res_0x7f091f10, Integer.valueOf(jr7Var13.V()));
                     }
                 } else {
-                    sparseArray.put(R.id.obfuscated_res_0x7f091f2e, Boolean.FALSE);
+                    sparseArray.put(R.id.obfuscated_res_0x7f091f32, Boolean.FALSE);
                 }
-                sparseArray.put(R.id.obfuscated_res_0x7f091f05, Boolean.valueOf(z5));
+                sparseArray.put(R.id.obfuscated_res_0x7f091f09, Boolean.valueOf(z5));
                 f0(pbFirstFloorViewHolder);
             }
         }
@@ -708,14 +708,14 @@ public class hu7 extends du7<PostData, PbFirstFloorViewHolder> {
         }
         if (postData.B() == 1) {
         }
-        sparseArray.put(R.id.obfuscated_res_0x7f091efd, postData.J());
+        sparseArray.put(R.id.obfuscated_res_0x7f091f01, postData.J());
         if (!z) {
         }
         if (!z3) {
         }
         if (!z2) {
         }
-        sparseArray.put(R.id.obfuscated_res_0x7f091f05, Boolean.valueOf(z5));
+        sparseArray.put(R.id.obfuscated_res_0x7f091f09, Boolean.valueOf(z5));
         f0(pbFirstFloorViewHolder);
     }
 
@@ -729,9 +729,9 @@ public class hu7 extends du7<PostData, PbFirstFloorViewHolder> {
         }
         SparseArray sparseArray = new SparseArray();
         pbFirstFloorViewHolder.e.setTag(sparseArray);
-        pbFirstFloorViewHolder.b.setTag(R.id.obfuscated_res_0x7f091f00, sparseArray);
-        sparseArray.put(R.id.obfuscated_res_0x7f091eed, postData);
-        sparseArray.put(R.id.obfuscated_res_0x7f091f06, Boolean.FALSE);
+        pbFirstFloorViewHolder.b.setTag(R.id.obfuscated_res_0x7f091f04, sparseArray);
+        sparseArray.put(R.id.obfuscated_res_0x7f091ef1, postData);
+        sparseArray.put(R.id.obfuscated_res_0x7f091f0a, Boolean.FALSE);
         pbFirstFloorViewHolder.e.setIsHost(true);
         if (this.q) {
             pbFirstFloorViewHolder.f.setVisibility(0);
@@ -755,11 +755,11 @@ public class hu7 extends du7<PostData, PbFirstFloorViewHolder> {
         }
         jr7 jr7Var = this.t;
         if (jr7Var != null && jr7Var.O() != null && this.t.O().isVideoThreadType() && this.t.O().getThreadVideoInfo() != null && oi.isEmpty(this.t.l().getName())) {
-            pbFirstFloorViewHolder.c(true, (int) TbadkCoreApplication.getInst().getResources().getDimension(R.dimen.tbds28));
+            pbFirstFloorViewHolder.b(true, (int) TbadkCoreApplication.getInst().getResources().getDimension(R.dimen.tbds28));
         } else if (postData.Q() != null && !ListUtils.isEmpty(postData.Q().C())) {
-            pbFirstFloorViewHolder.c(true, (int) TbadkCoreApplication.getInst().getResources().getDimension(R.dimen.tbds30));
+            pbFirstFloorViewHolder.b(true, (int) TbadkCoreApplication.getInst().getResources().getDimension(R.dimen.tbds30));
         } else {
-            pbFirstFloorViewHolder.c(true, (int) TbadkCoreApplication.getInst().getResources().getDimension(R.dimen.tbds52));
+            pbFirstFloorViewHolder.b(true, (int) TbadkCoreApplication.getInst().getResources().getDimension(R.dimen.tbds52));
         }
         if (postData.Q() != null) {
             if (postData.Q().D() > 0) {
@@ -864,15 +864,15 @@ public class hu7 extends du7<PostData, PbFirstFloorViewHolder> {
         pbFirstFloorViewHolder.p.setVisibility(8);
     }
 
-    public final void j0(PbFirstFloorViewHolder pbFirstFloorViewHolder, fp4 fp4Var) {
+    public final void j0(PbFirstFloorViewHolder pbFirstFloorViewHolder, gp4 gp4Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048588, this, pbFirstFloorViewHolder, fp4Var) == null) || fp4Var == null || oi.isEmpty(fp4Var.e()) || fp4Var.c() != fp4.g) {
+        if (!(interceptable == null || interceptable.invokeLL(1048588, this, pbFirstFloorViewHolder, gp4Var) == null) || gp4Var == null || oi.isEmpty(gp4Var.e()) || gp4Var.c() != gp4.g) {
             return;
         }
-        if (!fp4Var.f()) {
-            pbFirstFloorViewHolder.e.getLayoutStrategy().m(pi.f(this.F, R.dimen.obfuscated_res_0x7f0702cd));
+        if (!gp4Var.f()) {
+            pbFirstFloorViewHolder.e.getLayoutStrategy().m(pi.f(this.F, R.dimen.obfuscated_res_0x7f0702cb));
         }
-        pbFirstFloorViewHolder.q.c(fp4Var);
+        pbFirstFloorViewHolder.q.c(gp4Var);
     }
 
     public final void k0(PbFirstFloorViewHolder pbFirstFloorViewHolder, PostData postData) {
@@ -1020,7 +1020,7 @@ public class hu7 extends du7<PostData, PbFirstFloorViewHolder> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048599, this, viewGroup)) == null) {
-            PbFirstFloorViewHolder pbFirstFloorViewHolder = new PbFirstFloorViewHolder(this.j.getPageContext(), LayoutInflater.from(this.F).inflate(R.layout.obfuscated_res_0x7f0d0602, viewGroup, false), this.p, this.o);
+            PbFirstFloorViewHolder pbFirstFloorViewHolder = new PbFirstFloorViewHolder(this.j.getPageContext(), LayoutInflater.from(this.F).inflate(R.layout.obfuscated_res_0x7f0d060c, viewGroup, false), this.p, this.o);
             C0(pbFirstFloorViewHolder);
             pbFirstFloorViewHolder.q.f(this.G);
             return pbFirstFloorViewHolder;
@@ -1046,8 +1046,8 @@ public class hu7 extends du7<PostData, PbFirstFloorViewHolder> {
             PostData postData2 = (PostData) y(i);
             if (postData2 != null) {
                 postData2.P0();
-                postData2.h0 = i + 1;
-                fy7.d(this.j.getUniqueId(), this.t, postData2, postData2.h0, 1);
+                postData2.b0 = i + 1;
+                fy7.d(this.j.getUniqueId(), this.t, postData2, postData2.b0, 1);
                 i0(pbFirstFloorViewHolder, postData2, view2, i);
             }
             if (!this.C && this.D && pbFirstFloorViewHolder != null && pbFirstFloorViewHolder.e.G() && (listView = this.j.getListView()) != null) {

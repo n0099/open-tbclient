@@ -14,7 +14,6 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.text.ttml.TtmlNode;
-import com.kuaishou.weapon.p0.C0400;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
@@ -235,7 +234,7 @@ public class z81 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
             r71 r71Var = new r71();
-            r71Var.d(C0400.f418, "cashier");
+            r71Var.d(com.kuaishou.weapon.p0.u.A, "cashier");
             r71Var.d("os", "android");
             r71Var.d("v", "2.8.7.9");
             if (!TextUtils.isEmpty(g)) {
@@ -255,7 +254,7 @@ public class z81 {
                 r71Var.d("dt", e);
             }
             if (!TextUtils.isEmpty(f)) {
-                r71Var.d(C0400.f424, f);
+                r71Var.d(com.kuaishou.weapon.p0.u.v, f);
             }
             if (!TextUtils.isEmpty(c)) {
                 r71Var.d(ContentUtil.RESULT_KEY_AK, c);

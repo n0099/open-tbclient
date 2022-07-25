@@ -164,7 +164,7 @@ public class hj8 {
     public void p() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
-            u(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0b4c));
+            u(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0b38));
             y(401);
         }
     }
@@ -224,16 +224,16 @@ public class hj8 {
         if (interceptable == null || interceptable.invokeI(1048599, this, i) == null) {
             this.b = i;
             if (i == 0) {
-                u(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f10a3));
+                u(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f105f));
             } else if (i == 101) {
-                u(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f10a4));
+                u(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1060));
             } else if (i == 301) {
-                u(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f10a2));
+                u(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f105e));
             } else if (i == 201) {
-                u(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f10a1));
+                u(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f105d));
             } else if (i != 202) {
             } else {
-                u(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f10a0));
+                u(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f105c));
             }
         }
     }

@@ -7,6 +7,7 @@ import android.os.Build;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.browser.core.INoProGuard;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -100,7 +101,7 @@ public final class BdZeusUtil implements INoProGuard {
             float f2 = (f / 6.0f) * 100.0f;
             try {
                 JSONObject jSONObject = new JSONObject();
-                jSONObject.put("result", f > 0.0f ? "true" : "false");
+                jSONObject.put(TiebaStatic.LogFields.RESULT, f > 0.0f ? "true" : "false");
                 jSONObject.put("probability", f2 + "%");
                 jSONObject.put("hitreasons", list);
                 return jSONObject.toString();

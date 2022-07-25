@@ -7,8 +7,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.kuaishou.weapon.p0.C0390;
-import com.kuaishou.weapon.p0.C0408;
+import com.kuaishou.weapon.p0.p3;
+import com.kuaishou.weapon.p0.x;
 import org.json.JSONArray;
 /* loaded from: classes5.dex */
 public class A {
@@ -45,9 +45,9 @@ public class A {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
             try {
-                C0390 m478 = C0390.m478();
-                if (m478 != null) {
-                    return m478.m481(str, "");
+                p3 a = p3.a();
+                if (a != null) {
+                    return a.a(str, "");
                 }
                 return null;
             } catch (Exception unused) {
@@ -68,16 +68,16 @@ public class A {
         if (!(interceptable == null || interceptable.invokeL(65539, null, context) == null) || context == null) {
             return;
         }
-        jsonObject = new C0408(context).m581(flag);
+        jsonObject = new x(context).c(flag);
     }
 
     public static void setE(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2) == null) {
             try {
-                C0390 m478 = C0390.m478();
-                if (m478 != null) {
-                    m478.m487(str, str2);
+                p3 a = p3.a();
+                if (a != null) {
+                    a.b(str, str2);
                 }
             } catch (Exception unused) {
             }

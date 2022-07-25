@@ -113,7 +113,7 @@ public class ro7 extends an<ap7, InterestedForumStyleAMoreViewHolder> {
     public final void d0(InterestedForumStyleAMoreViewHolder interestedForumStyleAMoreViewHolder, ap7 ap7Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048580, this, interestedForumStyleAMoreViewHolder, ap7Var) == null) {
-            interestedForumStyleAMoreViewHolder.c.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0937));
+            interestedForumStyleAMoreViewHolder.c.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0922));
             if (ap7Var.c()) {
                 interestedForumStyleAMoreViewHolder.b.setVisibility(0);
             } else {
@@ -139,10 +139,10 @@ public class ro7 extends an<ap7, InterestedForumStyleAMoreViewHolder> {
     public final void g0(InterestedForumStyleAMoreViewHolder interestedForumStyleAMoreViewHolder) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, interestedForumStyleAMoreViewHolder) == null) {
-            ur4 d = ur4.d(interestedForumStyleAMoreViewHolder.c);
+            vr4 d = vr4.d(interestedForumStyleAMoreViewHolder.c);
             d.v(R.color.CAM_X0302);
             d.z(R.dimen.T_X07);
-            ur4.d(interestedForumStyleAMoreViewHolder.d).f(R.color.CAM_X0206);
+            vr4.d(interestedForumStyleAMoreViewHolder.d).f(R.color.CAM_X0206);
         }
     }
 }

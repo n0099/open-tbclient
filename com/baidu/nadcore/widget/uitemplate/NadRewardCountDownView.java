@@ -358,13 +358,13 @@ public class NadRewardCountDownView extends RelativeLayout {
     public final void q(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d05cc, (ViewGroup) this, true);
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f091554);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d05d6, (ViewGroup) this, true);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f09152f);
             this.b = textView;
             textView.setText("跳过");
             this.b.setVisibility(8);
-            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f091517);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f091555);
+            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f0914f2);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f091530);
             this.a.setClickable(true);
             this.b.setOnClickListener(new a(this));
             this.c.setOnClickListener(new b(this));

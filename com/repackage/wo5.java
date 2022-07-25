@@ -232,7 +232,7 @@ public class wo5 {
     public final long g(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) ? xt4.k().m(str, 0L) : invokeL.longValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) ? yt4.k().m(str, 0L) : invokeL.longValue;
     }
 
     public View h() {
@@ -255,30 +255,30 @@ public class wo5 {
     public final void j() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            View inflate = LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d07a6, (ViewGroup) null);
+            View inflate = LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d07b0, (ViewGroup) null);
             this.c = inflate;
-            this.d = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091dff);
-            LinearLayout linearLayout = (LinearLayout) this.c.findViewById(R.id.obfuscated_res_0x7f091e05);
+            this.d = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091e05);
+            LinearLayout linearLayout = (LinearLayout) this.c.findViewById(R.id.obfuscated_res_0x7f091e0b);
             this.e = linearLayout;
             linearLayout.setVisibility(8);
-            this.f = (ImageView) this.c.findViewById(R.id.obfuscated_res_0x7f091e07);
-            this.g = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f091e08);
-            this.h = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f091e06);
-            LinearLayout linearLayout2 = (LinearLayout) this.c.findViewById(R.id.obfuscated_res_0x7f091e00);
+            this.f = (ImageView) this.c.findViewById(R.id.obfuscated_res_0x7f091e0d);
+            this.g = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f091e0e);
+            this.h = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f091e0c);
+            LinearLayout linearLayout2 = (LinearLayout) this.c.findViewById(R.id.obfuscated_res_0x7f091e06);
             this.i = linearLayout2;
             linearLayout2.setVisibility(8);
-            this.j = (ImageView) this.c.findViewById(R.id.obfuscated_res_0x7f091e02);
-            this.k = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f091e04);
-            this.l = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f091e01);
-            this.m = this.c.findViewById(R.id.obfuscated_res_0x7f091e03);
-            LinearLayout linearLayout3 = (LinearLayout) this.c.findViewById(R.id.obfuscated_res_0x7f091df9);
+            this.j = (ImageView) this.c.findViewById(R.id.obfuscated_res_0x7f091e08);
+            this.k = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f091e0a);
+            this.l = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f091e07);
+            this.m = this.c.findViewById(R.id.obfuscated_res_0x7f091e09);
+            LinearLayout linearLayout3 = (LinearLayout) this.c.findViewById(R.id.obfuscated_res_0x7f091dff);
             this.n = linearLayout3;
             linearLayout3.setVisibility(8);
-            this.o = (ImageView) this.c.findViewById(R.id.obfuscated_res_0x7f091dfb);
-            this.p = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f091dfd);
-            this.q = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f091dfa);
-            this.r = this.c.findViewById(R.id.obfuscated_res_0x7f091dfc);
-            this.s = this.c.findViewById(R.id.obfuscated_res_0x7f091dfe);
+            this.o = (ImageView) this.c.findViewById(R.id.obfuscated_res_0x7f091e01);
+            this.p = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f091e03);
+            this.q = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f091e00);
+            this.r = this.c.findViewById(R.id.obfuscated_res_0x7f091e02);
+            this.s = this.c.findViewById(R.id.obfuscated_res_0x7f091e04);
             l(TbadkCoreApplication.getInst().getSkinType());
         }
     }
@@ -287,7 +287,7 @@ public class wo5 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048581, this, i, str) == null) {
             TiebaStatic.log(new StatisticItem("c12215"));
-            rl4.o(this.b, str);
+            sl4.o(this.b, str);
             if (3 == i) {
                 TiebaStatic.log("c12649");
             } else if (1 == i) {
@@ -324,7 +324,7 @@ public class wo5 {
     public final void n(String str, View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, view2) == null) {
-            xt4.k().x(str, System.currentTimeMillis() / 1000);
+            yt4.k().x(str, System.currentTimeMillis() / 1000);
             view2.setVisibility(8);
         }
     }

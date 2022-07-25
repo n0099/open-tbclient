@@ -12,6 +12,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.nadcore.net.util.NetUtil;
 import com.baidu.nadcore.utils.LruCache;
 import com.baidu.searchbox.perfframe.ioc.Constant;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -120,7 +121,7 @@ public class hi0 {
             Context b = hh0.b();
             char c2 = 0;
             if (!NetUtil.a(b) && (TextUtils.equals(optString, "startdownload") || TextUtils.equals(optString, "resumedownload"))) {
-                Toast.makeText(b, b.getString(R.string.obfuscated_res_0x7f0f0b8a), 0).show();
+                Toast.makeText(b, b.getString(R.string.obfuscated_res_0x7f0f0b76), 0).show();
                 return;
             }
             switch (optString.hashCode()) {
@@ -261,7 +262,7 @@ public class hi0 {
                 return;
             }
             JSONObject jSONObject2 = new JSONObject();
-            yx0.f(jSONObject2, "result", jSONArray);
+            yx0.f(jSONObject2, TiebaStatic.LogFields.RESULT, jSONArray);
             hashMap.put("data", jSONObject2.toString());
             uj0.b(zg0Var, true, hashMap);
         } else if (!TextUtils.isEmpty(optString)) {
@@ -455,7 +456,7 @@ public class hi0 {
         if (!TextUtils.isEmpty(optString2) && tj0.b(optString2)) {
             str = "0";
         }
-        yx0.f(jSONObject2, "result", str);
+        yx0.f(jSONObject2, TiebaStatic.LogFields.RESULT, str);
         hashMap.put("data", jSONObject2.toString());
         if (zg0Var != null) {
             zg0Var.a(true, hashMap);

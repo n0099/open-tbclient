@@ -19,38 +19,39 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.components.ad.splashscreen.local.SplashSkipViewModel;
 import com.kwad.sdk.core.response.model.AdInfo;
-import com.kwad.sdk.utils.at;
+import com.kwad.sdk.utils.ax;
 /* loaded from: classes5.dex */
 public class SkipView extends LinearLayout implements com.kwad.components.ad.splashscreen.widget.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final b a;
-    public View b;
-    public TextView c;
-    public TextView d;
-    public a e;
-    public int f;
-    public boolean g;
-    public Context h;
-    public Runnable i;
+    public a Ab;
+    public final b Bn;
+    public View Bo;
+    public TextView Bp;
+    public TextView Bq;
+    public int Br;
+    public Runnable Bs;
+    public boolean kC;
+    public Context mContext;
+    public boolean pX;
 
     /* loaded from: classes5.dex */
     public interface a {
-        void a();
+        void kb();
 
-        void b();
+        void kc();
     }
 
     /* loaded from: classes5.dex */
     public static class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-        public String b;
-        public int c;
-        public int d;
-        public boolean e;
-        public boolean f;
+        public String Bu;
+        public String Bv;
+        public int Bw;
+        public int Bx;
+        public boolean By;
+        public boolean Bz;
 
         public b() {
             Interceptable interceptable = $ic;
@@ -65,49 +66,65 @@ public class SkipView extends LinearLayout implements com.kwad.components.ad.spl
                     return;
                 }
             }
-            this.a = "跳过";
-            this.b = "";
-            this.c = 5;
-            this.d = 5;
-            this.e = true;
-            this.f = true;
+            this.Bu = "跳过";
+            this.Bv = "";
+            this.Bw = 5;
+            this.Bx = 5;
+            this.By = true;
+            this.Bz = true;
         }
 
         public /* synthetic */ b(byte b) {
             this();
         }
 
-        public static /* synthetic */ int a(b bVar) {
-            int i = bVar.d;
-            bVar.d = i - 1;
+        public static /* synthetic */ int b(b bVar) {
+            int i = bVar.Bx;
+            bVar.Bx = i - 1;
             return i;
         }
 
         /* JADX INFO: Access modifiers changed from: private */
-        public boolean c() {
+        public boolean kK() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65544, this)) == null) ? this.e && this.f : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65547, this)) == null) ? this.By && this.Bz : invokeV.booleanValue;
         }
 
-        public final String a() {
+        public final void aa(int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+                this.Bw = i;
+                this.Bx = i;
+            }
+        }
+
+        public final void ac(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+                this.Bx = -1;
+                this.Bv = str;
+            }
+        }
+
+        public final String kI() {
             InterceptResult invokeV;
             StringBuilder sb;
             int i;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                int i2 = this.d;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                int i2 = this.Bx;
                 if (i2 < 0) {
-                    return this.b;
+                    return this.Bv;
                 }
                 if (i2 == 0) {
                     sb = new StringBuilder();
-                    sb.append(this.b);
+                    sb.append(this.Bv);
                     i = 1;
                 } else {
                     sb = new StringBuilder();
-                    sb.append(this.b);
-                    i = this.d;
+                    sb.append(this.Bv);
+                    i = this.Bx;
                 }
                 sb.append(i);
                 return sb.toString();
@@ -115,26 +132,10 @@ public class SkipView extends LinearLayout implements com.kwad.components.ad.spl
             return (String) invokeV.objValue;
         }
 
-        public final void a(int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-                this.c = i;
-                this.d = i;
-            }
-        }
-
-        public final void a(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-                this.d = -1;
-                this.b = str;
-            }
-        }
-
-        public final boolean b() {
+        public final boolean kJ() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.d <= 0 : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.Bx <= 0 : invokeV.booleanValue;
         }
     }
 
@@ -156,13 +157,14 @@ public class SkipView extends LinearLayout implements com.kwad.components.ad.spl
                 return;
             }
         }
-        this.a = new b((byte) 0);
-        this.f = -1;
-        this.g = false;
-        this.i = new Runnable(this) { // from class: com.kwad.components.ad.splashscreen.widget.SkipView.1
+        this.Bn = new b((byte) 0);
+        this.Br = -1;
+        this.kC = false;
+        this.pX = true;
+        this.Bs = new Runnable(this) { // from class: com.kwad.components.ad.splashscreen.widget.SkipView.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ SkipView a;
+            public final /* synthetic */ SkipView Bt;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -179,29 +181,29 @@ public class SkipView extends LinearLayout implements com.kwad.components.ad.spl
                         return;
                     }
                 }
-                this.a = this;
+                this.Bt = this;
             }
 
             @Override // java.lang.Runnable
             public final void run() {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                    if (this.a.g) {
-                        this.a.postDelayed(this, 300L);
+                    if (this.Bt.kC) {
+                        this.Bt.postDelayed(this, 300L);
                         return;
                     }
-                    SkipView skipView = this.a;
-                    skipView.a(skipView.a);
-                    if (!this.a.a.b()) {
-                        this.a.postDelayed(this, 1000L);
-                        b.a(this.a.a);
-                    } else if (this.a.e != null) {
-                        this.a.e.b();
+                    SkipView skipView = this.Bt;
+                    skipView.a(skipView.Bn);
+                    if (!this.Bt.Bn.kJ()) {
+                        this.Bt.postDelayed(this, 1000L);
+                        b.b(this.Bt.Bn);
+                    } else if (this.Bt.Ab != null) {
+                        this.Bt.Ab.kc();
                     }
                 }
             }
         };
-        a(context);
+        ae(context);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -223,13 +225,14 @@ public class SkipView extends LinearLayout implements com.kwad.components.ad.spl
                 return;
             }
         }
-        this.a = new b((byte) 0);
-        this.f = -1;
-        this.g = false;
-        this.i = new Runnable(this) { // from class: com.kwad.components.ad.splashscreen.widget.SkipView.1
+        this.Bn = new b((byte) 0);
+        this.Br = -1;
+        this.kC = false;
+        this.pX = true;
+        this.Bs = new Runnable(this) { // from class: com.kwad.components.ad.splashscreen.widget.SkipView.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ SkipView a;
+            public final /* synthetic */ SkipView Bt;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -246,29 +249,29 @@ public class SkipView extends LinearLayout implements com.kwad.components.ad.spl
                         return;
                     }
                 }
-                this.a = this;
+                this.Bt = this;
             }
 
             @Override // java.lang.Runnable
             public final void run() {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                    if (this.a.g) {
-                        this.a.postDelayed(this, 300L);
+                    if (this.Bt.kC) {
+                        this.Bt.postDelayed(this, 300L);
                         return;
                     }
-                    SkipView skipView = this.a;
-                    skipView.a(skipView.a);
-                    if (!this.a.a.b()) {
-                        this.a.postDelayed(this, 1000L);
-                        b.a(this.a.a);
-                    } else if (this.a.e != null) {
-                        this.a.e.b();
+                    SkipView skipView = this.Bt;
+                    skipView.a(skipView.Bn);
+                    if (!this.Bt.Bn.kJ()) {
+                        this.Bt.postDelayed(this, 1000L);
+                        b.b(this.Bt.Bn);
+                    } else if (this.Bt.Ab != null) {
+                        this.Bt.Ab.kc();
                     }
                 }
             }
         };
-        a(context);
+        ae(context);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -290,13 +293,14 @@ public class SkipView extends LinearLayout implements com.kwad.components.ad.spl
                 return;
             }
         }
-        this.a = new b((byte) 0);
-        this.f = -1;
-        this.g = false;
-        this.i = new Runnable(this) { // from class: com.kwad.components.ad.splashscreen.widget.SkipView.1
+        this.Bn = new b((byte) 0);
+        this.Br = -1;
+        this.kC = false;
+        this.pX = true;
+        this.Bs = new Runnable(this) { // from class: com.kwad.components.ad.splashscreen.widget.SkipView.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ SkipView a;
+            public final /* synthetic */ SkipView Bt;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -313,29 +317,29 @@ public class SkipView extends LinearLayout implements com.kwad.components.ad.spl
                         return;
                     }
                 }
-                this.a = this;
+                this.Bt = this;
             }
 
             @Override // java.lang.Runnable
             public final void run() {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                    if (this.a.g) {
-                        this.a.postDelayed(this, 300L);
+                    if (this.Bt.kC) {
+                        this.Bt.postDelayed(this, 300L);
                         return;
                     }
-                    SkipView skipView = this.a;
-                    skipView.a(skipView.a);
-                    if (!this.a.a.b()) {
-                        this.a.postDelayed(this, 1000L);
-                        b.a(this.a.a);
-                    } else if (this.a.e != null) {
-                        this.a.e.b();
+                    SkipView skipView = this.Bt;
+                    skipView.a(skipView.Bn);
+                    if (!this.Bt.Bn.kJ()) {
+                        this.Bt.postDelayed(this, 1000L);
+                        b.b(this.Bt.Bn);
+                    } else if (this.Bt.Ab != null) {
+                        this.Bt.Ab.kc();
                     }
                 }
             }
         };
-        a(context);
+        ae(context);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -358,13 +362,14 @@ public class SkipView extends LinearLayout implements com.kwad.components.ad.spl
                 return;
             }
         }
-        this.a = new b((byte) 0);
-        this.f = -1;
-        this.g = false;
-        this.i = new Runnable(this) { // from class: com.kwad.components.ad.splashscreen.widget.SkipView.1
+        this.Bn = new b((byte) 0);
+        this.Br = -1;
+        this.kC = false;
+        this.pX = true;
+        this.Bs = new Runnable(this) { // from class: com.kwad.components.ad.splashscreen.widget.SkipView.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ SkipView a;
+            public final /* synthetic */ SkipView Bt;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -381,52 +386,89 @@ public class SkipView extends LinearLayout implements com.kwad.components.ad.spl
                         return;
                     }
                 }
-                this.a = this;
+                this.Bt = this;
             }
 
             @Override // java.lang.Runnable
             public final void run() {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                    if (this.a.g) {
-                        this.a.postDelayed(this, 300L);
+                    if (this.Bt.kC) {
+                        this.Bt.postDelayed(this, 300L);
                         return;
                     }
-                    SkipView skipView = this.a;
-                    skipView.a(skipView.a);
-                    if (!this.a.a.b()) {
-                        this.a.postDelayed(this, 1000L);
-                        b.a(this.a.a);
-                    } else if (this.a.e != null) {
-                        this.a.e.b();
+                    SkipView skipView = this.Bt;
+                    skipView.a(skipView.Bn);
+                    if (!this.Bt.Bn.kJ()) {
+                        this.Bt.postDelayed(this, 1000L);
+                        b.b(this.Bt.Bn);
+                    } else if (this.Bt.Ab != null) {
+                        this.Bt.Ab.kc();
                     }
                 }
             }
         };
-        a(context);
+        ae(context);
     }
 
-    private void a() {
+    /* JADX INFO: Access modifiers changed from: private */
+    public void a(b bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
-            a(this.a);
-            post(this.i);
+        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, bVar) == null) || bVar == null) {
+            return;
+        }
+        if (this.Bp != null) {
+            if (bVar.Bu != null) {
+                this.Bp.setText(bVar.Bu);
+            }
+            this.Bp.setVisibility(this.Bn.By ? 0 : 8);
+        }
+        String kI = bVar.kI();
+        TextView textView = this.Bq;
+        if (textView != null) {
+            if (kI != null) {
+                textView.setText(kI);
+            }
+            this.Bq.setVisibility(this.Bn.Bz ? 0 : 8);
+        }
+        if (this.Bo != null) {
+            boolean kK = this.Bn.kK();
+            this.Bo.setVisibility(kK ? 0 : 8);
+            ViewGroup.LayoutParams layoutParams = getLayoutParams();
+            if (layoutParams != null) {
+                if (!kK) {
+                    layoutParams.width = -2;
+                    invalidate();
+                    return;
+                }
+                int i = this.Br;
+                if (i > 0) {
+                    layoutParams.width = i;
+                    invalidate();
+                }
+            }
         }
     }
 
-    private void a(Context context) {
+    public static boolean a(SplashSkipViewModel splashSkipViewModel) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65541, this, context) == null) {
+        return (interceptable == null || (invokeL = interceptable.invokeL(65542, null, splashSkipViewModel)) == null) ? splashSkipViewModel.needShowMiniWindow && com.kwad.components.ad.splashscreen.a.b.jP() > 0 && !ax.dT(com.kwad.components.ad.splashscreen.a.b.jL()) : invokeL.booleanValue;
+    }
+
+    private void ae(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65544, this, context) == null) {
             setOrientation(0);
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0466, this);
-            this.h = context;
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f09119a);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f09119b);
-            this.b = findViewById(R.id.obfuscated_res_0x7f091199);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0462, this);
+            this.mContext = context;
+            this.Bp = (TextView) findViewById(R.id.obfuscated_res_0x7f091175);
+            this.Bq = (TextView) findViewById(R.id.obfuscated_res_0x7f091176);
+            this.Bo = findViewById(R.id.obfuscated_res_0x7f091174);
             setOnClickListener(new View.OnClickListener(this) { // from class: com.kwad.components.ad.splashscreen.widget.SkipView.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ SkipView a;
+                public final /* synthetic */ SkipView Bt;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -443,16 +485,16 @@ public class SkipView extends LinearLayout implements com.kwad.components.ad.spl
                             return;
                         }
                     }
-                    this.a = this;
+                    this.Bt = this;
                 }
 
                 @Override // android.view.View.OnClickListener
                 public final void onClick(View view2) {
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) || this.a.e == null) {
+                    if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) || this.Bt.Ab == null) {
                         return;
                     }
-                    this.a.e.a();
+                    this.Bt.Ab.kb();
                 }
             });
             setSkipBtnVisible(true);
@@ -460,54 +502,38 @@ public class SkipView extends LinearLayout implements com.kwad.components.ad.spl
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void a(b bVar) {
+    private void b(SplashSkipViewModel splashSkipViewModel, AdInfo adInfo) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65542, this, bVar) == null) || bVar == null) {
-            return;
-        }
-        if (this.c != null) {
-            if (bVar.a != null) {
-                this.c.setText(bVar.a);
-            }
-            this.c.setVisibility(this.a.e ? 0 : 8);
-        }
-        String a2 = bVar.a();
-        TextView textView = this.d;
-        if (textView != null) {
-            if (a2 != null) {
-                textView.setText(a2);
-            }
-            this.d.setVisibility(this.a.f ? 0 : 8);
-        }
-        if (this.b != null) {
-            boolean c = this.a.c();
-            this.b.setVisibility(c ? 0 : 8);
-            ViewGroup.LayoutParams layoutParams = getLayoutParams();
-            if (layoutParams != null) {
-                if (!c) {
-                    layoutParams.width = -2;
-                    invalidate();
-                    return;
-                }
-                int i = this.f;
-                if (i > 0) {
-                    layoutParams.width = i;
-                    invalidate();
-                }
-            }
+        if (interceptable == null || interceptable.invokeLL(65546, this, splashSkipViewModel, adInfo) == null) {
+            setTimerBtnVisible(a(splashSkipViewModel) ? false : com.kwad.sdk.core.response.a.a.bA(adInfo));
         }
     }
 
-    public static boolean a(SplashSkipViewModel splashSkipViewModel) {
-        InterceptResult invokeL;
+    private void eA() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65544, null, splashSkipViewModel)) == null) ? splashSkipViewModel.needShowMiniWindow && com.kwad.components.ad.splashscreen.a.b.g() > 0 && !at.a(com.kwad.components.ad.splashscreen.a.b.c()) : invokeL.booleanValue;
+        if (interceptable == null || interceptable.invokeV(65548, this) == null) {
+            this.kC = true;
+        }
     }
 
-    private void b() {
+    private void eB() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65547, this) == null) || getVisibility() == 0) {
+        if (interceptable == null || interceptable.invokeV(65549, this) == null) {
+            this.kC = false;
+        }
+    }
+
+    private void ez() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65550, this) == null) {
+            a(this.Bn);
+            post(this.Bs);
+        }
+    }
+
+    private void kH() {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(65551, this) == null) || getVisibility() == 0) {
             return;
         }
         setVisibility(0);
@@ -515,34 +541,13 @@ public class SkipView extends LinearLayout implements com.kwad.components.ad.spl
         animate().alpha(1.0f).setDuration(500L).start();
     }
 
-    private void b(SplashSkipViewModel splashSkipViewModel, AdInfo adInfo) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65548, this, splashSkipViewModel, adInfo) == null) {
-            setTimerBtnVisible(a(splashSkipViewModel) ? false : com.kwad.sdk.core.response.a.a.aQ(adInfo));
-        }
-    }
-
-    private void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65550, this) == null) {
-            this.g = true;
-        }
-    }
-
-    private void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65551, this) == null) {
-            this.g = false;
-        }
-    }
-
     @Override // com.kwad.components.ad.splashscreen.widget.a
-    public final int a(int i) {
+    public final int Y(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
             ViewGroup.LayoutParams layoutParams = getLayoutParams();
-            layoutParams.height = com.kwad.sdk.b.kwai.a.a(this.h, 35.0f);
+            layoutParams.height = com.kwad.sdk.b.kwai.a.a(this.mContext, 35.0f);
             int width = getWidth();
             setLayoutParams(layoutParams);
             return width;
@@ -552,118 +557,121 @@ public class SkipView extends LinearLayout implements com.kwad.components.ad.spl
 
     @Override // com.kwad.components.ad.splashscreen.widget.a
     public final void a(SplashSkipViewModel splashSkipViewModel, AdInfo adInfo) {
-        String aF;
+        String bo;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, splashSkipViewModel, adInfo) == null) {
-            setTimerPrefixText(com.kwad.components.ad.splashscreen.a.b.h());
+            this.pX = com.kwad.sdk.core.response.a.a.bz(adInfo);
+            setTimerPrefixText(com.kwad.components.ad.splashscreen.a.b.jQ());
             setTimerSecond(splashSkipViewModel.skipSecond);
-            if (!com.kwad.sdk.core.response.a.a.W(adInfo)) {
-                a();
+            if (!com.kwad.sdk.core.response.a.a.aB(adInfo)) {
+                ez();
             }
-            if (!splashSkipViewModel.needShowMiniWindow || at.a(com.kwad.components.ad.splashscreen.a.b.c())) {
-                aF = com.kwad.sdk.core.response.a.a.aF(adInfo);
+            if (!splashSkipViewModel.needShowMiniWindow || ax.dT(com.kwad.components.ad.splashscreen.a.b.jL())) {
+                bo = com.kwad.sdk.core.response.a.a.bo(adInfo);
             } else {
-                aF = com.kwad.components.ad.splashscreen.a.b.c() + " " + com.kwad.components.ad.splashscreen.a.b.g();
+                bo = com.kwad.components.ad.splashscreen.a.b.jL() + " " + com.kwad.components.ad.splashscreen.a.b.jP();
             }
-            setSkipText(aF);
-            setVisibility(4);
+            setSkipText(bo);
+            setVisibility(8);
             b(splashSkipViewModel, adInfo);
         }
     }
 
-    @Override // com.kwad.components.ad.splashscreen.widget.a
-    public final void a(AdInfo adInfo) {
+    public final void ac(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, adInfo) == null) || com.kwad.sdk.core.response.a.a.W(adInfo)) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) || str == null) {
             return;
         }
-        d();
-    }
-
-    public final void a(String str) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, str) == null) || str == null) {
-            return;
-        }
-        this.a.a(str);
-        a(this.a);
+        this.Bn.ac(str);
+        a(this.Bn);
     }
 
     @Override // com.kwad.components.ad.splashscreen.widget.a
-    public final void b(AdInfo adInfo) {
+    public final void bj() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, adInfo) == null) {
-            b();
-            if (com.kwad.sdk.core.response.a.a.W(adInfo)) {
-                return;
-            }
-            e();
-        }
-    }
-
-    @Override // com.kwad.components.ad.splashscreen.widget.a
-    public final void c() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || getHandler() == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || getHandler() == null) {
             return;
         }
         getHandler().removeCallbacksAndMessages(null);
     }
 
+    @Override // com.kwad.components.ad.splashscreen.widget.a
+    public final void s(AdInfo adInfo) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, adInfo) == null) || com.kwad.sdk.core.response.a.a.aB(adInfo)) {
+            return;
+        }
+        eA();
+    }
+
     @Override // android.view.View
     public void setLayoutParams(ViewGroup.LayoutParams layoutParams) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, layoutParams) == null) {
+        if (interceptable == null || interceptable.invokeL(1048581, this, layoutParams) == null) {
             super.setLayoutParams(layoutParams);
-            this.f = layoutParams.width;
+            this.Br = layoutParams.width;
         }
     }
 
     @Override // com.kwad.components.ad.splashscreen.widget.a
     public void setOnViewListener(a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, aVar) == null) {
-            this.e = aVar;
+        if (interceptable == null || interceptable.invokeL(1048582, this, aVar) == null) {
+            this.Ab = aVar;
         }
     }
 
     public void setSkipBtnVisible(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
-            this.a.e = z;
-            a(this.a);
+        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
+            this.Bn.By = z;
+            a(this.Bn);
         }
     }
 
     public void setSkipText(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
-            this.a.a = str;
-            a(this.a);
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
+            this.Bn.Bu = str;
+            a(this.Bn);
         }
     }
 
     public void setTimerBtnVisible(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
-            this.a.f = z;
-            a(this.a);
+        if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
+            this.Bn.Bz = z;
+            a(this.Bn);
         }
     }
 
     public void setTimerPrefixText(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, str) == null) {
-            this.a.b = str;
-            a(this.a);
+        if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
+            this.Bn.Bv = str;
+            a(this.Bn);
         }
     }
 
     public void setTimerSecond(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
-            this.a.a(i);
-            a(this.a);
+        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
+            this.Bn.aa(i);
+            a(this.Bn);
+        }
+    }
+
+    @Override // com.kwad.components.ad.splashscreen.widget.a
+    public final void t(AdInfo adInfo) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048588, this, adInfo) == null) {
+            if (this.pX) {
+                kH();
+            }
+            if (com.kwad.sdk.core.response.a.a.aB(adInfo)) {
+                return;
+            }
+            eB();
         }
     }
 }

@@ -169,43 +169,43 @@ public class q56 {
         this.d = view2;
         this.a = str;
         this.b = j;
-        View findViewById = view2.findViewById(R.id.obfuscated_res_0x7f092138);
+        View findViewById = view2.findViewById(R.id.obfuscated_res_0x7f09213a);
         this.v = findViewById;
         findViewById.setOnClickListener(this.x);
-        TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091a53);
+        TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091a2d);
         this.e = textView;
         textView.getPaint().setFakeBoldText(true);
-        this.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092155);
-        this.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091a4d);
-        this.h = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090e8a);
-        this.i = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090e89);
-        this.j = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090e72);
-        this.k = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090ea2);
-        this.l = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090ea1);
-        IrregularImageView irregularImageView = (IrregularImageView) view2.findViewById(R.id.obfuscated_res_0x7f090eb0);
+        this.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092157);
+        this.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091a27);
+        this.h = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090e83);
+        this.i = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090e82);
+        this.j = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090e6b);
+        this.k = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090e9b);
+        this.l = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090e9a);
+        IrregularImageView irregularImageView = (IrregularImageView) view2.findViewById(R.id.obfuscated_res_0x7f090ea9);
         this.m = irregularImageView;
-        irregularImageView.setErrorRes(R.drawable.obfuscated_res_0x7f080ec3);
-        this.h.setImageDrawable(SvgManager.getInstance().getDrawable(R.drawable.obfuscated_res_0x7f08108d, 1, false));
-        this.i.setImageDrawable(SvgManager.getInstance().getDrawable(R.drawable.obfuscated_res_0x7f081089, 1, false));
-        this.j.setImageDrawable(SvgManager.getInstance().getDrawable(R.drawable.obfuscated_res_0x7f08108b, 1, false));
-        this.k.setImageDrawable(SvgManager.getInstance().getDrawable(R.drawable.obfuscated_res_0x7f08108a, 1, false));
-        this.l.setImageDrawable(SvgManager.getInstance().getDrawable(R.drawable.obfuscated_res_0x7f08108c, 1, false));
-        TextView textView2 = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091fbd);
+        irregularImageView.setErrorRes(R.drawable.obfuscated_res_0x7f080eca);
+        this.h.setImageDrawable(SvgManager.getInstance().getDrawable(R.drawable.obfuscated_res_0x7f081091, 1, false));
+        this.i.setImageDrawable(SvgManager.getInstance().getDrawable(R.drawable.obfuscated_res_0x7f08108d, 1, false));
+        this.j.setImageDrawable(SvgManager.getInstance().getDrawable(R.drawable.obfuscated_res_0x7f08108f, 1, false));
+        this.k.setImageDrawable(SvgManager.getInstance().getDrawable(R.drawable.obfuscated_res_0x7f08108e, 1, false));
+        this.l.setImageDrawable(SvgManager.getInstance().getDrawable(R.drawable.obfuscated_res_0x7f081090, 1, false));
+        TextView textView2 = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091fc1);
         this.n = textView2;
-        textView2.setText(this.d.getResources().getString(R.string.obfuscated_res_0x7f0f089f));
-        RelativeLayout relativeLayout = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f090d76);
+        textView2.setText(this.d.getResources().getString(R.string.obfuscated_res_0x7f0f088a));
+        RelativeLayout relativeLayout = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f090d6f);
         this.o = relativeLayout;
         relativeLayout.setOnClickListener(new a(this));
-        this.p = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090d78);
-        this.q = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090d79);
-        this.t = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090d7a);
-        this.r = (ImageOverlayView) view2.findViewById(R.id.obfuscated_res_0x7f090d7b);
+        this.p = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090d71);
+        this.q = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090d72);
+        this.t = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090d73);
+        this.r = (ImageOverlayView) view2.findViewById(R.id.obfuscated_res_0x7f090d74);
         int dimensionPixelOffset = TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(R.dimen.tbds82);
         this.r.a(3, dimensionPixelOffset, dimensionPixelOffset, TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(R.dimen.tbds2), R.color.CAM_X0618, TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(R.dimen.tbds25));
         this.r.setStrokeStyle(1);
         this.r.setFirstImageStrokeColor(R.color.CAM_X0314);
         this.r.setLoadImageType(12);
-        this.s = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090d77);
+        this.s = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090d70);
         j(TbadkCoreApplication.getInst().getSkinType());
     }
 
@@ -269,7 +269,7 @@ public class q56 {
         this.c = i;
         SkinManager.setViewTextColor(this.n, (int) R.color.CAM_X0109);
         SvgManager.getInstance().setMaskDrawableWithDayNightModeAutoChange(this.p, R.drawable.svg_icon_mask_crown24, SvgManager.SvgResourceStateType.NORMAL);
-        SvgManager.getInstance().setMaskDrawableWithDayNightModeAutoChange(this.t, R.drawable.obfuscated_res_0x7f081084, SvgManager.SvgResourceStateType.NORMAL);
+        SvgManager.getInstance().setMaskDrawableWithDayNightModeAutoChange(this.t, R.drawable.obfuscated_res_0x7f081088, SvgManager.SvgResourceStateType.NORMAL);
         WebPManager.setPureDrawable(this.s, R.drawable.icon_pure_arrow12_right, R.color.CAM_X0107, WebPManager.ResourceStateType.NORMAL_PRESS);
         SkinManager.setViewTextColor(this.q, (int) R.color.CAM_X0105);
         this.r.d();
@@ -288,13 +288,13 @@ public class q56 {
                 if (je5.d(str) > 10) {
                     str = je5.n(s56Var.b, 10) + StringHelper.STRING_MORE;
                 }
-                this.f.setText(String.format(this.d.getContext().getResources().getString(R.string.obfuscated_res_0x7f0f08a2), str));
+                this.f.setText(String.format(this.d.getContext().getResources().getString(R.string.obfuscated_res_0x7f0f088d), str));
             }
             if (s56Var.d == 0) {
                 this.g.setVisibility(8);
             } else {
                 this.g.setVisibility(0);
-                this.g.setText(String.format(this.d.getContext().getString(R.string.obfuscated_res_0x7f0f089e), StringHelper.getDateStringMdChinease(s56Var.d * 1000)));
+                this.g.setText(String.format(this.d.getContext().getString(R.string.obfuscated_res_0x7f0f0889), StringHelper.getDateStringMdChinease(s56Var.d * 1000)));
             }
             this.m.setImage(s56Var.e, h(this.d.getContext()), R.drawable.obfuscated_res_0x7f080cd6);
             TiebaFieldsInfo tiebaFieldsInfo = s56Var.f;

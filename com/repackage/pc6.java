@@ -41,12 +41,12 @@ public class pc6 extends jx5<lc6> {
 
         /* renamed from: com.repackage.pc6$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class View$OnLongClickListenerC0705a implements View.OnLongClickListener {
+        public class View$OnLongClickListenerC0549a implements View.OnLongClickListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public View$OnLongClickListenerC0705a(a aVar, pc6 pc6Var) {
+            public View$OnLongClickListenerC0549a(a aVar, pc6 pc6Var) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -168,10 +168,10 @@ public class pc6 extends jx5<lc6> {
             this.d = pc6Var;
             View inflate = LayoutInflater.from(pc6Var.g().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d02c0, (ViewGroup) null);
             this.a = inflate;
-            this.b = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0906ae);
-            this.c = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090749);
+            this.b = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0906ad);
+            this.c = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090748);
             c();
-            this.b.setOnLongClickListener(new View$OnLongClickListenerC0705a(this, pc6Var));
+            this.b.setOnLongClickListener(new View$OnLongClickListenerC0549a(this, pc6Var));
             this.b.setOnClickListener(new b(this, pc6Var));
             this.c.setOnClickListener(new c(this, pc6Var));
         }

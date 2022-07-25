@@ -2,6 +2,7 @@ package com.repackage;
 
 import android.os.Bundle;
 import com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -32,7 +33,7 @@ public class kg3 extends ProviderDelegation {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bundle)) == null) {
             Bundle bundle2 = new Bundle();
-            bundle2.putString("result", hg3.k(getAgent().getContext()));
+            bundle2.putString(TiebaStatic.LogFields.RESULT, ig3.h(getAgent().getContext()));
             return bundle2;
         }
         return (Bundle) invokeL.objValue;

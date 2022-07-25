@@ -1,59 +1,73 @@
 package com.repackage;
 
-import android.os.Handler;
-import android.os.HandlerThread;
-import android.os.Looper;
-import android.os.Message;
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashSet;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class ve1 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile ve1 c;
+    public static volatile ve1 g;
     public transient /* synthetic */ FieldHolder $fh;
-    public HandlerThread a;
-    public Handler b;
+    public BroadcastReceiver a;
+    public int b;
+    public boolean c;
+    public boolean d;
+    public boolean e;
+    public HashSet<String> f;
 
     /* loaded from: classes7.dex */
-    public class a extends Handler {
+    public class a extends BroadcastReceiver {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ve1 a;
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(ve1 ve1Var, Looper looper) {
-            super(looper);
+        public a(ve1 ve1Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {ve1Var, looper};
+                Object[] objArr = {ve1Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
-                    super((Looper) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
+            this.a = ve1Var;
         }
 
-        @Override // android.os.Handler
-        public void handleMessage(Message message) {
+        @Override // android.content.BroadcastReceiver
+        public void onReceive(Context context, Intent intent) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
-                se1 se1Var = new se1();
-                se1Var.a = message.arg2;
-                int i = message.arg1;
-                if (i == -1) {
-                    i = te1.j().a();
+            if (interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) {
+                String stringExtra = intent.getStringExtra("ss");
+                if (this.a.b == 1) {
+                    return;
                 }
-                te1.j().c(message.what, 3, 2019, i, "out time.", se1Var, true);
+                if (TextUtils.isEmpty(stringExtra)) {
+                    this.a.b = 1;
+                } else if ("LOADED".equals(stringExtra)) {
+                    if (this.a.f.isEmpty()) {
+                        return;
+                    }
+                    this.a.b = 1;
+                } else {
+                    this.a.b = 1;
+                    this.a.f.add(stringExtra);
+                }
             }
         }
     }
@@ -71,40 +85,107 @@ public class ve1 {
                 return;
             }
         }
-        HandlerThread handlerThread = new HandlerThread("callback-handler");
-        this.a = handlerThread;
-        this.b = null;
-        handlerThread.start();
-        this.b = new a(this, this.a.getLooper());
+        this.b = 0;
+        this.c = false;
+        this.d = false;
+        this.e = false;
+        this.f = new HashSet<>();
     }
 
-    public static ve1 a() {
+    public static ve1 c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (c == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            if (g == null) {
                 synchronized (ve1.class) {
-                    if (c == null) {
-                        c = new ve1();
+                    if (g == null) {
+                        g = new ve1();
                     }
                 }
             }
-            return c;
+            return g;
         }
         return (ve1) invokeV.objValue;
     }
 
-    public void b(int i) {
+    public void d(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-            this.b.removeMessages(i);
+        if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
+            try {
+                if (this.a != null) {
+                    return;
+                }
+                this.a = new a(this);
+                IntentFilter intentFilter = new IntentFilter();
+                intentFilter.addAction("android.intent.action.SIM_STATE_CHANGED");
+                context.registerReceiver(this.a, intentFilter);
+            } catch (Throwable th) {
+                tf1.d(th);
+            }
         }
     }
 
-    public void c(Message message, long j) {
+    public void e(Context context, JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, message, j) == null) {
-            this.b.sendMessageDelayed(message, j);
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, jSONObject) == null) {
+            this.d = jSONObject.optInt("1", 0) == 1;
+            this.c = jSONObject.optInt("2", 0) == 1;
+            this.e = jSONObject.optInt("3", 0) == 1;
+            if (this.c) {
+                d(context);
+            } else {
+                h(context);
+            }
+        }
+    }
+
+    public int f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (this.c) {
+                return this.b;
+            }
+            return -1000;
+        }
+        return invokeV.intValue;
+    }
+
+    public void h(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, context) == null) {
+            try {
+                if (this.a == null) {
+                    return;
+                }
+                context.unregisterReceiver(this.a);
+                this.a = null;
+            } catch (Throwable th) {
+                tf1.d(th);
+            }
+        }
+    }
+
+    public boolean i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            if (this.d) {
+                if (this.e) {
+                    return this.c && this.b != 1;
+                }
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void j() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            this.b = 0;
+            this.f.clear();
         }
     }
 }

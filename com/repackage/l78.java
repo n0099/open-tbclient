@@ -129,11 +129,11 @@ public class l78 extends BaseAdapter {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 int id = view2.getId();
-                if (id == R.id.obfuscated_res_0x7f091945) {
+                if (id == R.id.obfuscated_res_0x7f091920) {
                     ((BaseFragmentActivity) this.a.f.getOrignalPage()).finish();
-                } else if (id == R.id.obfuscated_res_0x7f092357) {
+                } else if (id == R.id.obfuscated_res_0x7f092359) {
                     ((BaseFragmentActivity) this.a.f.getOrignalPage()).finish();
-                } else if ((id == R.id.obfuscated_res_0x7f090f43 || id == R.id.obfuscated_res_0x7f091687 || id == R.id.obfuscated_res_0x7f090f39 || id == R.id.obfuscated_res_0x7f091aea) && (strArr = (String[]) view2.getTag()) != null) {
+                } else if ((id == R.id.obfuscated_res_0x7f090f3c || id == R.id.obfuscated_res_0x7f091662 || id == R.id.obfuscated_res_0x7f090f32 || id == R.id.obfuscated_res_0x7f091ac4) && (strArr = (String[]) view2.getTag()) != null) {
                     if (!"0".equals(strArr[2]) && strArr[1] != null) {
                         SubPbActivityConfig createSubPbActivityConfig = new SubPbActivityConfig(this.a.f.getPageActivity()).createSubPbActivityConfig(strArr[0], strArr[1], "person_post_reply", false);
                         createSubPbActivityConfig.setKeyPageStartFrom(4);
@@ -176,12 +176,12 @@ public class l78 extends BaseAdapter {
                     return;
                 }
             }
-            this.t = view2.findViewById(R.id.obfuscated_res_0x7f09182f);
+            this.t = view2.findViewById(R.id.obfuscated_res_0x7f09180a);
             this.i.setIsRound(true);
-            ReplyLinearLayout replyLinearLayout = (ReplyLinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f0906b5);
+            ReplyLinearLayout replyLinearLayout = (ReplyLinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f0906b4);
             this.r = replyLinearLayout;
             replyLinearLayout.setPageContext(tbPageContext);
-            TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091687);
+            TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091662);
             this.s = textView;
             textView.setOnClickListener(this);
             this.e.setVisibility(8);
@@ -192,11 +192,11 @@ public class l78 extends BaseAdapter {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
                 super.a(i);
-                ur4 d = ur4.d(this.s);
+                vr4 d = vr4.d(this.s);
                 d.v(R.color.CAM_X0107);
                 d.n(R.string.J_X05);
                 d.f(R.color.CAM_X0206);
-                ur4 d2 = ur4.d(this.t);
+                vr4 d2 = vr4.d(this.t);
                 d2.n(R.string.J_X05);
                 d2.f(R.color.CAM_X0201);
             }
@@ -266,7 +266,7 @@ public class l78 extends BaseAdapter {
                     for (int i3 = 0; i3 < length2; i3++) {
                         stringBuffer.append(h.content[i2].post_content[i3].text);
                     }
-                    arrayList.add(new String[]{stringBuffer.toString(), String.valueOf(h.thread_id), String.valueOf(h.content[i2].post_id), String.valueOf(h.content[i2].post_type), StringHelper.getFormatTime(h.content[i2].create_time * 1000) + (h.content[i2].is_author_view == 1 ? " " + viewGroup.getContext().getString(R.string.obfuscated_res_0x7f0f0c93) : ""), String.valueOf(h.thread_type)});
+                    arrayList.add(new String[]{stringBuffer.toString(), String.valueOf(h.thread_id), String.valueOf(h.content[i2].post_id), String.valueOf(h.content[i2].post_type), StringHelper.getFormatTime(h.content[i2].create_time * 1000) + (h.content[i2].is_author_view == 1 ? " " + viewGroup.getContext().getString(R.string.obfuscated_res_0x7f0f0c7f) : ""), String.valueOf(h.thread_type)});
                 }
             }
             cVar.r.setPost(h);
@@ -337,7 +337,7 @@ public class l78 extends BaseAdapter {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeILL = interceptable.invokeILL(1048582, this, i, view2, viewGroup)) == null) {
             if (view2 == null) {
-                view2 = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d06dd, viewGroup, false);
+                view2 = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d06e7, viewGroup, false);
                 cVar = new c(view2, this.f);
                 view2.setTag(cVar);
             } else {

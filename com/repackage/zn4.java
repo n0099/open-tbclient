@@ -1,14 +1,10 @@
 package com.repackage;
 
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.atomData.AlbumActivityConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
-import tbclient.FrsPage.Badges;
+import tbclient.AwardUser;
 /* loaded from: classes7.dex */
 public class zn4 {
     public static /* synthetic */ Interceptable $ic;
@@ -28,27 +24,14 @@ public class zn4 {
         }
     }
 
-    public void a(JSONObject jSONObject) {
+    public void a(AwardUser awardUser) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, awardUser) == null) || awardUser == null) {
             return;
         }
-        try {
-            jSONObject.optInt("badge_id", 0);
-            jSONObject.optString("badge_url", "");
-            jSONObject.optString(AlbumActivityConfig.FROM_WEB_VIEW);
-        } catch (Exception e) {
-            BdLog.e(e.getMessage());
-        }
-    }
-
-    public void b(Badges badges) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, badges) == null) || badges == null) {
-            return;
-        }
-        badges.badge_id.intValue();
-        String str = badges.badge_url;
-        String str2 = badges.webview;
+        awardUser.user_id.longValue();
+        String str = awardUser.user_name;
+        String str2 = awardUser.award_name;
+        awardUser.award_time.intValue();
     }
 }

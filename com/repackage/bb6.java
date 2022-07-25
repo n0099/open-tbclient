@@ -367,7 +367,7 @@ public class bb6 implements he6 {
                 }
                 arrayList.add(jb6Var);
                 za6 za6Var = new za6();
-                za6Var.a = R.string.obfuscated_res_0x7f0f0417;
+                za6Var.a = R.string.obfuscated_res_0x7f0f0416;
                 za6Var.b = "https://tieba.baidu.com/tb/cms/redpacket/page/complain.html?id=" + this.b;
                 arrayList.add(za6Var);
             }
@@ -512,16 +512,16 @@ public class bb6 implements he6 {
             fd6 fd6Var = new fd6();
             int i = pi.i(TbadkCoreApplication.getInst().getContext());
             int f2 = pi.f(TbadkCoreApplication.getInst().getContext(), R.dimen.obfuscated_res_0x7f07019a);
-            int f3 = pi.f(TbadkCoreApplication.getInst().getContext(), R.dimen.obfuscated_res_0x7f07030a);
-            int f4 = pi.f(TbadkCoreApplication.getInst().getContext(), R.dimen.obfuscated_res_0x7f0702a0);
+            int f3 = pi.f(TbadkCoreApplication.getInst().getContext(), R.dimen.obfuscated_res_0x7f070308);
+            int f4 = pi.f(TbadkCoreApplication.getInst().getContext(), R.dimen.obfuscated_res_0x7f07029e);
             int size = this.e.size();
             if (TbadkCoreApplication.isLogin()) {
-                f = pi.f(TbadkCoreApplication.getInst().getContext(), R.dimen.obfuscated_res_0x7f07029b);
+                f = pi.f(TbadkCoreApplication.getInst().getContext(), R.dimen.obfuscated_res_0x7f070299);
             } else {
-                f = pi.f(TbadkCoreApplication.getInst().getContext(), R.dimen.obfuscated_res_0x7f07026e);
+                f = pi.f(TbadkCoreApplication.getInst().getContext(), R.dimen.obfuscated_res_0x7f07026c);
             }
             fd6Var.d(i - (((f2 + f3) + f) + (f4 * size)));
-            fd6Var.c(R.drawable.obfuscated_res_0x7f0811a4);
+            fd6Var.c(R.drawable.obfuscated_res_0x7f0811a8);
             return fd6Var;
         }
         return (fd6) invokeV.objValue;

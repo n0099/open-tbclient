@@ -65,11 +65,11 @@ public class pn8 extends b9<AvatarPendantActivity> {
         this.f = 0;
         this.i = avatarPendantActivity;
         avatarPendantActivity.setContentView(R.layout.obfuscated_res_0x7f0d0123);
-        this.j = avatarPendantActivity.findViewById(R.id.obfuscated_res_0x7f091b72);
-        this.f = pi.f(avatarPendantActivity.getPageContext().getPageActivity(), R.dimen.obfuscated_res_0x7f0702a0);
+        this.j = avatarPendantActivity.findViewById(R.id.obfuscated_res_0x7f091b4c);
+        this.f = pi.f(avatarPendantActivity.getPageContext().getPageActivity(), R.dimen.obfuscated_res_0x7f07029e);
         this.b = (BdListView) avatarPendantActivity.findViewById(R.id.obfuscated_res_0x7f0902ef);
-        this.c = (NoNetworkView) avatarPendantActivity.findViewById(R.id.obfuscated_res_0x7f092439);
-        NavigationBar navigationBar = (NavigationBar) avatarPendantActivity.findViewById(R.id.obfuscated_res_0x7f092437);
+        this.c = (NoNetworkView) avatarPendantActivity.findViewById(R.id.obfuscated_res_0x7f09243b);
+        NavigationBar navigationBar = (NavigationBar) avatarPendantActivity.findViewById(R.id.obfuscated_res_0x7f092439);
         this.e = navigationBar;
         navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         this.e.setTitleText(R.string.obfuscated_res_0x7f0f02c0);
@@ -84,7 +84,7 @@ public class pn8 extends b9<AvatarPendantActivity> {
         AbsListView.LayoutParams layoutParams = new AbsListView.LayoutParams(-1, UtilHelper.getLightStatusBarHeight() + pi.f(avatarPendantActivity.getActivity(), R.dimen.obfuscated_res_0x7f070282));
         TextView textView2 = new TextView(avatarPendantActivity.getActivity());
         this.h = textView2;
-        textView2.setHeight(pi.f(avatarPendantActivity.getActivity(), R.dimen.obfuscated_res_0x7f0702d4));
+        textView2.setHeight(pi.f(avatarPendantActivity.getActivity(), R.dimen.obfuscated_res_0x7f0702d2));
         this.k.setLayoutParams(layoutParams);
         this.b.x(this.k, 0);
         this.b.addFooterView(this.h);
@@ -178,7 +178,7 @@ public class pn8 extends b9<AvatarPendantActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             this.b.setVisibility(8);
-            String string = this.i.getPageContext().getResources().getString(R.string.obfuscated_res_0x7f0f0c45);
+            String string = this.i.getPageContext().getResources().getString(R.string.obfuscated_res_0x7f0f0c31);
             this.i.setNetRefreshViewTopMargin(this.f);
             this.i.showNetRefreshView(this.j, string, false);
         }

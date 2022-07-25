@@ -24,7 +24,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.ni;
 import com.repackage.pi;
 import com.repackage.sg8;
-import com.repackage.ur4;
+import com.repackage.vr4;
 /* loaded from: classes3.dex */
 public class FrsItemAcceleratorView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
@@ -120,20 +120,20 @@ public class FrsItemAcceleratorView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             if (StringUtils.isNull(this.g)) {
-                ur4 d = ur4.d(this.c);
+                vr4 d = vr4.d(this.c);
                 d.n(R.string.J_X07);
                 d.f(R.color.CAM_X0303);
             } else {
-                ur4 d2 = ur4.d(this.c);
+                vr4 d2 = vr4.d(this.c);
                 d2.n(R.string.J_X07);
                 d2.g(sg8.f(this.g));
             }
-            ur4.d(this.d).x(R.color.CAM_X0101);
-            ur4.d(this.e).f(R.color.CAM_X0617);
-            ur4 d3 = ur4.d(this);
+            vr4.d(this.d).x(R.color.CAM_X0101);
+            vr4.d(this.e).f(R.color.CAM_X0617);
+            vr4 d3 = vr4.d(this);
             d3.n(R.string.J_X06);
             d3.f(R.color.CAM_X0201);
-            ur4.d(this.b).v(R.color.CAM_X0105);
+            vr4.d(this.b).v(R.color.CAM_X0105);
         }
     }
 
@@ -155,7 +155,7 @@ public class FrsItemAcceleratorView extends LinearLayout {
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
             layoutParams.setMargins(pi.f(getContext(), R.dimen.M_W_X004), 0, 0, 0);
             this.b.setLayoutParams(layoutParams);
-            ur4.d(this.b).z(R.dimen.T_X07);
+            vr4.d(this.b).z(R.dimen.T_X07);
             this.b.setText(R.string.obfuscated_res_0x7f0f005d);
             addView(this.b);
         }
@@ -183,7 +183,7 @@ public class FrsItemAcceleratorView extends LinearLayout {
             this.d.setLayoutParams(new LinearLayout.LayoutParams(-2, -1));
             this.d.setGravity(16);
             this.d.setPadding(pi.f(getContext(), R.dimen.M_W_X006), 0, pi.f(getContext(), R.dimen.M_W_X005), 0);
-            ur4.d(this.d).z(R.dimen.T_X08);
+            vr4.d(this.d).z(R.dimen.T_X08);
             this.d.setText(R.string.obfuscated_res_0x7f0f0058);
             this.c.addView(this.d);
             this.e = new View(getContext());

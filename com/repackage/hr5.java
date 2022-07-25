@@ -80,7 +80,7 @@ public class hr5 extends an<ds5, SpecialLiveDoubleViewHolder> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view2, viewGroup, ds5Var, specialLiveDoubleViewHolder})) == null) {
             specialLiveDoubleViewHolder.a.s(ds5Var, this.l, this.m, this.n);
-            return specialLiveDoubleViewHolder.b();
+            return specialLiveDoubleViewHolder.a();
         }
         return (View) invokeCommon.objValue;
     }

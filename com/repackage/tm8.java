@@ -17,7 +17,7 @@ public class tm8 extends CustomMessageListener {
     public final MainTabActivity a;
 
     /* loaded from: classes7.dex */
-    public class a implements um4 {
+    public class a implements vm4 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -37,7 +37,7 @@ public class tm8 extends CustomMessageListener {
             }
         }
 
-        @Override // com.repackage.um4
+        @Override // com.repackage.vm4
         public void onPermissionResult(boolean z) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeZ(1048576, this, z) == null) && z) {

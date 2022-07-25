@@ -21,7 +21,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.je6;
 import com.repackage.kt5;
 import com.repackage.ng;
-import com.repackage.xt4;
+import com.repackage.yt4;
 import java.net.URL;
 /* loaded from: classes3.dex */
 public class AlaGameFrsLiveTabVideoFragment extends BaseFragment implements je6 {
@@ -148,7 +148,7 @@ public class AlaGameFrsLiveTabVideoFragment extends BaseFragment implements je6 
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.d.j() : (NavigationBar) invokeV.objValue;
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragment, com.repackage.v85
+    @Override // com.baidu.tbadk.core.BaseFragment, com.repackage.w85
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -274,7 +274,7 @@ public class AlaGameFrsLiveTabVideoFragment extends BaseFragment implements je6 
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            String q = xt4.k().q("ala_game_frs_live_tab_video_url", "https://tieba.baidu.com/n/interact/video/game?");
+            String q = yt4.k().q("ala_game_frs_live_tab_video_url", "https://tieba.baidu.com/n/interact/video/game?");
             if (q != null) {
                 StringBuilder sb = new StringBuilder(q);
                 if (q.endsWith("?")) {

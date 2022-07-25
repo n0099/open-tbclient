@@ -39,7 +39,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.cr4;
+import com.repackage.dr4;
 /* loaded from: classes7.dex */
 public class wv7 {
     public static /* synthetic */ Interceptable $ic;
@@ -97,7 +97,7 @@ public class wv7 {
     }
 
     /* loaded from: classes7.dex */
-    public class b implements cr4.e {
+    public class b implements dr4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ int a;
@@ -122,10 +122,10 @@ public class wv7 {
             this.a = i;
         }
 
-        @Override // com.repackage.cr4.e
-        public void onClick(cr4 cr4Var) {
+        @Override // com.repackage.dr4.e
+        public void onClick(dr4 dr4Var) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, cr4Var) == null) || gd5.a()) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, dr4Var) == null) || hd5.a()) {
                 return;
             }
             if (this.a == 502014) {
@@ -143,12 +143,12 @@ public class wv7 {
                 this.b.c.setFrom(FrsActivityConfig.FRS_PB_CARD_GIFT);
                 this.b.c.R(this.b.d.l().getName(), String.valueOf(this.b.d.l().getId()));
             }
-            cr4Var.dismiss();
+            dr4Var.dismiss();
         }
     }
 
     /* loaded from: classes7.dex */
-    public class c implements cr4.e {
+    public class c implements dr4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -168,11 +168,11 @@ public class wv7 {
             }
         }
 
-        @Override // com.repackage.cr4.e
-        public void onClick(cr4 cr4Var) {
+        @Override // com.repackage.dr4.e
+        public void onClick(dr4 dr4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, cr4Var) == null) {
-                cr4Var.dismiss();
+            if (interceptable == null || interceptable.invokeL(1048576, this, dr4Var) == null) {
+                dr4Var.dismiss();
             }
         }
     }
@@ -265,12 +265,12 @@ public class wv7 {
                     this.a.a.showToast(this.a.c.getErrorString());
                     return;
                 } else {
-                    this.a.a.showToast(this.a.a.getPageContext().getPageActivity().getString(R.string.obfuscated_res_0x7f0f0819));
+                    this.a.a.showToast(this.a.a.getPageContext().getPageActivity().getString(R.string.obfuscated_res_0x7f0f0815));
                     return;
                 }
             }
             oh8Var.y(1);
-            this.a.a.showToast(this.a.a.getPageContext().getPageActivity().getResources().getString(R.string.obfuscated_res_0x7f0f0d9c));
+            this.a.a.showToast(this.a.a.getPageContext().getPageActivity().getResources().getString(R.string.obfuscated_res_0x7f0f0d85));
             this.a.t(true, id);
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001266, oh8Var));
         }
@@ -298,17 +298,17 @@ public class wv7 {
         }
 
         @Override // com.baidu.tieba.tbadkCore.util.AntiHelper.k
-        public void onNavigationButtonClick(cr4 cr4Var) {
+        public void onNavigationButtonClick(dr4 dr4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, cr4Var) == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, dr4Var) == null) {
                 TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_ANTI_DIALOG_NEG_CLICK).param("obj_locate", TbadkCoreStatisticKey.AntiLocateValue.LOCATE_LIKE_BAR));
             }
         }
 
         @Override // com.baidu.tieba.tbadkCore.util.AntiHelper.k
-        public void onPositiveButtonClick(cr4 cr4Var) {
+        public void onPositiveButtonClick(dr4 dr4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cr4Var) == null) {
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dr4Var) == null) {
                 TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_ANTI_DIALOG_POS_CLICK).param("obj_locate", TbadkCoreStatisticKey.AntiLocateValue.LOCATE_LIKE_BAR));
             }
         }
@@ -533,25 +533,25 @@ public class wv7 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048585, this, i2, str) == null) {
             if (i2 == 502014) {
-                i3 = R.string.obfuscated_res_0x7f0f0d9e;
+                i3 = R.string.obfuscated_res_0x7f0f0d87;
                 i4 = R.string.obfuscated_res_0x7f0f036a;
-                string = this.a.getPageContext().getPageActivity().getResources().getString(R.string.obfuscated_res_0x7f0f0d9f);
+                string = this.a.getPageContext().getPageActivity().getResources().getString(R.string.obfuscated_res_0x7f0f0d88);
             } else {
-                i3 = R.string.obfuscated_res_0x7f0f0d9a;
-                i4 = R.string.obfuscated_res_0x7f0f0d9b;
-                string = this.a.getPageContext().getPageActivity().getResources().getString(R.string.obfuscated_res_0x7f0f0d9d, this.d.l().getName());
+                i3 = R.string.obfuscated_res_0x7f0f0d83;
+                i4 = R.string.obfuscated_res_0x7f0f0d84;
+                string = this.a.getPageContext().getPageActivity().getResources().getString(R.string.obfuscated_res_0x7f0f0d86, this.d.l().getName());
                 str = "";
             }
-            cr4 cr4Var = new cr4(this.a.getPageContext().getPageActivity());
-            cr4Var.setTitle(str);
-            cr4Var.setMessage(string);
-            cr4Var.setPositiveButton(i3, new b(this, i2));
-            cr4Var.setNegativeButton(i4, new c(this));
-            cr4Var.setOnDismissListener(new d(this));
-            cr4Var.setTitleShowCenter(true);
-            cr4Var.setNegativeTextColor(R.color.CAM_X0105);
-            cr4Var.setCanceledOnTouchOutside(true);
-            cr4Var.create(this.a.getPageContext()).show();
+            dr4 dr4Var = new dr4(this.a.getPageContext().getPageActivity());
+            dr4Var.setTitle(str);
+            dr4Var.setMessage(string);
+            dr4Var.setPositiveButton(i3, new b(this, i2));
+            dr4Var.setNegativeButton(i4, new c(this));
+            dr4Var.setOnDismissListener(new d(this));
+            dr4Var.setTitleShowCenter(true);
+            dr4Var.setNegativeTextColor(R.color.CAM_X0105);
+            dr4Var.setCanceledOnTouchOutside(true);
+            dr4Var.create(this.a.getPageContext()).show();
         }
     }
 
@@ -572,29 +572,29 @@ public class wv7 {
             this.e = create;
             create.setCanceledOnTouchOutside(false);
             sg.i(this.e, this.a.getPageContext().getPageActivity());
-            View inflate = LayoutInflater.from(this.a.getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0673, (ViewGroup) null);
+            View inflate = LayoutInflater.from(this.a.getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d067d, (ViewGroup) null);
             TbImageView tbImageView = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090360);
             tbImageView.setRadius(pi.f(TbadkCoreApplication.getInst(), R.dimen.tbds30));
             tbImageView.setConrers(3);
             tbImageView.setDrawCorner(true);
-            SkinManager.setImageResource(tbImageView, R.drawable.obfuscated_res_0x7f080eeb);
+            SkinManager.setImageResource(tbImageView, R.drawable.obfuscated_res_0x7f080ef2);
             TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090401);
             textView.setOnClickListener(new g(this));
             ImageView imageView = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090400);
             imageView.setOnClickListener(new h(this));
-            TextView textView2 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0922bb);
-            TextView textView3 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0922bd);
-            textView3.setText(this.a.getPageContext().getPageActivity().getString(R.string.obfuscated_res_0x7f0f0da5, new Object[]{fr7Var.c}));
-            textView2.setText(this.a.getPageContext().getPageActivity().getString(R.string.obfuscated_res_0x7f0f0da4, new Object[]{fr7Var.f}));
+            TextView textView2 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0922bd);
+            TextView textView3 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0922bf);
+            textView3.setText(this.a.getPageContext().getPageActivity().getString(R.string.obfuscated_res_0x7f0f0d8e, new Object[]{fr7Var.c}));
+            textView2.setText(this.a.getPageContext().getPageActivity().getString(R.string.obfuscated_res_0x7f0f0d8d, new Object[]{fr7Var.f}));
             SkinManager.setImageResource(imageView, R.drawable.icon_use_close_n);
             SkinManager.setViewTextColor(textView2, (int) R.color.CAM_X0107);
             SkinManager.setViewTextColor(textView3, (int) R.color.CAM_X0105);
-            SkinManager.setViewTextColor((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0922bc), (int) R.color.CAM_X0107);
+            SkinManager.setViewTextColor((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0922be), (int) R.color.CAM_X0107);
             SkinManager.setBackgroundResource(textView, R.drawable.btn_pb_ad_card_gift_get);
             SkinManager.setViewTextColor(textView, (int) R.color.CAM_X0112);
             this.e.setOnDismissListener(new i(this));
             Window window = this.e.getWindow();
-            window.setWindowAnimations(R.style.obfuscated_res_0x7f1003c6);
+            window.setWindowAnimations(R.style.obfuscated_res_0x7f1003c9);
             window.setGravity(17);
             window.setLayout(-2, -2);
             window.setContentView(inflate);

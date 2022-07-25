@@ -26,7 +26,7 @@ public class w88 {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes7.dex */
-    public static class a implements Comparator<bp4> {
+    public static class a implements Comparator<cp4> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -47,17 +47,17 @@ public class w88 {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.Comparator
         /* renamed from: a */
-        public int compare(bp4 bp4Var, bp4 bp4Var2) {
+        public int compare(cp4 cp4Var, cp4 cp4Var2) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, bp4Var, bp4Var2)) == null) {
-                if (bp4Var.f() && bp4Var2.f()) {
-                    return bp4Var.j() - bp4Var2.j();
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, cp4Var, cp4Var2)) == null) {
+                if (cp4Var.f() && cp4Var2.f()) {
+                    return cp4Var.j() - cp4Var2.j();
                 }
-                if (bp4Var.f() || bp4Var2.f()) {
-                    return bp4Var.f() ? -1 : 1;
+                if (cp4Var.f() || cp4Var2.f()) {
+                    return cp4Var.f() ? -1 : 1;
                 }
-                return (bp4Var.q() == null ? -1 : w88.g(bp4Var.q())) - (bp4Var2.q() != null ? w88.g(bp4Var2.q()) : -1);
+                return (cp4Var.q() == null ? -1 : w88.g(cp4Var.q())) - (cp4Var2.q() != null ? w88.g(cp4Var2.q()) : -1);
             }
             return invokeLL.intValue;
         }
@@ -80,17 +80,17 @@ public class w88 {
             for (nn nnVar : list) {
                 if (nnVar != null) {
                     for (nn nnVar2 : a2) {
-                        if ((nnVar instanceof bp4) && (q2 = ((bp4) nnVar).q()) != null && nnVar2.hashCode() == q2.hashCode()) {
+                        if ((nnVar instanceof cp4) && (q2 = ((cp4) nnVar).q()) != null && nnVar2.hashCode() == q2.hashCode()) {
                             q2.i = ((AdvertAppInfo) nnVar2).i;
                         }
                     }
-                    if ((nnVar instanceof bp4) && (q = ((bp4) nnVar).q()) != null && q.i == null) {
-                        sn4 sn4Var = new sn4();
-                        q.i = sn4Var;
-                        sn4Var.a = str;
-                        sn4Var.b = i;
-                        sn4Var.g = q.g;
-                        sn4Var.h = false;
+                    if ((nnVar instanceof cp4) && (q = ((cp4) nnVar).q()) != null && q.i == null) {
+                        tn4 tn4Var = new tn4();
+                        q.i = tn4Var;
+                        tn4Var.a = str;
+                        tn4Var.b = i;
+                        tn4Var.g = q.g;
+                        tn4Var.h = false;
                         hashSet.add(q);
                     }
                 }
@@ -111,9 +111,9 @@ public class w88 {
                 return 0;
             }
             int i2 = -1;
-            for (int i3 = gd7.i(list) - 1; i3 >= 0 && !(gd7.d(list, i3) instanceof bp4); i3--) {
-                if (gd7.d(list, i3) instanceof qq4) {
-                    int i4 = ((qq4) gd7.d(list, i3)).position;
+            for (int i3 = gd7.i(list) - 1; i3 >= 0 && !(gd7.d(list, i3) instanceof cp4); i3--) {
+                if (gd7.d(list, i3) instanceof rq4) {
+                    int i4 = ((rq4) gd7.d(list, i3)).position;
                     if (i4 != i2) {
                         i++;
                         i2 = i4;
@@ -134,7 +134,7 @@ public class w88 {
         }
         Iterator<nn> it = list.iterator();
         while (it.hasNext()) {
-            if (it.next() instanceof bp4) {
+            if (it.next() instanceof cp4) {
                 it.remove();
             }
         }
@@ -149,15 +149,15 @@ public class w88 {
         Iterator it = list.iterator();
         while (it.hasNext()) {
             Object next = it.next();
-            boolean z = next instanceof bp4;
+            boolean z = next instanceof cp4;
             if (z || (next instanceof App)) {
                 if (next instanceof App) {
                     str2 = x88.a((App) next);
                 } else {
                     if (z) {
-                        bp4 bp4Var = (bp4) next;
-                        if (bp4Var.q() != null) {
-                            str2 = bp4Var.q().a;
+                        cp4 cp4Var = (cp4) next;
+                        if (cp4Var.q() != null) {
+                            str2 = cp4Var.q().a;
                         }
                     }
                     str2 = "";
@@ -171,15 +171,15 @@ public class w88 {
 
     public static String e(List<nn> list, boolean z) {
         InterceptResult invokeLZ;
-        bp4 bp4Var;
+        cp4 cp4Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLZ = interceptable.invokeLZ(InputDeviceCompat.SOURCE_TRACKBALL, null, list, z)) == null) {
             StringBuilder sb = new StringBuilder();
             if (!z && !gd7.e(list)) {
                 int i = 0;
                 for (int i2 = gd7.i(list) - 1; i2 >= 0 && i < 6; i2--) {
-                    if ((gd7.d(list, i2) instanceof bp4) && (bp4Var = (bp4) gd7.d(list, i2)) != null && !l(bp4Var.q())) {
-                        sb.append(bp4Var.j() + 1);
+                    if ((gd7.d(list, i2) instanceof cp4) && (cp4Var = (cp4) gd7.d(list, i2)) != null && !l(cp4Var.q())) {
+                        sb.append(cp4Var.j() + 1);
                         sb.append(",");
                         i++;
                     }
@@ -219,7 +219,7 @@ public class w88 {
         return invokeL.intValue;
     }
 
-    public static List<bp4> h(List<App> list, String str) {
+    public static List<cp4> h(List<App> list, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, list, str)) == null) {
@@ -245,7 +245,7 @@ public class w88 {
         return (List) invokeLL.objValue;
     }
 
-    public static List<bp4> i(List<bp4> list, List<nn> list2, int i) {
+    public static List<cp4> i(List<cp4> list, List<nn> list2, int i) {
         InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65544, null, list, list2, i)) == null) {
@@ -256,27 +256,27 @@ public class w88 {
             o(list);
             int i2 = 0;
             for (int i3 = 0; i3 < list.size(); i3++) {
-                bp4 bp4Var = (bp4) gd7.d(list, i3);
-                if (bp4Var != null && bp4Var.q() != null) {
+                cp4 cp4Var = (cp4) gd7.d(list, i3);
+                if (cp4Var != null && cp4Var.q() != null) {
                     int i4 = gd7.i(list2);
-                    int g = g(bp4Var.q()) - 1;
+                    int g = g(cp4Var.q()) - 1;
                     if (g < 0) {
-                        n(bp4Var.q());
+                        n(cp4Var.q());
                     } else {
-                        int j = bp4Var.f() ? bp4Var.j() : g + i;
+                        int j = cp4Var.f() ? cp4Var.j() : g + i;
                         if (j > i4) {
-                            n(bp4Var.q());
+                            n(cp4Var.q());
                         } else {
-                            bp4Var.setPosition(j);
-                            gd7.b(list2, bp4Var, j);
-                            arrayList.add(bp4Var);
+                            cp4Var.setPosition(j);
+                            gd7.b(list2, cp4Var, j);
+                            arrayList.add(cp4Var);
                         }
                     }
                 }
             }
             while (i < gd7.i(list2)) {
                 nn nnVar = list2.get(i);
-                if (nnVar instanceof bp4) {
+                if (nnVar instanceof cp4) {
                     i2++;
                 } else if (nnVar instanceof BaseCardInfo) {
                     ((BaseCardInfo) nnVar).position += i2;
@@ -333,7 +333,7 @@ public class w88 {
         }
     }
 
-    public static void o(List<bp4> list) {
+    public static void o(List<cp4> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65550, null, list) == null) {
             Collections.sort(list, new a());
@@ -344,8 +344,8 @@ public class w88 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65551, null, list) == null) {
             for (int i = 0; i < gd7.i(list); i++) {
-                if (gd7.d(list, i) instanceof bp4) {
-                    ((bp4) gd7.d(list, i)).setPosition(i);
+                if (gd7.d(list, i) instanceof cp4) {
+                    ((cp4) gd7.d(list, i)).setPosition(i);
                 }
             }
         }

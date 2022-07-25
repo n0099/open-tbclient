@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.tu4;
+import com.repackage.uu4;
 /* loaded from: classes3.dex */
 public class OperableVideoErrorView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
@@ -43,12 +43,12 @@ public class OperableVideoErrorView extends LinearLayout {
     public final void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            LinearLayout.inflate(context, R.layout.obfuscated_res_0x7f0d064c, this);
-            TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) findViewById(R.id.obfuscated_res_0x7f091b05);
+            LinearLayout.inflate(context, R.layout.obfuscated_res_0x7f0d0656, this);
+            TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) findViewById(R.id.obfuscated_res_0x7f091adf);
             this.a = tBSpecificationBtn;
             tBSpecificationBtn.setTextSize(R.dimen.tbds36);
             this.a.setText(getResources().getString(R.string.obfuscated_res_0x7f0f03e3));
-            this.a.setConfig(new tu4());
+            this.a.setConfig(new uu4());
         }
     }
 

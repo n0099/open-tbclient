@@ -1,215 +1,73 @@
 package com.kwad.sdk.utils;
 
-import android.location.Location;
-import com.kwad.sdk.api.KsCustomController;
-import com.kwad.sdk.api.SdkConfig;
-import com.kwad.sdk.components.DevelopMangerComponents;
-import com.kwad.sdk.service.ServiceProvider;
-import java.util.ArrayList;
+import android.app.ActivityManager;
+import android.app.Application;
+import android.content.Context;
+import android.os.Build;
+import android.os.Process;
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
 import java.util.List;
 /* loaded from: classes5.dex */
 public final class an {
-    public static boolean a() {
-        KsCustomController ksCustomController;
-        if (o()) {
-            return true;
-        }
-        try {
-            SdkConfig k = ((com.kwad.sdk.service.kwai.d) ServiceProvider.a(com.kwad.sdk.service.kwai.d.class)).k();
-            if (k != null && (ksCustomController = k.ksCustomController) != null) {
-                if (!ksCustomController.canReadLocation()) {
-                    return true;
-                }
-            }
-        } catch (Throwable unused) {
-        }
-        return false;
-    }
+    public static String anX = "";
+    public static volatile Boolean anY;
 
-    public static Location b() {
-        KsCustomController ksCustomController;
-        try {
-            SdkConfig k = ((com.kwad.sdk.service.kwai.d) ServiceProvider.a(com.kwad.sdk.service.kwai.d.class)).k();
-            if (k == null || (ksCustomController = k.ksCustomController) == null) {
-                return null;
-            }
-            return ksCustomController.getLocation();
-        } catch (Throwable unused) {
-            return null;
-        }
-    }
-
-    public static boolean c() {
-        KsCustomController ksCustomController;
-        if (o()) {
-            return true;
-        }
-        try {
-            SdkConfig k = ((com.kwad.sdk.service.kwai.d) ServiceProvider.a(com.kwad.sdk.service.kwai.d.class)).k();
-            if (k != null && (ksCustomController = k.ksCustomController) != null) {
-                if (!ksCustomController.canUsePhoneState()) {
-                    return true;
-                }
-            }
-        } catch (Throwable unused) {
-        }
-        return false;
-    }
-
-    public static String d() {
-        KsCustomController ksCustomController;
-        try {
-            SdkConfig k = ((com.kwad.sdk.service.kwai.d) ServiceProvider.a(com.kwad.sdk.service.kwai.d.class)).k();
-            return (k == null || (ksCustomController = k.ksCustomController) == null) ? "" : ksCustomController.getImei();
-        } catch (Throwable unused) {
+    public static String cG(@NonNull Context context) {
+        List<ActivityManager.RunningAppProcessInfo> runningAppProcesses;
+        if (context == null) {
             return "";
         }
-    }
-
-    public static String[] e() {
-        KsCustomController ksCustomController;
-        try {
-            SdkConfig k = ((com.kwad.sdk.service.kwai.d) ServiceProvider.a(com.kwad.sdk.service.kwai.d.class)).k();
-            if (k != null && (ksCustomController = k.ksCustomController) != null) {
-                return ksCustomController.getImeis();
+        int myPid = Process.myPid();
+        ActivityManager activityManager = (ActivityManager) context.getSystemService("activity");
+        if (activityManager != null && (runningAppProcesses = activityManager.getRunningAppProcesses()) != null) {
+            for (ActivityManager.RunningAppProcessInfo runningAppProcessInfo : runningAppProcesses) {
+                if (runningAppProcessInfo.pid == myPid) {
+                    return runningAppProcessInfo.processName;
+                }
             }
-        } catch (Throwable unused) {
         }
-        return new String[]{"", ""};
+        return "";
     }
 
-    public static String f() {
-        KsCustomController ksCustomController;
+    public static String getProcessName(@NonNull Context context) {
+        if (TextUtils.isEmpty(anX)) {
+            String zN = zN();
+            anX = zN;
+            if (TextUtils.isEmpty(zN)) {
+                String zO = zO();
+                anX = zO;
+                if (TextUtils.isEmpty(zO)) {
+                    String cG = cG(context);
+                    anX = cG;
+                    return cG;
+                }
+                return anX;
+            }
+            return anX;
+        }
+        return anX;
+    }
+
+    public static boolean isInMainProcess(Context context) {
+        if (anY == null) {
+            String processName = getProcessName(context);
+            anY = Boolean.valueOf(!TextUtils.isEmpty(processName) && processName.equals(context.getPackageName()));
+        }
+        return anY.booleanValue();
+    }
+
+    public static String zN() {
+        return Build.VERSION.SDK_INT >= 28 ? Application.getProcessName() : "";
+    }
+
+    public static String zO() {
         try {
-            SdkConfig k = ((com.kwad.sdk.service.kwai.d) ServiceProvider.a(com.kwad.sdk.service.kwai.d.class)).k();
-            return (k == null || (ksCustomController = k.ksCustomController) == null) ? "" : ksCustomController.getAndroidId();
-        } catch (Throwable unused) {
+            Object b = q.b(Class.forName("android.app.ActivityThread", false, Application.class.getClassLoader()), "currentProcessName", new Object[0]);
+            return b instanceof String ? (String) b : "";
+        } catch (Throwable th) {
+            th.printStackTrace();
             return "";
         }
-    }
-
-    public static boolean g() {
-        KsCustomController ksCustomController;
-        if (o()) {
-            return true;
-        }
-        try {
-            SdkConfig k = ((com.kwad.sdk.service.kwai.d) ServiceProvider.a(com.kwad.sdk.service.kwai.d.class)).k();
-            if (k != null && (ksCustomController = k.ksCustomController) != null) {
-                if (!ksCustomController.canUseMacAddress()) {
-                    return true;
-                }
-            }
-        } catch (Throwable unused) {
-        }
-        return false;
-    }
-
-    public static String h() {
-        KsCustomController ksCustomController;
-        try {
-            SdkConfig k = ((com.kwad.sdk.service.kwai.d) ServiceProvider.a(com.kwad.sdk.service.kwai.d.class)).k();
-            return (k == null || (ksCustomController = k.ksCustomController) == null) ? "" : ksCustomController.getMacAddress();
-        } catch (Throwable unused) {
-            return "";
-        }
-    }
-
-    public static boolean i() {
-        KsCustomController ksCustomController;
-        if (o()) {
-            return true;
-        }
-        try {
-            SdkConfig k = ((com.kwad.sdk.service.kwai.d) ServiceProvider.a(com.kwad.sdk.service.kwai.d.class)).k();
-            if (k != null && (ksCustomController = k.ksCustomController) != null) {
-                if (!ksCustomController.canUseOaid()) {
-                    return true;
-                }
-            }
-        } catch (Throwable unused) {
-        }
-        return false;
-    }
-
-    public static String j() {
-        KsCustomController ksCustomController;
-        try {
-            SdkConfig k = ((com.kwad.sdk.service.kwai.d) ServiceProvider.a(com.kwad.sdk.service.kwai.d.class)).k();
-            return (k == null || (ksCustomController = k.ksCustomController) == null) ? "" : ksCustomController.getOaid();
-        } catch (Throwable unused) {
-            return "";
-        }
-    }
-
-    public static boolean k() {
-        KsCustomController ksCustomController;
-        if (o()) {
-            return true;
-        }
-        try {
-            SdkConfig k = ((com.kwad.sdk.service.kwai.d) ServiceProvider.a(com.kwad.sdk.service.kwai.d.class)).k();
-            if (k != null && (ksCustomController = k.ksCustomController) != null) {
-                if (!ksCustomController.canUseNetworkState()) {
-                    return true;
-                }
-            }
-        } catch (Throwable unused) {
-        }
-        return false;
-    }
-
-    public static boolean l() {
-        KsCustomController ksCustomController;
-        if (o()) {
-            return true;
-        }
-        try {
-            SdkConfig k = ((com.kwad.sdk.service.kwai.d) ServiceProvider.a(com.kwad.sdk.service.kwai.d.class)).k();
-            if (k != null && (ksCustomController = k.ksCustomController) != null) {
-                if (!ksCustomController.canUseStoragePermission()) {
-                    return true;
-                }
-            }
-        } catch (Throwable unused) {
-        }
-        return false;
-    }
-
-    public static boolean m() {
-        KsCustomController ksCustomController;
-        if (o()) {
-            return true;
-        }
-        try {
-            SdkConfig k = ((com.kwad.sdk.service.kwai.d) ServiceProvider.a(com.kwad.sdk.service.kwai.d.class)).k();
-            if (k != null && (ksCustomController = k.ksCustomController) != null) {
-                if (!ksCustomController.canReadInstalledPackages()) {
-                    return true;
-                }
-            }
-        } catch (Throwable unused) {
-        }
-        return false;
-    }
-
-    public static List<String> n() {
-        KsCustomController ksCustomController;
-        try {
-            SdkConfig k = ((com.kwad.sdk.service.kwai.d) ServiceProvider.a(com.kwad.sdk.service.kwai.d.class)).k();
-            if (k != null && (ksCustomController = k.ksCustomController) != null) {
-                return ksCustomController.getInstalledPackages();
-            }
-        } catch (Throwable unused) {
-        }
-        return new ArrayList();
-    }
-
-    public static boolean o() {
-        if (com.kwad.b.kwai.a.b.booleanValue()) {
-            com.kwad.sdk.components.c.a(DevelopMangerComponents.class);
-            return false;
-        }
-        return false;
     }
 }

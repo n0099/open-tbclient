@@ -62,12 +62,12 @@ public class qp6 {
             if (FrsActivityConfig.FRS_FROM_WRITESHARE.equals(str)) {
                 tbPageContext.sendMessage(new CustomMessage(2015002, new MainTabActivityConfig(tbPageContext.getPageActivity()).createNormalCfg(1)));
             } else {
-                st4.e(tbPageContext.getPageActivity(), 1);
+                tt4.e(tbPageContext.getPageActivity(), 1);
             }
         } else if (FrsActivityConfig.FRS_FROM_WRITESHARE.equals(str)) {
             tbPageContext.sendMessage(new CustomMessage(2015002, new MainTabActivityConfig(tbPageContext.getPageActivity()).createNormalCfg(2)));
         } else {
-            st4.e(tbPageContext.getPageActivity(), 2);
+            tt4.e(tbPageContext.getPageActivity(), 2);
         }
         if (FrsActivityConfig.FRS_FROM_WRITESHARE.equals(str)) {
             tbPageContext.getPageActivity().finish();
@@ -166,7 +166,7 @@ public class qp6 {
         if (!(interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, tbPageContext, frsViewData) == null) || tbPageContext == null || frsViewData == null) {
             return;
         }
-        rl4.s(tbPageContext.getPageActivity(), "福袋", TbConfig.SERVER_ADDRESS + TbConfig.FORTUNE_ADDRESS + "?fid=" + frsViewData.getForum().getId(), true, true, true);
+        sl4.s(tbPageContext.getPageActivity(), "福袋", TbConfig.SERVER_ADDRESS + TbConfig.FORTUNE_ADDRESS + "?fid=" + frsViewData.getForum().getId(), true, true, true);
     }
 
     public static void f(FrsFragment frsFragment, ThreadData threadData, int i, boolean z) {
@@ -245,13 +245,13 @@ public class qp6 {
         if (PermissionUtil.checkCamera(TbadkCoreApplication.getInst().getApplicationContext())) {
             SelectImageHelper.takePhoto(frsFragment.getPageContext());
         } else {
-            frsFragment.showToast(R.string.obfuscated_res_0x7f0f1353);
+            frsFragment.showToast(R.string.obfuscated_res_0x7f0f1302);
         }
         ArrayMap<String, Boolean> transformPermissionResult = PermissionUtil.transformPermissionResult(strArr, iArr);
         if (!transformPermissionResult.containsKey("android.permission.WRITE_EXTERNAL_STORAGE") || transformPermissionResult.get("android.permission.WRITE_EXTERNAL_STORAGE").booleanValue()) {
             return;
         }
-        frsFragment.showToast(R.string.obfuscated_res_0x7f0f10a7);
+        frsFragment.showToast(R.string.obfuscated_res_0x7f0f1063);
     }
 
     public static boolean j(Context context, String str) {
@@ -294,9 +294,9 @@ public class qp6 {
             if (frsViewData == null || frsViewData.getActivityHeadData() == null) {
                 return false;
             }
-            ArrayList<po4> b = frsViewData.getActivityHeadData().b();
-            po4 po4Var = ListUtils.isEmpty(b) ? null : b.get(0);
-            return (po4Var == null || StringUtils.isNull(po4Var.e()) || StringUtils.isNull(po4Var.j())) ? false : true;
+            ArrayList<qo4> b = frsViewData.getActivityHeadData().b();
+            qo4 qo4Var = ListUtils.isEmpty(b) ? null : b.get(0);
+            return (qo4Var == null || StringUtils.isNull(qo4Var.e()) || StringUtils.isNull(qo4Var.j())) ? false : true;
         }
         return invokeL.booleanValue;
     }
@@ -323,7 +323,7 @@ public class qp6 {
             Map<String, String> paramPair = UrlManager.getParamPair(str);
             if (paramPair != null) {
                 StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_SCHEME_JUMP_CALL_NATIVE);
-                ej4.b(statisticItem, paramPair);
+                fj4.b(statisticItem, paramPair);
                 statisticItem.param("obj_locate", paramPair.get("obj_locate"));
                 statisticItem.param("obj_type", 1);
                 statisticItem.param("fname", paramPair.get(TiebaStatic.Params.H5_FORUM_NAME));

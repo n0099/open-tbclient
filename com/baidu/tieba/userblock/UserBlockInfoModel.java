@@ -19,7 +19,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.d9;
-import com.repackage.dm4;
+import com.repackage.em4;
 import com.repackage.wh8;
 import com.repackage.za;
 import tbclient.GetUserBlackInfo.DataRes;
@@ -28,7 +28,7 @@ public class UserBlockInfoModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public long a;
-    public dm4 b;
+    public em4 b;
     public za c;
 
     /* loaded from: classes4.dex */
@@ -78,7 +78,7 @@ public class UserBlockInfoModel extends BdBaseModel {
                 return;
             }
             if (StringUtils.isNull(errorString)) {
-                errorString = this.a.E(R.string.obfuscated_res_0x7f0f05aa);
+                errorString = this.a.E(R.string.obfuscated_res_0x7f0f05a6);
             }
             this.a.b.onError(error, errorString);
         }
@@ -134,10 +134,10 @@ public class UserBlockInfoModel extends BdBaseModel {
         }
     }
 
-    public void H(dm4 dm4Var) {
+    public void H(em4 em4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, dm4Var) == null) {
-            this.b = dm4Var;
+        if (interceptable == null || interceptable.invokeL(1048579, this, em4Var) == null) {
+            this.b = em4Var;
         }
     }
 

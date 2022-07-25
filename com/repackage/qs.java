@@ -231,9 +231,9 @@ public abstract class qs<T> {
                     i(cVar);
                     cVar = null;
                 } else {
-                    ts<ss<T>, qs<T>.c>.d g = this.b.g();
-                    while (g.hasNext()) {
-                        i((c) ((Map.Entry) g.next()).getValue());
+                    ts<ss<T>, qs<T>.c>.d f = this.b.f();
+                    while (f.hasNext()) {
+                        i((c) ((Map.Entry) f.next()).getValue());
                         if (this.h) {
                             break;
                         }
@@ -261,7 +261,7 @@ public abstract class qs<T> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, ssVar) == null) {
             b bVar = new b(this, ssVar);
-            if (this.b.e(ssVar, bVar) != null) {
+            if (this.b.d(ssVar, bVar) != null) {
                 return;
             }
             bVar.a(true);

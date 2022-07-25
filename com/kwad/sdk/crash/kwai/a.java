@@ -9,18 +9,10 @@ import androidx.annotation.Nullable;
 import java.io.File;
 /* loaded from: classes5.dex */
 public final class a {
-    public static Context a;
-    public static String b;
+    public static Context ab;
+    public static String ahh;
 
-    public static File a() {
-        File file = !TextUtils.isEmpty(b) ? new File(b) : new File(a(a), "kwad_ex");
-        if (!file.exists()) {
-            file.mkdir();
-        }
-        return file;
-    }
-
-    public static File a(Context context) {
+    public static File getDataDir(Context context) {
         int i = Build.VERSION.SDK_INT;
         if (i >= 29) {
             return new File(context.getExternalFilesDir(null).getAbsolutePath());
@@ -35,27 +27,35 @@ public final class a {
         return dataDir;
     }
 
-    public static void a(@NonNull Context context, @Nullable String str) {
-        a = context;
-        b = str;
+    public static void init(@NonNull Context context, @Nullable String str) {
+        ab = context;
+        ahh = str;
     }
 
-    public static boolean a(File file) {
+    public static File wI() {
+        File file = !TextUtils.isEmpty(ahh) ? new File(ahh) : new File(getDataDir(ab), "kwad_ex");
+        if (!file.exists()) {
+            file.mkdir();
+        }
+        return file;
+    }
+
+    public static File wJ() {
+        return new File(wI(), "java_crash/dump");
+    }
+
+    public static File wK() {
+        return new File(wI(), "anr_log/dump");
+    }
+
+    public static File wL() {
+        return new File(wI(), "native_crash_log/dump");
+    }
+
+    public static boolean x(File file) {
         if (file == null) {
             return false;
         }
         return file.exists() || file.mkdirs();
-    }
-
-    public static File b() {
-        return new File(a(), "java_crash/dump");
-    }
-
-    public static File c() {
-        return new File(a(), "anr_log/dump");
-    }
-
-    public static File d() {
-        return new File(a(), "native_crash_log/dump");
     }
 }

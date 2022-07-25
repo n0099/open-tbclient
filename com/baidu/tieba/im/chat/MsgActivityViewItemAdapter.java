@@ -79,13 +79,13 @@ public class MsgActivityViewItemAdapter extends MsgCommonItemAdapter<MsgActivity
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), view2, viewGroup, chatMessage, msgViewHolder})) == null) {
             super.S(i, view2, viewGroup, chatMessage, msgViewHolder);
-            MsgActivityView c = msgViewHolder.c();
-            c.B(i);
-            c.T(chatMessage);
-            c.z(this.j);
-            c.A(this.k);
-            c.r(this.l);
-            c.x(chatMessage.getCacheData().getLastMsgTime());
+            MsgActivityView b = msgViewHolder.b();
+            b.B(i);
+            b.T(chatMessage);
+            b.z(this.j);
+            b.A(this.k);
+            b.r(this.l);
+            b.x(chatMessage.getCacheData().getLastMsgTime());
             this.i.getLayoutMode().k(false);
             this.i.getLayoutMode().j(view2);
             return view2;

@@ -49,7 +49,7 @@ public class zi {
                     if (i != 1) {
                         if (i != 6) {
                             if (zi.d != null) {
-                                zi.d.error(message.what, gj.a(R.string.obfuscated_res_0x7f0f156f));
+                                zi.d.error(message.what, gj.a(R.string.obfuscated_res_0x7f0f151e));
                             }
                         } else {
                             if (zi.d != null) {
@@ -58,7 +58,7 @@ public class zi {
                             return true;
                         }
                     } else if (zi.d != null) {
-                        zi.d.error(message.what, gj.a(R.string.obfuscated_res_0x7f0f156d));
+                        zi.d.error(message.what, gj.a(R.string.obfuscated_res_0x7f0f151c));
                     }
                 } else if (zi.d != null) {
                     zi.d.c(zi.c, message.arg1);

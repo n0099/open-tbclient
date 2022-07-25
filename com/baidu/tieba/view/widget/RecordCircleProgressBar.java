@@ -130,7 +130,7 @@ public class RecordCircleProgressBar extends View implements bv8, Runnable {
             }
             bv8.a aVar = this.w;
             if (aVar != null) {
-                aVar.b(this.x);
+                aVar.a(this.x);
             }
         }
     }
@@ -161,7 +161,7 @@ public class RecordCircleProgressBar extends View implements bv8, Runnable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             bv8.a aVar = this.w;
-            postDelayed(this, (aVar == null || !(aVar.a() == 0.5f || this.w.a() == 0.33333334f)) ? 50L : 25L);
+            postDelayed(this, (aVar == null || !(aVar.getSpeed() == 0.5f || this.w.getSpeed() == 0.33333334f)) ? 50L : 25L);
         }
     }
 

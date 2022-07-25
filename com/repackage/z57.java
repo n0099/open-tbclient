@@ -83,7 +83,7 @@ public class z57 {
             } catch (Exception e) {
                 TiebaStatic.printDBExceptionLog(e, "endTransaction", new Object[0]);
                 BdLog.e(e.getMessage());
-                mt4.a("im", -1L, 0, "im_check: endTransaction error:" + e.getMessage(), -1, "", new Object[0]);
+                nt4.a("im", -1L, 0, "im_check: endTransaction error:" + e.getMessage(), -1, "", new Object[0]);
                 return;
             }
         }
@@ -103,7 +103,7 @@ public class z57 {
                 return true;
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
-                mt4.a("im", -1L, 0, "im_check: execSQL error:" + e.getMessage(), -1, "", new Object[0]);
+                nt4.a("im", -1L, 0, "im_check: execSQL error:" + e.getMessage(), -1, "", new Object[0]);
                 return false;
             }
         }
@@ -162,7 +162,7 @@ public class z57 {
         } catch (Exception e) {
             TiebaStatic.printDBExceptionLog(e, "startTransaction", new Object[0]);
             BdLog.e(e.getMessage());
-            mt4.a("im", -1L, 0, "im_check: startTransaction error:" + e.getMessage(), -1, "", new Object[0]);
+            nt4.a("im", -1L, 0, "im_check: startTransaction error:" + e.getMessage(), -1, "", new Object[0]);
         }
     }
 
@@ -177,7 +177,7 @@ public class z57 {
                 return sQLiteStatement.executeInsert();
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
-                mt4.a("im", -1L, 0, "im_check: update error:" + e.getMessage(), -1, "", new Object[0]);
+                nt4.a("im", -1L, 0, "im_check: update error:" + e.getMessage(), -1, "", new Object[0]);
                 return -1L;
             }
         }
@@ -196,7 +196,7 @@ public class z57 {
                 return c.update(str, contentValues, str2, strArr);
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
-                mt4.a("im", -1L, 0, "im_check: update error" + e.getMessage(), -1, "", new Object[0]);
+                nt4.a("im", -1L, 0, "im_check: update error" + e.getMessage(), -1, "", new Object[0]);
                 return -1;
             }
         }
@@ -214,7 +214,7 @@ public class z57 {
             try {
                 return c.insert(str, str2, contentValues);
             } catch (Exception e) {
-                mt4.a("im", -1L, 0, "im_check: insertOrUpdate error:" + e.getMessage(), -1, "", new Object[0]);
+                nt4.a("im", -1L, 0, "im_check: insertOrUpdate error:" + e.getMessage(), -1, "", new Object[0]);
                 BdLog.e(e.getMessage());
                 return -1L;
             }

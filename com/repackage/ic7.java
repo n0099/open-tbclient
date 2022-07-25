@@ -91,7 +91,7 @@ public class ic7 {
     }
 
     /* loaded from: classes6.dex */
-    public class b implements jd5<DataRes> {
+    public class b implements kd5<DataRes> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ic7 a;
@@ -115,7 +115,7 @@ public class ic7 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.jd5
+        @Override // com.repackage.kd5
         /* renamed from: a */
         public void onReturnDataInUI(DataRes dataRes) {
             Interceptable interceptable = $ic;
@@ -186,8 +186,8 @@ public class ic7 {
     public final void e(long j, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJL(1048579, this, j, str) == null) {
-            br4.f();
-            he5.b(new a(this, br4.d("tb.lego_update"), j, str), new b(this));
+            cr4.f();
+            he5.b(new a(this, cr4.d("tb.lego_update"), j, str), new b(this));
         }
     }
 
@@ -370,8 +370,8 @@ public class ic7 {
         if (!(interceptable == null || interceptable.invokeL(1048587, this, dataRes) == null) || dataRes == null) {
             return;
         }
-        br4.f();
-        te<byte[]> d = br4.d("tb.lego_update");
+        cr4.f();
+        te<byte[]> d = cr4.d("tb.lego_update");
         StringBuilder sb = new StringBuilder();
         sb.append(this.j);
         sb.append("_");

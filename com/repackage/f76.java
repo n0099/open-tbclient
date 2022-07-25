@@ -26,11 +26,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.cr4;
+import com.repackage.dr4;
 import com.repackage.m56;
 import java.util.List;
 /* loaded from: classes6.dex */
-public class f76 extends e85<d56, z46> implements u46 {
+public class f76 extends f85<d56, z46> implements u46 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public View f;
@@ -120,7 +120,7 @@ public class f76 extends e85<d56, z46> implements u46 {
                     if (currentActivity != null) {
                         BdTopToast bdTopToast = new BdTopToast(currentActivity, 2000);
                         bdTopToast.i(false);
-                        bdTopToast.h(currentActivity.getString(R.string.obfuscated_res_0x7f0f09de));
+                        bdTopToast.h(currentActivity.getString(R.string.obfuscated_res_0x7f0f09c8));
                         bdTopToast.j((ViewGroup) currentActivity.findViewById(16908290));
                     }
                 }
@@ -137,7 +137,7 @@ public class f76 extends e85<d56, z46> implements u46 {
         public final /* synthetic */ f76 a;
 
         /* loaded from: classes6.dex */
-        public class a implements cr4.e {
+        public class a implements dr4.e {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -157,17 +157,17 @@ public class f76 extends e85<d56, z46> implements u46 {
                 }
             }
 
-            @Override // com.repackage.cr4.e
-            public void onClick(cr4 cr4Var) {
+            @Override // com.repackage.dr4.e
+            public void onClick(dr4 dr4Var) {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(1048576, this, cr4Var) == null) {
-                    cr4Var.dismiss();
+                if (interceptable == null || interceptable.invokeL(1048576, this, dr4Var) == null) {
+                    dr4Var.dismiss();
                 }
             }
         }
 
         /* loaded from: classes6.dex */
-        public class b implements cr4.e {
+        public class b implements dr4.e {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -187,22 +187,22 @@ public class f76 extends e85<d56, z46> implements u46 {
                 }
             }
 
-            @Override // com.repackage.cr4.e
-            public void onClick(cr4 cr4Var) {
+            @Override // com.repackage.dr4.e
+            public void onClick(dr4 dr4Var) {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(1048576, this, cr4Var) == null) {
-                    cr4Var.dismiss();
+                if (interceptable == null || interceptable.invokeL(1048576, this, dr4Var) == null) {
+                    dr4Var.dismiss();
                 }
             }
         }
 
         /* renamed from: com.repackage.f76$c$c  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class C0630c implements cr4.e {
+        public class C0472c implements dr4.e {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
-            public C0630c(c cVar) {
+            public C0472c(c cVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -218,11 +218,11 @@ public class f76 extends e85<d56, z46> implements u46 {
                 }
             }
 
-            @Override // com.repackage.cr4.e
-            public void onClick(cr4 cr4Var) {
+            @Override // com.repackage.dr4.e
+            public void onClick(dr4 dr4Var) {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(1048576, this, cr4Var) == null) {
-                    cr4Var.dismiss();
+                if (interceptable == null || interceptable.invokeL(1048576, this, dr4Var) == null) {
+                    dr4Var.dismiss();
                 }
             }
         }
@@ -252,7 +252,7 @@ public class f76 extends e85<d56, z46> implements u46 {
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 if (this.a.l.C()) {
                     if (this.a.m != null) {
-                        this.a.m.dispatchMvcEvent(new x75(14, null, null, null));
+                        this.a.m.dispatchMvcEvent(new y75(14, null, null, null));
                     }
                 } else if (this.a.b() == null) {
                 } else {
@@ -263,32 +263,32 @@ public class f76 extends e85<d56, z46> implements u46 {
                         if (B == 220012) {
                             BlockPopInfoData blockPopInfoData = new BlockPopInfoData();
                             if (oi.isEmpty(b2.A())) {
-                                A = this.a.b().getString(R.string.obfuscated_res_0x7f0f0467);
+                                A = this.a.b().getString(R.string.obfuscated_res_0x7f0f0466);
                             } else {
                                 A = b2.A();
                             }
                             blockPopInfoData.block_info = A;
-                            blockPopInfoData.ahead_info = this.a.b().getString(R.string.obfuscated_res_0x7f0f0469);
-                            blockPopInfoData.ok_info = this.a.b().getString(R.string.obfuscated_res_0x7f0f099e);
+                            blockPopInfoData.ahead_info = this.a.b().getString(R.string.obfuscated_res_0x7f0f0468);
+                            blockPopInfoData.ok_info = this.a.b().getString(R.string.obfuscated_res_0x7f0f0989);
                             blockPopInfoData.ahead_url = "https://tieba.baidu.com/mo/q/userappeal";
                             AntiHelper.s(this.a.b().getPageActivity(), blockPopInfoData);
                         } else if (B == 2121002) {
-                            kz4.b(this.a.b(), null, this.a.b().getString(R.string.obfuscated_res_0x7f0f046b), this.a.b().getString(R.string.obfuscated_res_0x7f0f1436), this.a.b().getString(R.string.obfuscated_res_0x7f0f13cf), new a(this), new b(this)).show();
+                            lz4.b(this.a.b(), null, this.a.b().getString(R.string.obfuscated_res_0x7f0f046a), this.a.b().getString(R.string.obfuscated_res_0x7f0f13e5), this.a.b().getString(R.string.obfuscated_res_0x7f0f137e), new a(this), new b(this)).show();
                         }
                         z = true;
                     }
                     if (z) {
                         return;
                     }
-                    String string = this.a.b().getString(R.string.obfuscated_res_0x7f0f0468);
+                    String string = this.a.b().getString(R.string.obfuscated_res_0x7f0f0467);
                     if (b2 != null) {
                         if (oi.isEmpty(b2.A())) {
-                            string = this.a.b().getResources().getString(R.string.obfuscated_res_0x7f0f0468);
+                            string = this.a.b().getResources().getString(R.string.obfuscated_res_0x7f0f0467);
                         } else {
                             string = b2.A();
                         }
                     }
-                    kz4.b(this.a.b(), null, string, this.a.b().getResources().getString(R.string.obfuscated_res_0x7f0f099e), null, new C0630c(this), null).show();
+                    lz4.b(this.a.b(), null, string, this.a.b().getResources().getString(R.string.obfuscated_res_0x7f0f0989), null, new C0472c(this), null).show();
                 }
             }
         }
@@ -313,10 +313,10 @@ public class f76 extends e85<d56, z46> implements u46 {
                 return;
             }
         }
-        this.f = view2.findViewById(R.id.obfuscated_res_0x7f0912aa);
-        this.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0920bc);
-        this.h = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091dce);
-        RecyclerView recyclerView = (RecyclerView) view2.findViewById(R.id.obfuscated_res_0x7f091aba);
+        this.f = view2.findViewById(R.id.obfuscated_res_0x7f091286);
+        this.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0920be);
+        this.h = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091dd4);
+        RecyclerView recyclerView = (RecyclerView) view2.findViewById(R.id.obfuscated_res_0x7f091a94);
         this.i = recyclerView;
         this.l = enterForumModel;
         this.m = viewEventCenter;
@@ -351,7 +351,7 @@ public class f76 extends e85<d56, z46> implements u46 {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.h85
+    @Override // com.repackage.i85
     /* renamed from: n */
     public void f(d56 d56Var) {
         Interceptable interceptable = $ic;
@@ -393,7 +393,7 @@ public class f76 extends e85<d56, z46> implements u46 {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048581, this, tbPageContext, i)) == null) {
-            ur4 d = ur4.d(this.f);
+            vr4 d = vr4.d(this.f);
             d.n(R.string.J_X06);
             d.f(R.color.CAM_X0205);
             SkinManager.setViewTextColor(this.g, (int) R.color.CAM_X0105);

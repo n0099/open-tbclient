@@ -244,17 +244,17 @@ public class tx7 extends sx7<PostData, PbCommenFloorItemViewHolder> {
             PostData postData;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                if (view2 != null && (view2.getTag(R.id.obfuscated_res_0x7f091f34) instanceof Boolean) && view2.getTag(R.id.obfuscated_res_0x7f091f34) == Boolean.TRUE && this.a.b() != null) {
-                    this.a.b().setTag(R.id.obfuscated_res_0x7f091f34, Boolean.TRUE);
+                if (view2 != null && (view2.getTag(R.id.obfuscated_res_0x7f091f38) instanceof Boolean) && view2.getTag(R.id.obfuscated_res_0x7f091f38) == Boolean.TRUE && this.a.a() != null) {
+                    this.a.a().setTag(R.id.obfuscated_res_0x7f091f38, Boolean.TRUE);
                 }
-                this.b.o.onClick(this.a.b());
+                this.b.o.onClick(this.a.a());
                 if (view2 != null) {
-                    view2.setTag(R.id.obfuscated_res_0x7f091f34, null);
+                    view2.setTag(R.id.obfuscated_res_0x7f091f38, null);
                 }
-                if (this.a.b() != null) {
-                    this.a.b().setTag(R.id.obfuscated_res_0x7f091f34, null);
+                if (this.a.a() != null) {
+                    this.a.a().setTag(R.id.obfuscated_res_0x7f091f38, null);
                 }
-                if (this.a.b() == null || (sparseArray = (SparseArray) this.a.b().getTag(R.id.obfuscated_res_0x7f091f00)) == null || !(sparseArray.get(R.id.obfuscated_res_0x7f091eed) instanceof PostData) || (postData = (PostData) sparseArray.get(R.id.obfuscated_res_0x7f091eed)) == null || postData.s() == null || postData.p() == null) {
+                if (this.a.a() == null || (sparseArray = (SparseArray) this.a.a().getTag(R.id.obfuscated_res_0x7f091f04)) == null || !(sparseArray.get(R.id.obfuscated_res_0x7f091ef1) instanceof PostData) || (postData = (PostData) sparseArray.get(R.id.obfuscated_res_0x7f091ef1)) == null || postData.s() == null || postData.p() == null) {
                     return;
                 }
                 rx7.a(postData.p().threadId, postData.s().getUserId(), postData.J());
@@ -331,7 +331,7 @@ public class tx7 extends sx7<PostData, PbCommenFloorItemViewHolder> {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && (view2.getTag() instanceof SparseArray)) {
                 SparseArray sparseArray = (SparseArray) view2.getTag();
-                if (!(sparseArray.get(R.id.obfuscated_res_0x7f091f09) instanceof PostData) || (postData = (PostData) sparseArray.get(R.id.obfuscated_res_0x7f091f09)) == null || this.a.b == null || this.b.s == null) {
+                if (!(sparseArray.get(R.id.obfuscated_res_0x7f091f0d) instanceof PostData) || (postData = (PostData) sparseArray.get(R.id.obfuscated_res_0x7f091f0d)) == null || this.a.b == null || this.b.s == null) {
                     return;
                 }
                 qg.a().postDelayed(new a(this, postData), 100L);
@@ -456,7 +456,7 @@ public class tx7 extends sx7<PostData, PbCommenFloorItemViewHolder> {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && (view2.getTag() instanceof SparseArray)) {
                 SparseArray sparseArray = (SparseArray) view2.getTag();
-                if (!(sparseArray.get(R.id.obfuscated_res_0x7f091f09) instanceof PostData) || (postData = (PostData) sparseArray.get(R.id.obfuscated_res_0x7f091f09)) == null || this.a.b == null || this.b.s == null) {
+                if (!(sparseArray.get(R.id.obfuscated_res_0x7f091f0d) instanceof PostData) || (postData = (PostData) sparseArray.get(R.id.obfuscated_res_0x7f091f0d)) == null || this.a.b == null || this.b.s == null) {
                     return;
                 }
                 qg.a().postDelayed(new a(this, postData), 100L);
@@ -533,7 +533,7 @@ public class tx7 extends sx7<PostData, PbCommenFloorItemViewHolder> {
         }
         this.k = null;
         this.l = null;
-        this.m = zm4.c().g();
+        this.m = an4.c().g();
         this.o = null;
         this.p = null;
         this.q = null;
@@ -578,7 +578,7 @@ public class tx7 extends sx7<PostData, PbCommenFloorItemViewHolder> {
                 layoutParams.topMargin = xs7.i(R.dimen.tbds0);
             }
             pbCommenFloorItemViewHolder.K.setLayoutParams(layoutParams);
-            ColumnLayout columnLayout = (ColumnLayout) pbCommenFloorItemViewHolder.b().findViewById(R.id.obfuscated_res_0x7f090f42);
+            ColumnLayout columnLayout = (ColumnLayout) pbCommenFloorItemViewHolder.a().findViewById(R.id.obfuscated_res_0x7f090f3b);
             if (columnLayout.getLayoutParams() instanceof RelativeLayout.LayoutParams) {
                 layoutParams2 = (RelativeLayout.LayoutParams) columnLayout.getLayoutParams();
             } else {
@@ -602,7 +602,7 @@ public class tx7 extends sx7<PostData, PbCommenFloorItemViewHolder> {
                         sparseArray = new SparseArray();
                         pbCommenFloorItemViewHolder.x.setTag(sparseArray);
                     }
-                    sparseArray.put(R.id.obfuscated_res_0x7f091f09, postData);
+                    sparseArray.put(R.id.obfuscated_res_0x7f091f0d, postData);
                 }
                 View view3 = pbCommenFloorItemViewHolder.w;
                 if (view3 != null) {
@@ -611,7 +611,7 @@ public class tx7 extends sx7<PostData, PbCommenFloorItemViewHolder> {
                         sparseArray2 = new SparseArray();
                         pbCommenFloorItemViewHolder.w.setTag(sparseArray2);
                     }
-                    sparseArray2.put(R.id.obfuscated_res_0x7f091f09, postData);
+                    sparseArray2.put(R.id.obfuscated_res_0x7f091f0d, postData);
                 }
             }
             ImageView imageView = pbCommenFloorItemViewHolder.t;
@@ -621,7 +621,7 @@ public class tx7 extends sx7<PostData, PbCommenFloorItemViewHolder> {
                     sparseArray3 = new SparseArray();
                     pbCommenFloorItemViewHolder.t.setTag(sparseArray3);
                 }
-                sparseArray3.put(R.id.obfuscated_res_0x7f091f09, postData);
+                sparseArray3.put(R.id.obfuscated_res_0x7f091f0d, postData);
             }
             ImageView imageView2 = pbCommenFloorItemViewHolder.u;
             if (imageView2 != null) {
@@ -630,8 +630,8 @@ public class tx7 extends sx7<PostData, PbCommenFloorItemViewHolder> {
                     sparseArray4 = new SparseArray();
                     pbCommenFloorItemViewHolder.u.setTag(sparseArray4);
                 }
-                sparseArray4.put(R.id.obfuscated_res_0x7f091f09, postData);
-                sparseArray4.put(R.id.obfuscated_res_0x7f091f06, Boolean.valueOf(!postData.l0));
+                sparseArray4.put(R.id.obfuscated_res_0x7f091f0d, postData);
+                sparseArray4.put(R.id.obfuscated_res_0x7f091f0a, Boolean.valueOf(!postData.f0));
             }
         }
     }
@@ -666,7 +666,7 @@ public class tx7 extends sx7<PostData, PbCommenFloorItemViewHolder> {
         pbCommenFloorItemViewHolder.X = i;
         xs7.h(pbCommenFloorItemViewHolder, postData, view2, i, this.i, this.k, this.u, i == 0);
         xs7.e(pbCommenFloorItemViewHolder, postData, this.k, i, this.u);
-        if (this.u && postData.l0) {
+        if (this.u && postData.f0) {
             pbCommenFloorItemViewHolder.p.setVisibility(8);
             pbCommenFloorItemViewHolder.v.setVisibility(0);
             if (this.k.isUgcThreadType()) {
@@ -682,7 +682,7 @@ public class tx7 extends sx7<PostData, PbCommenFloorItemViewHolder> {
             pbCommenFloorItemViewHolder.l.setVisibility(0);
             pbCommenFloorItemViewHolder.J.setVisibility(8);
         }
-        xs7.c(pbCommenFloorItemViewHolder, postData, postData.l0, this.u);
+        xs7.c(pbCommenFloorItemViewHolder, postData, postData.f0, this.u);
         xs7.f(this.i, pbCommenFloorItemViewHolder, postData, view2, this.m, this.j, i != 0, this.l);
         xs7.d(this.i, pbCommenFloorItemViewHolder, postData, this.k);
         xs7.g(pbCommenFloorItemViewHolder, postData);
@@ -708,9 +708,9 @@ public class tx7 extends sx7<PostData, PbCommenFloorItemViewHolder> {
             return;
         }
         if (i == 0) {
-            pbCommenFloorItemViewHolder.h(postData.Q, postData.J(), this.v);
+            pbCommenFloorItemViewHolder.g(postData.Q, postData.J(), this.v);
         } else {
-            pbCommenFloorItemViewHolder.h(postData.p0 == 1, postData.J(), this.v);
+            pbCommenFloorItemViewHolder.g(postData.j0 == 1, postData.J(), this.v);
         }
     }
 
@@ -721,10 +721,10 @@ public class tx7 extends sx7<PostData, PbCommenFloorItemViewHolder> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, viewGroup)) == null) {
-            View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d069c, viewGroup, false);
-            ((ViewGroup) inflate.findViewById(R.id.obfuscated_res_0x7f09178c)).addView(LayoutInflater.from(inflate.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0694, (ViewGroup) null));
+            View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d06a6, viewGroup, false);
+            ((ViewGroup) inflate.findViewById(R.id.obfuscated_res_0x7f091767)).addView(LayoutInflater.from(inflate.getContext()).inflate(R.layout.obfuscated_res_0x7f0d069e, (ViewGroup) null));
             PbCommenFloorItemViewHolder pbCommenFloorItemViewHolder = new PbCommenFloorItemViewHolder(this.i.getPageContext(), inflate, this.t);
-            pbCommenFloorItemViewHolder.g(true);
+            pbCommenFloorItemViewHolder.f(true);
             pbCommenFloorItemViewHolder.o.setConstrainLayoutPool(this.w);
             pbCommenFloorItemViewHolder.o.setImageViewPool(this.x);
             b0(pbCommenFloorItemViewHolder);
@@ -777,7 +777,7 @@ public class tx7 extends sx7<PostData, PbCommenFloorItemViewHolder> {
             pbCommenFloorItemViewHolder.n.setOnLongClickListener(this.r);
             pbCommenFloorItemViewHolder.n.setOnImageClickListener(this.p);
             pbCommenFloorItemViewHolder.n.setOnClickListener(this.o);
-            pbCommenFloorItemViewHolder.b().setOnClickListener(this.o);
+            pbCommenFloorItemViewHolder.a().setOnClickListener(this.o);
             pbCommenFloorItemViewHolder.L.setOnClickListener(this.o);
             pbCommenFloorItemViewHolder.M.setOnClickListener(this.o);
             if (this.s == null) {

@@ -123,7 +123,7 @@ public class tx5 extends jx5<wy5> implements View.OnClickListener, bk5 {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                rl4.x(TbadkCoreApplication.getInst().getApplicationContext(), false, this.h);
+                sl4.x(TbadkCoreApplication.getInst().getApplicationContext(), false, this.h);
                 TiebaStatic.log(new StatisticItem("c12841").param("obj_source", "0"));
             }
         }
@@ -181,7 +181,7 @@ public class tx5 extends jx5<wy5> implements View.OnClickListener, bk5 {
                 e().a(view2, this.E);
             }
             if (!ni.z()) {
-                pi.N(this.p.getPageActivity(), R.string.obfuscated_res_0x7f0f0c64);
+                pi.N(this.p.getPageActivity(), R.string.obfuscated_res_0x7f0f0c50);
             } else {
                 w(ThreadCardUtils.computeViewArea(this.k));
             }
@@ -242,7 +242,7 @@ public class tx5 extends jx5<wy5> implements View.OnClickListener, bk5 {
                 this.E.getThreadData().parser_title();
                 SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(this.E.getThreadData().getSpan_str());
                 if (this.E.getThreadData().canShowNaniTail() && !StringUtils.isNull(this.E.getThreadData().getTid())) {
-                    String str = xt4.k().q("nani_key_pre_h5_link", TbConfig.NANI_DEFAULT_H5_PREFIX) + "/" + this.E.getThreadData().getTid();
+                    String str = yt4.k().q("nani_key_pre_h5_link", TbConfig.NANI_DEFAULT_H5_PREFIX) + "/" + this.E.getThreadData().getTid();
                     spannableStringBuilder.append((CharSequence) this.E.getThreadData().generateNaniTail(new a(this, 2, str, str)));
                 }
                 this.r.setOnTouchListener(new bu8(spannableStringBuilder));
@@ -271,14 +271,14 @@ public class tx5 extends jx5<wy5> implements View.OnClickListener, bk5 {
                     }
                 }
                 this.x.setText(StringHelper.stringForVideoTime(this.E.a.getThreadVideoInfo().video_duration.intValue() * 1000));
-                this.z.setText(String.format(this.p.getResources().getString(R.string.obfuscated_res_0x7f0f0e71), StringHelper.numFormatOverWan(this.E.a.getThreadVideoInfo().play_count.intValue())));
+                this.z.setText(String.format(this.p.getResources().getString(R.string.obfuscated_res_0x7f0f0e5a), StringHelper.numFormatOverWan(this.E.a.getThreadVideoInfo().play_count.intValue())));
                 if (this.m != null && this.E.getThreadData() != null) {
-                    kp4 kp4Var = new kp4();
-                    kp4Var.o(this.E.getThreadData().getTid());
-                    kp4Var.k(this.E.getThreadData().getFid());
-                    kp4Var.n(this.E.getThreadData().getNid());
-                    kp4Var.j(this.E.feedBackReasonMap);
-                    this.m.setData(kp4Var);
+                    lp4 lp4Var = new lp4();
+                    lp4Var.o(this.E.getThreadData().getTid());
+                    lp4Var.k(this.E.getThreadData().getFid());
+                    lp4Var.n(this.E.getThreadData().getNid());
+                    lp4Var.j(this.E.feedBackReasonMap);
+                    this.m.setData(lp4Var);
                     this.m.setFirstRowSingleColumn(true);
                     this.m.setVisibility(this.J ? 0 : 8);
                 }
@@ -294,15 +294,15 @@ public class tx5 extends jx5<wy5> implements View.OnClickListener, bk5 {
                 if ((wy5Var2 == null || (threadData2 = wy5Var2.a) == null || threadData2.getThreadVideoInfo() == null || this.E.a.getThreadVideoInfo().is_vertical.intValue() != 1) ? false : true) {
                     this.O.setVisibility(0);
                     if (B()) {
-                        this.O.setText(String.format("%s | %s", this.p.getResources().getString(R.string.obfuscated_res_0x7f0f0c1b), this.p.getResources().getString(R.string.obfuscated_res_0x7f0f1533)));
+                        this.O.setText(String.format("%s | %s", this.p.getResources().getString(R.string.obfuscated_res_0x7f0f0c07), this.p.getResources().getString(R.string.obfuscated_res_0x7f0f14e2)));
                         return;
                     } else {
-                        this.O.setText(this.p.getString(R.string.obfuscated_res_0x7f0f0c1b));
+                        this.O.setText(this.p.getString(R.string.obfuscated_res_0x7f0f0c07));
                         return;
                     }
                 } else if (B()) {
                     this.O.setVisibility(0);
-                    this.O.setText(this.p.getString(R.string.obfuscated_res_0x7f0f1533));
+                    this.O.setText(this.p.getString(R.string.obfuscated_res_0x7f0f14e2));
                     return;
                 } else {
                     this.O.setVisibility(8);
@@ -529,7 +529,7 @@ public class tx5 extends jx5<wy5> implements View.OnClickListener, bk5 {
         TextView textView = this.O;
         if (textView != null) {
             SkinManager.setViewTextColor(textView, (int) R.color.CAM_X0101);
-            SkinManager.setBackgroundResource(this.O, R.drawable.obfuscated_res_0x7f0811dc);
+            SkinManager.setBackgroundResource(this.O, R.drawable.obfuscated_res_0x7f0811e0);
         }
         if (this.B != null) {
             this.B.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, SkinManager.getDrawable(R.drawable.obfuscated_res_0x7f080a83), (Drawable) null, (Drawable) null);
@@ -661,7 +661,7 @@ public class tx5 extends jx5<wy5> implements View.OnClickListener, bk5 {
         videoItemData.mRecomSource = this.E.o();
         videoItemData.mRecomWeight = this.E.D();
         arrayList.add(videoItemData);
-        pd5.d(this.b.getPageActivity(), arrayList, this.E.a.getBaijiahaoData() != null ? this.E.a.getBaijiahaoData().oriUgcNid : null, false, 0, rect, "from_nani_video", "personalize_page", this.E.getPbInputLocate(), "index", "", false, false);
+        qd5.d(this.b.getPageActivity(), arrayList, this.E.a.getBaijiahaoData() != null ? this.E.a.getBaijiahaoData().oriUgcNid : null, false, 0, rect, "from_nani_video", "personalize_page", this.E.getPbInputLocate(), "index", "", false, false);
     }
 
     public final void x(View view2) {
@@ -671,7 +671,7 @@ public class tx5 extends jx5<wy5> implements View.OnClickListener, bk5 {
                 e().a(view2, this.E);
             }
             if (!ni.z()) {
-                pi.N(this.p.getPageActivity(), R.string.obfuscated_res_0x7f0f0c64);
+                pi.N(this.p.getPageActivity(), R.string.obfuscated_res_0x7f0f0c50);
             } else {
                 w(ThreadCardUtils.computeViewArea(this.k));
             }
@@ -721,7 +721,7 @@ public class tx5 extends jx5<wy5> implements View.OnClickListener, bk5 {
             if (this.u == null || this.k == null || this.w == null) {
                 return;
             }
-            if (zm4.c().g() && (wy5Var = this.E) != null && (threadData = wy5Var.a) != null && threadData.getThreadVideoInfo() != null) {
+            if (an4.c().g() && (wy5Var = this.E) != null && (threadData = wy5Var.a) != null && threadData.getThreadVideoInfo() != null) {
                 this.u.setPlaceHolder(3);
                 this.u.J(this.E.a.getThreadVideoInfo().thumbnail_url, 10, false);
                 this.k.setVisibility(0);

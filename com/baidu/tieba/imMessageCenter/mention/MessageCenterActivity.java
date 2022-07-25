@@ -61,7 +61,7 @@ public class MessageCenterActivity extends BaseFragmentActivity implements Voice
         }
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.repackage.v85
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.repackage.w85
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

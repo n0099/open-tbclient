@@ -10,13 +10,13 @@ public final class d extends com.kwad.sdk.core.network.d {
         }
         JSONArray jSONArray = new JSONArray();
         for (m mVar : list) {
-            com.kwad.sdk.utils.r.a(jSONArray, mVar.a());
+            com.kwad.sdk.utils.r.putValue(jSONArray, mVar.ut());
         }
         putBody("actionList", jSONArray);
     }
 
     @Override // com.kwad.sdk.core.network.b, com.kwad.sdk.core.network.g
     public final String getUrl() {
-        return com.kwad.sdk.b.f();
+        return com.kwad.sdk.b.qO();
     }
 }

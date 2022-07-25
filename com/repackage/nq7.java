@@ -93,7 +93,7 @@ public class nq7 {
     }
 
     /* loaded from: classes6.dex */
-    public class b implements h15 {
+    public class b implements i15 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ View a;
@@ -122,7 +122,7 @@ public class nq7 {
             this.c = i2;
         }
 
-        @Override // com.repackage.h15
+        @Override // com.repackage.i15
         public void a(int i, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) {
@@ -134,7 +134,7 @@ public class nq7 {
             }
         }
 
-        @Override // com.repackage.h15
+        @Override // com.repackage.i15
         public void b(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
@@ -145,7 +145,7 @@ public class nq7 {
     }
 
     /* loaded from: classes6.dex */
-    public class c implements h15 {
+    public class c implements i15 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ View a;
@@ -174,7 +174,7 @@ public class nq7 {
             this.c = i2;
         }
 
-        @Override // com.repackage.h15
+        @Override // com.repackage.i15
         public void a(int i, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) {
@@ -193,7 +193,7 @@ public class nq7 {
             }
         }
 
-        @Override // com.repackage.h15
+        @Override // com.repackage.i15
         public void b(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
@@ -315,7 +315,7 @@ public class nq7 {
         if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{view2, Integer.valueOf(i), Integer.valueOf(i2), str, str2}) == null) {
             this.c = this.b / 2;
             this.d = this.a / 2;
-            i15.g().b(str, str2, new b(this, view2, i, i2));
+            j15.g().b(str, str2, new b(this, view2, i, i2));
         }
     }
 
@@ -324,7 +324,7 @@ public class nq7 {
         if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{Boolean.valueOf(z), view2, Integer.valueOf(i), Integer.valueOf(i2), str, str2}) == null) {
             this.c = 0;
             this.d = this.a;
-            i15.g().e(new Random().nextBoolean() ? "/duang1" : "/duang2", str, str2, z, new c(this, view2, i, i2));
+            j15.g().e(new Random().nextBoolean() ? "/duang1" : "/duang2", str, str2, z, new c(this, view2, i, i2));
         }
     }
 }

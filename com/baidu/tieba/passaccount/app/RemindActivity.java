@@ -31,12 +31,12 @@ public class RemindActivity extends BaseActivity<RemindActivity> {
 
         /* renamed from: com.baidu.tieba.passaccount.app.RemindActivity$a$a  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        public class C0220a implements cq7.e {
+        public class C0234a implements cq7.e {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public C0220a(a aVar) {
+            public C0234a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -111,7 +111,7 @@ public class RemindActivity extends BaseActivity<RemindActivity> {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                cq7.i().g(this.a, new C0220a(this));
+                cq7.i().g(this.a, new C0234a(this));
             }
         }
     }
@@ -187,11 +187,11 @@ public class RemindActivity extends BaseActivity<RemindActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d0735);
-            ((NavigationBar) findViewById(R.id.obfuscated_res_0x7f092437)).addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-            ((Button) findViewById(R.id.obfuscated_res_0x7f091acd)).setOnClickListener(new a(this));
-            findViewById(R.id.obfuscated_res_0x7f090964).setVisibility(FaceFeedbackEnableSwitch.isOn() ? 0 : 8);
-            ((TextView) findViewById(R.id.obfuscated_res_0x7f090965)).setOnClickListener(new b(this));
+            setContentView(R.layout.obfuscated_res_0x7f0d073f);
+            ((NavigationBar) findViewById(R.id.obfuscated_res_0x7f092439)).addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+            ((Button) findViewById(R.id.obfuscated_res_0x7f091aa7)).setOnClickListener(new a(this));
+            findViewById(R.id.obfuscated_res_0x7f09095d).setVisibility(FaceFeedbackEnableSwitch.isOn() ? 0 : 8);
+            ((TextView) findViewById(R.id.obfuscated_res_0x7f09095e)).setOnClickListener(new b(this));
         }
     }
 }

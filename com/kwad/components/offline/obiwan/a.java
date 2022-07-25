@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.ksad.annotation.invoker.InvokeBy;
-import com.kwad.components.core.j.e;
+import com.kwad.components.core.k.e;
 import com.kwad.components.core.offline.api.obiwan.ObiwanComponents;
 import com.kwad.components.offline.api.obiwan.IObiwanOfflineCompo;
 import com.kwad.sdk.KsAdSDKImpl;
@@ -24,9 +24,9 @@ public final class a extends com.kwad.components.core.offline.init.a {
 
     /* renamed from: com.kwad.components.offline.obiwan.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public static final class C0529a {
+    public static final class C0377a {
         public static /* synthetic */ Interceptable $ic;
-        public static final a a;
+        public static final a Qh;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -42,7 +42,7 @@ public final class a extends com.kwad.components.core.offline.init.a {
                     return;
                 }
             }
-            a = new a((byte) 0);
+            Qh = new a((byte) 0);
         }
     }
 
@@ -65,31 +65,24 @@ public final class a extends com.kwad.components.core.offline.init.a {
     }
 
     @InvokeBy(invokerClass = com.kwad.components.core.offline.init.b.class, methodId = "initOC")
-    public static void b(Context context) {
+    public static void aC(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, null, context) == null) {
-            g().a(context);
+            qw().init(context);
         }
     }
 
-    public static a g() {
+    public static a qw() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? C0529a.a : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? C0377a.Qh : (a) invokeV.objValue;
     }
 
     @Override // com.kwad.components.core.offline.init.a
-    public final String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "ObiwanInitModule" : (String) invokeV.objValue;
-    }
-
-    @Override // com.kwad.components.core.offline.init.a
-    public final boolean a(Context context, ClassLoader classLoader) {
+    public final boolean b(Context context, ClassLoader classLoader) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, classLoader)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, context, classLoader)) == null) {
             IObiwanOfflineCompo iObiwanOfflineCompo = (IObiwanOfflineCompo) a(classLoader, IObiwanOfflineCompo.IMPL);
             if (iObiwanOfflineCompo == null) {
                 return false;
@@ -97,12 +90,12 @@ public final class a extends com.kwad.components.core.offline.init.a {
             ObiwanComponentsImpl obiwanComponentsImpl = new ObiwanComponentsImpl(iObiwanOfflineCompo);
             com.kwad.sdk.components.c.a(ObiwanComponents.class, obiwanComponentsImpl);
             iObiwanOfflineCompo.initReal(context, KsAdSDKImpl.get().getSdkConfig(), new c());
-            com.kwad.sdk.core.d.b.a(new b(obiwanComponentsImpl.getLog()));
+            com.kwad.sdk.core.e.b.a(new b(obiwanComponentsImpl.getLog()));
             e.a(new e.a(this, obiwanComponentsImpl) { // from class: com.kwad.components.offline.obiwan.a.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ ObiwanComponentsImpl a;
-                public final /* synthetic */ a b;
+                public final /* synthetic */ ObiwanComponentsImpl Qf;
+                public final /* synthetic */ a Qg;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -119,31 +112,31 @@ public final class a extends com.kwad.components.core.offline.init.a {
                             return;
                         }
                     }
-                    this.b = this;
-                    this.a = obiwanComponentsImpl;
+                    this.Qg = this;
+                    this.Qf = obiwanComponentsImpl;
                 }
 
-                private void b() {
+                private void updateConfigs() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(65537, this) == null) {
-                        com.kwad.sdk.core.d.b.a(d.ac() ? new b(this.a.getLog()) : null);
-                        this.a.updateConfigs();
+                        com.kwad.sdk.core.e.b.a(d.isLogObiwanEnableNow() ? new b(this.Qf.getLog()) : null);
+                        this.Qf.updateConfigs();
                     }
                 }
 
-                @Override // com.kwad.components.core.j.e.a
-                public final void a() {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        b();
-                    }
-                }
-
-                @Override // com.kwad.components.core.j.e.a
+                @Override // com.kwad.components.core.k.e.a
                 public final void a(@NonNull SdkConfigData sdkConfigData) {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sdkConfigData) == null) {
-                        b();
+                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, sdkConfigData) == null) {
+                        updateConfigs();
+                    }
+                }
+
+                @Override // com.kwad.components.core.k.e.a
+                public final void no() {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                        updateConfigs();
                     }
                 }
             });
@@ -153,35 +146,42 @@ public final class a extends com.kwad.components.core.offline.init.a {
     }
 
     @Override // com.kwad.components.core.offline.init.a
-    public final boolean b() {
+    public final String getTag() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? d.ac() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "ObiwanInitModule" : (String) invokeV.objValue;
     }
 
     @Override // com.kwad.components.core.offline.init.a
-    public final String c() {
+    public final boolean isEnabled() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? d.isLogObiwanEnableNow() : invokeV.booleanValue;
+    }
+
+    @Override // com.kwad.components.core.offline.init.a
+    public final String nk() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? IObiwanOfflineCompo.PACKAGE_NAME : (String) invokeV.objValue;
     }
 
     @Override // com.kwad.components.core.offline.init.a
-    public final String d() {
+    public final String nl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? "3.3.24.3" : (String) invokeV.objValue;
     }
 
     @Override // com.kwad.components.core.offline.init.a
-    public final String e() {
+    public final String nm() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? "https://static.yximgs.com/udata/pkg/KS-Android-KSAdSDk/offline_components/obiwan/ks_so-obiwanNoSoRelease-3.3.24.3.apk" : (String) invokeV.objValue;
     }
 
     @Override // com.kwad.components.core.offline.init.a
-    public final String f() {
+    public final String nn() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? "ed7ce6364c3cbfa6c08587ab840e51a2" : (String) invokeV.objValue;

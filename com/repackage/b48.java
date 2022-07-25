@@ -40,7 +40,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.nr4;
+import com.repackage.or4;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes5.dex */
@@ -59,18 +59,18 @@ public class b48 extends x38 implements View.OnClickListener {
     public CustomMessageListener k;
 
     /* loaded from: classes5.dex */
-    public class a implements nr4.e {
+    public class a implements or4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ lr4 a;
+        public final /* synthetic */ mr4 a;
         public final /* synthetic */ b48 b;
 
-        public a(b48 b48Var, lr4 lr4Var) {
+        public a(b48 b48Var, mr4 mr4Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {b48Var, lr4Var};
+                Object[] objArr = {b48Var, mr4Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -81,13 +81,13 @@ public class b48 extends x38 implements View.OnClickListener {
                 }
             }
             this.b = b48Var;
-            this.a = lr4Var;
+            this.a = mr4Var;
         }
 
-        @Override // com.repackage.nr4.e
-        public void N(nr4 nr4Var, int i, View view2) {
+        @Override // com.repackage.or4.e
+        public void N(or4 or4Var, int i, View view2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLIL(1048576, this, nr4Var, i, view2) == null) {
+            if (interceptable == null || interceptable.invokeLIL(1048576, this, or4Var, i, view2) == null) {
                 this.b.d = false;
                 if (i == 0) {
                     this.b.u();
@@ -102,21 +102,21 @@ public class b48 extends x38 implements View.OnClickListener {
     }
 
     /* loaded from: classes5.dex */
-    public class b implements nr4.e {
+    public class b implements or4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ x05 a;
+        public final /* synthetic */ y05 a;
         public final /* synthetic */ List b;
         public final /* synthetic */ int c;
-        public final /* synthetic */ lr4 d;
+        public final /* synthetic */ mr4 d;
         public final /* synthetic */ b48 e;
 
-        public b(b48 b48Var, x05 x05Var, List list, int i, lr4 lr4Var) {
+        public b(b48 b48Var, y05 y05Var, List list, int i, mr4 mr4Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {b48Var, x05Var, list, Integer.valueOf(i), lr4Var};
+                Object[] objArr = {b48Var, y05Var, list, Integer.valueOf(i), mr4Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -127,16 +127,16 @@ public class b48 extends x38 implements View.OnClickListener {
                 }
             }
             this.e = b48Var;
-            this.a = x05Var;
+            this.a = y05Var;
             this.b = list;
             this.c = i;
-            this.d = lr4Var;
+            this.d = mr4Var;
         }
 
-        @Override // com.repackage.nr4.e
-        public void N(nr4 nr4Var, int i, View view2) {
+        @Override // com.repackage.or4.e
+        public void N(or4 or4Var, int i, View view2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLIL(1048576, this, nr4Var, i, view2) == null) {
+            if (interceptable == null || interceptable.invokeLIL(1048576, this, or4Var, i, view2) == null) {
                 this.e.d = true;
                 if (i == 0) {
                     this.e.x(this.a, this.b, this.c);
@@ -146,7 +146,7 @@ public class b48 extends x38 implements View.OnClickListener {
                         if (!StringUtils.isNull(this.e.e.j().getCantModifyAvatarDesc())) {
                             pi.L(TbadkCoreApplication.getInst(), this.e.e.j().getCantModifyAvatarDesc());
                         } else {
-                            pi.K(TbadkCoreApplication.getInst(), R.string.obfuscated_res_0x7f0f0e02);
+                            pi.K(TbadkCoreApplication.getInst(), R.string.obfuscated_res_0x7f0f0deb);
                         }
                     } else {
                         this.e.u();
@@ -157,7 +157,7 @@ public class b48 extends x38 implements View.OnClickListener {
                         if (!StringUtils.isNull(this.e.e.j().getCantModifyAvatarDesc())) {
                             pi.L(TbadkCoreApplication.getInst(), this.e.e.j().getCantModifyAvatarDesc());
                         } else {
-                            pi.K(TbadkCoreApplication.getInst(), R.string.obfuscated_res_0x7f0f0e02);
+                            pi.K(TbadkCoreApplication.getInst(), R.string.obfuscated_res_0x7f0f0deb);
                         }
                     } else {
                         this.e.w();
@@ -174,21 +174,21 @@ public class b48 extends x38 implements View.OnClickListener {
     }
 
     /* loaded from: classes5.dex */
-    public class c implements nr4.e {
+    public class c implements or4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ x05 a;
+        public final /* synthetic */ y05 a;
         public final /* synthetic */ List b;
         public final /* synthetic */ int c;
-        public final /* synthetic */ lr4 d;
+        public final /* synthetic */ mr4 d;
         public final /* synthetic */ b48 e;
 
-        public c(b48 b48Var, x05 x05Var, List list, int i, lr4 lr4Var) {
+        public c(b48 b48Var, y05 y05Var, List list, int i, mr4 mr4Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {b48Var, x05Var, list, Integer.valueOf(i), lr4Var};
+                Object[] objArr = {b48Var, y05Var, list, Integer.valueOf(i), mr4Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -199,16 +199,16 @@ public class b48 extends x38 implements View.OnClickListener {
                 }
             }
             this.e = b48Var;
-            this.a = x05Var;
+            this.a = y05Var;
             this.b = list;
             this.c = i;
-            this.d = lr4Var;
+            this.d = mr4Var;
         }
 
-        @Override // com.repackage.nr4.e
-        public void N(nr4 nr4Var, int i, View view2) {
+        @Override // com.repackage.or4.e
+        public void N(or4 or4Var, int i, View view2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLIL(1048576, this, nr4Var, i, view2) == null) {
+            if (interceptable == null || interceptable.invokeLIL(1048576, this, or4Var, i, view2) == null) {
                 if (i == 0) {
                     this.e.x(this.a, this.b, this.c);
                 } else if (i == 1) {
@@ -424,30 +424,30 @@ public class b48 extends x38 implements View.OnClickListener {
             return;
         }
         String[] strArr = {tbPageContext.getString(R.string.obfuscated_res_0x7f0f03be), this.b.getString(R.string.obfuscated_res_0x7f0f0390)};
-        lr4 lr4Var = new lr4(this.b);
-        lr4Var.j(null, strArr, new a(this, lr4Var));
-        lr4Var.m();
+        mr4 mr4Var = new mr4(this.b);
+        mr4Var.j(null, strArr, new a(this, mr4Var));
+        mr4Var.m();
     }
 
-    public final void D(x05 x05Var, List<nn> list, int i) {
+    public final void D(y05 y05Var, List<nn> list, int i) {
         TbPageContext tbPageContext;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLI(1048579, this, x05Var, list, i) == null) || (tbPageContext = this.b) == null) {
+        if (!(interceptable == null || interceptable.invokeLLI(1048579, this, y05Var, list, i) == null) || (tbPageContext = this.b) == null) {
             return;
         }
-        String[] strArr = {tbPageContext.getString(R.string.obfuscated_res_0x7f0f082e), this.b.getString(R.string.obfuscated_res_0x7f0f038d), this.b.getString(R.string.obfuscated_res_0x7f0f0390), this.b.getString(R.string.obfuscated_res_0x7f0f03ab)};
-        lr4 lr4Var = new lr4(this.b);
-        lr4Var.j(null, strArr, new b(this, x05Var, list, i, lr4Var));
-        lr4Var.m();
+        String[] strArr = {tbPageContext.getString(R.string.obfuscated_res_0x7f0f082a), this.b.getString(R.string.obfuscated_res_0x7f0f038d), this.b.getString(R.string.obfuscated_res_0x7f0f0390), this.b.getString(R.string.obfuscated_res_0x7f0f03ab)};
+        mr4 mr4Var = new mr4(this.b);
+        mr4Var.j(null, strArr, new b(this, y05Var, list, i, mr4Var));
+        mr4Var.m();
     }
 
-    public final void E(x05 x05Var, List<nn> list, int i) {
+    public final void E(y05 y05Var, List<nn> list, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(1048580, this, x05Var, list, i) == null) {
-            String[] strArr = {this.b.getString(R.string.obfuscated_res_0x7f0f0a5c), this.b.getString(R.string.obfuscated_res_0x7f0f111e), this.b.getString(R.string.obfuscated_res_0x7f0f049f)};
-            lr4 lr4Var = new lr4(this.b);
-            lr4Var.j(null, strArr, new c(this, x05Var, list, i, lr4Var));
-            lr4Var.m();
+        if (interceptable == null || interceptable.invokeLLI(1048580, this, y05Var, list, i) == null) {
+            String[] strArr = {this.b.getString(R.string.obfuscated_res_0x7f0f0a48), this.b.getString(R.string.obfuscated_res_0x7f0f10da), this.b.getString(R.string.obfuscated_res_0x7f0f049e)};
+            mr4 mr4Var = new mr4(this.b);
+            mr4Var.j(null, strArr, new c(this, y05Var, list, i, mr4Var));
+            mr4Var.m();
         }
     }
 
@@ -459,9 +459,9 @@ public class b48 extends x38 implements View.OnClickListener {
         }
         nn nnVar = null;
         if (view2.getTag() instanceof PersonInfoUserPicViewHolder) {
-            nnVar = ((PersonInfoUserPicViewHolder) view2.getTag()).d();
+            nnVar = ((PersonInfoUserPicViewHolder) view2.getTag()).c();
         } else if (view2.getTag() instanceof PersonInfoAddUserPicViewHolder) {
-            nnVar = ((PersonInfoAddUserPicViewHolder) view2.getTag()).d();
+            nnVar = ((PersonInfoAddUserPicViewHolder) view2.getTag()).c();
         }
         int position = ListUtils.getPosition(r(), nnVar);
         if (position < 0) {
@@ -476,7 +476,7 @@ public class b48 extends x38 implements View.OnClickListener {
         if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (e48Var = this.e) == null || e48Var.j() == null) {
             return;
         }
-        l45.k().g(this.e.j().getPortrait());
+        m45.k().g(this.e.j().getPortrait());
     }
 
     public void q(Intent intent) {
@@ -519,8 +519,8 @@ public class b48 extends x38 implements View.OnClickListener {
             return;
         }
         if (z) {
-            if (nnVar instanceof x05) {
-                x((x05) nnVar, list, i);
+            if (nnVar instanceof y05) {
+                x((y05) nnVar, list, i);
                 return;
             }
             return;
@@ -530,19 +530,19 @@ public class b48 extends x38 implements View.OnClickListener {
             this.a = e48Var.m();
         }
         if (!pi.D()) {
-            this.b.showToast(R.string.obfuscated_res_0x7f0f0c2b);
+            this.b.showToast(R.string.obfuscated_res_0x7f0f0c17);
         } else if (!this.a) {
-            if (nnVar instanceof x05) {
-                x((x05) nnVar, list, i);
+            if (nnVar instanceof y05) {
+                x((y05) nnVar, list, i);
             }
         } else if (nnVar instanceof s08) {
             C();
-        } else if (nnVar instanceof x05) {
-            x05 x05Var = (x05) nnVar;
-            if (x05Var.c()) {
-                D(x05Var, list, i);
+        } else if (nnVar instanceof y05) {
+            y05 y05Var = (y05) nnVar;
+            if (y05Var.c()) {
+                D(y05Var, list, i);
             } else {
-                E(x05Var, list, i);
+                E(y05Var, list, i);
             }
         }
     }
@@ -585,19 +585,19 @@ public class b48 extends x38 implements View.OnClickListener {
         MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new ChangeSystemPhotoActivityConfig(this.b.getPageActivity(), 12014, this.d)));
     }
 
-    public final void x(x05 x05Var, List<nn> list, int i) {
+    public final void x(y05 y05Var, List<nn> list, int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLI(1048590, this, x05Var, list, i) == null) || this.b == null || x05Var == null || list == null || StringUtils.isNull(x05Var.a())) {
+        if (!(interceptable == null || interceptable.invokeLLI(1048590, this, y05Var, list, i) == null) || this.b == null || y05Var == null || list == null || StringUtils.isNull(y05Var.a())) {
             return;
         }
         ArrayList<String> arrayList = new ArrayList<>();
         for (nn nnVar : list) {
-            if (nnVar instanceof x05) {
-                x05 x05Var2 = (x05) nnVar;
-                if (x05Var2.c() && !x05Var2.a().startsWith("http")) {
-                    arrayList.add(c48.c(this.b, x05Var2.a()));
+            if (nnVar instanceof y05) {
+                y05 y05Var2 = (y05) nnVar;
+                if (y05Var2.c() && !y05Var2.a().startsWith("http")) {
+                    arrayList.add(c48.c(this.b, y05Var2.a()));
                 } else {
-                    arrayList.add(x05Var2.a());
+                    arrayList.add(y05Var2.a());
                 }
             }
         }

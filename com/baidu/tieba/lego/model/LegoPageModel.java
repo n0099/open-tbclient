@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.br4;
+import com.repackage.cr4;
 import com.repackage.d9;
 import com.repackage.te;
 import com.repackage.wh8;
@@ -101,8 +101,8 @@ public class LegoPageModel extends BdBaseModel {
                         this.a.b.a(j, str, dataRes, z);
                     } else {
                         if (z && dataRes != null) {
-                            br4.f();
-                            te<byte[]> d = br4.d("tb.lego_update");
+                            cr4.f();
+                            te<byte[]> d = cr4.d("tb.lego_update");
                             StringBuilder sb = new StringBuilder();
                             sb.append(j);
                             sb.append("_");

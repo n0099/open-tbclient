@@ -24,7 +24,7 @@ public class ve5 {
     @Nullable
     public static PostWriteCallBackData a;
     @Nullable
-    public static fy4 b;
+    public static gy4 b;
     @Nullable
     public static WriteData c;
     @Nullable
@@ -93,22 +93,22 @@ public class ve5 {
         return invokeIIL.booleanValue;
     }
 
-    public static boolean d(@Nullable PostWriteCallBackData postWriteCallBackData, @Nullable fy4 fy4Var, @Nullable WriteData writeData, @Nullable AntiData antiData) {
+    public static boolean d(@Nullable PostWriteCallBackData postWriteCallBackData, @Nullable gy4 gy4Var, @Nullable WriteData writeData, @Nullable AntiData antiData) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65539, null, postWriteCallBackData, fy4Var, writeData, antiData)) == null) {
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65539, null, postWriteCallBackData, gy4Var, writeData, antiData)) == null) {
             Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
-            boolean z = (currentActivity == null || writeData == null || fy4Var == null || TextUtils.isEmpty(fy4Var.c())) ? false : true;
+            boolean z = (currentActivity == null || writeData == null || gy4Var == null || TextUtils.isEmpty(gy4Var.c())) ? false : true;
             if (z) {
                 a = postWriteCallBackData;
-                b = fy4Var;
+                b = gy4Var;
                 c = writeData;
                 d = antiData;
-                writeData.setVcodeMD5(fy4Var.b());
-                writeData.setVcodeUrl(fy4Var.c());
-                writeData.setVcodeExtra(fy4Var.a());
-                if (b(fy4Var.d())) {
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new NewVcodeActivityConfig(currentActivity, 12006, writeData, false, fy4Var.d())));
+                writeData.setVcodeMD5(gy4Var.b());
+                writeData.setVcodeUrl(gy4Var.c());
+                writeData.setVcodeExtra(gy4Var.a());
+                if (b(gy4Var.d())) {
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new NewVcodeActivityConfig(currentActivity, 12006, writeData, false, gy4Var.d())));
                 } else {
                     MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new VcodeActivityConfig(currentActivity, writeData, 12006)));
                 }

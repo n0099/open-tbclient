@@ -208,24 +208,24 @@ public class yq5 extends wq5 {
         if (interceptable == null || (invokeILL = interceptable.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, view2, viewGroup)) == null) {
             if (view2 == null) {
                 dVar = new d(this, null);
-                view3 = LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d07aa, (ViewGroup) null);
-                TbImageView tbImageView = (TbImageView) view3.findViewById(R.id.obfuscated_res_0x7f091a74);
+                view3 = LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d07b4, (ViewGroup) null);
+                TbImageView tbImageView = (TbImageView) view3.findViewById(R.id.obfuscated_res_0x7f091a4e);
                 dVar.a = tbImageView;
                 tbImageView.setDefaultResource(R.drawable.icon_default_avatar100_bg);
                 dVar.a.setIsRound(true);
                 dVar.a.setAutoChangeStyle(false);
                 dVar.a.setScaleType(ImageView.ScaleType.CENTER_CROP);
-                dVar.b = (TextView) view3.findViewById(R.id.obfuscated_res_0x7f091a79);
-                dVar.c = (TextView) view3.findViewById(R.id.obfuscated_res_0x7f091a76);
-                dVar.d = (TextView) view3.findViewById(R.id.obfuscated_res_0x7f091a77);
-                dVar.e = (TextView) view3.findViewById(R.id.obfuscated_res_0x7f091a75);
-                dVar.f = (TextView) view3.findViewById(R.id.obfuscated_res_0x7f091a73);
-                dVar.g = (TextView) view3.findViewById(R.id.obfuscated_res_0x7f091a78);
+                dVar.b = (TextView) view3.findViewById(R.id.obfuscated_res_0x7f091a53);
+                dVar.c = (TextView) view3.findViewById(R.id.obfuscated_res_0x7f091a50);
+                dVar.d = (TextView) view3.findViewById(R.id.obfuscated_res_0x7f091a51);
+                dVar.e = (TextView) view3.findViewById(R.id.obfuscated_res_0x7f091a4f);
+                dVar.f = (TextView) view3.findViewById(R.id.obfuscated_res_0x7f091a4d);
+                dVar.g = (TextView) view3.findViewById(R.id.obfuscated_res_0x7f091a52);
                 SkinManager.setBackgroundColor(view3, R.color.CAM_X0201);
                 SkinManager.setViewTextColor(dVar.b, (int) R.color.CAM_X0105);
                 SkinManager.setViewTextColor(dVar.e, (int) R.color.CAM_X0109);
                 SkinManager.setViewTextColor(dVar.f, (int) R.color.CAM_X0110);
-                SkinManager.setViewTextColor(dVar.g, (int) R.color.obfuscated_res_0x7f060a12);
+                SkinManager.setViewTextColor(dVar.g, (int) R.color.obfuscated_res_0x7f060a02);
                 dVar.c.setCompoundDrawablesWithIntrinsicBounds(this.g, (Drawable) null, (Drawable) null, (Drawable) null);
                 SkinManager.setViewTextColor(dVar.d, (int) R.color.CAM_X0301);
                 view3.setTag(dVar);

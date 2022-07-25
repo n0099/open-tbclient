@@ -44,7 +44,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.xt4;
+import com.repackage.yt4;
 import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -344,7 +344,7 @@ public class UbsABTestHelper {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65576, null)) == null) {
             try {
-                return new JSONArray(xt4.k().q("key_index_tab_info_list", "[]")).length() == 0;
+                return new JSONArray(yt4.k().q("key_index_tab_info_list", "[]")).length() == 0;
             } catch (JSONException e) {
                 e.printStackTrace();
                 return true;

@@ -1,5 +1,6 @@
 package com.baidu.sapi2.stat;
 
+import com.baidu.sapi2.NoProguard;
 import com.baidu.sapi2.SapiConfiguration;
 import com.baidu.sapi2.ServiceManager;
 import com.baidu.sapi2.callback.UbcUploadImplCallback;
@@ -17,14 +18,14 @@ import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
-public class OneKeyLoginStat {
+public class OneKeyLoginStat implements NoProguard {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "OneKeyLoginStat";
     public static final String UBC_ID_ONEKEY_LOGIN = "4920";
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes2.dex */
-    public static class CheckAbility {
+    public static class CheckAbility implements NoProguard {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String KEY_EXT = "ext";
         public static final String KEY_EXT_CODE = "code";
@@ -124,7 +125,7 @@ public class OneKeyLoginStat {
     }
 
     /* loaded from: classes2.dex */
-    public static class LoadLogin {
+    public static class LoadLogin implements NoProguard {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String KEY_EXT = "ext";
         public static final String KEY_EXT_CODE = "code";
@@ -219,7 +220,7 @@ public class OneKeyLoginStat {
     }
 
     /* loaded from: classes2.dex */
-    public static class OauthToken {
+    public static class OauthToken implements NoProguard {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String KEY_EXT = "ext";
         public static final String KEY_EXT_CODE = "code";
@@ -314,7 +315,7 @@ public class OneKeyLoginStat {
     }
 
     /* loaded from: classes2.dex */
-    public static class PreGetPhoneStat {
+    public static class PreGetPhoneStat implements NoProguard {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String KEY_EXT = "ext";
         public static final String KEY_EXT_CODE = "code";
@@ -380,36 +381,40 @@ public class OneKeyLoginStat {
         public static void upload() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(65539, null) == null) {
-                JSONObject jSONObject = new JSONObject(statExtMap);
-                ServiceManager serviceManager = ServiceManager.getInstance();
-                if (serviceManager == null) {
-                    Log.e(OneKeyLoginStat.TAG, "ServiceManager is null, maybe had not init");
-                    return;
-                }
-                ISAccountManager isAccountManager = serviceManager.getIsAccountManager();
-                if (isAccountManager == null) {
-                    Log.e(OneKeyLoginStat.TAG, "AccountManager is null, maybe had not init");
-                    return;
-                }
-                UbcUploadImplCallback ubcUploadImplCallback = isAccountManager.getUbcUploadImplCallback();
-                if (ubcUploadImplCallback == null) {
-                    Log.e(OneKeyLoginStat.TAG, "UbcUploadImplCallback is null, maybe had not init");
-                    return;
-                }
-                JSONObject jSONObject2 = new JSONObject();
                 try {
-                    SapiConfiguration confignation = isAccountManager.getConfignation();
-                    if (confignation != null) {
-                        jSONObject2.put("source", confignation.getTpl());
+                    JSONObject jSONObject = new JSONObject(statExtMap);
+                    ServiceManager serviceManager = ServiceManager.getInstance();
+                    if (serviceManager == null) {
+                        Log.e(OneKeyLoginStat.TAG, "ServiceManager is null, maybe had not init");
+                        return;
                     }
-                    jSONObject2.put("page", VALUE_PAGE);
-                    jSONObject2.put("ext", jSONObject);
-                    jSONObject2.put("value", sValue);
-                } catch (JSONException e) {
-                    e.printStackTrace();
+                    ISAccountManager isAccountManager = serviceManager.getIsAccountManager();
+                    if (isAccountManager == null) {
+                        Log.e(OneKeyLoginStat.TAG, "AccountManager is null, maybe had not init");
+                        return;
+                    }
+                    UbcUploadImplCallback ubcUploadImplCallback = isAccountManager.getUbcUploadImplCallback();
+                    if (ubcUploadImplCallback == null) {
+                        Log.e(OneKeyLoginStat.TAG, "UbcUploadImplCallback is null, maybe had not init");
+                        return;
+                    }
+                    JSONObject jSONObject2 = new JSONObject();
+                    try {
+                        SapiConfiguration confignation = isAccountManager.getConfignation();
+                        if (confignation != null) {
+                            jSONObject2.put("source", confignation.getTpl());
+                        }
+                        jSONObject2.put("page", VALUE_PAGE);
+                        jSONObject2.put("ext", jSONObject);
+                        jSONObject2.put("value", sValue);
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                    ubcUploadImplCallback.onEvent(OneKeyLoginStat.UBC_ID_ONEKEY_LOGIN, jSONObject2);
+                    resetData();
+                } catch (Exception e2) {
+                    e2.printStackTrace();
                 }
-                ubcUploadImplCallback.onEvent(OneKeyLoginStat.UBC_ID_ONEKEY_LOGIN, jSONObject2);
-                resetData();
             }
         }
     }

@@ -24,10 +24,10 @@ public class e28 extends jx5<y18> {
     public LinearLayout j;
     public AutoBannerView k;
     public View l;
-    public cs4<k18> m;
+    public ds4<k18> m;
 
     /* loaded from: classes5.dex */
-    public class a implements cs4<k18> {
+    public class a implements ds4<k18> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ e28 a;
@@ -50,7 +50,7 @@ public class e28 extends jx5<y18> {
             this.a = e28Var;
         }
 
-        @Override // com.repackage.cs4
+        @Override // com.repackage.ds4
         public void b(int i, String str) {
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) || this.a.k == null || str == null) {
@@ -64,7 +64,7 @@ public class e28 extends jx5<y18> {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.cs4
+        @Override // com.repackage.ds4
         /* renamed from: c */
         public void a(int i, k18 k18Var) {
             Interceptable interceptable = $ic;
@@ -96,8 +96,8 @@ public class e28 extends jx5<y18> {
         this.i = 3;
         this.m = new a(this);
         View h = h();
-        this.j = (LinearLayout) h.findViewById(R.id.obfuscated_res_0x7f09244c);
-        AutoBannerView autoBannerView = (AutoBannerView) h.findViewById(R.id.obfuscated_res_0x7f0917fd);
+        this.j = (LinearLayout) h.findViewById(R.id.obfuscated_res_0x7f09244e);
+        AutoBannerView autoBannerView = (AutoBannerView) h.findViewById(R.id.obfuscated_res_0x7f0917d8);
         this.k = autoBannerView;
         autoBannerView.setMarqueenTime(3000L);
         this.k.getCoverFlowView().setCallback(this.m);
@@ -108,7 +108,7 @@ public class e28 extends jx5<y18> {
     public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d06ba : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d06c4 : invokeV.intValue;
     }
 
     @Override // com.repackage.jx5

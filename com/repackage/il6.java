@@ -53,7 +53,7 @@ public class il6 extends an<sl6, a> {
             }
         }
 
-        public void c() {
+        public void b() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 SkinManager.setBackgroundColor(this.a, R.color.CAM_X0209);
@@ -109,8 +109,8 @@ public class il6 extends an<sl6, a> {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, sl6Var, aVar})) == null) {
-            aVar.c();
-            return aVar.b();
+            aVar.b();
+            return aVar.a();
         }
         return (View) invokeCommon.objValue;
     }

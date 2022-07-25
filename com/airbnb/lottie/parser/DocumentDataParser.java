@@ -1,15 +1,15 @@
 package com.airbnb.lottie.parser;
 
+import cn.com.chinatelecom.gateway.lib.c.j;
 import com.airbnb.lottie.model.DocumentData;
 import com.airbnb.lottie.parser.moshi.JsonReader;
 import com.baidu.mobstat.Config;
-import com.baidu.sofire.rp.db.ReportDb;
 import com.baidu.tbadk.TbConfig;
 import java.io.IOException;
 /* loaded from: classes.dex */
 public class DocumentDataParser implements ValueParser<DocumentData> {
     public static final DocumentDataParser INSTANCE = new DocumentDataParser();
-    public static final JsonReader.Options NAMES = JsonReader.Options.of("t", "f", "s", ReportDb.EVENT_REPORT_TYPE, "tr", "lh", "ls", "fc", Config.STAT_SDK_CHANNEL, TbConfig.SW_APID, "of");
+    public static final JsonReader.Options NAMES = JsonReader.Options.of("t", "f", "s", j.a, "tr", "lh", "ls", "fc", Config.STAT_SDK_CHANNEL, TbConfig.SW_APID, "of");
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */

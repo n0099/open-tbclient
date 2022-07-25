@@ -23,7 +23,7 @@ import tbclient.StarTrends.StarTrendsResIdl;
 import tbclient.ThreadInfo;
 import tbclient.User;
 /* loaded from: classes7.dex */
-public class sg6 implements o75, u75 {
+public class sg6 implements p75, v75 {
     public static /* synthetic */ Interceptable $ic;
     public static final Wire e;
     public transient /* synthetic */ FieldHolder $fh;
@@ -121,7 +121,7 @@ public class sg6 implements o75, u75 {
         this.c = dataRes.has_more.intValue() == 1;
     }
 
-    @Override // com.repackage.p75
+    @Override // com.repackage.q75
     public String getCacheKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -131,7 +131,7 @@ public class sg6 implements o75, u75 {
         return (String) invokeV.objValue;
     }
 
-    @Override // com.repackage.o75
+    @Override // com.repackage.p75
     public boolean initByByteArray(byte[] bArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -141,21 +141,21 @@ public class sg6 implements o75, u75 {
         return invokeL.booleanValue;
     }
 
-    @Override // com.repackage.u75
+    @Override // com.repackage.v75
     public void initByJson(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, jSONObject) == null) {
         }
     }
 
-    @Override // com.repackage.u75
+    @Override // com.repackage.v75
     public void initByProtobuf(Message message) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, message) == null) {
         }
     }
 
-    @Override // com.repackage.o75
+    @Override // com.repackage.p75
     public byte[] toCacheByteArray() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

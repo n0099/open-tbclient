@@ -1,19 +1,20 @@
 package com.repackage;
 
-import android.content.ContentValues;
-import android.database.Cursor;
+import android.net.Uri;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.pms.model.PMSAppInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes6.dex */
-public class h84 extends f84<a94> {
+public class h84 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public ConcurrentHashMap<Class<?>, g84> a;
+    public ConcurrentHashMap<Class<?>, Uri> b;
 
     public h84() {
         Interceptable interceptable = $ic;
@@ -25,55 +26,43 @@ public class h84 extends f84<a94> {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        c();
     }
 
-    @Override // com.repackage.f84
-    public List<a94> e(Cursor cursor) {
+    public <T> g84<T> a(Class<T> cls) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cursor)) == null) {
-            ArrayList arrayList = new ArrayList();
-            if (cursor == null || cursor.getCount() <= 0 || !cursor.moveToFirst()) {
-                return arrayList;
-            }
-            do {
-                a94 a94Var = new a94();
-                if (b(cursor, a94Var)) {
-                    arrayList.add(a94Var);
-                }
-            } while (cursor.moveToNext());
-            return arrayList;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, cls)) == null) ? this.a.get(cls) : (g84) invokeL.objValue;
+    }
+
+    public <T> Uri b(Class<T> cls) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cls)) == null) ? this.b.get(cls) : (Uri) invokeL.objValue;
+    }
+
+    public final void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.a = new ConcurrentHashMap<>();
+            this.b = new ConcurrentHashMap<>();
+            this.a.put(f94.class, new k84());
+            this.a.put(g94.class, new l84());
+            this.a.put(d94.class, new j84());
+            this.a.put(b94.class, new i84());
+            this.a.put(PMSAppInfo.class, new f84());
+            this.a.put(h94.class, new m84());
+            this.a.put(i94.class, new n84());
+            this.b.put(f94.class, x84.f);
+            this.b.put(g94.class, x84.g);
+            this.b.put(d94.class, x84.d);
+            this.b.put(b94.class, x84.h);
+            this.b.put(PMSAppInfo.class, x84.e);
+            this.b.put(h94.class, x84.i);
+            this.b.put(i94.class, x84.j);
         }
-        return (List) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.f84
-    /* renamed from: f */
-    public ContentValues c(a94 a94Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, a94Var)) == null) ? a(a94Var) : (ContentValues) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.f84
-    /* renamed from: g */
-    public a94 d(Cursor cursor) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, cursor)) == null) {
-            if (cursor == null || cursor.getCount() <= 0 || !cursor.moveToFirst()) {
-                return null;
-            }
-            a94 a94Var = new a94();
-            if (b(cursor, a94Var)) {
-                return a94Var;
-            }
-            return null;
-        }
-        return (a94) invokeL.objValue;
     }
 }

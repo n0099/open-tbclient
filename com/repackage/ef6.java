@@ -8,19 +8,19 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.nr4;
+import com.repackage.or4;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes6.dex */
 public class ef6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public lr4 a;
-    public nr4 b;
+    public mr4 a;
+    public or4 b;
     public String c;
     public String[] d;
     public String e;
-    public nr4.e f;
+    public or4.e f;
     public d9 g;
 
     public ef6(d9 d9Var) {
@@ -47,19 +47,19 @@ public class ef6 {
         return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, d9Var)) == null) ? new ef6(d9Var) : (ef6) invokeL.objValue;
     }
 
-    public final List<jr4> a(String[] strArr) {
+    public final List<kr4> a(String[] strArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, strArr)) == null) {
             ArrayList arrayList = new ArrayList();
             for (int i = 0; i < strArr.length; i++) {
                 String str = strArr[i];
-                jr4 jr4Var = new jr4(i, str, this.b);
+                kr4 kr4Var = new kr4(i, str, this.b);
                 if (!StringUtils.isNull(this.e) && this.e.equals(str)) {
-                    jr4Var.q(R.color.CAM_X0304);
-                    jr4Var.p();
+                    kr4Var.q(R.color.CAM_X0304);
+                    kr4Var.p();
                 }
-                arrayList.add(jr4Var);
+                arrayList.add(kr4Var);
             }
             return arrayList;
         }
@@ -67,12 +67,12 @@ public class ef6 {
     }
 
     public void b() {
-        lr4 lr4Var;
+        mr4 mr4Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (lr4Var = this.a) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (mr4Var = this.a) == null) {
             return;
         }
-        lr4Var.dismiss();
+        mr4Var.dismiss();
     }
 
     public ef6 d(String str) {
@@ -85,7 +85,7 @@ public class ef6 {
         return (ef6) invokeL.objValue;
     }
 
-    public ef6 e(nr4.e eVar) {
+    public ef6 e(or4.e eVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, eVar)) == null) {
@@ -118,15 +118,15 @@ public class ef6 {
     public void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            nr4 nr4Var = new nr4(this.g.getPageActivity());
-            this.b = nr4Var;
-            nr4Var.q(this.c);
+            or4 or4Var = new or4(this.g.getPageActivity());
+            this.b = or4Var;
+            or4Var.q(this.c);
             this.b.n(this.f);
             this.b.j(a(this.d));
-            this.b.l(pi.f(this.g.getPageActivity(), R.dimen.obfuscated_res_0x7f07076a));
-            lr4 lr4Var = new lr4(this.g, this.b);
-            this.a = lr4Var;
-            lr4Var.m();
+            this.b.l(pi.f(this.g.getPageActivity(), R.dimen.obfuscated_res_0x7f07075c));
+            mr4 mr4Var = new mr4(this.g, this.b);
+            this.a = mr4Var;
+            mr4Var.m();
         }
     }
 }

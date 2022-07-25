@@ -14,12 +14,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.hu4;
+import com.repackage.iu4;
 /* loaded from: classes3.dex */
 public class ThreadCardBottomOpSegmentWeightLayout extends ThreadCommentAndPraiseInfoLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public AgreeView.h p0;
+    public AgreeView.h j0;
 
     /* loaded from: classes3.dex */
     public class a implements AgreeView.h {
@@ -72,7 +72,7 @@ public class ThreadCardBottomOpSegmentWeightLayout extends ThreadCommentAndPrais
                 return;
             }
         }
-        this.p0 = new a(this);
+        this.j0 = new a(this);
     }
 
     @Override // com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout
@@ -80,9 +80,9 @@ public class ThreadCardBottomOpSegmentWeightLayout extends ThreadCommentAndPrais
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             super.H();
-            this.e.setVisibilityListener(this.p0);
+            this.e.setVisibilityListener(this.j0);
             this.e.w(true);
-            hu4.b(this);
+            iu4.b(this);
         }
     }
 
@@ -114,7 +114,7 @@ public class ThreadCardBottomOpSegmentWeightLayout extends ThreadCommentAndPrais
     public View k(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, context)) == null) ? LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d08bc, (ViewGroup) this, true) : (View) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, context)) == null) ? LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d08c6, (ViewGroup) this, true) : (View) invokeL.objValue;
     }
 
     @Override // com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout
@@ -146,6 +146,6 @@ public class ThreadCardBottomOpSegmentWeightLayout extends ThreadCommentAndPrais
                 return;
             }
         }
-        this.p0 = new a(this);
+        this.j0 = new a(this);
     }
 }

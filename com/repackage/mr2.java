@@ -6,24 +6,27 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
 import java.io.IOException;
-import okhttp3.FormBody;
 import okhttp3.MediaType;
 import okhttp3.RequestBody;
 import okio.BufferedSink;
+import okio.Okio;
+import okio.Source;
 /* loaded from: classes6.dex */
-public final class mr2 extends RequestBody {
+public class mr2 extends RequestBody {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public MediaType a;
-    public final FormBody b;
+    public final File a;
+    public final cs2 b;
+    public final String c;
 
-    public mr2(FormBody formBody) {
+    public mr2(File file, String str, cs2 cs2Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {formBody};
+            Object[] objArr = {file, str, cs2Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -33,50 +36,46 @@ public final class mr2 extends RequestBody {
                 return;
             }
         }
-        this.b = formBody;
-    }
-
-    public static mr2 a(FormBody formBody, MediaType mediaType) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, formBody, mediaType)) == null) {
-            mr2 mr2Var = new mr2(formBody);
-            mr2Var.b(mediaType);
-            return mr2Var;
-        }
-        return (mr2) invokeLL.objValue;
-    }
-
-    public void b(MediaType mediaType) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, mediaType) == null) {
-            this.a = mediaType;
-        }
+        this.a = file;
+        this.c = str;
+        this.b = cs2Var;
     }
 
     @Override // okhttp3.RequestBody
     public long contentLength() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b.contentLength() : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a.length() : invokeV.longValue;
     }
 
     @Override // okhttp3.RequestBody
     public MediaType contentType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            MediaType mediaType = this.a;
-            return mediaType == null ? this.b.contentType() : mediaType;
-        }
-        return (MediaType) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? MediaType.parse(this.c) : (MediaType) invokeV.objValue;
     }
 
     @Override // okhttp3.RequestBody
     public void writeTo(BufferedSink bufferedSink) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, bufferedSink) == null) {
-            this.b.writeTo(bufferedSink);
+        if (interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bufferedSink) != null) {
+            return;
+        }
+        Source source = null;
+        try {
+            source = Okio.source(this.a);
+            long j = 0;
+            while (true) {
+                long read = source.read(bufferedSink.buffer(), 2048L);
+                if (read == -1) {
+                    return;
+                }
+                j += read;
+                bufferedSink.flush();
+                this.b.a(j);
+            }
+        } finally {
+            kg4.d(source);
         }
     }
 }

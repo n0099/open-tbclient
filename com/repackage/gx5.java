@@ -52,113 +52,113 @@ public class gx5 implements fx5, View.OnClickListener {
         this.a = tbPageContext;
         this.h = ex5Var;
         this.i = aVar;
-        e();
+        d();
     }
 
     @Override // com.repackage.fx5
-    public float a() {
+    public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.k.get(Integer.valueOf(this.j)).floatValue() : invokeV.floatValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b.getVisibility() : invokeV.intValue;
     }
 
     @Override // com.repackage.fx5
-    public int b() {
-        InterceptResult invokeV;
+    public void b(int i) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b.getVisibility() : invokeV.intValue;
-    }
-
-    @Override // com.repackage.fx5
-    public void c(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
             this.b.setVisibility(i);
         }
     }
 
     @Override // com.repackage.fx5
+    public boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.j != 0 : invokeV.booleanValue;
+    }
+
     public boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.j != 0 : invokeV.booleanValue;
-    }
-
-    public boolean e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             this.k.put(0, Float.valueOf(1.0f));
             this.k.put(1, Float.valueOf(0.5f));
             this.k.put(2, Float.valueOf(0.33333334f));
             this.k.put(3, Float.valueOf(2.0f));
             this.k.put(4, Float.valueOf(3.0f));
-            f();
+            e();
             return true;
         }
         return invokeV.booleanValue;
     }
 
-    public final void f() {
+    public final void e() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             this.b = (LinearLayout) this.a.getPageActivity().findViewById(R.id.obfuscated_res_0x7f09049a);
-            this.c = (TextView) this.a.getPageActivity().findViewById(R.id.obfuscated_res_0x7f091de6);
-            this.d = (TextView) this.a.getPageActivity().findViewById(R.id.obfuscated_res_0x7f091de5);
-            this.e = (TextView) this.a.getPageActivity().findViewById(R.id.obfuscated_res_0x7f091de4);
-            this.f = (TextView) this.a.getPageActivity().findViewById(R.id.obfuscated_res_0x7f091de1);
-            this.g = (TextView) this.a.getPageActivity().findViewById(R.id.obfuscated_res_0x7f091de2);
+            this.c = (TextView) this.a.getPageActivity().findViewById(R.id.obfuscated_res_0x7f091dec);
+            this.d = (TextView) this.a.getPageActivity().findViewById(R.id.obfuscated_res_0x7f091deb);
+            this.e = (TextView) this.a.getPageActivity().findViewById(R.id.obfuscated_res_0x7f091dea);
+            this.f = (TextView) this.a.getPageActivity().findViewById(R.id.obfuscated_res_0x7f091de7);
+            this.g = (TextView) this.a.getPageActivity().findViewById(R.id.obfuscated_res_0x7f091de8);
             this.c.setOnClickListener(this);
             this.d.setOnClickListener(this);
             this.e.setOnClickListener(this);
             this.f.setOnClickListener(this);
             this.g.setOnClickListener(this);
-            ur4 d = ur4.d(this.b);
+            vr4 d = vr4.d(this.b);
             d.n(R.string.J_X05);
             d.f(R.color.CAM_X0214);
-            h(this.e, true);
-            h(this.c, false);
-            h(this.d, false);
-            h(this.f, false);
-            h(this.g, false);
+            g(this.e, true);
+            g(this.c, false);
+            g(this.d, false);
+            g(this.f, false);
+            g(this.g, false);
         }
     }
 
-    public final void g(int i) {
+    public final void f(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
-            i(this.j, false);
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+            h(this.j, false);
             this.j = i;
-            i(i, true);
+            h(i, true);
             ex5 ex5Var = this.h;
             if (ex5Var != null) {
-                ex5Var.a(a());
+                ex5Var.a(getSpeed());
             }
         }
     }
 
-    public final void h(TextView textView, boolean z) {
+    public final void g(TextView textView, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(1048583, this, textView, z) == null) {
+        if (interceptable == null || interceptable.invokeLZ(1048582, this, textView, z) == null) {
             textView.setTextColor(this.a.getResources().getColor(z ? R.color.CAM_X0302 : R.color.CAM_X0101));
             textView.setTextSize(0, UtilHelper.getDimenPixelSize(z ? R.dimen.T_X05 : R.dimen.T_X07));
         }
     }
 
-    public final void i(int i, boolean z) {
+    @Override // com.repackage.fx5
+    public float getSpeed() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.k.get(Integer.valueOf(this.j)).floatValue() : invokeV.floatValue;
+    }
+
+    public final void h(int i, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
             if (i == 0) {
-                h(this.e, z);
+                g(this.e, z);
             } else if (i == 1) {
-                h(this.d, z);
+                g(this.d, z);
             } else if (i == 2) {
-                h(this.c, z);
+                g(this.c, z);
             } else if (i == 3) {
-                h(this.f, z);
+                g(this.f, z);
             } else if (i != 4) {
             } else {
-                h(this.g, z);
+                g(this.g, z);
             }
         }
     }
@@ -167,30 +167,30 @@ public class gx5 implements fx5, View.OnClickListener {
     public void onClick(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, view2) == null) {
-            if (view2.getId() == R.id.obfuscated_res_0x7f091de6) {
+            if (view2.getId() == R.id.obfuscated_res_0x7f091dec) {
                 fx5.a aVar = this.i;
                 if (aVar == null || aVar.a(2)) {
-                    g(2);
+                    f(2);
                 }
-            } else if (view2.getId() == R.id.obfuscated_res_0x7f091de5) {
+            } else if (view2.getId() == R.id.obfuscated_res_0x7f091deb) {
                 fx5.a aVar2 = this.i;
                 if (aVar2 == null || aVar2.a(1)) {
-                    g(1);
+                    f(1);
                 }
-            } else if (view2.getId() == R.id.obfuscated_res_0x7f091de4) {
+            } else if (view2.getId() == R.id.obfuscated_res_0x7f091dea) {
                 fx5.a aVar3 = this.i;
                 if (aVar3 == null || aVar3.a(0)) {
-                    g(0);
+                    f(0);
                 }
-            } else if (view2.getId() == R.id.obfuscated_res_0x7f091de1) {
+            } else if (view2.getId() == R.id.obfuscated_res_0x7f091de7) {
                 fx5.a aVar4 = this.i;
                 if (aVar4 == null || aVar4.a(3)) {
-                    g(3);
+                    f(3);
                 }
-            } else if (view2.getId() == R.id.obfuscated_res_0x7f091de2) {
+            } else if (view2.getId() == R.id.obfuscated_res_0x7f091de8) {
                 fx5.a aVar5 = this.i;
                 if (aVar5 == null || aVar5.a(4)) {
-                    g(4);
+                    f(4);
                 }
             }
         }
@@ -200,7 +200,7 @@ public class gx5 implements fx5, View.OnClickListener {
     public void reset() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            g(0);
+            f(0);
         }
     }
 }

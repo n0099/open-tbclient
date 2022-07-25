@@ -23,11 +23,11 @@ public final class ServiceProvider {
         }
     }
 
-    public static <T> T a(Class<T> cls) {
+    public static <T> T get(Class<T> cls) {
         return (T) ServiceProviderDelegate.INSTANCE.get(cls);
     }
 
-    public static <T> void a(Class<T> cls, T t) {
+    public static <T> void put(Class<T> cls, T t) {
         ServiceProviderDelegate.INSTANCE.put(cls, t);
     }
 }

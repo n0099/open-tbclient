@@ -45,7 +45,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.bv4;
+import com.repackage.cv4;
 import com.repackage.jr7;
 import com.repackage.oi;
 import com.repackage.oy5;
@@ -136,8 +136,8 @@ public class PbLinkGoodsRootView extends RelativeLayout {
                 }
             }
             this.c = pbLinkGoodsRootView;
-            this.b = view2.findViewById(R.id.obfuscated_res_0x7f09141d);
-            this.a = (SingleLinkCardView) view2.findViewById(R.id.obfuscated_res_0x7f091754);
+            this.b = view2.findViewById(R.id.obfuscated_res_0x7f0913f9);
+            this.a = (SingleLinkCardView) view2.findViewById(R.id.obfuscated_res_0x7f09172f);
         }
     }
 
@@ -168,8 +168,8 @@ public class PbLinkGoodsRootView extends RelativeLayout {
                 }
             }
             this.c = pbLinkGoodsRootView;
-            this.b = view2.findViewById(R.id.obfuscated_res_0x7f09141d);
-            this.a = (TbMountCardLinkLayout) view2.findViewById(R.id.obfuscated_res_0x7f091750);
+            this.b = view2.findViewById(R.id.obfuscated_res_0x7f0913f9);
+            this.a = (TbMountCardLinkLayout) view2.findViewById(R.id.obfuscated_res_0x7f09172b);
         }
     }
 
@@ -216,7 +216,7 @@ public class PbLinkGoodsRootView extends RelativeLayout {
         }
 
         /* loaded from: classes3.dex */
-        public class b implements bv4 {
+        public class b implements cv4 {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ int a;
@@ -241,7 +241,7 @@ public class PbLinkGoodsRootView extends RelativeLayout {
                 this.a = i;
             }
 
-            @Override // com.repackage.bv4
+            @Override // com.repackage.cv4
             public void a(String str) {
                 CardLinkInfoData cardLinkInfoData;
                 Interceptable interceptable = $ic;
@@ -288,12 +288,12 @@ public class PbLinkGoodsRootView extends RelativeLayout {
 
         /* renamed from: com.baidu.tieba.pb.pb.main.PbLinkGoodsRootView$d$d  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        public class View$OnClickListenerC0233d implements View.OnClickListener {
+        public class View$OnClickListenerC0247d implements View.OnClickListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ d a;
 
-            public View$OnClickListenerC0233d(d dVar) {
+            public View$OnClickListenerC0247d(d dVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -345,7 +345,7 @@ public class PbLinkGoodsRootView extends RelativeLayout {
             }
             if (this.a.m == null || this.a.q == null || this.a.q.E5() || i != 2 || this.a.m.size() <= 3) {
                 if (this.a.r != null && this.a.m != null && !this.a.r.R3() && i == 2 && this.a.m.size() > 3) {
-                    view2.setOnClickListener(new View$OnClickListenerC0233d(this));
+                    view2.setOnClickListener(new View$OnClickListenerC0247d(this));
                     view2.setVisibility(0);
                     TBSelector.makeDrawableSelector().setShape(0).gradientLinear(R.color.cp_bg_line_d_alpha70, R.color.CAM_X0201).into(view2);
                     return;
@@ -419,9 +419,9 @@ public class PbLinkGoodsRootView extends RelativeLayout {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, viewGroup, i)) == null) {
                 if (i == 3) {
-                    return new c(this.a, LayoutInflater.from(this.a.f).inflate(R.layout.obfuscated_res_0x7f0d068b, (ViewGroup) null));
+                    return new c(this.a, LayoutInflater.from(this.a.f).inflate(R.layout.obfuscated_res_0x7f0d0695, (ViewGroup) null));
                 }
-                return new b(this.a, LayoutInflater.from(this.a.f).inflate(R.layout.obfuscated_res_0x7f0d0689, (ViewGroup) null));
+                return new b(this.a, LayoutInflater.from(this.a.f).inflate(R.layout.obfuscated_res_0x7f0d0693, (ViewGroup) null));
             }
             return (RecyclerView.ViewHolder) invokeLI.objValue;
         }
@@ -510,10 +510,10 @@ public class PbLinkGoodsRootView extends RelativeLayout {
                 TextView textView = this.b;
                 if (this.p) {
                     resources2 = getResources();
-                    i2 = R.string.obfuscated_res_0x7f0f0db2;
+                    i2 = R.string.obfuscated_res_0x7f0f0d9b;
                 } else {
                     resources2 = getResources();
-                    i2 = R.string.obfuscated_res_0x7f0f0db4;
+                    i2 = R.string.obfuscated_res_0x7f0f0d9d;
                 }
                 textView.setText(resources2.getString(i2));
                 this.o = R.drawable.obfuscated_res_0x7f080914;
@@ -524,10 +524,10 @@ public class PbLinkGoodsRootView extends RelativeLayout {
                 TextView textView2 = this.b;
                 if (this.p) {
                     resources = getResources();
-                    i = R.string.obfuscated_res_0x7f0f0db3;
+                    i = R.string.obfuscated_res_0x7f0f0d9c;
                 } else {
                     resources = getResources();
-                    i = R.string.obfuscated_res_0x7f0f0db5;
+                    i = R.string.obfuscated_res_0x7f0f0d9e;
                 }
                 textView2.setText(resources.getString(i));
                 this.o = R.drawable.icon_pure_unfold12_svg;
@@ -689,15 +689,15 @@ public class PbLinkGoodsRootView extends RelativeLayout {
         this.n = 3;
         this.p = false;
         this.f = context;
-        LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d068a, this);
-        BdRecyclerView bdRecyclerView = (BdRecyclerView) findViewById(R.id.obfuscated_res_0x7f09175a);
+        LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0694, this);
+        BdRecyclerView bdRecyclerView = (BdRecyclerView) findViewById(R.id.obfuscated_res_0x7f091735);
         this.g = bdRecyclerView;
         bdRecyclerView.setNestedScrollingEnabled(false);
-        this.h = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091764);
-        this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f09227a);
-        this.d = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091b54);
-        this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f090f8d);
-        this.e = (ThreadForumEnterGoodsButton) findViewById(R.id.obfuscated_res_0x7f0917a7);
+        this.h = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f09173f);
+        this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f09227c);
+        this.d = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091b2e);
+        this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f090f86);
+        this.e = (ThreadForumEnterGoodsButton) findViewById(R.id.obfuscated_res_0x7f091782);
         this.i = pi.f(this.f, R.dimen.tbds14);
         this.j = pi.f(this.f, R.dimen.tbds44);
         this.k = pi.f(this.f, R.dimen.tbds36);

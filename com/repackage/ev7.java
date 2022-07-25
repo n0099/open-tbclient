@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class ev7 extends du7<sp4, PbRecommendNovelHolder> {
+public class ev7 extends du7<tp4, PbRecommendNovelHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public jr7 o;
@@ -46,12 +46,12 @@ public class ev7 extends du7<sp4, PbRecommendNovelHolder> {
         }
 
         @Override // com.baidu.tieba.pb.pb.main.PbRecommendNovelHolder.b
-        public void a(sp4 sp4Var) {
+        public void a(tp4 tp4Var) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, sp4Var) == null) || sp4Var == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, tp4Var) == null) || tp4Var == null) {
                 return;
             }
-            fy7.a(this.a.o, sp4Var, sp4Var.h0, 6);
+            fy7.a(this.a.o, tp4Var, tp4Var.b0, 6);
         }
     }
 
@@ -79,7 +79,7 @@ public class ev7 extends du7<sp4, PbRecommendNovelHolder> {
 
     @Override // com.repackage.du7, com.repackage.an
     public /* bridge */ /* synthetic */ View S(int i, View view2, ViewGroup viewGroup, Object obj, TypeAdapter.ViewHolder viewHolder) {
-        d0(i, view2, viewGroup, (sp4) obj, (PbRecommendNovelHolder) viewHolder);
+        d0(i, view2, viewGroup, (tp4) obj, (PbRecommendNovelHolder) viewHolder);
         return view2;
     }
 
@@ -89,20 +89,20 @@ public class ev7 extends du7<sp4, PbRecommendNovelHolder> {
     public PbRecommendNovelHolder M(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) ? new PbRecommendNovelHolder(this.j.getPageContext(), LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d069a, viewGroup, false), this.p) : (PbRecommendNovelHolder) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) ? new PbRecommendNovelHolder(this.j.getPageContext(), LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d06a4, viewGroup, false), this.p) : (PbRecommendNovelHolder) invokeL.objValue;
     }
 
-    public View d0(int i, View view2, ViewGroup viewGroup, sp4 sp4Var, PbRecommendNovelHolder pbRecommendNovelHolder) {
+    public View d0(int i, View view2, ViewGroup viewGroup, tp4 tp4Var, PbRecommendNovelHolder pbRecommendNovelHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, sp4Var, pbRecommendNovelHolder})) == null) {
-            super.S(i, view2, viewGroup, sp4Var, pbRecommendNovelHolder);
-            if (sp4Var == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, tp4Var, pbRecommendNovelHolder})) == null) {
+            super.S(i, view2, viewGroup, tp4Var, pbRecommendNovelHolder);
+            if (tp4Var == null) {
                 return view2;
             }
-            sp4Var.h0 = i + 1;
-            fy7.d(this.j.getUniqueId(), this.o, sp4Var, sp4Var.h0, 6);
-            pbRecommendNovelHolder.f(sp4Var);
+            tp4Var.b0 = i + 1;
+            fy7.d(this.j.getUniqueId(), this.o, tp4Var, tp4Var.b0, 6);
+            pbRecommendNovelHolder.e(tp4Var);
             return view2;
         }
         return (View) invokeCommon.objValue;

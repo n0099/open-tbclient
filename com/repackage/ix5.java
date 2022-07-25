@@ -23,9 +23,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.nn4;
+import com.repackage.on4;
 /* loaded from: classes6.dex */
-public abstract class ix5<T extends nn4> extends jx5<T> {
+public abstract class ix5<T extends on4> extends jx5<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext<?> i;
@@ -222,13 +222,13 @@ public abstract class ix5<T extends nn4> extends jx5<T> {
                 layoutParams.gravity = 53;
                 this.n.setPadding(f2, f2, f2, f2);
                 this.n.setLayoutParams(layoutParams);
-                kp4 kp4Var = new kp4();
-                kp4Var.o(this.k.getThreadData().getTid());
-                kp4Var.k(this.k.getThreadData().getFid());
-                kp4Var.n(this.k.getThreadData().getNid());
-                kp4Var.j(this.k.feedBackReasonMap);
+                lp4 lp4Var = new lp4();
+                lp4Var.o(this.k.getThreadData().getTid());
+                lp4Var.k(this.k.getThreadData().getFid());
+                lp4Var.n(this.k.getThreadData().getNid());
+                lp4Var.j(this.k.feedBackReasonMap);
                 this.n.setVisibility(0);
-                this.n.setData(kp4Var);
+                this.n.setData(lp4Var);
                 this.n.setFirstRowSingleColumn(true);
                 return true;
             }
@@ -313,10 +313,10 @@ public abstract class ix5<T extends nn4> extends jx5<T> {
         threadCommentAndPraiseInfoLayout.setFrom(7);
         threadCommentAndPraiseInfoLayout.setShareReportFrom(3);
         threadCommentAndPraiseInfoLayout.hideDisagree();
-        tn4 tn4Var = new tn4();
-        tn4Var.b = 7;
-        tn4Var.h = 1;
-        threadCommentAndPraiseInfoLayout.setAgreeStatisticData(tn4Var);
+        un4 un4Var = new un4();
+        un4Var.b = 7;
+        un4Var.h = 1;
+        threadCommentAndPraiseInfoLayout.setAgreeStatisticData(un4Var);
     }
 
     public boolean u() {

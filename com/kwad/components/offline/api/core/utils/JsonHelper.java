@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.components.offline.api.core.model.IOfflineCompoJsonParse;
-import com.kwad.sdk.core.d.b;
+import com.kwad.sdk.core.e.b;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -49,7 +49,7 @@ public class JsonHelper {
             try {
                 return jsonArrayToList(new JSONArray(str), cls);
             } catch (JSONException e) {
-                b.b(e);
+                b.printStackTraceOnly(e);
                 return arrayList;
             }
         }
@@ -69,7 +69,7 @@ public class JsonHelper {
                             arrayList.add(obj);
                         }
                     } catch (Exception e) {
-                        b.b(e);
+                        b.printStackTraceOnly(e);
                     }
                 }
             }

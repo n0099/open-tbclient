@@ -1,28 +1,24 @@
 package com.kwad.components.offline.tk.kwai;
 
-import android.view.View;
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.kwad.components.offline.api.tk.IOfflineCompoTachikomaView;
+import com.kwad.components.offline.api.tk.IOfflineTKRenderListener;
 import com.kwad.sdk.components.g;
-import com.kwad.sdk.utils.aj;
 /* loaded from: classes5.dex */
-public final class c implements g {
+public final class c implements IOfflineTKRenderListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final IOfflineCompoTachikomaView a;
+    public final g Qp;
 
-    public c(@NonNull IOfflineCompoTachikomaView iOfflineCompoTachikomaView) {
+    public c(g gVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {iOfflineCompoTachikomaView};
+            Object[] objArr = {gVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -32,39 +28,26 @@ public final class c implements g {
                 return;
             }
         }
-        aj.a(iOfflineCompoTachikomaView);
-        this.a = iOfflineCompoTachikomaView;
+        this.Qp = gVar;
     }
 
-    @Override // com.kwad.sdk.components.g
-    public final View a() {
-        InterceptResult invokeV;
+    @Override // com.kwad.components.offline.api.tk.IOfflineTKRenderListener
+    public final void onFailed(Throwable th) {
+        g gVar;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a.getView() : (View) invokeV.objValue;
-    }
-
-    @Override // com.kwad.sdk.components.g
-    public final void a(com.kwad.sdk.core.webview.kwai.a aVar) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) || aVar == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, th) == null) || (gVar = this.Qp) == null) {
             return;
         }
-        this.a.registerJsBridge(new b(aVar));
+        gVar.pN();
     }
 
-    @Override // com.kwad.sdk.components.g
-    public final void a(String str, String str2) {
+    @Override // com.kwad.components.offline.api.tk.IOfflineTKRenderListener
+    public final void onSuccess() {
+        g gVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2) == null) {
-            this.a.execute(str, str2);
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (gVar = this.Qp) == null) {
+            return;
         }
-    }
-
-    @Override // com.kwad.sdk.components.g
-    public final void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.a.onDestroy();
-        }
+        gVar.onSuccess();
     }
 }

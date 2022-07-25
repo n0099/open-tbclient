@@ -247,10 +247,10 @@ public class FragmentTabIndicator extends TbFragmentTabIndicator {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             this.s = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701d4);
-            this.t = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07023d);
+            this.t = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07023b);
             View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d02cc, this);
-            this.q = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f09241b);
-            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09241c);
+            this.q = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f09241d);
+            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09241e);
             this.r = textView;
             textView.setDuplicateParentStateEnabled(true);
             l();
@@ -359,7 +359,7 @@ public class FragmentTabIndicator extends TbFragmentTabIndicator {
         if (interceptable == null || interceptable.invokeZ(1048589, this, z) == null) {
             String charSequence = this.r.getText().toString();
             if (z) {
-                charSequence = getContext().getString(R.string.obfuscated_res_0x7f0f137d) + charSequence;
+                charSequence = getContext().getString(R.string.obfuscated_res_0x7f0f132c) + charSequence;
             }
             this.r.setContentDescription(charSequence);
         }

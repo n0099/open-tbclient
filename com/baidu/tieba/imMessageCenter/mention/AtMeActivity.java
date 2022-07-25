@@ -80,7 +80,7 @@ public class AtMeActivity extends BaseFragmentActivity implements VoiceManager.j
         }
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.repackage.v85
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.repackage.w85
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -131,14 +131,14 @@ public class AtMeActivity extends BaseFragmentActivity implements VoiceManager.j
             }
             super.onCreate(bundle);
             setContentView(R.layout.obfuscated_res_0x7f0d002b);
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f092437);
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f092439);
             this.b = navigationBar;
             navigationBar.setCenterTextTitle(getResources().getString(R.string.obfuscated_res_0x7f0f02a4));
             this.b.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
             AtMessageFragment atMessageFragment = new AtMessageFragment();
             this.a = atMessageFragment;
             atMessageFragment.setArguments(getIntent().getExtras());
-            getSupportFragmentManager().beginTransaction().add(R.id.obfuscated_res_0x7f0906a0, this.a).commitAllowingStateLoss();
+            getSupportFragmentManager().beginTransaction().add(R.id.obfuscated_res_0x7f09069f, this.a).commitAllowingStateLoss();
             adjustResizeForSoftInput();
             VoiceManager u0 = u0();
             this.c = u0;

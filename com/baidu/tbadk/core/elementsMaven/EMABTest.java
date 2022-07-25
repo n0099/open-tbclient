@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.h46;
-import com.repackage.sr4;
+import com.repackage.tr4;
 /* loaded from: classes3.dex */
 public class EMABTest {
     public static /* synthetic */ Interceptable $ic = null;
@@ -35,7 +35,7 @@ public class EMABTest {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(65537, null, i, str)) == null) {
-            String o = sr4.o(i);
+            String o = tr4.o(i);
             if (TextUtils.isEmpty(o)) {
                 return 0;
             }
@@ -43,7 +43,7 @@ public class EMABTest {
             if (TextUtils.isEmpty(a)) {
                 return 0;
             }
-            return sr4.s(a, str);
+            return tr4.s(a, str);
         }
         return invokeIL.intValue;
     }

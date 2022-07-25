@@ -97,12 +97,12 @@ public class ForumUserLiveActivity extends BaseFragmentActivity implements no5 {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
             super.onCreate(bundle);
             setContentView(R.layout.obfuscated_res_0x7f0d02c8);
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f091568);
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f091543);
             this.a = navigationBar;
             navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-            this.a.setCenterTextTitle(getString(R.string.obfuscated_res_0x7f0f06be));
+            this.a.setCenterTextTitle(getString(R.string.obfuscated_res_0x7f0f06ba));
             this.b = LiveTabYYSubFragment.K1(false, 2);
-            getSupportFragmentManager().beginTransaction().add(R.id.obfuscated_res_0x7f0906a0, this.b).commitAllowingStateLoss();
+            getSupportFragmentManager().beginTransaction().add(R.id.obfuscated_res_0x7f09069f, this.b).commitAllowingStateLoss();
             String stringExtra = getIntent().getStringExtra("KEY_FORUM_ID");
             this.b.u1(stringExtra, getIntent().getStringExtra(ForumUserLiveActiivtyConfig.KEY_FORUM_NAME));
             this.a.post(new a(this));

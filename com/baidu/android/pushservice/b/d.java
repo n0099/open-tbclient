@@ -18,7 +18,6 @@ import com.baidu.android.pushservice.jni.BaiduAppSSOJni;
 import com.baidu.down.utils.Constants;
 import com.baidu.searchbox.cloudcontrol.utils.CloudStabilityUBCUtils;
 import com.baidu.searchbox.logsystem.logsys.SnapshotConstant;
-import com.baidu.sofire.sharedpreferences.SharedPreferenceManager;
 import com.baidu.tbadk.core.diskCache.ImagesInvalidService;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -309,7 +308,7 @@ public class d extends b {
                             str2 = SystemProperties.get(fVar.a());
                         } else {
                             Class<?> cls = Class.forName("android.os.SystemProperties");
-                            str2 = (String) cls.getDeclaredMethod(SharedPreferenceManager.OPERATION_GET_PERFIX, String.class).invoke(cls, fVar.a());
+                            str2 = (String) cls.getDeclaredMethod("get", String.class).invoke(cls, fVar.a());
                         }
                         if (((str.equalsIgnoreCase("HUAWEI") && m.b()) || str.equalsIgnoreCase("HONOR")) && !m.t(this.a) && !str2.matches("\\d+\\.\\d+$") && Build.VERSION.SDK_INT >= 21 && PushSettings.k(this.a)) {
                             str2 = Constants.SDK_VER;

@@ -144,17 +144,17 @@ public class lx extends sw implements hx, gx<ThreadData> {
         this.m = false;
         this.n = true;
         this.o = new a(this, 2921402);
-        View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0586, (ViewGroup) null);
+        View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0590, (ViewGroup) null);
         this.g = inflate;
-        this.h = inflate.findViewById(R.id.obfuscated_res_0x7f0914ed);
-        this.f = (LinearLayout) this.g.findViewById(R.id.obfuscated_res_0x7f0914e7);
+        this.h = inflate.findViewById(R.id.obfuscated_res_0x7f0914c8);
+        this.f = (LinearLayout) this.g.findViewById(R.id.obfuscated_res_0x7f0914c2);
         this.h.setAlpha(0.5f);
-        View findViewById = this.g.findViewById(R.id.obfuscated_res_0x7f0914ec);
+        View findViewById = this.g.findViewById(R.id.obfuscated_res_0x7f0914c7);
         this.i = findViewById;
         findViewById.setAlpha(0.5f);
-        this.j = (ImageView) this.g.findViewById(R.id.obfuscated_res_0x7f0913f1);
-        this.e = (RelativeLayout) this.g.findViewById(R.id.obfuscated_res_0x7f0914e8);
-        this.k = (TextView) this.g.findViewById(R.id.obfuscated_res_0x7f0913f3);
+        this.j = (ImageView) this.g.findViewById(R.id.obfuscated_res_0x7f0913cd);
+        this.e = (RelativeLayout) this.g.findViewById(R.id.obfuscated_res_0x7f0914c3);
+        this.k = (TextView) this.g.findViewById(R.id.obfuscated_res_0x7f0913cf);
         g(this.g);
         this.g.setFocusable(true);
         this.g.setOnClickListener(new b(this));
@@ -189,15 +189,15 @@ public class lx extends sw implements hx, gx<ThreadData> {
             } else {
                 WebPManager.setPureDrawable(this.j, R.drawable.obfuscated_res_0x7f080917, R.color.CAM_X0304, null);
             }
-            ur4 d = ur4.d(this.h);
+            vr4 d = vr4.d(this.h);
             d.n(R.string.J_X06);
             d.m(this.m ? 2 : 1);
             d.f(R.color.CAM_X0201);
-            ur4 d2 = ur4.d(this.i);
+            vr4 d2 = vr4.d(this.i);
             d2.n(R.string.J_X06);
             d2.m(2);
             d2.f(R.color.CAM_X0201);
-            ur4.d(this.k).A(R.string.F_X01);
+            vr4.d(this.k).A(R.string.F_X01);
             SkinManager.setViewTextColor(this.k, (this.l.isMarkToDel() || this.l.isMarkToMove()) ? R.color.CAM_X0302 : R.drawable.selector_comment_and_prise_item_text_color);
         }
     }

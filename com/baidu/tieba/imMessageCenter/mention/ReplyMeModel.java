@@ -76,12 +76,12 @@ public class ReplyMeModel extends BdBaseModel {
             }
             boolean z = responsedMessage instanceof CheckPostResponseMessage;
             if (!z && !(responsedMessage instanceof CheckPostHttpResponseMessage)) {
-                this.a.a.showToast(R.string.obfuscated_res_0x7f0f0c2b);
+                this.a.a.showToast(R.string.obfuscated_res_0x7f0f0c17);
             } else if (responsedMessage.hasError()) {
                 if (!TextUtils.isEmpty(responsedMessage.getErrorString())) {
                     this.a.a.showToast(responsedMessage.getErrorString());
                 } else {
-                    this.a.a.showToast(R.string.obfuscated_res_0x7f0f0c2b);
+                    this.a.a.showToast(R.string.obfuscated_res_0x7f0f0c17);
                 }
             } else {
                 if (z) {
@@ -112,10 +112,10 @@ public class ReplyMeModel extends BdBaseModel {
                             }
                             return;
                         } else if (postState == 0) {
-                            this.a.a.showToast(R.string.obfuscated_res_0x7f0f13d8);
+                            this.a.a.showToast(R.string.obfuscated_res_0x7f0f1387);
                             return;
                         } else if (postState == -1) {
-                            this.a.a.showToast(R.string.obfuscated_res_0x7f0f13e3);
+                            this.a.a.showToast(R.string.obfuscated_res_0x7f0f1392);
                             return;
                         } else {
                             return;

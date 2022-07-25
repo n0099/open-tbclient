@@ -1,8 +1,11 @@
 package com.repackage;
 
+import android.text.TextUtils;
+import android.util.Log;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.so.SoLoader;
-import com.baidu.swan.bdtls.BdtlsController;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.searchbox.http.callback.ResponseCallback;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,40 +13,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.j94;
+import okhttp3.Callback;
+import org.json.JSONObject;
+@Service
 /* loaded from: classes6.dex */
-public class fj3 {
+public class fj3 implements vj1 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile fj3 b;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-    public cj3 a;
-
-    /* loaded from: classes6.dex */
-    public static class a implements BdtlsController.a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // com.baidu.swan.bdtls.BdtlsController.a
-        public void loadLibrary(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                SoLoader.load(oj2.c(), str);
-            }
-        }
-    }
 
     static {
         InterceptResult invokeClinit;
@@ -58,8 +36,7 @@ public class fj3 {
                 return;
             }
         }
-        boolean z = cj3.a;
-        BdtlsController.a(new a());
+        a = sg1.a;
     }
 
     public fj3() {
@@ -72,68 +49,72 @@ public class fj3 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
-                return;
             }
         }
-        this.a = new cj3();
     }
 
-    public static fj3 b() {
-        InterceptResult invokeV;
+    @Override // com.repackage.vj1
+    public void d(byte[] bArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (b == null) {
-                synchronized (fj3.class) {
-                    if (b == null) {
-                        b = new fj3();
-                    }
-                }
-            }
-            return b;
-        }
-        return (fj3) invokeV.objValue;
-    }
-
-    public void a(String str, wj3 wj3Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, str, wj3Var) == null) {
-            ij3.l().p(str, wj3Var);
+        if (interceptable == null || interceptable.invokeL(1048576, this, bArr) == null) {
+            gj3.b().c(bArr);
         }
     }
 
-    public void c(byte[] bArr) {
+    @Override // com.repackage.vj1
+    public <T> void e(String str, String str2, ResponseCallback<T> responseCallback) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bArr) == null) {
-            BdtlsController.handleConfsk(bArr);
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, responseCallback) == null) {
+            new wj3().q(str, str2, responseCallback);
         }
     }
 
-    public boolean d() {
-        InterceptResult invokeV;
+    @Override // com.repackage.vj1
+    public void f(String str, String str2, j94.c cVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            cj3 cj3Var = this.a;
-            if (cj3Var == null) {
-                return false;
-            }
-            return cj3Var.a();
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, str, str2, cVar) == null) {
+            new vj3().k(str, str2, cVar);
         }
-        return invokeV.booleanValue;
     }
 
-    public boolean e(String str) {
+    @Override // com.repackage.vj1
+    public boolean g(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            cj3 cj3Var = this.a;
-            return cj3Var != null && cj3Var.b(str);
-        }
-        return invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) ? gj3.b().e(str) : invokeL.booleanValue;
     }
 
-    public void f(boolean z) {
+    @Override // com.repackage.vj1
+    public boolean h() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? gj3.b().d() : invokeV.booleanValue;
+    }
+
+    @Override // com.repackage.vj1
+    public boolean i(@NonNull i03 i03Var, @NonNull JSONObject jSONObject, @NonNull String str, @NonNull String str2, Callback callback, bf3<String> bf3Var) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{i03Var, jSONObject, str, str2, callback, bf3Var})) == null) {
+            JSONObject optJSONObject = jSONObject.optJSONObject("ext");
+            if (optJSONObject == null || !optJSONObject.optBoolean("enableBdtls", false)) {
+                return false;
+            }
+            String optString = optJSONObject.optString("serviceId");
+            if (TextUtils.isEmpty(optString)) {
+                if (a) {
+                    Log.d("BdtlsImpl", "onFailure: serviceId is invalid");
+                }
+                if (bf3Var != null) {
+                    bf3Var.a("serviceId is invalid");
+                    return true;
+                }
+                return true;
+            }
+            b73.D(str, i03Var.Y().G(), null, str2);
+            new yj3(i03Var, jSONObject, str2, callback).o(optString);
+            return true;
         }
+        return invokeCommon.booleanValue;
     }
 }

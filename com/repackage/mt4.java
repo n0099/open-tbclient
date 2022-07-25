@@ -1,35 +1,163 @@
 package com.repackage;
 
-import android.text.TextUtils;
-import com.baidu.adp.lib.stats.BdStatisticsManager;
-import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
+import android.app.Activity;
+import android.content.Context;
+import android.graphics.Point;
+import android.graphics.Rect;
+import android.graphics.drawable.ColorDrawable;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.ViewTreeObserver;
+import android.widget.PopupWindow;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class mt4 {
+public class mt4 extends PopupWindow {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public lt4 a;
+    public int b;
+    public int c;
+    public int d;
+    public View e;
+    public View f;
+    public Activity g;
 
-    public static void a(String str, long j, int i, String str2, int i2, String str3, Object... objArr) {
+    /* loaded from: classes6.dex */
+    public class a implements ViewTreeObserver.OnGlobalLayoutListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ mt4 a;
+
+        public a(mt4 mt4Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {mt4Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = mt4Var;
+        }
+
+        @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
+        public void onGlobalLayout() {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.a.e == null) {
+                return;
+            }
+            this.a.e();
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public mt4(Activity activity) {
+        super(activity);
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65536, null, new Object[]{str, Long.valueOf(j), Integer.valueOf(i), str2, Integer.valueOf(i2), str3, objArr}) == null) {
-            vg vgVar = new vg();
-            vgVar.c("cmd", Integer.valueOf(i));
-            if (!TextUtils.isEmpty(str2)) {
-                vgVar.b("action", str2);
-            }
-            vgVar.b("errNo", String.valueOf(i2));
-            if (!TextUtils.isEmpty(str3) && i2 != 0) {
-                vgVar.b(StatConstants.KEY_EXT_ERR_MSG, str3);
-            }
-            if (objArr != null && objArr.length > 0) {
-                vgVar.c(objArr);
-            }
-            if (i2 == 0) {
-                BdStatisticsManager.getInstance().debug(str, j, null, vgVar);
-            } else {
-                BdStatisticsManager.getInstance().error(str, j, (String) null, vgVar);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {activity};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.g = activity;
+        View inflate = ((LayoutInflater) activity.getSystemService("layout_inflater")).inflate(R.layout.obfuscated_res_0x7f0d03f6, (ViewGroup) null, false);
+        this.e = inflate;
+        setContentView(inflate);
+        setSoftInputMode(21);
+        setInputMethodMode(1);
+        this.f = activity.findViewById(16908290);
+        setWidth(0);
+        setHeight(-1);
+        this.e.getViewTreeObserver().addOnGlobalLayoutListener(new a(this));
+    }
+
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.a = null;
+            dismiss();
+        }
+    }
+
+    public final int d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.g.getResources().getConfiguration().orientation : invokeV.intValue;
+    }
+
+    public final void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            Point point = new Point();
+            this.g.getWindowManager().getDefaultDisplay().getSize(point);
+            Rect rect = new Rect();
+            this.e.getWindowVisibleDisplayFrame(rect);
+            int d = d();
+            int i = point.y - rect.bottom;
+            if (i == 0) {
+                f(0, d);
+            } else if (d == 1) {
+                this.d = i;
+                f(i, d);
+            } else {
+                this.c = i;
+                f(i, d);
+            }
+        }
+    }
+
+    public final void f(int i, int i2) {
+        int i3;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048579, this, i, i2) == null) {
+            if (i <= 0) {
+                this.b = i;
+                i3 = 0;
+            } else {
+                i3 = i - this.b;
+            }
+            lt4 lt4Var = this.a;
+            if (lt4Var != null) {
+                lt4Var.onKeyboardHeightChanged(i3, i2);
+            }
+        }
+    }
+
+    public void g(lt4 lt4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, lt4Var) == null) {
+            this.a = lt4Var;
+        }
+    }
+
+    public void h() {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || isShowing() || this.f.getWindowToken() == null) {
+            return;
+        }
+        setBackgroundDrawable(new ColorDrawable(0));
+        showAtLocation(this.f, 0, 0, 0);
     }
 }

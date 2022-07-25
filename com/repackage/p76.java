@@ -41,7 +41,7 @@ public class p76 {
     public TBSpecificationBtn h;
     public String i;
     public String j;
-    public cq4 k;
+    public dq4 k;
     public LikeModel l;
     public yh8 m;
     public boolean n;
@@ -151,7 +151,7 @@ public class p76 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
                 if (this.a.l.getErrorCode() == 22) {
-                    pi.O(this.a.a.getPageActivity(), this.a.a.getString(R.string.obfuscated_res_0x7f0f0819));
+                    pi.O(this.a.a.getPageActivity(), this.a.a.getString(R.string.obfuscated_res_0x7f0f0815));
                 } else if (obj == null) {
                 } else {
                     if (this.a.l.getErrorCode() != 0) {
@@ -201,7 +201,7 @@ public class p76 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, j) == null) {
                 this.a.n(false);
-                pi.O(this.a.a.getPageActivity(), this.a.a.getString(R.string.obfuscated_res_0x7f0f14a9));
+                pi.O(this.a.a.getPageActivity(), this.a.a.getString(R.string.obfuscated_res_0x7f0f1458));
             }
         }
     }
@@ -223,39 +223,39 @@ public class p76 {
         }
         this.a = tbPageContext;
         this.i = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02a7);
-        this.j = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f13e5);
-        View inflate = tbPageContext.getPageActivity().getLayoutInflater().inflate(R.layout.obfuscated_res_0x7f0d0727, (ViewGroup) null);
+        this.j = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1394);
+        View inflate = tbPageContext.getPageActivity().getLayoutInflater().inflate(R.layout.obfuscated_res_0x7f0d0731, (ViewGroup) null);
         this.b = inflate;
         this.c = (BarImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090313);
         this.d = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090320);
-        this.e = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090754);
-        this.f = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0909e3);
-        this.g = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f09208e);
-        this.h = (TBSpecificationBtn) this.b.findViewById(R.id.obfuscated_res_0x7f090a32);
+        this.e = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090753);
+        this.f = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0909dc);
+        this.g = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f092092);
+        this.h = (TBSpecificationBtn) this.b.findViewById(R.id.obfuscated_res_0x7f090a2b);
         this.b.setOnClickListener(new a(this));
         this.h.setOnClickListener(new b(this));
     }
 
-    public void g(cq4 cq4Var) {
+    public void g(dq4 dq4Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, cq4Var) == null) || cq4Var == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, dq4Var) == null) || dq4Var == null) {
             return;
         }
-        this.k = cq4Var;
+        this.k = dq4Var;
         this.c.setShowOval(true);
         this.c.setShowOuterBorder(false);
         this.c.setShowInnerBorder(true);
         this.c.setStrokeWith(pi.f(TbadkCoreApplication.getInst(), R.dimen.tbds1));
         this.c.setStrokeColorResId(R.color.CAM_X0401);
-        this.c.J(cq4Var.g(), 10, false);
-        String k = cq4Var.k();
+        this.c.J(dq4Var.g(), 10, false);
+        String k = dq4Var.k();
         if (oi.isEmpty(k)) {
             k = "";
         }
         this.d.setText(k);
-        this.f.setText(this.i + " " + StringHelper.numFormatOverWanWithoutDecimals(cq4Var.m()));
-        this.g.setText(this.j + " " + StringHelper.numFormatOverWanWithoutDecimals((long) cq4Var.o()));
-        String recomReason = cq4Var.getRecomReason();
+        this.f.setText(this.i + " " + StringHelper.numFormatOverWanWithoutDecimals(dq4Var.m()));
+        this.g.setText(this.j + " " + StringHelper.numFormatOverWanWithoutDecimals((long) dq4Var.o()));
+        String recomReason = dq4Var.getRecomReason();
         if (oi.isEmpty(recomReason)) {
             if (this.e.getVisibility() != 8) {
                 this.e.setVisibility(8);
@@ -282,11 +282,11 @@ public class p76 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             if (!pi.D()) {
-                UtilHelper.showToast(this.a.getPageActivity(), this.a.getString(R.string.obfuscated_res_0x7f0f0c2b));
+                UtilHelper.showToast(this.a.getPageActivity(), this.a.getString(R.string.obfuscated_res_0x7f0f0c17));
                 return;
             }
-            cq4 cq4Var = this.k;
-            if (cq4Var == null || StringUtils.isNull(cq4Var.k()) || this.k.i() <= 0) {
+            dq4 dq4Var = this.k;
+            if (dq4Var == null || StringUtils.isNull(dq4Var.k()) || this.k.i() <= 0) {
                 return;
             }
             if (!ViewHelper.checkUpIsLogin(this.a.getPageActivity())) {
@@ -308,11 +308,11 @@ public class p76 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             if (!pi.D()) {
-                UtilHelper.showToast(this.a.getPageActivity(), this.a.getString(R.string.obfuscated_res_0x7f0f0c2b));
+                UtilHelper.showToast(this.a.getPageActivity(), this.a.getString(R.string.obfuscated_res_0x7f0f0c17));
                 return;
             }
-            cq4 cq4Var = this.k;
-            if (cq4Var == null || StringUtils.isNull(cq4Var.k()) || this.k.i() <= 0) {
+            dq4 dq4Var = this.k;
+            if (dq4Var == null || StringUtils.isNull(dq4Var.k()) || this.k.i() <= 0) {
                 return;
             }
             if (!ViewHelper.checkUpIsLogin(this.a.getPageActivity())) {
@@ -328,12 +328,12 @@ public class p76 {
     }
 
     public final void j() {
-        cq4 cq4Var;
+        dq4 dq4Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (cq4Var = this.k) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (dq4Var = this.k) == null) {
             return;
         }
-        String k = cq4Var.k();
+        String k = dq4Var.k();
         if (oi.isForumName(k)) {
             this.a.sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.a.getPageActivity()).createNormalCfg(k, FrsActivityConfig.FRS_FROM_ENTERFORUM_RECOMMEND).setCallFrom(3)));
             StatisticItem statisticItem = new StatisticItem("c13643");
@@ -372,15 +372,15 @@ public class p76 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
             if (!z) {
-                uu4 uu4Var = new uu4();
-                uu4Var.r(R.color.CAM_X0302);
-                this.h.setConfig(uu4Var);
+                vu4 vu4Var = new vu4();
+                vu4Var.r(R.color.CAM_X0302);
+                this.h.setConfig(vu4Var);
                 this.h.setText(this.i);
             } else {
-                uu4 uu4Var2 = new uu4();
-                uu4Var2.t(R.color.CAM_X0109);
-                this.h.setConfig(uu4Var2);
-                this.h.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0f9e));
+                vu4 vu4Var2 = new vu4();
+                vu4Var2.t(R.color.CAM_X0109);
+                this.h.setConfig(vu4Var2);
+                this.h.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0f87));
             }
             this.k.u(z);
         }

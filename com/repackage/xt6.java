@@ -66,7 +66,7 @@ public class xt6 extends an<xy5, ThreadCardViewHolder<xy5>> implements ck5 {
                 if (gnVar.c() instanceof xy5) {
                     xy5Var = (xy5) gnVar.c();
                     if (xy5Var == null) {
-                        ((a65) ServiceManager.getService(a65.a.a())).a(this.a.j, xy5Var.b0());
+                        ((b65) ServiceManager.getService(b65.a.a())).a(this.a.j, xy5Var.b0());
                         return;
                     }
                     return;
@@ -111,7 +111,7 @@ public class xt6 extends an<xy5, ThreadCardViewHolder<xy5>> implements ck5 {
             bVar.n(new ly(this.j, this.i));
             bVar.l().h(0);
             ThreadCardViewHolder<xy5> threadCardViewHolder = new ThreadCardViewHolder<>(bVar.k(BaseCardInfo.SupportType.CONTENT, viewGroup, this.l));
-            threadCardViewHolder.k(this.i);
+            threadCardViewHolder.j(this.i);
             V(new a(this));
             return threadCardViewHolder;
         }
@@ -140,12 +140,12 @@ public class xt6 extends an<xy5, ThreadCardViewHolder<xy5>> implements ck5 {
             if (threadCardViewHolder == null) {
                 return null;
             }
-            threadCardViewHolder.c().q(i);
-            threadCardViewHolder.c().b(this.k);
+            threadCardViewHolder.b().q(i);
+            threadCardViewHolder.b().b(this.k);
             xy5Var.setSupportType(BaseCardInfo.SupportType.CONTENT);
-            threadCardViewHolder.g(xy5Var);
-            threadCardViewHolder.c().onChangeSkinType(this.j, TbadkCoreApplication.getInst().getSkinType());
-            return threadCardViewHolder.b();
+            threadCardViewHolder.f(xy5Var);
+            threadCardViewHolder.b().onChangeSkinType(this.j, TbadkCoreApplication.getInst().getSkinType());
+            return threadCardViewHolder.a();
         }
         return (View) invokeCommon.objValue;
     }

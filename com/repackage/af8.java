@@ -16,7 +16,7 @@ public class af8 {
             StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.WINDOW_CLICK);
             statisticItem.param("obj_source", str);
             statisticItem.param("obj_type", str2);
-            statisticItem.param("obj_locate", is4.f() >= 1 ? 2 : 1);
+            statisticItem.param("obj_locate", js4.f() >= 1 ? 2 : 1);
             TiebaStatic.log(statisticItem);
         }
     }
@@ -26,7 +26,7 @@ public class af8 {
         if (interceptable == null || interceptable.invokeL(65537, null, str) == null) {
             StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.WINDOW_EXPOSURE);
             statisticItem.param("obj_type", str);
-            statisticItem.param("obj_locate", is4.f() >= 1 ? 2 : 1);
+            statisticItem.param("obj_locate", js4.f() >= 1 ? 2 : 1);
             TiebaStatic.log(statisticItem);
         }
     }

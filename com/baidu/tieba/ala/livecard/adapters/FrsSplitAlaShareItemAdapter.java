@@ -22,9 +22,9 @@ import com.repackage.cd6;
 import com.repackage.ck5;
 import com.repackage.hy5;
 import com.repackage.jy5;
-import com.repackage.qq4;
+import com.repackage.rq4;
 /* loaded from: classes3.dex */
-public class FrsSplitAlaShareItemAdapter extends cd6<qq4, FrsPageAlaShareHolder> implements hy5, ck5 {
+public class FrsSplitAlaShareItemAdapter extends cd6<rq4, FrsPageAlaShareHolder> implements hy5, ck5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String t;
@@ -91,10 +91,10 @@ public class FrsSplitAlaShareItemAdapter extends cd6<qq4, FrsPageAlaShareHolder>
             CustomMessage customMessage;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, threadData) == null) {
-                if (view2.getId() == R.id.obfuscated_res_0x7f091251) {
+                if (view2.getId() == R.id.obfuscated_res_0x7f09122d) {
                     customMessage = new CustomMessage(2921018);
                 } else if (view2.getId() != R.id.obfuscated_res_0x7f090524 && view2.getId() != R.id.obfuscated_res_0x7f090520) {
-                    customMessage = view2.getId() == R.id.obfuscated_res_0x7f09238b ? new CustomMessage(2921019) : null;
+                    customMessage = view2.getId() == R.id.obfuscated_res_0x7f09238d ? new CustomMessage(2921019) : null;
                 } else {
                     customMessage = new CustomMessage(2921016);
                 }
@@ -169,18 +169,18 @@ public class FrsSplitAlaShareItemAdapter extends cd6<qq4, FrsPageAlaShareHolder>
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.repackage.cd6, com.repackage.an
     /* renamed from: o0 */
-    public View S(int i, View view2, ViewGroup viewGroup, qq4 qq4Var, FrsPageAlaShareHolder frsPageAlaShareHolder) {
+    public View S(int i, View view2, ViewGroup viewGroup, rq4 rq4Var, FrsPageAlaShareHolder frsPageAlaShareHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i), view2, viewGroup, qq4Var, frsPageAlaShareHolder})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i), view2, viewGroup, rq4Var, frsPageAlaShareHolder})) == null) {
             CustomMessage customMessage = new CustomMessage(2921017);
             FrsViewData frsViewData = this.j;
             int topThreadSize = frsViewData != null ? frsViewData.getTopThreadSize() : 0;
-            ThreadData threadData = qq4Var.s;
-            threadData.statFloor = (qq4Var.position + 1) - topThreadSize;
+            ThreadData threadData = rq4Var.s;
+            threadData.statFloor = (rq4Var.position + 1) - topThreadSize;
             customMessage.setData(threadData);
             this.k.sendMessage(customMessage);
-            if (qq4Var != null) {
+            if (rq4Var != null) {
                 au5 au5Var = frsPageAlaShareHolder.a;
                 if (au5Var instanceof bk5) {
                     au5Var.b(this.v);
@@ -188,10 +188,10 @@ public class FrsSplitAlaShareItemAdapter extends cd6<qq4, FrsPageAlaShareHolder>
                 frsPageAlaShareHolder.a.a(this.t);
                 bd6.j(frsPageAlaShareHolder.a.M(), this.j);
                 bd6.j(frsPageAlaShareHolder.a.O(), this.j);
-                frsPageAlaShareHolder.a.i(qq4Var.s);
-                qq4Var.s.updateShowStatus();
+                frsPageAlaShareHolder.a.i(rq4Var.s);
+                rq4Var.s.updateShowStatus();
             }
-            return frsPageAlaShareHolder.b();
+            return frsPageAlaShareHolder.a();
         }
         return (View) invokeCommon.objValue;
     }

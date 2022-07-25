@@ -13,10 +13,6 @@ public final class i {
         return "appstatus_strategy_pref_" + name;
     }
 
-    public static List<AppStatusRules.Strategy> a(@Nullable AppStatusRules appStatusRules) {
-        return appStatusRules == null ? new ArrayList() : appStatusRules.obtainNamedStrategyList();
-    }
-
     public static void a(Context context, AppStatusRules.Strategy strategy, long j) {
         if (context == null || strategy == null) {
             return;
@@ -37,8 +33,12 @@ public final class i {
         return minLaunchIntervalWithMS <= 0 || j + minLaunchIntervalWithMS < currentTimeMillis;
     }
 
+    public static List<AppStatusRules.Strategy> c(@Nullable AppStatusRules appStatusRules) {
+        return appStatusRules == null ? new ArrayList() : appStatusRules.obtainNamedStrategyList();
+    }
+
     @NonNull
-    public static AppStatusRules.Strategy b(@Nullable AppStatusRules appStatusRules) {
+    public static AppStatusRules.Strategy d(@Nullable AppStatusRules appStatusRules) {
         return appStatusRules == null ? AppStatusRules.Strategy.LOCAL_DEFAULT : appStatusRules.obtainDefaultStrategy();
     }
 }

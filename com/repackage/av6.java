@@ -137,8 +137,8 @@ public class av6 {
                 if (this.a.j != null) {
                     this.a.j.a(cv6Var);
                 }
-                xt4.k().w("key_game_video_tab_has_choosed_sub_class_id", cv6Var.a);
-                xt4.k().y("key_game_video_tab_has_choosed_sub_class_name", cv6Var.b);
+                yt4.k().w("key_game_video_tab_has_choosed_sub_class_id", cv6Var.a);
+                yt4.k().y("key_game_video_tab_has_choosed_sub_class_name", cv6Var.b);
                 this.a.f();
                 TiebaStatic.log(new StatisticItem("c13489").param("obj_type", cv6Var.a));
             }
@@ -303,11 +303,11 @@ public class av6 {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             View inflate = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0372, (ViewGroup) null);
             this.b = inflate;
-            this.f = (RelativeLayout) inflate.findViewById(R.id.obfuscated_res_0x7f090ddf);
-            this.g = (RelativeLayout) this.b.findViewById(R.id.obfuscated_res_0x7f090ddd);
-            this.h = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f090ddb);
-            this.i = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090ddc);
-            GameVideoGridView gameVideoGridView = (GameVideoGridView) this.b.findViewById(R.id.obfuscated_res_0x7f090dde);
+            this.f = (RelativeLayout) inflate.findViewById(R.id.obfuscated_res_0x7f090dd8);
+            this.g = (RelativeLayout) this.b.findViewById(R.id.obfuscated_res_0x7f090dd6);
+            this.h = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f090dd4);
+            this.i = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090dd5);
+            GameVideoGridView gameVideoGridView = (GameVideoGridView) this.b.findViewById(R.id.obfuscated_res_0x7f090dd7);
             this.d = gameVideoGridView;
             gameVideoGridView.setMaxHeight(pi.k(this.a.getPageActivity()));
             this.d.setNumColumns(4);

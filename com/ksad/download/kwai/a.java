@@ -6,29 +6,15 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.ksad.download.DownloadTask;
 import com.kwad.sdk.api.proxy.app.DownloadService;
-import com.kwad.sdk.core.d.b;
+import com.kwad.sdk.core.e.b;
 /* loaded from: classes5.dex */
 public final class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(Context context, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65536, null, context, str) == null) {
-            b.a("DownloadClient", "pauseDownload");
-            try {
-                Intent intent = new Intent(context, DownloadService.class);
-                intent.putExtra("download_service_type_tag", 2);
-                intent.putExtra("download_service_id_tag", str);
-                context.startService(intent);
-            } catch (Exception unused) {
-            }
-        }
-    }
-
     public static void a(Context context, String str, DownloadTask.DownloadRequest downloadRequest) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65537, null, context, str, downloadRequest) == null) {
+        if (interceptable == null || interceptable.invokeLLL(65536, null, context, str, downloadRequest) == null) {
             try {
                 Intent intent = new Intent(context, DownloadService.class);
                 intent.putExtra("download_service_type_tag", 1);
@@ -41,10 +27,24 @@ public final class a {
         }
     }
 
-    public static void b(Context context, String str) {
+    public static void e(Context context, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65537, null, context, str) == null) {
+            b.d("DownloadClient", "pauseDownload");
+            try {
+                Intent intent = new Intent(context, DownloadService.class);
+                intent.putExtra("download_service_type_tag", 2);
+                intent.putExtra("download_service_id_tag", str);
+                context.startService(intent);
+            } catch (Exception unused) {
+            }
+        }
+    }
+
+    public static void f(Context context, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65538, null, context, str) == null) {
-            b.a("DownloadClient", "cancelDownload");
+            b.d("DownloadClient", "cancelDownload");
             try {
                 Intent intent = new Intent(context, DownloadService.class);
                 intent.putExtra("download_service_type_tag", 4);

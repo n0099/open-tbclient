@@ -39,8 +39,8 @@ public class PbLandscapeListView extends BdTypeListView {
     public zh5 U;
     public boolean V;
     public boolean W;
-    public boolean g0;
-    public qn h0;
+    public boolean a0;
+    public qn b0;
 
     /* loaded from: classes3.dex */
     public class a implements Handler.Callback {
@@ -193,11 +193,11 @@ public class PbLandscapeListView extends BdTypeListView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, canvas) == null) {
             super.dispatchDraw(canvas);
-            if (!this.W || this.g0) {
+            if (!this.W || this.a0) {
                 return;
             }
-            this.g0 = true;
-            qn qnVar = this.h0;
+            this.a0 = true;
+            qn qnVar = this.b0;
             if (qnVar != null) {
                 qnVar.a();
             }

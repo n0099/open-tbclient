@@ -172,8 +172,8 @@ public class ScrollHorizontalTabView extends MyHorizontalScrollView {
                 }
             }
             this.this$0 = scrollHorizontalTabView;
-            this.title = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092246);
-            this.icon = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092242);
+            this.title = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092248);
+            this.icon = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092244);
         }
     }
 
@@ -197,7 +197,7 @@ public class ScrollHorizontalTabView extends MyHorizontalScrollView {
         }
         this.mTabDataList = new ArrayList();
         this.mTabItemView = new ArrayList();
-        this.mIndicatorHeight = pi.f(TbadkCoreApplication.getInst(), R.dimen.obfuscated_res_0x7f0702d3);
+        this.mIndicatorHeight = pi.f(TbadkCoreApplication.getInst(), R.dimen.obfuscated_res_0x7f0702d1);
         this.mIndicatorWidth = pi.f(TbadkCoreApplication.getInst(), R.dimen.obfuscated_res_0x7f070258);
         this.mIsClicked = false;
         this.mCurrentTabIndex = 0;
@@ -342,7 +342,7 @@ public class ScrollHorizontalTabView extends MyHorizontalScrollView {
             getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070207);
             if (size > size2) {
                 while (size2 < size) {
-                    View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0746, (ViewGroup) null, false);
+                    View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0750, (ViewGroup) null, false);
                     inflate.setOnClickListener(this.mOnItemClickListener);
                     TextView textView = new ViewHolder(this, inflate).title;
                     if (textView != null) {
@@ -515,7 +515,7 @@ public class ScrollHorizontalTabView extends MyHorizontalScrollView {
                 int[] iArr = new int[2];
                 ((View) ListUtils.getItem(this.mTabItemView, i)).getLocationOnScreen(iArr);
                 int k = pi.k(getContext()) - iArr[0];
-                int dimensionPixelSize = getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070255);
+                int dimensionPixelSize = getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070252);
                 if (iArr[0] < 0) {
                     post(new Runnable(this, dimensionPixelSize) { // from class: com.baidu.ala.view.ScrollHorizontalTabView.3
                         public static /* synthetic */ Interceptable $ic;
@@ -579,7 +579,7 @@ public class ScrollHorizontalTabView extends MyHorizontalScrollView {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                                 ScrollHorizontalTabView scrollHorizontalTabView = this.this$0;
-                                scrollHorizontalTabView.scrollBy(scrollHorizontalTabView.getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070255), 0);
+                                scrollHorizontalTabView.scrollBy(scrollHorizontalTabView.getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070252), 0);
                             }
                         }
                     });
@@ -624,7 +624,7 @@ public class ScrollHorizontalTabView extends MyHorizontalScrollView {
         }
         this.mTabDataList = new ArrayList();
         this.mTabItemView = new ArrayList();
-        this.mIndicatorHeight = pi.f(TbadkCoreApplication.getInst(), R.dimen.obfuscated_res_0x7f0702d3);
+        this.mIndicatorHeight = pi.f(TbadkCoreApplication.getInst(), R.dimen.obfuscated_res_0x7f0702d1);
         this.mIndicatorWidth = pi.f(TbadkCoreApplication.getInst(), R.dimen.obfuscated_res_0x7f070258);
         this.mIsClicked = false;
         this.mCurrentTabIndex = 0;
@@ -707,7 +707,7 @@ public class ScrollHorizontalTabView extends MyHorizontalScrollView {
         }
         this.mTabDataList = new ArrayList();
         this.mTabItemView = new ArrayList();
-        this.mIndicatorHeight = pi.f(TbadkCoreApplication.getInst(), R.dimen.obfuscated_res_0x7f0702d3);
+        this.mIndicatorHeight = pi.f(TbadkCoreApplication.getInst(), R.dimen.obfuscated_res_0x7f0702d1);
         this.mIndicatorWidth = pi.f(TbadkCoreApplication.getInst(), R.dimen.obfuscated_res_0x7f070258);
         this.mIsClicked = false;
         this.mCurrentTabIndex = 0;

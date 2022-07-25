@@ -8,7 +8,6 @@ import android.provider.Settings;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobstat.Config;
-import com.baidu.sofire.utility.LocalConstant;
 import com.baidu.tbadk.core.util.httpNet.HttpRequest;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -575,7 +574,7 @@ public final class co9 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
             try {
-                return c.a(UUID.randomUUID().toString() + System.currentTimeMillis() + System.nanoTime() + new Random().nextInt(LocalConstant.NEXTSUFFIX));
+                return c.a(UUID.randomUUID().toString() + System.currentTimeMillis() + System.nanoTime() + new Random().nextInt(10000000));
             } catch (Exception unused) {
                 return UUID.randomUUID().toString().replace("-", "");
             }

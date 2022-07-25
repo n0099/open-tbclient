@@ -15,10 +15,10 @@ public final class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
-    public volatile int f810a;
+    public volatile int f90a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final byte[] f811a;
+    public final byte[] f91a;
 
     static {
         InterceptResult invokeClinit;
@@ -51,8 +51,8 @@ public final class a {
                 return;
             }
         }
-        this.f810a = 0;
-        this.f811a = bArr;
+        this.f90a = 0;
+        this.f91a = bArr;
     }
 
     public static a a(byte[] bArr) {
@@ -75,15 +75,15 @@ public final class a {
     public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f811a.length : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f91a.length : invokeV.intValue;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public byte[] m1098a() {
+    public byte[] m160a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            byte[] bArr = this.f811a;
+            byte[] bArr = this.f91a;
             int length = bArr.length;
             byte[] bArr2 = new byte[length];
             System.arraycopy(bArr, 0, bArr2, 0, length);
@@ -100,9 +100,9 @@ public final class a {
                 return true;
             }
             if (obj instanceof a) {
-                byte[] bArr = this.f811a;
+                byte[] bArr = this.f91a;
                 int length = bArr.length;
-                byte[] bArr2 = ((a) obj).f811a;
+                byte[] bArr2 = ((a) obj).f91a;
                 if (length != bArr2.length) {
                     return false;
                 }
@@ -122,15 +122,15 @@ public final class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            int i = this.f810a;
+            int i = this.f90a;
             if (i == 0) {
-                byte[] bArr = this.f811a;
+                byte[] bArr = this.f91a;
                 int length = bArr.length;
                 for (byte b : bArr) {
                     length = (length * 31) + b;
                 }
                 i = length == 0 ? 1 : length;
-                this.f810a = i;
+                this.f90a = i;
             }
             return i;
         }

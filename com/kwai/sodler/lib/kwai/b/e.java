@@ -16,10 +16,10 @@ import com.kwad.sdk.utils.q;
 public final class e extends ContextWrapper implements b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Context a;
-    public Resources.Theme b;
-    public int c;
-    public String d;
+    public Resources.Theme axQ;
+    public int axR;
+    public String axS;
+    public final Context mContext;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public e(Context context, String str) {
@@ -39,52 +39,52 @@ public final class e extends ContextWrapper implements b {
                 return;
             }
         }
-        this.c = -1;
-        this.a = context;
-        this.d = str;
-        this.c = ((Integer) q.a((Object) context, "getThemeResId", new Object[0])).intValue();
-    }
-
-    @Override // com.kwai.sodler.lib.kwai.b.b
-    public final Context a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (Context) invokeV.objValue;
+        this.axR = -1;
+        this.mContext = context;
+        this.axS = str;
+        this.axR = ((Integer) q.a((Object) context, "getThemeResId", new Object[0])).intValue();
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
     public final Context getApplicationContext() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? a.a(super.getApplicationContext(), this.d) : (Context) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? a.ae(super.getApplicationContext(), this.axS) : (Context) invokeV.objValue;
     }
 
     @Override // android.content.ContextWrapper
     public final Context getBaseContext() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : (Context) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mContext : (Context) invokeV.objValue;
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
     public final ClassLoader getClassLoader() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? a.a(super.getClassLoader(), this.d) : (ClassLoader) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? a.b(super.getClassLoader(), this.axS) : (ClassLoader) invokeV.objValue;
+    }
+
+    @Override // com.kwai.sodler.lib.kwai.b.b
+    public final Context getDelegatedContext() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mContext : (Context) invokeV.objValue;
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
     public final Resources getResources() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? a.a(super.getResources(), this.d) : (Resources) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? a.a(super.getResources(), this.axS) : (Resources) invokeV.objValue;
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
     public final Object getSystemService(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) ? a.a(super.getSystemService(str), str, this) : invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) ? a.wrapSystemService(super.getSystemService(str), str, this) : invokeL.objValue;
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
@@ -99,11 +99,11 @@ public final class e extends ContextWrapper implements b {
                 e.printStackTrace();
                 theme = null;
             }
-            Resources.Theme theme2 = this.b;
+            Resources.Theme theme2 = this.axQ;
             if (theme2 == null || theme2 == theme) {
-                this.b = a.a(theme, this.b, this.c, this.d);
+                this.axQ = a.a(theme, this.axQ, this.axR, this.axS);
             }
-            return this.b;
+            return this.axQ;
         }
         return (Resources.Theme) invokeV.objValue;
     }
@@ -112,7 +112,7 @@ public final class e extends ContextWrapper implements b {
     public final void registerComponentCallbacks(ComponentCallbacks componentCallbacks) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, componentCallbacks) == null) {
-            this.a.registerComponentCallbacks(componentCallbacks);
+            this.mContext.registerComponentCallbacks(componentCallbacks);
         }
     }
 
@@ -120,7 +120,7 @@ public final class e extends ContextWrapper implements b {
     public final void setTheme(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
-            this.c = i;
+            this.axR = i;
             super.setTheme(i);
         }
     }
@@ -129,7 +129,7 @@ public final class e extends ContextWrapper implements b {
     public final void unregisterComponentCallbacks(ComponentCallbacks componentCallbacks) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, componentCallbacks) == null) {
-            this.a.unregisterComponentCallbacks(componentCallbacks);
+            this.mContext.unregisterComponentCallbacks(componentCallbacks);
         }
     }
 }

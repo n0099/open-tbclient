@@ -29,7 +29,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.fj4;
+import com.repackage.gj4;
 import java.util.Date;
 /* loaded from: classes5.dex */
 public class ag6 implements hx {
@@ -42,14 +42,14 @@ public class ag6 implements hx {
     public RoundLinearLayout e;
     public RoundRelativeLayout f;
     public TextView g;
-    public cr4 h;
+    public dr4 h;
     public yg8 i;
     public ForumData j;
     public View k;
     public LinearLayout l;
     public TBLottieAnimationView m;
-    public fj4 n;
-    public fj4.b o;
+    public gj4 n;
+    public gj4.b o;
     public View.OnClickListener p;
 
     /* loaded from: classes5.dex */
@@ -83,7 +83,7 @@ public class ag6 implements hx {
     }
 
     /* loaded from: classes5.dex */
-    public class b implements fj4.b {
+    public class b implements gj4.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ag6 a;
@@ -106,7 +106,7 @@ public class ag6 implements hx {
             this.a = ag6Var;
         }
 
-        @Override // com.repackage.fj4.b
+        @Override // com.repackage.gj4.b
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -192,9 +192,9 @@ public class ag6 implements hx {
         httpMessage.addParam("id", this.i.c());
         MessageManager.getInstance().sendMessage(httpMessage);
         this.h.dismiss();
-        fj4 fj4Var = this.n;
-        if (fj4Var != null) {
-            fj4Var.c();
+        gj4 gj4Var = this.n;
+        if (gj4Var != null) {
+            gj4Var.c();
         }
         FrsFragment.k2 = true;
         hp6.a("common_click", this.i, this.j, 1, null);
@@ -203,26 +203,26 @@ public class ag6 implements hx {
     public final void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            fj4 fj4Var = new fj4(this.a.getPageActivity().getBaseContext(), this.o);
-            this.n = fj4Var;
-            fj4Var.k(1.5d);
+            gj4 gj4Var = new gj4(this.a.getPageActivity().getBaseContext(), this.o);
+            this.n = gj4Var;
+            gj4Var.k(1.5d);
             this.n.j(2.5d);
             this.n.f();
             View inflate = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0343, (ViewGroup) null);
             this.b = inflate;
-            this.g = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090bf0);
-            RoundRelativeLayout roundRelativeLayout = (RoundRelativeLayout) this.b.findViewById(R.id.obfuscated_res_0x7f091b7d);
+            this.g = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090be9);
+            RoundRelativeLayout roundRelativeLayout = (RoundRelativeLayout) this.b.findViewById(R.id.obfuscated_res_0x7f091b57);
             this.f = roundRelativeLayout;
             roundRelativeLayout.setRoundCount(8);
-            this.k = this.b.findViewById(R.id.obfuscated_res_0x7f091419);
-            LinearLayout linearLayout = (LinearLayout) this.b.findViewById(R.id.obfuscated_res_0x7f091d76);
+            this.k = this.b.findViewById(R.id.obfuscated_res_0x7f0913f5);
+            LinearLayout linearLayout = (LinearLayout) this.b.findViewById(R.id.obfuscated_res_0x7f091d7c);
             this.l = linearLayout;
             linearLayout.setOnClickListener(this.p);
-            TBLottieAnimationView tBLottieAnimationView = (TBLottieAnimationView) this.b.findViewById(R.id.obfuscated_res_0x7f0913b2);
+            TBLottieAnimationView tBLottieAnimationView = (TBLottieAnimationView) this.b.findViewById(R.id.obfuscated_res_0x7f09138e);
             this.m = tBLottieAnimationView;
             tBLottieAnimationView.setAnimation(R.raw.obfuscated_res_0x7f11000f);
             this.m.setFrame(2);
-            TbImageView tbImageView = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f090a94);
+            TbImageView tbImageView = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f090a8d);
             this.c = tbImageView;
             tbImageView.setOnClickListener(this.p);
             this.c.setPlaceHolder(2);
@@ -232,7 +232,7 @@ public class ag6 implements hx {
             layoutParams.height = (int) (k * 1.3333333333333333d);
             this.c.setLayoutParams(layoutParams);
             this.k.setLayoutParams(layoutParams);
-            TextView textView = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090a92);
+            TextView textView = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090a8b);
             this.d = textView;
             textView.setOnClickListener(this.p);
             yg8 yg8Var = this.i;
@@ -248,11 +248,11 @@ public class ag6 implements hx {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             View inflate = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d02fa, (ViewGroup) null);
             this.b = inflate;
-            this.g = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090bf0);
-            RoundLinearLayout roundLinearLayout = (RoundLinearLayout) this.b.findViewById(R.id.obfuscated_res_0x7f091b7d);
+            this.g = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090be9);
+            RoundLinearLayout roundLinearLayout = (RoundLinearLayout) this.b.findViewById(R.id.obfuscated_res_0x7f091b57);
             this.e = roundLinearLayout;
             roundLinearLayout.setRoundCount(8);
-            TbImageView tbImageView = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f090a94);
+            TbImageView tbImageView = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f090a8d);
             this.c = tbImageView;
             tbImageView.setOnClickListener(this.p);
             LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.c.getLayoutParams();
@@ -260,7 +260,7 @@ public class ag6 implements hx {
             layoutParams.width = k;
             layoutParams.height = (int) (k * 1.3306452f);
             this.c.setLayoutParams(layoutParams);
-            TextView textView = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090a92);
+            TextView textView = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090a8b);
             this.d = textView;
             textView.setOnClickListener(this.p);
             yg8 yg8Var = this.i;
@@ -280,9 +280,9 @@ public class ag6 implements hx {
             this.j = dh8Var.getForum();
             this.i = dh8Var.getBusinessPromot();
             String str = "key_frs_dialog_ad_last_show_time" + dh8Var.getForum().getId();
-            long m = xt4.k().m(str, 0L);
+            long m = yt4.k().m(str, 0L);
             if (m < 0 || !TimeHelper.isSameDay(new Date(m), new Date(System.currentTimeMillis()))) {
-                xt4.k().x(str, System.currentTimeMillis());
+                yt4.k().x(str, System.currentTimeMillis());
                 k();
                 return true;
             }
@@ -300,9 +300,9 @@ public class ag6 implements hx {
             } else {
                 i();
             }
-            cr4 cr4Var = new cr4(this.a.getPageActivity());
-            this.h = cr4Var;
-            cr4Var.setCancelable(true);
+            dr4 dr4Var = new dr4(this.a.getPageActivity());
+            this.h = dr4Var;
+            dr4Var.setCancelable(true);
             this.h.setCanceledOnTouchOutside(true);
             this.h.setOnDismissListener(new a(this));
             this.h.create(this.a).show();
@@ -321,10 +321,10 @@ public class ag6 implements hx {
             }
             yg8 yg8Var2 = this.i;
             if (yg8Var2 != null && yg8Var2.f()) {
-                ur4 d = ur4.d(this.g);
+                vr4 d = vr4.d(this.g);
                 d.n(R.string.J_X01);
                 d.f(R.color.CAM_X0602);
-                ur4.d(this.g).v(R.color.CAM_X0617);
+                vr4.d(this.g).v(R.color.CAM_X0617);
                 this.g.setVisibility(0);
             } else {
                 this.g.setVisibility(8);

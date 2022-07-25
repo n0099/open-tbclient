@@ -32,7 +32,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.n45;
+import com.repackage.o45;
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -52,28 +52,28 @@ public class l77 {
     public static volatile long k;
     public transient /* synthetic */ FieldHolder $fh;
     public final LinkedList<ChatMessage> a;
-    public final HashMap<String, n45<ChatMessage>> b;
+    public final HashMap<String, o45<ChatMessage>> b;
     public final Map<String, Map<String, Object>> c;
-    public n45.d d;
+    public o45.d d;
     public o77 e;
     public VoiceSendModel f;
-    public WeakReference<n45.b<ChatMessage>> g;
+    public WeakReference<o45.b<ChatMessage>> g;
     public VoiceSendModel.b h;
 
     /* loaded from: classes6.dex */
-    public class a implements n45.d {
+    public class a implements o45.d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ l77 a;
 
         /* renamed from: com.repackage.l77$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class C0672a extends de5<Boolean> {
+        public class C0516a extends de5<Boolean> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ CommonGroupChatMessage a;
 
-            public C0672a(a aVar, CommonGroupChatMessage commonGroupChatMessage) {
+            public C0516a(a aVar, CommonGroupChatMessage commonGroupChatMessage) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -102,7 +102,7 @@ public class l77 {
         }
 
         /* loaded from: classes6.dex */
-        public class b implements jd5<Boolean> {
+        public class b implements kd5<Boolean> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ CommonGroupChatMessage a;
@@ -126,7 +126,7 @@ public class l77 {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.repackage.jd5
+            @Override // com.repackage.kd5
             /* renamed from: a */
             public void onReturnDataInUI(Boolean bool) {
                 Interceptable interceptable = $ic;
@@ -171,7 +171,7 @@ public class l77 {
         }
 
         /* loaded from: classes6.dex */
-        public class d implements jd5<Boolean> {
+        public class d implements kd5<Boolean> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ PersonalChatMessage a;
@@ -195,7 +195,7 @@ public class l77 {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.repackage.jd5
+            @Override // com.repackage.kd5
             /* renamed from: a */
             public void onReturnDataInUI(Boolean bool) {
                 Interceptable interceptable = $ic;
@@ -240,7 +240,7 @@ public class l77 {
         }
 
         /* loaded from: classes6.dex */
-        public class f implements jd5<Boolean> {
+        public class f implements kd5<Boolean> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ OfficialChatMessage a;
@@ -264,7 +264,7 @@ public class l77 {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.repackage.jd5
+            @Override // com.repackage.kd5
             /* renamed from: a */
             public void onReturnDataInUI(Boolean bool) {
                 Interceptable interceptable = $ic;
@@ -293,33 +293,33 @@ public class l77 {
         }
 
         /* JADX WARN: Code restructure failed: missing block: B:35:0x00a0, code lost:
-            com.repackage.mt4.a("im", r0.getClientLogID(), r0.getCmd(), "up_pic_ret", r14.error_code, r14.error_msg, new java.lang.Object[0]);
+            com.repackage.nt4.a("im", r0.getClientLogID(), r0.getCmd(), "up_pic_ret", r14.error_code, r14.error_msg, new java.lang.Object[0]);
          */
-        @Override // com.repackage.n45.d
+        @Override // com.repackage.o45.d
         /*
             Code decompiled incorrectly, please refer to instructions dump.
         */
         public synchronized void a(String str, ImageUploadResult imageUploadResult) {
-            n45 n45Var;
+            o45 o45Var;
             Map map;
             int i;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, str, imageUploadResult) == null) {
                 synchronized (this) {
                     synchronized (l77.class) {
-                        n45Var = (n45) this.a.b.remove(str);
+                        o45Var = (o45) this.a.b.remove(str);
                         map = (Map) this.a.c.remove(str);
                     }
-                    if (n45Var == null) {
+                    if (o45Var == null) {
                         return;
                     }
-                    ChatMessage chatMessage = (ChatMessage) n45Var.f();
+                    ChatMessage chatMessage = (ChatMessage) o45Var.f();
                     if (chatMessage == null) {
                         return;
                     }
                     int i2 = 0;
                     if (imageUploadResult != null && imageUploadResult.error_code == 0 && imageUploadResult.picInfo != null) {
-                        mt4.a("im", chatMessage.getClientLogID(), chatMessage.getCmd(), "up_pic_ret", 0, null, new Object[0]);
+                        nt4.a("im", chatMessage.getClientLogID(), chatMessage.getCmd(), "up_pic_ret", 0, null, new Object[0]);
                         String str2 = null;
                         String str3 = imageUploadResult.picInfo.bigPic == null ? null : imageUploadResult.picInfo.bigPic.picUrl;
                         if (imageUploadResult.picInfo.smallPic != null) {
@@ -336,11 +336,11 @@ public class l77 {
                             this.a.e.a(1);
                         }
                     }
-                    mt4.a("im", chatMessage.getClientLogID(), chatMessage.getCmd(), "up_pic_ret", -1, "result is null", new Object[0]);
+                    nt4.a("im", chatMessage.getClientLogID(), chatMessage.getCmd(), "up_pic_ret", -1, "result is null", new Object[0]);
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001215, chatMessage));
                     if (chatMessage instanceof CommonGroupChatMessage) {
                         CommonGroupChatMessage commonGroupChatMessage = (CommonGroupChatMessage) chatMessage;
-                        he5.c(new C0672a(this, commonGroupChatMessage), new b(this, commonGroupChatMessage));
+                        he5.c(new C0516a(this, commonGroupChatMessage), new b(this, commonGroupChatMessage));
                     } else if (chatMessage instanceof PersonalChatMessage) {
                         PersonalChatMessage personalChatMessage = (PersonalChatMessage) chatMessage;
                         he5.c(new c(this, personalChatMessage), new d(this, personalChatMessage));
@@ -390,7 +390,7 @@ public class l77 {
     }
 
     /* loaded from: classes6.dex */
-    public class c implements jd5<Boolean> {
+    public class c implements kd5<Boolean> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ CommonGroupChatMessage a;
@@ -416,7 +416,7 @@ public class l77 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.jd5
+        @Override // com.repackage.kd5
         /* renamed from: a */
         public void onReturnDataInUI(Boolean bool) {
             Interceptable interceptable = $ic;
@@ -465,7 +465,7 @@ public class l77 {
     }
 
     /* loaded from: classes6.dex */
-    public class e implements jd5<Boolean> {
+    public class e implements kd5<Boolean> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PersonalChatMessage a;
@@ -491,7 +491,7 @@ public class l77 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.jd5
+        @Override // com.repackage.kd5
         /* renamed from: a */
         public void onReturnDataInUI(Boolean bool) {
             Interceptable interceptable = $ic;
@@ -540,7 +540,7 @@ public class l77 {
     }
 
     /* loaded from: classes6.dex */
-    public class g implements jd5<Boolean> {
+    public class g implements kd5<Boolean> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ OfficialChatMessage a;
@@ -566,7 +566,7 @@ public class l77 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.jd5
+        @Override // com.repackage.kd5
         /* renamed from: a */
         public void onReturnDataInUI(Boolean bool) {
             Interceptable interceptable = $ic;
@@ -619,7 +619,7 @@ public class l77 {
         }
 
         /* loaded from: classes6.dex */
-        public class b implements jd5<Boolean> {
+        public class b implements kd5<Boolean> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ CommonGroupChatMessage a;
@@ -643,7 +643,7 @@ public class l77 {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.repackage.jd5
+            @Override // com.repackage.kd5
             /* renamed from: a */
             public void onReturnDataInUI(Boolean bool) {
                 Interceptable interceptable = $ic;
@@ -688,7 +688,7 @@ public class l77 {
         }
 
         /* loaded from: classes6.dex */
-        public class d implements jd5<Boolean> {
+        public class d implements kd5<Boolean> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ PersonalChatMessage a;
@@ -712,7 +712,7 @@ public class l77 {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.repackage.jd5
+            @Override // com.repackage.kd5
             /* renamed from: a */
             public void onReturnDataInUI(Boolean bool) {
                 Interceptable interceptable = $ic;
@@ -757,7 +757,7 @@ public class l77 {
         }
 
         /* loaded from: classes6.dex */
-        public class f implements jd5<Boolean> {
+        public class f implements kd5<Boolean> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ OfficialChatMessage a;
@@ -781,7 +781,7 @@ public class l77 {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.repackage.jd5
+            @Override // com.repackage.kd5
             /* renamed from: a */
             public void onReturnDataInUI(Boolean bool) {
                 Interceptable interceptable = $ic;
@@ -823,7 +823,7 @@ public class l77 {
                                 String jsonStrWithObject = OrmObject.jsonStrWithObject(p);
                                 chatMessage.setContent(PreferencesUtil.LEFT_MOUNT + jsonStrWithObject + PreferencesUtil.RIGHT_MOUNT);
                             }
-                            mt4.a("im", chatMessage.getClientLogID(), chatMessage.getCmd(), "up_voice_ret", 0, null, new Object[0]);
+                            nt4.a("im", chatMessage.getClientLogID(), chatMessage.getCmd(), "up_voice_ret", 0, null, new Object[0]);
                             l77.k().u(chatMessage);
                             if (this.a.e != null) {
                                 this.a.e.a(2);
@@ -831,7 +831,7 @@ public class l77 {
                             }
                             return;
                         }
-                        mt4.a("im", chatMessage.getClientLogID(), chatMessage.getCmd(), "up_voice_ret", -1, "voice http fail", new Object[0]);
+                        nt4.a("im", chatMessage.getClientLogID(), chatMessage.getCmd(), "up_voice_ret", -1, "voice http fail", new Object[0]);
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001215, chatMessage));
                         if (chatMessage instanceof CommonGroupChatMessage) {
                             CommonGroupChatMessage commonGroupChatMessage = (CommonGroupChatMessage) chatMessage;
@@ -931,7 +931,7 @@ public class l77 {
     }
 
     /* loaded from: classes6.dex */
-    public class k implements jd5<LinkedHashMap<String, String>> {
+    public class k implements kd5<LinkedHashMap<String, String>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ n77 a;
@@ -955,7 +955,7 @@ public class l77 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.jd5
+        @Override // com.repackage.kd5
         /* renamed from: a */
         public void onReturnDataInUI(LinkedHashMap<String, String> linkedHashMap) {
             Interceptable interceptable = $ic;
@@ -1025,7 +1025,7 @@ public class l77 {
     }
 
     /* loaded from: classes6.dex */
-    public class m implements jd5<LinkedHashMap<String, String>> {
+    public class m implements kd5<LinkedHashMap<String, String>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ n77 a;
@@ -1049,7 +1049,7 @@ public class l77 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.jd5
+        @Override // com.repackage.kd5
         /* renamed from: a */
         public void onReturnDataInUI(LinkedHashMap<String, String> linkedHashMap) {
             Interceptable interceptable = $ic;
@@ -1119,7 +1119,7 @@ public class l77 {
     }
 
     /* loaded from: classes6.dex */
-    public class o implements jd5<LinkedHashMap<String, String>> {
+    public class o implements kd5<LinkedHashMap<String, String>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ n77 a;
@@ -1143,7 +1143,7 @@ public class l77 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.jd5
+        @Override // com.repackage.kd5
         /* renamed from: a */
         public void onReturnDataInUI(LinkedHashMap<String, String> linkedHashMap) {
             Interceptable interceptable = $ic;
@@ -1285,30 +1285,30 @@ public class l77 {
     public void A(ChatMessage chatMessage, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, chatMessage, str) == null) {
-            n45<ChatMessage> n45Var = this.b.get(str);
-            if (n45Var == null) {
-                n45Var = new n45<>(str, "IM");
-                n45Var.j();
-                n45Var.i(chatMessage);
-                WeakReference<n45.b<ChatMessage>> weakReference = this.g;
+            o45<ChatMessage> o45Var = this.b.get(str);
+            if (o45Var == null) {
+                o45Var = new o45<>(str, "IM");
+                o45Var.j();
+                o45Var.i(chatMessage);
+                WeakReference<o45.b<ChatMessage>> weakReference = this.g;
                 if (weakReference != null && weakReference.get() != null) {
-                    n45Var.m(this.g.get());
+                    o45Var.m(this.g.get());
                 }
-                n45Var.l(this.d);
+                o45Var.l(this.d);
                 if (chatMessage instanceof CommonGroupChatMessage) {
-                    n45Var.h(((CommonGroupChatMessage) chatMessage).getGroupId());
+                    o45Var.h(((CommonGroupChatMessage) chatMessage).getGroupId());
                 } else if (chatMessage instanceof PersonalChatMessage) {
-                    n45Var.h(String.valueOf(j));
+                    o45Var.h(String.valueOf(j));
                 } else if (chatMessage instanceof OfficialChatMessage) {
-                    n45Var.h(String.valueOf(k));
+                    o45Var.h(String.valueOf(k));
                 }
                 synchronized (l77.class) {
-                    this.b.put(str, n45Var);
+                    this.b.put(str, o45Var);
                 }
             }
             chatMessage.setLogTime(System.currentTimeMillis());
             n(chatMessage);
-            n45Var.g(false);
+            o45Var.g(false);
         }
     }
 
@@ -1328,24 +1328,24 @@ public class l77 {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, chatMessage)) == null) {
-            HashMap<String, n45<ChatMessage>> hashMap = this.b;
+            HashMap<String, o45<ChatMessage>> hashMap = this.b;
             if (hashMap != null && chatMessage != null) {
-                for (Map.Entry<String, n45<ChatMessage>> entry : hashMap.entrySet()) {
-                    n45<ChatMessage> value = entry.getValue();
+                for (Map.Entry<String, o45<ChatMessage>> entry : hashMap.entrySet()) {
+                    o45<ChatMessage> value = entry.getValue();
                     if (value != null && value.f() != null) {
                         ChatMessage f2 = value.f();
                         if (chatMessage.getRecordId() != f2.getRecordId()) {
                             continue;
                         } else if (chatMessage.getCustomGroupType() != 2 && chatMessage.getCustomGroupType() != 4) {
                             if (chatMessage.getGroupId() != null && f2.getGroupId() != null && chatMessage.getGroupId().equals(f2.getGroupId())) {
-                                WeakReference<n45.b<ChatMessage>> weakReference = this.g;
+                                WeakReference<o45.b<ChatMessage>> weakReference = this.g;
                                 if (weakReference != null && weakReference.get() != null) {
                                     value.m(this.g.get());
                                 }
                                 return true;
                             }
                         } else if (chatMessage.getToUserId() == f2.getToUserId()) {
-                            WeakReference<n45.b<ChatMessage>> weakReference2 = this.g;
+                            WeakReference<o45.b<ChatMessage>> weakReference2 = this.g;
                             if (weakReference2 != null && weakReference2.get() != null) {
                                 value.m(this.g.get());
                             }
@@ -1441,7 +1441,7 @@ public class l77 {
     public final void s(String str, ym ymVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048587, this, str, ymVar) == null) {
-            l45.k().d(str, ymVar);
+            m45.k().d(str, ymVar);
             yb ybVar = new yb("images", TbMd5.getNameMd5FromUrl(str), DiskFileOperate.Action.WRITE);
             ybVar.setOperateType(DiskFileOperate.OperateType.TRY_SUCCESS);
             ybVar.setSubFolder(true);
@@ -1454,7 +1454,7 @@ public class l77 {
     public final void t(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048588, this, str, str2) == null) {
-            ym m2 = l45.k().m(str);
+            ym m2 = m45.k().m(str);
             String str3 = str2 + 10;
             if (m2 != null && m2.w()) {
                 s(str3, m2);
@@ -1492,7 +1492,7 @@ public class l77 {
         }
     }
 
-    public void v(n45.b<ChatMessage> bVar) {
+    public void v(o45.b<ChatMessage> bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048590, this, bVar) == null) {
             this.g = new WeakReference<>(bVar);

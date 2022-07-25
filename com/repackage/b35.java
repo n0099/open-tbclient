@@ -1,9 +1,11 @@
 package com.repackage;
 /* loaded from: classes5.dex */
 public interface b35 {
-    void a(boolean z);
+    boolean b();
 
-    int getHeight();
+    void handleHide();
 
-    void refreshHeight(int i);
+    void handleShow();
+
+    boolean isVisible();
 }

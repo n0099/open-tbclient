@@ -7,19 +7,19 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.ksad.annotation.invoker.InvokeBy;
 import com.kwad.sdk.core.config.item.d;
-import com.kwad.sdk.core.config.item.i;
+import com.kwad.sdk.core.config.item.j;
 /* loaded from: classes5.dex */
 public final class a {
     public static /* synthetic */ Interceptable $ic;
-    public static i a;
-    public static i b;
-    public static i c;
-    public static i d;
-    public static i e;
-    public static i f;
-    public static d g;
-    public static i h;
-    public static i i;
+    public static j fJ;
+    public static j fK;
+    public static j fL;
+    public static j fM;
+    public static j fN;
+    public static j fO;
+    public static d fP;
+    public static j fQ;
+    public static j fR;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -35,19 +35,19 @@ public final class a {
                 return;
             }
         }
-        a = new i("interstitialAdSkipCloseType", 0);
-        b = new i("interstitialAdSkipCloseArea", 0);
-        c = new i("interstitialAdFullClick", 1);
-        d = new i("interstitialAdBackPressSwitch", 0);
-        e = new i("interstitialPlayableTime", 999);
-        f = new i("interstitialAdClickShutDown", 0);
-        g = new d("interstitialAutoStartSwitch", false);
-        h = new i("ecInterstitialAdOrderSwitch", 0);
-        i = new i("interstitialCycleAggregateMaxCount", 3);
+        fJ = new j("interstitialAdSkipCloseType", 0);
+        fK = new j("interstitialAdSkipCloseArea", 0);
+        fL = new j("interstitialAdFullClick", 1);
+        fM = new j("interstitialAdBackPressSwitch", 0);
+        fN = new j("interstitialPlayableTime", 999);
+        fO = new j("interstitialAdClickShutDown", 0);
+        fP = new d("interstitialAutoStartSwitch", false);
+        fQ = new j("ecInterstitialAdOrderSwitch", 0);
+        fR = new j("interstitialCycleAggregateMaxCount", 3);
     }
 
     @InvokeBy(invokerClass = com.kwad.sdk.core.config.d.class, methodId = "initConfigList")
-    public static void a() {
+    public static void init() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65537, null) == null) {
         }

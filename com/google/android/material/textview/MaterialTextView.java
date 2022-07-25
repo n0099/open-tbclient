@@ -59,7 +59,7 @@ public class MaterialTextView extends AppCompatTextView {
     public static boolean canApplyTextAppearanceLineHeight(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) ? MaterialAttributes.resolveBoolean(context, R.attr.obfuscated_res_0x7f04064d, true) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) ? MaterialAttributes.resolveBoolean(context, R.attr.obfuscated_res_0x7f04064f, true) : invokeL.booleanValue;
     }
 
     public static int findViewAppearanceResourceId(@NonNull Resources.Theme theme, @Nullable AttributeSet attributeSet, int i, int i2) {

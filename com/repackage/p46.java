@@ -9,15 +9,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.y15;
+import com.repackage.z15;
 import java.util.Iterator;
 import java.util.LinkedList;
 /* loaded from: classes6.dex */
-public class p46 extends y15 {
+public class p46 extends z15 {
     public static /* synthetic */ Interceptable $ic;
     public static p46 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public LinkedList<b25> a;
+    public LinkedList<c25> a;
 
     static {
         InterceptResult invokeClinit;
@@ -62,15 +62,15 @@ public class p46 extends y15 {
         return (p46) invokeV.objValue;
     }
 
-    @Override // com.repackage.y15
-    public void b(y15.a aVar) {
+    @Override // com.repackage.z15
+    public void b(z15.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-            LinkedList<b25> linkedList = this.a;
+            LinkedList<c25> linkedList = this.a;
             if (linkedList != null && !linkedList.isEmpty()) {
-                Iterator<b25> it = this.a.iterator();
+                Iterator<c25> it = this.a.iterator();
                 while (it.hasNext()) {
-                    b25 next = it.next();
+                    c25 next = it.next();
                     if (aVar != null) {
                         aVar.a(next);
                     }
@@ -86,7 +86,7 @@ public class p46 extends y15 {
         }
     }
 
-    @Override // com.repackage.y15
+    @Override // com.repackage.z15
     public int c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -96,7 +96,7 @@ public class p46 extends y15 {
         return invokeV.intValue;
     }
 
-    @Override // com.repackage.y15
+    @Override // com.repackage.z15
     public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
@@ -107,9 +107,9 @@ public class p46 extends y15 {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            LinkedList<b25> linkedList = this.a;
+            LinkedList<c25> linkedList = this.a;
             if (linkedList != null) {
-                Iterator<b25> it = linkedList.iterator();
+                Iterator<c25> it = linkedList.iterator();
                 while (it.hasNext()) {
                     if (it.next().m(str)) {
                         return true;
@@ -126,7 +126,7 @@ public class p46 extends y15 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            LinkedList<b25> linkedList = this.a;
+            LinkedList<c25> linkedList = this.a;
             return linkedList == null || linkedList.size() == 0;
         }
         return invokeV.booleanValue;

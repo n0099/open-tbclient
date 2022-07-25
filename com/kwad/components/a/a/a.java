@@ -7,7 +7,6 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.kwai.filedownloader.i;
 import com.kwai.filedownloader.m;
 import com.kwai.filedownloader.r;
 /* loaded from: classes5.dex */
@@ -17,35 +16,35 @@ public final class a {
 
     /* renamed from: com.kwad.components.a.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public interface InterfaceC0456a {
-        void a(com.kwad.sdk.e.kwai.b bVar);
-
-        void b(com.kwad.sdk.e.kwai.b bVar);
-
+    public interface InterfaceC0302a {
         void c(com.kwad.sdk.e.kwai.b bVar);
+
+        void d(com.kwad.sdk.e.kwai.b bVar);
+
+        void e(com.kwad.sdk.e.kwai.b bVar);
     }
 
-    public static void a(Context context, com.kwad.sdk.e.kwai.b bVar, @NonNull InterfaceC0456a interfaceC0456a) {
+    public static void a(Context context, com.kwad.sdk.e.kwai.b bVar, @NonNull InterfaceC0302a interfaceC0302a) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65536, null, context, bVar, interfaceC0456a) == null) {
-            com.kwad.sdk.core.d.b.a("HybridDownloader", "reportHybrid: download+++url " + bVar.e);
-            interfaceC0456a.a(bVar);
-            bVar.a(System.currentTimeMillis());
+        if (interceptable == null || interceptable.invokeLLL(65536, null, context, bVar, interfaceC0302a) == null) {
+            com.kwad.sdk.core.e.b.d("HybridDownloader", "reportHybrid: download+++url " + bVar.packageUrl);
+            interfaceC0302a.c(bVar);
+            bVar.N(System.currentTimeMillis());
             com.kwad.components.a.b.b.a(bVar, 1);
-            r.a(context);
-            r.a();
-            r.a(bVar.e).a(bVar).a(bVar.c).a((i) new m(interfaceC0456a, bVar) { // from class: com.kwad.components.a.a.a.1
+            r.dD(context);
+            r.CZ();
+            r.eq(bVar.packageUrl).g(bVar).en(bVar.aiv).bz(true).a(new m(interfaceC0302a, bVar) { // from class: com.kwad.components.a.a.a.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ InterfaceC0456a a;
-                public final /* synthetic */ com.kwad.sdk.e.kwai.b b;
+                public final /* synthetic */ com.kwad.sdk.e.kwai.b PP;
+                public final /* synthetic */ InterfaceC0302a Qa;
 
                 {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {interfaceC0456a, bVar};
+                        Object[] objArr = {interfaceC0302a, bVar};
                         interceptable2.invokeUnInit(65536, newInitContext);
                         int i = newInitContext.flag;
                         if ((i & 1) != 0) {
@@ -55,8 +54,8 @@ public final class a {
                             return;
                         }
                     }
-                    this.a = interfaceC0456a;
-                    this.b = bVar;
+                    this.Qa = interfaceC0302a;
+                    this.PP = bVar;
                 }
 
                 @Override // com.kwai.filedownloader.m, com.kwai.filedownloader.i
@@ -64,8 +63,8 @@ public final class a {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeLL(1048576, this, aVar, th) == null) {
                         super.a(aVar, th);
-                        com.kwad.components.a.b.b.a(this.b, 0, 1, th.getMessage());
-                        this.a.c((com.kwad.sdk.e.kwai.b) aVar.z());
+                        com.kwad.components.a.b.b.a(this.PP, 0, 1, th.getMessage());
+                        this.Qa.e((com.kwad.sdk.e.kwai.b) aVar.getTag());
                     }
                 }
 
@@ -74,16 +73,16 @@ public final class a {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
                         super.c(aVar);
-                        if (aVar.v() == -3) {
-                            this.a.b(this.b);
+                        if (aVar.Ca() == -3) {
+                            this.Qa.d(this.PP);
                             return;
                         }
-                        this.a.c(this.b);
-                        com.kwad.sdk.e.kwai.b bVar2 = this.b;
-                        com.kwad.components.a.b.b.a(bVar2, 0, 1, "task.getStatus()=" + ((int) aVar.v()));
+                        this.Qa.e(this.PP);
+                        com.kwad.sdk.e.kwai.b bVar2 = this.PP;
+                        com.kwad.components.a.b.b.a(bVar2, 0, 1, "task.getStatus()=" + ((int) aVar.Ca()));
                     }
                 }
-            }).e();
+            }).start();
         }
     }
 }

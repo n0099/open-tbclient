@@ -1,12 +1,10 @@
 package com.repackage;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.SwanAppActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class ui1 implements zk1 {
     public static /* synthetic */ Interceptable $ic;
@@ -27,30 +25,12 @@ public class ui1 implements zk1 {
     }
 
     @Override // com.repackage.zk1
-    public void a() {
+    public String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return null;
         }
-    }
-
-    @Override // com.repackage.zk1
-    public void b(String str, xo1 xo1Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, xo1Var) == null) {
-        }
-    }
-
-    @Override // com.repackage.zk1
-    public void c(SwanAppActivity swanAppActivity, String str, xo1 xo1Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, swanAppActivity, str, xo1Var) == null) {
-        }
-    }
-
-    @Override // com.repackage.zk1
-    public void d(String str, String str2, JSONObject jSONObject, xo1 xo1Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(1048579, this, str, str2, jSONObject, xo1Var) == null) {
-        }
+        return (String) invokeV.objValue;
     }
 }

@@ -407,7 +407,7 @@ public class SubPbView extends LinearLayout {
         if (0 != 0) {
             this.o = pi.i(context) / 10;
         } else {
-            this.o = (pi.i(context) / 3) - pi.f(TbadkCoreApplication.getInst(), R.dimen.obfuscated_res_0x7f070255);
+            this.o = (pi.i(context) / 3) - pi.f(TbadkCoreApplication.getInst(), R.dimen.obfuscated_res_0x7f070252);
         }
         this.k = pi.i(context);
         ValueAnimator ofInt = ValueAnimator.ofInt(pi.i(context), 0);

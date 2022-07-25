@@ -33,13 +33,13 @@ public abstract class ItemViewHolder extends TypeAdapter.ViewHolder {
         }
     }
 
-    public abstract void c(t27 t27Var);
+    public abstract void b(t27 t27Var);
 
-    public abstract ItemViewHolder d(View view2);
+    public abstract ItemViewHolder c(View view2);
 
-    public abstract void e(int i);
+    public abstract void d(int i);
 
-    public void f(View.OnClickListener onClickListener) {
+    public void e(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, onClickListener) == null) {
             this.a = onClickListener;

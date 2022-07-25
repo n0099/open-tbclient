@@ -54,22 +54,22 @@ public class q3 extends o3 {
     public boolean u() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.i.b() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.i.a() : invokeV.booleanValue;
     }
 
     public final void v(r3 r3Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, r3Var) == null) {
-            if (this.i != null && r3Var.b() != this.i.b()) {
+            if (this.i != null && r3Var.a() != this.i.a()) {
                 throw new GdxRuntimeException("New data must have the same managed status as the old data");
             }
             this.i = r3Var;
             a();
-            e1.g.O(35866, 0, r3Var.c(), r3Var.getWidth(), r3Var.getHeight(), r3Var.e(), 0, r3Var.c(), r3Var.f(), null);
-            if (!r3Var.a()) {
+            e1.g.O(35866, 0, r3Var.b(), r3Var.getWidth(), r3Var.getHeight(), r3Var.d(), 0, r3Var.b(), r3Var.e(), null);
+            if (!r3Var.isPrepared()) {
                 r3Var.prepare();
             }
-            r3Var.d();
+            r3Var.c();
             l(this.c, this.d);
             m(this.e, this.f);
             e1.e.N(this.a, 0);

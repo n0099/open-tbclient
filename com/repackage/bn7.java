@@ -86,17 +86,17 @@ public class bn7 extends tm7<vy5, ThreadCardViewHolder<vy5>> implements ck5 {
         }
 
         @Override // com.repackage.tw.b
-        public void a(nn4 nn4Var, View view2) {
+        public void a(on4 on4Var, View view2) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLL(1048576, this, nn4Var, view2) == null) || nn4Var == null) {
+            if (!(interceptable == null || interceptable.invokeLL(1048576, this, on4Var, view2) == null) || on4Var == null) {
                 return;
             }
-            if (view2.getId() == R.id.obfuscated_res_0x7f09232d) {
-                nn4Var.objType = 3;
-            } else if (view2.getId() == R.id.obfuscated_res_0x7f09230c) {
-                nn4Var.objType = 4;
+            if (view2.getId() == R.id.obfuscated_res_0x7f09232f) {
+                on4Var.objType = 3;
+            } else if (view2.getId() == R.id.obfuscated_res_0x7f09230e) {
+                on4Var.objType = 4;
             } else {
-                nn4Var.objType = 1;
+                on4Var.objType = 1;
             }
         }
     }
@@ -133,10 +133,10 @@ public class bn7 extends tm7<vy5, ThreadCardViewHolder<vy5>> implements ck5 {
                 vy5 vy5Var = (vy5) nnVar;
                 vy5Var.f = 1;
                 if (this.a.o != null) {
-                    this.a.o.a(threadCardViewHolder.b(), vy5Var);
+                    this.a.o.a(threadCardViewHolder.a(), vy5Var);
                 }
                 ThreadCardUtils.jumpToPB(vy5Var, view2.getContext(), 17, false, this.a.j.getOrignalPage().C1(), this.a.Z() ? "3" : "2");
-                threadCardViewHolder.c().o(new ny.a(1));
+                threadCardViewHolder.b().o(new ny.a(1));
             }
         }
     }
@@ -189,10 +189,10 @@ public class bn7 extends tm7<vy5, ThreadCardViewHolder<vy5>> implements ck5 {
             exVar.x(ImageViewerConfig.FROM_CONCERN);
             bVar.h(exVar);
             ey eyVar = new ey(this.l.getPageActivity());
-            tn4 tn4Var = new tn4();
-            tn4Var.b = 9;
-            tn4Var.h = 9;
-            eyVar.w(tn4Var);
+            un4 un4Var = new un4();
+            un4Var.b = 9;
+            un4Var.h = 9;
+            eyVar.w(un4Var);
             eyVar.y(9);
             eyVar.D(4);
             eyVar.z(17);
@@ -201,7 +201,7 @@ public class bn7 extends tm7<vy5, ThreadCardViewHolder<vy5>> implements ck5 {
             cy i = bVar.i();
             i.r(17);
             ThreadCardViewHolder<vy5> threadCardViewHolder = new ThreadCardViewHolder<>(i);
-            threadCardViewHolder.k(this.k);
+            threadCardViewHolder.j(this.k);
             V(new c(this));
             return threadCardViewHolder;
         }
@@ -215,17 +215,17 @@ public class bn7 extends tm7<vy5, ThreadCardViewHolder<vy5>> implements ck5 {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, vy5Var, threadCardViewHolder})) == null) {
-            if (vy5Var == null || threadCardViewHolder == null || threadCardViewHolder.b() == null || vy5Var.a == null) {
+            if (vy5Var == null || threadCardViewHolder == null || threadCardViewHolder.a() == null || vy5Var.a == null) {
                 return null;
             }
             vy5Var.I(vy5Var.position + 1);
-            threadCardViewHolder.c().b(this.m);
-            threadCardViewHolder.u(true, Align.ALIGN_RIGHT_TOP);
-            threadCardViewHolder.g(vy5Var);
-            threadCardViewHolder.c().onChangeSkinType(this.l, TbadkCoreApplication.getInst().getSkinType());
-            threadCardViewHolder.c().p(this.o);
+            threadCardViewHolder.b().b(this.m);
+            threadCardViewHolder.t(true, Align.ALIGN_RIGHT_TOP);
+            threadCardViewHolder.f(vy5Var);
+            threadCardViewHolder.b().onChangeSkinType(this.l, TbadkCoreApplication.getInst().getSkinType());
+            threadCardViewHolder.b().p(this.o);
             qm7.c(this, vy5Var);
-            return threadCardViewHolder.b();
+            return threadCardViewHolder.a();
         }
         return (View) invokeCommon.objValue;
     }

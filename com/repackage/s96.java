@@ -15,10 +15,10 @@ import java.util.List;
 public class s96 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<zr4> a;
+    public List<as4> a;
 
     /* loaded from: classes7.dex */
-    public class a implements zr4 {
+    public class a implements as4 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String a;
@@ -43,14 +43,14 @@ public class s96 {
             this.b = str2;
         }
 
-        @Override // com.repackage.zr4
+        @Override // com.repackage.as4
         public String a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (String) invokeV.objValue;
         }
 
-        @Override // com.repackage.zr4
+        @Override // com.repackage.as4
         public String b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -85,7 +85,7 @@ public class s96 {
         }
     }
 
-    public List<zr4> a() {
+    public List<as4> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (List) invokeV.objValue;

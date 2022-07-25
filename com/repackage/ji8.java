@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import tbclient.Timgs;
 /* loaded from: classes6.dex */
-public class ji8 implements zr4 {
+public class ji8 implements as4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
@@ -63,14 +63,14 @@ public class ji8 implements zr4 {
         }
     }
 
-    @Override // com.repackage.zr4
+    @Override // com.repackage.as4
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (String) invokeV.objValue;
     }
 
-    @Override // com.repackage.zr4
+    @Override // com.repackage.as4
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

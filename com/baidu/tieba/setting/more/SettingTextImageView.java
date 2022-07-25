@@ -75,7 +75,7 @@ public class SettingTextImageView extends FrameLayout {
     public final void c(AttributeSet attributeSet) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, attributeSet) == null) {
-            TypedArray obtainStyledAttributes = this.a.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f040587, R.attr.obfuscated_res_0x7f040588, R.attr.obfuscated_res_0x7f040589, R.attr.obfuscated_res_0x7f04058a, R.attr.obfuscated_res_0x7f04058b, R.attr.obfuscated_res_0x7f04058c});
+            TypedArray obtainStyledAttributes = this.a.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f040589, R.attr.obfuscated_res_0x7f04058a, R.attr.obfuscated_res_0x7f04058b, R.attr.obfuscated_res_0x7f04058c, R.attr.obfuscated_res_0x7f04058d, R.attr.obfuscated_res_0x7f04058e});
             String string = obtainStyledAttributes.getString(1);
             int color = obtainStyledAttributes.getColor(2, -1);
             obtainStyledAttributes.recycle();
@@ -93,10 +93,10 @@ public class SettingTextImageView extends FrameLayout {
     public final void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d076a, (ViewGroup) this, true);
-            this.b = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0906a0);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f091fa9);
-            this.d = (HeadImageView) findViewById(R.id.obfuscated_res_0x7f090dc2);
+            LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0774, (ViewGroup) this, true);
+            this.b = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f09069f);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f091fae);
+            this.d = (HeadImageView) findViewById(R.id.obfuscated_res_0x7f090dbb);
             this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f0902a0);
         }
     }

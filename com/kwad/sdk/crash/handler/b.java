@@ -42,9 +42,9 @@ public abstract class b {
             sBackupDir.mkdirs();
         }
         try {
-            o.b(file.getParentFile().getParentFile(), sBackupDir);
+            o.e(file.getParentFile().getParentFile(), sBackupDir);
         } catch (IOException e) {
-            com.kwad.sdk.core.d.b.b(e);
+            com.kwad.sdk.core.e.b.printStackTraceOnly(e);
         }
     }
 
@@ -92,7 +92,7 @@ public abstract class b {
         try {
             countDownLatch.await(5L, TimeUnit.SECONDS);
         } catch (InterruptedException e) {
-            com.kwad.sdk.core.d.b.b(e);
+            com.kwad.sdk.core.e.b.printStackTraceOnly(e);
         }
     }
 }

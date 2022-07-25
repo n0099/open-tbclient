@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public final class g extends ViewOutlineProvider {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public float a;
+    public float PF;
 
     public g(float f) {
         Interceptable interceptable = $ic;
@@ -30,11 +30,11 @@ public final class g extends ViewOutlineProvider {
                 return;
             }
         }
-        this.a = f;
+        this.PF = f;
     }
 
     @RequiresApi(api = 21)
-    public static void a(View view2, float f) {
+    public static void b(View view2, float f) {
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLF(65537, null, view2, f) == null) {
@@ -53,7 +53,7 @@ public final class g extends ViewOutlineProvider {
     public final void getOutline(View view2, Outline outline) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, view2, outline) == null) {
-            outline.setRoundRect(0, 0, view2.getWidth(), view2.getHeight(), this.a);
+            outline.setRoundRect(0, 0, view2.getWidth(), view2.getHeight(), this.PF);
         }
     }
 }

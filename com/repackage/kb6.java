@@ -29,9 +29,9 @@ public class kb6 extends cd6<lb6, PrivateMgrApplyViewHolder> {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: v */
-    public static final int obfuscated = 2131302806;
+    public static final int obfuscated = 2131302769;
     public transient /* synthetic */ FieldHolder $fh;
-    public sz4 t;
+    public tz4 t;
     public View.OnClickListener u;
 
     /* loaded from: classes6.dex */
@@ -124,16 +124,16 @@ public class kb6 extends cd6<lb6, PrivateMgrApplyViewHolder> {
     public PrivateMgrApplyViewHolder M(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) ? new PrivateMgrApplyViewHolder(LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0708, (ViewGroup) null)) : (PrivateMgrApplyViewHolder) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) ? new PrivateMgrApplyViewHolder(LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0712, (ViewGroup) null)) : (PrivateMgrApplyViewHolder) invokeL.objValue;
     }
 
     public void onDestroy() {
-        sz4 sz4Var;
+        tz4 tz4Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (sz4Var = this.t) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (tz4Var = this.t) == null) {
             return;
         }
-        sz4Var.s();
+        tz4Var.s();
     }
 
     public View p0(int i, View view2, ViewGroup viewGroup, lb6 lb6Var, PrivateMgrApplyViewHolder privateMgrApplyViewHolder) {
@@ -154,12 +154,12 @@ public class kb6 extends cd6<lb6, PrivateMgrApplyViewHolder> {
                     SkinManager.setBackgroundResource(privateMgrApplyViewHolder.c, R.drawable.frs_member_manito_bg);
                 }
                 int a2 = lb6Var.a();
-                String string = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f13b3);
+                String string = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f1362);
                 if (a2 == -1) {
                     int c = lb6Var.c();
                     String numberUniformFormat = StringHelper.numberUniformFormat(c);
                     if (c > 0) {
-                        string = String.format(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f13ad), numberUniformFormat);
+                        string = String.format(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f135c), numberUniformFormat);
                         privateMgrApplyViewHolder.c.setOnClickListener(this.u);
                         privateMgrApplyViewHolder.b.setText(string);
                         privateMgrApplyViewHolder.c.setTag(obfuscated, lb6Var.b());
@@ -178,12 +178,12 @@ public class kb6 extends cd6<lb6, PrivateMgrApplyViewHolder> {
                     privateMgrApplyViewHolder.f = this.n;
                 } else {
                     if (a2 == 0) {
-                        string = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f13b1);
+                        string = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f1360);
                     } else if (a2 == 1) {
-                        string = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f13af);
+                        string = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f135e);
                     } else {
                         if (a2 == 2) {
-                            string = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f13ae);
+                            string = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f135d);
                         }
                         z = false;
                     }
@@ -207,7 +207,7 @@ public class kb6 extends cd6<lb6, PrivateMgrApplyViewHolder> {
             d9<?> a2 = h9.a(this.a);
             Activity pageActivity = a2 instanceof TbPageContext ? ((TbPageContext) a2).getPageActivity() : null;
             if (this.t == null) {
-                this.t = new sz4(pageActivity);
+                this.t = new tz4(pageActivity);
             }
             this.t.p();
             this.t.u(accountData);

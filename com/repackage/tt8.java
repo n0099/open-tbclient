@@ -171,11 +171,11 @@ public class tt8 {
             }
             View inflate = LayoutInflater.from(this.b.getContext()).inflate(R.layout.obfuscated_res_0x7f0d015b, this.b.d(), false);
             this.c = inflate;
-            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090f7e);
+            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090f77);
             this.d = textView;
             textView.setText(this.f);
             this.d.setGravity(this.g);
-            View findViewById = this.c.findViewById(R.id.obfuscated_res_0x7f0907ca);
+            View findViewById = this.c.findViewById(R.id.obfuscated_res_0x7f0907c8);
             this.e = findViewById;
             if (this.i) {
                 findViewById.setVisibility(0);
@@ -246,11 +246,11 @@ public class tt8 {
         this.a = context;
         View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d015c, (ViewGroup) null);
         this.b = inflate;
-        this.c = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f0906c1);
-        this.d = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0920bc);
-        this.e = this.b.findViewById(R.id.obfuscated_res_0x7f0920ce);
+        this.c = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f0906c0);
+        this.d = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0920be);
+        this.e = this.b.findViewById(R.id.obfuscated_res_0x7f0920d0);
         this.h = new ArrayList();
-        this.f = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090771);
+        this.f = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090770);
     }
 
     public View b() {

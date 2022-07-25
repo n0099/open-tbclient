@@ -237,7 +237,7 @@ public class xz5 implements sz5.a {
 
     public void l(ShareDialogConfig shareDialogConfig) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048585, this, shareDialogConfig) == null) || shareDialogConfig == null || shareDialogConfig.shareItem == null || gd5.a()) {
+        if (!(interceptable == null || interceptable.invokeL(1048585, this, shareDialogConfig) == null) || shareDialogConfig == null || shareDialogConfig.shareItem == null || hd5.a()) {
             return;
         }
         if (shareDialogConfig.showLocation) {

@@ -84,8 +84,8 @@ public class we5 extends BaseAdapter {
                     return;
                 }
             }
-            this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0917d1);
-            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0917d0);
+            this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0917ac);
+            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0917ab);
         }
     }
 
@@ -207,7 +207,7 @@ public class we5 extends BaseAdapter {
         if (interceptable == null || (invokeILL = interceptable.invokeILL(1048585, this, i, view2, viewGroup)) == null) {
             int i2 = this.b;
             if (i2 == 0) {
-                view2 = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d06a6, (ViewGroup) null, false);
+                view2 = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d06b0, (ViewGroup) null, false);
                 b bVar = new b(this, view2);
                 if (!ListUtils.isEmpty(this.d) && this.d.size() > i && !TextUtils.isEmpty(this.d.get(i))) {
                     bVar.a.setText(this.d.get(i));
@@ -229,7 +229,7 @@ public class we5 extends BaseAdapter {
                 view2 = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0138, (ViewGroup) null, false);
                 a aVar = new a(this, view2);
                 if (!ListUtils.isEmpty(this.c) && this.c.size() > i && !TextUtils.isEmpty(this.c.get(i))) {
-                    aVar.a.setDefaultResource(R.drawable.obfuscated_res_0x7f0811a4);
+                    aVar.a.setDefaultResource(R.drawable.obfuscated_res_0x7f0811a8);
                     aVar.a.J(this.c.get(i), 10, false);
                 }
                 if (!ListUtils.isEmpty(this.d) && this.d.size() > i && !TextUtils.isEmpty(this.d.get(i))) {

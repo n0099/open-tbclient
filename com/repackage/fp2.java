@@ -1,6 +1,9 @@
 package com.repackage;
 
 import android.content.Context;
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
@@ -12,8 +15,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class fp2 extends jp2 {
+public class fp2 extends kp2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -30,7 +34,7 @@ public class fp2 extends jp2 {
                 return;
             }
         }
-        boolean z = rg1.a;
+        boolean z = sg1.a;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -53,22 +57,43 @@ public class fp2 extends jp2 {
         }
     }
 
-    @Override // com.repackage.jp2
-    public boolean a(zo2 zo2Var, bp2 bp2Var, Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, h03 h03Var) {
+    @Override // com.repackage.kp2
+    public boolean a(ap2 ap2Var, cp2 cp2Var, Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, i03 i03Var) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{zo2Var, bp2Var, context, unitedSchemeEntity, callbackHandler, h03Var})) == null) {
-            hx1.i("video", "pause, video id:" + bp2Var.j + " slave id: " + bp2Var.c);
-            d(zo2Var, unitedSchemeEntity, callbackHandler);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{ap2Var, cp2Var, context, unitedSchemeEntity, callbackHandler, i03Var})) == null) {
+            ix1.i("video", "open, video id:" + cp2Var.j + " slave id: " + cp2Var.c);
+            ap2Var.l();
+            d(ap2Var, cp2Var, unitedSchemeEntity, callbackHandler);
             return true;
         }
         return invokeCommon.booleanValue;
     }
 
-    public final void d(zo2 zo2Var, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
+    @Override // com.repackage.kp2
+    public ap2 b(@NonNull Context context, @Nullable String str, @Nullable String str2, @NonNull String str3, @NonNull JSONObject jSONObject) {
+        InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, zo2Var, unitedSchemeEntity, callbackHandler) == null) {
-            zo2Var.p();
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str, str2, str3, jSONObject)) == null) {
+            if (TextUtils.isEmpty(str3)) {
+                return null;
+            }
+            gn2 f = hn2.f(str, str2, str3);
+            if (f == null) {
+                return new ap2(context, cp2.h(jSONObject, new cp2()));
+            }
+            if (f.i() instanceof ap2) {
+                return (ap2) f.i();
+            }
+            return null;
+        }
+        return (ap2) invokeLLLLL.objValue;
+    }
+
+    public final void d(ap2 ap2Var, cp2 cp2Var, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, ap2Var, cp2Var, unitedSchemeEntity, callbackHandler) == null) {
+            ap2Var.o(cp2Var);
             UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
         }
     }

@@ -8,9 +8,9 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.v15;
+import com.repackage.w15;
 /* loaded from: classes3.dex */
-public abstract class ICommonTabHost extends LinearLayout implements v15 {
+public abstract class ICommonTabHost extends LinearLayout implements w15 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 

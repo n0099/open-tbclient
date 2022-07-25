@@ -8,8 +8,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+@SuppressLint({"BDThrowableCheck"})
 /* loaded from: classes7.dex */
-public class t83 extends r83 {
+public class t83 extends s83 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -27,39 +28,40 @@ public class t83 extends r83 {
         }
     }
 
-    @Override // com.repackage.r83
+    @Override // com.repackage.s83
     @SuppressLint({"BDThrowableCheck"})
-    public Bundle c(q83 q83Var) {
+    public Bundle c(r83 r83Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, q83Var)) == null) {
-            p83 b = v83.b(q83Var.a);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, r83Var)) == null) {
+            Bundle bundle = new Bundle();
+            q83 b = w83.b(r83Var.a);
             if (b == null) {
-                if (!r83.a) {
-                    return Bundle.EMPTY;
+                if (s83.a) {
+                    throw new IllegalArgumentException("illegal sp.");
                 }
-                throw new IllegalArgumentException("illegal sp.");
+                return bundle;
             }
-            int i = q83Var.b;
+            int i = r83Var.b;
             if (i == 1) {
-                b.putInt(q83Var.c, Integer.parseInt(q83Var.d));
+                bundle.putInt("result_value", b.getInt(r83Var.c, Integer.parseInt(r83Var.d)));
             } else if (i == 2) {
-                b.putLong(q83Var.c, Long.parseLong(q83Var.d));
+                bundle.putLong("result_value", b.getLong(r83Var.c, Long.parseLong(r83Var.d)));
             } else if (i == 3) {
-                b.putBoolean(q83Var.c, Boolean.parseBoolean(q83Var.d));
+                bundle.putBoolean("result_value", b.getBoolean(r83Var.c, Boolean.parseBoolean(r83Var.d)));
             } else if (i == 4) {
-                b.putString(q83Var.c, q83Var.d);
+                bundle.putString("result_value", b.getString(r83Var.c, r83Var.d));
             } else if (i != 5) {
-                if (r83.a) {
+                if (s83.a) {
                     throw new IllegalArgumentException("wrong info params.");
                 }
             } else {
-                b.putFloat(q83Var.c, Float.parseFloat(q83Var.d));
+                bundle.putFloat("result_value", b.getFloat(r83Var.c, Float.parseFloat(r83Var.d)));
             }
-            if (r83.a) {
-                Log.d("SwanAppSpDelegation", "Put: " + q83Var);
+            if (s83.a) {
+                Log.d("SwanAppSpDelegation", "Get: " + r83Var);
             }
-            return Bundle.EMPTY;
+            return bundle;
         }
         return (Bundle) invokeL.objValue;
     }

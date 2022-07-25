@@ -1,27 +1,33 @@
 package com.kwad.sdk.utils;
 
 import android.content.Context;
-import android.content.res.Resources;
-import com.kwad.sdk.api.core.ResContext;
-import com.sina.weibo.sdk.utils.ResourceManager;
+import android.os.Build;
+import android.os.PowerManager;
+import android.os.SystemClock;
 /* loaded from: classes5.dex */
 public final class al {
-    public static int a(Context context, String str) {
-        Resources a = a(context);
-        if (a == null) {
-            a = context.getResources();
-        }
-        return a.getIdentifier(str, ResourceManager.DRAWABLE, context.getPackageName());
+    public static volatile al anT = new al();
+    public volatile boolean anU;
+    public volatile long anV = 0;
+    public volatile PowerManager anW;
+
+    public static al zM() {
+        return anT;
     }
 
-    public static Resources a(Context context) {
-        if (context == null) {
-            return null;
+    public final boolean aJ(Context context) {
+        if (this.anV <= 0 || SystemClock.elapsedRealtime() - this.anV >= 600) {
+            if (this.anW == null && context != null) {
+                synchronized (this) {
+                    if (this.anW == null) {
+                        this.anW = (PowerManager) context.getApplicationContext().getSystemService("power");
+                    }
+                }
+            }
+            this.anU = this.anW != null ? Build.VERSION.SDK_INT >= 20 ? this.anW.isInteractive() : this.anW.isScreenOn() : false;
+            this.anV = SystemClock.elapsedRealtime();
+            return this.anU;
         }
-        Context applicationContext = context.getApplicationContext();
-        if (applicationContext instanceof ResContext) {
-            applicationContext = ((ResContext) applicationContext).getDelegatedContext();
-        }
-        return applicationContext.getResources();
+        return this.anU;
     }
 }

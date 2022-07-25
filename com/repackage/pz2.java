@@ -1,318 +1,233 @@
 package com.repackage;
 
 import android.content.Context;
-import android.text.TextUtils;
-import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.FrameLayout;
 import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.swan.apps.res.ui.BdShimmerView;
-import com.baidu.swan.apps.res.widget.loadingview.LoadingView;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.apps.res.widget.floatlayer.Container;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.oz2;
-import java.util.WeakHashMap;
-/* loaded from: classes6.dex */
-public final class pz2 {
+/* loaded from: classes7.dex */
+public class pz2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
-    public static final WeakHashMap<ViewGroup, qz2> b;
     public transient /* synthetic */ FieldHolder $fh;
+    public final ViewGroup a;
+    public int b;
+    public final int c;
+    public boolean d;
+    public boolean e;
+    public boolean f;
 
-    /* loaded from: classes6.dex */
-    public static class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ oz2 a;
-        public final /* synthetic */ Context b;
-        public final /* synthetic */ String c;
-        public final /* synthetic */ boolean d;
-
-        public a(oz2 oz2Var, Context context, String str, boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {oz2Var, context, str, Boolean.valueOf(z)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = oz2Var;
-            this.b = context;
-            this.c = str;
-            this.d = z;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            LoadingView loadingView;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                View d = this.a.d();
-                if (d instanceof LoadingView) {
-                    loadingView = (LoadingView) d;
-                } else {
-                    loadingView = new LoadingView(this.b);
-                    FrameLayout frameLayout = new FrameLayout(this.b);
-                    frameLayout.setPadding(0, 0, 0, yd3.g(160.0f));
-                    frameLayout.addView(loadingView);
-                    FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
-                    layoutParams.gravity = 17;
-                    this.a.o(frameLayout, layoutParams);
-                }
-                if (!TextUtils.isEmpty(this.c)) {
-                    loadingView.setMsg(this.c);
-                }
-                this.a.k(this.d);
-            }
-        }
+    /* loaded from: classes7.dex */
+    public interface a {
+        pz2 c();
     }
 
-    /* loaded from: classes6.dex */
-    public static class b implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ nz1 a;
-
-        public b(nz1 nz1Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {nz1Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = nz1Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            oz2 c;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (c = ((oz2.a) this.a).c()) != null && (c.d() instanceof FrameLayout) && (((FrameLayout) c.d()).getChildAt(0) instanceof LoadingView)) {
-                c.g();
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755392695, "Lcom/repackage/pz2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755392695, "Lcom/repackage/pz2;");
+    public pz2(@NonNull a aVar, @NonNull ViewGroup viewGroup, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {aVar, viewGroup, Integer.valueOf(i)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = rg1.a & true;
-        b = new WeakHashMap<>();
+        this.e = false;
+        this.f = true;
+        this.a = viewGroup;
+        this.b = i;
+        this.c = i;
     }
 
-    public static void a() {
+    private Context getContext() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
-            for (ViewGroup viewGroup : b.keySet()) {
-                qz2 qz2Var = b.get(viewGroup);
-                if (qz2Var != null && qz2Var.getLoadingView() != null) {
-                    viewGroup.removeView(qz2Var.getLoadingView());
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) ? this.a.getContext() : (Context) invokeV.objValue;
+    }
+
+    @Nullable
+    public final Container a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            synchronized (this.a) {
+                for (int i = 0; i < this.a.getChildCount(); i++) {
+                    View childAt = this.a.getChildAt(i);
+                    if (childAt instanceof Container) {
+                        return (Container) childAt;
+                    }
+                }
+                return null;
+            }
+        }
+        return (Container) invokeV.objValue;
+    }
+
+    @NonNull
+    public final Container b() {
+        InterceptResult invokeV;
+        Container a2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            synchronized (this.a) {
+                a2 = a();
+                if (a2 == null) {
+                    a2 = new Container(getContext());
+                    int height = this.a.getHeight() - this.b;
+                    int i = this.a instanceof LinearLayout ? -height : this.b;
+                    if (height <= 0) {
+                        height = -1;
+                        i = 0;
+                    }
+                    if (!(this.a instanceof LinearLayout) && this.b == 0) {
+                        height = -1;
+                    }
+                    LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, height);
+                    layoutParams.setMargins(0, i, 0, 0);
+                    a2.setLayoutParams(layoutParams);
+                    this.a.addView(a2);
                 }
             }
-            b.clear();
+            return a2;
         }
+        return (Container) invokeV.objValue;
     }
 
-    public static boolean b(ViewGroup viewGroup) {
-        InterceptResult invokeL;
-        qz2 qz2Var;
-        View loadingView;
+    public boolean c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, viewGroup)) == null) {
-            if (viewGroup == null) {
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.d : invokeV.booleanValue;
+    }
+
+    @Nullable
+    public View d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            Container a2 = a();
+            if (a2 != null && a2.getChildCount() > 0) {
+                return a2.getChildAt(0);
+            }
+            return null;
+        }
+        return (View) invokeV.objValue;
+    }
+
+    public boolean e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.e : invokeV.booleanValue;
+    }
+
+    public boolean f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            Container a2 = a();
+            if (a2 == null) {
                 return false;
             }
-            qz2 qz2Var2 = b.get(viewGroup);
-            if (qz2Var2 != null && qz2Var2.getLoadingView() != null) {
-                qz2Var2.getLoadingView().setVisibility(8);
-                return true;
-            }
-            for (int i = 0; i < viewGroup.getChildCount(); i++) {
-                if ((viewGroup.getChildAt(i) instanceof qz2) && (loadingView = (qz2Var = (qz2) viewGroup.getChildAt(i)).getLoadingView()) != null) {
-                    loadingView.setVisibility(8);
-                    b.put(viewGroup, qz2Var);
-                    if (a) {
-                        Log.d("LoadingViewHelper", "The count of cached loading views is : " + b.size());
-                        Log.d("LoadingViewHelper", "The content of cached views is : " + b.toString());
-                    }
+            int childCount = a2.getChildCount();
+            for (int i = 0; i < childCount; i++) {
+                View childAt = a2.getChildAt(i);
+                if (childAt != null && childAt.getVisibility() == 0) {
                     return true;
                 }
             }
             return false;
         }
-        return invokeL.booleanValue;
+        return invokeV.booleanValue;
     }
 
-    public static void c(@NonNull nz1 nz1Var) {
+    public void g() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65539, null, nz1Var) == null) && (nz1Var instanceof oz2.a)) {
-            be3.e0(new b(nz1Var));
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            h(false);
+            i();
         }
     }
 
-    public static boolean d(ViewGroup viewGroup) {
-        InterceptResult invokeL;
-        qz2 qz2Var;
-        View loadingView;
+    public final void h(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, viewGroup)) == null) {
-            if (viewGroup == null) {
-                return false;
-            }
-            qz2 qz2Var2 = b.get(viewGroup);
-            if (qz2Var2 != null) {
-                View loadingView2 = qz2Var2.getLoadingView();
-                if (loadingView2 != null) {
-                    if (loadingView2 instanceof BdShimmerView) {
-                        ((BdShimmerView) loadingView2).p();
-                    }
-                    loadingView2.setVisibility(8);
-                    viewGroup.removeView(loadingView2);
-                    b.remove(viewGroup);
-                    if (a) {
-                        Log.d("LoadingViewHelper", "The count of cached loading views is : " + b.size());
-                        Log.d("LoadingViewHelper", "The content of cached views is : " + b.toString());
+        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
+            synchronized (this.a) {
+                Container a2 = a();
+                if (!z || a2 == null || a2.getChildCount() <= 0) {
+                    if (a2 != null) {
+                        this.a.removeView(a2);
                     }
                 }
-                return true;
             }
-            for (int i = 0; i < viewGroup.getChildCount(); i++) {
-                if ((viewGroup.getChildAt(i) instanceof qz2) && (loadingView = (qz2Var = (qz2) viewGroup.getChildAt(i)).getLoadingView()) != null) {
-                    loadingView.setVisibility(8);
-                    viewGroup.removeView((View) qz2Var);
-                    b.remove(viewGroup);
-                    if (a) {
-                        Log.d("LoadingViewHelper", "The count of cached loading views is : " + b.size());
-                        Log.d("LoadingViewHelper", "The content of cached views is : " + b.toString());
-                    }
-                    return true;
-                }
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean e(ViewGroup viewGroup) {
-        InterceptResult invokeL;
-        qz2 qz2Var;
-        View loadingView;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, viewGroup)) == null) {
-            if (viewGroup == null) {
-                return false;
-            }
-            qz2 qz2Var2 = b.get(viewGroup);
-            if (qz2Var2 != null && qz2Var2.getLoadingView() != null) {
-                qz2Var2.getLoadingView().setVisibility(0);
-                return true;
-            }
-            for (int i = 0; i < viewGroup.getChildCount(); i++) {
-                if ((viewGroup.getChildAt(i) instanceof qz2) && (loadingView = (qz2Var = (qz2) viewGroup.getChildAt(i)).getLoadingView()) != null) {
-                    loadingView.setVisibility(0);
-                    b.put(viewGroup, qz2Var);
-                    if (a) {
-                        Log.d("LoadingViewHelper", "The count of cached loading views is : " + b.size());
-                        Log.d("LoadingViewHelper", "The content of cached views is : " + b.toString());
-                    }
-                    return true;
-                }
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static void f(@NonNull oz2 oz2Var, @NonNull Context context, String str, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65542, null, new Object[]{oz2Var, context, str, Boolean.valueOf(z)}) == null) {
-            be3.e0(new a(oz2Var, context, str, z));
         }
     }
 
-    public static boolean g(Context context, ViewGroup viewGroup) {
-        InterceptResult invokeLL;
+    public final void i() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, context, viewGroup)) == null) ? h(context, viewGroup, "") : invokeLL.booleanValue;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            this.f = true;
+            this.e = false;
+            this.b = this.c;
+        }
     }
 
-    public static boolean h(Context context, ViewGroup viewGroup, String str) {
-        InterceptResult invokeLLL;
+    public boolean j() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65544, null, context, viewGroup, str)) == null) {
-            if (context != null && viewGroup != null) {
-                if (e(viewGroup)) {
-                    return true;
-                }
-                LoadingView loadingView = new LoadingView(context);
-                LoadingView loadingView2 = loadingView.getLoadingView();
-                if (loadingView2 == null) {
-                    return false;
-                }
-                if (!TextUtils.isEmpty(str)) {
-                    loadingView2.setMsg(str);
-                }
-                ViewGroup viewGroup2 = (ViewGroup) loadingView2.getParent();
-                if (viewGroup2 != null) {
-                    viewGroup2.removeView(loadingView2);
-                }
-                if (viewGroup instanceof RelativeLayout) {
-                    RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
-                    layoutParams.addRule(13);
-                    viewGroup.addView(loadingView2, layoutParams);
-                } else if (viewGroup instanceof LinearLayout) {
-                    LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(-2, -2);
-                    layoutParams2.gravity = 17;
-                    viewGroup.addView(loadingView2, layoutParams2);
-                } else if (viewGroup instanceof FrameLayout) {
-                    FrameLayout.LayoutParams layoutParams3 = new FrameLayout.LayoutParams(-2, -2);
-                    layoutParams3.gravity = 17;
-                    viewGroup.addView(loadingView2, layoutParams3);
-                }
-                b.put(viewGroup, loadingView);
-                loadingView2.setVisibility(0);
-                if (a) {
-                    Log.d("LoadingViewHelper", "The count of cached loading views is : " + b.size());
-                    Log.d("LoadingViewHelper", "The content of cached views is : " + b.toString());
-                }
-                return true;
-            }
-            return false;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f : invokeV.booleanValue;
+    }
+
+    public void k(boolean z) {
+        Container a2;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeZ(1048586, this, z) == null) || (a2 = a()) == null) {
+            return;
         }
-        return invokeLLL.booleanValue;
+        a2.setClickable(z);
+    }
+
+    public void l(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
+            this.f = z;
+        }
+    }
+
+    public void m(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048588, this, z) == null) {
+            this.d = z;
+            this.b = 0;
+        }
+    }
+
+    public void n(@NonNull View view2) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048589, this, view2) == null) || view2 == d()) {
+            return;
+        }
+        h(false);
+        b().addView(view2);
+    }
+
+    public void o(@NonNull View view2, ViewGroup.LayoutParams layoutParams) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(1048590, this, view2, layoutParams) == null) || view2 == d()) {
+            return;
+        }
+        h(false);
+        b().addView(view2, layoutParams);
     }
 }

@@ -10,6 +10,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.kuaishou.weapon.p0.h;
 import com.yxcorp.kuaishou.addfp.android.Orange;
 import com.yxcorp.kuaishou.addfp.android.a.c;
 import com.yxcorp.kuaishou.addfp.android.a.d;
@@ -105,7 +106,7 @@ public class KWEGIDDFP {
                 }
                 if (TextUtils.isEmpty(this.mEgid)) {
                     String a2 = Build.VERSION.SDK_INT < 29 ? com.yxcorp.kuaishou.addfp.c.a.a.a(this.mParamContext, "k_w_o_d_out_dtt") : null;
-                    String a3 = (TextUtils.isEmpty(a2) && g.a(this.mParamContext, new String[]{"android.permission.READ_EXTERNAL_STORAGE", "android.permission.WRITE_EXTERNAL_STORAGE"})) ? d.a(this.mParamContext).a("Lm91a2R0ZnQ=") : "";
+                    String a3 = (TextUtils.isEmpty(a2) && g.a(this.mParamContext, new String[]{h.i, "android.permission.WRITE_EXTERNAL_STORAGE"})) ? d.a(this.mParamContext).a("Lm91a2R0ZnQ=") : "";
                     if (TextUtils.isEmpty(a2) && TextUtils.isEmpty(a3)) {
                         return;
                     }

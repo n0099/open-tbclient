@@ -202,26 +202,26 @@ public class TabLiveStageLiveView extends AlaRoundRelativeLayout {
     public final void init() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d07fc, this);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0806, this);
             float f = l;
             setRoundLayoutRadius(new float[]{f, f, f, f, f, f, f, f});
             TabLiveStageLiveZanLottieView tabLiveStageLiveZanLottieView = (TabLiveStageLiveZanLottieView) findViewById(R.id.obfuscated_res_0x7f092572);
             this.h = tabLiveStageLiveZanLottieView;
             tabLiveStageLiveZanLottieView.setForbidAutoUpdateState(true);
-            TbImageView tbImageView = (TbImageView) findViewById(R.id.obfuscated_res_0x7f0906de);
+            TbImageView tbImageView = (TbImageView) findViewById(R.id.obfuscated_res_0x7f0906dd);
             this.a = tbImageView;
             tbImageView.setBackgroundColor(0);
             this.a.setRadius(getContext().getResources().getDimensionPixelSize(R.dimen.tbds20));
             this.a.setConrers(15);
-            HeadImageView headImageView = (HeadImageView) findViewById(R.id.obfuscated_res_0x7f090cd8);
+            HeadImageView headImageView = (HeadImageView) findViewById(R.id.obfuscated_res_0x7f090cd1);
             this.b = headImageView;
             headImageView.setAutoChangeStyle(false);
             this.b.setClickable(true);
             this.b.setIsRound(true);
             this.b.setBorderWidth(pi.f(getContext(), R.dimen.tbds1));
-            this.c = findViewById(R.id.obfuscated_res_0x7f090cda);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f0920bc);
-            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f09232d);
+            this.c = findViewById(R.id.obfuscated_res_0x7f090cd3);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f0920be);
+            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f09232f);
             this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f0902ca);
             this.g = findViewById(R.id.obfuscated_res_0x7f0903c6);
             GradientDrawable gradientDrawable = new GradientDrawable(GradientDrawable.Orientation.TOP_BOTTOM, this.k);
@@ -280,7 +280,7 @@ public class TabLiveStageLiveView extends AlaRoundRelativeLayout {
                     }
                 }
                 this.d.setText(sdkLiveInfoData.title);
-                this.f.setText(getContext().getResources().getString(R.string.obfuscated_res_0x7f0f11f0, StringHelper.numberUniformFormatExtraWithRound(sdkLiveInfoData.liveInfo.audienceCount)));
+                this.f.setText(getContext().getResources().getString(R.string.obfuscated_res_0x7f0f119f, StringHelper.numberUniformFormatExtraWithRound(sdkLiveInfoData.liveInfo.audienceCount)));
                 return;
             }
             setVisibility(4);

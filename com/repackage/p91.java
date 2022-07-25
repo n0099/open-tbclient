@@ -67,7 +67,7 @@ public class p91 {
                     message = th != null ? th.getMessage() : null;
                 }
                 ChannelListView channelListView = this.b;
-                channelListView.S(m91.a().getString(R.string.obfuscated_res_0x7f0f0d61) + message, str);
+                channelListView.S(m91.a().getString(R.string.obfuscated_res_0x7f0f0d4a) + message, str);
                 w81 w81Var = new w81("1");
                 w81Var.b(new SdkException("pay_platform error --> " + str, th).getStackMessage());
                 z81.e(w81Var);

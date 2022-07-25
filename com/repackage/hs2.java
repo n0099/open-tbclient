@@ -1,19 +1,15 @@
 package com.repackage;
 
-import android.util.Log;
-import com.baidu.android.imsdk.internal.Constants;
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public final class hs2 extends gs2 {
+public abstract class hs2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
-    public final boolean b;
 
     public hs2() {
         Interceptable interceptable = $ic;
@@ -25,48 +21,16 @@ public final class hs2 extends gs2 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = "SwanAppPayCheckNode";
     }
 
-    @Override // com.repackage.gs2
-    public String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "payinfo" : (String) invokeV.objValue;
-    }
+    @NonNull
+    public abstract String a();
 
-    @Override // com.repackage.gs2
-    public void b() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.b) {
-            Log.d(this.a, "onFail: ");
-        }
-    }
+    public abstract void b();
 
-    @Override // com.repackage.gs2
-    public void c() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.b) {
-            Log.d(this.a, "onFiltered: ");
-        }
-    }
+    public abstract void c();
 
-    @Override // com.repackage.gs2
-    public void d(String str, JSONObject jSONObject, String str2) {
-        h03 b0;
-        q43 e0;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048579, this, str, jSONObject, str2) == null) {
-            if (this.b) {
-                Log.d(this.a, "onUpdate: ");
-            }
-            if (jSONObject == null || (b0 = h03.b0()) == null || (e0 = b0.e0()) == null) {
-                return;
-            }
-            e0.B("note_data_pay_check_list", jSONObject.toString());
-        }
-    }
+    public abstract void d(String str, JSONObject jSONObject, String str2);
 }

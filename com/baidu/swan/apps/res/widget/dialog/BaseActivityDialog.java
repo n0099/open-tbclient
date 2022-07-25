@@ -31,11 +31,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.be3;
-import com.repackage.oc3;
-import com.repackage.oj2;
-import com.repackage.qc3;
-import com.repackage.rg1;
+import com.repackage.ce3;
+import com.repackage.pc3;
+import com.repackage.pj2;
+import com.repackage.rc3;
+import com.repackage.sg1;
 import java.util.ArrayList;
 import java.util.HashMap;
 /* loaded from: classes2.dex */
@@ -270,7 +270,7 @@ public class BaseActivityDialog extends Activity implements DialogInterface {
                     }
                     e.t(valueOf, this.b);
                     intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
-                    qc3.g(appContext, intent);
+                    rc3.g(appContext, intent);
                 }
             }
         }
@@ -411,7 +411,7 @@ public class BaseActivityDialog extends Activity implements DialogInterface {
         public void E(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-                be3.a0(new a(this, z));
+                ce3.a0(new a(this, z));
             }
         }
 
@@ -541,7 +541,7 @@ public class BaseActivityDialog extends Activity implements DialogInterface {
                 return;
             }
         }
-        q = rg1.a;
+        q = sg1.a;
     }
 
     public BaseActivityDialog() {
@@ -593,26 +593,26 @@ public class BaseActivityDialog extends Activity implements DialogInterface {
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f090792);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f090788);
-            this.c = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090789);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f09194a);
-            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f0915a8);
-            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f0915b4);
-            this.h = findViewById(R.id.obfuscated_res_0x7f0907ba);
-            this.i = findViewById(R.id.obfuscated_res_0x7f0907bb);
-            this.j = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f09077f);
-            this.k = (ImageView) findViewById(R.id.obfuscated_res_0x7f090782);
-            this.l = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091cd7);
-            this.g = findViewById(R.id.obfuscated_res_0x7f0907b9);
-            this.n = (SwanAppScrollView) findViewById(R.id.obfuscated_res_0x7f09147a);
+            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f090790);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f090786);
+            this.c = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090787);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f091925);
+            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f091583);
+            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f09158f);
+            this.h = findViewById(R.id.obfuscated_res_0x7f0907b8);
+            this.i = findViewById(R.id.obfuscated_res_0x7f0907b9);
+            this.j = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f09077e);
+            this.k = (ImageView) findViewById(R.id.obfuscated_res_0x7f090781);
+            this.l = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091cdd);
+            this.g = findViewById(R.id.obfuscated_res_0x7f0907b7);
+            this.n = (SwanAppScrollView) findViewById(R.id.obfuscated_res_0x7f091456);
             this.o = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090424);
-            this.p = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070125);
+            this.p = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070123);
             if (this.m.p > 0) {
                 this.n.getLayoutParams().height = this.m.p;
             }
-            if (oc3.k() || oc3.l()) {
-                int dimensionPixelSize = this.b.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07012c);
+            if (pc3.k() || pc3.l()) {
+                int dimensionPixelSize = this.b.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07012a);
                 this.b.setPadding(dimensionPixelSize, 0, dimensionPixelSize, 0);
             }
         }
@@ -681,7 +681,7 @@ public class BaseActivityDialog extends Activity implements DialogInterface {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            Resources b2 = oj2.M().b();
+            Resources b2 = pj2.M().b();
             return b2 != null ? b2 : super.getResources();
         }
         return (Resources) invokeV.objValue;
@@ -701,7 +701,7 @@ public class BaseActivityDialog extends Activity implements DialogInterface {
             this.b.setText(charSequence);
             this.c.setVisibility(!TextUtils.isEmpty(charSequence) ? 0 : 8);
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, this.p);
-            layoutParams.addRule(3, R.id.obfuscated_res_0x7f090789);
+            layoutParams.addRule(3, R.id.obfuscated_res_0x7f090787);
             this.o.setLayoutParams(layoutParams);
         }
     }
@@ -778,7 +778,7 @@ public class BaseActivityDialog extends Activity implements DialogInterface {
             this.j.addView(view2);
             this.c.setVisibility(8);
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, this.p);
-            layoutParams.addRule(3, R.id.obfuscated_res_0x7f09077e);
+            layoutParams.addRule(3, R.id.obfuscated_res_0x7f09077d);
             this.o.setLayoutParams(layoutParams);
         }
     }

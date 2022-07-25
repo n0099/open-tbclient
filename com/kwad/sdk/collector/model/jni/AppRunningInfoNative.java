@@ -11,7 +11,7 @@ import java.util.Date;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class AppRunningInfoNative extends NativeObject implements b<AppRunningInfoNative> {
-    public static SimpleDateFormat a = new SimpleDateFormat("yyyy-MM-dd:HH:mm:ss");
+    public static SimpleDateFormat SR = new SimpleDateFormat("yyyy-MM-dd:HH:mm:ss");
 
     public AppRunningInfoNative(long j) {
         this.mPtr = j;
@@ -39,15 +39,15 @@ public class AppRunningInfoNative extends NativeObject implements b<AppRunningIn
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: private */
     @NonNull
-    /* renamed from: a */
+    /* renamed from: rw */
     public AppRunningInfoNative clone() {
         AppRunningInfoNative appRunningInfoNative = new AppRunningInfoNative(AppStatusNative.appRunningInfoGetGranularity(this), AppStatusNative.appRunningInfoGetName(this), AppStatusNative.appRunningInfoGetPackageName(this));
         c.a(appRunningInfoNative, AppStatusNative.appRunningInfoGetLastRunningTime(this));
         return appRunningInfoNative;
     }
 
-    public static String a(long j) {
-        return a.format(new Date(j));
+    public static String v(long j) {
+        return SR.format(new Date(j));
     }
 
     @Override // com.kwad.sdk.collector.model.jni.NativeObject
@@ -99,13 +99,13 @@ public class AppRunningInfoNative extends NativeObject implements b<AppRunningIn
     @Override // com.kwad.sdk.core.b
     public JSONObject toJson() {
         JSONObject jSONObject = new JSONObject();
-        r.a(jSONObject, "name", AppStatusNative.appRunningInfoGetName(this));
-        r.a(jSONObject, "packageName", AppStatusNative.appRunningInfoGetPackageName(this));
-        r.a(jSONObject, "lastRunningTime", AppStatusNative.appRunningInfoGetLastRunningTime(this));
+        r.putValue(jSONObject, "name", AppStatusNative.appRunningInfoGetName(this));
+        r.putValue(jSONObject, "packageName", AppStatusNative.appRunningInfoGetPackageName(this));
+        r.putValue(jSONObject, "lastRunningTime", AppStatusNative.appRunningInfoGetLastRunningTime(this));
         return jSONObject;
     }
 
     public String toString() {
-        return "AppRunningInfo{packageName='" + c.b(this) + "', lastRunningTime=" + a(c.c(this)) + '}';
+        return "AppRunningInfo{packageName='" + c.b(this) + "', lastRunningTime=" + v(c.c(this)) + '}';
     }
 }

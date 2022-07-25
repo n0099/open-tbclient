@@ -40,7 +40,7 @@ public class ComplaintBarlordViewHolder extends TypeAdapter.ViewHolder {
         }
         this.a = 3;
         this.b = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f090316);
-        this.c = view2.findViewById(R.id.obfuscated_res_0x7f090ec7);
+        this.c = view2.findViewById(R.id.obfuscated_res_0x7f090ec0);
         this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090317);
         this.e = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090315);
     }

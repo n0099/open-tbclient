@@ -8,21 +8,21 @@ public final class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static boolean a() {
+    public static boolean bc() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? a.a.b().booleanValue() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? a.da.getValue().booleanValue() : invokeV.booleanValue;
     }
 
-    public static boolean b() {
+    public static boolean bd() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? a.b.b().intValue() == 1 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? a.db.getValue().intValue() == 1 : invokeV.booleanValue;
     }
 
-    public static boolean c() {
+    public static boolean be() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.c.b().intValue() > 0 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.dc.getValue().intValue() > 0 : invokeV.booleanValue;
     }
 }

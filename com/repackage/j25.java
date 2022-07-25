@@ -1,24 +1,20 @@
 package com.repackage;
 
 import android.content.Context;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class j25 extends u15 {
+public class j25 extends v15 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean t;
-    public boolean u;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public j25(Context context, int i) {
-        super(context, TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f052e), 31, i);
+        super(context, TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0978), 35, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -35,40 +31,10 @@ public class j25 extends u15 {
                 return;
             }
         }
-        this.t = true;
-        this.u = true;
-        this.d = R.drawable.obfuscated_res_0x7f080981;
-        this.i = false;
-        this.j = true;
+        this.d = R.drawable.pic_more_connect64;
+        this.h = R.drawable.pic_more_connect64;
         this.k = false;
-        this.p = new int[]{21};
-    }
-
-    @Override // com.repackage.u15
-    public boolean a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.t : invokeV.booleanValue;
-    }
-
-    @Override // com.repackage.u15
-    public boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.u : invokeV.booleanValue;
-    }
-
-    public void g(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-            this.t = z;
-        }
-    }
-
-    public void h(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            this.u = z;
-        }
+        this.i = false;
+        this.p = new int[]{61};
     }
 }

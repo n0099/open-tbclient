@@ -99,7 +99,7 @@ public class no implements gk8 {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                     no noVar = this.a.c;
-                    noVar.a.onShowErr(4, noVar.g.getString(R.string.obfuscated_res_0x7f0f1571));
+                    noVar.a.onShowErr(4, noVar.g.getString(R.string.obfuscated_res_0x7f0f1520));
                     gj.a = 1;
                 }
             }
@@ -107,13 +107,13 @@ public class no implements gk8 {
 
         /* renamed from: com.repackage.no$b$b  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class RunnableC0692b implements Runnable {
+        public class RunnableC0538b implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ String a;
             public final /* synthetic */ b b;
 
-            public RunnableC0692b(b bVar, String str) {
+            public RunnableC0538b(b bVar, String str) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -167,13 +167,13 @@ public class no implements gk8 {
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                String str = gw4.c(ew4.d(this.a)).a;
+                String str = hw4.c(fw4.d(this.a)).a;
                 if (this.c.b != null) {
                     this.c.b.removeCallbacks(this.c.f);
                     if (StringUtils.isNull(str)) {
                         this.c.b.post(new a(this));
                     } else {
-                        this.c.b.post(new RunnableC0692b(this, str));
+                        this.c.b.post(new RunnableC0538b(this, str));
                     }
                 }
             }
@@ -283,7 +283,7 @@ public class no implements gk8 {
                         this.a.c = null;
                         return;
                     }
-                    ejVar.onShowErr(2, gj.a(R.string.obfuscated_res_0x7f0f1576));
+                    ejVar.onShowErr(2, gj.a(R.string.obfuscated_res_0x7f0f1525));
                     FieldBuilder fieldBuilder2 = new FieldBuilder();
                     fieldBuilder2.append("file", str);
                     fieldBuilder2.append("dur", Integer.valueOf(i));
@@ -318,7 +318,7 @@ public class no implements gk8 {
                     if (noVar.c == null) {
                         TiebaStatic.voiceError(i, "RecoreCallback.error data err: " + str, "errCode == BdRecordingResult.TIME_OUT");
                     } else if (this.a.a.isOnCancle()) {
-                        ji.k(ew4.c(this.a.c));
+                        ji.k(fw4.c(this.a.c));
                         this.a.c = null;
                         this.a.a.onStopingRecorder();
                         gj.a = 1;
@@ -328,11 +328,11 @@ public class no implements gk8 {
                         this.a.c = null;
                         if (this.a.d == cj.b) {
                             no noVar3 = this.a;
-                            noVar3.a.onShowErr(3, noVar3.g.getString(R.string.obfuscated_res_0x7f0f1577));
+                            noVar3.a.onShowErr(3, noVar3.g.getString(R.string.obfuscated_res_0x7f0f1526));
                             return;
                         }
                         no noVar4 = this.a;
-                        noVar4.a.onShowErr(3, noVar4.g.getString(R.string.obfuscated_res_0x7f0f1578));
+                        noVar4.a.onShowErr(3, noVar4.g.getString(R.string.obfuscated_res_0x7f0f1527));
                     }
                 } else {
                     gj.a = 1;
@@ -431,15 +431,15 @@ public class no implements gk8 {
             if (!FileHelper.checkSD()) {
                 String sdErrorString = FileHelper.getSdErrorString();
                 if (sdErrorString == null) {
-                    sdErrorString = gj.a(R.string.obfuscated_res_0x7f0f1572);
+                    sdErrorString = gj.a(R.string.obfuscated_res_0x7f0f1521);
                 }
                 this.a.onShowErr(0, sdErrorString);
                 return false;
             }
             r(true);
-            String e = ew4.e();
+            String e = fw4.e();
             this.c = e;
-            String c2 = ew4.c(e);
+            String c2 = fw4.c(e);
             if (this.e == null) {
                 this.e = new d(this, null);
             }

@@ -191,8 +191,8 @@ public class vx8 {
         String filePath;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, imageFileInfo)) == null) {
-            int l = xt4.k().l("key_upload_pic_max_width", 0);
-            int l2 = xt4.k().l("key_upload_pic_max_height", 0);
+            int l = yt4.k().l("key_upload_pic_max_width", 0);
+            int l2 = yt4.k().l("key_upload_pic_max_height", 0);
             if (l <= 0 || l2 <= 0 || imageFileInfo == null || imageFileInfo.isGif() || (filePath = imageFileInfo.getFilePath()) == null) {
                 return false;
             }
@@ -205,7 +205,7 @@ public class vx8 {
     public static int c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? xt4.k().l("show_write_title_tip_count", 0) : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? yt4.k().l("show_write_title_tip_count", 0) : invokeV.intValue;
     }
 
     public static void d(int i, String str) {
@@ -220,6 +220,6 @@ public class vx8 {
         if (!(interceptable == null || interceptable.invokeL(65541, null, writeData) == null) || writeData == null || TextUtils.isEmpty(writeData.getTitle())) {
             return;
         }
-        xt4.k().w("show_write_title_tip_count", c() + 1);
+        yt4.k().w("show_write_title_tip_count", c() + 1);
     }
 }

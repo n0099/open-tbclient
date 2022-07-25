@@ -18,7 +18,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.cr4;
+import com.repackage.dr4;
 import com.repackage.lv5;
 import com.repackage.mv5;
 import com.repackage.vv5;
@@ -77,7 +77,7 @@ public class AlaEnterEffectDetailActivity extends BaseActivity {
             if (!(interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) || this.a.a == null) {
                 return;
             }
-            this.a.showToast(R.string.obfuscated_res_0x7f0f0cf3);
+            this.a.showToast(R.string.obfuscated_res_0x7f0f0cdf);
             Intent intent = new Intent();
             if (z != (this.a.a.use_status == 1)) {
                 intent.putExtra("key_selected_effect_id", this.a.a.id);
@@ -174,7 +174,7 @@ public class AlaEnterEffectDetailActivity extends BaseActivity {
         public final /* synthetic */ AlaEnterEffectDetailActivity a;
 
         /* loaded from: classes3.dex */
-        public class a implements cr4.e {
+        public class a implements dr4.e {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ d a;
@@ -197,11 +197,11 @@ public class AlaEnterEffectDetailActivity extends BaseActivity {
                 this.a = dVar;
             }
 
-            @Override // com.repackage.cr4.e
-            public void onClick(cr4 cr4Var) {
+            @Override // com.repackage.dr4.e
+            public void onClick(dr4 dr4Var) {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(1048576, this, cr4Var) == null) {
-                    cr4Var.dismiss();
+                if (interceptable == null || interceptable.invokeL(1048576, this, dr4Var) == null) {
+                    dr4Var.dismiss();
                     if (this.a.a.a != null) {
                         this.a.a.e.b(this.a.a.a.id, this.a.a.a.use_status != 1);
                     }
@@ -210,7 +210,7 @@ public class AlaEnterEffectDetailActivity extends BaseActivity {
         }
 
         /* loaded from: classes3.dex */
-        public class b implements cr4.e {
+        public class b implements dr4.e {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -230,11 +230,11 @@ public class AlaEnterEffectDetailActivity extends BaseActivity {
                 }
             }
 
-            @Override // com.repackage.cr4.e
-            public void onClick(cr4 cr4Var) {
+            @Override // com.repackage.dr4.e
+            public void onClick(dr4 dr4Var) {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(1048576, this, cr4Var) == null) {
-                    cr4Var.dismiss();
+                if (interceptable == null || interceptable.invokeL(1048576, this, dr4Var) == null) {
+                    dr4Var.dismiss();
                 }
             }
         }
@@ -287,14 +287,14 @@ public class AlaEnterEffectDetailActivity extends BaseActivity {
                 }
                 return;
             }
-            cr4 cr4Var = new cr4(this.a.getActivity());
-            cr4Var.setCanceledOnTouchOutside(false);
-            cr4Var.setAutoNight(false);
-            cr4Var.setMessageId(R.string.obfuscated_res_0x7f0f0205);
-            cr4Var.setPositiveButton(R.string.obfuscated_res_0x7f0f0427, new a(this));
-            cr4Var.setNegativeButton(R.string.obfuscated_res_0x7f0f036a, new b(this));
-            cr4Var.create(this.a.getPageContext());
-            cr4Var.show();
+            dr4 dr4Var = new dr4(this.a.getActivity());
+            dr4Var.setCanceledOnTouchOutside(false);
+            dr4Var.setAutoNight(false);
+            dr4Var.setMessageId(R.string.obfuscated_res_0x7f0f0205);
+            dr4Var.setPositiveButton(R.string.obfuscated_res_0x7f0f0426, new a(this));
+            dr4Var.setNegativeButton(R.string.obfuscated_res_0x7f0f036a, new b(this));
+            dr4Var.create(this.a.getPageContext());
+            dr4Var.show();
         }
     }
 
@@ -352,7 +352,7 @@ public class AlaEnterEffectDetailActivity extends BaseActivity {
             this.e = new zv5(this.h);
             Serializable serializableExtra = getIntent().getSerializableExtra("key_effect_data");
             if (!(serializableExtra instanceof AlaEnterEffectData)) {
-                showToast(R.string.obfuscated_res_0x7f0f139d);
+                showToast(R.string.obfuscated_res_0x7f0f134c);
                 setResult(0);
                 finish();
                 return;

@@ -139,10 +139,10 @@ public class j58 extends jx5<f48> {
                         this.a.q.setVisibility(0);
                         j58 j58Var = this.a;
                         j58Var.y(j58Var.r.i);
-                        pi.N(this.a.c, R.string.obfuscated_res_0x7f0f14cd);
+                        pi.N(this.a.c, R.string.obfuscated_res_0x7f0f147c);
                         return;
                     }
-                    pi.N(this.a.c, R.string.obfuscated_res_0x7f0f14cc);
+                    pi.N(this.a.c, R.string.obfuscated_res_0x7f0f147b);
                 }
             }
         }
@@ -266,14 +266,14 @@ public class j58 extends jx5<f48> {
             this.k.setText(f48Var.d);
             TextView textView = this.l;
             if (f48Var.a) {
-                string = this.c.getString(R.string.obfuscated_res_0x7f0f0a99);
+                string = this.c.getString(R.string.obfuscated_res_0x7f0f0a85);
             } else {
                 if (f48Var.b == 2) {
                     context = this.c;
-                    i = R.string.obfuscated_res_0x7f0f1187;
+                    i = R.string.obfuscated_res_0x7f0f1136;
                 } else {
                     context = this.c;
-                    i = R.string.obfuscated_res_0x7f0f082f;
+                    i = R.string.obfuscated_res_0x7f0f082b;
                 }
                 string = context.getString(i);
             }
@@ -283,9 +283,9 @@ public class j58 extends jx5<f48> {
             if (je5.b(str) > 10) {
                 str = je5.k(str, 0, 10) + StringHelper.STRING_MORE;
             }
-            this.o.setText(String.format(this.c.getString(R.string.obfuscated_res_0x7f0f0e48), str));
+            this.o.setText(String.format(this.c.getString(R.string.obfuscated_res_0x7f0f0e31), str));
             String numFormatOverWanNa = StringHelper.numFormatOverWanNa(f48Var.j);
-            this.p.setText(f48Var.a ? String.format(this.c.getString(R.string.obfuscated_res_0x7f0f0e47), numFormatOverWanNa, StringHelper.numFormatOverWanNa(f48Var.k)) : String.format(this.c.getString(R.string.obfuscated_res_0x7f0f0e46), numFormatOverWanNa));
+            this.p.setText(f48Var.a ? String.format(this.c.getString(R.string.obfuscated_res_0x7f0f0e30), numFormatOverWanNa, StringHelper.numFormatOverWanNa(f48Var.k)) : String.format(this.c.getString(R.string.obfuscated_res_0x7f0f0e2f), numFormatOverWanNa));
             if (!f48Var.i && !f48Var.a) {
                 this.q.setVisibility(0);
                 y(f48Var.i);
@@ -306,15 +306,15 @@ public class j58 extends jx5<f48> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
             if (z) {
-                this.q.setText(this.c.getString(R.string.obfuscated_res_0x7f0f0f9e));
+                this.q.setText(this.c.getString(R.string.obfuscated_res_0x7f0f0f87));
                 SkinManager.setViewTextColor(this.q, (int) R.color.CAM_X0110);
                 SkinManager.setBackgroundResource(this.q, R.color.transparent);
                 this.q.setClickable(false);
                 return;
             }
-            this.q.setText(this.c.getString(R.string.obfuscated_res_0x7f0f0631));
+            this.q.setText(this.c.getString(R.string.obfuscated_res_0x7f0f062d));
             SkinManager.setViewTextColor(this.q, R.color.CAM_X0302, 1);
-            SkinManager.setBackgroundResource(this.q, R.drawable.obfuscated_res_0x7f080f25);
+            SkinManager.setBackgroundResource(this.q, R.drawable.obfuscated_res_0x7f080f2c);
             this.q.setClickable(true);
         }
     }

@@ -85,12 +85,12 @@ public class er0 extends wq0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
             if (z) {
-                this.h = R.string.obfuscated_res_0x7f0f0c07;
-                this.i = R.string.obfuscated_res_0x7f0f0c03;
+                this.h = R.string.obfuscated_res_0x7f0f0bf3;
+                this.i = R.string.obfuscated_res_0x7f0f0bef;
                 return;
             }
-            this.h = R.string.obfuscated_res_0x7f0f0c04;
-            this.i = R.string.obfuscated_res_0x7f0f0bf8;
+            this.h = R.string.obfuscated_res_0x7f0f0bf0;
+            this.i = R.string.obfuscated_res_0x7f0f0be4;
         }
     }
 
@@ -101,7 +101,7 @@ public class er0 extends wq0 {
             layoutParams.width = -2;
             layoutParams.height = -2;
             this.b.setBackground(getContext().getResources().getDrawable(R.drawable.obfuscated_res_0x7f080d86));
-            this.b.setText(getContext().getResources().getText(R.string.obfuscated_res_0x7f0f0c07));
+            this.b.setText(getContext().getResources().getText(R.string.obfuscated_res_0x7f0f0bf3));
             this.b.setPadding(38, 14, 38, 14);
             this.b.setLayoutParams(layoutParams);
         }
@@ -114,7 +114,7 @@ public class er0 extends wq0 {
             layoutParams.width = -1;
             layoutParams.height = q11.b(35.0f);
             this.b.setPadding(0, 0, q11.b(15.0f), 0);
-            this.b.setText(getContext().getResources().getString(R.string.obfuscated_res_0x7f0f0c04));
+            this.b.setText(getContext().getResources().getString(R.string.obfuscated_res_0x7f0f0bf0));
             this.b.setBackground(getContext().getResources().getDrawable(R.drawable.obfuscated_res_0x7f080d84));
             this.b.setLayoutParams(layoutParams);
         }
@@ -171,8 +171,8 @@ public class er0 extends wq0 {
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             TextView textView = new TextView(getContext());
             this.b = textView;
-            textView.setText(getContext().getResources().getString(R.string.obfuscated_res_0x7f0f0c04));
-            this.b.setTextSize(0, getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0705cc));
+            textView.setText(getContext().getResources().getString(R.string.obfuscated_res_0x7f0f0bf0));
+            this.b.setTextSize(0, getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0705ca));
             this.b.setShadowLayer(0.0f, 0.0f, 1.0f, Color.parseColor("#80000000"));
             this.b.setTextColor(-1);
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, q11.b(35.0f));

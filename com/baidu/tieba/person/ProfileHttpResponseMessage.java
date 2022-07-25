@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.br4;
+import com.repackage.cr4;
 import com.repackage.d08;
 import com.repackage.ds6;
 import com.repackage.e08;
@@ -316,8 +316,8 @@ public class ProfileHttpResponseMessage extends TbHttpResponsedMessage implement
     public void afterDispatchInBackGround(int i, byte[] bArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048580, this, i, bArr) == null) {
-            br4.f();
-            te<byte[]> e = br4.e("tb_user_profile", TbadkCoreApplication.getCurrentAccountName());
+            cr4.f();
+            te<byte[]> e = cr4.e("tb_user_profile", TbadkCoreApplication.getCurrentAccountName());
             if (bArr != null && this.isSelf) {
                 e.g("profile_cache_key", bArr);
             }
@@ -332,8 +332,8 @@ public class ProfileHttpResponseMessage extends TbHttpResponsedMessage implement
         if (interceptable == null || interceptable.invokeIL(1048582, this, i, bArr) == null) {
             super.beforeDispatchInBackGround(i, (int) bArr);
             if (this.ucCardData != null) {
-                br4.f();
-                te<String> h = br4.h("tb.person_wallet_new", TbadkCoreApplication.getCurrentAccount());
+                cr4.f();
+                te<String> h = cr4.h("tb.person_wallet_new", TbadkCoreApplication.getCurrentAccount());
                 if (h == null || !this.isSelf) {
                     return;
                 }

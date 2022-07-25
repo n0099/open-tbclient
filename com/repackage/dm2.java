@@ -1,91 +1,134 @@
 package com.repackage;
 
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class dm2 implements em2 {
+public class dm2 implements zl2 {
     public static /* synthetic */ Interceptable $ic;
+    public static final bf3<gz1> a;
+    public static final bf3<gz1> b;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
+
+    /* loaded from: classes5.dex */
+    public static class a implements bf3<gz1> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.repackage.bf3
+        /* renamed from: b */
+        public void a(gz1 gz1Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, gz1Var) == null) {
+                gz1Var.suspendTimer();
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public static class b implements bf3<gz1> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.repackage.bf3
+        /* renamed from: b */
+        public void a(gz1 gz1Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, gz1Var) == null) {
+                gz1Var.continueTimer();
+            }
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755762680, "Lcom/repackage/dm2;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755762680, "Lcom/repackage/dm2;");
+                return;
+            }
+        }
+        a = new a();
+        b = new b();
+    }
 
     public dm2() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        this.a = -2;
-        this.b = -2;
     }
 
-    @Override // com.repackage.em2
-    public int a() {
-        InterceptResult invokeV;
+    public void a(bf3<gz1> bf3Var) {
+        e22 W;
+        gz1 g;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : invokeV.intValue;
-    }
-
-    @Override // com.repackage.em2
-    public boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return false;
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, bf3Var) == null) || (W = c72.U().W()) == null || (g = W.g()) == null || !g.isWebView()) {
+            return;
         }
-        return invokeV.booleanValue;
+        bf3Var.a(g);
     }
 
-    @Override // com.repackage.em2
-    public boolean c() {
-        InterceptResult invokeV;
+    @Override // com.repackage.zl2
+    public void onPause() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (this.b == -2) {
-                oj2.g0().getSwitch("swan_webview_pause_control", 3);
-                this.b = 3;
-            }
-            return (this.b & 2) == 2;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            a(a);
         }
-        return invokeV.booleanValue;
     }
 
-    @Override // com.repackage.em2
-    public boolean d() {
-        InterceptResult invokeV;
+    @Override // com.repackage.zl2
+    public void onResume() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (this.b == -2) {
-                oj2.g0().getSwitch("swan_webview_pause_control", 3);
-                this.b = 3;
-            }
-            return (this.b & 1) == 1;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            a(b);
         }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.repackage.em2
-    public boolean e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (this.a == -2) {
-                oj2.g0().getSwitch("swan_webview_backstage_optimize", -1);
-                this.a = -1;
-            }
-            return this.a > -1;
-        }
-        return invokeV.booleanValue;
     }
 }

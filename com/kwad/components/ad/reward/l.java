@@ -1,862 +1,1033 @@
 package com.kwad.components.ad.reward;
 
 import android.app.Activity;
+import android.app.Dialog;
+import android.app.DialogFragment;
 import android.content.Context;
-import android.os.Handler;
-import android.os.Looper;
-import androidx.annotation.MainThread;
+import android.content.DialogInterface;
+import android.graphics.drawable.ColorDrawable;
+import android.os.Bundle;
+import android.text.SpannableString;
+import android.text.TextUtils;
+import android.text.style.ForegroundColorSpan;
+import android.text.style.StyleSpan;
+import android.view.KeyEvent;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.Window;
+import android.widget.ImageView;
+import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.R;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.kwad.components.ad.reward.KSRewardVideoActivityProxy;
-import com.kwad.components.ad.reward.f.kwai.d;
-import com.kwad.components.ad.reward.m;
-import com.kwad.components.ad.reward.p;
-import com.kwad.components.ad.reward.presenter.e;
-import com.kwad.components.ad.reward.presenter.platdetail.actionbar.RewardActionBarControl;
-import com.kwad.components.core.c.a.a;
-import com.kwad.components.core.playable.PlayableSource;
-import com.kwad.components.core.video.DetailVideoView;
-import com.kwad.sdk.api.KsVideoPlayConfig;
+import com.ksad.json.annotation.KsJson;
+import com.kwad.components.ad.reward.k.s;
+import com.kwad.components.ad.reward.widget.RewardTaskStepView;
+import com.kwad.components.core.widget.KSCornerImageView;
+import com.kwad.sdk.core.imageloader.KSImageLoader;
 import com.kwad.sdk.core.response.model.AdInfo;
+import com.kwad.sdk.core.response.model.AdMatrixInfo;
+import com.kwad.sdk.core.response.model.AdProductInfo;
 import com.kwad.sdk.core.response.model.AdTemplate;
-import com.kwad.sdk.core.view.AdBaseFrameLayout;
-import com.kwad.sdk.utils.az;
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import com.yy.mobile.framework.revenuesdk.baseapi.ErrorCode;
+import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public final class l extends com.kwad.components.core.g.a {
-    public static /* synthetic */ Interceptable $ic;
+public final class l extends com.kwad.components.core.i.e {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static String ng = "进阶奖励还差 %s 步到手，\n确认放弃吗？";
+    public static String nh = "再观看%ss可获得基础奖励，\n确认放弃吗？";
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean A;
-    @Nullable
-    public com.kwad.components.ad.reward.g.a.a B;
-    @Nullable
-    public com.kwad.components.ad.reward.g.kwai.a C;
-    public int D;
-    public long E;
-    public long F;
-    public boolean G;
-    public boolean H;
-    public m I;
-    public Set<com.kwad.components.ad.reward.c.f> N;
-    @Nullable
-    public com.kwad.components.ad.reward.e.c O;
-    @Nullable
-    public com.kwad.components.core.webview.b.a.a P;
-    @Nullable
-    public e.a Q;
-    @Nullable
-    public e.b R;
-    public boolean S;
-    public boolean T;
-    @Nullable
-    public PlayableSource U;
-    public boolean V;
-    public Handler W;
-    public int X;
-    public boolean Y;
-    public boolean Z;
-    public long a;
-    public boolean aa;
-    public boolean ab;
-    @Nullable
-    public com.kwad.components.ad.reward.f.kwai.d ac;
-    @Nullable
-    public com.kwad.components.ad.reward.f.kwai.d ad;
-    @NonNull
-    public com.kwad.components.ad.reward.c.a b;
-    @NonNull
-    public com.kwad.components.ad.reward.c.c c;
-    @NonNull
-    public KsVideoPlayConfig d;
-    @Nullable
-    public JSONObject e;
-    public int f;
-    @NonNull
-    public AdTemplate g;
-    @NonNull
-    public AdBaseFrameLayout h;
-    public DetailVideoView i;
-    @NonNull
-    public com.kwad.components.ad.reward.h.a j;
-    @Nullable
-    public com.kwad.components.core.c.a.b k;
-    @Nullable
-    public com.kwad.components.core.playable.a l;
-    @NonNull
-    public RewardActionBarControl m;
-    @Nullable
-    public com.kwad.components.ad.h.b n;
-    @Nullable
-    public com.kwad.components.ad.h.b o;
-    @Nullable
-    public com.kwad.components.ad.h.a p;
-    @Nullable
-    public i q;
-    public Set<com.kwad.components.ad.reward.c.e> r;
-    public Set<com.kwad.components.ad.reward.c.d> s;
-    public boolean t;
-    public boolean u;
-    public boolean v;
-    public boolean w;
-    public boolean x;
-    public List<Integer> y;
-    public boolean z;
+    public AdTemplate mAdTemplate;
+    public a nf;
+
+    /* loaded from: classes5.dex */
+    public interface a extends com.kwad.components.core.webview.b.d.c {
+        void fJ();
+
+        void g(int i, int i2);
+    }
+
+    /* loaded from: classes5.dex */
+    public static class b implements a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.kwad.components.core.webview.b.d.c
+        public void G(boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
+            }
+        }
+
+        @Override // com.kwad.components.core.webview.b.d.c
+        public void fH() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            }
+        }
+
+        @Override // com.kwad.components.core.webview.b.d.c
+        public void fI() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            }
+        }
+
+        @Override // com.kwad.components.ad.reward.l.a
+        public void fJ() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            }
+        }
+
+        @Override // com.kwad.components.ad.reward.l.a
+        public void g(int i, int i2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeII(1048580, this, i, i2) == null) {
+            }
+        }
+    }
+
+    @KsJson
+    /* loaded from: classes5.dex */
+    public static class c extends com.kwad.sdk.core.response.kwai.a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public String kY;
+        public com.kwad.components.ad.reward.i.a.a mK;
+        public com.kwad.components.ad.reward.i.kwai.a mL;
+        public String nm;
+        public String nn;
+        public String no;
+        public String np;
+        public String nq;
+        public int style;
+        public String title;
+
+        public c() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        public static c M(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+                c cVar = new c();
+                cVar.style = 0;
+                cVar.title = str;
+                cVar.nm = "关闭广告";
+                cVar.nn = "继续观看";
+                return cVar;
+            }
+            return (c) invokeL.objValue;
+        }
+
+        public static c N(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                c cVar = new c();
+                cVar.style = 0;
+                cVar.title = str;
+                cVar.nm = "奖励不要了";
+                cVar.nn = "返回";
+                return cVar;
+            }
+            return (c) invokeL.objValue;
+        }
+
+        public static c O(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+                c cVar = new c();
+                try {
+                    cVar.parseJson(new JSONObject(str));
+                } catch (JSONException unused) {
+                }
+                return cVar;
+            }
+            return (c) invokeL.objValue;
+        }
+
+        private void P(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, str) == null) {
+                this.nq = str;
+            }
+        }
+
+        public static c a(com.kwad.components.ad.reward.i.a.a aVar, AdTemplate adTemplate, String str) {
+            InterceptResult invokeLLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65541, null, aVar, adTemplate, str)) == null) {
+                c cVar = new c();
+                cVar.style = 1;
+                cVar.mK = aVar;
+                cVar.no = str;
+                cVar.kY = com.kwad.sdk.core.response.a.a.bn(com.kwad.sdk.core.response.a.d.bQ(adTemplate));
+                return cVar;
+            }
+            return (c) invokeLLL.objValue;
+        }
+
+        public static c a(com.kwad.components.ad.reward.i.kwai.a aVar, AdTemplate adTemplate, String str) {
+            InterceptResult invokeLLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65542, null, aVar, adTemplate, str)) == null) {
+                c cVar = new c();
+                cVar.style = 2;
+                cVar.mL = aVar;
+                cVar.no = str;
+                cVar.kY = com.kwad.sdk.core.response.a.a.bn(com.kwad.sdk.core.response.a.d.bQ(adTemplate));
+                return cVar;
+            }
+            return (c) invokeLLL.objValue;
+        }
+
+        public static c a(AdInfo adInfo, long j) {
+            InterceptResult invokeLJ;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65543, null, adInfo, j)) == null) {
+                c cVar = new c();
+                cVar.style = 5;
+                AdProductInfo bN = com.kwad.sdk.core.response.a.a.bN(adInfo);
+                cVar.np = com.kwad.sdk.core.response.a.a.ad(adInfo);
+                String name = bN.getName();
+                cVar.title = name;
+                if (TextUtils.isEmpty(name)) {
+                    cVar.title = com.kwad.sdk.core.response.a.a.af(adInfo);
+                }
+                cVar.kY = bN.getIcon();
+                cVar.P(j > 0 ? String.valueOf(j) : null);
+                return cVar;
+            }
+            return (c) invokeLJ.objValue;
+        }
+
+        public static c a(AdTemplate adTemplate, long j) {
+            InterceptResult invokeLJ;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65544, null, adTemplate, j)) == null) {
+                AdMatrixInfo.MerchantLiveReservationInfo bA = com.kwad.sdk.core.response.a.b.bA(adTemplate);
+                c cVar = new c();
+                cVar.style = 8;
+                cVar.kY = bA.userHeadUrl;
+                cVar.title = String.format("再看%s秒，可获得奖励", Long.valueOf(j));
+                cVar.np = bA.title;
+                cVar.nm = "放弃奖励";
+                cVar.nn = "继续观看";
+                return cVar;
+            }
+            return (c) invokeLJ.objValue;
+        }
+
+        public static c b(AdInfo adInfo, long j) {
+            InterceptResult invokeLJ;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65545, null, adInfo, j)) == null) {
+                c cVar = new c();
+                cVar.style = 7;
+                cVar.np = com.kwad.sdk.core.response.a.a.ad(adInfo);
+                cVar.title = com.kwad.sdk.core.response.a.a.bl(adInfo);
+                cVar.kY = com.kwad.sdk.core.response.a.a.bn(adInfo);
+                cVar.P(j > 0 ? String.valueOf(j) : null);
+                return cVar;
+            }
+            return (c) invokeLJ.objValue;
+        }
+
+        public static c f(long j) {
+            InterceptResult invokeJ;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeJ = interceptable.invokeJ(65546, null, j)) == null) {
+                c cVar = new c();
+                cVar.style = 6;
+                cVar.nm = "残忍离开";
+                cVar.nn = "留下看看";
+                cVar.P(j > 0 ? String.valueOf(j) : null);
+                return cVar;
+            }
+            return (c) invokeJ.objValue;
+        }
+
+        public static c g(AdInfo adInfo) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, adInfo)) == null) {
+                c cVar = new c();
+                cVar.style = 4;
+                AdProductInfo bN = com.kwad.sdk.core.response.a.a.bN(adInfo);
+                cVar.title = com.kwad.sdk.core.response.a.a.ad(adInfo);
+                cVar.kY = bN.getIcon();
+                return cVar;
+            }
+            return (c) invokeL.objValue;
+        }
+
+        @Override // com.kwad.sdk.core.response.kwai.a
+        public void afterParseJson(@Nullable JSONObject jSONObject) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
+                super.afterParseJson(jSONObject);
+                JSONObject optJSONObject = jSONObject.optJSONObject("mLaunchAppTask");
+                if (optJSONObject != null) {
+                    if (this.mK == null) {
+                        this.mK = new com.kwad.components.ad.reward.i.a.a();
+                    }
+                    this.mK.parseJson(optJSONObject);
+                }
+                JSONObject optJSONObject2 = jSONObject.optJSONObject("mLandPageOpenTask");
+                if (optJSONObject2 != null) {
+                    if (this.mL == null) {
+                        this.mL = new com.kwad.components.ad.reward.i.kwai.a();
+                    }
+                    this.mL.parseJson(optJSONObject2);
+                }
+            }
+        }
+
+        @Override // com.kwad.sdk.core.response.kwai.a
+        public void afterToJson(JSONObject jSONObject) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) {
+                super.afterToJson(jSONObject);
+                com.kwad.components.ad.reward.i.a.a aVar = this.mK;
+                if (aVar != null) {
+                    com.kwad.sdk.utils.r.a(jSONObject, "mLaunchAppTask", aVar);
+                }
+                com.kwad.components.ad.reward.i.kwai.a aVar2 = this.mL;
+                if (aVar2 != null) {
+                    com.kwad.sdk.utils.r.a(jSONObject, "mLandPageOpenTask", aVar2);
+                }
+            }
+        }
+
+        public final String eL() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.kY : (String) invokeV.objValue;
+        }
+
+        public final String fK() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? TextUtils.isEmpty(this.nm) ? "关闭广告" : this.nm : (String) invokeV.objValue;
+        }
+
+        public final String fL() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? TextUtils.isEmpty(this.nn) ? "继续观看" : this.nn : (String) invokeV.objValue;
+        }
+
+        public final com.kwad.components.ad.reward.i.a.a fM() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mK : (com.kwad.components.ad.reward.i.a.a) invokeV.objValue;
+        }
+
+        public final com.kwad.components.ad.reward.i.kwai.a fN() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.mL : (com.kwad.components.ad.reward.i.kwai.a) invokeV.objValue;
+        }
+
+        public final String fO() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.np : (String) invokeV.objValue;
+        }
+
+        public final String fP() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? TextUtils.isEmpty(this.nq) ? "" : String.format("再看%s秒，可获得优惠", this.nq) : (String) invokeV.objValue;
+        }
+
+        public final int getStyle() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.style : invokeV.intValue;
+        }
+
+        public final String getTitle() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.title : (String) invokeV.objValue;
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(608672310, "Lcom/kwad/components/ad/reward/l;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(608672310, "Lcom/kwad/components/ad/reward/l;");
+        }
+    }
 
     public l() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
+
+    public static View a(DialogFragment dialogFragment, LayoutInflater layoutInflater, ViewGroup viewGroup, c cVar, a aVar) {
+        InterceptResult invokeLLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(65538, null, dialogFragment, layoutInflater, viewGroup, cVar, aVar)) == null) {
+            View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d0471, viewGroup, false);
+            ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091193)).setText(cVar.getTitle());
+            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091010);
+            TextView textView2 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091013);
+            textView.setText(cVar.fK());
+            textView2.setText(cVar.fL());
+            textView.setOnClickListener(new View.OnClickListener(dialogFragment, aVar) { // from class: com.kwad.components.ad.reward.l.3
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ DialogFragment nj;
+                public final /* synthetic */ a nk;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {dialogFragment, aVar};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.nj = dialogFragment;
+                    this.nk = aVar;
+                }
+
+                @Override // android.view.View.OnClickListener
+                public final void onClick(View view2) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
+                        this.nj.dismiss();
+                        a aVar2 = this.nk;
+                        if (aVar2 != null) {
+                            aVar2.G(false);
+                        }
+                    }
+                }
+            });
+            textView2.setOnClickListener(new View.OnClickListener(dialogFragment, aVar) { // from class: com.kwad.components.ad.reward.l.4
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ DialogFragment nj;
+                public final /* synthetic */ a nk;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {dialogFragment, aVar};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.nj = dialogFragment;
+                    this.nk = aVar;
+                }
+
+                @Override // android.view.View.OnClickListener
+                public final void onClick(View view2) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
+                        this.nj.dismiss();
+                        a aVar2 = this.nk;
+                        if (aVar2 != null) {
+                            aVar2.fI();
+                        }
+                    }
+                }
+            });
+            return inflate;
+        }
+        return (View) invokeLLLLL.objValue;
+    }
+
+    public static View a(DialogFragment dialogFragment, LayoutInflater layoutInflater, ViewGroup viewGroup, c cVar, AdTemplate adTemplate, a aVar) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{dialogFragment, layoutInflater, viewGroup, cVar, adTemplate, aVar})) == null) ? a(cVar.fM(), dialogFragment, layoutInflater, viewGroup, cVar, adTemplate, aVar) : (View) invokeCommon.objValue;
+    }
+
+    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: int : 0x005e: INVOKE  (r6v1 int A[REMOVE]) = (r6v0 com.kwad.components.ad.reward.i.a) type: VIRTUAL call: com.kwad.components.ad.reward.i.a.is():int)] */
+    public static View a(com.kwad.components.ad.reward.i.a aVar, DialogFragment dialogFragment, LayoutInflater layoutInflater, ViewGroup viewGroup, c cVar, AdTemplate adTemplate, a aVar2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{aVar, dialogFragment, layoutInflater, viewGroup, cVar, adTemplate, aVar2})) == null) {
+            View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d045b, viewGroup, false);
+            if (aVar instanceof com.kwad.components.ad.reward.i.a.a) {
+                com.kwad.components.ad.reward.i.a.a.a((com.kwad.components.ad.reward.i.a.a) aVar, inflate.getContext(), adTemplate);
+            }
+            ((RewardTaskStepView) inflate.findViewById(R.id.obfuscated_res_0x7f09114f)).a(aVar.ir(), cVar.no);
+            KSImageLoader.loadAppIcon((ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f09114e), cVar.eL(), adTemplate, 12);
+            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09114c);
+            TextView textView2 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09114d);
+            TextView textView3 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091150);
+            StringBuilder sb = new StringBuilder();
+            sb.append(aVar.is());
+            String sb2 = sb.toString();
+            String str = cVar.no;
+            boolean equals = "0".equals(str);
+            String format = equals ? String.format(ng, sb2) : String.format(nh, str);
+            int indexOf = equals ? format.indexOf(sb2) : format.indexOf(str);
+            if (indexOf < 0) {
+                textView3.setText(format);
+            } else {
+                int i = equals ? indexOf + 1 : str.length() > 1 ? indexOf + 3 : indexOf + 2;
+                ForegroundColorSpan foregroundColorSpan = new ForegroundColorSpan(inflate.getContext().getResources().getColor(R.color.obfuscated_res_0x7f06075f));
+                SpannableString spannableString = new SpannableString(format);
+                spannableString.setSpan(foregroundColorSpan, indexOf, i, 17);
+                textView3.setText(spannableString);
+            }
+            textView.setOnClickListener(new View.OnClickListener(dialogFragment, aVar2) { // from class: com.kwad.components.ad.reward.l.7
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ DialogFragment nj;
+                public final /* synthetic */ a nk;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {dialogFragment, aVar2};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.nj = dialogFragment;
+                    this.nk = aVar2;
+                }
+
+                @Override // android.view.View.OnClickListener
+                public final void onClick(View view2) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
+                        this.nj.dismiss();
+                        a aVar3 = this.nk;
+                        if (aVar3 != null) {
+                            aVar3.G(false);
+                        }
+                    }
+                }
+            });
+            textView2.setOnClickListener(new View.OnClickListener(dialogFragment, aVar2) { // from class: com.kwad.components.ad.reward.l.8
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ DialogFragment nj;
+                public final /* synthetic */ a nk;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {dialogFragment, aVar2};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.nj = dialogFragment;
+                    this.nk = aVar2;
+                }
+
+                @Override // android.view.View.OnClickListener
+                public final void onClick(View view2) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
+                        this.nj.dismiss();
+                        a aVar3 = this.nk;
+                        if (aVar3 != null) {
+                            aVar3.fI();
+                        }
+                    }
+                }
+            });
+            return inflate;
+        }
+        return (View) invokeCommon.objValue;
+    }
+
+    private View a(l lVar, LayoutInflater layoutInflater, @Nullable ViewGroup viewGroup, c cVar, a aVar) {
+        InterceptResult invokeLLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(65541, this, lVar, layoutInflater, viewGroup, cVar, aVar)) == null) {
+            View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d0472, viewGroup, false);
+            ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0910f0)).setText(g(inflate.getContext(), cVar.nq));
+            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0910ee);
+            TextView textView2 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0910ed);
+            textView.setText(cVar.fK());
+            textView2.setText(cVar.fL());
+            textView.setOnClickListener(new View.OnClickListener(this, lVar, aVar) { // from class: com.kwad.components.ad.reward.l.5
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ a nd;
+                public final /* synthetic */ l ni;
+                public final /* synthetic */ l nl;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this, lVar, aVar};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.ni = this;
+                    this.nl = lVar;
+                    this.nd = aVar;
+                }
+
+                @Override // android.view.View.OnClickListener
+                public final void onClick(View view2) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
+                        this.nl.dismiss();
+                        a aVar2 = this.nd;
+                        if (aVar2 != null) {
+                            aVar2.G(false);
+                        }
+                    }
+                }
+            });
+            textView2.setOnClickListener(new View.OnClickListener(this, lVar, aVar) { // from class: com.kwad.components.ad.reward.l.6
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ a nd;
+                public final /* synthetic */ l ni;
+                public final /* synthetic */ l nl;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this, lVar, aVar};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.ni = this;
+                    this.nl = lVar;
+                    this.nd = aVar;
+                }
+
+                @Override // android.view.View.OnClickListener
+                public final void onClick(View view2) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
+                        this.nl.dismiss();
+                        a aVar2 = this.nd;
+                        if (aVar2 != null) {
+                            aVar2.fI();
+                        }
+                    }
+                }
+            });
+            return inflate;
+        }
+        return (View) invokeLLLLL.objValue;
+    }
+
+    public static c a(k kVar, @Nullable String str) {
+        InterceptResult invokeLL;
+        int playDuration;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, kVar, str)) == null) {
+            AdTemplate adTemplate = kVar.mAdTemplate;
+            AdInfo bQ = com.kwad.sdk.core.response.a.d.bQ(adTemplate);
+            com.kwad.components.ad.reward.j.a aVar = kVar.eF;
+            com.kwad.components.ad.reward.i.a.a aVar2 = kVar.mK;
+            com.kwad.components.ad.reward.i.kwai.a aVar3 = kVar.mL;
+            int i = kVar.mM;
+            boolean e = com.kwad.sdk.core.response.a.d.e(adTemplate, com.kwad.components.ad.reward.kwai.b.j(com.kwad.sdk.core.response.a.d.bQ(adTemplate)));
+            int i2 = 0;
+            if (e || com.kwad.sdk.core.response.a.d.p(adTemplate)) {
+                int Q = (int) com.kwad.sdk.core.response.a.a.Q(bQ);
+                int B = com.kwad.sdk.core.response.a.a.B(bQ);
+                if (Q > B) {
+                    Q = B;
+                }
+                if (aVar.getPlayDuration() < (Q * 1000) + ErrorCode.CLIENT_CANCEL_REQUEST && (playDuration = (int) (Q - ((((float) aVar.getPlayDuration()) / 1000.0f) + 0.5f))) >= 0) {
+                    i2 = playDuration;
+                }
+            }
+            return (!e || aVar2 == null) ? (!com.kwad.sdk.core.response.a.d.p(adTemplate) || aVar3 == null) ? com.kwad.components.ad.reward.kwai.b.h(bQ) ? c.g(bQ) : (com.kwad.sdk.core.response.a.a.bF(bQ) && com.kwad.components.ad.reward.kwai.b.gf() == 1) ? c.a(bQ, i) : com.kwad.sdk.core.response.a.a.bk(bQ) ? c.N(str) : com.kwad.sdk.core.response.a.a.aK(adTemplate) ? c.a(adTemplate, i) : com.kwad.components.ad.reward.kwai.b.fZ() == 1 ? c.f(i) : com.kwad.components.ad.reward.kwai.b.fZ() == 2 ? c.b(bQ, i) : c.M(str) : c.a(aVar3, adTemplate, String.valueOf(i2)) : c.a(aVar2, adTemplate, String.valueOf(i2));
+        }
+        return (c) invokeLL.objValue;
+    }
+
+    public static l a(Activity activity, AdTemplate adTemplate, c cVar, a aVar) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65543, null, activity, adTemplate, cVar, aVar)) == null) {
+            l lVar = new l();
+            Bundle bundle = new Bundle();
+            bundle.putString("key_params_json", cVar.toJson().toString());
+            bundle.putString("key_template_json", adTemplate.toJson().toString());
+            lVar.setArguments(bundle);
+            lVar.a(aVar);
+            lVar.show(activity.getFragmentManager(), "videoCloseDialog");
+            return lVar;
+        }
+        return (l) invokeLLLL.objValue;
+    }
+
+    private void a(a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65544, this, aVar) == null) {
+            this.nf = aVar;
+        }
+    }
+
+    public static View b(DialogFragment dialogFragment, LayoutInflater layoutInflater, ViewGroup viewGroup, c cVar, AdTemplate adTemplate, a aVar) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65545, null, new Object[]{dialogFragment, layoutInflater, viewGroup, cVar, adTemplate, aVar})) == null) ? a(cVar.fN(), dialogFragment, layoutInflater, viewGroup, cVar, adTemplate, aVar) : (View) invokeCommon.objValue;
+    }
+
+    public static View c(DialogFragment dialogFragment, LayoutInflater layoutInflater, ViewGroup viewGroup, c cVar, AdTemplate adTemplate, a aVar) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65546, null, new Object[]{dialogFragment, layoutInflater, viewGroup, cVar, adTemplate, aVar})) == null) {
+            View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d0456, viewGroup, false);
+            KSImageLoader.loadImage((KSCornerImageView) inflate.findViewById(R.id.obfuscated_res_0x7f09112e), cVar.kY, adTemplate);
+            ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09112d)).setText(cVar.getTitle());
+            inflate.findViewById(R.id.obfuscated_res_0x7f09112a).setOnClickListener(new View.OnClickListener(dialogFragment, aVar) { // from class: com.kwad.components.ad.reward.l.9
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ DialogFragment nj;
+                public final /* synthetic */ a nk;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {dialogFragment, aVar};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.nj = dialogFragment;
+                    this.nk = aVar;
+                }
+
+                @Override // android.view.View.OnClickListener
+                public final void onClick(View view2) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
+                        this.nj.dismiss();
+                        a aVar2 = this.nk;
+                        if (aVar2 != null) {
+                            aVar2.fI();
+                        }
+                    }
+                }
+            });
+            inflate.findViewById(R.id.obfuscated_res_0x7f09112c).setOnClickListener(new View.OnClickListener(aVar) { // from class: com.kwad.components.ad.reward.l.10
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ a nk;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {aVar};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.nk = aVar;
+                }
+
+                @Override // android.view.View.OnClickListener
+                public final void onClick(View view2) {
+                    a aVar2;
+                    Interceptable interceptable2 = $ic;
+                    if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) || (aVar2 = this.nk) == null) {
+                        return;
+                    }
+                    aVar2.fJ();
+                }
+            });
+            inflate.findViewById(R.id.obfuscated_res_0x7f09112b).setOnClickListener(new View.OnClickListener(dialogFragment, aVar) { // from class: com.kwad.components.ad.reward.l.2
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ DialogFragment nj;
+                public final /* synthetic */ a nk;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {dialogFragment, aVar};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.nj = dialogFragment;
+                    this.nk = aVar;
+                }
+
+                @Override // android.view.View.OnClickListener
+                public final void onClick(View view2) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
+                        this.nj.dismiss();
+                        a aVar2 = this.nk;
+                        if (aVar2 != null) {
+                            aVar2.G(false);
+                        }
+                    }
+                }
+            });
+            return inflate;
+        }
+        return (View) invokeCommon.objValue;
+    }
+
+    public static SpannableString g(Context context, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65547, null, context, str)) == null) {
+            SpannableString spannableString = new SpannableString("再看" + str + "秒，即可获得奖励");
+            ForegroundColorSpan foregroundColorSpan = new ForegroundColorSpan(com.kwad.sdk.b.kwai.a.getColor(context, R.color.obfuscated_res_0x7f06075f));
+            ForegroundColorSpan foregroundColorSpan2 = new ForegroundColorSpan(com.kwad.sdk.b.kwai.a.getColor(context, R.color.obfuscated_res_0x7f06075f));
+            StyleSpan styleSpan = new StyleSpan(1);
+            int length = spannableString.length();
+            spannableString.setSpan(foregroundColorSpan, 2, length - 7, 34);
+            spannableString.setSpan(foregroundColorSpan2, length - 2, length, 34);
+            spannableString.setSpan(styleSpan, 0, length, 34);
+            return spannableString;
+        }
+        return (SpannableString) invokeLL.objValue;
+    }
+
+    @Override // com.kwad.components.core.i.e
+    @Nullable
+    public final View a(@NonNull LayoutInflater layoutInflater, @Nullable ViewGroup viewGroup) {
+        InterceptResult invokeLL;
+        View a2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, layoutInflater, viewGroup)) == null) {
+            getDialog().requestWindowFeature(1);
+            Bundle arguments = getArguments();
+            String string = arguments.getString("key_params_json");
+            try {
+                String string2 = arguments.getString("key_template_json");
+                AdTemplate adTemplate = new AdTemplate();
+                this.mAdTemplate = adTemplate;
+                adTemplate.parseJson(new JSONObject(string2));
+            } catch (Throwable unused) {
+            }
+            c O = c.O(string);
+            switch (O.getStyle()) {
+                case 1:
+                    a2 = a(this, layoutInflater, viewGroup, O, this.mAdTemplate, this.nf);
+                    break;
+                case 2:
+                    a2 = b(this, layoutInflater, viewGroup, O, this.mAdTemplate, this.nf);
+                    break;
+                case 3:
+                default:
+                    a2 = a((DialogFragment) this, layoutInflater, viewGroup, O, this.nf);
+                    break;
+                case 4:
+                    a2 = c(this, layoutInflater, viewGroup, O, this.mAdTemplate, this.nf);
+                    com.kwad.components.core.m.j.a(new com.kwad.components.core.widget.f(), (ViewGroup) a2);
+                    break;
+                case 5:
+                    com.kwad.components.ad.reward.k.i iVar = new com.kwad.components.ad.reward.k.i(this, this.mAdTemplate, layoutInflater, viewGroup, this.nf);
+                    iVar.a(O);
+                    a2 = iVar.fR();
+                    break;
+                case 6:
+                    a2 = a(this, layoutInflater, viewGroup, O, this.nf);
+                    break;
+                case 7:
+                    s sVar = new s(this, this.mAdTemplate, layoutInflater, viewGroup, this.nf);
+                    sVar.a(O);
+                    a2 = sVar.fR();
+                    break;
+                case 8:
+                    com.kwad.components.ad.reward.k.l lVar = new com.kwad.components.ad.reward.k.l(this, layoutInflater, viewGroup, this.nf);
+                    lVar.a(O);
+                    a2 = lVar.fR();
+                    break;
+            }
+            getDialog().setOnKeyListener(new DialogInterface.OnKeyListener(this) { // from class: com.kwad.components.ad.reward.l.1
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ l ni;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.ni = this;
+                }
+
+                @Override // android.content.DialogInterface.OnKeyListener
+                public final boolean onKey(DialogInterface dialogInterface, int i, KeyEvent keyEvent) {
+                    InterceptResult invokeLIL;
+                    Interceptable interceptable2 = $ic;
+                    return (interceptable2 == null || (invokeLIL = interceptable2.invokeLIL(1048576, this, dialogInterface, i, keyEvent)) == null) ? i == 4 && keyEvent.getAction() == 0 : invokeLIL.booleanValue;
+                }
+            });
+            return a2;
+        }
+        return (View) invokeLL.objValue;
+    }
+
+    public final boolean isShowing() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            Dialog dialog = getDialog();
+            if (dialog != null) {
+                return dialog.isShowing();
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // android.app.DialogFragment, android.app.Fragment
+    public final void onActivityCreated(@Nullable Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
+            super.onActivityCreated(bundle);
+            Window window = getDialog().getWindow();
+            if (window == null) {
                 return;
             }
-        }
-        this.N = new HashSet();
-        this.r = new HashSet();
-        this.s = new HashSet();
-        this.S = false;
-        this.u = false;
-        this.T = false;
-        this.v = false;
-        this.w = false;
-        this.x = false;
-        this.y = new ArrayList();
-        this.z = false;
-        this.U = null;
-        this.V = false;
-        this.W = new Handler(Looper.getMainLooper());
-        this.A = false;
-        this.X = 2;
-        this.Y = false;
-        this.Z = false;
-        this.aa = false;
-        this.ab = false;
-    }
-
-    public static long a(long j, AdInfo adInfo) {
-        InterceptResult invokeJL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJL = interceptable.invokeJL(65537, null, j, adInfo)) == null) ? Math.min(com.kwad.sdk.core.response.a.a.r(adInfo), j) : invokeJL.longValue;
-    }
-
-    @Nullable
-    public static com.kwad.components.ad.reward.b.b a(List<com.kwad.components.ad.reward.b.b> list, long j) {
-        InterceptResult invokeLJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65538, null, list, j)) == null) {
-            if (j >= 0 && list != null) {
-                for (com.kwad.components.ad.reward.b.b bVar : list) {
-                    if (com.kwad.sdk.core.response.a.d.t(bVar.b()) == j) {
-                        return bVar;
-                    }
-                }
-            }
-            return null;
-        }
-        return (com.kwad.components.ad.reward.b.b) invokeLJ.objValue;
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void a(int i, com.kwad.sdk.core.report.f fVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(65539, this, i, fVar) == null) {
-            if (fVar == null) {
-                fVar = new com.kwad.sdk.core.report.f();
-            }
-            fVar.a(i);
-            fVar.a(this.h.getTouchCoords());
-            com.kwad.sdk.core.report.a.a(this.g, fVar.a(), this.e);
-            this.b.a();
-        }
-    }
-
-    public static void a(l lVar, Activity activity, AdTemplate adTemplate, p.b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(65541, null, lVar, activity, adTemplate, bVar) == null) {
-            com.kwad.components.ad.reward.f.kwai.d p = lVar.p();
-            if (p != null) {
-                com.kwad.components.ad.reward.f.kwai.d.a(p, lVar.L, lVar.j.i(), bVar, new d.a(activity, adTemplate, bVar) { // from class: com.kwad.components.ad.reward.l.6
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-                    public final /* synthetic */ Activity a;
-                    public final /* synthetic */ AdTemplate b;
-                    public final /* synthetic */ p.b c;
-
-                    {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 != null) {
-                            InitContext newInitContext = TitanRuntime.newInitContext();
-                            newInitContext.initArgs = r2;
-                            Object[] objArr = {activity, adTemplate, bVar};
-                            interceptable2.invokeUnInit(65536, newInitContext);
-                            int i = newInitContext.flag;
-                            if ((i & 1) != 0) {
-                                int i2 = i & 2;
-                                newInitContext.thisArg = this;
-                                interceptable2.invokeInitBody(65536, newInitContext);
-                                return;
-                            }
-                        }
-                        this.a = activity;
-                        this.b = adTemplate;
-                        this.c = bVar;
-                    }
-
-                    @Override // com.kwad.components.ad.reward.f.kwai.d.a
-                    public final boolean a() {
-                        InterceptResult invokeV;
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
-                            p.a(this.a, this.b, this.c);
-                            return true;
-                        }
-                        return invokeV.booleanValue;
-                    }
-                });
-            } else {
-                p.a(activity, adTemplate, bVar);
-            }
-        }
-    }
-
-    public static void a(l lVar, m.c cVar, m.a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65542, null, lVar, cVar, aVar) == null) {
-            com.kwad.components.ad.reward.f.kwai.d o = lVar.o();
-            if (o != null) {
-                com.kwad.components.ad.reward.f.kwai.d.a(o, lVar.L, lVar.j.i(), aVar, new d.a(lVar, cVar, aVar) { // from class: com.kwad.components.ad.reward.l.5
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-                    public final /* synthetic */ l a;
-                    public final /* synthetic */ m.c b;
-                    public final /* synthetic */ m.a c;
-
-                    {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 != null) {
-                            InitContext newInitContext = TitanRuntime.newInitContext();
-                            newInitContext.initArgs = r2;
-                            Object[] objArr = {lVar, cVar, aVar};
-                            interceptable2.invokeUnInit(65536, newInitContext);
-                            int i = newInitContext.flag;
-                            if ((i & 1) != 0) {
-                                int i2 = i & 2;
-                                newInitContext.thisArg = this;
-                                interceptable2.invokeInitBody(65536, newInitContext);
-                                return;
-                            }
-                        }
-                        this.a = lVar;
-                        this.b = cVar;
-                        this.c = aVar;
-                    }
-
-                    @Override // com.kwad.components.ad.reward.f.kwai.d.a
-                    public final boolean a() {
-                        InterceptResult invokeV;
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
-                            l.c(this.a, this.b, this.c);
-                            return true;
-                        }
-                        return invokeV.booleanValue;
-                    }
-                });
-            } else {
-                c(lVar, cVar, aVar);
-            }
-        }
-    }
-
-    public static boolean a(l lVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, lVar)) == null) {
-            boolean z = false;
-            if (com.kwad.sdk.core.config.d.C()) {
-                AdInfo i = com.kwad.sdk.core.response.a.d.i(lVar.g);
-                boolean z2 = (com.kwad.sdk.core.response.a.a.aV(i) || (com.kwad.sdk.core.response.a.a.ar(i) && com.kwad.components.ad.reward.kwai.b.i()) || com.kwad.sdk.core.response.a.d.v(lVar.g)) ? false : true;
-                lVar.u = z2 && !lVar.ab;
-                if (z2 && !lVar.ab) {
-                    z = true;
-                }
-                lVar.c(z);
-                return z2;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean a(AdTemplate adTemplate) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65544, null, adTemplate)) == null) ? com.kwad.sdk.core.response.a.d.a(adTemplate, com.kwad.components.ad.reward.kwai.b.d(com.kwad.sdk.core.response.a.d.i(adTemplate))) : invokeL.booleanValue;
-    }
-
-    public static boolean b(l lVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, lVar)) == null) {
-            boolean z = false;
-            if (com.kwad.sdk.core.config.d.C()) {
-                AdInfo i = com.kwad.sdk.core.response.a.d.i(lVar.g);
-                boolean z2 = com.kwad.components.ad.reward.kwai.b.c(i) || !(com.kwad.components.ad.reward.kwai.b.b(i) || com.kwad.sdk.core.response.a.d.w(lVar.g) || com.kwad.sdk.core.response.a.a.aV(i));
-                if (z2 && !lVar.ab) {
-                    z = true;
-                }
-                lVar.u = z;
-                return z2;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean b(AdTemplate adTemplate) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65547, null, adTemplate)) == null) ? com.kwad.sdk.core.response.a.d.q(adTemplate) : invokeL.booleanValue;
-    }
-
-    public static void c(l lVar, m.c cVar, m.a aVar) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(65548, null, lVar, cVar, aVar) == null) || d(lVar)) {
-            return;
-        }
-        m.a(lVar.L, lVar.g, cVar, aVar);
-    }
-
-    public static boolean c(l lVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65549, null, lVar)) == null) {
-            if (com.kwad.sdk.core.config.d.C() && !lVar.aa) {
-                AdInfo i = com.kwad.sdk.core.response.a.d.i(lVar.g);
-                boolean z = com.kwad.components.ad.reward.kwai.b.c(i) || !(com.kwad.components.ad.reward.kwai.b.b(i) || com.kwad.sdk.core.response.a.a.aV(i) || (com.kwad.sdk.core.response.a.a.ar(i) && com.kwad.components.ad.reward.kwai.b.i()) || com.kwad.sdk.core.response.a.d.w(lVar.g) || com.kwad.sdk.core.response.a.a.b(lVar.g));
-                return com.kwad.sdk.core.response.a.b.a(lVar.M, lVar.g) ? z : (a(lVar.g) || b(lVar.g) || !z) ? false : true;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean c(AdTemplate adTemplate) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65550, null, adTemplate)) == null) ? a(adTemplate) || b(adTemplate) : invokeL.booleanValue;
-    }
-
-    public static boolean d(l lVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65551, null, lVar)) == null) {
-            m mVar = lVar.I;
-            return mVar != null && mVar.a();
-        }
-        return invokeL.booleanValue;
-    }
-
-    private void q() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65553, this) == null) {
-            this.J.clear();
-            this.N.clear();
-            this.s.clear();
-            com.kwad.components.core.c.a.b bVar = this.k;
-            if (bVar != null) {
-                bVar.i();
-            }
-            com.kwad.components.ad.h.b bVar2 = this.n;
-            if (bVar2 != null) {
-                bVar2.h();
-            }
-            i iVar = this.q;
-            if (iVar != null) {
-                iVar.h();
-            }
-            Set<com.kwad.components.ad.reward.c.e> set = this.r;
-            if (set != null) {
-                set.clear();
-            }
-        }
-    }
-
-    public static boolean r() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65554, null)) == null) ? Looper.getMainLooper() == Looper.myLooper() : invokeV.booleanValue;
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void s() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65555, this) == null) {
-            for (com.kwad.components.ad.reward.c.f fVar : this.N) {
-                fVar.d_();
-            }
-        }
-    }
-
-    @Override // com.kwad.components.core.g.a, com.kwad.sdk.mvp.a
-    public final void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            q();
-            com.kwad.components.ad.reward.h.a aVar = this.j;
+            getDialog().setCanceledOnTouchOutside(false);
+            window.setLayout(-1, -1);
+            getDialog().getWindow().setBackgroundDrawable(new ColorDrawable(0));
+            a aVar = this.nf;
             if (aVar != null) {
-                aVar.e();
+                aVar.fH();
             }
         }
-    }
-
-    public final void a(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            this.X = i;
-        }
-    }
-
-    public final void a(long j, long j2, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i)}) == null) {
-            for (com.kwad.components.ad.reward.c.e eVar : this.r) {
-                eVar.a();
-            }
-        }
-    }
-
-    public final void a(Context context, int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(1048579, this, context, i, i2) == null) {
-            b(context, i, i2);
-        }
-    }
-
-    public final void a(Context context, int i, int i2, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{context, Integer.valueOf(i), Integer.valueOf(i2), Long.valueOf(j)}) == null) {
-            a(context, 40, 1, j, false, null);
-        }
-    }
-
-    public final void a(Context context, int i, int i2, long j, boolean z, com.kwad.sdk.core.report.f fVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{context, Integer.valueOf(i), Integer.valueOf(i2), Long.valueOf(j), Boolean.valueOf(z), fVar}) == null) {
-            com.kwad.components.core.c.a.a.a(new a.C0507a(context).a(this.g).a(this.k).a(false).a(i2).a(j).a(new a.b(this, i, fVar) { // from class: com.kwad.components.ad.reward.l.2
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ int a;
-                public final /* synthetic */ com.kwad.sdk.core.report.f b;
-                public final /* synthetic */ l c;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this, Integer.valueOf(i), fVar};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i3 = newInitContext.flag;
-                        if ((i3 & 1) != 0) {
-                            int i4 = i3 & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.c = this;
-                    this.a = i;
-                    this.b = fVar;
-                }
-
-                @Override // com.kwad.components.core.c.a.a.b
-                public final void a() {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.c.a(this.a, this.b);
-                    }
-                }
-            }));
-        }
-    }
-
-    public final void a(com.kwad.components.ad.reward.b.b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, bVar) == null) {
-            az.a(new Runnable(this, KSRewardVideoActivityProxy.a.b(), bVar) { // from class: com.kwad.components.ad.reward.l.3
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ com.kwad.components.ad.reward.b.c a;
-                public final /* synthetic */ com.kwad.components.ad.reward.b.b b;
-                public final /* synthetic */ l c;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this, r7, bVar};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.c = this;
-                    this.a = r7;
-                    this.b = bVar;
-                }
-
-                @Override // java.lang.Runnable
-                public final void run() {
-                    com.kwad.components.ad.reward.b.c cVar;
-                    Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || (cVar = this.a) == null) {
-                        return;
-                    }
-                    cVar.a(this.b);
-                }
-            });
-        }
-    }
-
-    @MainThread
-    public final void a(com.kwad.components.ad.reward.c.d dVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, dVar) == null) {
-            this.s.add(dVar);
-        }
-    }
-
-    @MainThread
-    public final void a(com.kwad.components.ad.reward.c.f fVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, fVar) == null) {
-            this.N.add(fVar);
-        }
-    }
-
-    public final void a(com.kwad.components.ad.reward.e.c cVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, cVar) == null) {
-            this.O = cVar;
-        }
-    }
-
-    public final void a(@Nullable com.kwad.components.ad.reward.f.kwai.d dVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, dVar) == null) {
-            this.ac = dVar;
-        }
-    }
-
-    public final void a(@Nullable e.a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, aVar) == null) {
-            this.Q = aVar;
-        }
-    }
-
-    public final void a(@Nullable e.b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, bVar) == null) {
-            this.R = bVar;
-        }
-    }
-
-    public final void a(@Nullable PlayableSource playableSource) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, playableSource) == null) {
-            this.U = playableSource;
-        }
-    }
-
-    public final void a(com.kwad.components.core.webview.b.a.a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, aVar) == null) {
-            this.P = aVar;
-        }
-    }
-
-    public final void a(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, str) == null) {
-            if ("ksad-video-bottom-card-v2".equals(str)) {
-                this.aa = true;
-            } else if ("ksad-video-top-bar".equals(str)) {
-                this.ab = true;
-            }
-            for (com.kwad.components.ad.reward.c.d dVar : this.s) {
-                dVar.a(str);
-            }
-        }
-    }
-
-    public final void a(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048592, this, z) == null) {
-            this.Z = z;
-        }
-    }
-
-    public final void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
-            q();
-            com.kwad.components.ad.reward.h.a aVar = this.j;
-            if (aVar != null) {
-                aVar.f();
-            }
-        }
-    }
-
-    public final void b(Context context, int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(1048594, this, context, i, i2) == null) {
-            a(context, i, i2, 0L, false, null);
-        }
-    }
-
-    public final void b(com.kwad.components.ad.reward.b.b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048595, this, bVar) == null) {
-            az.a(new Runnable(this, KSRewardVideoActivityProxy.a.b(), bVar) { // from class: com.kwad.components.ad.reward.l.4
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ com.kwad.components.ad.reward.b.c a;
-                public final /* synthetic */ com.kwad.components.ad.reward.b.b b;
-                public final /* synthetic */ l c;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this, r7, bVar};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.c = this;
-                    this.a = r7;
-                    this.b = bVar;
-                }
-
-                @Override // java.lang.Runnable
-                public final void run() {
-                    com.kwad.components.ad.reward.b.c cVar;
-                    Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || (cVar = this.a) == null) {
-                        return;
-                    }
-                    cVar.b(this.b);
-                }
-            });
-        }
-    }
-
-    @MainThread
-    public final void b(com.kwad.components.ad.reward.c.d dVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048596, this, dVar) == null) {
-            this.s.remove(dVar);
-        }
-    }
-
-    @MainThread
-    public final void b(com.kwad.components.ad.reward.c.f fVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048597, this, fVar) == null) {
-            this.N.remove(fVar);
-        }
-    }
-
-    public final void b(@Nullable com.kwad.components.ad.reward.f.kwai.d dVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048598, this, dVar) == null) {
-            this.ad = dVar;
-        }
-    }
-
-    public final void b(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048599, this, z) == null) {
-            this.S = true;
-        }
-    }
-
-    public final void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048600, this) == null) {
-            if (r()) {
-                s();
-            } else {
-                this.W.post(new Runnable(this) { // from class: com.kwad.components.ad.reward.l.1
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-                    public final /* synthetic */ l a;
-
-                    {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 != null) {
-                            InitContext newInitContext = TitanRuntime.newInitContext();
-                            newInitContext.initArgs = r2;
-                            Object[] objArr = {this};
-                            interceptable2.invokeUnInit(65536, newInitContext);
-                            int i = newInitContext.flag;
-                            if ((i & 1) != 0) {
-                                int i2 = i & 2;
-                                newInitContext.thisArg = this;
-                                interceptable2.invokeInitBody(65536, newInitContext);
-                                return;
-                            }
-                        }
-                        this.a = this;
-                    }
-
-                    @Override // java.lang.Runnable
-                    public final void run() {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            this.a.s();
-                        }
-                    }
-                });
-            }
-        }
-    }
-
-    public final void c(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048601, this, z) == null) {
-            this.T = z;
-        }
-    }
-
-    public final int d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) ? this.X : invokeV.intValue;
-    }
-
-    public final void d(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048603, this, z) == null) {
-            this.V = true;
-        }
-    }
-
-    public final void e() {
-        com.kwad.components.ad.reward.e.c cVar;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048604, this) == null) || (cVar = this.O) == null) {
-            return;
-        }
-        cVar.onPlayAgainClick();
-    }
-
-    public final void e(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048605, this, z) == null) {
-            this.Y = true;
-        }
-    }
-
-    public final boolean f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) ? this.Z : invokeV.booleanValue;
-    }
-
-    public final void g() {
-        com.kwad.components.core.webview.b.a.a aVar;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048607, this) == null) || (aVar = this.P) == null) {
-            return;
-        }
-        aVar.a();
-    }
-
-    public final boolean h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048608, this)) == null) ? this.S : invokeV.booleanValue;
-    }
-
-    public final boolean i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048609, this)) == null) ? this.T : invokeV.booleanValue;
-    }
-
-    @Nullable
-    public final PlayableSource j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048610, this)) == null) ? this.U : (PlayableSource) invokeV.objValue;
-    }
-
-    public final boolean k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048611, this)) == null) ? this.V : invokeV.booleanValue;
-    }
-
-    @Nullable
-    public final e.a l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048612, this)) == null) ? this.Q : (e.a) invokeV.objValue;
-    }
-
-    @Nullable
-    public final e.b m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048613, this)) == null) ? this.R : (e.b) invokeV.objValue;
-    }
-
-    public final boolean n() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048614, this)) == null) ? this.Y : invokeV.booleanValue;
-    }
-
-    @Nullable
-    public final com.kwad.components.ad.reward.f.kwai.d o() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048615, this)) == null) ? this.ac : (com.kwad.components.ad.reward.f.kwai.d) invokeV.objValue;
-    }
-
-    @Nullable
-    public final com.kwad.components.ad.reward.f.kwai.d p() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048616, this)) == null) ? this.ad : (com.kwad.components.ad.reward.f.kwai.d) invokeV.objValue;
     }
 }

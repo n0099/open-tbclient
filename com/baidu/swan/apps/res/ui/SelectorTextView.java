@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.rg1;
+import com.repackage.sg1;
 @SuppressLint({"AppCompatCustomView"})
 /* loaded from: classes2.dex */
 public class SelectorTextView extends TextView {
@@ -36,7 +36,7 @@ public class SelectorTextView extends TextView {
                 return;
             }
         }
-        b = rg1.a;
+        b = sg1.a;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */

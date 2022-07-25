@@ -21,7 +21,7 @@ public class sr6 extends BaseAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
-    public List<xo4> b;
+    public List<yo4> b;
     public int c;
 
     /* loaded from: classes7.dex */
@@ -81,7 +81,7 @@ public class sr6 extends BaseAdapter {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
     /* renamed from: a */
-    public xo4 getItem(int i) {
+    public yo4 getItem(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
@@ -90,7 +90,7 @@ public class sr6 extends BaseAdapter {
             }
             return this.b.get(i);
         }
-        return (xo4) invokeI.objValue;
+        return (yo4) invokeI.objValue;
     }
 
     public int b() {
@@ -99,7 +99,7 @@ public class sr6 extends BaseAdapter {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.c : invokeV.intValue;
     }
 
-    public void c(List<xo4> list) {
+    public void c(List<yo4> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
             this.b = list;
@@ -119,7 +119,7 @@ public class sr6 extends BaseAdapter {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            List<xo4> list = this.b;
+            List<yo4> list = this.b;
             if (list == null) {
                 return 0;
             }
@@ -146,16 +146,16 @@ public class sr6 extends BaseAdapter {
             } else {
                 view2 = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0376, (ViewGroup) null);
                 bVar = new b(null);
-                TbImageView tbImageView = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090e33);
+                TbImageView tbImageView = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090e2c);
                 bVar.a = tbImageView;
-                tbImageView.setDefaultBgResource(R.drawable.obfuscated_res_0x7f0811a4);
-                TbImageView tbImageView2 = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f091402);
+                tbImageView.setDefaultBgResource(R.drawable.obfuscated_res_0x7f0811a8);
+                TbImageView tbImageView2 = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f0913de);
                 bVar.b = tbImageView2;
-                tbImageView2.setDefaultBgResource(R.drawable.obfuscated_res_0x7f0811a4);
-                bVar.b.setDefaultResource(R.drawable.obfuscated_res_0x7f0811a4);
-                bVar.c = view2.findViewById(R.id.obfuscated_res_0x7f091418);
-                bVar.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09155e);
-                bVar.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091985);
+                tbImageView2.setDefaultBgResource(R.drawable.obfuscated_res_0x7f0811a8);
+                bVar.b.setDefaultResource(R.drawable.obfuscated_res_0x7f0811a8);
+                bVar.c = view2.findViewById(R.id.obfuscated_res_0x7f0913f4);
+                bVar.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091539);
+                bVar.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091960);
                 view2.setTag(bVar);
             }
             SkinManager.setViewTextColor(bVar.d, R.color.CAM_X0105, 1);
@@ -164,7 +164,7 @@ public class sr6 extends BaseAdapter {
             } else {
                 bVar.c.setBackgroundResource(R.color.common_color_10022);
             }
-            xo4 item = getItem(i);
+            yo4 item = getItem(i);
             if (item != null) {
                 bVar.d.setText(item.b);
                 bVar.a.J(item.d, 10, false);

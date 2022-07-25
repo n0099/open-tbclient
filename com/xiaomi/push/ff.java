@@ -19,7 +19,7 @@ public final class ff {
         public ez a;
 
         /* renamed from: a  reason: collision with other field name */
-        public String f1077a;
+        public String f357a;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -40,7 +40,7 @@ public final class ff {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, exc)) == null) {
-            m1264a(exc);
+            m326a(exc);
             boolean z = exc instanceof gh;
             Exception exc2 = exc;
             if (z) {
@@ -64,7 +64,7 @@ public final class ff {
                 aVar.a = ez.t;
             }
             if (aVar.a == ez.t) {
-                aVar.f1077a = str;
+                aVar.f357a = str;
             }
             return aVar;
         }
@@ -72,7 +72,7 @@ public final class ff {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static void m1264a(Exception exc) {
+    public static void m326a(Exception exc) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(65537, null, exc) == null) && exc == null) {
             throw null;
@@ -86,7 +86,7 @@ public final class ff {
         Throwable cause;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, exc)) == null) {
-            m1264a(exc);
+            m326a(exc);
             boolean z = exc instanceof gh;
             Exception exc2 = exc;
             if (z) {
@@ -111,7 +111,7 @@ public final class ff {
                 }
                 ezVar2 = aVar.a;
                 if (ezVar2 != ez.D || ezVar2 == ez.E || ezVar2 == ez.G) {
-                    aVar.f1077a = str;
+                    aVar.f357a = str;
                 }
                 return aVar;
             }
@@ -120,7 +120,7 @@ public final class ff {
             ezVar2 = aVar.a;
             if (ezVar2 != ez.D) {
             }
-            aVar.f1077a = str;
+            aVar.f357a = str;
             return aVar;
         }
         return (a) invokeL.objValue;
@@ -132,7 +132,7 @@ public final class ff {
         ez ezVar2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, exc)) == null) {
-            m1264a(exc);
+            m326a(exc);
             boolean z = exc instanceof gh;
             Exception exc2 = exc;
             if (z) {
@@ -160,7 +160,7 @@ public final class ff {
                 }
                 ezVar2 = aVar.a;
                 if (ezVar2 != ez.O || ezVar2 == ez.P || ezVar2 == ez.R) {
-                    aVar.f1077a = str;
+                    aVar.f357a = str;
                 }
                 return aVar;
             } else {
@@ -170,7 +170,7 @@ public final class ff {
             ezVar2 = aVar.a;
             if (ezVar2 != ez.O) {
             }
-            aVar.f1077a = str;
+            aVar.f357a = str;
             return aVar;
         }
         return (a) invokeL.objValue;
@@ -182,7 +182,7 @@ public final class ff {
         ez ezVar2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, exc)) == null) {
-            m1264a(exc);
+            m326a(exc);
             boolean z = exc instanceof gh;
             Exception exc2 = exc;
             if (z) {
@@ -207,7 +207,7 @@ public final class ff {
                 }
                 ezVar2 = aVar.a;
                 if (ezVar2 != ez.aa || ezVar2 == ez.ab || ezVar2 == ez.ad) {
-                    aVar.f1077a = str;
+                    aVar.f357a = str;
                 }
                 return aVar;
             } else {
@@ -217,7 +217,7 @@ public final class ff {
             ezVar2 = aVar.a;
             if (ezVar2 != ez.aa) {
             }
-            aVar.f1077a = str;
+            aVar.f357a = str;
             return aVar;
         }
         return (a) invokeL.objValue;

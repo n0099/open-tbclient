@@ -203,7 +203,7 @@ public class AdStatic {
                     } else if (str.startsWith(UrlSchemaHelper.SCHEMA_TYPE_TOPIC)) {
                         AdStatic.p(context, str3, str.substring(6), null);
                     } else if (str.startsWith(UrlSchemaHelper.SCHEMA_TYPE_ZB)) {
-                        AdStatic.p(context, str.substring(3), context.getString(R.string.obfuscated_res_0x7f0f0e5f), null);
+                        AdStatic.p(context, str.substring(3), context.getString(R.string.obfuscated_res_0x7f0f0e48), null);
                     } else if (str.startsWith(UrlSchemaHelper.SCHEMA_TYPE_LIST)) {
                         String substring2 = str.substring(5);
                         if (!TextUtils.isEmpty(substring2)) {

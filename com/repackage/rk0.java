@@ -30,12 +30,12 @@ public class rk0 {
 
         /* renamed from: com.repackage.rk0$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public class C0722a extends BroadcastReceiver {
+        public class C0569a extends BroadcastReceiver {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a this$1;
 
-            public C0722a(a aVar) {
+            public C0569a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -95,7 +95,7 @@ public class rk0 {
                 if (this.a.d == null) {
                     IntentFilter intentFilter = new IntentFilter();
                     intentFilter.addAction("android.net.conn.CONNECTIVITY_CHANGE");
-                    this.a.d = new C0722a(this);
+                    this.a.d = new C0569a(this);
                     hh0.b().registerReceiver(this.a.d, intentFilter);
                     return;
                 }

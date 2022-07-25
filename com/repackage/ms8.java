@@ -52,8 +52,8 @@ public class ms8 {
         this.h = -1;
         this.i = true;
         this.b = new LinkedList();
-        this.e = tw4.m() - 1;
-        this.f = tw4.l() + 1;
+        this.e = uw4.m() - 1;
+        this.f = uw4.l() + 1;
         this.c = new LinkedList();
     }
 

@@ -1,9 +1,7 @@
 package com.repackage;
-
-import java.util.HashMap;
 /* loaded from: classes7.dex */
-public interface s75 extends n75 {
-    HashMap<String, Object> w();
+public interface s75 extends q75 {
+    String l();
 
-    HashMap<String, String> y();
+    boolean r(String str);
 }

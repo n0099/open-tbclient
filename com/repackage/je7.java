@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 /* loaded from: classes6.dex */
-public class je7 extends jk4 {
+public class je7 extends kk4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -35,14 +35,14 @@ public class je7 extends jk4 {
         }
     }
 
-    @Override // com.repackage.jk4, com.repackage.mk4
-    public ok4 b(Object obj, HashMap<String, String> hashMap, String str) {
+    @Override // com.repackage.kk4, com.repackage.nk4
+    public pk4 b(Object obj, HashMap<String, String> hashMap, String str) {
         InterceptResult invokeLLL;
         Map.Entry<String, String> next;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, obj, hashMap, str)) == null) {
             Context baseContext = TbadkCoreApplication.getInst().getBaseContext();
-            ok4 ok4Var = new ok4();
+            pk4 pk4Var = new pk4();
             if (obj instanceof dd7) {
                 dd7 dd7Var = (dd7) obj;
                 Intent intent = new Intent(baseContext, AlarmReceiver.class);
@@ -59,16 +59,16 @@ public class je7 extends jk4 {
                     currentAccount = "";
                 }
                 intent.setData(Uri.parse(currentAccount));
-                ok4Var.a = PendingIntent.getBroadcast(baseContext, i, intent, NTLMEngineImpl.FLAG_REQUEST_128BIT_KEY_EXCH) != null;
+                pk4Var.a = PendingIntent.getBroadcast(baseContext, i, intent, NTLMEngineImpl.FLAG_REQUEST_128BIT_KEY_EXCH) != null;
                 dd7Var.m(true);
-                dd7Var.l(ok4Var.a);
+                dd7Var.l(pk4Var.a);
             }
-            return ok4Var;
+            return pk4Var;
         }
-        return (ok4) invokeLLL.objValue;
+        return (pk4) invokeLLL.objValue;
     }
 
-    @Override // com.repackage.jk4
+    @Override // com.repackage.kk4
     public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

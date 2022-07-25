@@ -43,7 +43,7 @@ import com.repackage.de5;
 import com.repackage.f67;
 import com.repackage.h57;
 import com.repackage.he5;
-import com.repackage.jd5;
+import com.repackage.kd5;
 import com.repackage.l77;
 import com.repackage.n57;
 import com.repackage.s67;
@@ -284,7 +284,7 @@ public class PersonalMsglistModel extends CommonPersonalMsglistModel {
     }
 
     /* loaded from: classes3.dex */
-    public class e implements jd5<CommonMsgPojo> {
+    public class e implements kd5<CommonMsgPojo> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ String a;
@@ -327,7 +327,7 @@ public class PersonalMsglistModel extends CommonPersonalMsglistModel {
         }
 
         /* loaded from: classes3.dex */
-        public class b implements jd5<Boolean> {
+        public class b implements kd5<Boolean> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ ChatMessage a;
@@ -353,7 +353,7 @@ public class PersonalMsglistModel extends CommonPersonalMsglistModel {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.repackage.jd5
+            @Override // com.repackage.kd5
             /* renamed from: a */
             public void onReturnDataInUI(Boolean bool) {
                 Interceptable interceptable = $ic;
@@ -385,7 +385,7 @@ public class PersonalMsglistModel extends CommonPersonalMsglistModel {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.jd5
+        @Override // com.repackage.kd5
         /* renamed from: a */
         public void onReturnDataInUI(CommonMsgPojo commonMsgPojo) {
             Interceptable interceptable = $ic;

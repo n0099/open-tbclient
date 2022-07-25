@@ -27,10 +27,10 @@ public class zr8 {
     public List<DownloadData> b;
     public b c;
     public String d;
-    public e15 e;
+    public f15 e;
 
     /* loaded from: classes7.dex */
-    public class a implements e15 {
+    public class a implements f15 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ zr8 a;
@@ -53,7 +53,7 @@ public class zr8 {
             this.a = zr8Var;
         }
 
-        @Override // com.repackage.e15
+        @Override // com.repackage.f15
         public void onFileDownloadFailed(DownloadData downloadData, int i, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLIL(1048576, this, downloadData, i, str) == null) {
@@ -69,7 +69,7 @@ public class zr8 {
             }
         }
 
-        @Override // com.repackage.e15
+        @Override // com.repackage.f15
         public void onFileDownloadSucceed(DownloadData downloadData) {
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, downloadData) == null) || downloadData == null || StringUtils.isNull(downloadData.getPath()) || StringUtils.isNull(zr8.f)) {
@@ -83,7 +83,7 @@ public class zr8 {
             this.a.c.c(this.a.d, downloadData.getPath());
         }
 
-        @Override // com.repackage.e15
+        @Override // com.repackage.f15
         public boolean onFileDownloaded(DownloadData downloadData) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
@@ -93,7 +93,7 @@ public class zr8 {
             return invokeL.booleanValue;
         }
 
-        @Override // com.repackage.e15
+        @Override // com.repackage.f15
         public void onFileUpdateProgress(DownloadData downloadData) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048579, this, downloadData) == null) && downloadData.getStatus() == 4) {
@@ -109,7 +109,7 @@ public class zr8 {
             }
         }
 
-        @Override // com.repackage.e15
+        @Override // com.repackage.f15
         public boolean onPreDownload(DownloadData downloadData) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
@@ -208,7 +208,7 @@ public class zr8 {
                 downloadData.setPath(f + "/" + nameMd5FromUrl + str2);
                 downloadData.setCallback(this.e);
                 this.b.add(downloadData);
-                f15.k().l(downloadData);
+                g15.k().l(downloadData);
                 return;
             }
             b bVar = this.c;

@@ -26,8 +26,8 @@ public final class R$attr {
     public static final int layout_dodgeInsetEdges = 2130969556;
     public static final int layout_insetEdge = 2130969560;
     public static final int layout_keyline = 2130969561;
-    public static final int statusBarBackground = 2130970067;
-    public static final int ttcIndex = 2130970291;
+    public static final int statusBarBackground = 2130970069;
+    public static final int ttcIndex = 2130970293;
     public transient /* synthetic */ FieldHolder $fh;
 
     public R$attr() {

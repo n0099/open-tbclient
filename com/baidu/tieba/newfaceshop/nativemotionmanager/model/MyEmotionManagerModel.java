@@ -494,7 +494,7 @@ public class MyEmotionManagerModel extends NativeManageEmotionModel {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             if (nn7.o().q()) {
-                pi.N(this.d.getPageActivity(), R.string.obfuscated_res_0x7f0f05e0);
+                pi.N(this.d.getPageActivity(), R.string.obfuscated_res_0x7f0f05dc);
             } else {
                 jn7.b().a(new f(this));
             }

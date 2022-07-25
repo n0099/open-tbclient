@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.gg;
-import com.repackage.l45;
+import com.repackage.m45;
 import com.repackage.ym;
 /* loaded from: classes3.dex */
 public class SimpleForeverMemoryLoaderProc extends SimpleLoaderProc {
@@ -44,7 +44,7 @@ public class SimpleForeverMemoryLoaderProc extends SimpleLoaderProc {
                 long currentTimeMillis = System.currentTimeMillis();
                 ymVar.A(i);
                 ymVar.z(i2);
-                l45.k().f(str, ymVar);
+                m45.k().f(str, ymVar);
                 gg.l(true, System.currentTimeMillis() - currentTimeMillis);
             }
         }
@@ -58,7 +58,7 @@ public class SimpleForeverMemoryLoaderProc extends SimpleLoaderProc {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{str, str2, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z), objArr})) == null) {
             long currentTimeMillis = System.currentTimeMillis();
-            ym o = l45.k().o(str);
+            ym o = m45.k().o(str);
             if (z) {
                 gg.i(o != null, System.currentTimeMillis() - currentTimeMillis);
             }

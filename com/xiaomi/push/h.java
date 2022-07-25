@@ -38,13 +38,13 @@ public class h {
         public static final a a;
 
         /* renamed from: a  reason: collision with other field name */
-        public static final /* synthetic */ a[] f1170a;
+        public static final /* synthetic */ a[] f450a;
         public static final a b;
         public static final a c;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with other field name */
-        public final int f1171a;
+        public final int f451a;
 
         static {
             InterceptResult invokeClinit;
@@ -63,7 +63,7 @@ public class h {
             b = new a("ALLOWED", 1, 1);
             a aVar = new a("NOT_ALLOWED", 2, 2);
             c = aVar;
-            f1170a = new a[]{a, b, aVar};
+            f450a = new a[]{a, b, aVar};
         }
 
         public a(String str, int i, int i2) {
@@ -84,7 +84,7 @@ public class h {
                     return;
                 }
             }
-            this.f1171a = i2;
+            this.f451a = i2;
         }
 
         public static a valueOf(String str) {
@@ -96,13 +96,13 @@ public class h {
         public static a[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (a[]) f1170a.clone() : (a[]) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (a[]) f450a.clone() : (a[]) invokeV.objValue;
         }
 
         public int a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f1171a : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f451a : invokeV.intValue;
         }
     }
 
@@ -145,7 +145,7 @@ public class h {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static ApplicationInfo m1320a(Context context, String str) {
+    public static ApplicationInfo m382a(Context context, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, context, str)) == null) {
@@ -155,7 +155,7 @@ public class h {
             try {
                 return context.getPackageManager().getApplicationInfo(str, 0);
             } catch (PackageManager.NameNotFoundException unused) {
-                com.xiaomi.channel.commonutils.logger.b.m1027a("not found app info " + str);
+                com.xiaomi.channel.commonutils.logger.b.m89a("not found app info " + str);
                 return null;
             }
         }
@@ -163,20 +163,20 @@ public class h {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static Drawable m1321a(Context context, String str) {
+    public static Drawable m383a(Context context, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, context, str)) == null) {
-            ApplicationInfo m1320a = m1320a(context, str);
+            ApplicationInfo m382a = m382a(context, str);
             Drawable drawable = null;
-            if (m1320a != null) {
+            if (m382a != null) {
                 try {
-                    drawable = m1320a.loadIcon(context.getPackageManager());
+                    drawable = m382a.loadIcon(context.getPackageManager());
                     if (drawable == null) {
-                        drawable = m1320a.loadLogo(context.getPackageManager());
+                        drawable = m382a.loadLogo(context.getPackageManager());
                     }
                 } catch (Exception e) {
-                    com.xiaomi.channel.commonutils.logger.b.m1027a("get app icon drawable failed, " + e);
+                    com.xiaomi.channel.commonutils.logger.b.m89a("get app icon drawable failed, " + e);
                 }
             }
             return drawable != null ? drawable : new ColorDrawable(0);
@@ -206,7 +206,7 @@ public class h {
                     return bool.booleanValue() ? a.b : a.c;
                 }
             } catch (Exception e) {
-                com.xiaomi.channel.commonutils.logger.b.m1027a("are notifications enabled error " + e);
+                com.xiaomi.channel.commonutils.logger.b.m89a("are notifications enabled error " + e);
             }
             return a.a;
         }
@@ -227,7 +227,7 @@ public class h {
                 applicationInfo = str.equals(context.getPackageName()) ? context.getApplicationInfo() : context.getPackageManager().getApplicationInfo(str, 0);
                 a2 = a(context, applicationInfo);
             } catch (Throwable th) {
-                com.xiaomi.channel.commonutils.logger.b.m1027a("get app op error " + th);
+                com.xiaomi.channel.commonutils.logger.b.m89a("get app op error " + th);
             }
             if (a2 != a.a) {
                 return a2;
@@ -255,7 +255,7 @@ public class h {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static String m1322a(Context context, String str) {
+    public static String m384a(Context context, String str) {
         PackageInfo packageInfo;
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
@@ -271,7 +271,7 @@ public class h {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m1323a(Context context) {
+    public static boolean m385a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, context)) == null) {
@@ -285,11 +285,11 @@ public class h {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m1324a(Context context, String str) {
+    public static boolean m386a(Context context, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, context, str)) == null) {
-            if (m.m1498a()) {
+            if (m.m560a()) {
                 List<ActivityManager.RunningAppProcessInfo> runningAppProcesses = ((ActivityManager) context.getSystemService("activity")).getRunningAppProcesses();
                 if (runningAppProcesses != null) {
                     for (ActivityManager.RunningAppProcessInfo runningAppProcessInfo : runningAppProcesses) {
@@ -310,10 +310,10 @@ public class h {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65545, null, context, str)) == null) {
-            ApplicationInfo m1320a = m1320a(context, str);
-            if (m1320a != null) {
-                int i = m1320a.icon;
-                return i == 0 ? m1320a.logo : i;
+            ApplicationInfo m382a = m382a(context, str);
+            if (m382a != null) {
+                int i = m382a.icon;
+                return i == 0 ? m382a.logo : i;
             }
             return 0;
         }
@@ -321,7 +321,7 @@ public class h {
     }
 
     /* renamed from: b  reason: collision with other method in class */
-    public static String m1325b(Context context, String str) {
+    public static String m387b(Context context, String str) {
         ApplicationInfo applicationInfo;
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
@@ -338,7 +338,7 @@ public class h {
     }
 
     /* renamed from: b  reason: collision with other method in class */
-    public static boolean m1326b(Context context, String str) {
+    public static boolean m388b(Context context, String str) {
         InterceptResult invokeLL;
         PackageInfo packageInfo;
         Interceptable interceptable = $ic;

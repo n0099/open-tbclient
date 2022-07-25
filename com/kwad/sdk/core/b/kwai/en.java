@@ -1,50 +1,57 @@
 package com.kwad.sdk.core.b.kwai;
 
-import com.baidu.ugc.editvideo.subtitle.SubtitleLog;
-import com.kwad.sdk.core.response.model.AdMatrixInfo;
+import com.kwad.sdk.core.webview.a.b;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public final class en implements com.kwad.sdk.core.d<AdMatrixInfo.ShakeInfo> {
+public final class en implements com.kwad.sdk.core.d<b.a> {
     /* renamed from: a  reason: avoid collision after fix types in other method */
-    public static void a2(AdMatrixInfo.ShakeInfo shakeInfo, JSONObject jSONObject) {
+    public static void a2(b.a aVar, JSONObject jSONObject) {
         if (jSONObject == null) {
             return;
         }
-        shakeInfo.title = jSONObject.optString("title");
-        if (jSONObject.opt("title") == JSONObject.NULL) {
-            shakeInfo.title = "";
+        aVar.url = jSONObject.optString("url");
+        if (jSONObject.opt("url") == JSONObject.NULL) {
+            aVar.url = "";
         }
-        shakeInfo.subtitle = jSONObject.optString(SubtitleLog.TAG);
-        if (jSONObject.opt(SubtitleLog.TAG) == JSONObject.NULL) {
-            shakeInfo.subtitle = "";
+        aVar.method = jSONObject.optString("method");
+        if (jSONObject.opt("method") == JSONObject.NULL) {
+            aVar.method = "";
         }
-        shakeInfo.acceleration = jSONObject.optInt("acceleration");
-        shakeInfo.clickDisabled = jSONObject.optBoolean("clickDisabled");
-        shakeInfo.componentIndex = jSONObject.optInt("componentIndex");
+        aVar.params = jSONObject.optString("params");
+        if (jSONObject.opt("params") == JSONObject.NULL) {
+            aVar.params = "";
+        }
     }
 
     /* renamed from: b  reason: avoid collision after fix types in other method */
-    public static JSONObject b2(AdMatrixInfo.ShakeInfo shakeInfo, JSONObject jSONObject) {
+    public static JSONObject b2(b.a aVar, JSONObject jSONObject) {
         if (jSONObject == null) {
             jSONObject = new JSONObject();
         }
-        com.kwad.sdk.utils.r.a(jSONObject, "title", shakeInfo.title);
-        com.kwad.sdk.utils.r.a(jSONObject, SubtitleLog.TAG, shakeInfo.subtitle);
-        com.kwad.sdk.utils.r.a(jSONObject, "acceleration", shakeInfo.acceleration);
-        com.kwad.sdk.utils.r.a(jSONObject, "clickDisabled", shakeInfo.clickDisabled);
-        com.kwad.sdk.utils.r.a(jSONObject, "componentIndex", shakeInfo.componentIndex);
+        String str = aVar.url;
+        if (str != null && !str.equals("")) {
+            com.kwad.sdk.utils.r.putValue(jSONObject, "url", aVar.url);
+        }
+        String str2 = aVar.method;
+        if (str2 != null && !str2.equals("")) {
+            com.kwad.sdk.utils.r.putValue(jSONObject, "method", aVar.method);
+        }
+        String str3 = aVar.params;
+        if (str3 != null && !str3.equals("")) {
+            com.kwad.sdk.utils.r.putValue(jSONObject, "params", aVar.params);
+        }
         return jSONObject;
     }
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.kwad.sdk.core.b, org.json.JSONObject] */
     @Override // com.kwad.sdk.core.d
-    public final /* bridge */ /* synthetic */ void a(AdMatrixInfo.ShakeInfo shakeInfo, JSONObject jSONObject) {
-        a2(shakeInfo, jSONObject);
+    public final /* bridge */ /* synthetic */ void a(b.a aVar, JSONObject jSONObject) {
+        a2(aVar, jSONObject);
     }
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.kwad.sdk.core.b, org.json.JSONObject] */
     @Override // com.kwad.sdk.core.d
-    public final /* bridge */ /* synthetic */ JSONObject b(AdMatrixInfo.ShakeInfo shakeInfo, JSONObject jSONObject) {
-        return b2(shakeInfo, jSONObject);
+    public final /* bridge */ /* synthetic */ JSONObject b(b.a aVar, JSONObject jSONObject) {
+        return b2(aVar, jSONObject);
     }
 }

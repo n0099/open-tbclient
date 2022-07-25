@@ -13,12 +13,12 @@ import com.kwad.components.offline.api.core.network.OfflineCompoNetworking;
 import com.kwad.components.offline.api.core.network.model.BaseOfflineCompoResultData;
 import com.kwad.sdk.core.network.c;
 import com.kwad.sdk.core.network.g;
-import com.kwad.sdk.core.network.l;
+import com.kwad.sdk.core.network.m;
 import com.kwad.sdk.internal.api.SceneImpl;
 import java.util.Map;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class NetworkingAdapter<R extends IOfflineCompoRequest, T extends BaseOfflineCompoResultData> extends l<RequestAdapter<R>, ResultDataAdapter<T>> {
+public class NetworkingAdapter<R extends IOfflineCompoRequest, T extends BaseOfflineCompoResultData> extends m<RequestAdapter<R>, ResultDataAdapter<T>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final OfflineCompoNetworking<R, T> mOfflineCompoNetworking;
@@ -114,7 +114,7 @@ public class NetworkingAdapter<R extends IOfflineCompoRequest, T extends BaseOff
                 return (interceptable2 == null || (invokeV2 = interceptable2.invokeV(1048581, this)) == null) ? this.val$offlineRequest.getRequestHost() : (String) invokeV2.objValue;
             }
 
-            @Override // com.kwad.sdk.core.network.b
+            @Override // com.kwad.sdk.core.network.b, com.kwad.sdk.core.network.g
             @Nullable
             public SceneImpl getScene() {
                 InterceptResult invokeV2;
@@ -134,14 +134,14 @@ public class NetworkingAdapter<R extends IOfflineCompoRequest, T extends BaseOff
         } : (RequestAdapter) invokeV.objValue;
     }
 
-    @Override // com.kwad.sdk.core.network.l
+    @Override // com.kwad.sdk.core.network.m
     public boolean enableMonitorReport() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mOfflineCompoNetworking.enableMonitorReport() : invokeV.booleanValue;
     }
 
-    @Override // com.kwad.sdk.core.network.l
+    @Override // com.kwad.sdk.core.network.m
     public boolean isPostByJson() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -156,13 +156,13 @@ public class NetworkingAdapter<R extends IOfflineCompoRequest, T extends BaseOff
         }
     }
 
-    @Override // com.kwad.sdk.core.network.l, com.kwad.sdk.core.network.a
+    @Override // com.kwad.sdk.core.network.m, com.kwad.sdk.core.network.a
     public /* bridge */ /* synthetic */ void onResponse(g gVar, c cVar) {
         onResponse((RequestAdapter) ((RequestAdapter) gVar), cVar);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.kwad.sdk.core.network.l
+    @Override // com.kwad.sdk.core.network.m
     @NonNull
     public ResultDataAdapter<T> parseData(String str) {
         InterceptResult invokeL;

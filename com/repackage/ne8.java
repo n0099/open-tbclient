@@ -29,7 +29,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.fu4;
+import com.repackage.gu4;
 import java.util.ArrayList;
 @SuppressLint({"ResourceAsColor"})
 /* loaded from: classes6.dex */
@@ -43,7 +43,7 @@ public class ne8 extends b9<SignAllForumActivity> {
     public SignAllForumProgressView d;
     public ProgressBar e;
     public BdListView f;
-    public gu4 g;
+    public hu4 g;
     public ke8 h;
     public ge8 i;
     public RelativeLayout j;
@@ -105,20 +105,20 @@ public class ne8 extends b9<SignAllForumActivity> {
         }
         this.g = null;
         this.a = signAllForumActivity;
-        signAllForumActivity.setContentView(R.layout.obfuscated_res_0x7f0d077f);
-        this.c = (RelativeLayout) this.a.findViewById(R.id.obfuscated_res_0x7f091d88);
-        NavigationBar navigationBar = (NavigationBar) this.a.findViewById(R.id.obfuscated_res_0x7f092437);
+        signAllForumActivity.setContentView(R.layout.obfuscated_res_0x7f0d0789);
+        this.c = (RelativeLayout) this.a.findViewById(R.id.obfuscated_res_0x7f091d8e);
+        NavigationBar navigationBar = (NavigationBar) this.a.findViewById(R.id.obfuscated_res_0x7f092439);
         this.b = navigationBar;
-        navigationBar.setCenterTextTitle(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f11a0));
+        navigationBar.setCenterTextTitle(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f114f));
         this.b.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new a(this));
         this.b.showBottomLine();
-        BdListView bdListView = (BdListView) this.a.findViewById(R.id.obfuscated_res_0x7f091da8);
+        BdListView bdListView = (BdListView) this.a.findViewById(R.id.obfuscated_res_0x7f091dae);
         this.f = bdListView;
         bdListView.setOnItemClickListener(signAllForumActivity);
-        gu4 gu4Var = new gu4(signAllForumActivity.getPageContext());
-        this.g = gu4Var;
-        this.f.setPullRefresh(gu4Var);
-        TextView textView = (TextView) LayoutInflater.from(this.a.getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d077d, (ViewGroup) null);
+        hu4 hu4Var = new hu4(signAllForumActivity.getPageContext());
+        this.g = hu4Var;
+        this.f.setPullRefresh(hu4Var);
+        TextView textView = (TextView) LayoutInflater.from(this.a.getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0787, (ViewGroup) null);
         this.n = textView;
         this.f.addFooterView(textView);
         SignAllForumProgressView signAllForumProgressView = new SignAllForumProgressView(this.a.getPageContext().getPageActivity());
@@ -128,10 +128,10 @@ public class ne8 extends b9<SignAllForumActivity> {
         progressBar.setOnClickListener(this.a);
         this.f.addHeaderView(this.d);
         this.d.setVisibility(8);
-        this.j = (RelativeLayout) this.d.findViewById(R.id.obfuscated_res_0x7f090cb6);
-        this.m = (LinearLayout) this.d.findViewById(R.id.obfuscated_res_0x7f090cb8);
-        this.k = (TextView) this.d.findViewById(R.id.obfuscated_res_0x7f090cb9);
-        this.l = (TextView) this.d.findViewById(R.id.obfuscated_res_0x7f090cb7);
+        this.j = (RelativeLayout) this.d.findViewById(R.id.obfuscated_res_0x7f090caf);
+        this.m = (LinearLayout) this.d.findViewById(R.id.obfuscated_res_0x7f090cb1);
+        this.k = (TextView) this.d.findViewById(R.id.obfuscated_res_0x7f090cb2);
+        this.l = (TextView) this.d.findViewById(R.id.obfuscated_res_0x7f090cb0);
         this.m.setOnClickListener(this.a);
         ke8 ke8Var = new ke8(this.a, null);
         this.h = ke8Var;
@@ -163,7 +163,7 @@ public class ne8 extends b9<SignAllForumActivity> {
         this.d.getMessage2().setText(this.i.w());
         this.k.setText(this.i.h());
         if (TextUtils.isEmpty(this.i.g())) {
-            this.l.setText(R.string.obfuscated_res_0x7f0f0aa0);
+            this.l.setText(R.string.obfuscated_res_0x7f0f0a8c);
         } else {
             this.l.setText(this.i.g());
         }
@@ -258,7 +258,7 @@ public class ne8 extends b9<SignAllForumActivity> {
         this.d.i();
     }
 
-    public void s(fu4.g gVar) {
+    public void s(gu4.g gVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, gVar) == null) {
             this.g.f(gVar);

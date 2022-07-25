@@ -52,7 +52,7 @@ public class an8 extends CustomMessageListener {
     }
 
     /* loaded from: classes5.dex */
-    public class b implements jd5<Boolean> {
+    public class b implements kd5<Boolean> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ an8 a;
@@ -76,7 +76,7 @@ public class an8 extends CustomMessageListener {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.jd5
+        @Override // com.repackage.kd5
         /* renamed from: a */
         public void onReturnDataInUI(Boolean bool) {
             Interceptable interceptable = $ic;
@@ -84,6 +84,7 @@ public class an8 extends CustomMessageListener {
                 if (bool != null && !bool.booleanValue()) {
                     ob7 l = ob7.l(this.a.a);
                     l.n(true);
+                    l.B("1", this.a.a.D.intValue(), 0, this.a.a.N, new fl8(this.a.a), false);
                     l.n(false);
                     return;
                 }
@@ -120,8 +121,15 @@ public class an8 extends CustomMessageListener {
         if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || MainTabActivity.W) {
             return;
         }
-        if (this.b != null && AsyncGetClipboardSwitch.isOn() && TbadkCoreApplication.getInst().isMIUIRom()) {
-            he5.b(new a(this), new b(this));
+        if (this.b != null) {
+            if (AsyncGetClipboardSwitch.isOn() && TbadkCoreApplication.getInst().isMIUIRom()) {
+                he5.b(new a(this), new b(this));
+            } else {
+                ob7 l = ob7.l(this.a);
+                int intValue = this.a.D.intValue();
+                MainTabActivity mainTabActivity = this.a;
+                l.B("1", intValue, 0, mainTabActivity.N, new fl8(mainTabActivity), false);
+            }
         }
         if (!MainTabActivityConfig.IS_MAIN_TAB_SPLASH_SHOW && !this.a.K && (nl8Var = this.b) != null && nl8Var.b() != null) {
             this.b.b().b();

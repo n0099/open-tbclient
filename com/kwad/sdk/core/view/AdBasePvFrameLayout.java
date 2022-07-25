@@ -6,143 +6,143 @@ import android.util.AttributeSet;
 import android.view.ViewTreeObserver;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import com.kwad.sdk.core.d.b;
-import com.kwad.sdk.utils.bb;
+import com.kwad.sdk.core.e.b;
+import com.kwad.sdk.utils.bf;
 import com.kwad.sdk.widget.j;
 /* loaded from: classes5.dex */
 public class AdBasePvFrameLayout extends AdBaseFrameLayout {
-    public long a;
-    public float b;
-    public boolean c;
-    public boolean d;
-    public int e;
-    public ViewTreeObserver.OnScrollChangedListener f;
-    public ViewTreeObserver g;
-    public bb h;
-    public j i;
+    public int GD;
+    public long afe;
+    public float aff;
+    public boolean afg;
+    public boolean afh;
+    public ViewTreeObserver.OnScrollChangedListener afi;
+    public ViewTreeObserver afj;
+    public bf afk;
+    public j bx;
 
     public AdBasePvFrameLayout(@NonNull Context context) {
         super(context);
-        this.a = 500L;
-        this.b = 0.1f;
-        this.d = true;
-        a();
+        this.afe = 500L;
+        this.aff = 0.1f;
+        this.afh = true;
+        init();
     }
 
     public AdBasePvFrameLayout(@NonNull Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.a = 500L;
-        this.b = 0.1f;
-        this.d = true;
-        a();
+        this.afe = 500L;
+        this.aff = 0.1f;
+        this.afh = true;
+        init();
     }
 
     public AdBasePvFrameLayout(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.a = 500L;
-        this.b = 0.1f;
-        this.d = true;
-        a();
+        this.afe = 500L;
+        this.aff = 0.1f;
+        this.afh = true;
+        init();
     }
 
-    private void a() {
-        this.h = new bb(this);
-        this.e = com.kwad.sdk.utils.j.c(getContext());
-        this.d = true;
+    private void init() {
+        this.afk = new bf(this);
+        this.GD = com.kwad.sdk.utils.j.getScreenHeight(getContext());
+        this.afh = true;
     }
 
-    private void b() {
-        if (this.d) {
-            c();
+    private void wa() {
+        if (this.afh) {
+            wb();
         }
     }
 
-    private void c() {
-        if (d()) {
-            j();
+    private void wb() {
+        if (wd()) {
+            wc();
         } else {
-            e();
+            we();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean d() {
-        if (!this.h.a() || Math.abs(this.h.a.height() - getHeight()) > getHeight() * (1.0f - this.b) || getHeight() <= 0 || getWidth() <= 0) {
+    public boolean wd() {
+        if (!this.afk.AV() || Math.abs(this.afk.apg.height() - getHeight()) > getHeight() * (1.0f - this.aff) || getHeight() <= 0 || getWidth() <= 0) {
             return false;
         }
-        Rect rect = this.h.a;
-        return rect.bottom > 0 && rect.top < this.e;
+        Rect rect = this.afk.apg;
+        return rect.bottom > 0 && rect.top < this.GD;
     }
 
-    private void e() {
-        if (this.f == null) {
-            this.f = new ViewTreeObserver.OnScrollChangedListener() { // from class: com.kwad.sdk.core.view.AdBasePvFrameLayout.1
+    private void we() {
+        if (this.afi == null) {
+            this.afi = new ViewTreeObserver.OnScrollChangedListener() { // from class: com.kwad.sdk.core.view.AdBasePvFrameLayout.1
                 @Override // android.view.ViewTreeObserver.OnScrollChangedListener
                 public final void onScrollChanged() {
-                    if (AdBasePvFrameLayout.this.d()) {
-                        AdBasePvFrameLayout.this.j();
+                    if (AdBasePvFrameLayout.this.wd()) {
+                        AdBasePvFrameLayout.this.wc();
                     }
                 }
             };
             ViewTreeObserver viewTreeObserver = getViewTreeObserver();
-            this.g = viewTreeObserver;
+            this.afj = viewTreeObserver;
             if (viewTreeObserver != null) {
-                viewTreeObserver.addOnScrollChangedListener(this.f);
+                viewTreeObserver.addOnScrollChangedListener(this.afi);
             }
         }
     }
 
-    private void f() {
+    private void wf() {
         try {
-            if (this.f != null && this.g != null && this.g.isAlive()) {
-                this.g.removeOnScrollChangedListener(this.f);
+            if (this.afi != null && this.afj != null && this.afj.isAlive()) {
+                this.afj.removeOnScrollChangedListener(this.afi);
             }
-            this.f = null;
+            this.afi = null;
         } catch (Exception e) {
-            b.a(e);
-        }
-    }
-
-    public final void j() {
-        f();
-        j jVar = this.i;
-        if (jVar != null) {
-            jVar.a();
+            b.printStackTrace(e);
         }
     }
 
     @Override // android.view.ViewGroup, android.view.View
     public void onAttachedToWindow() {
         super.onAttachedToWindow();
-        e();
+        we();
     }
 
     @Override // android.view.ViewGroup, android.view.View
     public void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        f();
-        this.c = false;
+        wf();
+        this.afg = false;
     }
 
     @Override // android.view.View
     public void onSizeChanged(int i, int i2, int i3, int i4) {
         boolean z = true;
-        if (this.c || (i3 | i4) != 0 || (i | i2) == 0) {
+        if (this.afg || (i3 | i4) != 0 || (i | i2) == 0) {
             z = false;
         } else {
-            this.c = true;
+            this.afg = true;
         }
         super.onSizeChanged(i, i2, i3, i4);
         if (z) {
-            b();
+            wa();
         }
     }
 
     public void setCheckDefaultImpressionLogThreshold(float f) {
-        this.b = f;
+        this.aff = f;
     }
 
     public void setVisibleListener(j jVar) {
-        this.i = jVar;
+        this.bx = jVar;
+    }
+
+    public final void wc() {
+        wf();
+        j jVar = this.bx;
+        if (jVar != null) {
+            jVar.av();
+        }
     }
 }

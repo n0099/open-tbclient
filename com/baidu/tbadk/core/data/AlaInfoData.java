@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.oi;
-import com.repackage.un4;
+import com.repackage.vn4;
 import java.io.Serializable;
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -46,7 +46,7 @@ public class AlaInfoData implements Serializable, Parcelable {
     public boolean haveRedpkg;
     public String hls_url;
     public boolean isChushou;
-    public transient un4 label;
+    public transient vn4 label;
     public String label_name;
     public boolean liveStageForceTop;
     public String liveStagePicUrl;
@@ -320,9 +320,9 @@ public class AlaInfoData implements Serializable, Parcelable {
             this.thread_id = jSONObject.optLong("thread_id");
             JSONObject optJSONObject = jSONObject.optJSONObject("label");
             if (optJSONObject != null) {
-                un4 un4Var = new un4();
-                this.label = un4Var;
-                un4Var.a(optJSONObject);
+                vn4 vn4Var = new vn4();
+                this.label = vn4Var;
+                vn4Var.a(optJSONObject);
             }
             JSONArray optJSONArray = jSONObject.optJSONArray("stage_dislike_info");
             if (optJSONArray != null) {

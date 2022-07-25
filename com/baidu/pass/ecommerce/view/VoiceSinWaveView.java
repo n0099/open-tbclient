@@ -320,10 +320,10 @@ public class VoiceSinWaveView extends View implements VoiceWaveInterface {
                 return;
             }
             this.mMaxAmplitude = (i - 4.0f) * 0.5f;
-            this.mPrimaryPaint.setShader(new LinearGradient(0.0f, 0.0f, this.mWidth, 0.0f, getResources().getColor(R.color.obfuscated_res_0x7f0609e9), getResources().getColor(R.color.obfuscated_res_0x7f0609e8), Shader.TileMode.MIRROR));
-            this.mSecondaryPaint.setShader(new LinearGradient(0.0f, 0.0f, this.mWidth, 0.0f, getResources().getColor(R.color.obfuscated_res_0x7f0609eb), getResources().getColor(R.color.obfuscated_res_0x7f0609ea), Shader.TileMode.MIRROR));
-            int color = getResources().getColor(R.color.obfuscated_res_0x7f0609e7);
-            int color2 = getResources().getColor(R.color.obfuscated_res_0x7f0609e6);
+            this.mPrimaryPaint.setShader(new LinearGradient(0.0f, 0.0f, this.mWidth, 0.0f, getResources().getColor(R.color.obfuscated_res_0x7f0609d9), getResources().getColor(R.color.obfuscated_res_0x7f0609d8), Shader.TileMode.MIRROR));
+            this.mSecondaryPaint.setShader(new LinearGradient(0.0f, 0.0f, this.mWidth, 0.0f, getResources().getColor(R.color.obfuscated_res_0x7f0609db), getResources().getColor(R.color.obfuscated_res_0x7f0609da), Shader.TileMode.MIRROR));
+            int color = getResources().getColor(R.color.obfuscated_res_0x7f0609d7);
+            int color2 = getResources().getColor(R.color.obfuscated_res_0x7f0609d6);
             float f = this.mHeight / 2;
             float f2 = this.mMaxAmplitude;
             this.mFillPaint.setShader(new LinearGradient(0.0f, f - f2, 0.0f, f + f2, color, color2, Shader.TileMode.MIRROR));

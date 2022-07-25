@@ -356,7 +356,7 @@ public class uj5 extends Dialog {
                 this.B.stopService();
                 this.h.setVisibility(8);
                 if (this.g) {
-                    this.w.setText(getContext().getString(R.string.obfuscated_res_0x7f0f04f9));
+                    this.w.setText(getContext().getString(R.string.obfuscated_res_0x7f0f04f5));
                 }
                 this.v.setVisibility(0);
                 return;
@@ -374,23 +374,23 @@ public class uj5 extends Dialog {
             this.h = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090285);
             this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f090291);
             this.j = (TextView) findViewById(R.id.obfuscated_res_0x7f090280);
-            this.p = (TextView) findViewById(R.id.obfuscated_res_0x7f090be1);
+            this.p = (TextView) findViewById(R.id.obfuscated_res_0x7f090bda);
             this.n = (TextView) findViewById(R.id.obfuscated_res_0x7f090473);
             this.o = (TextView) findViewById(R.id.obfuscated_res_0x7f090437);
-            this.r = (ImageView) findViewById(R.id.obfuscated_res_0x7f090e77);
+            this.r = (ImageView) findViewById(R.id.obfuscated_res_0x7f090e70);
             this.o.setOnClickListener(this.G);
             this.r.setOnClickListener(this.G);
-            this.q = findViewById(R.id.obfuscated_res_0x7f0907ca);
-            this.k = (TextView) findViewById(R.id.obfuscated_res_0x7f0907fc);
-            this.s = (TextView) findViewById(R.id.obfuscated_res_0x7f090ebe);
-            this.t = (TextView) findViewById(R.id.obfuscated_res_0x7f091626);
-            this.u = findViewById(R.id.obfuscated_res_0x7f090ebf);
-            this.m = (TextView) findViewById(R.id.obfuscated_res_0x7f091698);
-            this.z = findViewById(R.id.obfuscated_res_0x7f0907dd);
+            this.q = findViewById(R.id.obfuscated_res_0x7f0907c8);
+            this.k = (TextView) findViewById(R.id.obfuscated_res_0x7f0907fa);
+            this.s = (TextView) findViewById(R.id.obfuscated_res_0x7f090eb7);
+            this.t = (TextView) findViewById(R.id.obfuscated_res_0x7f091601);
+            this.u = findViewById(R.id.obfuscated_res_0x7f090eb8);
+            this.m = (TextView) findViewById(R.id.obfuscated_res_0x7f091673);
+            this.z = findViewById(R.id.obfuscated_res_0x7f0907db);
             this.A = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090471);
             this.l = this.k.getText().toString();
             this.v = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090472);
-            this.x = (TextView) findViewById(R.id.obfuscated_res_0x7f091e67);
+            this.x = (TextView) findViewById(R.id.obfuscated_res_0x7f091e6b);
             this.y = (TextView) findViewById(R.id.obfuscated_res_0x7f09046f);
             this.w = (TextView) findViewById(R.id.obfuscated_res_0x7f090478);
             this.x.setOnClickListener(this.C);
@@ -404,7 +404,7 @@ public class uj5 extends Dialog {
             String newVersion = this.b.getNewVersion();
             String newVersionDesc = this.b.getNewVersionDesc();
             StringBuilder sb = new StringBuilder();
-            sb.append(this.a.getString(R.string.obfuscated_res_0x7f0f0c33));
+            sb.append(this.a.getString(R.string.obfuscated_res_0x7f0f0c1f));
             if (!TextUtils.isEmpty(newVersion)) {
                 sb.append(newVersion);
             }
@@ -415,11 +415,11 @@ public class uj5 extends Dialog {
             this.j.setText(newVersionDesc);
             if (this.b.forceUpdate()) {
                 this.g = true;
-                this.n.setText(this.a.getString(R.string.obfuscated_res_0x7f0f0f57));
+                this.n.setText(this.a.getString(R.string.obfuscated_res_0x7f0f0f40));
                 this.o.setVisibility(8);
                 this.r.setVisibility(8);
             } else {
-                this.n.setText(this.a.getString(R.string.obfuscated_res_0x7f0f14d1));
+                this.n.setText(this.a.getString(R.string.obfuscated_res_0x7f0f1480));
                 this.o.setVisibility(8);
                 this.r.setVisibility(8);
             }
@@ -477,7 +477,7 @@ public class uj5 extends Dialog {
                 VersionData versionData = this.b;
                 if (versionData != null && !TextUtils.isEmpty(versionData.getPatch()) && this.b.getNewVersionCode() >= 0) {
                     this.u.setVisibility(0);
-                    this.s.setText(R.string.obfuscated_res_0x7f0f08e4);
+                    this.s.setText(R.string.obfuscated_res_0x7f0f08cf);
                     SkinManager.setBackgroundResource(this.s, R.drawable.dialog_single_button_bg_selector);
                     this.z.setVisibility(8);
                     this.A.setVisibility(8);
@@ -486,7 +486,7 @@ public class uj5 extends Dialog {
                     return;
                 }
                 this.u.setVisibility(0);
-                this.s.setText(R.string.obfuscated_res_0x7f0f1235);
+                this.s.setText(R.string.obfuscated_res_0x7f0f11e4);
                 SkinManager.setBackgroundResource(this.s, R.drawable.dialog_middle_item_bg_selector);
                 this.A.setVisibility(0);
                 this.F = false;
@@ -498,7 +498,7 @@ public class uj5 extends Dialog {
             if (versionData2 != null && !TextUtils.isEmpty(versionData2.getPatch()) && this.b.getNewVersionCode() >= 0) {
                 this.u.setVisibility(0);
                 SkinManager.setBackgroundResource(this.s, R.drawable.dialog_middle_item_bg_selector);
-                this.s.setText(R.string.obfuscated_res_0x7f0f08e4);
+                this.s.setText(R.string.obfuscated_res_0x7f0f08cf);
                 this.A.setVisibility(0);
                 this.F = true;
                 TiebaStatic.log(TbadkCoreStatisticKey.UPDATE_INCREMENTAL_SHOW);

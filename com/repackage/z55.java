@@ -1,32 +1,77 @@
 package com.repackage;
 
 import androidx.annotation.NonNull;
-import com.baidu.pyramid.runtime.service.ServiceManager;
-import com.baidu.pyramid.runtime.service.ServiceReference;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
+@Deprecated
 /* loaded from: classes7.dex */
-public interface z55 {
-    @NonNull
-    public static final ServiceReference a;
+public final class z55 {
+    public static /* synthetic */ Interceptable $ic;
     @NonNull
     public static final z55 b;
+    public transient /* synthetic */ FieldHolder $fh;
+    public final Map<String, y55> a;
 
     static {
-        ServiceReference serviceReference = new ServiceReference("tbBaseEmotion", "EmotionService");
-        a = serviceReference;
-        b = (z55) ServiceManager.getService(serviceReference);
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755161001, "Lcom/repackage/z55;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755161001, "Lcom/repackage/z55;");
+                return;
+            }
+        }
+        b = new z55();
     }
 
-    boolean a(@NonNull String str);
+    public z55() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.a = new HashMap();
+    }
+
+    public static void a(@NonNull String str, @NonNull y55 y55Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65538, null, str, y55Var) == null) {
+            b.a.put(str, y55Var);
+        }
+    }
+
+    @Nullable
+    public static <T> T b(@NonNull String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) ? (T) b.a.get(str) : (T) invokeL.objValue;
+    }
 
     @NonNull
-    String b(@NonNull String str);
-
-    @NonNull
-    String c();
-
-    @NonNull
-    String d(@NonNull String str, boolean z);
-
-    @NonNull
-    String e(@NonNull String str, @NonNull String str2);
+    public static <T> T c(@NonNull String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) ? (T) Objects.requireNonNull(b(str)) : (T) invokeL.objValue;
+    }
 }

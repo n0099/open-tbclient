@@ -21,8 +21,8 @@ import com.google.protobuf.InvalidProtocolBufferException;
 import com.google.protobuf.MessageLite;
 import com.google.protobuf.MessageLiteOrBuilder;
 import com.google.protobuf.Parser;
-import com.repackage.kj3;
 import com.repackage.lj3;
+import com.repackage.mj3;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.ObjectStreamException;
@@ -293,7 +293,7 @@ public final class Bdtls$ClientHello extends GeneratedMessageLite implements Mes
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
-                Bdtls$ClientHello bdtls$ClientHello = new Bdtls$ClientHello(this, (kj3) null);
+                Bdtls$ClientHello bdtls$ClientHello = new Bdtls$ClientHello(this, (lj3) null);
                 int i = this.a;
                 int i2 = (i & 1) != 1 ? 0 : 1;
                 bdtls$ClientHello.random_ = this.b;
@@ -468,7 +468,7 @@ public final class Bdtls$ClientHello extends GeneratedMessageLite implements Mes
         bdtls$ClientHello.initFields();
     }
 
-    public /* synthetic */ Bdtls$ClientHello(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, kj3 kj3Var) throws InvalidProtocolBufferException {
+    public /* synthetic */ Bdtls$ClientHello(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, lj3 lj3Var) throws InvalidProtocolBufferException {
         this(codedInputStream, extensionRegistryLite);
     }
 
@@ -542,13 +542,13 @@ public final class Bdtls$ClientHello extends GeneratedMessageLite implements Mes
         return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.extensions_ : (List) invokeV.objValue;
     }
 
-    public lj3 getExtensionsOrBuilder(int i) {
+    public mj3 getExtensionsOrBuilder(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i)) == null) ? this.extensions_.get(i) : (lj3) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i)) == null) ? this.extensions_.get(i) : (mj3) invokeI.objValue;
     }
 
-    public List<? extends lj3> getExtensionsOrBuilderList() {
+    public List<? extends mj3> getExtensionsOrBuilderList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.extensions_ : (List) invokeV.objValue;
@@ -667,7 +667,7 @@ public final class Bdtls$ClientHello extends GeneratedMessageLite implements Mes
         }
     }
 
-    public /* synthetic */ Bdtls$ClientHello(GeneratedMessageLite.Builder builder, kj3 kj3Var) {
+    public /* synthetic */ Bdtls$ClientHello(GeneratedMessageLite.Builder builder, lj3 lj3Var) {
         this(builder);
     }
 

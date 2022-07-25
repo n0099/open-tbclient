@@ -42,7 +42,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.bb;
 import com.repackage.pb8;
-import com.repackage.xt4;
+import com.repackage.yt4;
 import com.repackage.z8;
 import com.repackage.za;
 /* loaded from: classes3.dex */
@@ -305,7 +305,7 @@ public class PushDialogLoopManager {
         MessageManager.getInstance().registerListener(new b(this, CmdConfigHttp.CMD_GET_PUSH_DIALOG_TID, 309618));
         MessageManager.getInstance().registerListener(new c(this, 1003));
         MessageManager.getInstance().registerListener(new d(this, 2001371));
-        this.b = xt4.k().q("key_push_dialog_last_show_tid", "0");
+        this.b = yt4.k().q("key_push_dialog_last_show_tid", "0");
         TbadkCoreApplication.getInst().registerReceiver(new e(null), new IntentFilter("android.intent.action.SCREEN_OFF"));
         this.f = (AlarmManager) TbadkCoreApplication.getInst().getApp().getSystemService(NotificationCompat.CATEGORY_ALARM);
         try {
@@ -407,7 +407,7 @@ public class PushDialogLoopManager {
             b2.finish();
         }
         MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PushDialogActivityConfig(TbadkCoreApplication.getInst(), 0L, str)));
-        xt4.k().y("key_push_dialog_last_show_tid", str);
+        yt4.k().y("key_push_dialog_last_show_tid", str);
         this.c = false;
     }
 }

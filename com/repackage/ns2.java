@@ -1,13 +1,8 @@
 package com.repackage;
 
-import android.content.Context;
-import android.preference.PreferenceManager;
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
+import android.util.Log;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.pyramid.annotation.Singleton;
-import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -15,20 +10,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Random;
-import java.util.concurrent.ExecutorService;
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-@Singleton
-@Service
 /* loaded from: classes6.dex */
-public class ns2 implements sf4 {
+public class ns2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean c;
+    public static final boolean d;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
-    public Boolean b;
+    public final String a;
+    public long b;
+    public long c;
 
     static {
         InterceptResult invokeClinit;
@@ -43,13 +34,15 @@ public class ns2 implements sf4 {
                 return;
             }
         }
-        c = rg1.a;
+        d = sg1.a;
     }
 
-    public ns2() {
+    public ns2(String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -59,237 +52,58 @@ public class ns2 implements sf4 {
                 return;
             }
         }
-        this.b = null;
-        this.a = AppRuntime.getAppContext();
+        this.a = str;
+        if (d) {
+            Log.d("Model", "new model, scope id - " + str);
+        }
     }
 
-    @Override // com.repackage.sf4
-    public String a() {
+    public void a(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
+            this.b = j;
+        }
+    }
+
+    public long b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? oj2.n().a() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : invokeV.longValue;
     }
 
-    @Override // com.repackage.sf4
-    public String b() {
+    public void c(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) == null) {
+            this.c = j;
+        }
+    }
+
+    public JSONObject d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? sg1.a() : (String) invokeV.objValue;
-    }
-
-    @Override // com.repackage.sf4
-    public boolean c(String str) {
-        InterceptResult invokeL;
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            dk1 g0 = oj2.g0();
-            if (g0 != null) {
-                g0.getSwitch("ANDROID_UBC_SAMPLE_" + str, "");
-            }
-            if (TextUtils.isEmpty("")) {
-                return false;
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            JSONObject jSONObject = new JSONObject();
             try {
-                i = new JSONObject("").getInt("probability");
+                jSONObject.put("scope_id", this.a);
+                jSONObject.put("begin_ts", this.b);
+                jSONObject.put("end_ts", this.c);
             } catch (JSONException e) {
-                e.printStackTrace();
-                i = 0;
+                if (d) {
+                    e.printStackTrace();
+                }
             }
-            return new Random().nextInt(100) < i;
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // com.repackage.sf4
-    public ExecutorService d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? oj2.z0().d() : (ExecutorService) invokeV.objValue;
-    }
-
-    @Override // com.repackage.sf4
-    public void e(String str, int i, JSONArray jSONArray) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(1048580, this, str, i, jSONArray) == null) {
-            oj2.z0().e(str, i, jSONArray);
-        }
-    }
-
-    @Override // com.repackage.sf4
-    public void f(String str, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048581, this, str, i) == null) {
-            oj2.z0().f(str, i);
-        }
-    }
-
-    @Override // com.repackage.sf4
-    public void g(String str, String str2, int i, String str3, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{str, str2, Integer.valueOf(i), str3, Integer.valueOf(i2)}) == null) {
-            oj2.z0().g(str, str2, i, str3, i2);
-        }
-    }
-
-    @Override // com.repackage.sf4
-    public String getAppId() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            h03 D = ul2.U().D();
-            return D != null ? D.b : "";
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.repackage.sf4
-    public String getAppVersion() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            h03 D = ul2.U().D();
-            return D != null ? D.Y().v1() : "";
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.repackage.sf4
-    public String getDeviceId(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, context)) == null) ? oj2.h0().i(oj2.c()) : (String) invokeL.objValue;
-    }
-
-    @Override // com.repackage.sf4
-    public String getScene() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            h03 D = ul2.U().D();
-            return D != null ? D.W().T() : "";
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.repackage.sf4
-    public String h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            dk1 g0 = oj2.g0();
-            return g0 != null ? g0.p() : "";
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.repackage.sf4
-    public void i(String str, int i, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(1048588, this, str, i, str2) == null) {
-            oj2.z0().i(str, i, str2);
-        }
-    }
-
-    @Override // com.repackage.sf4
-    public boolean j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? oj2.g0().j() : invokeV.booleanValue;
-    }
-
-    @Override // com.repackage.sf4
-    public int k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? g03.K().k() : invokeV.intValue;
-    }
-
-    @Override // com.repackage.sf4
-    public tf4 l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? oj2.O().l() : (tf4) invokeV.objValue;
-    }
-
-    @Override // com.repackage.sf4
-    public String m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? m93.h(k()) : (String) invokeV.objValue;
-    }
-
-    @Override // com.repackage.sf4
-    public void n(String str, String str2, int i, String str3, long j, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048593, this, new Object[]{str, str2, Integer.valueOf(i), str3, Long.valueOf(j), Integer.valueOf(i2)}) == null) {
-            oj2.z0().n(str, str2, i, str3, j, i2);
-        }
-    }
-
-    @Override // com.repackage.sf4
-    public String o(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048594, this, context)) == null) ? rg4.b(context).a() : (String) invokeL.objValue;
-    }
-
-    @Override // com.repackage.sf4
-    public boolean p() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
-            if (this.b == null) {
-                oj2.g0().getSwitch("swan_ceres_add_counter", false);
-                this.b = false;
+            if (d) {
+                Log.d("Model", jSONObject.toString());
             }
-            return this.b.booleanValue();
+            return jSONObject;
         }
-        return invokeV.booleanValue;
+        return (JSONObject) invokeV.objValue;
     }
 
-    @Override // com.repackage.sf4
-    public boolean q() {
+    @NonNull
+    public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? gw2.X() && (r() || rg1.b) : invokeV.booleanValue;
-    }
-
-    @Override // com.repackage.sf4
-    public boolean r() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
-            return c && PreferenceManager.getDefaultSharedPreferences(oj2.c()).getBoolean("KEY_UBC_DEBUG", true);
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.repackage.sf4
-    public String s() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
-            String b = oj2.n().b();
-            if (be3.G() || TextUtils.isEmpty(b)) {
-                return null;
-            }
-            return b;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.repackage.sf4
-    public String t() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) ? bx1.b() : (String) invokeV.objValue;
-    }
-
-    @Override // com.repackage.sf4
-    public String u(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048600, this, context)) == null) ? oj2.h0().h(oj2.c()) : (String) invokeL.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? d().toString() : (String) invokeV.objValue;
     }
 }

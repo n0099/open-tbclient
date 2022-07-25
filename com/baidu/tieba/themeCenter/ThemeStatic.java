@@ -40,7 +40,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.ng;
 import com.repackage.wh8;
-import com.repackage.xt4;
+import com.repackage.yt4;
 /* loaded from: classes4.dex */
 public class ThemeStatic {
     public static /* synthetic */ Interceptable $ic;
@@ -123,7 +123,7 @@ public class ThemeStatic {
                             indexOf = substring.length();
                         }
                         int e = ng.e(substring.substring(0, indexOf), 0);
-                        xt4 k = xt4.k();
+                        yt4 k = yt4.k();
                         StringBuilder sb = new StringBuilder();
                         sb.append("current_used_personal_background_");
                         sb.append(TbadkCoreApplication.getCurrentAccount());

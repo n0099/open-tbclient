@@ -43,8 +43,8 @@ public class tb6 {
     public View g;
     public ac6 h;
     public RelativeLayout i;
-    public j55 j;
-    public k55 k;
+    public k55 j;
+    public l55 k;
     public NoDataView l;
     public View.OnClickListener m;
     public final TbPageContext n;
@@ -191,9 +191,9 @@ public class tb6 {
             return;
         }
         if (this.j == null) {
-            j55 j55Var = new j55(this.a);
-            this.j = j55Var;
-            j55Var.s(pi.f(this.a, R.dimen.obfuscated_res_0x7f07028a));
+            k55 k55Var = new k55(this.a);
+            this.j = k55Var;
+            k55Var.s(pi.f(this.a, R.dimen.obfuscated_res_0x7f070288));
         }
         this.j.onChangeSkinType();
         this.j.attachView(this.i, z);
@@ -205,9 +205,9 @@ public class tb6 {
             return;
         }
         if (this.k == null) {
-            k55 k55Var = new k55(this.a, this.m);
-            this.k = k55Var;
-            k55Var.k(pi.f(this.a, R.dimen.obfuscated_res_0x7f07028a));
+            l55 l55Var = new l55(this.a, this.m);
+            this.k = l55Var;
+            l55Var.k(pi.f(this.a, R.dimen.obfuscated_res_0x7f070288));
         }
         this.k.attachView(this.i, z);
         this.k.p();
@@ -255,13 +255,13 @@ public class tb6 {
             if (ac6Var != null) {
                 ac6Var.m(i);
             }
-            j55 j55Var = this.j;
-            if (j55Var != null) {
-                j55Var.onChangeSkinType();
-            }
-            k55 k55Var = this.k;
+            k55 k55Var = this.j;
             if (k55Var != null) {
                 k55Var.onChangeSkinType();
+            }
+            l55 l55Var = this.k;
+            if (l55Var != null) {
+                l55Var.onChangeSkinType();
             }
             NoDataView noDataView = this.l;
             if (noDataView != null && this.a != null) {
@@ -330,22 +330,22 @@ public class tb6 {
     }
 
     public void h() {
-        j55 j55Var;
+        k55 k55Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048594, this) == null) || (j55Var = this.j) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048594, this) == null) || (k55Var = this.j) == null) {
             return;
         }
-        j55Var.dettachView(this.i);
+        k55Var.dettachView(this.i);
         this.j = null;
     }
 
     public void i() {
-        k55 k55Var;
+        l55 l55Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048595, this) == null) || (k55Var = this.k) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048595, this) == null) || (l55Var = this.k) == null) {
             return;
         }
-        k55Var.dettachView(this.i);
+        l55Var.dettachView(this.i);
         this.k = null;
     }
 
@@ -370,22 +370,22 @@ public class tb6 {
     public final void l() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048598, this) == null) {
-            NavigationBar navigationBar = (NavigationBar) this.b.findViewById(R.id.obfuscated_res_0x7f09158d);
+            NavigationBar navigationBar = (NavigationBar) this.b.findViewById(R.id.obfuscated_res_0x7f091568);
             this.e = navigationBar;
             navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-            this.e.setCenterTextTitle(this.a.getString(R.string.obfuscated_res_0x7f0f06b1));
-            View addCustomView = this.e.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.obfuscated_res_0x7f0d05e8, (View.OnClickListener) null);
+            this.e.setCenterTextTitle(this.a.getString(R.string.obfuscated_res_0x7f0f06ad));
+            View addCustomView = this.e.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.obfuscated_res_0x7f0d05f2, (View.OnClickListener) null);
             this.g = addCustomView;
-            TextView textView = (TextView) addCustomView.findViewById(R.id.obfuscated_res_0x7f091b3d);
+            TextView textView = (TextView) addCustomView.findViewById(R.id.obfuscated_res_0x7f091b17);
             this.f = textView;
-            textView.setText(this.a.getString(R.string.obfuscated_res_0x7f0f06b2));
-            this.c = (RelativeLayout) this.b.findViewById(R.id.obfuscated_res_0x7f090a27);
-            ForumHeaderView forumHeaderView = (ForumHeaderView) this.b.findViewById(R.id.obfuscated_res_0x7f090a28);
+            textView.setText(this.a.getString(R.string.obfuscated_res_0x7f0f06ae));
+            this.c = (RelativeLayout) this.b.findViewById(R.id.obfuscated_res_0x7f090a20);
+            ForumHeaderView forumHeaderView = (ForumHeaderView) this.b.findViewById(R.id.obfuscated_res_0x7f090a21);
             this.d = forumHeaderView;
             forumHeaderView.setFrom(1);
             this.d.setSearchHint(TbSingleton.getInstance().getHotSearch());
             this.h = new ac6(this.n, this.b);
-            this.i = (RelativeLayout) this.b.findViewById(R.id.obfuscated_res_0x7f09122e);
+            this.i = (RelativeLayout) this.b.findViewById(R.id.obfuscated_res_0x7f09120a);
             a(TbadkCoreApplication.getInst().getSkinType());
         }
     }
@@ -394,9 +394,9 @@ public class tb6 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
-            j55 j55Var = this.j;
-            if (j55Var != null) {
-                return j55Var.isViewAttached();
+            k55 k55Var = this.j;
+            if (k55Var != null) {
+                return k55Var.isViewAttached();
             }
             return false;
         }
@@ -407,9 +407,9 @@ public class tb6 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) {
-            k55 k55Var = this.k;
-            if (k55Var != null) {
-                return k55Var.isViewAttached();
+            l55 l55Var = this.k;
+            if (l55Var != null) {
+                return l55Var.isViewAttached();
             }
             return false;
         }

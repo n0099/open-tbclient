@@ -55,7 +55,7 @@ import com.repackage.dl;
 import com.repackage.h9;
 import com.repackage.he5;
 import com.repackage.iz5;
-import com.repackage.jd5;
+import com.repackage.kd5;
 import com.repackage.le7;
 import com.repackage.lz5;
 import com.repackage.ng;
@@ -65,8 +65,8 @@ import com.repackage.pe7;
 import com.repackage.qg;
 import com.repackage.se5;
 import com.repackage.te7;
-import com.repackage.xk4;
 import com.repackage.y37;
+import com.repackage.yk4;
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
 import java.util.HashMap;
@@ -89,12 +89,12 @@ public class AlaLiveSdkStatic {
 
         /* renamed from: com.baidu.tieba.livesdk.AlaLiveSdkStatic$a$a  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        public class C0209a extends CustomMessageListener {
+        public class C0223a extends CustomMessageListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-            public C0209a(a aVar, int i) {
+            public C0223a(a aVar, int i) {
                 super(i);
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
@@ -141,7 +141,7 @@ public class AlaLiveSdkStatic {
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                MessageManager.getInstance().registerListener(new C0209a(this, 2921569));
+                MessageManager.getInstance().registerListener(new C0223a(this, 2921569));
             }
         }
     }
@@ -158,11 +158,11 @@ public class AlaLiveSdkStatic {
 
             /* renamed from: com.baidu.tieba.livesdk.AlaLiveSdkStatic$b$a$a  reason: collision with other inner class name */
             /* loaded from: classes3.dex */
-            public class C0210a extends de5<String> {
+            public class C0224a extends de5<String> {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
-                public C0210a(a aVar) {
+                public C0224a(a aVar) {
                     Interceptable interceptable = $ic;
                     if (interceptable != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
@@ -189,23 +189,23 @@ public class AlaLiveSdkStatic {
 
             /* renamed from: com.baidu.tieba.livesdk.AlaLiveSdkStatic$b$a$b  reason: collision with other inner class name */
             /* loaded from: classes3.dex */
-            public class C0211b implements jd5<String> {
+            public class C0225b implements kd5<String> {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: com.baidu.tieba.livesdk.AlaLiveSdkStatic$b$a$b$a  reason: collision with other inner class name */
                 /* loaded from: classes3.dex */
-                public class RunnableC0212a implements Runnable {
+                public class RunnableC0226a implements Runnable {
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ String a;
 
-                    public RunnableC0212a(C0211b c0211b, String str) {
+                    public RunnableC0226a(C0225b c0225b, String str) {
                         Interceptable interceptable = $ic;
                         if (interceptable != null) {
                             InitContext newInitContext = TitanRuntime.newInitContext();
                             newInitContext.initArgs = r2;
-                            Object[] objArr = {c0211b, str};
+                            Object[] objArr = {c0225b, str};
                             interceptable.invokeUnInit(65536, newInitContext);
                             int i = newInitContext.flag;
                             if ((i & 1) != 0) {
@@ -227,7 +227,7 @@ public class AlaLiveSdkStatic {
                     }
                 }
 
-                public C0211b(a aVar) {
+                public C0225b(a aVar) {
                     Interceptable interceptable = $ic;
                     if (interceptable != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
@@ -244,13 +244,13 @@ public class AlaLiveSdkStatic {
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
-                @Override // com.repackage.jd5
+                @Override // com.repackage.kd5
                 /* renamed from: a */
                 public void onReturnDataInUI(String str) {
                     Interceptable interceptable = $ic;
                     if ((interceptable == null || interceptable.invokeL(1048576, this, str) == null) && !StringUtils.isNull(str) && str.startsWith("#bdtiebalive://") && str.endsWith("#")) {
                         AlaLiveSdkStatic.l();
-                        qg.a().postDelayed(new RunnableC0212a(this, str), 1000L);
+                        qg.a().postDelayed(new RunnableC0226a(this, str), 1000L);
                     }
                 }
             }
@@ -309,7 +309,7 @@ public class AlaLiveSdkStatic {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                     if (AsyncGetClipboardSwitch.isOn() && TbadkCoreApplication.getInst().isMIUIRom()) {
-                        he5.b(new C0210a(this), new C0211b(this));
+                        he5.b(new C0224a(this), new C0225b(this));
                         return;
                     }
                     String clipBoardContent = UtilHelper.getClipBoardContent();
@@ -933,7 +933,7 @@ public class AlaLiveSdkStatic {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
-                cg7.j().l(customResponsedMessage.getData() instanceof xk4 ? (xk4) customResponsedMessage.getData() : null);
+                cg7.j().l(customResponsedMessage.getData() instanceof yk4 ? (yk4) customResponsedMessage.getData() : null);
             }
         }
     }
@@ -974,7 +974,7 @@ public class AlaLiveSdkStatic {
     }
 
     /* loaded from: classes3.dex */
-    public static class l implements CustomMessageTask.CustomRunnable<xk4> {
+    public static class l implements CustomMessageTask.CustomRunnable<yk4> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -993,7 +993,7 @@ public class AlaLiveSdkStatic {
         }
 
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage<?> run(CustomMessage<xk4> customMessage) {
+        public CustomResponsedMessage<?> run(CustomMessage<yk4> customMessage) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) ? new CustomResponsedMessage<>(2921548, Long.valueOf(cg7.j().k(TbadkCoreApplication.getInst().getContext()))) : (CustomResponsedMessage) invokeL.objValue;

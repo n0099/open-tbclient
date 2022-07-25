@@ -36,7 +36,7 @@ public class z09 extends InputStream {
         this.a = y09Var;
     }
 
-    public final void c() throws IOException {
+    public final void a() throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             if (this.b) {
@@ -44,7 +44,7 @@ public class z09 extends InputStream {
                 if (iOException != null) {
                     throw iOException;
                 }
-            } else if (e()) {
+            } else if (c()) {
             } else {
                 if (this.c == null) {
                     this.c = ByteBuffer.allocateDirect(32768);
@@ -65,7 +65,7 @@ public class z09 extends InputStream {
         }
     }
 
-    public final boolean e() {
+    public final boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -75,7 +75,7 @@ public class z09 extends InputStream {
         return invokeV.booleanValue;
     }
 
-    public void f(IOException iOException) {
+    public void d(IOException iOException) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, iOException) == null) {
             this.d = iOException;
@@ -89,8 +89,8 @@ public class z09 extends InputStream {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            c();
-            if (e()) {
+            a();
+            if (c()) {
                 return this.c.get() & 255;
             }
             return -1;
@@ -109,8 +109,8 @@ public class z09 extends InputStream {
             if (i2 == 0) {
                 return 0;
             }
-            c();
-            if (e()) {
+            a();
+            if (c()) {
                 int min = Math.min(this.c.limit() - this.c.position(), i2);
                 this.c.get(bArr, i, min);
                 return min;

@@ -33,7 +33,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.br4;
+import com.repackage.cr4;
 import com.repackage.pf8;
 import com.repackage.pi;
 import com.repackage.qf8;
@@ -140,17 +140,17 @@ public class BarFolderFirstDirActivity extends BaseActivity<BarFolderFirstDirAct
     public void D1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f092437);
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f092439);
             this.g = navigationBar;
             navigationBar.setTitleText(getResources().getString(R.string.obfuscated_res_0x7f0f02da));
             this.g.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-            this.d = (ListView) findViewById(R.id.obfuscated_res_0x7f0912d2);
+            this.d = (ListView) findViewById(R.id.obfuscated_res_0x7f0912ae);
             this.b = new pf8(getPageContext().getPageActivity(), new qf8(), true);
             TextView textView = new TextView(getActivity());
             textView.setLayoutParams(new AbsListView.LayoutParams(-1, UtilHelper.getLightStatusBarHeight() + pi.f(getActivity(), R.dimen.obfuscated_res_0x7f07026f)));
             this.d.addHeaderView(textView);
             this.d.setAdapter((ListAdapter) this.b);
-            this.a = (ProgressBar) findViewById(R.id.obfuscated_res_0x7f0919c7);
+            this.a = (ProgressBar) findViewById(R.id.obfuscated_res_0x7f0919a2);
             ViewGroup viewGroup = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f090391);
             this.e = viewGroup;
             ViewHelper.prepareNewView(viewGroup);
@@ -212,7 +212,7 @@ public class BarFolderFirstDirActivity extends BaseActivity<BarFolderFirstDirAct
             if (viewGroup != null) {
                 ViewHelper.processSkin(viewGroup, i);
             }
-            SkinManager.setFrsPBBgColor(findViewById(R.id.obfuscated_res_0x7f091b72), i);
+            SkinManager.setFrsPBBgColor(findViewById(R.id.obfuscated_res_0x7f091b4c), i);
         }
     }
 
@@ -299,8 +299,8 @@ public class BarFolderFirstDirActivity extends BaseActivity<BarFolderFirstDirAct
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, objArr)) == null) {
                 qf8 qf8Var = new qf8();
-                br4.f();
-                te<String> g = br4.g("tb.first_dir");
+                cr4.f();
+                te<String> g = cr4.g("tb.first_dir");
                 String str = g.get("first_dir_cache_key");
                 boolean z = true;
                 boolean z2 = false;

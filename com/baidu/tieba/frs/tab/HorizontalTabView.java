@@ -25,7 +25,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.er4;
+import com.repackage.fr4;
 import com.repackage.he6;
 import com.repackage.jo6;
 import com.repackage.lo6;
@@ -195,7 +195,7 @@ public class HorizontalTabView extends MyHorizontalScrollView implements jo6 {
     }
 
     /* loaded from: classes3.dex */
-    public class d implements er4.c {
+    public class d implements fr4.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ye6 a;
@@ -220,13 +220,13 @@ public class HorizontalTabView extends MyHorizontalScrollView implements jo6 {
             this.a = ye6Var;
         }
 
-        @Override // com.repackage.er4.c
-        public void a(er4 er4Var, int i, View view2) {
+        @Override // com.repackage.fr4.c
+        public void a(fr4 fr4Var, int i, View view2) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLIL(1048576, this, er4Var, i, view2) == null) || this.a.b.size() <= i || this.a.b.get(i) == null) {
+            if (!(interceptable == null || interceptable.invokeLIL(1048576, this, fr4Var, i, view2) == null) || this.a.b.size() <= i || this.a.b.get(i) == null) {
                 return;
             }
-            er4Var.e();
+            fr4Var.e();
             HorizontalTabView horizontalTabView = this.b;
             horizontalTabView.h(horizontalTabView.k(this.a.b.get(i).b));
         }
@@ -296,7 +296,7 @@ public class HorizontalTabView extends MyHorizontalScrollView implements jo6 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 HorizontalTabView horizontalTabView = this.a;
-                horizontalTabView.scrollBy(horizontalTabView.getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070255), 0);
+                horizontalTabView.scrollBy(horizontalTabView.getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070252), 0);
             }
         }
     }
@@ -341,7 +341,7 @@ public class HorizontalTabView extends MyHorizontalScrollView implements jo6 {
         this.f = null;
         this.g = null;
         this.h = new Paint();
-        this.i = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702e8);
+        this.i = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702e6);
         this.j = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070198);
         this.k = 0;
         this.l = true;
@@ -353,7 +353,7 @@ public class HorizontalTabView extends MyHorizontalScrollView implements jo6 {
         this.b = linearLayout;
         linearLayout.setOrientation(0);
         this.b.setGravity(16);
-        AbsListView.LayoutParams layoutParams = new AbsListView.LayoutParams(-1, context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070308));
+        AbsListView.LayoutParams layoutParams = new AbsListView.LayoutParams(-1, context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070306));
         this.c = new mo6(context, this.r, this.s);
         m(layoutParams);
     }
@@ -533,7 +533,7 @@ public class HorizontalTabView extends MyHorizontalScrollView implements jo6 {
         tabItemView.getLocationOnScreen(iArr);
         int i2 = 0;
         int k = pi.k(getContext()) - iArr[0];
-        int dimensionPixelSize = getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070255);
+        int dimensionPixelSize = getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070252);
         if (iArr[0] < 0) {
             post(new e(this, dimensionPixelSize));
         } else if (k < dimensionPixelSize) {
@@ -699,7 +699,7 @@ public class HorizontalTabView extends MyHorizontalScrollView implements jo6 {
                 layoutParams = new LinearLayout.LayoutParams(pi.k(getContext()) / this.k, -1);
             } else {
                 layoutParams = new LinearLayout.LayoutParams(-2, -1);
-                int dimensionPixelSize = getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07024e);
+                int dimensionPixelSize = getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07024c);
                 layoutParams.leftMargin = dimensionPixelSize;
                 layoutParams.rightMargin = dimensionPixelSize;
             }
@@ -769,10 +769,10 @@ public class HorizontalTabView extends MyHorizontalScrollView implements jo6 {
                 arrayList.add(xe6Var.a);
             }
         }
-        er4 er4Var = new er4(this.m.getPageActivity());
-        er4Var.i(arrayList, new d(this, ye6Var));
-        er4Var.c(this.m);
-        er4Var.m();
+        fr4 fr4Var = new fr4(this.m.getPageActivity());
+        fr4Var.i(arrayList, new d(this, ye6Var));
+        fr4Var.c(this.m);
+        fr4Var.m();
     }
 
     public void setAutoFillTabCount(int i2) {

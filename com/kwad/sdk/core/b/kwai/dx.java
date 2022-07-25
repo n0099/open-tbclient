@@ -1,59 +1,38 @@
 package com.kwad.sdk.core.b.kwai;
 
-import com.kwad.sdk.core.response.model.AdStyleInfo;
+import com.kwad.sdk.core.response.model.PageInfo;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public final class dx implements com.kwad.sdk.core.d<AdStyleInfo.PlayDetailInfo> {
+public final class dx implements com.kwad.sdk.core.d<PageInfo> {
     /* renamed from: a  reason: avoid collision after fix types in other method */
-    public static void a2(AdStyleInfo.PlayDetailInfo playDetailInfo, JSONObject jSONObject) {
+    public static void a2(PageInfo pageInfo, JSONObject jSONObject) {
         if (jSONObject == null) {
             return;
         }
-        playDetailInfo.type = jSONObject.optInt("type");
-        AdStyleInfo.PlayDetailInfo.DetailWebCardInfo detailWebCardInfo = new AdStyleInfo.PlayDetailInfo.DetailWebCardInfo();
-        playDetailInfo.detailWebCardInfo = detailWebCardInfo;
-        detailWebCardInfo.parseJson(jSONObject.optJSONObject("detailWebCardInfo"));
-        AdStyleInfo.PlayDetailInfo.DetailTopToolBarInfo detailTopToolBarInfo = new AdStyleInfo.PlayDetailInfo.DetailTopToolBarInfo();
-        playDetailInfo.detailTopToolBarInfo = detailTopToolBarInfo;
-        detailTopToolBarInfo.parseJson(jSONObject.optJSONObject("detailTopToolBarInfo"));
-        AdStyleInfo.PlayDetailInfo.ActionBarInfo actionBarInfo = new AdStyleInfo.PlayDetailInfo.ActionBarInfo();
-        playDetailInfo.actionBarInfo = actionBarInfo;
-        actionBarInfo.parseJson(jSONObject.optJSONObject("actionBarInfo"));
-        AdStyleInfo.PlayDetailInfo.PatchAdInfo patchAdInfo = new AdStyleInfo.PlayDetailInfo.PatchAdInfo();
-        playDetailInfo.patchAdInfo = patchAdInfo;
-        patchAdInfo.parseJson(jSONObject.optJSONObject("patchAdInfo"));
-        AdStyleInfo.PlayDetailInfo.DetailCommonInfo detailCommonInfo = new AdStyleInfo.PlayDetailInfo.DetailCommonInfo();
-        playDetailInfo.detailCommonInfo = detailCommonInfo;
-        detailCommonInfo.parseJson(jSONObject.optJSONObject("detailCommonInfo"));
-        AdStyleInfo.PlayDetailInfo.DrawAdInfo drawAdInfo = new AdStyleInfo.PlayDetailInfo.DrawAdInfo();
-        playDetailInfo.drawAdInfo = drawAdInfo;
-        drawAdInfo.parseJson(jSONObject.optJSONObject("drawAdInfo"));
+        pageInfo.pageType = jSONObject.optInt("pageType");
     }
 
     /* renamed from: b  reason: avoid collision after fix types in other method */
-    public static JSONObject b2(AdStyleInfo.PlayDetailInfo playDetailInfo, JSONObject jSONObject) {
+    public static JSONObject b2(PageInfo pageInfo, JSONObject jSONObject) {
         if (jSONObject == null) {
             jSONObject = new JSONObject();
         }
-        com.kwad.sdk.utils.r.a(jSONObject, "type", playDetailInfo.type);
-        com.kwad.sdk.utils.r.a(jSONObject, "detailWebCardInfo", playDetailInfo.detailWebCardInfo);
-        com.kwad.sdk.utils.r.a(jSONObject, "detailTopToolBarInfo", playDetailInfo.detailTopToolBarInfo);
-        com.kwad.sdk.utils.r.a(jSONObject, "actionBarInfo", playDetailInfo.actionBarInfo);
-        com.kwad.sdk.utils.r.a(jSONObject, "patchAdInfo", playDetailInfo.patchAdInfo);
-        com.kwad.sdk.utils.r.a(jSONObject, "detailCommonInfo", playDetailInfo.detailCommonInfo);
-        com.kwad.sdk.utils.r.a(jSONObject, "drawAdInfo", playDetailInfo.drawAdInfo);
+        int i = pageInfo.pageType;
+        if (i != 0) {
+            com.kwad.sdk.utils.r.putValue(jSONObject, "pageType", i);
+        }
         return jSONObject;
     }
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.kwad.sdk.core.b, org.json.JSONObject] */
     @Override // com.kwad.sdk.core.d
-    public final /* bridge */ /* synthetic */ void a(AdStyleInfo.PlayDetailInfo playDetailInfo, JSONObject jSONObject) {
-        a2(playDetailInfo, jSONObject);
+    public final /* bridge */ /* synthetic */ void a(PageInfo pageInfo, JSONObject jSONObject) {
+        a2(pageInfo, jSONObject);
     }
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.kwad.sdk.core.b, org.json.JSONObject] */
     @Override // com.kwad.sdk.core.d
-    public final /* bridge */ /* synthetic */ JSONObject b(AdStyleInfo.PlayDetailInfo playDetailInfo, JSONObject jSONObject) {
-        return b2(playDetailInfo, jSONObject);
+    public final /* bridge */ /* synthetic */ JSONObject b(PageInfo pageInfo, JSONObject jSONObject) {
+        return b2(pageInfo, jSONObject);
     }
 }

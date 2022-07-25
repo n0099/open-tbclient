@@ -114,7 +114,7 @@ public class ro5 extends an<uo5, SquareLiveCategoryViewHolder> {
     public SquareLiveCategoryViewHolder M(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) ? new SquareLiveCategoryViewHolder(LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d07a5, viewGroup, false)) : (SquareLiveCategoryViewHolder) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) ? new SquareLiveCategoryViewHolder(LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d07af, viewGroup, false)) : (SquareLiveCategoryViewHolder) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -124,10 +124,10 @@ public class ro5 extends an<uo5, SquareLiveCategoryViewHolder> {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view2, viewGroup, uo5Var, squareLiveCategoryViewHolder})) == null) {
-            View findViewById = squareLiveCategoryViewHolder.a.findViewById(R.id.obfuscated_res_0x7f0912ef);
-            TextView textView = (TextView) squareLiveCategoryViewHolder.a.findViewById(R.id.obfuscated_res_0x7f0912ed);
-            TextView textView2 = (TextView) squareLiveCategoryViewHolder.a.findViewById(R.id.obfuscated_res_0x7f0912ee);
-            ImageView imageView = (ImageView) squareLiveCategoryViewHolder.a.findViewById(R.id.obfuscated_res_0x7f0912ec);
+            View findViewById = squareLiveCategoryViewHolder.a.findViewById(R.id.obfuscated_res_0x7f0912cb);
+            TextView textView = (TextView) squareLiveCategoryViewHolder.a.findViewById(R.id.obfuscated_res_0x7f0912c9);
+            TextView textView2 = (TextView) squareLiveCategoryViewHolder.a.findViewById(R.id.obfuscated_res_0x7f0912ca);
+            ImageView imageView = (ImageView) squareLiveCategoryViewHolder.a.findViewById(R.id.obfuscated_res_0x7f0912c8);
             if (i == 0) {
                 findViewById.setVisibility(8);
             } else {
@@ -140,7 +140,7 @@ public class ro5 extends an<uo5, SquareLiveCategoryViewHolder> {
             SkinManager.setImageResource(imageView, R.drawable.icon_arrow_tab);
             textView.setText(!TextUtils.isEmpty(uo5Var.c) ? uo5Var.c : uo5Var.b);
             textView2.setOnClickListener(new a(this, uo5Var));
-            return squareLiveCategoryViewHolder.b();
+            return squareLiveCategoryViewHolder.a();
         }
         return (View) invokeCommon.objValue;
     }

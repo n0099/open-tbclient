@@ -1,6 +1,6 @@
 package com.repackage;
 
-import androidx.core.view.InputDeviceCompat;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -8,26 +8,17 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.concurrent.atomic.AtomicBoolean;
+import java.util.HashMap;
 /* loaded from: classes6.dex */
-public class lc2 implements Runnable {
+public class lc2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final mc2 a;
-    public final Runnable b;
-    public String c;
-    public String[] d;
-    public AtomicBoolean e;
-    public List<lc2> f;
+    public HashMap<String, mc2> a;
 
-    public lc2(mc2 mc2Var, Runnable runnable, String str, String[] strArr) {
+    public lc2() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {mc2Var, runnable, str, strArr};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -37,82 +28,60 @@ public class lc2 implements Runnable {
                 return;
             }
         }
-        this.e = new AtomicBoolean(false);
-        this.f = Collections.synchronizedList(new ArrayList());
-        this.a = mc2Var;
-        this.b = runnable;
-        this.c = str;
-        this.d = strArr;
+        this.a = new HashMap<>();
     }
 
-    public void a(lc2 lc2Var) {
+    public void a(mc2 mc2Var, String... strArr) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, lc2Var) == null) || this.f.contains(lc2Var)) {
+        if (!(interceptable == null || interceptable.invokeLL(1048576, this, mc2Var, strArr) == null) || strArr == null || strArr.length == 0) {
             return;
         }
-        this.f.add(lc2Var);
-    }
-
-    public String[] b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.d : (String[]) invokeV.objValue;
-    }
-
-    public String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.c : (String) invokeV.objValue;
-    }
-
-    public boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f.isEmpty() : invokeV.booleanValue;
-    }
-
-    public boolean e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.e.get() : invokeV.booleanValue;
-    }
-
-    public void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            bd3.k(this, this.c);
+        for (String str : strArr) {
+            if (!TextUtils.isEmpty(str)) {
+                this.a.put(str, mc2Var);
+            }
         }
     }
 
-    public void g(lc2 lc2Var) {
+    public void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, lc2Var) == null) {
-            this.f.remove(lc2Var);
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.a.clear();
         }
     }
 
-    public void h() {
+    public ArrayList<mc2> c(String... strArr) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.b.run();
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, strArr)) == null) {
+            ArrayList<mc2> arrayList = null;
+            if (strArr != null && strArr.length != 0) {
+                for (String str : strArr) {
+                    if (!TextUtils.isEmpty(str)) {
+                        for (String str2 : this.a.keySet()) {
+                            if (str2.startsWith(str) || str.startsWith(str2)) {
+                                if (arrayList == null) {
+                                    arrayList = new ArrayList<>();
+                                }
+                                arrayList.add(this.a.get(str2));
+                            }
+                        }
+                    }
+                }
+            }
+            return arrayList;
         }
+        return (ArrayList) invokeL.objValue;
     }
 
-    public void i() {
+    public void d(mc2 mc2Var, String... strArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            this.e.set(true);
+        if (!(interceptable == null || interceptable.invokeLL(1048579, this, mc2Var, strArr) == null) || strArr == null || strArr.length == 0) {
+            return;
         }
-    }
-
-    @Override // java.lang.Runnable
-    public void run() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            try {
-                h();
-            } finally {
-                this.a.g(this);
+        for (String str : strArr) {
+            if (!TextUtils.isEmpty(str) && this.a.get(str) == mc2Var) {
+                this.a.remove(str);
             }
         }
     }

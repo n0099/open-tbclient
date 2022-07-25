@@ -46,9 +46,9 @@ public class da1 extends BaseAdapter {
                     return;
                 }
             }
-            this.a = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f09191e);
-            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091922);
-            this.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091923);
+            this.a = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0918f9);
+            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0918fd);
+            this.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0918fe);
         }
     }
 
@@ -137,7 +137,7 @@ public class da1 extends BaseAdapter {
                 if (item.getIsSelected() == 1) {
                     aVar.c.setImageResource(R.drawable.obfuscated_res_0x7f080446);
                 } else {
-                    aVar.c.setImageResource(R.drawable.obfuscated_res_0x7f0811bc);
+                    aVar.c.setImageResource(R.drawable.obfuscated_res_0x7f0811c0);
                 }
             }
             return view2;

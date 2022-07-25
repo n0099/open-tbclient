@@ -54,7 +54,7 @@ import com.repackage.de5;
 import com.repackage.f67;
 import com.repackage.ga7;
 import com.repackage.he5;
-import com.repackage.jd5;
+import com.repackage.kd5;
 import com.repackage.n97;
 import com.repackage.o97;
 import com.repackage.p97;
@@ -145,12 +145,12 @@ public class PersonalChatActivityStatic {
 
         /* renamed from: com.baidu.tieba.imMessageCenter.im.chat.PersonalChatActivityStatic$b$b  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        public class C0207b implements jd5<Void> {
+        public class C0221b implements kd5<Void> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ CustomMessage a;
 
-            public C0207b(b bVar, CustomMessage customMessage) {
+            public C0221b(b bVar, CustomMessage customMessage) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -169,7 +169,7 @@ public class PersonalChatActivityStatic {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.repackage.jd5
+            @Override // com.repackage.kd5
             /* renamed from: a */
             public void onReturnDataInUI(Void r5) {
                 Interceptable interceptable = $ic;
@@ -208,7 +208,7 @@ public class PersonalChatActivityStatic {
                 }
                 LinkedList linkedList = new LinkedList();
                 linkedList.add(String.valueOf(userData.getUserId()));
-                he5.c(new a(this, linkedList), new C0207b(this, customMessage));
+                he5.c(new a(this, linkedList), new C0221b(this, customMessage));
                 return null;
             }
             return (CustomResponsedMessage) invokeL.objValue;

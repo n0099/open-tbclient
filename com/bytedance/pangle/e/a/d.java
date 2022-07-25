@@ -1,7 +1,6 @@
 package com.bytedance.pangle.e.a;
 
 import android.content.pm.PackageInfo;
-import com.baidu.sofire.utility.CommonMethods;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -37,7 +36,7 @@ public final class d {
             }
             ZipFile zipFile2 = new ZipFile(file);
             try {
-                ZipEntry entry = zipFile2.getEntry(CommonMethods.ANDROID_MANIFEST_FILENAME);
+                ZipEntry entry = zipFile2.getEntry("AndroidManifest.xml");
                 if (entry == null) {
                     ZeusLogger.e(ZeusLogger.TAG_INSTALL, "没有找到AndroidManifest.xml entry");
                     com.bytedance.pangle.util.f.a(zipFile2);

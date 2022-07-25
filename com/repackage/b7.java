@@ -55,7 +55,7 @@ public class b7<K, V> implements Iterable<w7.b<K, V>> {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.Iterator
-        /* renamed from: b */
+        /* renamed from: a */
         public w7.b<K, V> next() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -104,7 +104,7 @@ public class b7<K, V> implements Iterable<w7.b<K, V>> {
             if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
                 int i = this.c - 1;
                 this.c = i;
-                this.a.g(i);
+                this.a.f(i);
             }
         }
     }
@@ -128,7 +128,7 @@ public class b7<K, V> implements Iterable<w7.b<K, V>> {
         }
     }
 
-    public a<K, V> b() {
+    public a<K, V> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -155,25 +155,16 @@ public class b7<K, V> implements Iterable<w7.b<K, V>> {
         return (a) invokeV.objValue;
     }
 
-    public V c(K k) {
+    public V b(K k) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, k)) == null) ? d(k, null) : (V) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, k)) == null) ? c(k, null) : (V) invokeL.objValue;
     }
 
-    public void clear() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            Arrays.fill(this.a, 0, this.c, (Object) null);
-            Arrays.fill(this.b, 0, this.c, (Object) null);
-            this.c = 0;
-        }
-    }
-
-    public V d(K k, V v) {
+    public V c(K k, V v) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, k, v)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, k, v)) == null) {
             K[] kArr = this.a;
             int i = this.c - 1;
             if (k == null) {
@@ -196,7 +187,16 @@ public class b7<K, V> implements Iterable<w7.b<K, V>> {
         return (V) invokeLL.objValue;
     }
 
-    public int e(K k) {
+    public void clear() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            Arrays.fill(this.a, 0, this.c, (Object) null);
+            Arrays.fill(this.b, 0, this.c, (Object) null);
+            this.c = 0;
+        }
+    }
+
+    public int d(K k) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, k)) == null) {
@@ -224,12 +224,32 @@ public class b7<K, V> implements Iterable<w7.b<K, V>> {
         return invokeL.intValue;
     }
 
+    public int e(K k, V v) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, k, v)) == null) {
+            int d = d(k);
+            if (d == -1) {
+                int i = this.c;
+                if (i == this.a.length) {
+                    g(Math.max(8, (int) (i * 1.75f)));
+                }
+                d = this.c;
+                this.c = d + 1;
+            }
+            this.a[d] = k;
+            this.b[d] = v;
+            return d;
+        }
+        return invokeLL.intValue;
+    }
+
     /* JADX DEBUG: Multi-variable search result rejected for r9v1, resolved type: com.repackage.b7 */
     /* JADX WARN: Multi-variable type inference failed */
     public boolean equals(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, obj)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, obj)) == null) {
             if (obj == this) {
                 return true;
             }
@@ -246,10 +266,10 @@ public class b7<K, V> implements Iterable<w7.b<K, V>> {
                     K k = kArr[i3];
                     V v = vArr[i3];
                     if (v == null) {
-                        if (b7Var.d(k, w7.n) != null) {
+                        if (b7Var.c(k, w7.n) != null) {
                             return false;
                         }
-                    } else if (!v.equals(b7Var.c(k))) {
+                    } else if (!v.equals(b7Var.b(k))) {
                         return false;
                     }
                 }
@@ -260,27 +280,7 @@ public class b7<K, V> implements Iterable<w7.b<K, V>> {
         return invokeL.booleanValue;
     }
 
-    public int f(K k, V v) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, k, v)) == null) {
-            int e = e(k);
-            if (e == -1) {
-                int i = this.c;
-                if (i == this.a.length) {
-                    h(Math.max(8, (int) (i * 1.75f)));
-                }
-                e = this.c;
-                this.c = e + 1;
-            }
-            this.a[e] = k;
-            this.b[e] = v;
-            return e;
-        }
-        return invokeLL.intValue;
-    }
-
-    public void g(int i) {
+    public void f(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
             int i2 = this.c;
@@ -307,7 +307,7 @@ public class b7<K, V> implements Iterable<w7.b<K, V>> {
         }
     }
 
-    public void h(int i) {
+    public void g(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
             K[] kArr = (K[]) ((Object[]) s8.a(this.a.getClass().getComponentType(), i));
@@ -348,7 +348,7 @@ public class b7<K, V> implements Iterable<w7.b<K, V>> {
             int i2 = this.c;
             if (i <= i2) {
                 if (i2 == this.a.length) {
-                    h(Math.max(8, (int) (i2 * 1.75f)));
+                    g(Math.max(8, (int) (i2 * 1.75f)));
                 }
                 if (this.d) {
                     K[] kArr = this.a;
@@ -376,7 +376,7 @@ public class b7<K, V> implements Iterable<w7.b<K, V>> {
     public Iterator<w7.b<K, V>> iterator() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? b() : (Iterator) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? a() : (Iterator) invokeV.objValue;
     }
 
     public String toString() {

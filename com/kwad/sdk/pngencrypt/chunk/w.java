@@ -4,30 +4,30 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes5.dex */
 public final class w {
-    public final e a;
-    public final boolean b;
+    public final e amq;
+    public final boolean amr;
 
     public w(e eVar) {
-        this.a = eVar;
-        this.b = !(eVar instanceof f);
+        this.amq = eVar;
+        this.amr = !(eVar instanceof f);
     }
 
-    private List<? extends t> b(String str) {
+    private List<? extends t> du(String str) {
         ArrayList arrayList = new ArrayList();
-        arrayList.addAll(this.a.a("tEXt", str));
-        arrayList.addAll(this.a.a("zTXt", str));
-        arrayList.addAll(this.a.a("iTXt", str));
+        arrayList.addAll(this.amq.M("tEXt", str));
+        arrayList.addAll(this.amq.M("zTXt", str));
+        arrayList.addAll(this.amq.M("iTXt", str));
         return arrayList;
     }
 
-    public final String a(String str) {
-        List<? extends t> b = b(str);
-        if (b.isEmpty()) {
+    public final String dv(String str) {
+        List<? extends t> du = du(str);
+        if (du.isEmpty()) {
             return "";
         }
         StringBuilder sb = new StringBuilder();
-        for (t tVar : b) {
-            sb.append(tVar.b());
+        for (t tVar : du) {
+            sb.append(tVar.yR());
             sb.append("\n");
         }
         return sb.toString().trim();

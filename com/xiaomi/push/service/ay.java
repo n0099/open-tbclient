@@ -28,10 +28,10 @@ public class ay {
     public static final a<String, String, String> a;
 
     /* renamed from: a  reason: collision with other field name */
-    public static String f1636a;
+    public static String f916a;
 
     /* renamed from: a  reason: collision with other field name */
-    public static final String[] f1637a;
+    public static final String[] f917a;
     public static final a<String, String, String> b;
     public static final a<String, String, String> c;
     public static final a<String, String, String> d;
@@ -85,8 +85,8 @@ public class ay {
                 return;
             }
         }
-        f1637a = new String[]{"com.mi.globalbrowser", "com.android.browser"};
-        f1636a = null;
+        f917a = new String[]{"com.mi.globalbrowser", "com.android.browser"};
+        f916a = null;
         a = new a<>("setSound", "canSound", "canSound", null);
         b = new a<>("setVibrate", "canVibrate", "canVibrate", null);
         c = new a<>("setLights", "canLights", "canLights", null);
@@ -102,7 +102,7 @@ public class ay {
             try {
                 return Settings.Global.getInt(contentResolver, "user_aggregate", 0);
             } catch (Exception e2) {
-                com.xiaomi.channel.commonutils.logger.b.m1027a("get user aggregate failed, " + e2);
+                com.xiaomi.channel.commonutils.logger.b.m89a("get user aggregate failed, " + e2);
                 return 0;
             }
         }
@@ -190,14 +190,14 @@ public class ay {
         T t3 = null;
         try {
         } catch (Exception e2) {
-            com.xiaomi.channel.commonutils.logger.b.m1027a("get value error " + e2);
+            com.xiaomi.channel.commonutils.logger.b.m89a("get value error " + e2);
         }
         if (obj instanceof Notification) {
             t2 = a((Notification) obj, str);
         } else if (obj instanceof Map) {
             t2 = ((Map) obj).get(str);
         } else if (!(obj instanceof Bundle)) {
-            com.xiaomi.channel.commonutils.logger.b.m1027a("not support get value from classType:" + obj);
+            com.xiaomi.channel.commonutils.logger.b.m89a("not support get value from classType:" + obj);
             return t3 != null ? t : t3;
         } else {
             t2 = ((Bundle) obj).get(str);
@@ -264,7 +264,7 @@ public class ay {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static void m1570a(Notification notification, String str) {
+    public static void m632a(Notification notification, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65547, null, notification, str) == null) {
             try {
@@ -305,7 +305,7 @@ public class ay {
         if (!TextUtils.isEmpty(str)) {
             arrayList.add(str);
         }
-        arrayList.addAll(Arrays.asList(f1637a));
+        arrayList.addAll(Arrays.asList(f917a));
         int size = arrayList.size();
         for (int i = 0; i < size; i++) {
             String str2 = (String) arrayList.get(i);
@@ -319,7 +319,7 @@ public class ay {
                     }
                     continue;
                 } catch (Exception e2) {
-                    com.xiaomi.channel.commonutils.logger.b.m1027a("can't match url intent. " + e2);
+                    com.xiaomi.channel.commonutils.logger.b.m89a("can't match url intent. " + e2);
                 }
             }
         }
@@ -330,7 +330,7 @@ public class ay {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65550, null, map, bundle, str) == null) {
             if (map == null || bundle == null || TextUtils.isEmpty(str)) {
-                com.xiaomi.channel.commonutils.logger.b.m1027a("cp map to b fail:" + str);
+                com.xiaomi.channel.commonutils.logger.b.m89a("cp map to b fail:" + str);
             } else if (TextUtils.isEmpty(map.get(str))) {
                 bundle.remove(str);
             } else {
@@ -354,7 +354,7 @@ public class ay {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m1571a(ContentResolver contentResolver) {
+    public static boolean m633a(ContentResolver contentResolver) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65552, null, contentResolver)) == null) {
@@ -389,7 +389,7 @@ public class ay {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static Notification.Action[] m1572a(Notification notification) {
+    public static Notification.Action[] m634a(Notification notification) {
         InterceptResult invokeL;
         Parcelable[] parcelableArray;
         Interceptable interceptable = $ic;

@@ -174,7 +174,7 @@ public class i77 {
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2010001, pushNotifyMessage.getContent()));
         } else if (s67.o().y()) {
             String valueOf = String.valueOf(pushNotifyMessage.getGroupId());
-            mt4.a("im", -1L, 202006, "notify", 0, null, "comment", "gid-" + valueOf + "-gType-" + pushNotifyMessage.getGroupType() + "-mid-" + pushNotifyMessage.getNewestMsgId());
+            nt4.a("im", -1L, 202006, "notify", 0, null, "comment", "gid-" + valueOf + "-gType-" + pushNotifyMessage.getGroupType() + "-mid-" + pushNotifyMessage.getNewestMsgId());
             if (TextUtils.isEmpty(valueOf)) {
                 return;
             }

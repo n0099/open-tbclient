@@ -143,10 +143,10 @@ public class kz7 {
         TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09025a);
         this.b = textView;
         textView.setOnClickListener(this.k);
-        TextView textView2 = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f0916a8);
+        TextView textView2 = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f091683);
         this.c = textView2;
         textView2.setOnClickListener(this.k);
-        SortSwitchButton sortSwitchButton = (SortSwitchButton) this.a.findViewById(R.id.obfuscated_res_0x7f0923c6);
+        SortSwitchButton sortSwitchButton = (SortSwitchButton) this.a.findViewById(R.id.obfuscated_res_0x7f0923c8);
         this.d = sortSwitchButton;
         sortSwitchButton.setOnSwitchChangeListener(this.j);
         this.d.v(2);

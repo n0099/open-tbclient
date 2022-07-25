@@ -84,8 +84,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.fu4;
-import com.repackage.nr4;
+import com.repackage.gu4;
+import com.repackage.or4;
 import com.repackage.va7;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -93,7 +93,7 @@ import java.util.List;
 import tbclient.Page;
 import tbclient.RecommendForumInfo;
 /* loaded from: classes5.dex */
-public class aa7 extends b9<ChatAggregationFragment> implements fu4.g, View.OnClickListener {
+public class aa7 extends b9<ChatAggregationFragment> implements gu4.g, View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ImageView A;
@@ -108,7 +108,7 @@ public class aa7 extends b9<ChatAggregationFragment> implements fu4.g, View.OnCl
     public TextView J;
     public MessageRedDotView K;
     public View L;
-    public fr4 M;
+    public gr4 M;
     public int N;
     public int O;
     public boolean P;
@@ -120,34 +120,34 @@ public class aa7 extends b9<ChatAggregationFragment> implements fu4.g, View.OnCl
     public IMOfficialMaskModel V;
     public IMUserListModel W;
     public AbsListView.OnScrollListener X;
-    public final fu4.g Y;
+    public final gu4.g Y;
     public CustomMessageListener Z;
     public final ChatAggregationFragment a;
+    public za a0;
     public ImMessageCenterModel b;
+    public CustomMessageListener b0;
     public ImMessageCenterShowItemData c;
+    public va7.b c0;
     public BdSwipeRefreshLayout d;
-    public gu4 e;
+    public final AdapterView.OnItemClickListener d0;
+    public hu4 e;
+    public final AdapterView.OnItemLongClickListener e0;
     public BdListView f;
+    public final CustomMessageListener f0;
     public NavigationBarShadowView g;
-    public za g0;
+    public t47 g0;
     public MessageAggregationListAdapter h;
-    public CustomMessageListener h0;
+    public final CustomMessageListener h0;
     public ShutDownValidateTipView i;
-    public va7.b i0;
-    public lr4 j;
-    public final AdapterView.OnItemClickListener j0;
-    public nr4.e k;
-    public final AdapterView.OnItemLongClickListener k0;
+    public final u47 i0;
+    public mr4 j;
+    public final CustomMessageListener j0;
+    public or4.e k;
     public NoDataView l;
-    public final CustomMessageListener l0;
     public boolean m;
-    public t47 m0;
     public RelativeLayout n;
-    public final CustomMessageListener n0;
     public View o;
-    public final u47 o0;
     public boolean p;
-    public final CustomMessageListener p0;
     public boolean q;
     public HttpMessageListener q0;
     public boolean r;
@@ -189,7 +189,7 @@ public class aa7 extends b9<ChatAggregationFragment> implements fu4.g, View.OnCl
             if (interceptable == null || interceptable.invokeL(1048576, this, imMessageCenterShowItemData) == null) {
                 TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_HOME_PAGE_MESSGAE_ITEM_CLICK).param("uid", TbadkCoreApplication.getCurrentAccount()).param("obj_locate", "1").param("obj_param1", imMessageCenterShowItemData.getUnReadCount()).param(TiebaStatic.Params.FRIEND_UID, imMessageCenterShowItemData.getFriendId()));
                 if (imMessageCenterShowItemData.getUnReadCount() > 0) {
-                    ny4.f0().a0(ny4.f0().w() - imMessageCenterShowItemData.getUnReadCount());
+                    oy4.f0().a0(oy4.f0().w() - imMessageCenterShowItemData.getUnReadCount());
                     imMessageCenterShowItemData.setUnReadCount(0);
                 }
                 try {
@@ -267,7 +267,7 @@ public class aa7 extends b9<ChatAggregationFragment> implements fu4.g, View.OnCl
                     }
                 }
                 TiebaStatic.log(statisticItem);
-                if (TextUtils.isEmpty(item.getFriendName()) || !this.a.a.getPageContext().getPageActivity().getString(R.string.obfuscated_res_0x7f0f1400).equals(item.getFriendName())) {
+                if (TextUtils.isEmpty(item.getFriendName()) || !this.a.a.getPageContext().getPageActivity().getString(R.string.obfuscated_res_0x7f0f13af).equals(item.getFriendName())) {
                     return;
                 }
                 TiebaStatic.log(new StatisticItem("c14446").param("uid", TbadkCoreApplication.getCurrentAccount()));
@@ -409,13 +409,13 @@ public class aa7 extends b9<ChatAggregationFragment> implements fu4.g, View.OnCl
                 StatisticItem statisticItem = new StatisticItem("c14670");
                 statisticItem.param("obj_type", m97.a(this.b) ? 1 : 2);
                 TiebaStatic.log(statisticItem);
-                this.c.b.asyncDeleteItem(this.b, this.c.o0);
+                this.c.b.asyncDeleteItem(this.b, this.c.i0);
             }
         }
     }
 
     /* loaded from: classes5.dex */
-    public class e implements nr4.e {
+    public class e implements or4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ String a;
@@ -450,10 +450,10 @@ public class aa7 extends b9<ChatAggregationFragment> implements fu4.g, View.OnCl
             this.f = str5;
         }
 
-        @Override // com.repackage.nr4.e
-        public void N(nr4 nr4Var, int i, View view2) {
+        @Override // com.repackage.or4.e
+        public void N(or4 or4Var, int i, View view2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLIL(1048576, this, nr4Var, i, view2) == null) {
+            if (interceptable == null || interceptable.invokeLIL(1048576, this, or4Var, i, view2) == null) {
                 if (this.g.j != null && this.g.j.isShowing() && this.g.a != null) {
                     this.g.j.dismiss();
                 }
@@ -535,7 +535,7 @@ public class aa7 extends b9<ChatAggregationFragment> implements fu4.g, View.OnCl
                 this.a.z0(false);
                 this.a.u0();
             } else if (customResponsedMessage.getCmd() == 2016001) {
-                this.a.b.setData(null, this.a.m0);
+                this.a.b.setData(null, this.a.g0);
             } else if (customResponsedMessage.getCmd() == 2016010) {
                 if (this.a.h != null) {
                     this.a.h.notifyDataSetChanged();
@@ -687,7 +687,7 @@ public class aa7 extends b9<ChatAggregationFragment> implements fu4.g, View.OnCl
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
                 this.a.P();
-                this.a.a.showToast(R.string.obfuscated_res_0x7f0f04ad, false);
+                this.a.a.showToast(R.string.obfuscated_res_0x7f0f04ac, false);
                 this.a.Y();
             }
         }
@@ -851,7 +851,7 @@ public class aa7 extends b9<ChatAggregationFragment> implements fu4.g, View.OnCl
     }
 
     /* loaded from: classes5.dex */
-    public class n implements fu4.g {
+    public class n implements gu4.g {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ aa7 a;
@@ -874,7 +874,7 @@ public class aa7 extends b9<ChatAggregationFragment> implements fu4.g, View.OnCl
             this.a = aa7Var;
         }
 
-        @Override // com.repackage.fu4.g
+        @Override // com.repackage.gu4.g
         public void e(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
@@ -968,7 +968,7 @@ public class aa7 extends b9<ChatAggregationFragment> implements fu4.g, View.OnCl
                         if (this.a.Q || this.a.a == null || responsedMessage.getError() == -100000303) {
                             return;
                         }
-                        this.a.a.showToast(this.a.getActivity().getString(R.string.obfuscated_res_0x7f0f0c2b));
+                        this.a.a.showToast(this.a.getActivity().getString(R.string.obfuscated_res_0x7f0f0c17));
                         this.a.Q = true;
                         return;
                     }
@@ -1055,7 +1055,7 @@ public class aa7 extends b9<ChatAggregationFragment> implements fu4.g, View.OnCl
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                xt4.k().u("is_shut_down_validate", true);
+                yt4.k().u("is_shut_down_validate", true);
                 this.a.D0(false);
                 this.a.E0(false);
             }
@@ -1133,16 +1133,16 @@ public class aa7 extends b9<ChatAggregationFragment> implements fu4.g, View.OnCl
         this.X = new k(this);
         this.Y = new n(this);
         this.Z = new o(this, 2001371);
-        this.g0 = new p(this, CmdConfigHttp.CMD_HTTP_GET_MSG_REC_FORUM_LIST, 309712);
-        this.h0 = new q(this, 2921691);
-        this.i0 = new s(this);
-        this.j0 = new a(this);
-        this.k0 = new b(this);
-        this.l0 = new f(this, 0);
-        this.m0 = new g(this);
-        this.n0 = new i(this, 2001120);
-        this.o0 = new j(this);
-        this.p0 = new l(this, 2001120);
+        this.a0 = new p(this, CmdConfigHttp.CMD_HTTP_GET_MSG_REC_FORUM_LIST, 309712);
+        this.b0 = new q(this, 2921691);
+        this.c0 = new s(this);
+        this.d0 = new a(this);
+        this.e0 = new b(this);
+        this.f0 = new f(this, 0);
+        this.g0 = new g(this);
+        this.h0 = new i(this, 2001120);
+        this.i0 = new j(this);
+        this.j0 = new l(this, 2001120);
         this.q0 = new m(this, CmdConfigHttp.CMD_GET_USER_LIST);
         this.a = chatAggregationFragment;
     }
@@ -1214,11 +1214,11 @@ public class aa7 extends b9<ChatAggregationFragment> implements fu4.g, View.OnCl
         if (!(interceptable == null || interceptable.invokeL(1048580, this, imMessageCenterShowItemData) == null) || TbadkCoreApplication.getInst().getCurrentActivity() == null) {
             return;
         }
-        TBAlertConfig.a aVar = new TBAlertConfig.a((int) R.string.obfuscated_res_0x7f0f14b4, TBAlertConfig.OperateBtnStyle.ALERT);
-        TBAlertConfig.a aVar2 = new TBAlertConfig.a((int) R.string.obfuscated_res_0x7f0f14b3, TBAlertConfig.OperateBtnStyle.SECONDARY);
+        TBAlertConfig.a aVar = new TBAlertConfig.a((int) R.string.obfuscated_res_0x7f0f1463, TBAlertConfig.OperateBtnStyle.ALERT);
+        TBAlertConfig.a aVar2 = new TBAlertConfig.a((int) R.string.obfuscated_res_0x7f0f1462, TBAlertConfig.OperateBtnStyle.SECONDARY);
         TBAlertBuilder tBAlertBuilder = new TBAlertBuilder(TbadkCoreApplication.getInst().getCurrentActivity());
-        tBAlertBuilder.t(R.string.obfuscated_res_0x7f0f1432);
-        tBAlertBuilder.l(R.string.obfuscated_res_0x7f0f1238);
+        tBAlertBuilder.t(R.string.obfuscated_res_0x7f0f13e1);
+        tBAlertBuilder.l(R.string.obfuscated_res_0x7f0f11e7);
         tBAlertBuilder.n(true);
         tBAlertBuilder.r(aVar2, aVar);
         tBAlertBuilder.i(false);
@@ -1264,7 +1264,7 @@ public class aa7 extends b9<ChatAggregationFragment> implements fu4.g, View.OnCl
             }
             return;
         }
-        long m2 = xt4.k().m("key_im_open_notification_close_time", 0L);
+        long m2 = yt4.k().m("key_im_open_notification_close_time", 0L);
         if (this.S) {
             return;
         }
@@ -1272,7 +1272,7 @@ public class aa7 extends b9<ChatAggregationFragment> implements fu4.g, View.OnCl
             if (this.R == null) {
                 va7 va7Var2 = new va7(this.mContext);
                 this.R = va7Var2;
-                va7Var2.g(this.i0);
+                va7Var2.g(this.c0);
             }
             this.f.x(this.R.e(), 0);
             this.S = true;
@@ -1280,9 +1280,9 @@ public class aa7 extends b9<ChatAggregationFragment> implements fu4.g, View.OnCl
     }
 
     public final void P() {
-        fr4 fr4Var;
+        gr4 gr4Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) && (fr4Var = this.M) != null && fr4Var.isShowing()) {
+        if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) && (gr4Var = this.M) != null && gr4Var.isShowing()) {
             this.M.dismiss();
             this.M = null;
         }
@@ -1292,7 +1292,7 @@ public class aa7 extends b9<ChatAggregationFragment> implements fu4.g, View.OnCl
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             this.b = new ImMessageCenterModel();
-            D0(!xt4.k().h("is_shut_down_validate", false));
+            D0(!yt4.k().h("is_shut_down_validate", false));
             this.V = new IMOfficialMaskModel();
             this.W = new IMUserListModel(this.a.getPageContext(), this.a.getUniqueId());
         }
@@ -1302,11 +1302,11 @@ public class aa7 extends b9<ChatAggregationFragment> implements fu4.g, View.OnCl
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, view2) == null) {
             this.n = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f0905d8);
-            ShutDownValidateTipView shutDownValidateTipView = (ShutDownValidateTipView) view2.findViewById(R.id.obfuscated_res_0x7f09243b);
+            ShutDownValidateTipView shutDownValidateTipView = (ShutDownValidateTipView) view2.findViewById(R.id.obfuscated_res_0x7f09243d);
             this.i = shutDownValidateTipView;
             shutDownValidateTipView.setVisibility(8);
             this.i.setShutDownClickListener(new r(this));
-            this.g = (NavigationBarShadowView) view2.findViewById(R.id.obfuscated_res_0x7f091578);
+            this.g = (NavigationBarShadowView) view2.findViewById(R.id.obfuscated_res_0x7f091553);
             BdListView bdListView = (BdListView) view2.findViewById(R.id.obfuscated_res_0x7f0905d9);
             this.f = bdListView;
             bdListView.setDividerHeight(0);
@@ -1315,10 +1315,10 @@ public class aa7 extends b9<ChatAggregationFragment> implements fu4.g, View.OnCl
             messageAggregationListAdapter.T(this.a.getPageContext());
             this.h.Q(this);
             this.f.setAdapter((ListAdapter) this.h);
-            this.f.setOnItemClickListener(this.j0);
-            this.f.setOnItemLongClickListener(this.k0);
+            this.f.setOnItemClickListener(this.d0);
+            this.f.setOnItemLongClickListener(this.e0);
             this.f.setOnScrollListener(this.X);
-            View inflate = View.inflate(this.mContext.getPageActivity(), R.layout.obfuscated_res_0x7f0d0553, null);
+            View inflate = View.inflate(this.mContext.getPageActivity(), R.layout.obfuscated_res_0x7f0d055d, null);
             this.u = inflate;
             this.v = inflate.findViewById(R.id.obfuscated_res_0x7f0902b4);
             this.w = (ImageView) this.u.findViewById(R.id.obfuscated_res_0x7f0902b3);
@@ -1328,15 +1328,15 @@ public class aa7 extends b9<ChatAggregationFragment> implements fu4.g, View.OnCl
             this.A = (ImageView) this.u.findViewById(R.id.obfuscated_res_0x7f09014f);
             this.B = (TextView) this.u.findViewById(R.id.obfuscated_res_0x7f090154);
             this.C = (MessageRedDotView) this.u.findViewById(R.id.obfuscated_res_0x7f090151);
-            this.D = this.u.findViewById(R.id.obfuscated_res_0x7f091af1);
-            this.E = (ImageView) this.u.findViewById(R.id.obfuscated_res_0x7f091af0);
-            this.F = (TextView) this.u.findViewById(R.id.obfuscated_res_0x7f091af4);
-            this.G = (MessageRedDotView) this.u.findViewById(R.id.obfuscated_res_0x7f091af2);
-            this.H = this.u.findViewById(R.id.obfuscated_res_0x7f090951);
-            this.I = (ImageView) this.u.findViewById(R.id.obfuscated_res_0x7f090950);
-            this.J = (TextView) this.u.findViewById(R.id.obfuscated_res_0x7f090955);
-            this.K = (MessageRedDotView) this.u.findViewById(R.id.obfuscated_res_0x7f090952);
-            this.L = this.u.findViewById(R.id.obfuscated_res_0x7f091d18);
+            this.D = this.u.findViewById(R.id.obfuscated_res_0x7f091acb);
+            this.E = (ImageView) this.u.findViewById(R.id.obfuscated_res_0x7f091aca);
+            this.F = (TextView) this.u.findViewById(R.id.obfuscated_res_0x7f091ace);
+            this.G = (MessageRedDotView) this.u.findViewById(R.id.obfuscated_res_0x7f091acc);
+            this.H = this.u.findViewById(R.id.obfuscated_res_0x7f09094a);
+            this.I = (ImageView) this.u.findViewById(R.id.obfuscated_res_0x7f090949);
+            this.J = (TextView) this.u.findViewById(R.id.obfuscated_res_0x7f09094e);
+            this.K = (MessageRedDotView) this.u.findViewById(R.id.obfuscated_res_0x7f09094b);
+            this.L = this.u.findViewById(R.id.obfuscated_res_0x7f091d1e);
             this.y.setThreeDotMode(2);
             this.C.setThreeDotMode(2);
             this.G.setThreeDotMode(2);
@@ -1350,16 +1350,16 @@ public class aa7 extends b9<ChatAggregationFragment> implements fu4.g, View.OnCl
             this.H.setOnClickListener(this);
             this.f.addHeaderView(this.u);
             O();
-            this.d = (BdSwipeRefreshLayout) view2.findViewById(R.id.obfuscated_res_0x7f091af3);
+            this.d = (BdSwipeRefreshLayout) view2.findViewById(R.id.obfuscated_res_0x7f091acd);
             if (this.e == null) {
-                gu4 gu4Var = new gu4(this.a.getPageContext());
-                this.e = gu4Var;
-                gu4Var.f(this.Y);
+                hu4 hu4Var = new hu4(this.a.getPageContext());
+                this.e = hu4Var;
+                hu4Var.f(this.Y);
             }
             this.e.b0(getPageContext().getUniqueId());
             this.d.setProgressView(this.e);
             this.t = new View(this.a.getFragmentActivity());
-            this.t.setLayoutParams(new AbsListView.LayoutParams(-1, pi.f(this.a.getFragmentActivity(), R.dimen.obfuscated_res_0x7f07024f)));
+            this.t.setLayoutParams(new AbsListView.LayoutParams(-1, pi.f(this.a.getFragmentActivity(), R.dimen.obfuscated_res_0x7f07024d)));
             this.f.addFooterView(this.t);
         }
     }
@@ -1387,16 +1387,16 @@ public class aa7 extends b9<ChatAggregationFragment> implements fu4.g, View.OnCl
     public void V() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
-            MessageManager.getInstance().unRegisterListener(this.l0);
-            MessageManager.getInstance().unRegisterListener(this.n0);
-            MessageManager.getInstance().unRegisterListener(this.p0);
+            MessageManager.getInstance().unRegisterListener(this.f0);
+            MessageManager.getInstance().unRegisterListener(this.h0);
+            MessageManager.getInstance().unRegisterListener(this.j0);
             if (this.U) {
-                MessageManager.getInstance().unRegisterListener(this.g0);
+                MessageManager.getInstance().unRegisterListener(this.a0);
                 MessageManager.getInstance().unRegisterTask(309712);
                 MessageManager.getInstance().unRegisterTask(CmdConfigHttp.CMD_HTTP_GET_MSG_REC_FORUM_LIST);
             }
             MessageManager.getInstance().unRegisterListener(this.Z);
-            MessageManager.getInstance().unRegisterListener(this.h0);
+            MessageManager.getInstance().unRegisterListener(this.b0);
             MessageManager.getInstance().unRegisterListener(this.q0);
         }
     }
@@ -1429,9 +1429,9 @@ public class aa7 extends b9<ChatAggregationFragment> implements fu4.g, View.OnCl
             if (tbPageContext != null) {
                 tbPageContext.getLayoutMode().j(this.n);
             }
-            gu4 gu4Var = this.e;
-            if (gu4Var != null) {
-                gu4Var.H(i2);
+            hu4 hu4Var = this.e;
+            if (hu4Var != null) {
+                hu4Var.H(i2);
             }
             SkinManager.setBackgroundColor(this.n, R.color.CAM_X0201);
             SkinManager.setBackgroundColor(this.d, R.color.CAM_X0205);
@@ -1556,7 +1556,7 @@ public class aa7 extends b9<ChatAggregationFragment> implements fu4.g, View.OnCl
         e0();
     }
 
-    @Override // com.repackage.fu4.g
+    @Override // com.repackage.gu4.g
     public void e(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048598, this, z) == null) {
@@ -1600,11 +1600,11 @@ public class aa7 extends b9<ChatAggregationFragment> implements fu4.g, View.OnCl
         String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048601, this, imMessageCenterShowItemData)) == null) {
-            String string = this.a.getPageContext().getPageActivity().getString(R.string.obfuscated_res_0x7f0f04b8);
-            String string2 = this.a.getPageContext().getPageActivity().getString(R.string.obfuscated_res_0x7f0f1445);
+            String string = this.a.getPageContext().getPageActivity().getString(R.string.obfuscated_res_0x7f0f04b7);
+            String string2 = this.a.getPageContext().getPageActivity().getString(R.string.obfuscated_res_0x7f0f13f4);
             String string3 = this.a.getPageContext().getPageActivity().getString(R.string.obfuscated_res_0x7f0f0376);
-            String string4 = this.a.getPageContext().getPageActivity().getString(R.string.obfuscated_res_0x7f0f08b3);
-            String string5 = this.a.getPageContext().getPageActivity().getString(R.string.obfuscated_res_0x7f0f08b4);
+            String string4 = this.a.getPageContext().getPageActivity().getString(R.string.obfuscated_res_0x7f0f089e);
+            String string5 = this.a.getPageContext().getPageActivity().getString(R.string.obfuscated_res_0x7f0f089f);
             String str2 = imMessageCenterShowItemData.getMarkTopIndex() > 0 ? string3 : string2;
             if (imMessageCenterShowItemData.getGroupSetting() != null) {
                 str = imMessageCenterShowItemData.getGroupSetting().isAcceptNotify() ? string4 : string5;
@@ -1623,7 +1623,7 @@ public class aa7 extends b9<ChatAggregationFragment> implements fu4.g, View.OnCl
                 arrayList.add(string);
             }
             this.k = eVar;
-            this.j = new lr4(this.a.getPageContext());
+            this.j = new mr4(this.a.getPageContext());
             this.j.j(null, (String[]) arrayList.toArray(new String[arrayList.size()]), this.k);
             return true;
         }
@@ -1645,11 +1645,11 @@ public class aa7 extends b9<ChatAggregationFragment> implements fu4.g, View.OnCl
             if (memoryChangedMessage.getType() == 1) {
                 ImMessageCenterModel imMessageCenterModel2 = this.b;
                 if (imMessageCenterModel2 != null) {
-                    imMessageCenterModel2.insertOrUpdate(data, this.m0);
+                    imMessageCenterModel2.insertOrUpdate(data, this.g0);
                 }
             } else if (memoryChangedMessage.getType() != 2 || (imMessageCenterModel = this.b) == null) {
             } else {
-                imMessageCenterModel.remove(data, this.m0);
+                imMessageCenterModel.remove(data, this.g0);
             }
         }
     }
@@ -1682,7 +1682,7 @@ public class aa7 extends b9<ChatAggregationFragment> implements fu4.g, View.OnCl
             if (responsedMemoryListMessage.getType() != 1 || (imMessageCenterModel = this.b) == null) {
                 return;
             }
-            imMessageCenterModel.setData(data, this.m0);
+            imMessageCenterModel.setData(data, this.g0);
         }
     }
 
@@ -1697,7 +1697,7 @@ public class aa7 extends b9<ChatAggregationFragment> implements fu4.g, View.OnCl
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048608, this, i2) == null) {
             if (i2 > 0) {
-                if (py4.d().f() == 0) {
+                if (qy4.d().f() == 0) {
                     i2 = 0;
                 }
                 this.C.setThreeDotMode(2);
@@ -1713,7 +1713,7 @@ public class aa7 extends b9<ChatAggregationFragment> implements fu4.g, View.OnCl
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048609, this, i2) == null) {
             if (i2 > 0) {
-                if (py4.d().f() == 0) {
+                if (qy4.d().f() == 0) {
                     i2 = 0;
                 }
                 this.y.setThreeDotMode(2);
@@ -1734,8 +1734,8 @@ public class aa7 extends b9<ChatAggregationFragment> implements fu4.g, View.OnCl
             if (view2 == this.v) {
                 TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_HOME_PAGE_MESSGAE_AT_CLICK).param("uid", TbadkCoreApplication.getCurrentAccount()).param("obj_type", this.N > 0 ? 1 : 2).param("obj_param1", this.N));
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AtMeActivityConfig(getPageContext().getPageActivity())));
-                ny4.f0().j();
-                ny4.f0().Y(0);
+                oy4.f0().j();
+                oy4.f0().Y(0);
                 this.N = 0;
                 o0(0);
                 TiebaStatic.log("c12925");
@@ -1752,13 +1752,13 @@ public class aa7 extends b9<ChatAggregationFragment> implements fu4.g, View.OnCl
                 }
                 statisticItem2.eventStat();
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AgreeMeActivityConfig(getPageContext().getPageActivity())));
-                ny4.f0().h();
-                ny4.f0().X(0);
+                oy4.f0().h();
+                oy4.f0().X(0);
                 this.O = 0;
                 n0(0);
                 statisticItem.param("obj_type", 2);
             } else if (view2 == this.D) {
-                int z = ny4.f0().z();
+                int z = oy4.f0().z();
                 TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_HOME_PAGE_MESSGAE_REPLY_CLICK).param("uid", TbadkCoreApplication.getCurrentAccount()).param("obj_type", z > 0 ? 1 : 2).param("obj_param1", z));
                 ReplyMeActivityConfig replyMeActivityConfig = new ReplyMeActivityConfig(getPageContext().getPageActivity());
                 replyMeActivityConfig.setFrom(1);
@@ -1768,17 +1768,17 @@ public class aa7 extends b9<ChatAggregationFragment> implements fu4.g, View.OnCl
                 }
                 replyMeActivityConfig.setReplyNumber(z);
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002001, replyMeActivityConfig));
-                ny4.f0().o();
-                ny4.f0().d0(0);
+                oy4.f0().o();
+                oy4.f0().d0(0);
                 s0(0);
             } else if (view2 == this.H) {
-                int x = ny4.f0().x();
+                int x = oy4.f0().x();
                 TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_HOME_PAGE_MESSGAE_FANS_CLICK).param("uid", TbadkCoreApplication.getCurrentAccount()).param("obj_type", x > 0 ? 1 : 2).param("obj_param1", x));
                 PersonRedTipManager.getInstance().updateRedTipState(2, false, true);
                 TiebaStatic.log(new StatisticItem("c12523").param("obj_locate", 6));
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonListActivityConfig(this.mContext.getPageActivity(), false, TbadkCoreApplication.getCurrentAccount(), 0)));
-                ny4.f0().l();
-                ny4.f0().b0(0);
+                oy4.f0().l();
+                oy4.f0().b0(0);
                 q0(0);
             }
             TiebaStatic.log(statisticItem);
@@ -1798,7 +1798,7 @@ public class aa7 extends b9<ChatAggregationFragment> implements fu4.g, View.OnCl
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048612, this, i2) == null) {
             if (i2 > 0) {
-                if (py4.d().f() == 0) {
+                if (qy4.d().f() == 0) {
                     i2 = 0;
                 }
                 this.K.setThreeDotMode(2);
@@ -1823,7 +1823,7 @@ public class aa7 extends b9<ChatAggregationFragment> implements fu4.g, View.OnCl
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048614, this, i2) == null) {
             if (i2 > 0) {
-                if (py4.d().f() == 0) {
+                if (qy4.d().f() == 0) {
                     i2 = 0;
                 }
                 this.G.setThreeDotMode(2);
@@ -1859,16 +1859,16 @@ public class aa7 extends b9<ChatAggregationFragment> implements fu4.g, View.OnCl
     public final void v0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048617, this) == null) {
-            this.a.registerListener(2016004, this.l0);
-            this.a.registerListener(2016001, this.l0);
-            this.a.registerListener(2016010, this.l0);
-            this.a.registerListener(2016007, this.l0);
-            this.a.registerListener(2016011, this.l0);
-            this.a.registerListener(2016002, this.l0);
-            this.a.registerListener(this.n0);
-            this.a.registerListener(this.p0);
-            this.a.registerListener(this.Z);
+            this.a.registerListener(2016004, this.f0);
+            this.a.registerListener(2016001, this.f0);
+            this.a.registerListener(2016010, this.f0);
+            this.a.registerListener(2016007, this.f0);
+            this.a.registerListener(2016011, this.f0);
+            this.a.registerListener(2016002, this.f0);
             this.a.registerListener(this.h0);
+            this.a.registerListener(this.j0);
+            this.a.registerListener(this.Z);
+            this.a.registerListener(this.b0);
             this.a.registerListener(this.q0);
         }
     }
@@ -1876,16 +1876,16 @@ public class aa7 extends b9<ChatAggregationFragment> implements fu4.g, View.OnCl
     public final void w0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048618, this) == null) {
-            ma5 ma5Var = new ma5(309712);
-            ma5Var.setResponsedClass(MsgRecForumSocketResMessage.class);
-            ma5Var.g(true);
-            ma5Var.h(false);
-            ma5Var.f(SocketMessageTask.DupLicateMode.NONE);
-            MessageManager.getInstance().registerTask(ma5Var);
+            na5 na5Var = new na5(309712);
+            na5Var.setResponsedClass(MsgRecForumSocketResMessage.class);
+            na5Var.g(true);
+            na5Var.h(false);
+            na5Var.f(SocketMessageTask.DupLicateMode.NONE);
+            MessageManager.getInstance().registerTask(na5Var);
             TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_HTTP_GET_MSG_REC_FORUM_LIST, wh8.a("c/f/forum/getMsgRecForumlist", 309712));
             tbHttpMessageTask.setResponsedClass(MsgRecForumHttpResMessage.class);
             MessageManager.getInstance().registerTask(tbHttpMessageTask);
-            this.a.registerListener(this.g0);
+            this.a.registerListener(this.a0);
             this.U = true;
         }
     }

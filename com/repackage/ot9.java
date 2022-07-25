@@ -45,12 +45,12 @@ public final class ot9 extends xr9 implements vt9 {
 
         /* renamed from: com.repackage.ot9$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class ThreadFactoryC0700a implements ThreadFactory {
+        public class ThreadFactoryC0547a implements ThreadFactory {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ ThreadFactory a;
 
-            public ThreadFactoryC0700a(a aVar, ThreadFactory threadFactory) {
+            public ThreadFactoryC0547a(a aVar, ThreadFactory threadFactory) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -136,7 +136,7 @@ public final class ot9 extends xr9 implements vt9 {
             this.d = new ow9();
             ScheduledExecutorService scheduledExecutorService = null;
             if (timeUnit != null) {
-                scheduledExecutorService = Executors.newScheduledThreadPool(1, new ThreadFactoryC0700a(this, threadFactory));
+                scheduledExecutorService = Executors.newScheduledThreadPool(1, new ThreadFactoryC0547a(this, threadFactory));
                 ut9.k(scheduledExecutorService);
                 b bVar = new b(this);
                 long j2 = this.b;

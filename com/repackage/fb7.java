@@ -43,8 +43,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.cr4;
-import com.repackage.nr4;
+import com.repackage.dr4;
+import com.repackage.or4;
 import com.repackage.wo8;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -60,23 +60,23 @@ public class fb7 implements ImageViewerBottomLayout.c, ImageViewerBottomLayout.b
     public j d;
     public String e;
     public wo8 f;
-    public lr4 g;
-    public nr4 h;
-    public List<jr4> i;
-    public jr4 j;
-    public jr4 k;
-    public jr4 l;
-    public jr4 m;
-    public jr4 n;
-    public jr4 o;
+    public mr4 g;
+    public or4 h;
+    public List<kr4> i;
+    public kr4 j;
+    public kr4 k;
+    public kr4 l;
+    public kr4 m;
+    public kr4 n;
+    public kr4 o;
     public db7 p;
     public CustomMessageListener q;
-    public nr4.d r;
-    public nr4.d s;
-    public nr4.d t;
-    public nr4.d u;
-    public nr4.d v;
-    public nr4.d w;
+    public or4.d r;
+    public or4.d s;
+    public or4.d t;
+    public or4.d u;
+    public or4.d v;
+    public or4.d w;
     public View.OnClickListener x;
 
     /* loaded from: classes6.dex */
@@ -124,7 +124,7 @@ public class fb7 implements ImageViewerBottomLayout.c, ImageViewerBottomLayout.b
     }
 
     /* loaded from: classes6.dex */
-    public class b implements nr4.c {
+    public class b implements or4.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ fb7 a;
@@ -147,7 +147,7 @@ public class fb7 implements ImageViewerBottomLayout.c, ImageViewerBottomLayout.b
             this.a = fb7Var;
         }
 
-        @Override // com.repackage.nr4.c
+        @Override // com.repackage.or4.c
         public void onClick() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -157,7 +157,7 @@ public class fb7 implements ImageViewerBottomLayout.c, ImageViewerBottomLayout.b
     }
 
     /* loaded from: classes6.dex */
-    public class c implements nr4.d {
+    public class c implements or4.d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ fb7 a;
@@ -180,7 +180,7 @@ public class fb7 implements ImageViewerBottomLayout.c, ImageViewerBottomLayout.b
             this.a = fb7Var;
         }
 
-        @Override // com.repackage.nr4.d
+        @Override // com.repackage.or4.d
         public void onClick() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -191,7 +191,7 @@ public class fb7 implements ImageViewerBottomLayout.c, ImageViewerBottomLayout.b
     }
 
     /* loaded from: classes6.dex */
-    public class d implements nr4.d {
+    public class d implements or4.d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ fb7 a;
@@ -214,7 +214,7 @@ public class fb7 implements ImageViewerBottomLayout.c, ImageViewerBottomLayout.b
             this.a = fb7Var;
         }
 
-        @Override // com.repackage.nr4.d
+        @Override // com.repackage.or4.d
         public void onClick() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -226,7 +226,7 @@ public class fb7 implements ImageViewerBottomLayout.c, ImageViewerBottomLayout.b
     }
 
     /* loaded from: classes6.dex */
-    public class e implements nr4.d {
+    public class e implements or4.d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ fb7 a;
@@ -249,7 +249,7 @@ public class fb7 implements ImageViewerBottomLayout.c, ImageViewerBottomLayout.b
             this.a = fb7Var;
         }
 
-        @Override // com.repackage.nr4.d
+        @Override // com.repackage.or4.d
         public void onClick() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -259,11 +259,11 @@ public class fb7 implements ImageViewerBottomLayout.c, ImageViewerBottomLayout.b
                 if (TbadkCoreApplication.getInst().isMainProcess(true)) {
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2004610, currentOriginalUrl));
                 } else {
-                    Intent intent = new Intent(m45.a);
+                    Intent intent = new Intent(n45.a);
                     intent.setPackage(TbadkCoreApplication.getInst().getPackageName());
-                    intent.putExtra(m45.b, currentOriginalUrl);
-                    intent.putExtra(m45.c, currentImageUrl);
-                    intent.putExtra(m45.d, currentPicId);
+                    intent.putExtra(n45.b, currentOriginalUrl);
+                    intent.putExtra(n45.c, currentImageUrl);
+                    intent.putExtra(n45.d, currentPicId);
                     TbadkCoreApplication.getInst().sendBroadcast(intent);
                 }
                 this.a.v();
@@ -273,7 +273,7 @@ public class fb7 implements ImageViewerBottomLayout.c, ImageViewerBottomLayout.b
     }
 
     /* loaded from: classes6.dex */
-    public class f implements nr4.d {
+    public class f implements or4.d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ fb7 a;
@@ -296,7 +296,7 @@ public class fb7 implements ImageViewerBottomLayout.c, ImageViewerBottomLayout.b
             this.a = fb7Var;
         }
 
-        @Override // com.repackage.nr4.d
+        @Override // com.repackage.or4.d
         public void onClick() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -317,7 +317,7 @@ public class fb7 implements ImageViewerBottomLayout.c, ImageViewerBottomLayout.b
     }
 
     /* loaded from: classes6.dex */
-    public class g implements nr4.d {
+    public class g implements or4.d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ fb7 a;
@@ -340,7 +340,7 @@ public class fb7 implements ImageViewerBottomLayout.c, ImageViewerBottomLayout.b
             this.a = fb7Var;
         }
 
-        @Override // com.repackage.nr4.d
+        @Override // com.repackage.or4.d
         public void onClick() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -353,7 +353,7 @@ public class fb7 implements ImageViewerBottomLayout.c, ImageViewerBottomLayout.b
     }
 
     /* loaded from: classes6.dex */
-    public class h implements nr4.d {
+    public class h implements or4.d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ fb7 a;
@@ -367,12 +367,12 @@ public class fb7 implements ImageViewerBottomLayout.c, ImageViewerBottomLayout.b
 
             /* renamed from: com.repackage.fb7$h$a$a  reason: collision with other inner class name */
             /* loaded from: classes6.dex */
-            public class C0633a implements cr4.e {
+            public class C0476a implements dr4.e {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ a a;
 
-                public C0633a(a aVar) {
+                public C0476a(a aVar) {
                     Interceptable interceptable = $ic;
                     if (interceptable != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
@@ -390,11 +390,11 @@ public class fb7 implements ImageViewerBottomLayout.c, ImageViewerBottomLayout.b
                     this.a = aVar;
                 }
 
-                @Override // com.repackage.cr4.e
-                public void onClick(cr4 cr4Var) {
+                @Override // com.repackage.dr4.e
+                public void onClick(dr4 dr4Var) {
                     Interceptable interceptable = $ic;
-                    if (interceptable == null || interceptable.invokeL(1048576, this, cr4Var) == null) {
-                        cr4Var.dismiss();
+                    if (interceptable == null || interceptable.invokeL(1048576, this, dr4Var) == null) {
+                        dr4Var.dismiss();
                         a aVar = this.a;
                         aVar.b.a.A(aVar.a);
                     }
@@ -402,7 +402,7 @@ public class fb7 implements ImageViewerBottomLayout.c, ImageViewerBottomLayout.b
             }
 
             /* loaded from: classes6.dex */
-            public class b implements cr4.e {
+            public class b implements dr4.e {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -422,17 +422,17 @@ public class fb7 implements ImageViewerBottomLayout.c, ImageViewerBottomLayout.b
                     }
                 }
 
-                @Override // com.repackage.cr4.e
-                public void onClick(cr4 cr4Var) {
+                @Override // com.repackage.dr4.e
+                public void onClick(dr4 dr4Var) {
                     Interceptable interceptable = $ic;
-                    if (interceptable == null || interceptable.invokeL(1048576, this, cr4Var) == null) {
-                        cr4Var.dismiss();
+                    if (interceptable == null || interceptable.invokeL(1048576, this, dr4Var) == null) {
+                        dr4Var.dismiss();
                     }
                 }
             }
 
             /* loaded from: classes6.dex */
-            public class c implements cr4.e {
+            public class c implements dr4.e {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -452,11 +452,11 @@ public class fb7 implements ImageViewerBottomLayout.c, ImageViewerBottomLayout.b
                     }
                 }
 
-                @Override // com.repackage.cr4.e
-                public void onClick(cr4 cr4Var) {
+                @Override // com.repackage.dr4.e
+                public void onClick(dr4 dr4Var) {
                     Interceptable interceptable = $ic;
-                    if (interceptable == null || interceptable.invokeL(1048576, this, cr4Var) == null) {
-                        cr4Var.dismiss();
+                    if (interceptable == null || interceptable.invokeL(1048576, this, dr4Var) == null) {
+                        dr4Var.dismiss();
                     }
                 }
             }
@@ -484,14 +484,14 @@ public class fb7 implements ImageViewerBottomLayout.c, ImageViewerBottomLayout.b
             public void a() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    cr4 cr4Var = new cr4(this.b.a.a.getPageContext().getPageActivity());
-                    cr4Var.setTitle((String) null);
-                    cr4Var.setMessageShowCenter(true);
-                    cr4Var.setMessage(this.b.a.u(R.string.obfuscated_res_0x7f0f0f4e));
-                    cr4Var.setPositiveButton(this.b.a.u(R.string.obfuscated_res_0x7f0f0f4f), new c(this));
-                    cr4Var.setCancelable(false);
-                    cr4Var.setCanceledOnTouchOutside(false);
-                    cr4Var.create(this.b.a.a.getPageContext()).show();
+                    dr4 dr4Var = new dr4(this.b.a.a.getPageContext().getPageActivity());
+                    dr4Var.setTitle((String) null);
+                    dr4Var.setMessageShowCenter(true);
+                    dr4Var.setMessage(this.b.a.u(R.string.obfuscated_res_0x7f0f0f37));
+                    dr4Var.setPositiveButton(this.b.a.u(R.string.obfuscated_res_0x7f0f0f38), new c(this));
+                    dr4Var.setCancelable(false);
+                    dr4Var.setCanceledOnTouchOutside(false);
+                    dr4Var.create(this.b.a.a.getPageContext()).show();
                 }
             }
 
@@ -499,16 +499,16 @@ public class fb7 implements ImageViewerBottomLayout.c, ImageViewerBottomLayout.b
             public void b() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                    cr4 cr4Var = new cr4(this.b.a.a.getPageContext().getPageActivity());
-                    cr4Var.setTitleShowCenter(true);
-                    cr4Var.setTitle(this.b.a.u(R.string.obfuscated_res_0x7f0f0f4d));
-                    cr4Var.setMessageShowCenter(true);
-                    cr4Var.setMessage(this.b.a.u(R.string.obfuscated_res_0x7f0f0f4c));
-                    cr4Var.setPositiveButton(this.b.a.u(R.string.obfuscated_res_0x7f0f0427), new C0633a(this));
-                    cr4Var.setNegativeButton(this.b.a.u(R.string.obfuscated_res_0x7f0f036a), new b(this));
-                    cr4Var.setCancelable(false);
-                    cr4Var.setCanceledOnTouchOutside(false);
-                    cr4Var.create(this.b.a.a.getPageContext()).show();
+                    dr4 dr4Var = new dr4(this.b.a.a.getPageContext().getPageActivity());
+                    dr4Var.setTitleShowCenter(true);
+                    dr4Var.setTitle(this.b.a.u(R.string.obfuscated_res_0x7f0f0f36));
+                    dr4Var.setMessageShowCenter(true);
+                    dr4Var.setMessage(this.b.a.u(R.string.obfuscated_res_0x7f0f0f35));
+                    dr4Var.setPositiveButton(this.b.a.u(R.string.obfuscated_res_0x7f0f0426), new C0476a(this));
+                    dr4Var.setNegativeButton(this.b.a.u(R.string.obfuscated_res_0x7f0f036a), new b(this));
+                    dr4Var.setCancelable(false);
+                    dr4Var.setCanceledOnTouchOutside(false);
+                    dr4Var.create(this.b.a.a.getPageContext()).show();
                 }
             }
 
@@ -524,7 +524,7 @@ public class fb7 implements ImageViewerBottomLayout.c, ImageViewerBottomLayout.b
             public void onError(String str) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-                    pi.O(this.b.a.a.getPageContext().getPageActivity(), this.b.a.u(R.string.obfuscated_res_0x7f0f0f4b));
+                    pi.O(this.b.a.a.getPageContext().getPageActivity(), this.b.a.u(R.string.obfuscated_res_0x7f0f0f34));
                 }
             }
         }
@@ -547,7 +547,7 @@ public class fb7 implements ImageViewerBottomLayout.c, ImageViewerBottomLayout.b
             this.a = fb7Var;
         }
 
-        @Override // com.repackage.nr4.d
+        @Override // com.repackage.or4.d
         public void onClick() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -556,7 +556,7 @@ public class fb7 implements ImageViewerBottomLayout.c, ImageViewerBottomLayout.b
                     return;
                 }
                 if (!pi.D()) {
-                    pi.O(this.a.a.getPageContext().getPageActivity(), this.a.u(R.string.obfuscated_res_0x7f0f0c2c));
+                    pi.O(this.a.a.getPageContext().getPageActivity(), this.a.u(R.string.obfuscated_res_0x7f0f0c18));
                     return;
                 }
                 if (this.a.f != null && !this.a.f.isCancelled()) {
@@ -625,8 +625,8 @@ public class fb7 implements ImageViewerBottomLayout.c, ImageViewerBottomLayout.b
             if (!oi.isEmpty(str2)) {
                 shareItem.y = Uri.parse(str2);
                 shareItem.g0 = 2;
-                shareItem.u = this.a.u(R.string.obfuscated_res_0x7f0f1098);
-                shareItem.v = this.a.u(R.string.obfuscated_res_0x7f0f1098);
+                shareItem.u = this.a.u(R.string.obfuscated_res_0x7f0f1054);
+                shareItem.v = this.a.u(R.string.obfuscated_res_0x7f0f1054);
                 shareItem.z = str2;
                 Bundle bundle = new Bundle();
                 bundle.putString("path", "images");
@@ -638,7 +638,7 @@ public class fb7 implements ImageViewerBottomLayout.c, ImageViewerBottomLayout.b
                 shareItem.D = bundle;
             }
             new Bundle().putInt("obj_locate", 13);
-            new jz4(this.a.a, null).t(shareItem);
+            new kz4(this.a.a, null).t(shareItem);
         }
     }
 
@@ -705,7 +705,7 @@ public class fb7 implements ImageViewerBottomLayout.c, ImageViewerBottomLayout.b
                         String str = TbadkCoreApplication.getInst().getCacheDir().getAbsolutePath() + StorageFile.getInstance().getDirectoryName(nameMd5FromUrl) + "/" + TbMd5.getNameMd5FromUrl(imageUrlData.originalUrl);
                         int[] imageFileWH = FileHelper.getImageFileWH(str);
                         if (imageFileWH != null && imageFileWH.length == 2 && imageFileWH[0] > 0 && FileHelper.copyImageFile(str, this.a, this.c.a.getPageContext().getPageActivity()) == 0) {
-                            return this.c.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f1094);
+                            return this.c.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f1050);
                         }
                     }
                 }
@@ -716,10 +716,10 @@ public class fb7 implements ImageViewerBottomLayout.c, ImageViewerBottomLayout.b
                         return FileHelper.getSdErrorString();
                     }
                     if (saveImageFileByUser == 0) {
-                        return this.c.u(R.string.obfuscated_res_0x7f0f1094);
+                        return this.c.u(R.string.obfuscated_res_0x7f0f1050);
                     }
                 }
-                return this.c.u(R.string.obfuscated_res_0x7f0f1093);
+                return this.c.u(R.string.obfuscated_res_0x7f0f104f);
             }
             return (String) invokeL.objValue;
         }
@@ -730,7 +730,7 @@ public class fb7 implements ImageViewerBottomLayout.c, ImageViewerBottomLayout.b
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
                 super.onPostExecute((j) str);
-                if (!UbsABTestHelper.isImageViewerTestB() || this.c.u(R.string.obfuscated_res_0x7f0f1093).equals(str)) {
+                if (!UbsABTestHelper.isImageViewerTestB() || this.c.u(R.string.obfuscated_res_0x7f0f104f).equals(str)) {
                     this.c.a.showToast(str);
                 } else if (this.c.p != null) {
                     this.c.p.g(this.c.b, this.c.b.getBottomHeight(), this.c.x);
@@ -825,36 +825,36 @@ public class fb7 implements ImageViewerBottomLayout.c, ImageViewerBottomLayout.b
             this.i.clear();
             String o = this.b.o(this.a.F2());
             if (o != null) {
-                jr4 jr4Var = new jr4(o, this.h);
-                this.j = jr4Var;
-                jr4Var.m(this.r);
+                kr4 kr4Var = new kr4(o, this.h);
+                this.j = kr4Var;
+                kr4Var.m(this.r);
                 this.i.add(this.j);
             }
-            jr4 jr4Var2 = new jr4(u(R.string.obfuscated_res_0x7f0f1099), this.h);
-            this.l = jr4Var2;
-            jr4Var2.m(this.u);
+            kr4 kr4Var2 = new kr4(u(R.string.obfuscated_res_0x7f0f1055), this.h);
+            this.l = kr4Var2;
+            kr4Var2.m(this.u);
             this.i.add(this.l);
             ImageViewerActivity imageViewerActivity = this.a;
             if (imageViewerActivity != null && !imageViewerActivity.b3()) {
-                jr4 jr4Var3 = new jr4(u(R.string.obfuscated_res_0x7f0f1098), this.h);
-                this.m = jr4Var3;
-                jr4Var3.m(this.t);
+                kr4 kr4Var3 = new kr4(u(R.string.obfuscated_res_0x7f0f1054), this.h);
+                this.m = kr4Var3;
+                kr4Var3.m(this.t);
                 this.i.add(this.m);
             }
-            jr4 jr4Var4 = new jr4(u(R.string.obfuscated_res_0x7f0f08ae), this.h);
-            this.k = jr4Var4;
-            jr4Var4.m(this.s);
+            kr4 kr4Var4 = new kr4(u(R.string.obfuscated_res_0x7f0f0899), this.h);
+            this.k = kr4Var4;
+            kr4Var4.m(this.s);
             this.i.add(this.k);
             String currentImageQRInfo = this.b.getCurrentImageQRInfo();
             if (!TextUtils.isEmpty(currentImageQRInfo) && !currentImageQRInfo.equals("qr_none")) {
-                jr4 jr4Var5 = new jr4(u(R.string.obfuscated_res_0x7f0f08d4), this.h);
-                this.o = jr4Var5;
-                jr4Var5.m(this.w);
+                kr4 kr4Var5 = new kr4(u(R.string.obfuscated_res_0x7f0f08bf), this.h);
+                this.o = kr4Var5;
+                kr4Var5.m(this.w);
                 this.i.add(this.o);
             }
-            jr4 jr4Var6 = new jr4(u(R.string.obfuscated_res_0x7f0f08d7), this.h);
-            this.n = jr4Var6;
-            jr4Var6.m(this.v);
+            kr4 kr4Var6 = new kr4(u(R.string.obfuscated_res_0x7f0f08c2), this.h);
+            this.n = kr4Var6;
+            kr4Var6.m(this.v);
             this.i.add(this.n);
             this.h.m(new b(this));
             this.h.j(this.i);
@@ -881,11 +881,11 @@ public class fb7 implements ImageViewerBottomLayout.c, ImageViewerBottomLayout.b
             } else if (FullBrowseHelper.checkAndShowFullBrowseModeDialog(this.a.getPageContext(), null)) {
                 return;
             } else {
-                Intent intent = new Intent(m45.a);
+                Intent intent = new Intent(n45.a);
                 intent.setPackage(TbadkCoreApplication.getInst().getPackageName());
-                intent.putExtra(m45.b, currentOriginalUrl);
-                intent.putExtra(m45.c, currentImageUrl);
-                intent.putExtra(m45.d, currentPicId);
+                intent.putExtra(n45.b, currentOriginalUrl);
+                intent.putExtra(n45.c, currentImageUrl);
+                intent.putExtra(n45.d, currentPicId);
                 TbadkCoreApplication.getInst().sendBroadcast(intent);
             }
             s(2);
@@ -932,9 +932,9 @@ public class fb7 implements ImageViewerBottomLayout.c, ImageViewerBottomLayout.b
         if (!(interceptable == null || interceptable.invokeL(1048586, this, str) == null) || this.g == null || this.a.isFinishing() || !this.g.isShowing() || TextUtils.isEmpty(str) || "qr_none".equals(str)) {
             return;
         }
-        jr4 jr4Var = new jr4(u(R.string.obfuscated_res_0x7f0f08d4), this.h);
-        this.o = jr4Var;
-        jr4Var.m(this.w);
+        kr4 kr4Var = new kr4(u(R.string.obfuscated_res_0x7f0f08bf), this.h);
+        this.o = kr4Var;
+        kr4Var.m(this.w);
         boolean z = false;
         int i3 = 0;
         while (true) {
@@ -962,9 +962,9 @@ public class fb7 implements ImageViewerBottomLayout.c, ImageViewerBottomLayout.b
     }
 
     public void v() {
-        lr4 lr4Var;
+        mr4 mr4Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048588, this) == null) && (lr4Var = this.g) != null && lr4Var.isShowing()) {
+        if ((interceptable == null || interceptable.invokeV(1048588, this) == null) && (mr4Var = this.g) != null && mr4Var.isShowing()) {
             this.g.dismiss();
         }
     }
@@ -974,13 +974,13 @@ public class fb7 implements ImageViewerBottomLayout.c, ImageViewerBottomLayout.b
         if (interceptable == null || interceptable.invokeL(1048589, this, multiImageView) == null) {
             this.b = multiImageView;
             if (this.g == null) {
-                this.h = new nr4(this.a);
+                this.h = new or4(this.a);
             }
             if (this.i == null) {
                 this.i = new ArrayList();
             }
             E();
-            this.g = new lr4(this.a.getPageContext(), this.h);
+            this.g = new mr4(this.a.getPageContext(), this.h);
         }
     }
 
@@ -1008,12 +1008,12 @@ public class fb7 implements ImageViewerBottomLayout.c, ImageViewerBottomLayout.b
     }
 
     public void y() {
-        nr4 nr4Var;
+        or4 or4Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048591, this) == null) || (nr4Var = this.h) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048591, this) == null) || (or4Var = this.h) == null) {
             return;
         }
-        nr4Var.i();
+        or4Var.i();
     }
 
     public void z() {

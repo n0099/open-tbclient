@@ -19,8 +19,8 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.cr4;
-import com.repackage.nr4;
+import com.repackage.dr4;
+import com.repackage.or4;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes7.dex */
@@ -29,29 +29,29 @@ public class zx5 {
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext a;
     public Context b;
-    public lr4 c;
-    public nr4 d;
-    public cr4 e;
+    public mr4 c;
+    public or4 d;
+    public dr4 e;
     public j f;
     public CardPersonDynamicThreadData g;
-    public List<jr4> h;
-    public jr4 i;
-    public jr4 j;
-    public jr4 k;
-    public jr4 l;
+    public List<kr4> h;
+    public kr4 i;
+    public kr4 j;
+    public kr4 k;
+    public kr4 l;
     public SetPrivacyModel m;
     public ForumManageModel n;
     public boolean o;
     public hx5 p;
-    public nr4.d q;
+    public or4.d q;
     public SetPrivacyModel.a r;
-    public nr4.d s;
-    public nr4.d t;
-    public nr4.d u;
+    public or4.d s;
+    public or4.d t;
+    public or4.d u;
     public c9 v;
 
     /* loaded from: classes7.dex */
-    public class a implements nr4.c {
+    public class a implements or4.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ zx5 a;
@@ -74,7 +74,7 @@ public class zx5 {
             this.a = zx5Var;
         }
 
-        @Override // com.repackage.nr4.c
+        @Override // com.repackage.or4.c
         public void onClick() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -84,7 +84,7 @@ public class zx5 {
     }
 
     /* loaded from: classes7.dex */
-    public class b implements nr4.d {
+    public class b implements or4.d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ zx5 a;
@@ -107,7 +107,7 @@ public class zx5 {
             this.a = zx5Var;
         }
 
-        @Override // com.repackage.nr4.d
+        @Override // com.repackage.or4.d
         public void onClick() {
             int i;
             Interceptable interceptable = $ic;
@@ -134,7 +134,7 @@ public class zx5 {
                 }
                 return;
             }
-            this.a.a.showToast(R.string.obfuscated_res_0x7f0f0ef4);
+            this.a.a.showToast(R.string.obfuscated_res_0x7f0f0edd);
             if (this.a.g.getThreadData() != null) {
                 this.a.p.d(i, 3, this.a.g.getThreadData().getTid());
             }
@@ -142,7 +142,7 @@ public class zx5 {
     }
 
     /* loaded from: classes7.dex */
-    public class c implements cr4.e {
+    public class c implements dr4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ zx5 a;
@@ -165,12 +165,12 @@ public class zx5 {
             this.a = zx5Var;
         }
 
-        @Override // com.repackage.cr4.e
-        public void onClick(cr4 cr4Var) {
+        @Override // com.repackage.dr4.e
+        public void onClick(dr4 dr4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, cr4Var) == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, dr4Var) == null) {
                 if (!ni.A()) {
-                    pi.N(this.a.b, R.string.obfuscated_res_0x7f0f0c2b);
+                    pi.N(this.a.b, R.string.obfuscated_res_0x7f0f0c17);
                     return;
                 }
                 if (this.a.g.q != 1) {
@@ -184,13 +184,13 @@ public class zx5 {
                     this.a.n.U(this.a.g.p);
                 }
                 this.a.n.W(this.a.g.a, this.a.g.h, this.a.g.b, this.a.g.e, 0, 0, true, this.a.g.p.getBaijiahaoData(), false);
-                cr4Var.dismiss();
+                dr4Var.dismiss();
             }
         }
     }
 
     /* loaded from: classes7.dex */
-    public class d implements cr4.e {
+    public class d implements dr4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -210,11 +210,11 @@ public class zx5 {
             }
         }
 
-        @Override // com.repackage.cr4.e
-        public void onClick(cr4 cr4Var) {
+        @Override // com.repackage.dr4.e
+        public void onClick(dr4 dr4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, cr4Var) == null) {
-                cr4Var.dismiss();
+            if (interceptable == null || interceptable.invokeL(1048576, this, dr4Var) == null) {
+                dr4Var.dismiss();
             }
         }
     }
@@ -257,9 +257,9 @@ public class zx5 {
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
                 if (this.a.g.o) {
                     this.a.g.o = false;
-                    pi.N(this.a.b, R.string.obfuscated_res_0x7f0f13de);
+                    pi.N(this.a.b, R.string.obfuscated_res_0x7f0f138d);
                     if (this.a.i != null) {
-                        this.a.i.n(this.a.b.getString(R.string.obfuscated_res_0x7f0f1124));
+                        this.a.i.n(this.a.b.getString(R.string.obfuscated_res_0x7f0f10e0));
                     }
                     if (this.a.f != null) {
                         this.a.f.a(false);
@@ -269,7 +269,7 @@ public class zx5 {
                 }
                 this.a.g.o = true;
                 if (this.a.i != null) {
-                    this.a.i.n(this.a.b.getString(R.string.obfuscated_res_0x7f0f1125));
+                    this.a.i.n(this.a.b.getString(R.string.obfuscated_res_0x7f0f10e1));
                 }
                 if (this.a.f != null) {
                     this.a.f.a(true);
@@ -280,7 +280,7 @@ public class zx5 {
     }
 
     /* loaded from: classes7.dex */
-    public class f implements nr4.d {
+    public class f implements or4.d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ zx5 a;
@@ -303,12 +303,12 @@ public class zx5 {
             this.a = zx5Var;
         }
 
-        @Override // com.repackage.nr4.d
+        @Override // com.repackage.or4.d
         public void onClick() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 if (!ni.A()) {
-                    pi.N(this.a.b, R.string.obfuscated_res_0x7f0f0c2b);
+                    pi.N(this.a.b, R.string.obfuscated_res_0x7f0f0c17);
                     return;
                 }
                 if (this.a.g.o) {
@@ -335,7 +335,7 @@ public class zx5 {
     }
 
     /* loaded from: classes7.dex */
-    public class g implements nr4.d {
+    public class g implements or4.d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ zx5 a;
@@ -358,13 +358,13 @@ public class zx5 {
             this.a = zx5Var;
         }
 
-        @Override // com.repackage.nr4.d
+        @Override // com.repackage.or4.d
         public void onClick() {
             String jumpUrlWithTid;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 if (!ni.A()) {
-                    pi.N(this.a.b, R.string.obfuscated_res_0x7f0f0c2b);
+                    pi.N(this.a.b, R.string.obfuscated_res_0x7f0f0c17);
                     return;
                 }
                 TiebaPlusConfigData tiebaPlusConfigData = TbSingleton.getInstance().getTiebaPlusConfigData();
@@ -380,7 +380,7 @@ public class zx5 {
     }
 
     /* loaded from: classes7.dex */
-    public class h implements nr4.d {
+    public class h implements or4.d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ zx5 a;
@@ -403,12 +403,12 @@ public class zx5 {
             this.a = zx5Var;
         }
 
-        @Override // com.repackage.nr4.d
+        @Override // com.repackage.or4.d
         public void onClick() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 if (!ni.A()) {
-                    pi.N(this.a.b, R.string.obfuscated_res_0x7f0f0c2b);
+                    pi.N(this.a.b, R.string.obfuscated_res_0x7f0f0c17);
                     return;
                 }
                 if (this.a.g != null && this.a.n != null) {
@@ -450,7 +450,7 @@ public class zx5 {
             if ((interceptable == null || interceptable.invokeL(1048576, this, obj) == null) && (obj instanceof ForumManageModel.b)) {
                 ForumManageModel.b bVar = (ForumManageModel.b) obj;
                 if (bVar.c == 0) {
-                    pi.N(this.a.b, R.string.obfuscated_res_0x7f0f04ad);
+                    pi.N(this.a.b, R.string.obfuscated_res_0x7f0f04ac);
                     if (this.a.g != null) {
                         if (oi.isEmpty(this.a.g.G)) {
                             if (oi.isEmpty(this.a.g.b)) {
@@ -464,7 +464,7 @@ public class zx5 {
                 } else if (!oi.isEmpty(bVar.b)) {
                     pi.O(this.a.b, bVar.b);
                 } else {
-                    pi.N(this.a.b, R.string.obfuscated_res_0x7f0f04a4);
+                    pi.N(this.a.b, R.string.obfuscated_res_0x7f0f04a3);
                 }
             }
         }
@@ -503,7 +503,7 @@ public class zx5 {
         this.a = tbPageContext;
         this.b = tbPageContext.getPageActivity();
         this.h = new ArrayList();
-        this.d = new nr4(this.b);
+        this.d = new or4(this.b);
         ForumManageModel forumManageModel = new ForumManageModel(this.a);
         this.n = forumManageModel;
         forumManageModel.setLoadDataCallBack(this.v);
@@ -511,15 +511,15 @@ public class zx5 {
     }
 
     public void n(CardPersonDynamicThreadData cardPersonDynamicThreadData, boolean z) {
-        jr4 jr4Var;
+        kr4 kr4Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(1048576, this, cardPersonDynamicThreadData, z) == null) {
             this.g = cardPersonDynamicThreadData;
-            if (cardPersonDynamicThreadData == null || (jr4Var = this.i) == null) {
+            if (cardPersonDynamicThreadData == null || (kr4Var = this.i) == null) {
                 return;
             }
             if (cardPersonDynamicThreadData.o) {
-                jr4Var.n(this.b.getString(R.string.obfuscated_res_0x7f0f1125));
+                kr4Var.n(this.b.getString(R.string.obfuscated_res_0x7f0f10e1));
             } else {
                 ThreadData threadData = cardPersonDynamicThreadData.p;
                 if (threadData != null && threadData.notShowHideThreadBtn()) {
@@ -528,7 +528,7 @@ public class zx5 {
                         this.d.j(this.h);
                     }
                 } else {
-                    this.i.n(this.b.getString(R.string.obfuscated_res_0x7f0f1124));
+                    this.i.n(this.b.getString(R.string.obfuscated_res_0x7f0f10e0));
                 }
             }
             this.i.r(z);
@@ -537,7 +537,7 @@ public class zx5 {
                     this.j.n(this.b.getString(R.string.obfuscated_res_0x7f0f035d));
                 } else {
                     if (TbSingleton.getInstance().mCallFansTid != null && this.g.getThreadData() != null && TbSingleton.getInstance().mCallFansTid.equals(this.g.getThreadData().getTid())) {
-                        this.j.n(this.b.getString(R.string.obfuscated_res_0x7f0f0828));
+                        this.j.n(this.b.getString(R.string.obfuscated_res_0x7f0f0824));
                     } else {
                         this.j.n(this.b.getString(R.string.obfuscated_res_0x7f0f035d));
                     }
@@ -552,30 +552,30 @@ public class zx5 {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.c == null) {
             if (TbSingleton.getInstance().getTiebaPlusConfigData() != null && TbSingleton.getInstance().getTiebaPlusConfigData().isSwitchOpen()) {
-                jr4 jr4Var = new jr4(this.b.getString(R.string.obfuscated_res_0x7f0f0832), this.d);
-                this.l = jr4Var;
-                jr4Var.m(this.t);
+                kr4 kr4Var = new kr4(this.b.getString(R.string.obfuscated_res_0x7f0f082e), this.d);
+                this.l = kr4Var;
+                kr4Var.m(this.t);
                 this.h.add(this.l);
             }
-            jr4 jr4Var2 = new jr4(this.d);
-            this.i = jr4Var2;
-            jr4Var2.m(this.s);
+            kr4 kr4Var2 = new kr4(this.d);
+            this.i = kr4Var2;
+            kr4Var2.m(this.s);
             if (!this.o) {
                 this.h.add(this.i);
             }
             if (TbSingleton.getInstance().mShowCallFans && !this.o) {
-                jr4 jr4Var3 = new jr4(this.b.getString(R.string.obfuscated_res_0x7f0f035d), this.d);
-                this.j = jr4Var3;
-                jr4Var3.m(this.q);
+                kr4 kr4Var3 = new kr4(this.b.getString(R.string.obfuscated_res_0x7f0f035d), this.d);
+                this.j = kr4Var3;
+                kr4Var3.m(this.q);
                 this.h.add(this.j);
             }
-            jr4 jr4Var4 = new jr4(this.b.getString(R.string.obfuscated_res_0x7f0f049f), this.d);
-            this.k = jr4Var4;
-            jr4Var4.m(this.u);
+            kr4 kr4Var4 = new kr4(this.b.getString(R.string.obfuscated_res_0x7f0f049e), this.d);
+            this.k = kr4Var4;
+            kr4Var4.m(this.u);
             this.h.add(this.k);
             this.d.m(new a(this));
             this.d.j(this.h);
-            this.c = new lr4(this.a, this.d);
+            this.c = new mr4(this.a, this.d);
         }
     }
 
@@ -583,29 +583,29 @@ public class zx5 {
         ThreadData threadData;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.e == null) {
-            cr4 cr4Var = new cr4(this.a.getPageActivity());
-            this.e = cr4Var;
+            dr4 dr4Var = new dr4(this.a.getPageActivity());
+            this.e = dr4Var;
             if (this.o) {
-                cr4Var.setMessageId(R.string.obfuscated_res_0x7f0f0496);
+                dr4Var.setMessageId(R.string.obfuscated_res_0x7f0f0495);
             } else {
                 CardPersonDynamicThreadData cardPersonDynamicThreadData = this.g;
                 if (cardPersonDynamicThreadData != null && (threadData = cardPersonDynamicThreadData.p) != null && threadData.isDisplayHighQualityPrefix()) {
-                    this.e.setMessageId(R.string.obfuscated_res_0x7f0f049e);
-                } else {
                     this.e.setMessageId(R.string.obfuscated_res_0x7f0f049d);
+                } else {
+                    this.e.setMessageId(R.string.obfuscated_res_0x7f0f049c);
                 }
             }
-            this.e.setPositiveButton(R.string.obfuscated_res_0x7f0f04e5, new c(this));
-            this.e.setNegativeButton(R.string.obfuscated_res_0x7f0f04e0, new d(this));
+            this.e.setPositiveButton(R.string.obfuscated_res_0x7f0f04e1, new c(this));
+            this.e.setNegativeButton(R.string.obfuscated_res_0x7f0f04dc, new d(this));
             this.e.setCancelable(true);
             this.e.create(this.a);
         }
     }
 
     public void q() {
-        lr4 lr4Var;
+        mr4 mr4Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (lr4Var = this.c) != null && lr4Var.isShowing()) {
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (mr4Var = this.c) != null && mr4Var.isShowing()) {
             this.c.dismiss();
         }
     }
@@ -613,13 +613,13 @@ public class zx5 {
     public void r() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            nr4 nr4Var = this.d;
-            if (nr4Var != null) {
-                nr4Var.i();
+            or4 or4Var = this.d;
+            if (or4Var != null) {
+                or4Var.i();
             }
-            cr4 cr4Var = this.e;
-            if (cr4Var != null) {
-                ga5.a(this.a, cr4Var.getRealView());
+            dr4 dr4Var = this.e;
+            if (dr4Var != null) {
+                ha5.a(this.a, dr4Var.getRealView());
             }
         }
     }
@@ -639,11 +639,11 @@ public class zx5 {
     }
 
     public void u() {
-        lr4 lr4Var;
+        mr4 mr4Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || (lr4Var = this.c) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || (mr4Var = this.c) == null) {
             return;
         }
-        lr4Var.m();
+        mr4Var.m();
     }
 }

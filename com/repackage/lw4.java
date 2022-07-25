@@ -1,11 +1,23 @@
 package com.repackage;
 /* loaded from: classes6.dex */
 public interface lw4 {
-    void b();
+    void a();
 
-    boolean c();
+    boolean b(String str);
 
-    boolean d(String str);
+    int c();
 
-    boolean e();
+    void d();
+
+    void e();
+
+    int f();
+
+    void g();
+
+    boolean isPlaying();
+
+    boolean isPrepared();
+
+    void seek(int i);
 }

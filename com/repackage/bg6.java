@@ -174,13 +174,13 @@ public class bg6 {
         this.b = yg8Var;
         this.e.setText(yg8Var.n());
         if (yg8Var.getType() == 3) {
-            this.g.setText(this.a.getString(R.string.obfuscated_res_0x7f0f074b, Integer.valueOf(this.b.g())));
+            this.g.setText(this.a.getString(R.string.obfuscated_res_0x7f0f0747, Integer.valueOf(this.b.g())));
         } else if (yg8Var.getType() == 1) {
-            this.g.setText(this.a.getString(R.string.obfuscated_res_0x7f0f074d, Integer.valueOf(this.b.g())));
-        } else if (yg8Var.getType() == 2) {
             this.g.setText(this.a.getString(R.string.obfuscated_res_0x7f0f0749, Integer.valueOf(this.b.g())));
+        } else if (yg8Var.getType() == 2) {
+            this.g.setText(this.a.getString(R.string.obfuscated_res_0x7f0f0745, Integer.valueOf(this.b.g())));
         } else if (yg8Var.getType() == 4) {
-            this.g.setText(this.a.getString(R.string.obfuscated_res_0x7f0f074a, Integer.valueOf(this.b.g())));
+            this.g.setText(this.a.getString(R.string.obfuscated_res_0x7f0f0746, Integer.valueOf(this.b.g())));
         }
         this.f.J(this.b.d(), 10, false);
         yg8 yg8Var2 = this.b;
@@ -212,18 +212,18 @@ public class bg6 {
             RoundAdapterLinearLayout roundAdapterLinearLayout = (RoundAdapterLinearLayout) LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0348, (ViewGroup) null);
             this.d = roundAdapterLinearLayout;
             roundAdapterLinearLayout.setRadius(this.a.getResources().getDimension(R.dimen.tbds20));
-            this.e = (TextView) this.d.findViewById(R.id.obfuscated_res_0x7f090bc0);
-            this.g = (TextView) this.d.findViewById(R.id.obfuscated_res_0x7f090bc5);
-            TbImageView tbImageView = (TbImageView) this.d.findViewById(R.id.obfuscated_res_0x7f090bbe);
+            this.e = (TextView) this.d.findViewById(R.id.obfuscated_res_0x7f090bb9);
+            this.g = (TextView) this.d.findViewById(R.id.obfuscated_res_0x7f090bbe);
+            TbImageView tbImageView = (TbImageView) this.d.findViewById(R.id.obfuscated_res_0x7f090bb7);
             this.f = tbImageView;
             tbImageView.setDefaultBgResource(R.color.white_alpha100);
             this.h = (FrsAdCommentScrollView) this.d.findViewById(R.id.obfuscated_res_0x7f090093);
-            TextView textView = (TextView) this.d.findViewById(R.id.obfuscated_res_0x7f090bbf);
+            TextView textView = (TextView) this.d.findViewById(R.id.obfuscated_res_0x7f090bb8);
             this.i = textView;
-            ur4 d = ur4.d(textView);
+            vr4 d = vr4.d(textView);
             d.n(R.string.J_X01);
             d.f(R.color.CAM_X0602);
-            ur4.d(this.i).v(R.color.CAM_X0617);
+            vr4.d(this.i).v(R.color.CAM_X0617);
             this.j = new zf6(context, this.d, this.f);
             this.d.setOnClickListener(new a(this));
         }

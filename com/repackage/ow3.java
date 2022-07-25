@@ -1,7 +1,7 @@
 package com.repackage;
 
-import android.content.Context;
-import com.baidu.swan.games.glsurface.DuMixGameSurfaceView;
+import android.util.Log;
+import com.baidu.searchbox.v8engine.console.DebugConsole;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,12 +9,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayDeque;
 /* loaded from: classes6.dex */
-public class ow3 {
+public class ow3 implements DebugConsole {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile ow3 a;
+    public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
+    public long a;
 
     static {
         InterceptResult invokeClinit;
@@ -29,7 +29,7 @@ public class ow3 {
                 return;
             }
         }
-        boolean z = rg1.a;
+        b = sg1.a;
     }
 
     public ow3() {
@@ -42,31 +42,23 @@ public class ow3 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
-                return;
             }
         }
-        new ArrayDeque();
     }
 
-    public static ow3 b() {
-        InterceptResult invokeV;
+    @Override // com.baidu.searchbox.v8engine.console.DebugConsole
+    public void onReceiveInfo(int i, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (a == null) {
-                synchronized (ow3.class) {
-                    if (a == null) {
-                        a = new ow3();
-                    }
-                }
+        if ((interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) && b && !e14.d()) {
+            if (i == 0) {
+                Log.d("arConsole", String.format("%s: %s %s", "queue event", "", str));
+            } else if (i == 1) {
+                this.a = System.currentTimeMillis();
+                Log.d("arConsole", String.format("%s: %s %s", "run event start", "", str));
+            } else if (i != 2) {
+            } else {
+                Log.d("arConsole", String.format("%s: %s %s", "run event end", Long.valueOf(System.currentTimeMillis() - this.a), str));
             }
-            return a;
         }
-        return (ow3) invokeV.objValue;
-    }
-
-    public DuMixGameSurfaceView a(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) ? new DuMixGameSurfaceView(context) : (DuMixGameSurfaceView) invokeL.objValue;
     }
 }

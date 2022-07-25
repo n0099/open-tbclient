@@ -99,12 +99,12 @@ public class mw6 {
         b();
     }
 
-    public void d(jm4 jm4Var) {
+    public void d(km4 km4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, jm4Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048579, this, km4Var) == null) {
             for (an anVar : this.b) {
                 if (anVar instanceof jw6) {
-                    ((jw6) anVar).b0(jm4Var);
+                    ((jw6) anVar).b0(km4Var);
                 }
             }
         }

@@ -167,7 +167,7 @@ public class qn8 extends BaseAdapter {
                 bVar = new b(this, null);
                 bVar.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090584);
                 bVar.b = (WholeDisplayGridView) view2.findViewById(R.id.obfuscated_res_0x7f0902ee);
-                bVar.c = view2.findViewById(R.id.obfuscated_res_0x7f0912bb);
+                bVar.c = view2.findViewById(R.id.obfuscated_res_0x7f091297);
                 view2.setTag(bVar);
             }
             nn8 item = getItem(i);

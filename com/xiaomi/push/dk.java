@@ -16,10 +16,10 @@ public class dk implements Runnable {
     public final /* synthetic */ dj a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final /* synthetic */ String f945a;
+    public final /* synthetic */ String f225a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final /* synthetic */ Throwable f946a;
+    public final /* synthetic */ Throwable f226a;
 
     public dk(dj djVar, String str, Throwable th) {
         Interceptable interceptable = $ic;
@@ -37,8 +37,8 @@ public class dk implements Runnable {
             }
         }
         this.a = djVar;
-        this.f945a = str;
-        this.f946a = th;
+        this.f225a = str;
+        this.f226a = th;
     }
 
     @Override // java.lang.Runnable
@@ -57,32 +57,32 @@ public class dk implements Runnable {
         List list6;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            list = dj.f942a;
-            simpleDateFormat = dj.f941a;
+            list = dj.f222a;
+            simpleDateFormat = dj.f221a;
             str = this.a.b;
-            list.add(new Pair(String.format("%1$s %2$s %3$s ", simpleDateFormat.format(new Date()), str, this.f945a), this.f946a));
-            list2 = dj.f942a;
+            list.add(new Pair(String.format("%1$s %2$s %3$s ", simpleDateFormat.format(new Date()), str, this.f225a), this.f226a));
+            list2 = dj.f222a;
             if (list2.size() > 20000) {
-                list3 = dj.f942a;
+                list3 = dj.f222a;
                 int size = (list3.size() - 20000) + 50;
                 for (int i = 0; i < size; i++) {
                     try {
-                        list5 = dj.f942a;
+                        list5 = dj.f222a;
                         if (list5.size() > 0) {
-                            list6 = dj.f942a;
+                            list6 = dj.f222a;
                             list6.remove(0);
                         }
                     } catch (IndexOutOfBoundsException unused) {
                     }
                 }
-                list4 = dj.f942a;
-                simpleDateFormat2 = dj.f941a;
+                list4 = dj.f222a;
+                simpleDateFormat2 = dj.f221a;
                 str4 = this.a.b;
                 list4.add(new Pair(String.format("%1$s %2$s %3$s ", simpleDateFormat2.format(new Date()), str4, "flush " + size + " lines logs."), null));
             }
             try {
                 if (ad.d()) {
-                    this.a.m1205a();
+                    this.a.m267a();
                     return;
                 }
                 str3 = this.a.b;

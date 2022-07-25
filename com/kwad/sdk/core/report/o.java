@@ -6,17 +6,17 @@ import android.database.sqlite.SQLiteOpenHelper;
 import androidx.annotation.Nullable;
 /* loaded from: classes5.dex */
 public final class o extends SQLiteOpenHelper {
-    public static int a = 1;
-    public String b;
+    public static int CU = 1;
+    public String abq;
 
     public o(@Nullable Context context, int i) {
         super(context, "ksadrep.db", (SQLiteDatabase.CursorFactory) null, i);
-        this.b = "CREATE TABLE IF NOT EXISTS ksad_actions (actionId varchar(60) primary key, aLog TEXT)";
+        this.abq = "CREATE TABLE IF NOT EXISTS ksad_actions (actionId varchar(60) primary key, aLog TEXT)";
     }
 
     @Override // android.database.sqlite.SQLiteOpenHelper
     public final void onCreate(SQLiteDatabase sQLiteDatabase) {
-        sQLiteDatabase.execSQL(this.b);
+        sQLiteDatabase.execSQL(this.abq);
     }
 
     @Override // android.database.sqlite.SQLiteOpenHelper

@@ -25,8 +25,8 @@ public final class kv9<E> extends mu9<E> {
                 return;
             }
         }
-        c(new LinkedQueueNode<>());
-        e(this.producerNode);
+        b(new LinkedQueueNode<>());
+        d(this.producerNode);
         this.consumerNode.soNext(null);
     }
 

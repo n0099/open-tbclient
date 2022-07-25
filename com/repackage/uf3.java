@@ -4,7 +4,7 @@ import android.content.Context;
 import android.view.View;
 import android.widget.PopupWindow;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.view.menu.SwanImageMenuView;
+import com.baidu.swan.apps.view.menu.SwanContextMenuView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 /* loaded from: classes7.dex */
-public class uf3 extends rz2 {
+public class uf3 extends sz2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -34,36 +34,31 @@ public class uf3 extends rz2 {
                 return;
             }
         }
-        s(-1);
+        s(zd3.f(view2.getContext(), 178.0f));
         p(true);
         q(true);
     }
 
-    @Override // com.repackage.rz2
-    public void l(View view2, List<sz2> list) {
+    @Override // com.repackage.sz2
+    public void l(View view2, List<tz2> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, view2, list) == null) {
-            ((SwanImageMenuView) view2).d(list);
+            ((SwanContextMenuView) view2).c(list);
         }
     }
 
-    @Override // com.repackage.rz2
+    @Override // com.repackage.sz2
     public View m(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
-            SwanImageMenuView swanImageMenuView = new SwanImageMenuView(context);
-            swanImageMenuView.setMenu(this);
-            return swanImageMenuView;
-        }
-        return (View) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) ? new SwanContextMenuView(context) : (View) invokeL.objValue;
     }
 
-    @Override // com.repackage.rz2
+    @Override // com.repackage.sz2
     public void u(PopupWindow popupWindow) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, popupWindow) == null) {
-            popupWindow.showAtLocation(this.a, 80, 0, 0);
+            popupWindow.showAtLocation(this.a, 17, 0, 0);
         }
     }
 }

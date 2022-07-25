@@ -36,12 +36,12 @@ public class tp6 implements View.OnClickListener {
 
         /* renamed from: com.repackage.tp6$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public class RunnableC0735a implements Runnable {
+        public class RunnableC0583a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public RunnableC0735a(a aVar) {
+            public RunnableC0583a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -103,7 +103,7 @@ public class tp6 implements View.OnClickListener {
             int f3 = (iArr[1] - f) + pi.f(pageActivity, R.dimen.obfuscated_res_0x7f0701be);
             this.a.e = new PopupWindow(h, -2, f);
             this.a.e.showAtLocation(this.a.d, 53, f2, f3);
-            this.a.f.postDelayed(new RunnableC0735a(this), 3000L);
+            this.a.f.postDelayed(new RunnableC0583a(this), 3000L);
         }
     }
 
@@ -135,7 +135,7 @@ public class tp6 implements View.OnClickListener {
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, activity, i)) == null) {
             TextView textView = new TextView(activity);
             int f = pi.f(activity, R.dimen.obfuscated_res_0x7f0701d5);
-            textView.setPadding(f, 0 - activity.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07023d), f, 0);
+            textView.setPadding(f, 0 - activity.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07023b), f, 0);
             textView.setHeight(activity.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07026f));
             textView.setGravity(17);
             textView.setTextSize(0, pi.f(activity, R.dimen.obfuscated_res_0x7f0702b5));
@@ -178,12 +178,12 @@ public class tp6 implements View.OnClickListener {
             if (this.b) {
                 this.a = R.string.obfuscated_res_0x7f0f02b5;
                 String str = currentAccount + "frs_god_new_post_tip_count";
-                int l = xt4.k().l(str, 0);
+                int l = yt4.k().l(str, 0);
                 if (l >= 3) {
                     this.b = false;
                     return;
                 }
-                xt4.k().w(str, l + 1);
+                yt4.k().w(str, l + 1);
                 this.b = false;
                 this.f.postDelayed(this.g, 500L);
             }

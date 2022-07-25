@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public final class j extends com.kwad.components.ad.e.kwai.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public View c;
+    public View ki;
 
     public j() {
         Interceptable interceptable = $ic;
@@ -28,24 +28,24 @@ public final class j extends com.kwad.components.ad.e.kwai.a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void d() {
+    public void eu() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65538, this) == null) || this.c.getVisibility() == 0) {
+        if (!(interceptable == null || interceptable.invokeV(65538, this) == null) || this.ki.getVisibility() == 0) {
             return;
         }
-        this.c.setVisibility(0);
+        this.ki.setVisibility(0);
     }
 
     @Override // com.kwad.components.ad.e.kwai.a, com.kwad.sdk.mvp.Presenter
-    public final void a() {
+    public final void aq() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            super.a();
-            this.c.setVisibility(8);
+            super.aq();
+            this.ki.setVisibility(8);
             com.kwad.components.core.video.h hVar = new com.kwad.components.core.video.h(this) { // from class: com.kwad.components.ad.e.a.j.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ j a;
+                public final /* synthetic */ j kj;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -62,28 +62,28 @@ public final class j extends com.kwad.components.ad.e.kwai.a {
                             return;
                         }
                     }
-                    this.a = this;
+                    this.kj = this;
                 }
 
                 @Override // com.kwad.components.core.video.h, com.kwad.components.core.video.g
-                public final void a(int i, int i2) {
+                public final void onVideoPlayError(int i, int i2) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeII(1048576, this, i, i2) == null) {
-                        this.a.d();
+                        this.kj.eu();
                     }
                 }
             };
-            ((com.kwad.components.ad.e.kwai.a) this).b = hVar;
-            ((com.kwad.components.ad.e.kwai.a) this).a.f.a(hVar);
+            this.mVideoPlayStateListener = hVar;
+            this.jL.jM.a(hVar);
         }
     }
 
     @Override // com.kwad.sdk.mvp.Presenter
-    public final void i_() {
+    public final void onCreate() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            super.i_();
-            this.c = b(R.id.obfuscated_res_0x7f0911d0);
+            super.onCreate();
+            this.ki = findViewById(R.id.obfuscated_res_0x7f0911ac);
         }
     }
 }

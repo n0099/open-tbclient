@@ -73,41 +73,41 @@ public class ko8 {
         this.u = 0;
         this.v = 0;
         this.a = personalCardDetailActivity;
-        View inflate = LayoutInflater.from(personalCardDetailActivity.getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d06e2, (ViewGroup) null);
+        View inflate = LayoutInflater.from(personalCardDetailActivity.getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d06ec, (ViewGroup) null);
         this.b = inflate;
         this.a.setContentView(inflate);
         this.a.setNetRefreshViewTopMargin(BdListViewHelper.a);
         this.s = pi.f(this.a.getPageContext().getPageActivity(), R.dimen.obfuscated_res_0x7f070224);
-        this.t = pi.f(this.a.getPageContext().getPageActivity(), R.dimen.obfuscated_res_0x7f070232);
+        this.t = pi.f(this.a.getPageContext().getPageActivity(), R.dimen.obfuscated_res_0x7f070230);
         this.u = pi.f(this.a.getPageContext().getPageActivity(), R.dimen.obfuscated_res_0x7f0701be);
         this.v = pi.f(this.a.getPageContext().getPageActivity(), R.dimen.obfuscated_res_0x7f070201);
         this.r = onClickListener;
-        NavigationBar navigationBar = (NavigationBar) this.b.findViewById(R.id.obfuscated_res_0x7f092437);
+        NavigationBar navigationBar = (NavigationBar) this.b.findViewById(R.id.obfuscated_res_0x7f092439);
         this.d = navigationBar;
         navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.d.setTitleText(R.string.obfuscated_res_0x7f0f0e5a);
-        this.e = (NoNetworkView) this.b.findViewById(R.id.obfuscated_res_0x7f092439);
-        this.c = this.b.findViewById(R.id.obfuscated_res_0x7f0906c1);
-        this.p = this.b.findViewById(R.id.obfuscated_res_0x7f09213e);
+        this.d.setTitleText(R.string.obfuscated_res_0x7f0f0e43);
+        this.e = (NoNetworkView) this.b.findViewById(R.id.obfuscated_res_0x7f09243b);
+        this.c = this.b.findViewById(R.id.obfuscated_res_0x7f0906c0);
+        this.p = this.b.findViewById(R.id.obfuscated_res_0x7f092140);
         TbImageView tbImageView = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f090529);
         this.f = tbImageView;
-        tbImageView.setDefaultBgResource(R.drawable.obfuscated_res_0x7f0811a4);
-        this.f.setDefaultResource(R.drawable.obfuscated_res_0x7f0811a4);
-        this.l = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f092332);
-        HeadImageView headImageView = (HeadImageView) this.b.findViewById(R.id.obfuscated_res_0x7f09231c);
+        tbImageView.setDefaultBgResource(R.drawable.obfuscated_res_0x7f0811a8);
+        this.f.setDefaultResource(R.drawable.obfuscated_res_0x7f0811a8);
+        this.l = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f092334);
+        HeadImageView headImageView = (HeadImageView) this.b.findViewById(R.id.obfuscated_res_0x7f09231e);
         this.k = headImageView;
         headImageView.setIsRound(true);
         this.k.setDrawBorder(false);
         this.n = (UserIconBox) this.b.findViewById(R.id.obfuscated_res_0x7f09056d);
-        this.m = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f092353);
-        this.o = this.b.findViewById(R.id.obfuscated_res_0x7f0907df);
+        this.m = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f092355);
+        this.o = this.b.findViewById(R.id.obfuscated_res_0x7f0907dd);
         this.g = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f09053c);
         this.i = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0904d4);
         this.j = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f09056c);
         TbImageView tbImageView2 = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f09056e);
         this.h = tbImageView2;
-        tbImageView2.setDefaultResource(R.drawable.obfuscated_res_0x7f0811a4);
-        this.h.setDefaultBgResource(R.drawable.obfuscated_res_0x7f0811a4);
+        tbImageView2.setDefaultResource(R.drawable.obfuscated_res_0x7f0811a8);
+        this.h.setDefaultBgResource(R.drawable.obfuscated_res_0x7f0811a8);
         this.j.setOnClickListener(this.r);
     }
 
@@ -179,7 +179,7 @@ public class ko8 {
             this.m.setVisibility(8);
             this.l.setPadding(this.u, 0, 0, 0);
             SkinManager.setViewTextColor(this.l, R.color.CAM_X0308, 1);
-            this.l.setText(R.string.obfuscated_res_0x7f0f0491);
+            this.l.setText(R.string.obfuscated_res_0x7f0f0490);
         } else {
             AccountData currentAccountInfo = TbadkCoreApplication.getCurrentAccountInfo();
             String str3 = null;
@@ -235,7 +235,7 @@ public class ko8 {
             this.i.setVisibility(8);
             this.h.setVisibility(8);
             this.j.setVisibility(8);
-            this.a.showNetRefreshView(this.b, this.a.getPageContext().getResources().getString(R.string.obfuscated_res_0x7f0f0c45), true);
+            this.a.showNetRefreshView(this.b, this.a.getPageContext().getResources().getString(R.string.obfuscated_res_0x7f0f0c31), true);
         }
     }
 
@@ -270,22 +270,22 @@ public class ko8 {
         if (this.q.g() == 1) {
             SkinManager.setViewTextColor(this.j, R.color.CAM_X0105, 1);
             SkinManager.setBackgroundResource(this.j, R.drawable.gray_btn_selector);
-            this.j.setText(R.string.obfuscated_res_0x7f0f04ee);
+            this.j.setText(R.string.obfuscated_res_0x7f0f04ea);
         } else if (this.q.c() == 1) {
             SkinManager.setViewTextColor(this.j, R.color.CAM_X0105, 1);
             SkinManager.setBackgroundResource(this.j, R.drawable.gray_btn_selector);
-            this.j.setText(R.string.obfuscated_res_0x7f0f14e9);
+            this.j.setText(R.string.obfuscated_res_0x7f0f1498);
         } else if (f == 0) {
             SkinManager.setViewTextColor(this.j, R.color.CAM_X0105, 1);
             SkinManager.setBackgroundResource(this.j, R.drawable.gray_btn_selector);
-            this.j.setText(R.string.obfuscated_res_0x7f0f14e8);
+            this.j.setText(R.string.obfuscated_res_0x7f0f1497);
         } else if (f == 100) {
             SkinManager.setViewTextColor(this.j, R.color.CAM_X0101, 1);
             SkinManager.setBackgroundResource(this.j, R.drawable.btn_all_blue);
             if (this.q.h() == 0) {
                 this.j.setText(R.string.obfuscated_res_0x7f0f008c);
             } else {
-                this.j.setText(R.string.obfuscated_res_0x7f0f14e9);
+                this.j.setText(R.string.obfuscated_res_0x7f0f1498);
             }
         } else if (f == 101) {
             SkinManager.setViewTextColor(this.j, R.color.CAM_X0101, 1);

@@ -192,16 +192,16 @@ public final class wz8 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             d().removeAllViews();
-            String string = this.a.getString(R.string.obfuscated_res_0x7f0f0813);
+            String string = this.a.getString(R.string.obfuscated_res_0x7f0f080f);
             Intrinsics.checkNotNullExpressionValue(string, "mPageContext.getString(R…ng.guide_upgrde_item_one)");
             b(R.drawable.obfuscated_res_0x7f08081a, string);
-            String string2 = this.a.getString(R.string.obfuscated_res_0x7f0f0815);
+            String string2 = this.a.getString(R.string.obfuscated_res_0x7f0f0811);
             Intrinsics.checkNotNullExpressionValue(string2, "mPageContext.getString(R…ng.guide_upgrde_item_two)");
             b(R.drawable.obfuscated_res_0x7f080816, string2);
-            String string3 = this.a.getString(R.string.obfuscated_res_0x7f0f0814);
+            String string3 = this.a.getString(R.string.obfuscated_res_0x7f0f0810);
             Intrinsics.checkNotNullExpressionValue(string3, "mPageContext.getString(R….guide_upgrde_item_three)");
             b(R.drawable.obfuscated_res_0x7f0807e9, string3);
-            String string4 = this.a.getString(R.string.obfuscated_res_0x7f0f0812);
+            String string4 = this.a.getString(R.string.obfuscated_res_0x7f0f080e);
             Intrinsics.checkNotNullExpressionValue(string4, "mPageContext.getString(R…g.guide_upgrde_item_four)");
             b(R.drawable.obfuscated_res_0x7f0807e6, string4);
         }
@@ -378,46 +378,46 @@ public final class wz8 {
     public final void n() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
-            View findViewById = this.b.findViewById(R.id.obfuscated_res_0x7f092304);
+            View findViewById = this.b.findViewById(R.id.obfuscated_res_0x7f092306);
             Intrinsics.checkNotNullExpressionValue(findViewById, "mRootView.findViewById(R.id.upgrade_main)");
             u((RelativeLayout) findViewById);
-            View findViewById2 = this.b.findViewById(R.id.obfuscated_res_0x7f092306);
+            View findViewById2 = this.b.findViewById(R.id.obfuscated_res_0x7f092308);
             Intrinsics.checkNotNullExpressionValue(findViewById2, "mRootView.findViewById(R.id.upgrade_top)");
             v((LinearLayout) findViewById2);
-            View findViewById3 = this.b.findViewById(R.id.obfuscated_res_0x7f092301);
+            View findViewById3 = this.b.findViewById(R.id.obfuscated_res_0x7f092303);
             Intrinsics.checkNotNullExpressionValue(findViewById3, "mRootView.findViewById(R.id.upgrade_icon)");
             B((ImageView) findViewById3);
-            View findViewById4 = this.b.findViewById(R.id.obfuscated_res_0x7f092302);
+            View findViewById4 = this.b.findViewById(R.id.obfuscated_res_0x7f092304);
             Intrinsics.checkNotNullExpressionValue(findViewById4, "mRootView.findViewById(R.id.upgrade_icon_title)");
             E((ImageView) findViewById4);
-            View findViewById5 = this.b.findViewById(R.id.obfuscated_res_0x7f092305);
+            View findViewById5 = this.b.findViewById(R.id.obfuscated_res_0x7f092307);
             Intrinsics.checkNotNullExpressionValue(findViewById5, "mRootView.findViewById(R.id.upgrade_tip)");
             D((EMTextView) findViewById5);
-            View findViewById6 = this.b.findViewById(R.id.obfuscated_res_0x7f092300);
+            View findViewById6 = this.b.findViewById(R.id.obfuscated_res_0x7f092302);
             Intrinsics.checkNotNullExpressionValue(findViewById6, "mRootView.findViewById(R.id.upgrade_has_open)");
             A((EMTextView) findViewById6);
-            View findViewById7 = this.b.findViewById(R.id.obfuscated_res_0x7f091d07);
+            View findViewById7 = this.b.findViewById(R.id.obfuscated_res_0x7f091d0d);
             Intrinsics.checkNotNullExpressionValue(findViewById7, "mRootView.findViewById(R.id.select_office_ckb)");
             y((TbCheckBox) findViewById7);
-            View findViewById8 = this.b.findViewById(R.id.obfuscated_res_0x7f091d08);
+            View findViewById8 = this.b.findViewById(R.id.obfuscated_res_0x7f091d0e);
             Intrinsics.checkNotNullExpressionValue(findViewById8, "mRootView.findViewById(R.id.select_office_number)");
             x((EMTextView) findViewById8);
-            View findViewById9 = this.b.findViewById(R.id.obfuscated_res_0x7f0922fe);
+            View findViewById9 = this.b.findViewById(R.id.obfuscated_res_0x7f092300);
             Intrinsics.checkNotNullExpressionValue(findViewById9, "mRootView.findViewById(R.id.upgrade_bottom_tip)");
             z((EMTextView) findViewById9);
             View findViewById10 = this.b.findViewById(R.id.obfuscated_res_0x7f090438);
             Intrinsics.checkNotNullExpressionValue(findViewById10, "mRootView.findViewById(R.id.btn_upgrade_open)");
             C((EMTextView) findViewById10);
-            View findViewById11 = this.b.findViewById(R.id.obfuscated_res_0x7f0922ff);
+            View findViewById11 = this.b.findViewById(R.id.obfuscated_res_0x7f092301);
             Intrinsics.checkNotNullExpressionValue(findViewById11, "mRootView.findViewById(R.id.upgrade_content)");
             s((RelativeLayout) findViewById11);
-            View findViewById12 = this.b.findViewById(R.id.obfuscated_res_0x7f092303);
+            View findViewById12 = this.b.findViewById(R.id.obfuscated_res_0x7f092305);
             Intrinsics.checkNotNullExpressionValue(findViewById12, "mRootView.findViewById(R.id.upgrade_item)");
             t((LinearLayout) findViewById12);
-            View findViewById13 = this.b.findViewById(R.id.obfuscated_res_0x7f0912c4);
+            View findViewById13 = this.b.findViewById(R.id.obfuscated_res_0x7f0912a0);
             Intrinsics.checkNotNullExpressionValue(findViewById13, "mRootView.findViewById(R.id.line_view)");
             r((ImageView) findViewById13);
-            View findViewById14 = this.b.findViewById(R.id.obfuscated_res_0x7f0920c6);
+            View findViewById14 = this.b.findViewById(R.id.obfuscated_res_0x7f0920c8);
             Intrinsics.checkNotNullExpressionValue(findViewById14, "mRootView.findViewById(R.id.title_bar)");
             w((NavigationBar) findViewById14);
             g().addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new View.OnClickListener() { // from class: com.repackage.sz8
@@ -464,7 +464,7 @@ public final class wz8 {
             if (this.c != 2) {
                 j().setVisibility(8);
             } else {
-                l().setText(this.a.getString(R.string.obfuscated_res_0x7f0f0810));
+                l().setText(this.a.getString(R.string.obfuscated_res_0x7f0f080c));
             }
             if (this.d == WorkPublishOpenHelper.OPEN_WORK_PUBLISH_FROM_FRS_WRITE) {
                 i().setVisibility(0);
@@ -478,14 +478,14 @@ public final class wz8 {
     public final void q() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048596, this) == null) {
-            ur4 d = ur4.d(m());
+            vr4 d = vr4.d(m());
             d.z(R.dimen.T_X08);
             d.A(R.string.F_X01);
             d.w(R.dimen.M_T_X002);
-            ur4 d2 = ur4.d(i());
+            vr4 d2 = vr4.d(i());
             d2.z(R.dimen.T_X09);
             d2.w(R.dimen.M_T_X002);
-            ur4 d3 = ur4.d(l());
+            vr4 d3 = vr4.d(l());
             d3.z(R.dimen.T_X05);
             d3.n(R.string.J_X01);
             d3.g(SkinManager.getColor(0, (int) R.color.CAM_X0321));

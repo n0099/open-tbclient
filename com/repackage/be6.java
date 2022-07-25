@@ -18,7 +18,7 @@ public class be6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public List<FrsTabInfo> a;
-    public final List<p55> b;
+    public final List<q55> b;
     public Context c;
     public String d;
     public String e;
@@ -45,17 +45,17 @@ public class be6 {
         this.c = context;
     }
 
-    public void a(p55 p55Var) {
+    public void a(q55 q55Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, p55Var) == null) || p55Var == null || p55Var.b() == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, q55Var) == null) || q55Var == null || q55Var.b() == null) {
             return;
         }
-        for (p55 p55Var2 : this.b) {
-            if (p55Var2 != null && p55Var2.b() != null && p55Var2.b().e == p55Var.b().e) {
+        for (q55 q55Var2 : this.b) {
+            if (q55Var2 != null && q55Var2.b() != null && q55Var2.b().e == q55Var.b().e) {
                 return;
             }
         }
-        this.b.add(p55Var);
+        this.b.add(q55Var);
     }
 
     public String b() {
@@ -88,7 +88,7 @@ public class be6 {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.a : (List) invokeV.objValue;
     }
 
-    public List<p55> g() {
+    public List<q55> g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.b : (List) invokeV.objValue;
@@ -152,12 +152,12 @@ public class be6 {
             LinkedList linkedList2 = new LinkedList();
             for (FrsTabInfo frsTabInfo : this.a) {
                 boolean z = false;
-                Iterator<p55> it = this.b.iterator();
+                Iterator<q55> it = this.b.iterator();
                 while (true) {
                     if (!it.hasNext()) {
                         break;
                     }
-                    p55 next = it.next();
+                    q55 next = it.next();
                     if (next.b() != null && frsTabInfo.tab_id.intValue() == next.b().e) {
                         linkedList.add(next);
                         z = true;

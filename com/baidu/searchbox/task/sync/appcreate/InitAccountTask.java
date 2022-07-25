@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.bn4;
+import com.repackage.cn4;
 /* loaded from: classes2.dex */
 public class InitAccountTask extends LaunchTask {
     public static /* synthetic */ Interceptable $ic;
@@ -31,7 +31,7 @@ public class InitAccountTask extends LaunchTask {
     public void execute() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            bn4.t().A();
+            cn4.t().A();
         }
     }
 

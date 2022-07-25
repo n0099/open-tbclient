@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.b17;
-import com.repackage.ia5;
+import com.repackage.ja5;
 import com.repackage.y07;
 /* loaded from: classes3.dex */
 public class LocalChannelTopicListActivity extends SuspendedActivity {
@@ -121,7 +121,7 @@ public class LocalChannelTopicListActivity extends SuspendedActivity {
     }
 
     @Override // com.baidu.tbadk.suspended.SuspendedActivity
-    public ia5 o0(LinearLayout linearLayout, NavigationBar navigationBar) {
+    public ja5 o0(LinearLayout linearLayout, NavigationBar navigationBar) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, linearLayout, navigationBar)) == null) {
@@ -129,7 +129,7 @@ public class LocalChannelTopicListActivity extends SuspendedActivity {
             this.l = y07Var;
             return y07Var;
         }
-        return (ia5) invokeLL.objValue;
+        return (ja5) invokeLL.objValue;
     }
 
     @Override // com.baidu.tbadk.suspended.SuspendedActivity, com.baidu.tbadk.core.BaseFragmentActivity

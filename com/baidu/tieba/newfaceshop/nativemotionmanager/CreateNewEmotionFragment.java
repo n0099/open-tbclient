@@ -83,12 +83,12 @@ public class CreateNewEmotionFragment extends BaseFragment {
                         if (!TextUtils.isEmpty(str)) {
                             pi.L(this.a.getActivity(), str);
                         } else {
-                            pi.L(this.a.getActivity(), this.a.getString(R.string.obfuscated_res_0x7f0f054d));
+                            pi.L(this.a.getActivity(), this.a.getString(R.string.obfuscated_res_0x7f0f0549));
                         }
                         this.a.a.l();
                     }
                 } else {
-                    BdToast.b(this.a.getPageContext().getPageActivity(), this.a.getPageContext().getPageActivity().getText(R.string.obfuscated_res_0x7f0f05eb)).h();
+                    BdToast.b(this.a.getPageContext().getPageActivity(), this.a.getPageContext().getPageActivity().getText(R.string.obfuscated_res_0x7f0f05e7)).h();
                     if (this.a.a != null) {
                         this.a.a.i();
                     }
@@ -170,7 +170,7 @@ public class CreateNewEmotionFragment extends BaseFragment {
         } else if (wn7.l().k() == null) {
             this.a.i();
         } else {
-            this.a.m(getString(R.string.obfuscated_res_0x7f0f0546));
+            this.a.m(getString(R.string.obfuscated_res_0x7f0f0542));
         }
     }
 

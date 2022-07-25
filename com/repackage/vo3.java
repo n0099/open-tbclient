@@ -1,15 +1,9 @@
 package com.repackage;
+
+import android.view.View;
 /* loaded from: classes7.dex */
 public interface vo3 {
-    void onCompletion();
+    void d(String str, String str2);
 
-    boolean onError();
-
-    void onPause();
-
-    void onPrepared();
-
-    void onResume();
-
-    void onStart();
+    void f(View view2);
 }

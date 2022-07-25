@@ -18,11 +18,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.as4;
 import com.repackage.bs4;
-import com.repackage.ds4;
-import com.repackage.gm4;
+import com.repackage.cs4;
+import com.repackage.es4;
 import com.repackage.h9;
+import com.repackage.hm4;
 import com.repackage.k18;
 import com.repackage.pi;
 import java.util.List;
@@ -32,10 +32,10 @@ public class AutoBannerView extends RelativeLayout {
     public transient /* synthetic */ FieldHolder $fh;
     public CoverFlowView<k18> a;
     public List<k18> b;
-    public gm4 c;
+    public hm4 c;
 
     /* loaded from: classes3.dex */
-    public class a extends as4 {
+    public class a extends bs4 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ AutoBannerView a;
@@ -58,35 +58,35 @@ public class AutoBannerView extends RelativeLayout {
             this.a = autoBannerView;
         }
 
-        @Override // com.repackage.as4, com.repackage.yr4
-        public bs4 a() {
+        @Override // com.repackage.bs4, com.repackage.zr4
+        public cs4 a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                bs4 bs4Var = new bs4();
-                bs4Var.c(R.drawable.obfuscated_res_0x7f08067e);
-                bs4Var.g(R.drawable.obfuscated_res_0x7f080680);
-                bs4Var.d(81);
-                bs4Var.e(R.dimen.tbds26);
-                bs4Var.h(R.dimen.tbds10);
-                return bs4Var;
+                cs4 cs4Var = new cs4();
+                cs4Var.c(R.drawable.obfuscated_res_0x7f08067e);
+                cs4Var.g(R.drawable.obfuscated_res_0x7f080680);
+                cs4Var.d(81);
+                cs4Var.e(R.dimen.tbds26);
+                cs4Var.h(R.dimen.tbds10);
+                return cs4Var;
             }
-            return (bs4) invokeV.objValue;
+            return (cs4) invokeV.objValue;
         }
 
-        @Override // com.repackage.as4, com.repackage.yr4
-        public ds4 c() {
+        @Override // com.repackage.bs4, com.repackage.zr4
+        public es4 c() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                ds4 ds4Var = new ds4();
-                ds4Var.a(pi.f(this.a.getContext(), R.dimen.tbds209));
-                return ds4Var;
+                es4 es4Var = new es4();
+                es4Var.a(pi.f(this.a.getContext(), R.dimen.tbds209));
+                return es4Var;
             }
-            return (ds4) invokeV.objValue;
+            return (es4) invokeV.objValue;
         }
 
-        @Override // com.repackage.as4, com.repackage.yr4
+        @Override // com.repackage.bs4, com.repackage.zr4
         public TbImageView d(Context context) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
@@ -97,7 +97,7 @@ public class AutoBannerView extends RelativeLayout {
                 tbImageView.setGifIconSupport(true);
                 tbImageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
                 tbImageView.setDrawerType(1);
-                tbImageView.setRadius(pi.f(this.a.getContext(), R.dimen.obfuscated_res_0x7f070289));
+                tbImageView.setRadius(pi.f(this.a.getContext(), R.dimen.obfuscated_res_0x7f070287));
                 return tbImageView;
             }
             return (TbImageView) invokeL.objValue;
@@ -202,10 +202,10 @@ public class AutoBannerView extends RelativeLayout {
         }
     }
 
-    public void setIWindowChangedListener(gm4 gm4Var) {
+    public void setIWindowChangedListener(hm4 hm4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, gm4Var) == null) {
-            this.c = gm4Var;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, hm4Var) == null) {
+            this.c = hm4Var;
         }
     }
 

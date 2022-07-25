@@ -55,22 +55,22 @@ public class PersonInfoUserPicsHolder extends TypeAdapter.ViewHolder {
         this.f = 3;
         this.a = view2;
         this.g = tbPageContext;
-        this.b = view2.findViewById(R.id.obfuscated_res_0x7f0907e0);
-        this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091fed);
-        HTypeListView hTypeListView = (HTypeListView) view2.findViewById(R.id.obfuscated_res_0x7f0912e8);
+        this.b = view2.findViewById(R.id.obfuscated_res_0x7f0907de);
+        this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091ff1);
+        HTypeListView hTypeListView = (HTypeListView) view2.findViewById(R.id.obfuscated_res_0x7f0912c4);
         this.d = hTypeListView;
         this.e = new o08(this.g, hTypeListView);
     }
 
-    public void c(p08 p08Var) {
+    public void b(p08 p08Var) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048576, this, p08Var) == null) || p08Var == null) {
             return;
         }
-        this.e.c(e(p08Var.a()));
+        this.e.c(d(p08Var.a()));
     }
 
-    public void d() {
+    public void c() {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.f == TbadkCoreApplication.getInst().getSkinType()) {
             return;
@@ -82,7 +82,7 @@ public class PersonInfoUserPicsHolder extends TypeAdapter.ViewHolder {
         this.e.b();
     }
 
-    public final List<nn> e(List<nn> list) {
+    public final List<nn> d(List<nn> list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list)) == null) {
@@ -90,7 +90,7 @@ public class PersonInfoUserPicsHolder extends TypeAdapter.ViewHolder {
                 return list;
             }
             ArrayList arrayList = new ArrayList(list);
-            f08 f08Var = new f08(pi.f(this.g.getPageActivity(), R.dimen.obfuscated_res_0x7f070207), pi.f(this.g.getPageActivity(), R.dimen.obfuscated_res_0x7f07023e));
+            f08 f08Var = new f08(pi.f(this.g.getPageActivity(), R.dimen.obfuscated_res_0x7f070207), pi.f(this.g.getPageActivity(), R.dimen.obfuscated_res_0x7f07023c));
             ListUtils.add(arrayList, 0, f08Var);
             ListUtils.add(arrayList, f08Var);
             return arrayList;

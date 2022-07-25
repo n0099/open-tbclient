@@ -21,11 +21,17 @@ public final class z implements com.kwad.sdk.core.d<AdInfo.AdStyleConfInfo> {
         if (jSONObject == null) {
             jSONObject = new JSONObject();
         }
-        com.kwad.sdk.utils.r.a(jSONObject, "fullScreenSkipShowTime", adStyleConfInfo.fullScreenSkipShowTime);
-        com.kwad.sdk.utils.r.a(jSONObject, "rewardSkipConfirmSwitch", adStyleConfInfo.rewardSkipConfirmSwitch);
-        com.kwad.sdk.utils.r.a(jSONObject, "closeDelaySeconds", adStyleConfInfo.closeDelaySeconds);
-        com.kwad.sdk.utils.r.a(jSONObject, "playableCloseSeconds", adStyleConfInfo.playableCloseSeconds);
-        com.kwad.sdk.utils.r.a(jSONObject, "rewardReflowSwitch", adStyleConfInfo.rewardReflowSwitch);
+        com.kwad.sdk.utils.r.putValue(jSONObject, "fullScreenSkipShowTime", adStyleConfInfo.fullScreenSkipShowTime);
+        com.kwad.sdk.utils.r.putValue(jSONObject, "rewardSkipConfirmSwitch", adStyleConfInfo.rewardSkipConfirmSwitch);
+        long j = adStyleConfInfo.closeDelaySeconds;
+        if (j != 0) {
+            com.kwad.sdk.utils.r.putValue(jSONObject, "closeDelaySeconds", j);
+        }
+        long j2 = adStyleConfInfo.playableCloseSeconds;
+        if (j2 != 0) {
+            com.kwad.sdk.utils.r.putValue(jSONObject, "playableCloseSeconds", j2);
+        }
+        com.kwad.sdk.utils.r.putValue(jSONObject, "rewardReflowSwitch", adStyleConfInfo.rewardReflowSwitch);
         return jSONObject;
     }
 

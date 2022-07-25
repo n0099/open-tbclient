@@ -1,56 +1,21 @@
 package com.repackage;
 
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class m05 implements nf5 {
+public class m05 {
     public static /* synthetic */ Interceptable $ic;
+    public static m05 d;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
-    public boolean d;
-    public boolean e;
-
-    /* loaded from: classes6.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ m05 a;
-
-        public a(m05 m05Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {m05Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = m05Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                jg.h().m(this.a.b, 10, null, null);
-                jg.h().m(this.a.c, 10, null, null);
-            }
-        }
-    }
+    public HashMap<String, String> a;
+    public HashMap<String, String> b;
+    public HashMap<String, String> c;
 
     public m05() {
         Interceptable interceptable = $ic;
@@ -62,77 +27,96 @@ public class m05 implements nf5 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = new HashMap<>();
+        this.b = new HashMap<>();
+        this.c = new HashMap<>();
     }
 
-    @Override // com.repackage.nf5
-    public String a() {
+    public static synchronized m05 a() {
         InterceptResult invokeV;
+        m05 m05Var;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            synchronized (m05.class) {
+                if (d == null) {
+                    d = new m05();
+                }
+                m05Var = d;
+            }
+            return m05Var;
+        }
+        return (m05) invokeV.objValue;
     }
 
-    @Override // com.repackage.nf5
-    public void b(String str) {
+    public void b(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) || StringUtils.isNull(str)) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
             return;
         }
-        if (!this.d) {
-            this.d = str.equals(this.b);
+        try {
+            JSONObject optJSONObject = jSONObject.optJSONObject("upload_file_frequency");
+            if (optJSONObject != null) {
+                String optString = optJSONObject.optString("2g");
+                String optString2 = optJSONObject.optString("3g");
+                String optString3 = optJSONObject.optString("4g");
+                String optString4 = optJSONObject.optString("wifi");
+                if (optString != null) {
+                    this.a.put("2g", optString);
+                }
+                if (optString2 != null) {
+                    this.a.put("3g", optString2);
+                }
+                if (optString3 != null) {
+                    this.a.put("4g", optString3);
+                }
+                if (optString4 != null) {
+                    this.a.put("wifi", optString4);
+                }
+            }
+            JSONObject optJSONObject2 = jSONObject.optJSONObject("upload_data_num");
+            if (optJSONObject2 != null) {
+                String optString5 = optJSONObject2.optString("2g");
+                String optString6 = optJSONObject2.optString("3g");
+                String optString7 = optJSONObject2.optString("4g");
+                String optString8 = optJSONObject2.optString("wifi");
+                if (optString5 != null) {
+                    this.b.put("2g", optString5);
+                }
+                if (optString6 != null) {
+                    this.b.put("3g", optString6);
+                }
+                if (optString7 != null) {
+                    this.b.put("4g", optString7);
+                }
+                if (optString8 != null) {
+                    this.b.put("wifi", optString8);
+                }
+            }
+            JSONObject optJSONObject3 = jSONObject.optJSONObject("merge_data_frequency");
+            if (optJSONObject3 != null) {
+                String optString9 = optJSONObject3.optString("2g");
+                String optString10 = optJSONObject3.optString("3g");
+                String optString11 = optJSONObject3.optString("4g");
+                String optString12 = optJSONObject3.optString("wifi");
+                if (optString9 != null) {
+                    this.c.put("2g", optString9);
+                }
+                if (optString10 != null) {
+                    this.c.put("3g", optString10);
+                }
+                if (optString11 != null) {
+                    this.c.put("4g", optString11);
+                }
+                if (optString12 != null) {
+                    this.c.put("wifi", optString12);
+                }
+            }
+            jSONObject.optString("is_on");
+        } catch (Exception e) {
+            BdLog.detailException(e);
         }
-        if (this.e) {
-            return;
-        }
-        this.e = str.equals(this.c);
-    }
-
-    @Override // com.repackage.nf5
-    public String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : (String) invokeV.objValue;
-    }
-
-    @Override // com.repackage.nf5
-    public String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.c : (String) invokeV.objValue;
-    }
-
-    @Override // com.repackage.nf5
-    public boolean e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.d && this.e : invokeV.booleanValue;
-    }
-
-    public void f(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, jSONObject) == null) || jSONObject == null) {
-            return;
-        }
-        this.a = jSONObject.optString("url");
-        this.b = jSONObject.optString("fold_lottie");
-        jSONObject.optString("fold_name");
-        this.c = jSONObject.optString("unfold_lottie");
-        jSONObject.optString("unfold_name");
-        g();
-    }
-
-    public final void g() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && isValid()) {
-            qg.a().post(new a(this));
-        }
-    }
-
-    @Override // com.repackage.nf5
-    public boolean isValid() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? (StringUtils.isNull(this.a) || StringUtils.isNull(this.b) || StringUtils.isNull(this.c)) ? false : true : invokeV.booleanValue;
     }
 }

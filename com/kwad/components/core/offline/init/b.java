@@ -7,13 +7,13 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.ksad.annotation.invoker.ForInvoker;
-import com.kwad.components.core.offline.init.kwai.f;
+import com.kwad.components.core.offline.init.kwai.g;
 import com.kwad.components.offline.api.OfflineHostProvider;
 import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes5.dex */
 public final class b {
     public static /* synthetic */ Interceptable $ic;
-    public static final AtomicBoolean a;
+    public static final AtomicBoolean EL;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -29,25 +29,25 @@ public final class b {
                 return;
             }
         }
-        a = new AtomicBoolean();
-    }
-
-    public static void a(Context context) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65537, null, context) == null) || a.get()) {
-            return;
-        }
-        a.set(true);
-        OfflineHostProvider.get().init(context, new f());
-        b(context);
+        EL = new AtomicBoolean();
     }
 
     @ForInvoker(methodId = "initOC")
-    public static void b(Context context) {
+    public static void ao(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, context) == null) {
-            com.kwad.components.offline.obiwan.a.b(context);
-            com.kwad.components.offline.tk.a.b(context);
+        if (interceptable == null || interceptable.invokeL(65537, null, context) == null) {
+            com.kwad.components.offline.obiwan.a.aC(context);
+            com.kwad.components.offline.tk.a.aC(context);
         }
+    }
+
+    public static void init(Context context) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(65538, null, context) == null) || EL.get()) {
+            return;
+        }
+        EL.set(true);
+        OfflineHostProvider.get().init(context, new g());
+        ao(context);
     }
 }

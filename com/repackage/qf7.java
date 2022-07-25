@@ -127,7 +127,7 @@ public class qf7 extends an<vf7, SearchSuggestRankingViewHolder> {
     public SearchSuggestRankingViewHolder M(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, viewGroup)) == null) ? new SearchSuggestRankingViewHolder(LayoutInflater.from(this.i).inflate(R.layout.obfuscated_res_0x7f0d0757, viewGroup, false)) : (SearchSuggestRankingViewHolder) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, viewGroup)) == null) ? new SearchSuggestRankingViewHolder(LayoutInflater.from(this.i).inflate(R.layout.obfuscated_res_0x7f0d0761, viewGroup, false)) : (SearchSuggestRankingViewHolder) invokeL.objValue;
     }
 
     public View d0(int i, View view2, ViewGroup viewGroup, vf7 vf7Var, SearchSuggestRankingViewHolder searchSuggestRankingViewHolder) {
@@ -149,11 +149,11 @@ public class qf7 extends an<vf7, SearchSuggestRankingViewHolder> {
     public final void e0(SearchSuggestRankingViewHolder searchSuggestRankingViewHolder) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, searchSuggestRankingViewHolder) == null) {
-            ur4 d = ur4.d(searchSuggestRankingViewHolder.b);
+            vr4 d = vr4.d(searchSuggestRankingViewHolder.b);
             d.v(R.color.CAM_X0105);
             d.z(R.dimen.T_X06);
             SkinManager.setBackgroundResource(searchSuggestRankingViewHolder.a, R.drawable.addresslist_item_bg);
-            ur4.d(searchSuggestRankingViewHolder.d).f(R.color.CAM_X0203);
+            vr4.d(searchSuggestRankingViewHolder.d).f(R.color.CAM_X0203);
         }
     }
 

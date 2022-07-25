@@ -18,7 +18,7 @@ import org.json.JSONObject;
 public class uf8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<nq4> a;
+    public ArrayList<oq4> a;
     public ArrayList<a> b;
     public ArrayList<b> c;
     public boolean d;
@@ -187,9 +187,9 @@ public class uf8 {
             JSONArray jSONArray2 = new JSONArray();
             try {
                 if (this.a != null && this.a.size() != 0) {
-                    Iterator<nq4> it = this.a.iterator();
+                    Iterator<oq4> it = this.a.iterator();
                     while (it.hasNext()) {
-                        nq4 next = it.next();
+                        oq4 next = it.next();
                         if (next != null) {
                             JSONObject jSONObject2 = new JSONObject();
                             jSONObject2.put("pic_url_bigger", next.a());
@@ -249,7 +249,7 @@ public class uf8 {
         return (String) invokeV.objValue;
     }
 
-    public ArrayList<nq4> e() {
+    public ArrayList<oq4> e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.a : (ArrayList) invokeV.objValue;
@@ -268,7 +268,7 @@ public class uf8 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             if (this.d) {
-                ArrayList<nq4> arrayList3 = this.a;
+                ArrayList<oq4> arrayList3 = this.a;
                 return (arrayList3 == null || arrayList3.size() == 0) && ((arrayList = this.b) == null || arrayList.size() == 0) && ((arrayList2 = this.c) == null || arrayList2.size() == 0);
             }
             return true;
@@ -292,11 +292,11 @@ public class uf8 {
                     String optString2 = jSONObject.optString("link", "");
                     String optString3 = jSONObject.optString("template_id", "");
                     if (!TextUtils.isEmpty(optString) && !TextUtils.isEmpty(optString2)) {
-                        nq4 nq4Var = new nq4();
-                        nq4Var.d(optString);
-                        nq4Var.e(optString2);
-                        nq4Var.f(optString3);
-                        this.a.add(nq4Var);
+                        oq4 oq4Var = new oq4();
+                        oq4Var.d(optString);
+                        oq4Var.e(optString2);
+                        oq4Var.f(optString3);
+                        this.a.add(oq4Var);
                     }
                 }
             }
@@ -487,7 +487,7 @@ public class uf8 {
         }
     }
 
-    public void m(ArrayList<nq4> arrayList) {
+    public void m(ArrayList<oq4> arrayList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, arrayList) == null) {
             this.a = arrayList;

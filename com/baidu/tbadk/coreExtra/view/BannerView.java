@@ -25,7 +25,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.pi;
 import com.repackage.t98;
-import com.repackage.uo4;
+import com.repackage.vo4;
 /* loaded from: classes3.dex */
 public class BannerView extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
@@ -41,7 +41,7 @@ public class BannerView extends RelativeLayout {
     public float i;
     public String j;
     public boolean k;
-    public uo4 l;
+    public vo4 l;
     public String m;
     public b n;
     public View.OnClickListener o;
@@ -162,7 +162,7 @@ public class BannerView extends RelativeLayout {
             this.d = tbImageView;
             tbImageView.setAutoChangeStyle(true);
             this.d.setOnClickListener(this.o);
-            this.f = (TbImageView) findViewById(R.id.obfuscated_res_0x7f0921fd);
+            this.f = (TbImageView) findViewById(R.id.obfuscated_res_0x7f0921ff);
             View findViewById = findViewById(R.id.obfuscated_res_0x7f090306);
             this.g = findViewById;
             SkinManager.setBackgroundColor(findViewById, R.color.black_alpha0);
@@ -190,11 +190,11 @@ public class BannerView extends RelativeLayout {
         }
     }
 
-    public void setBannerData(uo4 uo4Var) {
+    public void setBannerData(vo4 vo4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, uo4Var) == null) {
-            this.l = uo4Var;
-            t98.f(uo4Var.g, this.f, uo4Var.h, pi.f(getContext(), R.dimen.obfuscated_res_0x7f0701f0));
+        if (interceptable == null || interceptable.invokeL(1048581, this, vo4Var) == null) {
+            this.l = vo4Var;
+            t98.f(vo4Var.g, this.f, vo4Var.h, pi.f(getContext(), R.dimen.obfuscated_res_0x7f0701f0));
         }
     }
 

@@ -33,7 +33,7 @@ public class ny8 {
     public WriteImageGridView b;
     public WriteImagesInfo c;
     public my8 d;
-    public o45 e;
+    public p45 e;
     public String f;
     public String g;
     public boolean h;
@@ -138,7 +138,7 @@ public class ny8 {
                 return;
             }
         }
-        this.e = new o45();
+        this.e = new p45();
         this.f = AlbumActivityConfig.FROM_WRITE;
         this.g = "";
         this.i = new a(this);

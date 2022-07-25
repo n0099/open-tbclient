@@ -68,9 +68,9 @@ public class PhotoInfo extends com.kwad.sdk.core.response.kwai.a implements Seri
             return;
         }
         try {
-            s.a(jSONObject, new JSONObject(this.mOriginJString));
+            s.merge(jSONObject, new JSONObject(this.mOriginJString));
         } catch (JSONException e) {
-            com.kwad.sdk.core.d.b.b(e);
+            com.kwad.sdk.core.e.b.printStackTraceOnly(e);
         }
     }
 }

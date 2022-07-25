@@ -230,17 +230,17 @@ public class ex8 extends BaseAdapter {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                if (view2.getId() == R.id.obfuscated_res_0x7f0918d9) {
+                if (view2.getId() == R.id.obfuscated_res_0x7f0918b4) {
                     if (this.c.i == null || this.a == null) {
                         return;
                     }
                     this.c.i.a(this.b, this.a);
-                } else if (view2.getId() == R.id.obfuscated_res_0x7f091216) {
+                } else if (view2.getId() == R.id.obfuscated_res_0x7f0911f2) {
                     if (this.a == null || this.c.j == null) {
                         return;
                     }
                     this.c.j.a(this.b, this.a);
-                } else if (view2.getId() != R.id.obfuscated_res_0x7f0923fa || this.c.j == null || this.a == null) {
+                } else if (view2.getId() != R.id.obfuscated_res_0x7f0923fc || this.c.j == null || this.a == null) {
                 } else {
                     this.c.j.a(this.b, this.a);
                 }
@@ -355,7 +355,7 @@ public class ex8 extends BaseAdapter {
                 dVar2.a = inflate;
                 dVar2.c = (TbCameraView) inflate.findViewById(R.id.obfuscated_res_0x7f09046a);
                 this.n.d = (TBLottieAnimationView) inflate.findViewById(R.id.obfuscated_res_0x7f090265);
-                this.n.b = inflate.findViewById(R.id.obfuscated_res_0x7f090dcf);
+                this.n.b = inflate.findViewById(R.id.obfuscated_res_0x7f090dc8);
                 this.n.d.setScaleType(ImageView.ScaleType.CENTER_CROP);
                 this.n.d.setFrame(0);
                 this.n.d.setRenderMode(RenderMode.HARDWARE);
@@ -389,14 +389,14 @@ public class ex8 extends BaseAdapter {
                     g gVar2 = new g(this, null);
                     View inflate = this.c.inflate(R.layout.obfuscated_res_0x7f0d0112, viewGroup, false);
                     gVar2.a = inflate;
-                    TbImageView tbImageView = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f0918d9);
+                    TbImageView tbImageView = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f0918b4);
                     gVar2.b = tbImageView;
                     tbImageView.setDefaultResource(0);
                     gVar2.b.setTagPaddingDis(8, 8);
                     gVar2.b.setGifIconSupport(true);
                     gVar2.b.setLongIconSupport(true);
-                    gVar2.c = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091cfa);
-                    gVar2.d = (RelativeLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091216);
+                    gVar2.c = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091d00);
+                    gVar2.d = (RelativeLayout) inflate.findViewById(R.id.obfuscated_res_0x7f0911f2);
                     yw8 yw8Var = this.d;
                     if (yw8Var != null && yw8Var.m() != null && this.d.m().isFromQRCode()) {
                         gVar2.d.setVisibility(8);
@@ -491,13 +491,13 @@ public class ex8 extends BaseAdapter {
                     f fVar2 = new f(this, null);
                     View inflate = this.c.inflate(R.layout.obfuscated_res_0x7f0d0116, viewGroup, false);
                     fVar2.a = inflate;
-                    TbImageView tbImageView = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f0923fa);
+                    TbImageView tbImageView = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f0923fc);
                     fVar2.b = tbImageView;
                     tbImageView.setDefaultResource(0);
                     fVar2.b.setTagPaddingDis(8, 8);
                     fVar2.b.setGifIconSupport(false);
                     fVar2.b.setLongIconSupport(false);
-                    fVar2.c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0923d0);
+                    fVar2.c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0923d2);
                     inflate.setTag(fVar2);
                     fVar = fVar2;
                     view2 = inflate;
@@ -672,7 +672,7 @@ public class ex8 extends BaseAdapter {
                 this.m.N(5000);
             }
             if (this.m != null) {
-                String o = xt4.o("key_show_take_photo_tip");
+                String o = yt4.o("key_show_take_photo_tip");
                 this.m.k0(this.b.getString(R.string.obfuscated_res_0x7f0f0258), o);
             }
         }

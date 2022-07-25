@@ -266,18 +266,18 @@ public class hb8 extends kb8 {
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             this.b.setOnClickListener(new a(this));
             this.h = (RelativeLayout) a(R.id.obfuscated_res_0x7f090094);
-            this.i = (RoundTbImageView) a(R.id.obfuscated_res_0x7f092316);
-            this.j = (TextView) a(R.id.obfuscated_res_0x7f09232d);
-            this.k = (TextView) a(R.id.obfuscated_res_0x7f092313);
-            this.l = (ApkDownloadView) a(R.id.obfuscated_res_0x7f0907ed);
-            this.m = (TextView) a(R.id.obfuscated_res_0x7f091ad5);
-            this.n = (CountDownTextView) a(R.id.obfuscated_res_0x7f0906d3);
+            this.i = (RoundTbImageView) a(R.id.obfuscated_res_0x7f092318);
+            this.j = (TextView) a(R.id.obfuscated_res_0x7f09232f);
+            this.k = (TextView) a(R.id.obfuscated_res_0x7f092315);
+            this.l = (ApkDownloadView) a(R.id.obfuscated_res_0x7f0907eb);
+            this.m = (TextView) a(R.id.obfuscated_res_0x7f091aaf);
+            this.n = (CountDownTextView) a(R.id.obfuscated_res_0x7f0906d2);
             this.o = (AdAppInfoView) a(R.id.obfuscated_res_0x7f0900af);
             this.l.setTextColorInitSkin(R.color.CAM_X0101);
             this.l.setTextColor(SkinManager.getColor(R.color.CAM_X0101));
             this.l.setTextSize(R.dimen.T_X06);
             this.l.setForegroundSkin(R.color.black_alpha15);
-            this.l.setBackgroundSkin(R.drawable.obfuscated_res_0x7f0811cf);
+            this.l.setBackgroundSkin(R.drawable.obfuscated_res_0x7f0811d3);
             this.l.setRatio(0);
             this.l.c();
         }

@@ -30,7 +30,7 @@ import com.repackage.an;
 import com.repackage.i36;
 import com.repackage.j36;
 import com.repackage.pi;
-import com.repackage.ur4;
+import com.repackage.vr4;
 /* loaded from: classes3.dex */
 public class ItemCardViewWrapperAdapter extends an<j36, ItemCardViewWrapperViewHolder> {
     public static /* synthetic */ Interceptable $ic;
@@ -161,14 +161,14 @@ public class ItemCardViewWrapperAdapter extends an<j36, ItemCardViewWrapperViewH
             this.d = viewGroup.getChildAt(3);
         }
 
-        public void d() {
+        public void c() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                ur4.d(this.d).f(R.color.CAM_X0203);
+                vr4.d(this.d).f(R.color.CAM_X0203);
                 this.a.G();
                 this.a.setBackground(null);
                 SkinManager.setBackgroundColor(this.b, R.color.CAM_X0204);
-                ur4 d = ur4.d(this.c);
+                vr4 d = vr4.d(this.c);
                 d.z(R.dimen.T_X06);
                 d.A(R.string.F_X02);
                 d.v(R.color.CAM_X0105);
@@ -176,7 +176,7 @@ public class ItemCardViewWrapperAdapter extends an<j36, ItemCardViewWrapperViewH
             }
         }
 
-        public void e(j36 j36Var) {
+        public void d(j36 j36Var) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j36Var) == null) {
                 if (!j36Var.d) {
@@ -284,7 +284,7 @@ public class ItemCardViewWrapperAdapter extends an<j36, ItemCardViewWrapperViewH
             FrameLayout.LayoutParams layoutParams2 = new FrameLayout.LayoutParams(-1, -2);
             layoutParams2.setMargins(0, pi.f(this.a, R.dimen.tbds21), 0, 0);
             eMTextView.setPadding(pi.f(this.a, R.dimen.M_W_X007), pi.f(this.a, R.dimen.tbds44), 0, 0);
-            eMTextView.setText(R.string.obfuscated_res_0x7f0f0f8b);
+            eMTextView.setText(R.string.obfuscated_res_0x7f0f0f74);
             frameLayout.addView(eMTextView, layoutParams2);
             frameLayout.addView(new View(this.a), new ViewGroup.LayoutParams(-1, pi.f(this.a, R.dimen.tbds21)));
             View view2 = new View(this.a);
@@ -302,9 +302,9 @@ public class ItemCardViewWrapperAdapter extends an<j36, ItemCardViewWrapperViewH
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, j36Var, itemCardViewWrapperViewHolder})) == null) {
             if (j36Var != null) {
-                itemCardViewWrapperViewHolder.e(j36Var);
+                itemCardViewWrapperViewHolder.d(j36Var);
             }
-            itemCardViewWrapperViewHolder.d();
+            itemCardViewWrapperViewHolder.c();
             return view2;
         }
         return (View) invokeCommon.objValue;

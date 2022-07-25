@@ -50,10 +50,10 @@ public class gv0 extends qu0 implements View.OnClickListener {
     public void B() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(this.c).inflate(R.layout.obfuscated_res_0x7f0d05c0, (ViewGroup) null);
+            ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(this.c).inflate(R.layout.obfuscated_res_0x7f0d05ca, (ViewGroup) null);
             this.e = viewGroup;
-            this.f = (ImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f0923c0);
-            this.h = (LineLoadingView) this.e.findViewById(R.id.obfuscated_res_0x7f0912bd);
+            this.f = (ImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f0923c2);
+            this.h = (LineLoadingView) this.e.findViewById(R.id.obfuscated_res_0x7f091299);
         }
     }
 

@@ -52,14 +52,14 @@ public class ym8 extends CustomMessageListener {
         if (nl8Var2 != null && nl8Var2.d() != null) {
             this.b.d().b();
         }
-        if (ms4.a().f()) {
-            ms4.a().g(this.a.getClass().getName());
-            ms4.a().l(false);
+        if (ns4.a().f()) {
+            ns4.a().g(this.a.getClass().getName());
+            ns4.a().l(false);
         }
-        if (ms4.a().e()) {
-            ms4.a().b();
-            ms4.a().h(this.a.getClass().getName());
-            ms4.a().k(false);
+        if (ns4.a().e()) {
+            ns4.a().b();
+            ns4.a().h(this.a.getClass().getName());
+            ns4.a().k(false);
         }
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921567, null));
     }

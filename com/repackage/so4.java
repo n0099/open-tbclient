@@ -1,20 +1,17 @@
 package com.repackage;
 
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.pushdialog.PushDialogActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-import tbclient.MultiForumPerm;
+import tbclient.FrsPage.MemberShowIcon;
 /* loaded from: classes7.dex */
 public class so4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public int b;
-    public boolean c;
 
     public so4() {
         Interceptable interceptable = $ic;
@@ -35,18 +32,22 @@ public class so4 {
         if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
             return;
         }
-        this.a = jSONObject.optInt("is_bawu") == 1;
-        this.b = "manager".equals(jSONObject.optString("bawu_type")) ? 1 : PushDialogActivity.HomeWatcherReceiver.SYSTEM_DIALOG_REASON_ASSIST.equals(jSONObject.optString("bawu_type")) ? 2 : 0;
-        this.c = jSONObject.optInt("is_deleted") == 1;
+        try {
+            jSONObject.optString("icon");
+            jSONObject.optString("name");
+            jSONObject.optString("url");
+        } catch (Exception e) {
+            BdLog.e(e.getMessage());
+        }
     }
 
-    public void b(MultiForumPerm multiForumPerm) {
+    public void b(MemberShowIcon memberShowIcon) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, multiForumPerm) == null) || multiForumPerm == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, memberShowIcon) == null) || memberShowIcon == null) {
             return;
         }
-        this.a = multiForumPerm.is_bawu.intValue() == 1;
-        this.b = "manager".equals(multiForumPerm.bawu_type) ? 1 : PushDialogActivity.HomeWatcherReceiver.SYSTEM_DIALOG_REASON_ASSIST.equals(multiForumPerm.bawu_type) ? 2 : 0;
-        this.c = multiForumPerm.is_deleted.intValue() == 1;
+        String str = memberShowIcon.icon;
+        String str2 = memberShowIcon.name;
+        String str3 = memberShowIcon.url;
     }
 }

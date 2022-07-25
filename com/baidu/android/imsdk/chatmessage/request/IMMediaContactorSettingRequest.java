@@ -9,6 +9,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.internal.ListenerManager;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
+import com.baidu.swan.gamecenter.appmanager.download.AppDownloadNetworkStateReceiver;
 import com.baidu.tieba.frs.itemtab.gamecode.GameCodeGetResponseMsg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -92,7 +93,7 @@ public class IMMediaContactorSettingRequest extends IMMediaBaseHttpRequest {
             JSONObject jSONObject = new JSONObject();
             try {
                 putCommonParams(jSONObject);
-                jSONObject.put("operation", this.mOperation);
+                jSONObject.put(AppDownloadNetworkStateReceiver.KEY_OPERATION, this.mOperation);
                 if (this.mContacter > 0) {
                     jSONObject.put("contacter", Utility.transBDUID(String.valueOf(this.mContacter)));
                 }

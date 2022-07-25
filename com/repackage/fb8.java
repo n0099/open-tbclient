@@ -132,7 +132,7 @@ public class fb8 extends kb8 {
             super.b();
             SkinManager.setViewTextColor(this.i, R.color.CAM_X0101, 1);
             this.j.setTextColorInitSkin(R.color.CAM_X0101);
-            this.j.setBackgroundSkin(R.drawable.obfuscated_res_0x7f081168);
+            this.j.setBackgroundSkin(R.drawable.obfuscated_res_0x7f08116c);
             this.j.c();
         }
     }
@@ -161,13 +161,13 @@ public class fb8 extends kb8 {
     public final void l() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            HeadImageView headImageView = (HeadImageView) a(R.id.obfuscated_res_0x7f09233a);
+            HeadImageView headImageView = (HeadImageView) a(R.id.obfuscated_res_0x7f09233c);
             this.h = headImageView;
             headImageView.setDefaultResource(R.drawable.icon_default_avatar100);
             this.h.setDefaultBgResource(R.color.CAM_X0205);
             this.h.setIsRound(true);
-            this.i = (TextView) a(R.id.obfuscated_res_0x7f09232d);
-            this.j = (ApkDownloadView) a(R.id.obfuscated_res_0x7f090800);
+            this.i = (TextView) a(R.id.obfuscated_res_0x7f09232f);
+            this.j = (ApkDownloadView) a(R.id.obfuscated_res_0x7f0907fe);
         }
     }
 

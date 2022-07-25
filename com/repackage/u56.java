@@ -67,7 +67,7 @@ public class u56 {
             if (user.influence == null) {
                 t56Var.e = "";
             } else {
-                t56Var.e = String.format(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f08ec), StringHelper.numFormatOverWanNa(user.influence.intValue()));
+                t56Var.e = String.format(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f08d7), StringHelper.numFormatOverWanNa(user.influence.intValue()));
             }
             MetaData metaData = new MetaData();
             metaData.parserProtobuf(user);
@@ -92,7 +92,7 @@ public class u56 {
                 return "";
             }
             String str = TextUtils.isEmpty("") ? user.name_show : "";
-            return TextUtils.isEmpty(str) ? TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f14f5) : str;
+            return TextUtils.isEmpty(str) ? TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f14a4) : str;
         }
         return (String) invokeL.objValue;
     }

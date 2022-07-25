@@ -10,7 +10,7 @@ public final class d extends com.kwad.components.core.g.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     @NonNull
-    public com.kwad.components.core.page.a.a a;
+    public com.kwad.components.core.page.a.a mPlayModule;
 
     public d() {
         Interceptable interceptable = $ic;

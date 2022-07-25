@@ -83,12 +83,12 @@ import org.apache.http.params.HttpProtocolParams;
 import org.apache.http.protocol.HTTP;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class HttpUtils {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class HttpStatusException extends Exception {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String ERROR_INFO = "http status code error:";
@@ -115,7 +115,7 @@ public class HttpUtils {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class NetworkUnavailableException extends Exception {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String ERROR_INFO = "network unavailable";
@@ -142,7 +142,7 @@ public class HttpUtils {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

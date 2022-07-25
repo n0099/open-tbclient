@@ -14,13 +14,13 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.k45;
+import com.repackage.l45;
 import com.repackage.pi;
 import com.repackage.ym;
 import java.util.ArrayList;
 import kotlinx.coroutines.internal.LockFreeTaskQueueCore;
 /* loaded from: classes4.dex */
-public class ForumsTopicsRecommendView extends ViewGroup implements k45 {
+public class ForumsTopicsRecommendView extends ViewGroup implements l45 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
@@ -55,7 +55,7 @@ public class ForumsTopicsRecommendView extends ViewGroup implements k45 {
         }
     }
 
-    @Override // com.repackage.k45
+    @Override // com.repackage.l45
     public void a(ym ymVar, String str, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLZ(1048576, this, ymVar, str, z) == null) {
@@ -142,12 +142,12 @@ public class ForumsTopicsRecommendView extends ViewGroup implements k45 {
         this.d = pi.k(context);
         this.b = context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701d5);
         this.c = context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701b2);
-        this.e = context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07027b);
+        this.e = context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070279);
         ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d02c9, (ViewGroup) this, true);
-        this.f.add((TbImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f090a70));
-        this.f.add((TbImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f090a71));
-        this.f.add((TbImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f090a72));
-        this.f.add((TbImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f090a73));
+        this.f.add((TbImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f090a69));
+        this.f.add((TbImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f090a6a));
+        this.f.add((TbImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f090a6b));
+        this.f.add((TbImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f090a6c));
         int i3 = this.d;
         int i4 = this.b;
         this.g = ((i3 - (i4 * 2)) - this.c) / 2;

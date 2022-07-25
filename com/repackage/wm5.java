@@ -19,7 +19,7 @@ import java.nio.charset.Charset;
 @Singleton
 @Service
 /* loaded from: classes7.dex */
-public class wm5 implements lk2 {
+public class wm5 implements mk2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -27,14 +27,14 @@ public class wm5 implements lk2 {
     public class a implements DelegateListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ks1 a;
+        public final /* synthetic */ ls1 a;
 
-        public a(wm5 wm5Var, ks1 ks1Var) {
+        public a(wm5 wm5Var, ls1 ls1Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {wm5Var, ks1Var};
+                Object[] objArr = {wm5Var, ls1Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -44,7 +44,7 @@ public class wm5 implements lk2 {
                     return;
                 }
             }
-            this.a = ks1Var;
+            this.a = ls1Var;
         }
 
         @Override // com.baidu.searchbox.process.ipc.delegate.DelegateListener
@@ -70,11 +70,11 @@ public class wm5 implements lk2 {
         }
     }
 
-    @Override // com.repackage.lk2
-    public void a(Context context, ks1 ks1Var) {
+    @Override // com.repackage.mk2
+    public void a(Context context, ls1 ls1Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048576, this, context, ks1Var) == null) && (context instanceof Activity)) {
-            DelegateUtils.callOnMainWithActivity((Activity) context, ScanCodeDelegateActivity.class, vm5.class, new Bundle(), new a(this, ks1Var));
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, context, ls1Var) == null) && (context instanceof Activity)) {
+            DelegateUtils.callOnMainWithActivity((Activity) context, ScanCodeDelegateActivity.class, vm5.class, new Bundle(), new a(this, ls1Var));
         }
     }
 }

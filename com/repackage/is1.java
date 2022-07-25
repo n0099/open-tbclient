@@ -1,112 +1,387 @@
 package com.repackage;
 
-import android.annotation.SuppressLint;
+import android.net.Uri;
 import android.text.TextUtils;
-import android.util.Log;
-import android.util.Pair;
 import androidx.annotation.NonNull;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.nio.charset.StandardCharsets;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class is1 {
+public class is1 implements hs1 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
-    public static final String[] b;
     public transient /* synthetic */ FieldHolder $fh;
+    public int b;
+    public String c;
+    public JSONObject d;
+    public boolean e;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755607990, "Lcom/repackage/is1;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+    /* loaded from: classes6.dex */
+    public static class a extends is1 {
+        public static /* synthetic */ Interceptable $ic;
+        public static final is1 g;
+        public static final is1 h;
+        public static final is1 i;
+        public static final is1 j;
+        public static final is1 k;
+        public static final is1 l;
+        public transient /* synthetic */ FieldHolder $fh;
+        public volatile String f;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-289824403, "Lcom/repackage/is1$a;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-289824403, "Lcom/repackage/is1$a;");
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755607990, "Lcom/repackage/is1;");
+            g = new a(0);
+            h = new a(202, "json str is empty");
+            i = new a(202, "json str parse fail");
+            j = new a(1001, "json put data fail");
+            k = new a(1001, "swan app is null");
+            l = new a(1001, "swan activity is null");
+        }
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(int i2) {
+            super(i2);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {Integer.valueOf(i2)};
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                    return;
+                }
+            }
+        }
+
+        @Override // com.repackage.is1, com.repackage.hs1
+        @NonNull
+        public String a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                if (this.f == null) {
+                    synchronized (this) {
+                        if (this.f == null) {
+                            this.f = super.a();
+                        }
+                    }
+                }
+                return this.f;
+            }
+            return (String) invokeV.objValue;
+        }
+
+        @Override // com.repackage.is1
+        public void g(@NonNull String str, @NonNull Object obj) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, obj) == null) {
+            }
+        }
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(int i2, @NonNull String str) {
+            super(i2, str);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {Integer.valueOf(i2), str};
+                interceptable.invokeUnInit(65538, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super(((Integer) objArr2[0]).intValue(), (String) objArr2[1]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65538, newInitContext);
+                    return;
+                }
+            }
+        }
+    }
+
+    public is1() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = rg1.a;
-        b = new String[]{"swan", "swanAPI", "utils"};
+        this.e = false;
     }
 
-    @NonNull
-    public static Pair<Boolean, gs1> a(ho1 ho1Var, String str) {
-        InterceptResult invokeLL;
+    public static String b(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, ho1Var, str)) == null) {
-            hs1 hs1Var = new hs1();
-            boolean b2 = b(str, ho1Var.a().h());
-            if (b2) {
-                hs1Var.b = 402;
-            }
-            return new Pair<>(Boolean.valueOf(b2), hs1Var);
-        }
-        return (Pair) invokeLL.objValue;
-    }
-
-    @SuppressLint({"BDThrowableCheck"})
-    public static boolean b(String str, CallbackHandler callbackHandler) {
-        InterceptResult invokeLL;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, callbackHandler)) == null) {
-            if (!(callbackHandler instanceof pm1)) {
-                if (a) {
-                    Log.d("SwanApiSafe", "intercept: false, handler is null or not WebSafeHolder");
-                }
-                return false;
-            } else if (TextUtils.isEmpty(str)) {
-                if (a) {
-                    throw new RuntimeException("whitelistName is empty");
-                }
-                return false;
-            } else {
-                String d0 = ((pm1) callbackHandler).d0();
-                if ("ai_apps_widget".equals(d0)) {
-                    z = c(str);
-                } else if ("ai_apps_ad_landing".equals(d0)) {
-                    z = !y03.a(str);
-                } else {
-                    if (!"swan_app_alliance_login_widget".equals(d0) && !"swan_app_alliance_choose_address_widget".equals(d0) && a) {
-                        Log.d("SwanApiSafe", "intercept: false, source frame is not aiapps widget frame");
+        if (interceptable == null || (invokeI = interceptable.invokeI(65542, null, i)) == null) {
+            if (i != 0) {
+                if (i != 101) {
+                    if (i != 201) {
+                        if (i != 202) {
+                            if (i != 301) {
+                                if (i != 302) {
+                                    switch (i) {
+                                        case 401:
+                                            return AppRuntime.getAppContext().getString(R.string.obfuscated_res_0x7f0f146e);
+                                        case 402:
+                                            return AppRuntime.getAppContext().getString(R.string.obfuscated_res_0x7f0f146b);
+                                        case 403:
+                                            return AppRuntime.getAppContext().getString(R.string.obfuscated_res_0x7f0f146c);
+                                        default:
+                                            return AppRuntime.getAppContext().getString(R.string.obfuscated_res_0x7f0f1473);
+                                    }
+                                }
+                                return AppRuntime.getAppContext().getString(R.string.obfuscated_res_0x7f0f146d);
+                            }
+                            return AppRuntime.getAppContext().getString(R.string.obfuscated_res_0x7f0f146f);
+                        }
+                        return AppRuntime.getAppContext().getString(R.string.obfuscated_res_0x7f0f1472);
                     }
-                    return false;
+                    return AppRuntime.getAppContext().getString(R.string.obfuscated_res_0x7f0f1473);
                 }
-                if (a) {
-                    Log.d("SwanApiSafe", "intercept: result=" + z + ", path=" + str);
+                return AppRuntime.getAppContext().getString(R.string.obfuscated_res_0x7f0f1470);
+            }
+            return AppRuntime.getAppContext().getString(R.string.obfuscated_res_0x7f0f1471);
+        }
+        return (String) invokeI.objValue;
+    }
+
+    public static is1 c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? a.j : (is1) invokeV.objValue;
+    }
+
+    public static is1 d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) ? a.h : (is1) invokeV.objValue;
+    }
+
+    public static is1 e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) ? a.i : (is1) invokeV.objValue;
+    }
+
+    public static is1 f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) ? a.g : (is1) invokeV.objValue;
+    }
+
+    public static is1 i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) ? a.l : (is1) invokeV.objValue;
+    }
+
+    public static is1 j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) ? a.k : (is1) invokeV.objValue;
+    }
+
+    @Override // com.repackage.hs1
+    @NonNull
+    public String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("status", String.valueOf(this.b));
+                if (TextUtils.isEmpty(this.c)) {
+                    this.c = b(this.b);
                 }
-                return z;
+                jSONObject.put("message", this.c);
+                if (this.d != null) {
+                    jSONObject.put("data", this.e ? Uri.encode(this.d.toString(), StandardCharsets.UTF_8.name()) : this.d);
+                }
+            } catch (JSONException e) {
+                ix1.p("SwanApiResult", "API", "#toJsonString json put data fail", e, false);
+            }
+            return jSONObject.toString();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public void g(@NonNull String str, @NonNull Object obj) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, obj) == null) {
+            if (this.d == null) {
+                this.d = new JSONObject();
+            }
+            try {
+                this.d.put(str, obj);
+            } catch (JSONException e) {
+                ix1.p("SwanApiResult", "API", "#putData json put data fail", e, false);
+            }
+        }
+    }
+
+    public boolean h(@NonNull String str, @Nullable Object obj) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, obj)) == null) {
+            if (this.d == null) {
+                this.d = new JSONObject();
+            }
+            try {
+                this.d.put(str, obj);
+                return true;
+            } catch (JSONException e) {
+                ix1.p("SwanApiResult", "API", "#safePutData json put data fail", e, false);
+                return false;
             }
         }
         return invokeLL.booleanValue;
     }
 
-    public static boolean c(@NonNull String str) {
-        InterceptResult invokeL;
-        String[] strArr;
+    @Override // com.repackage.hs1
+    public boolean isSuccess() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            int indexOf = str.indexOf("/");
-            if (indexOf < 0) {
-                return true;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.b == 0 : invokeV.booleanValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? a() : (String) invokeV.objValue;
+    }
+
+    public is1(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
-            if (str.startsWith("swan")) {
-                String substring = str.substring(indexOf + 1);
-                for (String str2 : b) {
-                    if (y03.g(str2 + "/" + substring)) {
-                        return false;
-                    }
-                }
-                return true;
-            }
-            return !y03.g(str);
         }
-        return invokeL.booleanValue;
+        this.e = false;
+        this.b = i;
+    }
+
+    public is1(int i, @NonNull String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), str};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.e = false;
+        this.b = i;
+        this.c = str;
+    }
+
+    public is1(int i, @NonNull JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), jSONObject};
+            interceptable.invokeUnInit(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
+                return;
+            }
+        }
+        this.e = false;
+        this.b = i;
+        this.d = jSONObject;
+    }
+
+    public is1(int i, @NonNull JSONObject jSONObject, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), jSONObject, Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65541, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65541, newInitContext);
+                return;
+            }
+        }
+        this.e = false;
+        this.b = i;
+        this.d = jSONObject;
+        this.e = z;
+    }
+
+    public is1(int i, @NonNull String str, @NonNull JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), str, jSONObject};
+            interceptable.invokeUnInit(65539, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65539, newInitContext);
+                return;
+            }
+        }
+        this.e = false;
+        this.b = i;
+        this.c = str;
+        this.d = jSONObject;
     }
 }

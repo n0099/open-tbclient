@@ -19,10 +19,10 @@ import java.util.List;
 /* loaded from: classes5.dex */
 public final class o implements e.a, u {
     public static /* synthetic */ Interceptable $ic;
-    public static Class<?> a;
+    public static Class<?> atv;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ArrayList<Runnable> b;
-    public com.kwai.filedownloader.services.e c;
+    public final ArrayList<Runnable> atw;
+    public com.kwai.filedownloader.services.e atx;
 
     static {
         InterceptResult invokeClinit;
@@ -52,97 +52,97 @@ public final class o implements e.a, u {
                 return;
             }
         }
-        this.b = new ArrayList<>();
+        this.atw = new ArrayList<>();
     }
 
-    private void a(Context context, Runnable runnable) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65538, this, context, runnable) == null) {
-            context.startService(new Intent(context, b()));
-        }
-    }
-
-    public static Class<?> b() {
+    public static Class<?> CU() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (a == null) {
-                a = ((com.kwad.sdk.service.kwai.e) ServiceProvider.a(com.kwad.sdk.service.kwai.e.class)).a(FileDownloadServiceProxy.SharedMainProcessServiceProxy.class);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (atv == null) {
+                atv = ((com.kwad.sdk.service.kwai.e) ServiceProvider.get(com.kwad.sdk.service.kwai.e.class)).getProxyRealClass(FileDownloadServiceProxy.SharedMainProcessServiceProxy.class);
             }
-            return a;
+            return atv;
         }
         return (Class) invokeV.objValue;
     }
 
-    @Override // com.kwai.filedownloader.services.e.a
-    public final void a() {
+    private void a(Context context, Runnable runnable) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.c = null;
-            f.a().b(new DownloadServiceConnectChangedEvent(DownloadServiceConnectChangedEvent.ConnectStatus.disconnected, b()));
-        }
-    }
-
-    @Override // com.kwai.filedownloader.u
-    public final void a(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
-            a(context, null);
+        if (interceptable == null || interceptable.invokeLL(65539, this, context, runnable) == null) {
+            context.startService(new Intent(context, CU()));
         }
     }
 
     @Override // com.kwai.filedownloader.services.e.a
     public final void a(com.kwai.filedownloader.services.e eVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, eVar) == null) {
-            this.c = eVar;
-            this.b.clear();
-            for (Runnable runnable : (List) this.b.clone()) {
+        if (interceptable == null || interceptable.invokeL(1048576, this, eVar) == null) {
+            this.atx = eVar;
+            this.atw.clear();
+            for (Runnable runnable : (List) this.atw.clone()) {
                 runnable.run();
             }
-            f.a().b(new DownloadServiceConnectChangedEvent(DownloadServiceConnectChangedEvent.ConnectStatus.connected, b()));
+            f.CE().c(new DownloadServiceConnectChangedEvent(DownloadServiceConnectChangedEvent.ConnectStatus.connected, CU()));
         }
-    }
-
-    @Override // com.kwai.filedownloader.u
-    public final boolean a(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) ? !c() ? com.kwai.filedownloader.e.a.a(i) : this.c.a(i) : invokeI.booleanValue;
     }
 
     @Override // com.kwai.filedownloader.u
     public final boolean a(String str, String str2, boolean z, int i, int i2, int i3, boolean z2, com.kwai.filedownloader.c.b bVar, boolean z3) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{str, str2, Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z2), bVar, Boolean.valueOf(z3)})) == null) {
-            if (c()) {
-                this.c.a(str, str2, z, i, i2, i3, z2, bVar, z3);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, str2, Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z2), bVar, Boolean.valueOf(z3)})) == null) {
+            if (isConnected()) {
+                this.atx.b(str, str2, z, i, i2, i3, z2, bVar, z3);
                 return true;
             }
-            return com.kwai.filedownloader.e.a.a(str, str2, z);
+            return com.kwai.filedownloader.e.a.l(str, str2, z);
         }
         return invokeCommon.booleanValue;
     }
 
     @Override // com.kwai.filedownloader.u
-    public final byte b(int i) {
+    public final boolean bW(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) ? !c() ? com.kwai.filedownloader.e.a.b(i) : this.c.e(i) : invokeI.byteValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) ? !isConnected() ? com.kwai.filedownloader.e.a.bW(i) : this.atx.bW(i) : invokeI.booleanValue;
     }
 
     @Override // com.kwai.filedownloader.u
-    public final boolean c() {
+    public final byte bX(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) ? !isConnected() ? com.kwai.filedownloader.e.a.bX(i) : this.atx.bX(i) : invokeI.byteValue;
+    }
+
+    @Override // com.kwai.filedownloader.u
+    public final boolean bY(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) ? !isConnected() ? com.kwai.filedownloader.e.a.bY(i) : this.atx.bY(i) : invokeI.booleanValue;
+    }
+
+    @Override // com.kwai.filedownloader.u
+    public final void dC(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, context) == null) {
+            a(context, null);
+        }
+    }
+
+    @Override // com.kwai.filedownloader.u
+    public final boolean isConnected() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.c != null : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.atx != null : invokeV.booleanValue;
     }
 
-    @Override // com.kwai.filedownloader.u
-    public final boolean c(int i) {
-        InterceptResult invokeI;
+    @Override // com.kwai.filedownloader.services.e.a
+    public final void onDisconnected() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) ? !c() ? com.kwai.filedownloader.e.a.c(i) : this.c.f(i) : invokeI.booleanValue;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            this.atx = null;
+            f.CE().c(new DownloadServiceConnectChangedEvent(DownloadServiceConnectChangedEvent.ConnectStatus.disconnected, CU()));
+        }
     }
 }

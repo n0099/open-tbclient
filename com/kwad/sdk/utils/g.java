@@ -5,21 +5,21 @@ import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 /* loaded from: classes5.dex */
 public final class g {
-    public static volatile Executor a = com.kwad.sdk.core.threads.b.j();
-    public static volatile ScheduledExecutorService b;
+    public static volatile Executor amY = com.kwad.sdk.core.threads.b.vq();
+    public static volatile ScheduledExecutorService amZ;
 
-    public static void a(Runnable runnable) {
-        a.execute(runnable);
+    public static void execute(Runnable runnable) {
+        amY.execute(runnable);
     }
 
-    public static void a(Runnable runnable, long j, TimeUnit timeUnit) {
-        if (b == null) {
-            b = com.kwad.sdk.core.threads.b.k();
+    public static void runOnDefaultExecutor(Runnable runnable) {
+        amY.execute(runnable);
+    }
+
+    public static void schedule(Runnable runnable, long j, TimeUnit timeUnit) {
+        if (amZ == null) {
+            amZ = com.kwad.sdk.core.threads.b.vr();
         }
-        b.schedule(runnable, j, timeUnit);
-    }
-
-    public static void b(Runnable runnable) {
-        a.execute(runnable);
+        amZ.schedule(runnable, j, timeUnit);
     }
 }

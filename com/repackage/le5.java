@@ -14,12 +14,12 @@ public class le5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static boolean a(Context context, String str, nn4 nn4Var) {
+    public static boolean a(Context context, String str, on4 on4Var) {
         InterceptResult invokeLLL;
         int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65536, null, context, str, nn4Var)) == null) {
-            if (context == null || nn4Var == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65536, null, context, str, on4Var)) == null) {
+            if (context == null || on4Var == null) {
                 return false;
             }
             if ("index".equals(str)) {
@@ -34,18 +34,18 @@ public class le5 {
             if (i == -1) {
                 return false;
             }
-            ThreadCardUtils.jumpToPB(nn4Var.getThreadData().originalThreadData, context, i, (Rect) null, nn4Var.getThreadData().getForum_name());
+            ThreadCardUtils.jumpToPB(on4Var.getThreadData().originalThreadData, context, i, (Rect) null, on4Var.getThreadData().getForum_name());
             return true;
         }
         return invokeLLL.booleanValue;
     }
 
-    public static boolean b(Context context, String str, nn4 nn4Var) {
+    public static boolean b(Context context, String str, on4 on4Var) {
         InterceptResult invokeLLL;
         int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, context, str, nn4Var)) == null) {
-            if (context == null || nn4Var == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, context, str, on4Var)) == null) {
+            if (context == null || on4Var == null) {
                 return false;
             }
             if ("index".equals(str)) {
@@ -60,7 +60,7 @@ public class le5 {
             if (i == -1) {
                 return false;
             }
-            ThreadCardUtils.jumpToPB(nn4Var, context, i, false);
+            ThreadCardUtils.jumpToPB(on4Var, context, i, false);
             return true;
         }
         return invokeLLL.booleanValue;

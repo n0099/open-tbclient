@@ -55,13 +55,31 @@ public final class w implements com.kwad.sdk.core.d<AdProductInfo> {
         if (jSONObject == null) {
             jSONObject = new JSONObject();
         }
-        com.kwad.sdk.utils.r.a(jSONObject, "icon", adProductInfo.icon);
-        com.kwad.sdk.utils.r.a(jSONObject, "name", adProductInfo.name);
-        com.kwad.sdk.utils.r.a(jSONObject, "price", adProductInfo.price);
-        com.kwad.sdk.utils.r.a(jSONObject, "originPrice", adProductInfo.originPrice);
-        com.kwad.sdk.utils.r.a(jSONObject, "couponList", adProductInfo.couponList);
-        com.kwad.sdk.utils.r.a(jSONObject, "volume", adProductInfo.volume);
-        com.kwad.sdk.utils.r.a(jSONObject, "rating", adProductInfo.rating);
+        String str = adProductInfo.icon;
+        if (str != null && !str.equals("")) {
+            com.kwad.sdk.utils.r.putValue(jSONObject, "icon", adProductInfo.icon);
+        }
+        String str2 = adProductInfo.name;
+        if (str2 != null && !str2.equals("")) {
+            com.kwad.sdk.utils.r.putValue(jSONObject, "name", adProductInfo.name);
+        }
+        String str3 = adProductInfo.price;
+        if (str3 != null && !str3.equals("")) {
+            com.kwad.sdk.utils.r.putValue(jSONObject, "price", adProductInfo.price);
+        }
+        String str4 = adProductInfo.originPrice;
+        if (str4 != null && !str4.equals("")) {
+            com.kwad.sdk.utils.r.putValue(jSONObject, "originPrice", adProductInfo.originPrice);
+        }
+        com.kwad.sdk.utils.r.putValue(jSONObject, "couponList", adProductInfo.couponList);
+        String str5 = adProductInfo.volume;
+        if (str5 != null && !str5.equals("")) {
+            com.kwad.sdk.utils.r.putValue(jSONObject, "volume", adProductInfo.volume);
+        }
+        String str6 = adProductInfo.rating;
+        if (str6 != null && !str6.equals("")) {
+            com.kwad.sdk.utils.r.putValue(jSONObject, "rating", adProductInfo.rating);
+        }
         com.kwad.sdk.utils.r.a(jSONObject, "seckillInfo", adProductInfo.seckillInfo);
         return jSONObject;
     }

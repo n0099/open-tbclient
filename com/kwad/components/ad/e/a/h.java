@@ -15,8 +15,8 @@ import com.kwad.components.core.c.a.a;
 public final class h extends com.kwad.components.ad.e.kwai.a implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ViewGroup c;
-    public TextView d;
+    public ViewGroup ke;
+    public TextView kf;
 
     public h() {
         Interceptable interceptable = $ic;
@@ -33,22 +33,22 @@ public final class h extends com.kwad.components.ad.e.kwai.a implements View.OnC
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void d() {
+    public void er() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
-            this.d.setText(com.kwad.sdk.core.response.a.a.H(com.kwad.sdk.core.response.a.d.i(((com.kwad.components.ad.e.kwai.a) this).a.d)));
-            this.c.setOnClickListener(this);
-            this.c.setVisibility(0);
+            this.kf.setText(com.kwad.sdk.core.response.a.a.al(com.kwad.sdk.core.response.a.d.bQ(this.jL.mAdTemplate)));
+            this.ke.setOnClickListener(this);
+            this.ke.setVisibility(0);
         }
     }
 
-    private void e() {
+    private void et() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65541, this) == null) {
-            com.kwad.components.core.c.a.a.a(new a.C0507a(this.c.getContext()).a(((com.kwad.components.ad.e.kwai.a) this).a.d).a(2).a(new a.b(this) { // from class: com.kwad.components.ad.e.a.h.2
+            com.kwad.components.core.c.a.a.a(new a.C0352a(this.ke.getContext()).L(this.jL.mAdTemplate).ae(2).a(new a.b(this) { // from class: com.kwad.components.ad.e.a.h.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ h a;
+                public final /* synthetic */ h kg;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -65,36 +65,36 @@ public final class h extends com.kwad.components.ad.e.kwai.a implements View.OnC
                             return;
                         }
                     }
-                    this.a = this;
+                    this.kg = this;
                 }
 
                 @Override // com.kwad.components.core.c.a.a.b
-                public final void a() {
+                public final void onAdClicked() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        com.kwad.sdk.core.report.a.a(((com.kwad.components.ad.e.kwai.a) this.a).a.d, 2, ((com.kwad.components.ad.e.kwai.a) this.a).a.c.getTouchCoords());
+                        com.kwad.sdk.core.report.a.a(this.kg.jL.mAdTemplate, 2, this.kg.jL.jK.getTouchCoords());
                     }
                 }
             }));
         }
     }
 
-    private void g() {
+    private void notifyAdClick() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65542, this) == null) {
-            ((com.kwad.components.ad.e.kwai.a) this).a.a.a(this.c);
+            this.jL.jC.i(this.ke);
         }
     }
 
     @Override // com.kwad.components.ad.e.kwai.a, com.kwad.sdk.mvp.Presenter
-    public final void a() {
+    public final void aq() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            super.a();
+            super.aq();
             com.kwad.components.core.video.h hVar = new com.kwad.components.core.video.h(this) { // from class: com.kwad.components.ad.e.a.h.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ h a;
+                public final /* synthetic */ h kg;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -111,39 +111,39 @@ public final class h extends com.kwad.components.ad.e.kwai.a implements View.OnC
                             return;
                         }
                     }
-                    this.a = this;
+                    this.kg = this;
                 }
 
                 @Override // com.kwad.components.core.video.h, com.kwad.components.core.video.g
-                public final void d() {
+                public final void onVideoPlayCompleted() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.a.d();
+                        this.kg.er();
                     }
                 }
             };
-            ((com.kwad.components.ad.e.kwai.a) this).b = hVar;
-            ((com.kwad.components.ad.e.kwai.a) this).a.f.a(hVar);
-            this.c.setVisibility(8);
-        }
-    }
-
-    @Override // com.kwad.sdk.mvp.Presenter
-    public final void i_() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            super.i_();
-            this.c = (ViewGroup) b(R.id.obfuscated_res_0x7f0911c2);
-            this.d = (TextView) b(R.id.obfuscated_res_0x7f09104d);
+            this.mVideoPlayStateListener = hVar;
+            this.jL.jM.a(hVar);
+            this.ke.setVisibility(8);
         }
     }
 
     @Override // android.view.View.OnClickListener
     public final void onClick(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2) == null) {
-            e();
-            g();
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) {
+            et();
+            notifyAdClick();
+        }
+    }
+
+    @Override // com.kwad.sdk.mvp.Presenter
+    public final void onCreate() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            super.onCreate();
+            this.ke = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f09119e);
+            this.kf = (TextView) findViewById(R.id.obfuscated_res_0x7f091044);
         }
     }
 }

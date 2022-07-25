@@ -122,8 +122,8 @@ public class c18 extends an<s18, CardViewHolder<h28>> {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view2, viewGroup, s18Var, cardViewHolder})) == null) {
-            cardViewHolder.c().i(s18Var);
-            return cardViewHolder.b();
+            cardViewHolder.b().i(s18Var);
+            return cardViewHolder.a();
         }
         return (View) invokeCommon.objValue;
     }
@@ -140,7 +140,7 @@ public class c18 extends an<s18, CardViewHolder<h28>> {
         } else {
             zz5Var.D();
         }
-        String string = this.i.getString(R.string.obfuscated_res_0x7f0f0e4f);
+        String string = this.i.getString(R.string.obfuscated_res_0x7f0f0e38);
         this.k.O(R.drawable.obfuscated_res_0x7f0802eb);
         this.k.F(2);
         this.k.I(48);

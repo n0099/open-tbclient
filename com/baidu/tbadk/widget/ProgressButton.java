@@ -195,7 +195,7 @@ public class ProgressButton extends View {
     public void g(Context context, AttributeSet attributeSet) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048582, this, context, attributeSet) == null) {
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f0400ff, R.attr.obfuscated_res_0x7f040100, R.attr.obfuscated_res_0x7f040103, R.attr.obfuscated_res_0x7f040105, R.attr.obfuscated_res_0x7f040106, R.attr.obfuscated_res_0x7f04065a, R.attr.obfuscated_res_0x7f04065b});
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f0400ff, R.attr.obfuscated_res_0x7f040100, R.attr.obfuscated_res_0x7f040103, R.attr.obfuscated_res_0x7f040105, R.attr.obfuscated_res_0x7f040106, R.attr.obfuscated_res_0x7f04065c, R.attr.obfuscated_res_0x7f04065d});
             this.k = obtainStyledAttributes.getDimensionPixelSize(4, R.dimen.T_X08);
             this.l = obtainStyledAttributes.getString(3);
             int i = obtainStyledAttributes.getInt(2, 0);

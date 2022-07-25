@@ -16,10 +16,10 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.d9;
-import com.repackage.ma5;
+import com.repackage.na5;
 import com.repackage.oi;
-import com.repackage.wc5;
 import com.repackage.wh8;
+import com.repackage.xc5;
 import com.repackage.za;
 import tbclient.Userlike.DataRes;
 /* loaded from: classes3.dex */
@@ -193,30 +193,30 @@ public class ConcernNetModel extends BdBaseModel<BaseFragmentActivity> {
         }
     }
 
-    public void E(String str, wc5 wc5Var) {
+    public void E(String str, xc5 xc5Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, wc5Var) == null) || this.c) {
+        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, xc5Var) == null) || this.c) {
             return;
         }
         this.c = true;
         ConcernPageRequestMessage concernPageRequestMessage = new ConcernPageRequestMessage();
         concernPageRequestMessage.setPageTag(str);
         concernPageRequestMessage.setTag(getUniqueId());
-        concernPageRequestMessage.setAdInfo(wc5Var);
+        concernPageRequestMessage.setAdInfo(xc5Var);
         sendMessage(concernPageRequestMessage);
     }
 
     public final void F() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            ma5 ma5Var = new ma5(309474);
-            ma5Var.setResponsedClass(ConcernPageSocketResMessage.class);
-            ma5Var.g(true);
-            MessageManager.getInstance().registerTask(ma5Var);
-            ma5 ma5Var2 = new ma5(309476);
-            ma5Var2.setResponsedClass(CheckRedNotifySocketResMessage.class);
-            ma5Var2.g(true);
-            MessageManager.getInstance().registerTask(ma5Var2);
+            na5 na5Var = new na5(309474);
+            na5Var.setResponsedClass(ConcernPageSocketResMessage.class);
+            na5Var.g(true);
+            MessageManager.getInstance().registerTask(na5Var);
+            na5 na5Var2 = new na5(309476);
+            na5Var2.setResponsedClass(CheckRedNotifySocketResMessage.class);
+            na5Var2.g(true);
+            MessageManager.getInstance().registerTask(na5Var2);
         }
     }
 

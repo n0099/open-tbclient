@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.pi;
-import com.repackage.uu4;
+import com.repackage.vu4;
 /* loaded from: classes3.dex */
 public class HotUserRankLikeButton extends DynamicUserLikeButton {
     public static /* synthetic */ Interceptable $ic;
@@ -38,24 +38,24 @@ public class HotUserRankLikeButton extends DynamicUserLikeButton {
         }
     }
 
-    @Override // com.baidu.tieba.view.DynamicUserLikeButton, com.repackage.xv4
+    @Override // com.baidu.tieba.view.DynamicUserLikeButton, com.repackage.yv4
     public void e(boolean z, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i)}) == null) {
             if (z) {
-                uu4 uu4Var = new uu4();
-                uu4Var.t(R.color.CAM_X0109);
-                setConfig(uu4Var);
+                vu4 vu4Var = new vu4();
+                vu4Var.t(R.color.CAM_X0109);
+                setConfig(vu4Var);
                 setClickable(true);
                 if (i == 1) {
-                    setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0f9e));
+                    setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0f87));
                 } else if (i == 2) {
-                    setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0518));
+                    setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0514));
                 }
             } else {
-                uu4 uu4Var2 = new uu4();
-                uu4Var2.r(R.color.CAM_X0302);
-                setConfig(uu4Var2);
+                vu4 vu4Var2 = new vu4();
+                vu4Var2.r(R.color.CAM_X0302);
+                setConfig(vu4Var2);
                 setClickable(true);
                 setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02a7));
             }

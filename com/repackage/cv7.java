@@ -53,7 +53,7 @@ public class cv7 extends du7<tr7, PbNoDataItemViewHolder> {
     public PbNoDataItemViewHolder M(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) ? new PbNoDataItemViewHolder(LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0693, viewGroup, false), this.a) : (PbNoDataItemViewHolder) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) ? new PbNoDataItemViewHolder(LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d069d, viewGroup, false), this.a) : (PbNoDataItemViewHolder) invokeL.objValue;
     }
 
     public View c0(int i, View view2, ViewGroup viewGroup, tr7 tr7Var, PbNoDataItemViewHolder pbNoDataItemViewHolder) {

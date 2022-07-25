@@ -14,12 +14,12 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class tw extends qw<nn4> implements fw8 {
+public class tw extends qw<on4> implements fw8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public CardUserInfoLayout f;
     public int g;
-    public nn4 h;
+    public on4 h;
     public b i;
 
     /* loaded from: classes7.dex */
@@ -62,7 +62,7 @@ public class tw extends qw<nn4> implements fw8 {
 
     /* loaded from: classes7.dex */
     public interface b {
-        void a(nn4 nn4Var, View view2);
+        void a(on4 on4Var, View view2);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -153,11 +153,11 @@ public class tw extends qw<nn4> implements fw8 {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.repackage.gx
     /* renamed from: r */
-    public void a(nn4 nn4Var) {
+    public void a(on4 on4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, nn4Var) == null) {
-            this.h = nn4Var;
-            this.f.setData(nn4Var.getThreadData());
+        if (interceptable == null || interceptable.invokeL(1048583, this, on4Var) == null) {
+            this.h = on4Var;
+            this.f.setData(on4Var.getThreadData());
         }
     }
 

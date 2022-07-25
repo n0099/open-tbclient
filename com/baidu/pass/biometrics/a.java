@@ -14,7 +14,7 @@ public final class a {
     public static final String d = "release";
     public static final String e = "";
     public static final int f = 1;
-    public static final String g = "9.5.5";
+    public static final String g = "9.6.3.3";
     public transient /* synthetic */ FieldHolder $fh;
 
     public a() {

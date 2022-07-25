@@ -1,7 +1,9 @@
 package com.repackage;
 
 import android.text.TextUtils;
-import com.baidu.searchbox.aperf.bosuploader.ContentUtil;
+import android.util.Pair;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -9,55 +11,101 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class bq2 {
+public class bq2 extends oq1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
-    public String d;
-    public String e;
-    public String f;
 
-    public bq2() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public bq2(@NonNull jo1 jo1Var) {
+        super(jo1Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {jo1Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((jo1) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
     }
 
-    public static bq2 a(JSONObject jSONObject, String str) {
-        InterceptResult invokeLL;
-        JSONObject optJSONObject;
+    @Override // com.repackage.lo1
+    public String j() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, jSONObject, str)) == null) {
-            if (jSONObject == null) {
-                return null;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "UpdateMenuStyleApi" : (String) invokeV.objValue;
+    }
+
+    public is1 x(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            q("#changeMenuStyle", false);
+            Pair<is1, JSONObject> s = s(str);
+            JSONObject jSONObject = (JSONObject) s.second;
+            if (((is1) s.first).isSuccess() && jSONObject != null) {
+                String optString = jSONObject.optString("type");
+                if (TextUtils.isEmpty(optString)) {
+                    return new is1(202);
+                }
+                int y = y(optString);
+                vl2 U = vl2.U();
+                if (U == null) {
+                    return new is1(1001);
+                }
+                rz1 V = U.V();
+                if (V == null) {
+                    return new is1(1001);
+                }
+                oz1 m = V.m();
+                if (m == null) {
+                    return new is1(1001);
+                }
+                n64 O1 = m.O1();
+                if (O1 == null) {
+                    if (m instanceof vz1) {
+                        ((vz1) m).j3(y);
+                        return is1.f();
+                    }
+                    return new is1(1001);
+                }
+                O1.e(y);
+                O1.y();
+                return is1.f();
             }
-            JSONObject optJSONObject2 = jSONObject.optJSONObject("data");
-            String optString = jSONObject.optString("error");
-            if (optJSONObject2 == null || !TextUtils.equals(optString, "0")) {
-                return null;
-            }
-            bq2 bq2Var = new bq2();
-            bq2Var.a = optJSONObject2.optString(ContentUtil.RESULT_KEY_AK);
-            bq2Var.b = optJSONObject2.optString("sk");
-            bq2Var.c = optJSONObject2.optString("token");
-            bq2Var.d = optJSONObject2.optString(ContentUtil.RESULT_KEY_BUCKET);
-            JSONObject optJSONObject3 = optJSONObject2.optJSONObject("oname_list");
-            if (optJSONObject3 != null && (optJSONObject = optJSONObject3.optJSONObject(str)) != null) {
-                bq2Var.f = optJSONObject.optString("bosobject");
-                bq2Var.e = optJSONObject.optString("bosurl");
-            }
-            return bq2Var;
+            return new is1(202);
         }
-        return (bq2) invokeLL.objValue;
+        return (is1) invokeL.objValue;
+    }
+
+    public final int y(String str) {
+        InterceptResult invokeL;
+        char c;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            int hashCode = str.hashCode();
+            if (hashCode != -1866956286) {
+                if (hashCode == -838846263 && str.equals("update")) {
+                    c = 0;
+                }
+                c = 65535;
+            } else {
+                if (str.equals("webDegrade")) {
+                    c = 1;
+                }
+                c = 65535;
+            }
+            if (c != 0) {
+                return c != 1 ? 12 : 20;
+            }
+            return 19;
+        }
+        return invokeL.intValue;
     }
 }

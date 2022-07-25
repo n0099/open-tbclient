@@ -9,6 +9,7 @@ import com.baidu.mapapi.search.route.WalkingRouteLine;
 import com.baidu.mapapi.search.route.WalkingRouteResult;
 import com.baidu.mobstat.Config;
 import com.baidu.searchbox.launch.utils.SpeedStatsUtils;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -157,7 +158,7 @@ public class o extends k {
                     if (jSONObject.has("taxi")) {
                         walkingRouteResult.setTaxiInfo(b(jSONObject.optString("taxi")));
                     }
-                    JSONObject optJSONObject = jSONObject.optJSONObject("result");
+                    JSONObject optJSONObject = jSONObject.optJSONObject(TiebaStatic.LogFields.RESULT);
                     if (optJSONObject == null) {
                         return false;
                     }

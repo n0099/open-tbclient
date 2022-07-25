@@ -1,10 +1,10 @@
 package com.repackage;
 
-import android.text.TextUtils;
 import android.util.Log;
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.swan.apps.core.launchtips.monitor.network.NetworkStatus;
+import com.baidu.swan.apps.core.launchtips.scene.SceneType;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,33 +12,30 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.p02;
-import java.util.Timer;
-import java.util.TimerTask;
+import com.repackage.q02;
 /* loaded from: classes5.dex */
 public class e12 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean g;
+    public static final boolean d;
     public transient /* synthetic */ FieldHolder $fh;
-    public final p02 a;
-    public final y02 b;
-    public final m02 c;
-    public long d;
-    public String e;
-    public Timer f;
+    public final q02 a;
+    public final z02 b;
+    public final n02 c;
 
     /* loaded from: classes5.dex */
-    public class a extends TimerTask {
+    public class a implements q02.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ e12 a;
+        public final /* synthetic */ b12 a;
+        public final /* synthetic */ p02 b;
+        public final /* synthetic */ e12 c;
 
-        public a(e12 e12Var) {
+        public a(e12 e12Var, b12 b12Var, p02 p02Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {e12Var};
+                Object[] objArr = {e12Var, b12Var, p02Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -48,65 +45,59 @@ public class e12 {
                     return;
                 }
             }
-            this.a = e12Var;
+            this.c = e12Var;
+            this.a = b12Var;
+            this.b = p02Var;
         }
 
-        @Override // java.util.TimerTask, java.lang.Runnable
-        public void run() {
+        @Override // com.repackage.q02.b
+        public void a(NetworkStatus networkStatus) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.e(null);
+            if (interceptable == null || interceptable.invokeL(1048576, this, networkStatus) == null) {
+                j02.e(SceneType.SCENE_INIT_DATA_ERROR.getType(), networkStatus.getStatus(), this.a.e().getStatus(), this.a.g(), this.a.b(), this.a.f(), this.a.a());
+                StringBuilder sb = new StringBuilder();
+                sb.append(SceneType.SCENE_INIT_DATA_ERROR.getScene());
+                sb.append(this.b.a());
+                sb.append(this.a.d());
+                sb.append(networkStatus.getDesc());
+                sb.append(this.a.c());
+                if (e12.d) {
+                    Log.d("SceneInitDataTips", ">> " + sb.toString());
+                }
+                k02.g(sb.toString());
+                this.c.d(networkStatus);
             }
         }
     }
 
     /* loaded from: classes5.dex */
-    public class b implements p02.b {
+    public static /* synthetic */ class b {
         public static /* synthetic */ Interceptable $ic;
+        public static final /* synthetic */ int[] a;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ o02 a;
-        public final /* synthetic */ a12 b;
-        public final /* synthetic */ af3 c;
-        public final /* synthetic */ e12 d;
 
-        public b(e12 e12Var, o02 o02Var, a12 a12Var, af3 af3Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {e12Var, o02Var, a12Var, af3Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-465263571, "Lcom/repackage/e12$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-465263571, "Lcom/repackage/e12$b;");
                     return;
                 }
             }
-            this.d = e12Var;
-            this.a = o02Var;
-            this.b = a12Var;
-            this.c = af3Var;
-        }
-
-        @Override // com.repackage.p02.b
-        public void a(NetworkStatus networkStatus) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, networkStatus) == null) {
-                StringBuilder sb = new StringBuilder();
-                sb.append(this.a.a());
-                sb.append(this.b.d());
-                sb.append(networkStatus.getDesc());
-                sb.append(this.b.c());
-                if (e12.g) {
-                    Log.d("SceneLaunchDefaultTips", ">> " + sb.toString());
-                }
-                this.d.e = sb.toString();
-                af3 af3Var = this.c;
-                if (af3Var != null) {
-                    af3Var.a(this.d.e);
-                }
+            int[] iArr = new int[NetworkStatus.values().length];
+            a = iArr;
+            try {
+                iArr[NetworkStatus.NETWORK_BAD.ordinal()] = 1;
+            } catch (NoSuchFieldError unused) {
+            }
+            try {
+                a[NetworkStatus.NETWORK_OFFLINE.ordinal()] = 2;
+            } catch (NoSuchFieldError unused2) {
             }
         }
     }
@@ -124,7 +115,7 @@ public class e12 {
                 return;
             }
         }
-        g = rg1.a;
+        d = sg1.a;
     }
 
     public e12() {
@@ -140,63 +131,33 @@ public class e12 {
                 return;
             }
         }
-        this.d = System.currentTimeMillis();
-        this.e = "";
-        this.a = new p02();
-        this.b = y02.d();
-        this.c = m02.d();
+        this.c = n02.d();
+        this.a = new q02();
+        this.b = z02.d();
     }
 
-    public final boolean d() {
-        InterceptResult invokeV;
+    public void c() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? System.currentTimeMillis() - this.d > 6000 : invokeV.booleanValue;
-    }
-
-    public void e(@Nullable af3<String> af3Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, af3Var) == null) {
-            if (!d() || TextUtils.isEmpty(this.e)) {
-                this.a.a(new b(this, this.c.f(), this.b.f(), af3Var));
-            } else if (af3Var != null) {
-                af3Var.a(this.e);
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            if (d) {
+                Log.d("SceneInitDataTips", ">> trigger init data error event.");
             }
+            z02.d().j();
+            n02.d().j();
+            p02 f = this.c.f();
+            this.a.a(new a(this, this.b.f(), f));
         }
     }
 
-    public String f() {
-        InterceptResult invokeV;
+    public final void d(NetworkStatus networkStatus) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.e : (String) invokeV.objValue;
-    }
-
-    public final void g() {
-        Timer timer;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (timer = this.f) == null) {
-            return;
-        }
-        timer.cancel();
-        this.f = null;
-    }
-
-    public void h() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            if (g) {
-                Log.d("SceneLaunchDefaultTips", ">> start to collect default launch info.");
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, networkStatus) == null) {
+            int i = b.a[networkStatus.ordinal()];
+            if (i != 1 && i != 2) {
+                i02.f(R.string.obfuscated_res_0x7f0f12d5);
+            } else {
+                i02.f(R.string.obfuscated_res_0x7f0f12cb);
             }
-            g();
-            Timer timer = new Timer();
-            this.f = timer;
-            timer.schedule(new a(this), 6000L);
-        }
-    }
-
-    public void i() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            g();
         }
     }
 }

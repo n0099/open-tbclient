@@ -54,13 +54,13 @@ public class NadExpressSingleImgOperateView extends NadExpressNaBaseView {
     public void j(LayoutInflater layoutInflater, pn0 pn0Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, layoutInflater, pn0Var) == null) {
-            int i = R.layout.obfuscated_res_0x7f0d05d1;
+            int i = R.layout.obfuscated_res_0x7f0d05db;
             if (pn0Var != null) {
                 int a = pn0Var.a(AdBaseModel.STYLE.SMALL_IMAGE);
                 if (a != 0) {
                     i = a;
                 } else if (pn0Var.b) {
-                    i = R.layout.obfuscated_res_0x7f0d05d2;
+                    i = R.layout.obfuscated_res_0x7f0d05dc;
                 }
                 pn0.a aVar = pn0Var.j;
                 if (aVar != null) {
@@ -80,7 +80,7 @@ public class NadExpressSingleImgOperateView extends NadExpressNaBaseView {
         int e;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
-            AdImageView adImageView = (AdImageView) findViewById(R.id.obfuscated_res_0x7f091536);
+            AdImageView adImageView = (AdImageView) findViewById(R.id.obfuscated_res_0x7f091511);
             this.r = adImageView;
             if (adImageView == null) {
                 return;

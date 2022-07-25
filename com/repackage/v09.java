@@ -51,7 +51,7 @@ public final class v09 extends a19 {
         }
 
         @Override // com.baidu.turbonet.net.UploadDataProvider
-        public long c() {
+        public long a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -64,7 +64,7 @@ public final class v09 extends a19 {
         }
 
         @Override // com.baidu.turbonet.net.UploadDataProvider
-        public void d(UploadDataSink uploadDataSink, ByteBuffer byteBuffer) {
+        public void b(UploadDataSink uploadDataSink, ByteBuffer byteBuffer) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, uploadDataSink, byteBuffer) == null) {
                 int remaining = byteBuffer.remaining();
@@ -79,7 +79,7 @@ public final class v09 extends a19 {
         }
 
         @Override // com.baidu.turbonet.net.UploadDataProvider
-        public void e(UploadDataSink uploadDataSink) {
+        public void c(UploadDataSink uploadDataSink) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, uploadDataSink) == null) {
                 this.a.f.position(0);
@@ -125,21 +125,21 @@ public final class v09 extends a19 {
     }
 
     @Override // com.repackage.a19
-    public void f() throws IOException {
+    public void e() throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
         }
     }
 
     @Override // com.repackage.a19
-    public UploadDataProvider g() {
+    public UploadDataProvider f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.e : (UploadDataProvider) invokeV.objValue;
     }
 
     @Override // com.repackage.a19
-    public void j() throws IOException {
+    public void g() throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             this.g = true;
@@ -151,7 +151,7 @@ public final class v09 extends a19 {
         }
     }
 
-    public final void o(int i) throws IOException {
+    public final void l(int i) throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
             if (this.d != -1 && this.f.position() + i > this.d) {
@@ -173,8 +173,8 @@ public final class v09 extends a19 {
     public void write(int i) throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
-            e();
-            o(1);
+            c();
+            l(1);
             this.f.put((byte) i);
         }
     }
@@ -183,8 +183,8 @@ public final class v09 extends a19 {
     public void write(byte[] bArr, int i, int i2) throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLII(1048581, this, bArr, i, i2) == null) {
-            e();
-            o(i2);
+            c();
+            l(i2);
             this.f.put(bArr, i, i2);
         }
     }

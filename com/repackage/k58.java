@@ -103,33 +103,33 @@ public class k58 extends jx5<h48> {
         View h = h();
         t();
         this.q = h.findViewById(R.id.obfuscated_res_0x7f0903c3);
-        this.j = (TextView) h.findViewById(R.id.obfuscated_res_0x7f0914a1);
-        this.i = (TextView) h.findViewById(R.id.obfuscated_res_0x7f090736);
-        this.k = (TextView) h.findViewById(R.id.obfuscated_res_0x7f090e02);
+        this.j = (TextView) h.findViewById(R.id.obfuscated_res_0x7f09147c);
+        this.i = (TextView) h.findViewById(R.id.obfuscated_res_0x7f090735);
+        this.k = (TextView) h.findViewById(R.id.obfuscated_res_0x7f090dfb);
         this.l = (TextView) h.findViewById(R.id.obfuscated_res_0x7f0902c6);
-        ClickableHeaderImageView clickableHeaderImageView = (ClickableHeaderImageView) h.findViewById(R.id.obfuscated_res_0x7f090ce8);
+        ClickableHeaderImageView clickableHeaderImageView = (ClickableHeaderImageView) h.findViewById(R.id.obfuscated_res_0x7f090ce1);
         this.m = clickableHeaderImageView;
         clickableHeaderImageView.setRadius(pi.f(this.s.getPageActivity(), R.dimen.obfuscated_res_0x7f07019a));
         this.m.setAutoChangeStyle(true);
         this.m.setOnClickListener(this.t);
-        ClickableHeaderImageView clickableHeaderImageView2 = (ClickableHeaderImageView) h.findViewById(R.id.obfuscated_res_0x7f090ce9);
+        ClickableHeaderImageView clickableHeaderImageView2 = (ClickableHeaderImageView) h.findViewById(R.id.obfuscated_res_0x7f090ce2);
         this.n = clickableHeaderImageView2;
         clickableHeaderImageView2.setRadius(pi.f(this.s.getPageActivity(), R.dimen.obfuscated_res_0x7f07019a));
         this.n.setAutoChangeStyle(true);
         this.n.setOnClickListener(this.t);
-        ClickableHeaderImageView clickableHeaderImageView3 = (ClickableHeaderImageView) h.findViewById(R.id.obfuscated_res_0x7f090cea);
+        ClickableHeaderImageView clickableHeaderImageView3 = (ClickableHeaderImageView) h.findViewById(R.id.obfuscated_res_0x7f090ce3);
         this.o = clickableHeaderImageView3;
         clickableHeaderImageView3.setRadius(pi.f(this.s.getPageActivity(), R.dimen.obfuscated_res_0x7f07019a));
         this.o.setAutoChangeStyle(true);
         this.o.setOnClickListener(this.t);
-        this.p = (TextView) h.findViewById(R.id.obfuscated_res_0x7f0908f0);
+        this.p = (TextView) h.findViewById(R.id.obfuscated_res_0x7f0908e9);
     }
 
     @Override // com.repackage.jx5
     public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d06c5 : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d06cf : invokeV.intValue;
     }
 
     @Override // com.repackage.jx5
@@ -185,7 +185,7 @@ public class k58 extends jx5<h48> {
             this.i.setVisibility(h48Var.b ? 0 : 4);
             this.j.setVisibility(h48Var.b ? 0 : 4);
             if (h48Var.a) {
-                this.k.setText(this.s.getString(R.string.obfuscated_res_0x7f0f0a99));
+                this.k.setText(this.s.getString(R.string.obfuscated_res_0x7f0f0a85));
             } else {
                 this.k.setText(StringHelper.getUserDescByGender(h48Var.e));
             }

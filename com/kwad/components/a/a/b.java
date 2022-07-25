@@ -5,7 +5,7 @@ import android.text.TextUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.kwad.sdk.utils.at;
+import com.kwad.sdk.utils.ax;
 import com.kwad.sdk.utils.o;
 import java.io.File;
 /* loaded from: classes5.dex */
@@ -18,23 +18,23 @@ public final class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, context, bVar)) == null) {
             synchronized (b.class) {
-                String str = bVar.c;
+                String str = bVar.aiv;
                 File file = new File(str);
-                if (o.a(file)) {
-                    if (!TextUtils.isEmpty(bVar.g)) {
-                        String b = com.kwad.sdk.utils.a.b(file);
-                        if (b != null && b.length() > 10) {
-                            b = b.substring(0, 10);
+                if (o.I(file)) {
+                    if (!TextUtils.isEmpty(bVar.aix)) {
+                        String fileMD5 = com.kwad.sdk.utils.a.getFileMD5(file);
+                        if (fileMD5 != null && fileMD5.length() > 10) {
+                            fileMD5 = fileMD5.substring(0, 10);
                         }
-                        if (!at.a(b, bVar.g)) {
-                            o.l(file);
+                        if (!ax.V(fileMD5, bVar.aix)) {
+                            o.X(file);
                             return false;
                         }
                     }
                     com.kwad.components.a.b.b.a(bVar, 2);
                     try {
-                        com.kwad.components.a.b.a.a(str, com.kwad.components.a.b.a.a(context, bVar.b));
-                        o.l(file);
+                        com.kwad.components.a.b.a.q(str, com.kwad.components.a.b.a.h(context, bVar.aiu));
+                        o.X(file);
                         return true;
                     } catch (Exception e) {
                         e.printStackTrace();

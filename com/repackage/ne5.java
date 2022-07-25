@@ -67,7 +67,7 @@ public class ne5 {
                     Bitmap p = ymVar.p();
                     this.a.thumbData = ne5.a(p);
                 } else {
-                    Bitmap cashBitmap = BitmapHelper.getCashBitmap(R.drawable.obfuscated_res_0x7f080f11);
+                    Bitmap cashBitmap = BitmapHelper.getCashBitmap(R.drawable.obfuscated_res_0x7f080f18);
                     this.a.thumbData = ne5.a(cashBitmap);
                 }
                 this.b.sendReq(this.c);
@@ -81,7 +81,7 @@ public class ne5 {
         if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, bitmap)) == null) {
             if (bitmap == null) {
                 try {
-                    bitmap = BitmapHelper.getCashBitmap(R.drawable.obfuscated_res_0x7f080f11);
+                    bitmap = BitmapHelper.getCashBitmap(R.drawable.obfuscated_res_0x7f080f18);
                 } catch (Exception e) {
                     e.printStackTrace();
                     return null;

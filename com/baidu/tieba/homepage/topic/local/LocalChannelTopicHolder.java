@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.a17;
 import com.repackage.hx;
-import com.repackage.ur4;
+import com.repackage.vr4;
 /* loaded from: classes3.dex */
 public class LocalChannelTopicHolder extends TypeAdapter.ViewHolder implements hx {
     public static /* synthetic */ Interceptable $ic;
@@ -45,19 +45,19 @@ public class LocalChannelTopicHolder extends TypeAdapter.ViewHolder implements h
                 return;
             }
         }
-        this.a = (ConstraintLayout) view2.findViewById(R.id.obfuscated_res_0x7f092197);
-        this.b = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f092176);
-        this.c = (EllipsizeTagTitleView) view2.findViewById(R.id.obfuscated_res_0x7f0921b1);
-        this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092163);
+        this.a = (ConstraintLayout) view2.findViewById(R.id.obfuscated_res_0x7f092199);
+        this.b = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f092178);
+        this.c = (EllipsizeTagTitleView) view2.findViewById(R.id.obfuscated_res_0x7f0921b3);
+        this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092165);
     }
 
-    public void c(a17 a17Var) {
+    public void b(a17 a17Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, a17Var) == null) {
             this.b.setConrers(15);
             this.b.setPlaceHolder(1);
             this.b.J(a17Var.d, 10, false);
-            this.c.setTitleAndTag(this.itemView.getContext().getString(R.string.obfuscated_res_0x7f0f0a35, a17Var.a), a17Var.c);
+            this.c.setTitleAndTag(this.itemView.getContext().getString(R.string.obfuscated_res_0x7f0f0a21, a17Var.a), a17Var.c);
             if (!TextUtils.isEmpty(a17Var.b)) {
                 this.d.setText(a17Var.b);
                 this.d.setVisibility(0);
@@ -76,7 +76,7 @@ public class LocalChannelTopicHolder extends TypeAdapter.ViewHolder implements h
                 ellipsizeTagTitleView.onChangeSkinType(tbPageContext, i);
             }
             SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0109);
-            ur4.d(this.a).i(R.color.CAM_X0201, R.color.CAM_X0202);
+            vr4.d(this.a).i(R.color.CAM_X0201, R.color.CAM_X0202);
         }
     }
 }

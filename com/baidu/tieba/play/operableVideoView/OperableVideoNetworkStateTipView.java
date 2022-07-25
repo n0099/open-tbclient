@@ -24,9 +24,9 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.dq8;
 import com.repackage.ni;
 import com.repackage.pi;
-import com.repackage.rl4;
-import com.repackage.tu4;
-import com.repackage.vu4;
+import com.repackage.sl4;
+import com.repackage.uu4;
+import com.repackage.wu4;
 /* loaded from: classes3.dex */
 public class OperableVideoNetworkStateTipView extends LinearLayout implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
@@ -84,19 +84,19 @@ public class OperableVideoNetworkStateTipView extends LinearLayout implements Vi
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             LinearLayout.inflate(getContext(), getLayoutR(), this);
-            this.a = (TBSpecificationBtn) findViewById(R.id.obfuscated_res_0x7f0918fb);
-            this.b = (TBSpecificationBtn) findViewById(R.id.obfuscated_res_0x7f090a86);
-            vu4 vu4Var = new vu4();
-            vu4Var.s();
-            vu4Var.i(R.drawable.ic_icon_pure_video_play12_svg, 0, TBSpecificationButtonConfig.IconType.SVG);
-            vu4Var.g(pi.f(getContext(), R.dimen.tbds32));
-            this.a.setText(getResources().getString(R.string.obfuscated_res_0x7f0f1518));
+            this.a = (TBSpecificationBtn) findViewById(R.id.obfuscated_res_0x7f0918d6);
+            this.b = (TBSpecificationBtn) findViewById(R.id.obfuscated_res_0x7f090a7f);
+            wu4 wu4Var = new wu4();
+            wu4Var.s();
+            wu4Var.i(R.drawable.ic_icon_pure_video_play12_svg, 0, TBSpecificationButtonConfig.IconType.SVG);
+            wu4Var.g(pi.f(getContext(), R.dimen.tbds32));
+            this.a.setText(getResources().getString(R.string.obfuscated_res_0x7f0f14c7));
             this.a.setTextSize(R.dimen.tbds36);
-            this.a.setConfig(vu4Var);
-            tu4 tu4Var = new tu4();
-            this.b.setText(getResources().getString(R.string.obfuscated_res_0x7f0f152b));
+            this.a.setConfig(wu4Var);
+            uu4 uu4Var = new uu4();
+            this.b.setText(getResources().getString(R.string.obfuscated_res_0x7f0f14da));
             this.b.setTextSize(R.dimen.tbds36);
-            this.b.setConfig(tu4Var);
+            this.b.setConfig(uu4Var);
             this.a.setOnClickListener(this);
             this.b.setOnClickListener(this);
             setOnClickListener(this);
@@ -117,7 +117,7 @@ public class OperableVideoNetworkStateTipView extends LinearLayout implements Vi
     public int getLayoutR() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? R.layout.obfuscated_res_0x7f0d064e : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? R.layout.obfuscated_res_0x7f0d0658 : invokeV.intValue;
     }
 
     public void onClick(View view2) {
@@ -125,9 +125,9 @@ public class OperableVideoNetworkStateTipView extends LinearLayout implements Vi
         if (!(interceptable == null || interceptable.invokeL(1048581, this, view2) == null) || view2 == null) {
             return;
         }
-        if (view2.getId() == R.id.obfuscated_res_0x7f090a86) {
-            rl4.z(true, getContext(), getResources().getString(R.string.obfuscated_res_0x7f0f06c2), TbConfig.URL_BAIDU_SINGKIL);
-        } else if (view2.getId() == R.id.obfuscated_res_0x7f0918fb) {
+        if (view2.getId() == R.id.obfuscated_res_0x7f090a7f) {
+            sl4.z(true, getContext(), getResources().getString(R.string.obfuscated_res_0x7f0f06be), TbConfig.URL_BAIDU_SINGKIL);
+        } else if (view2.getId() == R.id.obfuscated_res_0x7f0918d6) {
             setHasAgreeToPlay(true);
             View.OnClickListener onClickListener = this.c;
             if (onClickListener != null) {
@@ -169,7 +169,7 @@ public class OperableVideoNetworkStateTipView extends LinearLayout implements Vi
         if (!(interceptable == null || interceptable.invokeJ(1048586, this, j) == null) || j <= 0) {
             return;
         }
-        this.a.setText(String.format(getResources().getString(R.string.obfuscated_res_0x7f0f1515), StringHelper.getFormatSize(j)));
+        this.a.setText(String.format(getResources().getString(R.string.obfuscated_res_0x7f0f14c4), StringHelper.getFormatSize(j)));
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */

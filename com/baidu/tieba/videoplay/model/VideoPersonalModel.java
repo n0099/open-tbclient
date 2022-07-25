@@ -15,9 +15,9 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.d9;
-import com.repackage.f65;
 import com.repackage.g65;
-import com.repackage.y55;
+import com.repackage.h65;
+import com.repackage.z55;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -30,9 +30,9 @@ public class VideoPersonalModel extends BdBaseModel {
     @Nullable
     public b b;
     @NonNull
-    public f65 c;
+    public g65 c;
     @NonNull
-    public g65 d;
+    public h65 d;
     @Nullable
     public UserItemData e;
     @NonNull
@@ -41,7 +41,7 @@ public class VideoPersonalModel extends BdBaseModel {
     public boolean h;
 
     /* loaded from: classes4.dex */
-    public class a implements g65.a {
+    public class a implements h65.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ VideoRecommentPlayActivityConfig.PersonalPageParams a;
@@ -66,7 +66,7 @@ public class VideoPersonalModel extends BdBaseModel {
             this.a = personalPageParams;
         }
 
-        @Override // com.repackage.g65.a
+        @Override // com.repackage.h65.a
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -74,7 +74,7 @@ public class VideoPersonalModel extends BdBaseModel {
             }
         }
 
-        @Override // com.repackage.g65.a
+        @Override // com.repackage.h65.a
         public void b(@NonNull List<ThreadData> list, @Nullable Map<String, Object> map) {
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list, map) == null) || this.b.b == null || list.isEmpty()) {
@@ -120,11 +120,11 @@ public class VideoPersonalModel extends BdBaseModel {
                 return;
             }
         }
-        this.c = (f65) y55.c(f65.b);
+        this.c = (g65) z55.c(g65.b);
         this.f = new ArrayList();
         this.h = false;
         this.a = personalPageParams;
-        g65 a2 = this.c.a(tbPageContext);
+        h65 a2 = this.c.a(tbPageContext);
         this.d = a2;
         a2.a(new a(this, personalPageParams));
     }

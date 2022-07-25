@@ -19,16 +19,16 @@ public class fx implements Cloneable {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
-    public int f1138a;
+    public int f418a;
 
     /* renamed from: a  reason: collision with other field name */
-    public ga f1139a;
+    public ga f419a;
 
     /* renamed from: a  reason: collision with other field name */
-    public boolean f1140a;
+    public boolean f420a;
 
     /* renamed from: b  reason: collision with other field name */
-    public boolean f1141b;
+    public boolean f421b;
     public String d;
     public String e;
     public String f;
@@ -65,8 +65,8 @@ public class fx implements Cloneable {
                 return;
             }
         }
-        this.f1140a = fw.f1123a;
-        this.f1141b = true;
+        this.f420a = fw.f403a;
+        this.f421b = true;
         a(map, i, str, gaVar);
     }
 
@@ -75,7 +75,7 @@ public class fx implements Cloneable {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
             String str = c;
-            return str != null ? str : ae.m1101a() ? "sandbox.xmpush.xiaomi.com" : ae.b() ? b : "app.chat.xiaomi.net";
+            return str != null ? str : ae.m163a() ? "sandbox.xmpush.xiaomi.com" : ae.b() ? b : "app.chat.xiaomi.net";
         }
         return (String) invokeV.objValue;
     }
@@ -83,7 +83,7 @@ public class fx implements Cloneable {
     public static final void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, null, str) == null) {
-            if (m.m1499a(v.m1625a()) && ae.b()) {
+            if (m.m561a(v.m687a()) && ae.b()) {
                 return;
             }
             c = str;
@@ -93,35 +93,35 @@ public class fx implements Cloneable {
     private void a(Map<String, Integer> map, int i, String str, ga gaVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLILL(InputDeviceCompat.SOURCE_TRACKBALL, this, map, i, str, gaVar) == null) {
-            this.f1138a = i;
+            this.f418a = i;
             this.d = str;
-            this.f1139a = gaVar;
+            this.f419a = gaVar;
         }
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public int mo1299a() {
+    public int mo361a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f1138a : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f418a : invokeV.intValue;
     }
 
     public void a(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            this.f1140a = z;
+            this.f420a = z;
         }
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m1300a() {
+    public boolean m362a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f1140a : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f420a : invokeV.booleanValue;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public byte[] m1301a() {
+    public byte[] m363a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {

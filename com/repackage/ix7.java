@@ -129,12 +129,12 @@ public class ix7 {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                if (view2.getId() == R.id.obfuscated_res_0x7f091757) {
+                if (view2.getId() == R.id.obfuscated_res_0x7f091732) {
                     if (this.a.c == null || this.a.a == null || !ViewHelper.checkUpIsLogin(this.a.a.getPageActivity())) {
                         return;
                     }
                     MessageManager.getInstance().sendMessage(new CustomMessage(2921408, new BarVoteActivityConfig(this.a.a.getPageActivity()).createNormalConfig(ng.g(this.a.c.m(), 0L), 3)));
-                } else if (view2.getId() != R.id.obfuscated_res_0x7f0917c9 || !ViewHelper.checkUpIsLogin(this.a.a.getPageActivity()) || this.a.c == null || this.a.d == null || this.a.c.O() == null) {
+                } else if (view2.getId() != R.id.obfuscated_res_0x7f0917a4 || !ViewHelper.checkUpIsLogin(this.a.a.getPageActivity()) || this.a.c == null || this.a.d == null || this.a.c.O() == null) {
                 } else {
                     if (this.a.d.a()) {
                         new StatisticItem("c13444").param("forum_id", this.a.c.m()).eventStat();
@@ -151,7 +151,7 @@ public class ix7 {
                         MessageManager.getInstance().sendMessage(customMessage);
                         return;
                     }
-                    pi.N(TbadkCoreApplication.getInst(), R.string.obfuscated_res_0x7f0f081f);
+                    pi.N(TbadkCoreApplication.getInst(), R.string.obfuscated_res_0x7f0f081b);
                 }
             }
         }
@@ -211,7 +211,7 @@ public class ix7 {
                 BlockPopInfoData blockPopInfoData = new BlockPopInfoData();
                 blockPopInfoData.block_info = oi.isEmpty(httpResponsedMessage.getErrorString()) ? this.a.a.getResources().getString(R.string.obfuscated_res_0x7f0f031e) : httpResponsedMessage.getErrorString();
                 blockPopInfoData.ahead_info = this.a.a.getResources().getString(R.string.obfuscated_res_0x7f0f031c);
-                blockPopInfoData.ok_info = this.a.a.getResources().getString(R.string.obfuscated_res_0x7f0f099e);
+                blockPopInfoData.ok_info = this.a.a.getResources().getString(R.string.obfuscated_res_0x7f0f0989);
                 blockPopInfoData.ahead_url = "https://tieba.baidu.com/mo/q/userappeal";
                 AntiHelper.s(this.a.a.getPageActivity(), blockPopInfoData);
             }
@@ -249,23 +249,23 @@ public class ix7 {
             }
             View inflate = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0137, (ViewGroup) null);
             this.b = inflate;
-            this.f = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0916ff);
-            this.g = this.b.findViewById(R.id.obfuscated_res_0x7f0917ca);
-            this.l = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f09170d);
-            this.i = (TBSpecificationBtn) this.b.findViewById(R.id.obfuscated_res_0x7f0917c9);
-            tu4 tu4Var = new tu4();
-            tu4Var.e(GradientDrawable.Orientation.TL_BR);
-            this.i.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0dee));
+            this.f = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0916da);
+            this.g = this.b.findViewById(R.id.obfuscated_res_0x7f0917a5);
+            this.l = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0916e8);
+            this.i = (TBSpecificationBtn) this.b.findViewById(R.id.obfuscated_res_0x7f0917a4);
+            uu4 uu4Var = new uu4();
+            uu4Var.e(GradientDrawable.Orientation.TL_BR);
+            this.i.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0dd7));
             this.i.setTextSize(R.dimen.tbfontsize44);
-            this.i.setConfig(tu4Var);
-            this.h = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0917cc);
-            this.j = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091700);
-            this.k = this.b.findViewById(R.id.obfuscated_res_0x7f09170c);
-            this.m = (VoteCountDownView) this.b.findViewById(R.id.obfuscated_res_0x7f0917cb);
-            this.n = this.b.findViewById(R.id.obfuscated_res_0x7f0917cd);
-            this.o = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0917cf);
-            this.p = (SelectRuleView) this.b.findViewById(R.id.obfuscated_res_0x7f0917ce);
-            this.q = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091757);
+            this.i.setConfig(uu4Var);
+            this.h = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0917a7);
+            this.j = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0916db);
+            this.k = this.b.findViewById(R.id.obfuscated_res_0x7f0916e7);
+            this.m = (VoteCountDownView) this.b.findViewById(R.id.obfuscated_res_0x7f0917a6);
+            this.n = this.b.findViewById(R.id.obfuscated_res_0x7f0917a8);
+            this.o = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0917aa);
+            this.p = (SelectRuleView) this.b.findViewById(R.id.obfuscated_res_0x7f0917a9);
+            this.q = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091732);
             if (this.t != null) {
                 if (this.a.getPageActivity() instanceof BaseActivity) {
                     this.t.setTag(((BaseActivity) this.a.getPageActivity()).getUniqueId());

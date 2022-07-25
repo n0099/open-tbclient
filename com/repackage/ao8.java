@@ -81,7 +81,7 @@ public class ao8 {
             }
             TiebaStatic.log(new StatisticItem("c10284"));
             if (this.a.i.getInUse()) {
-                st4.e(this.a.a.getPageContext().getPageActivity(), 8);
+                tt4.e(this.a.a.getPageContext().getPageActivity(), 8);
             } else {
                 this.a.j.e(this.a.i, true);
             }
@@ -127,7 +127,7 @@ public class ao8 {
                     TiebaStatic.log(new StatisticItem("c10286").param("obj_id", this.a.i.getPropsId()).param("obj_type", this.a.i.getFreeUserLevel()));
                     this.a.i.setInUse(true);
                     this.a.m();
-                    xt4 k = xt4.k();
+                    yt4 k = yt4.k();
                     k.w("current_used_personal_background_" + TbadkCoreApplication.getCurrentAccount(), this.a.i.getPropsId());
                     return;
                 }
@@ -153,7 +153,7 @@ public class ao8 {
                 return;
             }
         }
-        m = pi.f(TbadkApplication.getInst().getContext(), R.dimen.obfuscated_res_0x7f0702a0);
+        m = pi.f(TbadkApplication.getInst().getContext(), R.dimen.obfuscated_res_0x7f07029e);
     }
 
     public ao8(BackgroundPreviewActivity backgroundPreviewActivity) {
@@ -178,12 +178,12 @@ public class ao8 {
         this.b = inflate;
         this.a.setContentView(inflate);
         this.c = this.b.findViewById(R.id.obfuscated_res_0x7f090394);
-        NavigationBar navigationBar = (NavigationBar) this.b.findViewById(R.id.obfuscated_res_0x7f092437);
+        NavigationBar navigationBar = (NavigationBar) this.b.findViewById(R.id.obfuscated_res_0x7f092439);
         this.d = navigationBar;
         navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         this.d.showBottomLine(false);
-        this.f = (BdExpandListView) this.a.findViewById(R.id.obfuscated_res_0x7f0918c3);
-        this.h = (SkinProgressView) this.b.findViewById(R.id.obfuscated_res_0x7f09241a);
+        this.f = (BdExpandListView) this.a.findViewById(R.id.obfuscated_res_0x7f09189e);
+        this.h = (SkinProgressView) this.b.findViewById(R.id.obfuscated_res_0x7f09241c);
         un8 un8Var = new un8(backgroundPreviewActivity.getPageContext(), this.a.getUniqueId());
         this.j = un8Var;
         un8Var.c(this.a.B1());
@@ -208,7 +208,7 @@ public class ao8 {
         xn8 xn8Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            ga5.a(this.a.getPageContext(), this.b);
+            ha5.a(this.a.getPageContext(), this.b);
             NavigationBar navigationBar = this.d;
             if (navigationBar != null) {
                 navigationBar.onChangeSkinType(this.a.getPageContext(), TbadkApplication.getInst().getSkinType());
@@ -249,7 +249,7 @@ public class ao8 {
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             this.c.setVisibility(8);
             SkinManager.setBackgroundColor(this.b, R.color.CAM_X0201);
-            String string = this.a.getPageContext().getResources().getString(R.string.obfuscated_res_0x7f0f0c45);
+            String string = this.a.getPageContext().getResources().getString(R.string.obfuscated_res_0x7f0f0c31);
             this.a.setNetRefreshViewTopMargin(m);
             this.a.showNetRefreshView(this.b, string, false);
         }
@@ -270,7 +270,7 @@ public class ao8 {
                 zn8Var.e(dressItemData);
                 this.f.addHeaderView(this.e.b());
                 this.e.d();
-                this.f.setExpandView(this.e.b(), this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702bd));
+                this.f.setExpandView(this.e.b(), this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702bb));
                 xn8 xn8Var = new xn8(this.a.getPageContext(), dressItemData);
                 this.g = xn8Var;
                 this.f.setAdapter((ListAdapter) xn8Var);

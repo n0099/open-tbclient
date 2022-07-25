@@ -35,7 +35,7 @@ public class BdVideoScaleGestureDetector extends ScaleGestureDetector.SimpleOnSc
     public final Lazy scaleGestureDetector$delegate;
 
     /* renamed from: view  reason: collision with root package name */
-    public final View f1759view;
+    public final View f1039view;
 
     @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\f\n\u0002\u0018\u0002\n\u0002\u0010\u0007\n\u0002\b\u0007\b\u0086\u0003\u0018\u0000B\t\b\u0002¢\u0006\u0004\b\u0006\u0010\u0007R\u0016\u0010\u0002\u001a\u00020\u00018\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b\u0002\u0010\u0003R\u0016\u0010\u0004\u001a\u00020\u00018\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b\u0004\u0010\u0003R\u0016\u0010\u0005\u001a\u00020\u00018\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b\u0005\u0010\u0003¨\u0006\b"}, d2 = {"Lcom/baidu/searchbox/player/view/BdVideoScaleGestureDetector$Companion;", "", "SCALE_MAX", "F", "SCALE_MIN", "SCALE_NORMAL", "<init>", "()V", "framework_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
     /* loaded from: classes2.dex */
@@ -139,7 +139,7 @@ public class BdVideoScaleGestureDetector extends ScaleGestureDetector.SimpleOnSc
             }
         }
         Intrinsics.checkNotNullParameter(view2, "view");
-        this.f1759view = view2;
+        this.f1039view = view2;
         this.scaleGestureDetector$delegate = LazyKt__LazyJVMKt.lazy(new BdVideoScaleGestureDetector$scaleGestureDetector$2(this));
     }
 
@@ -155,7 +155,7 @@ public class BdVideoScaleGestureDetector extends ScaleGestureDetector.SimpleOnSc
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, detector)) == null) {
             Intrinsics.checkNotNullParameter(detector, "detector");
             float scaleFactor = detector.getScaleFactor();
-            float scaleX = this.f1759view.getScaleX();
+            float scaleX = this.f1039view.getScaleX();
             if (scaleFactor < 1.0f && scaleX > getMinScale()) {
                 float f = scaleX * scaleFactor;
                 return f < getMinScale() ? getMinScale() : f;
@@ -196,7 +196,7 @@ public class BdVideoScaleGestureDetector extends ScaleGestureDetector.SimpleOnSc
     public final View getView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f1759view : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f1039view : (View) invokeV.objValue;
     }
 
     public final boolean isScaleDetected() {
@@ -269,9 +269,9 @@ public class BdVideoScaleGestureDetector extends ScaleGestureDetector.SimpleOnSc
     public void setPivot(float f, float f2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)}) == null) {
-            View view2 = this.f1759view;
+            View view2 = this.f1039view;
             float f3 = 1;
-            BdGestureHelper.fixScaleTranslate(view2, view2.getTranslationX() + ((this.f1759view.getPivotX() - f) * (f3 - this.f1759view.getScaleX())), this.f1759view.getTranslationY() + ((this.f1759view.getPivotY() - f2) * (f3 - this.f1759view.getScaleY())));
+            BdGestureHelper.fixScaleTranslate(view2, view2.getTranslationX() + ((this.f1039view.getPivotX() - f) * (f3 - this.f1039view.getScaleX())), this.f1039view.getTranslationY() + ((this.f1039view.getPivotY() - f2) * (f3 - this.f1039view.getScaleY())));
             view2.setPivotX(f);
             view2.setPivotY(f2);
         }
@@ -280,8 +280,8 @@ public class BdVideoScaleGestureDetector extends ScaleGestureDetector.SimpleOnSc
     public final void setScale(float f) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(1048588, this, f) == null) {
-            this.f1759view.setScaleX(f);
-            this.f1759view.setScaleY(f);
+            this.f1039view.setScaleX(f);
+            this.f1039view.setScaleY(f);
         }
     }
 

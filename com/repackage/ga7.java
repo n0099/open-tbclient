@@ -59,19 +59,19 @@ public class ga7 {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1002500 && (httpResponsedMessage instanceof MsgReminderHttpRespMessage) && (msgData = ((MsgReminderHttpRespMessage) httpResponsedMessage).getMsgData()) != null) {
                 if (msgData.b() >= 0) {
-                    ny4.f0().Y(msgData.b());
+                    oy4.f0().Y(msgData.b());
                 }
                 if (msgData.e() >= 0) {
-                    ny4.f0().d0(msgData.e());
+                    oy4.f0().d0(msgData.e());
                 }
                 if (msgData.d() >= 0) {
-                    ny4.f0().b0(msgData.d());
+                    oy4.f0().b0(msgData.d());
                 }
                 if (msgData.a() >= 0) {
-                    ny4.f0().X(msgData.a());
+                    oy4.f0().X(msgData.a());
                 }
                 if (msgData.c() >= 0) {
-                    ny4.f0().Z(msgData.c());
+                    oy4.f0().Z(msgData.c());
                 }
             }
         }

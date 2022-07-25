@@ -31,33 +31,33 @@ public class a extends com.kwad.sdk.components.d implements f {
         }
     }
 
-    @Override // com.kwad.components.ad.a.f
-    public final void a(KsScene ksScene, @NonNull KsLoadManager.NativeAdListener nativeAdListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, ksScene, nativeAdListener) == null) {
-            b.a(ksScene, nativeAdListener);
-        }
-    }
-
-    @Override // com.kwad.components.ad.a.f
-    public final void a(String str, @NonNull KsLoadManager.NativeAdListener nativeAdListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, nativeAdListener) == null) {
-            b.a(str, nativeAdListener);
-        }
-    }
-
     @Override // com.kwad.sdk.components.a
     public Class getComponentsType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? f.class : (Class) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? f.class : (Class) invokeV.objValue;
     }
 
     @Override // com.kwad.sdk.components.a
     public void init(Context context, SdkConfig sdkConfig) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, context, sdkConfig) == null) {
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, sdkConfig) == null) {
+        }
+    }
+
+    @Override // com.kwad.components.ad.a.f
+    public final void loadNativeAd(KsScene ksScene, @NonNull KsLoadManager.NativeAdListener nativeAdListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, ksScene, nativeAdListener) == null) {
+            b.loadNativeAd(ksScene, nativeAdListener);
+        }
+    }
+
+    @Override // com.kwad.components.ad.a.f
+    public final void loadNativeAd(String str, @NonNull KsLoadManager.NativeAdListener nativeAdListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048579, this, str, nativeAdListener) == null) {
+            b.loadNativeAd(str, nativeAdListener);
         }
     }
 }

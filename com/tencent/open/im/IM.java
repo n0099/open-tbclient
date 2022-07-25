@@ -16,7 +16,7 @@ import com.tencent.connect.auth.c;
 import com.tencent.connect.common.BaseApi;
 import com.tencent.open.TDialog;
 import com.tencent.open.utils.l;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class IM extends BaseApi {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String CHAT_TYPE_AIO = "thirdparty2c";

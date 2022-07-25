@@ -56,9 +56,9 @@ public class uw8 {
         }
 
         @Override // com.baidu.tieba.tbadkCore.writeModel.NewWriteModel.e
-        public void callback(boolean z, PostWriteCallBackData postWriteCallBackData, fy4 fy4Var, WriteData writeData, AntiData antiData) {
+        public void callback(boolean z, PostWriteCallBackData postWriteCallBackData, gy4 gy4Var, WriteData writeData, AntiData antiData) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), postWriteCallBackData, fy4Var, writeData, antiData}) == null) || this.a.a == null || this.a.b == null || this.a.b.V() == null) {
+            if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), postWriteCallBackData, gy4Var, writeData, antiData}) == null) || this.a.a == null || this.a.b == null || this.a.b.V() == null) {
                 return;
             }
             this.a.a.o(false);
@@ -70,7 +70,7 @@ public class uw8 {
                 this.a.c = true;
                 if (writeData2.getType() != 0 || writeData2.isUserFeedback()) {
                     if (postWriteCallBackData == null) {
-                        rk8.b(this.a.a.getContext().getActivity(), this.a.a.getContext().getResources().getString(R.string.obfuscated_res_0x7f0f1119), null, null);
+                        rk8.b(this.a.a.getContext().getActivity(), this.a.a.getContext().getResources().getString(R.string.obfuscated_res_0x7f0f10d5), null, null);
                     } else {
                         rk8.b(this.a.a.getContext().getActivity(), postWriteCallBackData.getErrorString(), postWriteCallBackData.getPreMsg(), postWriteCallBackData.getColorMsg());
                     }
@@ -83,13 +83,13 @@ public class uw8 {
                 this.a.a.getContext();
                 context.setResult(-1, intent);
                 this.a.a.getContext().finish();
-            } else if (writeData2 != null && fy4Var != null && !TextUtils.isEmpty(fy4Var.d())) {
-                writeData2.setVcodeMD5(fy4Var.b());
-                writeData2.setVcodeUrl(fy4Var.c());
-                writeData2.setVcodeExtra(fy4Var.a());
+            } else if (writeData2 != null && gy4Var != null && !TextUtils.isEmpty(gy4Var.d())) {
+                writeData2.setVcodeMD5(gy4Var.b());
+                writeData2.setVcodeUrl(gy4Var.c());
+                writeData2.setVcodeExtra(gy4Var.a());
                 this.a.a.getContext().setVisible(false);
-                if (ve5.b(fy4Var.d())) {
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new NewVcodeActivityConfig(this.a.a.getContext().getActivity(), 12006, writeData2, false, fy4Var.d())));
+                if (ve5.b(gy4Var.d())) {
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new NewVcodeActivityConfig(this.a.a.getContext().getActivity(), 12006, writeData2, false, gy4Var.d())));
                 } else {
                     MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new VcodeActivityConfig(this.a.a.getContext().getActivity(), writeData2, 12006)));
                 }
@@ -193,7 +193,7 @@ public class uw8 {
             return;
         }
         if (!pi.D()) {
-            this.a.getContext().showToast(R.string.obfuscated_res_0x7f0f0c2b);
+            this.a.getContext().showToast(R.string.obfuscated_res_0x7f0f0c17);
             this.a.getContext().finish();
             return;
         }

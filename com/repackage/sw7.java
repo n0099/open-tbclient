@@ -465,7 +465,7 @@ public class sw7 {
         this.h = view2;
         this.i = view3;
         this.j = view4;
-        this.k = view4.findViewById(R.id.obfuscated_res_0x7f091e3d);
+        this.k = view4.findViewById(R.id.obfuscated_res_0x7f091e43);
         this.n = UtilHelper.canUseStyleImmersiveSticky();
         j();
         v(false);

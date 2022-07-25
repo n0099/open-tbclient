@@ -49,7 +49,7 @@ public class lv7 {
         }
         a = pi.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds10);
         b = pi.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds8);
-        c = new int[]{R.string.obfuscated_res_0x7f0f0fbf};
+        c = new int[]{R.string.obfuscated_res_0x7f0f0fa8};
     }
 
     public static void a(int i, String str, TextView textView, TextView textView2, ImageView imageView, UserIconBox userIconBox, UserIconBox userIconBox2) {
@@ -92,15 +92,15 @@ public class lv7 {
                 return null;
             }
             if (threadData.getBJHContentTag() == 1) {
-                string = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1632);
+                string = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f15e1);
             } else {
-                string = threadData.getBJHContentTag() == 2 ? TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f118e) : "";
+                string = threadData.getBJHContentTag() == 2 ? TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f113d) : "";
             }
             if (TextUtils.isEmpty(string)) {
                 return null;
             }
             SpannableString spannableString = new SpannableString(new StringBuilder(string).toString());
-            spannableString.setSpan(new lv4(R.color.CAM_X0204, UtilHelper.getDimenPixelSize(R.dimen.tbds5), UtilHelper.getDimenPixelSize(R.dimen.tbds26), R.color.CAM_X0105, UtilHelper.getDimenPixelSize(R.dimen.tbds8), UtilHelper.getDimenPixelSize(R.dimen.tbds9), UtilHelper.getDimenPixelSize(R.dimen.tbds13)), 0, spannableString.length(), 17);
+            spannableString.setSpan(new mv4(R.color.CAM_X0204, UtilHelper.getDimenPixelSize(R.dimen.tbds5), UtilHelper.getDimenPixelSize(R.dimen.tbds26), R.color.CAM_X0105, UtilHelper.getDimenPixelSize(R.dimen.tbds8), UtilHelper.getDimenPixelSize(R.dimen.tbds9), UtilHelper.getDimenPixelSize(R.dimen.tbds13)), 0, spannableString.length(), 17);
             return spannableString;
         }
         return (SpannableString) invokeL.objValue;

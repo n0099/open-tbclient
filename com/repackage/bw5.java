@@ -70,11 +70,11 @@ public class bw5 extends jx5<wu5> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, view2) == null) {
             this.i = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0901fd);
-            this.m = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091295);
-            this.n = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091296);
+            this.m = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091271);
+            this.n = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091272);
             this.l = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090214);
             this.j = (ProgressBar) view2.findViewById(R.id.obfuscated_res_0x7f0901fe);
-            this.k = (FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f091299);
+            this.k = (FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f091275);
             h().setOnClickListener(this);
         }
     }

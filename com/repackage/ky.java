@@ -29,7 +29,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.ny;
 import com.repackage.qw;
 /* loaded from: classes6.dex */
-public abstract class ky extends qw<nn4> implements c68 {
+public abstract class ky extends qw<on4> implements c68 {
     public static /* synthetic */ Interceptable $ic;
     public static final int t;
     public static int u;
@@ -39,7 +39,7 @@ public abstract class ky extends qw<nn4> implements c68 {
     public transient /* synthetic */ FieldHolder $fh;
     public View f;
     public TextView g;
-    public nn4 h;
+    public on4 h;
     public RoundCornerFrameLayout i;
     public x68 j;
     public String k;
@@ -82,8 +82,8 @@ public abstract class ky extends qw<nn4> implements c68 {
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                nn4 nn4Var = this.b.h;
-                if (nn4Var != null && nn4Var.getThreadData().getThreadVideoInfo().is_vertical.intValue() != 1) {
+                on4 on4Var = this.b.h;
+                if (on4Var != null && on4Var.getThreadData().getThreadVideoInfo().is_vertical.intValue() != 1) {
                     this.a.width = this.b.f.getWidth();
                     this.a.height = (this.b.f.getWidth() / 16) * 9;
                 }
@@ -118,9 +118,9 @@ public abstract class ky extends qw<nn4> implements c68 {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
-            nn4 nn4Var;
+            on4 on4Var;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || (nn4Var = this.a.h) == null || nn4Var.getThreadData() == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || (on4Var = this.a.h) == null || on4Var.getThreadData() == null) {
                 return;
             }
             Rect computeViewArea = ThreadCardUtils.computeViewArea(this.a.i);
@@ -129,7 +129,7 @@ public abstract class ky extends qw<nn4> implements c68 {
             ThreadData threadData = kyVar.h.getThreadData();
             ky kyVar2 = this.a;
             String str = kyVar2.k;
-            pd5.c(false, context, threadData, 0, computeViewArea, "from_nani_video", "personalize_page", "", str, str, kyVar2.h.getThreadData().isJumpToFrsVideoTabPlay);
+            qd5.c(false, context, threadData, 0, computeViewArea, "from_nani_video", "personalize_page", "", str, str, kyVar2.h.getThreadData().isJumpToFrsVideoTabPlay);
         }
     }
 
@@ -333,8 +333,8 @@ public abstract class ky extends qw<nn4> implements c68 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            nn4 nn4Var = this.h;
-            if (nn4Var == null || nn4Var.getThreadData() == null) {
+            on4 on4Var = this.h;
+            if (on4Var == null || on4Var.getThreadData() == null) {
                 return null;
             }
             return this.h.getThreadData().getVideoUrl();
@@ -360,8 +360,8 @@ public abstract class ky extends qw<nn4> implements c68 {
                 } else {
                     this.f = LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d01be, (ViewGroup) null, true);
                 }
-                this.g = (TextView) this.f.findViewById(R.id.obfuscated_res_0x7f0923dd);
-                this.i = (RoundCornerFrameLayout) this.f.findViewById(R.id.obfuscated_res_0x7f090a85);
+                this.g = (TextView) this.f.findViewById(R.id.obfuscated_res_0x7f0923df);
+                this.i = (RoundCornerFrameLayout) this.f.findViewById(R.id.obfuscated_res_0x7f090a7e);
                 x68 q = q();
                 this.j = q;
                 q.setUniqueId(this.m);
@@ -416,9 +416,9 @@ public abstract class ky extends qw<nn4> implements c68 {
 
     @Override // com.repackage.hx
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
-        nn4 nn4Var;
+        on4 on4Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(1048585, this, tbPageContext, i) == null) || (nn4Var = this.h) == null || nn4Var.getThreadData() == null) {
+        if (!(interceptable == null || interceptable.invokeLI(1048585, this, tbPageContext, i) == null) || (on4Var = this.h) == null || on4Var.getThreadData() == null) {
             return;
         }
         ux5.l(this.g, this.h.getThreadData().getId(), R.color.CAM_X0105, R.color.CAM_X0109);
@@ -452,10 +452,10 @@ public abstract class ky extends qw<nn4> implements c68 {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public void a(nn4 nn4Var) {
+    public void a(on4 on4Var) {
         boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, nn4Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048588, this, on4Var) == null) {
             int k = pi.k(TbadkCoreApplication.getInst());
             if (k != this.n) {
                 int k2 = pi.k(TbadkCoreApplication.getInst());
@@ -466,11 +466,11 @@ public abstract class ky extends qw<nn4> implements c68 {
                 x = i / 3;
                 this.n = k;
             }
-            this.h = nn4Var;
-            if (nn4Var == null || nn4Var.getThreadData() == null || this.h.getThreadData().getThreadVideoInfo() == null) {
+            this.h = on4Var;
+            if (on4Var == null || on4Var.getThreadData() == null || this.h.getThreadData().getThreadVideoInfo() == null) {
                 return;
             }
-            this.j.setData(nn4Var.getThreadData());
+            this.j.setData(on4Var.getThreadData());
             ViewGroup.LayoutParams layoutParams = this.i.getLayoutParams();
             int i2 = layoutParams.width;
             int i3 = layoutParams.height;

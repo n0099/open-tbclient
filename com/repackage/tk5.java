@@ -11,7 +11,7 @@ public class tk5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
-    public pn4 b;
+    public qn4 b;
     public String c;
 
     public tk5() {
@@ -37,7 +37,7 @@ public class tk5 {
             }
             tk5 tk5Var = new tk5();
             tk5Var.a = jSONObject.optInt("download_state");
-            tk5Var.b = pn4.b(jSONObject.optJSONObject("app_info"));
+            tk5Var.b = qn4.b(jSONObject.optJSONObject("app_info"));
             tk5Var.c = jSONObject.optString("download_hint");
             return tk5Var;
         }

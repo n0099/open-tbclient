@@ -18,11 +18,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.om4;
-import com.repackage.p55;
+import com.repackage.pm4;
 import com.repackage.q55;
+import com.repackage.r55;
 /* loaded from: classes3.dex */
-public class ThreadDelegateStatic extends p55 {
+public class ThreadDelegateStatic extends q55 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -54,13 +54,13 @@ public class ThreadDelegateStatic extends p55 {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            q55 b;
+            r55 b;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2016207 && (customResponsedMessage.getData() instanceof om4)) {
-                om4 om4Var = (om4) customResponsedMessage.getData();
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2016207 && (customResponsedMessage.getData() instanceof pm4)) {
+                pm4 pm4Var = (pm4) customResponsedMessage.getData();
                 ThreadDelegateStatic threadDelegateStatic = new ThreadDelegateStatic();
-                om4Var.a(threadDelegateStatic);
-                if (om4Var.getContext() == null || (b = threadDelegateStatic.b()) == null) {
+                pm4Var.a(threadDelegateStatic);
+                if (pm4Var.getContext() == null || (b = threadDelegateStatic.b()) == null) {
                     return;
                 }
                 b.a.setArguments(new Bundle());
@@ -100,21 +100,21 @@ public class ThreadDelegateStatic extends p55 {
         }
     }
 
-    @Override // com.repackage.p55
-    public q55 a() {
+    @Override // com.repackage.q55
+    public r55 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            q55 q55Var = new q55();
-            q55Var.a = ThreadFragment.H1();
-            q55Var.e = 1;
-            q55Var.b = R.string.obfuscated_res_0x7f0f03f2;
-            return q55Var;
+            r55 r55Var = new r55();
+            r55Var.a = ThreadFragment.H1();
+            r55Var.e = 1;
+            r55Var.b = R.string.obfuscated_res_0x7f0f03f1;
+            return r55Var;
         }
-        return (q55) invokeV.objValue;
+        return (r55) invokeV.objValue;
     }
 
-    @Override // com.repackage.p55
+    @Override // com.repackage.q55
     public TbFragmentTabIndicator c(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -126,7 +126,7 @@ public class ThreadDelegateStatic extends p55 {
         return (TbFragmentTabIndicator) invokeL.objValue;
     }
 
-    @Override // com.repackage.p55
+    @Override // com.repackage.q55
     public boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

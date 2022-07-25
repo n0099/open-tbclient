@@ -47,15 +47,15 @@ import com.repackage.hk5;
 import com.repackage.k98;
 import com.repackage.ni;
 import com.repackage.pi;
-import com.repackage.pn4;
+import com.repackage.qn4;
 import com.repackage.rk5;
 import com.repackage.sc6;
 import com.repackage.sk5;
-import com.repackage.sw4;
 import com.repackage.t98;
 import com.repackage.tc6;
 import com.repackage.tc7;
-import com.repackage.ur4;
+import com.repackage.tw4;
+import com.repackage.vr4;
 import com.repackage.wa8;
 import com.repackage.zz0;
 import java.util.HashMap;
@@ -379,7 +379,7 @@ public abstract class AdCardBaseView extends BaseLegoCardView<AdCard> {
             AdvertAppInfo advertAppInfo;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view2)) == null) {
-                sw4 adAdSense = TbadkCoreApplication.getInst().getAdAdSense();
+                tw4 adAdSense = TbadkCoreApplication.getInst().getAdAdSense();
                 if (adAdSense == null || !adAdSense.d() || (advertAppInfo = this.a) == null) {
                     return false;
                 }
@@ -716,7 +716,7 @@ public abstract class AdCardBaseView extends BaseLegoCardView<AdCard> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
             if (!ni.A()) {
-                this.i.showToast(R.string.obfuscated_res_0x7f0f0c2b);
+                this.i.showToast(R.string.obfuscated_res_0x7f0f0c17);
                 return;
             }
             AdCard adCard = this.L;
@@ -998,7 +998,7 @@ public abstract class AdCardBaseView extends BaseLegoCardView<AdCard> {
             SkinManager.setBackgroundColor(this.S, R.color.CAM_X0203);
             SkinManager.setBackgroundColor(this.R, R.color.CAM_X0204);
             this.H.e(i2);
-            ur4 d2 = ur4.d(this.T);
+            vr4 d2 = vr4.d(this.T);
             d2.n(R.string.J_X05);
             d2.f(R.color.CAM_X0206);
             this.T.onChangeSkinType();
@@ -1036,9 +1036,9 @@ public abstract class AdCardBaseView extends BaseLegoCardView<AdCard> {
     public final void l0(AdCard adCard) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048607, this, adCard) == null) {
-            pn4 appInfoModel = adCard.getAppInfoModel();
+            qn4 appInfoModel = adCard.getAppInfoModel();
             RelativeLayout downloadButtonContainer = this.T.getDownloadButtonContainer();
-            if (pn4.a(appInfoModel)) {
+            if (qn4.a(appInfoModel)) {
                 this.T.setVisibility(0);
                 this.T.setAppInfo(appInfoModel);
                 this.T.setAd(adCard.getAdvertAppInfo());
@@ -1080,11 +1080,11 @@ public abstract class AdCardBaseView extends BaseLegoCardView<AdCard> {
                 this.m = LayoutInflater.from(getContext()).inflate(getLayout(), (ViewGroup) null);
             }
             this.R = this.m.findViewById(R.id.obfuscated_res_0x7f09030a);
-            View findViewById = this.m.findViewById(R.id.obfuscated_res_0x7f092049);
+            View findViewById = this.m.findViewById(R.id.obfuscated_res_0x7f09204d);
             this.p = findViewById;
             findViewById.setClickable(true);
             this.C = (TextView) this.m.findViewById(R.id.obfuscated_res_0x7f0900f0);
-            this.D = (TextView) this.m.findViewById(R.id.obfuscated_res_0x7f0921c4);
+            this.D = (TextView) this.m.findViewById(R.id.obfuscated_res_0x7f0921c6);
             this.H = (ApkDownloadView) this.m.findViewById(R.id.obfuscated_res_0x7f09013f);
             this.I = (TextView) this.m.findViewById(R.id.obfuscated_res_0x7f090143);
             this.J = (RelativeLayout) this.m.findViewById(R.id.obfuscated_res_0x7f0903de);
@@ -1105,7 +1105,7 @@ public abstract class AdCardBaseView extends BaseLegoCardView<AdCard> {
             this.F = adCloseView;
             adCloseView.k.getLayoutParams().height = pi.f(getContext(), R.dimen.tbds76);
             this.F.k.getLayoutParams().width = pi.f(getContext(), R.dimen.tbds76);
-            TextView textView = (TextView) this.G.findViewById(R.id.obfuscated_res_0x7f09096a);
+            TextView textView = (TextView) this.G.findViewById(R.id.obfuscated_res_0x7f090963);
             this.E = textView;
             textView.setVisibility(8);
             this.N.addAdTagView(this.G);
@@ -1115,12 +1115,12 @@ public abstract class AdCardBaseView extends BaseLegoCardView<AdCard> {
                 viewStub.setLayoutResource(getCustomLayout());
                 this.o = this.n.inflate();
             }
-            this.O = this.m.findViewById(R.id.obfuscated_res_0x7f091703);
-            this.P = this.m.findViewById(R.id.obfuscated_res_0x7f090aab);
-            this.S = this.m.findViewById(R.id.obfuscated_res_0x7f0916fe);
+            this.O = this.m.findViewById(R.id.obfuscated_res_0x7f0916de);
+            this.P = this.m.findViewById(R.id.obfuscated_res_0x7f090aa4);
+            this.S = this.m.findViewById(R.id.obfuscated_res_0x7f0916d9);
             AdAppInfoView adAppInfoView = (AdAppInfoView) this.m.findViewById(R.id.obfuscated_res_0x7f090288);
             this.T = adAppInfoView;
-            ur4 d2 = ur4.d(adAppInfoView);
+            vr4 d2 = vr4.d(adAppInfoView);
             d2.n(R.string.J_X05);
             d2.f(R.color.CAM_X0206);
             U(this.o);

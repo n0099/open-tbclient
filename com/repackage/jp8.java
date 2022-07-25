@@ -27,7 +27,7 @@ public class jp8 {
                 return sb.toString();
             } catch (JSONException e) {
                 e.printStackTrace();
-                return d9Var.getString(R.string.obfuscated_res_0x7f0f0e63);
+                return d9Var.getString(R.string.obfuscated_res_0x7f0f0e4c);
             }
         }
         return (String) invokeLL.objValue;
@@ -44,28 +44,28 @@ public class jp8 {
                 if (msgType == 2) {
                     content = a(d9Var, chatMessage.getContent());
                 } else if (msgType == 3) {
-                    content = d9Var.getString(R.string.obfuscated_res_0x7f0f1581);
+                    content = d9Var.getString(R.string.obfuscated_res_0x7f0f1530);
                 } else if (msgType != 30) {
                     if (msgType != 32) {
-                        content = msgType != 33 ? "" : d9Var.getString(R.string.obfuscated_res_0x7f0f09c2);
+                        content = msgType != 33 ? "" : d9Var.getString(R.string.obfuscated_res_0x7f0f09ae);
                     } else {
-                        content = d9Var.getString(R.string.obfuscated_res_0x7f0f09c7);
+                        content = d9Var.getString(R.string.obfuscated_res_0x7f0f09b3);
                     }
                 }
                 if (chatMessage == null && chatMessage.getToUserInfo() != null) {
                     if (TextUtils.equals(chatMessage.getToUserInfo().getUserId(), String.valueOf(TbadkCoreApplication.getCurrentAccountId()))) {
-                        string = d9Var.getString(R.string.obfuscated_res_0x7f0f0efa);
+                        string = d9Var.getString(R.string.obfuscated_res_0x7f0f0ee3);
                     } else {
-                        string = d9Var.getString(R.string.obfuscated_res_0x7f0f0ef7);
+                        string = d9Var.getString(R.string.obfuscated_res_0x7f0f0ee0);
                     }
-                    return string + chatMessage.getToUserInfo().getUserName() + d9Var.getString(R.string.obfuscated_res_0x7f0f0ef8) + content;
+                    return string + chatMessage.getToUserInfo().getUserName() + d9Var.getString(R.string.obfuscated_res_0x7f0f0ee1) + content;
                 }
-                return d9Var.getString(R.string.obfuscated_res_0x7f0f0ef7);
+                return d9Var.getString(R.string.obfuscated_res_0x7f0f0ee0);
             }
             content = chatMessage.getContent();
             if (chatMessage == null) {
             }
-            return d9Var.getString(R.string.obfuscated_res_0x7f0f0ef7);
+            return d9Var.getString(R.string.obfuscated_res_0x7f0f0ee0);
         }
         return (String) invokeLL.objValue;
     }

@@ -59,7 +59,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.fu4;
+import com.repackage.gu4;
 import com.repackage.ny;
 import com.repackage.v36;
 import com.repackage.vb8;
@@ -104,7 +104,7 @@ public class dx6 {
     public ThreadInfo O;
     public vb8 P;
     public LiveRemindModel Q;
-    public mz4 R;
+    public nz4 R;
     public RecyclerView.OnScrollListener S;
     public View.OnTouchListener T;
     public v36.b U;
@@ -149,7 +149,7 @@ public class dx6 {
     public CustomMessageListener q0;
     public fi8 r;
     public final za r0;
-    public k95 s;
+    public l95 s;
     public CustomMessageListener s0;
     public mu6 t;
     public v36 u;
@@ -272,8 +272,8 @@ public class dx6 {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
                 ThreadCardViewHolder h0 = this.a.h0();
-                if (h0 != null && h0.c() != null) {
-                    return new CustomResponsedMessage<>(2016323, Boolean.valueOf(h0.c().o(new ny.a(6))));
+                if (h0 != null && h0.b() != null) {
+                    return new CustomResponsedMessage<>(2016323, Boolean.valueOf(h0.b().o(new ny.a(6))));
                 }
                 return new CustomResponsedMessage<>(2016323, Boolean.FALSE);
             }
@@ -456,7 +456,7 @@ public class dx6 {
             if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.a.l == null) {
                 return;
             }
-            fu4.i k0 = this.a.k0();
+            gu4.i k0 = this.a.k0();
             if (!this.a.l.u() || k0 == null || TbSingleton.getInstance().isBrowseMode()) {
                 this.a.l.setRefreshing(false);
             } else {
@@ -499,10 +499,10 @@ public class dx6 {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof KeyEvent)) {
                 KeyEvent keyEvent = (KeyEvent) customResponsedMessage.getData();
-                if (keyEvent.getAction() != 0 || keyEvent.getKeyCode() != 24 || (h0 = this.a.h0()) == null || h0.c() == null) {
+                if (keyEvent.getAction() != 0 || keyEvent.getKeyCode() != 24 || (h0 = this.a.h0()) == null || h0.b() == null) {
                     return;
                 }
-                h0.c().o(new ny.a(3));
+                h0.b().o(new ny.a(3));
             }
         }
     }
@@ -676,7 +676,7 @@ public class dx6 {
     }
 
     /* loaded from: classes5.dex */
-    public class g implements jd5<Boolean> {
+    public class g implements kd5<Boolean> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ dx6 a;
@@ -700,7 +700,7 @@ public class dx6 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.jd5
+        @Override // com.repackage.kd5
         /* renamed from: a */
         public void onReturnDataInUI(Boolean bool) {
             Interceptable interceptable = $ic;
@@ -874,9 +874,9 @@ public class dx6 {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof yp4)) {
-                yp4 yp4Var = (yp4) customResponsedMessage.getData();
-                if (yp4Var.a != 1) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof zp4)) {
+                zp4 zp4Var = (zp4) customResponsedMessage.getData();
+                if (zp4Var.a != 1) {
                     return;
                 }
                 int k = pi.k(TbadkCoreApplication.getInst());
@@ -885,7 +885,7 @@ public class dx6 {
                 int i2 = TbImageHelper.getInstance().isShowBigImage() ? 2 : 1;
                 RequestGetMyPostNetMessage requestGetMyPostNetMessage = new RequestGetMyPostNetMessage();
                 requestGetMyPostNetMessage.setTag(this.a.M);
-                requestGetMyPostNetMessage.setParams(ng.g(yp4Var.c, 0L), 0L, 0L, k, i, f, i2);
+                requestGetMyPostNetMessage.setParams(ng.g(zp4Var.c, 0L), 0L, 0L, k, i, f, i2);
                 requestGetMyPostNetMessage.setBFrom("push");
                 MessageManager.getInstance().sendMessage(requestGetMyPostNetMessage);
             }
@@ -893,7 +893,7 @@ public class dx6 {
     }
 
     /* loaded from: classes5.dex */
-    public class i implements jd5<DataRes> {
+    public class i implements kd5<DataRes> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ dx6 a;
@@ -951,7 +951,7 @@ public class dx6 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.jd5
+        @Override // com.repackage.kd5
         /* renamed from: a */
         public void onReturnDataInUI(DataRes dataRes) {
             Interceptable interceptable = $ic;
@@ -1043,9 +1043,9 @@ public class dx6 {
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
                 DataRes.Builder builder = new DataRes.Builder(this.a.build(true));
                 this.b.b.g(builder.thread_list);
-                br4.f();
+                cr4.f();
                 try {
-                    br4.e("tb.rec_old_data", TbadkCoreApplication.getCurrentAccount()).g("0", builder.build(true).toByteArray());
+                    cr4.e("tb.rec_old_data", TbadkCoreApplication.getCurrentAccount()).g("0", builder.build(true).toByteArray());
                     return null;
                 } catch (Exception e) {
                     BdLog.e(e);
@@ -1089,12 +1089,12 @@ public class dx6 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
                 if (UbsABTestHelper.isPushOpenNewStyle()) {
-                    if (nz4.g(TbadkCoreApplication.getInst(), 1)) {
+                    if (oz4.g(TbadkCoreApplication.getInst(), 1)) {
                         dx6 dx6Var = this.a;
-                        dx6Var.R = nz4.i(dx6Var.j, "homepage", 0L);
+                        dx6Var.R = oz4.i(dx6Var.j, "homepage", 0L);
                     }
-                } else if (kz4.g(TbadkCoreApplication.getInst(), 1)) {
-                    kz4.i(this.a.j, 7, 0L);
+                } else if (lz4.g(TbadkCoreApplication.getInst(), 1)) {
+                    lz4.i(this.a.j, 7, 0L);
                 }
             }
         }
@@ -1222,9 +1222,9 @@ public class dx6 {
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
                 DataRes.Builder builder = new DataRes.Builder(this.a.build(true));
                 this.b.b.g(builder.thread_list);
-                br4.f();
+                cr4.f();
                 try {
-                    br4.e("tb.rec_frs_update", TbadkCoreApplication.getCurrentAccount()).g("0", builder.build(true).toByteArray());
+                    cr4.e("tb.rec_frs_update", TbadkCoreApplication.getCurrentAccount()).g("0", builder.build(true).toByteArray());
                     return null;
                 } catch (Exception e) {
                     BdLog.e(e);
@@ -1600,11 +1600,11 @@ public class dx6 {
     public interface p0 {
         void a(boolean z);
 
-        void b(int i, wc5 wc5Var, int i2);
+        void b(int i, xc5 xc5Var, int i2);
 
         void c();
 
-        void d(int i, int i2, wc5 wc5Var, int i3);
+        void d(int i, int i2, xc5 xc5Var, int i3);
 
         void onError(int i, String str);
     }
@@ -1689,8 +1689,8 @@ public class dx6 {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
                 try {
-                    br4.f();
-                    te<byte[]> e = br4.e("tb.rec_frs_update", TbadkCoreApplication.getCurrentAccount());
+                    cr4.f();
+                    te<byte[]> e = cr4.e("tb.rec_frs_update", TbadkCoreApplication.getCurrentAccount());
                     if (e == null) {
                         return Boolean.FALSE;
                     }
@@ -1737,7 +1737,7 @@ public class dx6 {
     }
 
     /* loaded from: classes5.dex */
-    public class s implements jd5<Boolean> {
+    public class s implements kd5<Boolean> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -1758,7 +1758,7 @@ public class dx6 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.jd5
+        @Override // com.repackage.kd5
         /* renamed from: a */
         public void onReturnDataInUI(Boolean bool) {
             Interceptable interceptable = $ic;
@@ -1798,8 +1798,8 @@ public class dx6 {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                br4.f();
-                te<String> h = br4.h(this.b.e0, TbadkCoreApplication.getCurrentAccount());
+                cr4.f();
+                te<String> h = cr4.h(this.b.e0, TbadkCoreApplication.getCurrentAccount());
                 if (h != null) {
                     h.e(this.b.e0, Integer.toString(this.a), 43200000L);
                     return null;
@@ -1860,10 +1860,10 @@ public class dx6 {
                 this.d.x = i;
                 this.d.y = i3;
                 ThreadCardViewHolder h0 = this.d.h0();
-                if (h0 == null || h0.c() == null) {
+                if (h0 == null || h0.b() == null) {
                     return;
                 }
-                h0.c().o(this.d.N);
+                h0.b().o(this.d.N);
             }
         }
 
@@ -1872,7 +1872,7 @@ public class dx6 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, recyclerView, i) == null) {
                 if (this.d.s == null) {
-                    this.d.s = new k95();
+                    this.d.s = new l95();
                     this.d.s.a(1005);
                     this.d.s.e = 1;
                 }
@@ -2026,8 +2026,8 @@ public class dx6 {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                br4.f();
-                te<String> h = br4.h(this.a.e0, TbadkCoreApplication.getCurrentAccount());
+                cr4.f();
+                te<String> h = cr4.h(this.a.e0, TbadkCoreApplication.getCurrentAccount());
                 if (h != null) {
                     return h.get(this.a.e0);
                 }
@@ -2038,7 +2038,7 @@ public class dx6 {
     }
 
     /* loaded from: classes5.dex */
-    public class x implements jd5<String> {
+    public class x implements kd5<String> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ cx6 a;
@@ -2062,7 +2062,7 @@ public class dx6 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.jd5
+        @Override // com.repackage.kd5
         /* renamed from: a */
         public void onReturnDataInUI(String str) {
             cx6 cx6Var;
@@ -2111,7 +2111,7 @@ public class dx6 {
             TbSingleton.getInstance().isAddBanner = false;
             this.a.d.remove(this.a.F);
             this.a.n.y(new ArrayList(this.a.d));
-            xt4.k().x("key_maintab_banner_close_time", System.currentTimeMillis());
+            yt4.k().x("key_maintab_banner_close_time", System.currentTimeMillis());
         }
     }
 
@@ -2218,7 +2218,7 @@ public class dx6 {
         this.r0 = new i0(this, CmdConfigHttp.CMD_GET_MY_POST, 303111);
         this.s0 = new j0(this, 2921482);
         this.j = tbPageContext;
-        this.L = xt4.k().l("key_personalized_refresh_type", 0);
+        this.L = yt4.k().l("key_personalized_refresh_type", 0);
         this.l = bigdaySwipeRefreshLayout;
         this.m = personalizePageView;
         this.k = bdTypeRecyclerView;
@@ -2228,7 +2228,7 @@ public class dx6 {
         v36Var.d(this.U);
         this.n = jy6Var;
         this.q = new xy6();
-        this.a = xt4.k().m("recommend_frs_cache_time", DiskManagerSharedPrefsUtils.DISK_CHECK_DURATION_DEFAULT) * 1000;
+        this.a = yt4.k().m("recommend_frs_cache_time", DiskManagerSharedPrefsUtils.DISK_CHECK_DURATION_DEFAULT) * 1000;
         bdTypeRecyclerView.setOnScrollListener(this.S);
         this.p = new we6();
         o0();
@@ -2273,8 +2273,8 @@ public class dx6 {
             i68Var.r(!z2);
             ThreadCardViewHolder h02 = h0();
             boolean z3 = false;
-            if (h02 != null && h02.c() != null) {
-                z3 = h02.c().o(new ny.a(8, Boolean.valueOf(z2)));
+            if (h02 != null && h02.b() != null) {
+                z3 = h02.b().o(new ny.a(8, Boolean.valueOf(z2)));
             }
             if (!z3) {
                 if (z2) {
@@ -2291,9 +2291,9 @@ public class dx6 {
                 }
                 this.P.g();
             }
-            mz4 mz4Var = this.R;
-            if (mz4Var != null) {
-                mz4Var.q();
+            nz4 nz4Var = this.R;
+            if (nz4Var != null) {
+                nz4Var.q();
             }
         }
     }
@@ -2334,9 +2334,9 @@ public class dx6 {
             if (homePageBrowseModelTipView != null) {
                 homePageBrowseModelTipView.a();
             }
-            mz4 mz4Var = this.R;
-            if (mz4Var != null) {
-                mz4Var.v();
+            nz4 nz4Var = this.R;
+            if (nz4Var != null) {
+                nz4Var.v();
             }
         }
     }
@@ -2432,7 +2432,7 @@ public class dx6 {
                     if ((!z4 || i2 == 0) && dataRes2 != null && J0(true, z2, z3, dataRes2)) {
                         z0();
                         if (this.c != null) {
-                            xt4 k2 = xt4.k();
+                            yt4 k2 = yt4.k();
                             k2.x("recommend_frs_refresh_time" + TbadkCoreApplication.getCurrentAccount(), System.currentTimeMillis());
                             this.c.a(false);
                         }
@@ -2496,9 +2496,9 @@ public class dx6 {
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             bx6.b(this.k);
             X(this.f0);
-            k95 k95Var = this.s;
-            if (k95Var != null) {
-                k95Var.c();
+            l95 l95Var = this.s;
+            if (l95Var != null) {
+                l95Var.c();
             }
         }
     }
@@ -2591,7 +2591,7 @@ public class dx6 {
                     }
                     this.e.float_info = dataRes.float_info;
                 }
-                long m2 = xt4.k().m("key_maintab_banner_close_time", 0L);
+                long m2 = yt4.k().m("key_maintab_banner_close_time", 0L);
                 if (this.F != null && !StringHelper.isTaday(m2)) {
                     TbSingleton.getInstance().isAddBanner = true;
                     this.d.add(0, this.F);
@@ -2621,12 +2621,12 @@ public class dx6 {
             if (anti != null && (blockPopInfo = anti.block_pop_info) != null) {
                 xo8.g(blockPopInfo);
             }
-            aq4 aq4Var = new aq4();
-            aq4Var.a(dataRes.recom_post_topic);
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921333, aq4Var));
+            bq4 bq4Var = new bq4();
+            bq4Var.a(dataRes.recom_post_topic);
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921333, bq4Var));
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921543, null));
             if (!z2 && i3 > 0) {
-                s95.b().D(System.currentTimeMillis() - e2);
+                t95.b().D(System.currentTimeMillis() - e2);
             }
             return z5;
         }
@@ -2850,18 +2850,18 @@ public class dx6 {
         }
     }
 
-    public final wc5 W(boolean z2) {
+    public final xc5 W(boolean z2) {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048599, this, z2)) == null) {
             String e2 = w88.e(this.d, z2);
             int Y = Y(z2);
-            wc5 wc5Var = new wc5();
-            wc5Var.b = e2;
-            wc5Var.a = Y;
-            return wc5Var;
+            xc5 xc5Var = new xc5();
+            xc5Var.b = e2;
+            xc5Var.a = Y;
+            return xc5Var;
         }
-        return (wc5) invokeZ.objValue;
+        return (xc5) invokeZ.objValue;
     }
 
     public void W0(mu6 mu6Var) {
@@ -2944,7 +2944,7 @@ public class dx6 {
                 return;
             }
             String str = "";
-            String q2 = xt4.k().q("activity_prize_feed_text_time", "");
+            String q2 = yt4.k().q("activity_prize_feed_text_time", "");
             boolean z2 = true;
             if (!StringUtils.isNull(q2)) {
                 String[] split = q2.split("@");
@@ -2981,7 +2981,7 @@ public class dx6 {
             }
             if (z2) {
                 a1(4, 0);
-                xt4.k().y("activity_prize_feed_text_time", str);
+                yt4.k().y("activity_prize_feed_text_time", str);
             }
         }
     }
@@ -3065,12 +3065,12 @@ public class dx6 {
             String str = null;
             if (i2 == 2) {
                 if (i3 > 0) {
-                    str = String.format(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0f85), Integer.valueOf(i3));
+                    str = String.format(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0f6e), Integer.valueOf(i3));
                 } else {
-                    str = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0f84);
+                    str = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0f6d);
                 }
             } else if (i2 == 3) {
-                str = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0f83);
+                str = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0f6c);
             } else if (i2 == 4) {
                 str = TbadkCoreApplication.getInst().getActivityPrizeData().getFeedText();
             }
@@ -3141,10 +3141,10 @@ public class dx6 {
                 nn next = it.next();
                 if (next instanceof my6) {
                     advertAppInfo = ((my6) next).c();
-                } else if (next instanceof dp4) {
-                    dp4 dp4Var = (dp4) next;
-                    if (dp4Var.c() instanceof AdvertAppInfo.ILegoAdvert) {
-                        advertAppInfo = ((AdvertAppInfo.ILegoAdvert) dp4Var.c()).getAdvertAppInfo();
+                } else if (next instanceof ep4) {
+                    ep4 ep4Var = (ep4) next;
+                    if (ep4Var.c() instanceof AdvertAppInfo.ILegoAdvert) {
+                        advertAppInfo = ((AdvertAppInfo.ILegoAdvert) ep4Var.c()).getAdvertAppInfo();
                     }
                 }
                 if (advertAppInfo == null || !str.equals(advertAppInfo.a)) {
@@ -3379,7 +3379,7 @@ public class dx6 {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public final fu4.i k0() {
+    public final gu4.i k0() {
         InterceptResult invokeV;
         BigdaySwipeRefreshLayout bigdaySwipeRefreshLayout;
         char c2;
@@ -3387,7 +3387,7 @@ public class dx6 {
         String feedText;
         Interceptable interceptable = $ic;
         if (interceptable != null && (invokeV = interceptable.invokeV(1048621, this)) != null) {
-            return (fu4.i) invokeV.objValue;
+            return (gu4.i) invokeV.objValue;
         }
         if (!this.B || (bigdaySwipeRefreshLayout = this.l) == null || !bigdaySwipeRefreshLayout.u() || t0()) {
             return null;
@@ -3414,12 +3414,12 @@ public class dx6 {
             } else {
                 if (c2 == 2) {
                     if (i2 > 0) {
-                        feedText = String.format(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0f85), Integer.valueOf(i2));
+                        feedText = String.format(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0f6e), Integer.valueOf(i2));
                     } else {
-                        feedText = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0f84);
+                        feedText = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0f6d);
                     }
                 } else if (c2 == 3) {
-                    feedText = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0f83);
+                    feedText = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0f6c);
                 } else {
                     feedText = c2 == 4 ? TbadkCoreApplication.getInst().getActivityPrizeData().getFeedText() : null;
                 }
@@ -3431,7 +3431,7 @@ public class dx6 {
                 } else {
                     this.o = 0;
                 }
-                return new fu4.i(feedText, this.o);
+                return new gu4.i(feedText, this.o);
             }
         } else if (z2 || i2 != 0) {
             return null;
@@ -3507,7 +3507,7 @@ public class dx6 {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048627, this, z2)) == null) {
-            xt4 k2 = xt4.k();
+            yt4 k2 = yt4.k();
             long m2 = k2.m("recommend_frs_refresh_time" + TbadkCoreApplication.getCurrentAccount(), 0L);
             return m2 == 0 ? z2 : Math.abs(System.currentTimeMillis() - m2) > this.a;
         }
@@ -3517,7 +3517,7 @@ public class dx6 {
     public final boolean r0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048628, this)) == null) ? xt4.k().h(i0(), true) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048628, this)) == null) ? yt4.k().h(i0(), true) : invokeV.booleanValue;
     }
 
     public final boolean s0() {
@@ -3609,14 +3609,14 @@ public class dx6 {
     public void y0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048636, this) == null) {
-            s95.b().q(System.currentTimeMillis() - s95.b().c());
+            t95.b().q(System.currentTimeMillis() - t95.b().c());
         }
     }
 
     public final void z0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048637, this) == null) {
-            xt4.k().u(i0(), false);
+            yt4.k().u(i0(), false);
         }
     }
 }

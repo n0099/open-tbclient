@@ -51,11 +51,11 @@ public class wq7 {
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            ma5 ma5Var = new ma5(309093);
-            ma5Var.setResponsedClass(ChosenPbSocketResponse.class);
-            ma5Var.g(true);
-            ma5Var.h(false);
-            MessageManager.getInstance().registerTask(ma5Var);
+            na5 na5Var = new na5(309093);
+            na5Var.setResponsedClass(ChosenPbSocketResponse.class);
+            na5Var.g(true);
+            na5Var.h(false);
+            MessageManager.getInstance().registerTask(na5Var);
         }
     }
 

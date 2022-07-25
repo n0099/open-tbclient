@@ -1,8 +1,6 @@
 package com.repackage;
 
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.v8engine.JsObject;
+import com.baidu.searchbox.v8engine.V8JavascriptField;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -12,48 +10,39 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class dz3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public r72 a;
-    public ez3 b;
+    @V8JavascriptField
+    public int progress;
+    @V8JavascriptField
+    public long totalBytesExpectedToSend;
+    @V8JavascriptField
+    public long totalBytesSent;
 
-    public dz3(r72 r72Var) {
+    public dz3(int i, long j, long j2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {r72Var};
+            Object[] objArr = {Integer.valueOf(i), Long.valueOf(j), Long.valueOf(j2)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = r72Var;
+        this.progress = i;
+        this.totalBytesExpectedToSend = j;
+        this.totalBytesSent = j2;
     }
 
-    public fz3 a(JsObject jsObject) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jsObject)) == null) {
-            fz3 fz3Var = new fz3(b(), this.a);
-            fz3Var.C(jsObject);
-            return fz3Var;
-        }
-        return (fz3) invokeL.objValue;
-    }
-
-    @NonNull
-    public final ez3 b() {
+    public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (this.b == null) {
-                this.b = new ez3();
-            }
-            return this.b;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return "TaskProgressData{progress=" + this.progress + ", fileTotalBytes=" + this.totalBytesExpectedToSend + ", totalBytesExpectedToSend=" + this.totalBytesSent + '}';
         }
-        return (ez3) invokeV.objValue;
+        return (String) invokeV.objValue;
     }
 }

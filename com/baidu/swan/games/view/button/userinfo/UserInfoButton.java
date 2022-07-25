@@ -9,8 +9,8 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.f34;
-import com.repackage.h34;
+import com.repackage.g34;
+import com.repackage.i34;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class UserInfoButton extends ApiButton {
@@ -18,7 +18,7 @@ public class UserInfoButton extends ApiButton {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes2.dex */
-    public class a implements h34.b {
+    public class a implements i34.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ UserInfoButton a;
@@ -41,7 +41,7 @@ public class UserInfoButton extends ApiButton {
             this.a = userInfoButton;
         }
 
-        @Override // com.repackage.h34.b
+        @Override // com.repackage.i34.b
         public void a(JSONObject jSONObject) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
@@ -74,16 +74,16 @@ public class UserInfoButton extends ApiButton {
     public void onClick(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-            new h34().a(new a(this));
+            new i34().a(new a(this));
         }
     }
 
     public void u(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) {
-            f34 f34Var = new f34();
-            f34Var.data = jSONObject;
-            k(f34Var);
+            g34 g34Var = new g34();
+            g34Var.data = jSONObject;
+            k(g34Var);
         }
     }
 

@@ -76,7 +76,7 @@ public class CandidateSearchItemHolder extends RecyclerView.ViewHolder {
             if (view2.getId() != this.a.i.getId() && view2.getId() != this.a.a.getId()) {
                 if (view2.getId() == this.a.e.getId() && (this.a.itemView.getContext() instanceof Activity) && ViewHelper.checkUpIsLogin(this.a.itemView.getContext())) {
                     if (this.a.g.k) {
-                        pi.N(TbadkCoreApplication.getInst(), R.string.obfuscated_res_0x7f0f081f);
+                        pi.N(TbadkCoreApplication.getInst(), R.string.obfuscated_res_0x7f0f081b);
                         return;
                     }
                     CommitVoteReqMsg commitVoteReqMsg = new CommitVoteReqMsg(this.a.g.b, this.a.g.a, this.a.g.l, 3);
@@ -120,12 +120,12 @@ public class CandidateSearchItemHolder extends RecyclerView.ViewHolder {
         this.f = 3;
         this.h = null;
         this.j = new a(this);
-        HeadImageView headImageView = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f090e85);
+        HeadImageView headImageView = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f090e7e);
         this.a = headImageView;
         headImageView.setIsRound(true);
         this.a.setOnClickListener(this.j);
-        this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09155e);
-        this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091642);
+        this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091539);
+        this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09161d);
         this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090159);
         this.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090439);
         this.itemView.setOnClickListener(this.j);
@@ -148,7 +148,7 @@ public class CandidateSearchItemHolder extends RecyclerView.ViewHolder {
             if (valueOf != null && valueOf.length() < 4) {
                 valueOf = String.format("%04d", Long.valueOf(jw5Var.e));
             }
-            h(this.c, String.format(this.itemView.getContext().getString(R.string.obfuscated_res_0x7f0f0cb4), valueOf, Integer.valueOf(jw5Var.f)), jw5Var.j);
+            h(this.c, String.format(this.itemView.getContext().getString(R.string.obfuscated_res_0x7f0f0ca0), valueOf, Integer.valueOf(jw5Var.f)), jw5Var.j);
             this.d.setText(String.format(this.itemView.getContext().getString(R.string.obfuscated_res_0x7f0f00e5), StringHelper.numFormatOverWanWithNegative(jw5Var.g), StringHelper.numFormatOverWanWithNegative(jw5Var.h), StringHelper.numFormatOverWanWithNegative(jw5Var.i)));
             i();
         }

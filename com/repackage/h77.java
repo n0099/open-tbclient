@@ -23,7 +23,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.dumper.ZeusCrashHandler;
-import com.repackage.yy4;
+import com.repackage.zy4;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
@@ -81,10 +81,10 @@ public class h77 {
                 if (this.a.a != null) {
                     this.a.a.clear();
                 }
-                ny4.f0().e0(new yy4());
-                ny4.f0().a0(0);
-                ny4.f0().a();
-                ny4.f0().k();
+                oy4.f0().e0(new zy4());
+                oy4.f0().a0(0);
+                oy4.f0().a();
+                oy4.f0().k();
             } else if (customResponsedMessage.getCmd() != 2016010 || this.a.a == null) {
             } else {
                 this.a.u(false);
@@ -138,10 +138,10 @@ public class h77 {
         return invokeL.booleanValue;
     }
 
-    public final void g(ImMessageCenterPojo imMessageCenterPojo, yy4 yy4Var) {
+    public final void g(ImMessageCenterPojo imMessageCenterPojo, zy4 zy4Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, imMessageCenterPojo, yy4Var) == null) && imMessageCenterPojo != null && imMessageCenterPojo.getCustomGroupType() == -8 && r77.a().b()) {
-            yy4Var.Q(imMessageCenterPojo.getUnread_count());
+        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, imMessageCenterPojo, zy4Var) == null) && imMessageCenterPojo != null && imMessageCenterPojo.getCustomGroupType() == -8 && r77.a().b()) {
+            zy4Var.Q(imMessageCenterPojo.getUnread_count());
         }
     }
 
@@ -151,17 +151,17 @@ public class h77 {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public final void h(ImMessageCenterPojo imMessageCenterPojo, yy4 yy4Var) {
+    public final void h(ImMessageCenterPojo imMessageCenterPojo, zy4 zy4Var) {
         int userType;
         String str;
         String str2;
         String str3;
         JSONArray jSONArray;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, imMessageCenterPojo, yy4Var) == null) || imMessageCenterPojo == null || imMessageCenterPojo.getCustomGroupType() != 4 || !s77.j().c(TbadkCoreApplication.getCurrentAccount(), imMessageCenterPojo.getGid()) || StringUtils.isNull(imMessageCenterPojo.getLast_content()) || imMessageCenterPojo.getUnread_count() <= 0 || (userType = imMessageCenterPojo.getUserType()) == 3) {
+        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, imMessageCenterPojo, zy4Var) == null) || imMessageCenterPojo == null || imMessageCenterPojo.getCustomGroupType() != 4 || !s77.j().c(TbadkCoreApplication.getCurrentAccount(), imMessageCenterPojo.getGid()) || StringUtils.isNull(imMessageCenterPojo.getLast_content()) || imMessageCenterPojo.getUnread_count() <= 0 || (userType = imMessageCenterPojo.getUserType()) == 3) {
             return;
         }
-        yy4.a aVar = new yy4.a();
+        zy4.a aVar = new zy4.a();
         aVar.a = imMessageCenterPojo.getGid();
         aVar.e = imMessageCenterPojo.getGroup_name();
         if (userType == 4) {
@@ -199,10 +199,10 @@ public class h77 {
                     aVar.d = imMessageCenterPojo.getGroup_name() + ":" + imMessageCenterPojo.getLast_content();
                     aVar.f = userType;
                     aVar.g = imMessageCenterPojo.getUnread_count();
-                    yy4Var.g().add(aVar);
+                    zy4Var.g().add(aVar);
                     if (userType == 4) {
                     }
-                    yy4Var.R(yy4Var.u() + imMessageCenterPojo.getUnread_count());
+                    zy4Var.R(zy4Var.u() + imMessageCenterPojo.getUnread_count());
                 }
                 str4 = str;
                 if (str2 == null) {
@@ -235,70 +235,70 @@ public class h77 {
         }
         aVar.f = userType;
         aVar.g = imMessageCenterPojo.getUnread_count();
-        yy4Var.g().add(aVar);
+        zy4Var.g().add(aVar);
         if (userType == 4) {
-            yy4Var.P(yy4Var.s() + imMessageCenterPojo.getUnread_count());
+            zy4Var.P(zy4Var.s() + imMessageCenterPojo.getUnread_count());
         }
-        yy4Var.R(yy4Var.u() + imMessageCenterPojo.getUnread_count());
+        zy4Var.R(zy4Var.u() + imMessageCenterPojo.getUnread_count());
     }
 
-    public final void i(ImMessageCenterPojo imMessageCenterPojo, yy4 yy4Var) {
+    public final void i(ImMessageCenterPojo imMessageCenterPojo, zy4 zy4Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048579, this, imMessageCenterPojo, yy4Var) == null) && imMessageCenterPojo != null && imMessageCenterPojo.getCustomGroupType() == 2 && imMessageCenterPojo.getIsFriend() == 1 && t77.j().c(TbadkCoreApplication.getCurrentAccount(), imMessageCenterPojo.getGid())) {
+        if ((interceptable == null || interceptable.invokeLL(1048579, this, imMessageCenterPojo, zy4Var) == null) && imMessageCenterPojo != null && imMessageCenterPojo.getCustomGroupType() == 2 && imMessageCenterPojo.getIsFriend() == 1 && t77.j().c(TbadkCoreApplication.getCurrentAccount(), imMessageCenterPojo.getGid())) {
             if (imMessageCenterPojo.getUnread_count() > 0) {
-                yy4Var.F(imMessageCenterPojo.getLast_content());
+                zy4Var.F(imMessageCenterPojo.getLast_content());
                 String nameShow = imMessageCenterPojo.getNameShow();
-                HashMap<String, String> h = yy4Var.h();
+                HashMap<String, String> h = zy4Var.h();
                 if (h != null) {
                     h.put(imMessageCenterPojo.getGid(), nameShow);
                 }
             }
-            yy4Var.T(yy4Var.w() + imMessageCenterPojo.getUnread_count());
+            zy4Var.T(zy4Var.w() + imMessageCenterPojo.getUnread_count());
         }
     }
 
-    public final void j(ImMessageCenterPojo imMessageCenterPojo, yy4 yy4Var) {
+    public final void j(ImMessageCenterPojo imMessageCenterPojo, zy4 zy4Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048580, this, imMessageCenterPojo, yy4Var) == null) && imMessageCenterPojo != null && imMessageCenterPojo.getCustomGroupType() == -7 && u77.a().b()) {
-            yy4Var.V(imMessageCenterPojo.getUnread_count());
+        if ((interceptable == null || interceptable.invokeLL(1048580, this, imMessageCenterPojo, zy4Var) == null) && imMessageCenterPojo != null && imMessageCenterPojo.getCustomGroupType() == -7 && u77.a().b()) {
+            zy4Var.V(imMessageCenterPojo.getUnread_count());
         }
     }
 
-    public final void k(ImMessageCenterPojo imMessageCenterPojo, yy4 yy4Var) {
+    public final void k(ImMessageCenterPojo imMessageCenterPojo, zy4 zy4Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048581, this, imMessageCenterPojo, yy4Var) == null) && imMessageCenterPojo != null && imMessageCenterPojo.getCustomGroupType() == -4) {
-            yy4Var.N(imMessageCenterPojo.getUnread_count());
-            yy4Var.G(imMessageCenterPojo.getLast_content());
-            yy4Var.B(imMessageCenterPojo.getGroup_name());
+        if ((interceptable == null || interceptable.invokeLL(1048581, this, imMessageCenterPojo, zy4Var) == null) && imMessageCenterPojo != null && imMessageCenterPojo.getCustomGroupType() == -4) {
+            zy4Var.N(imMessageCenterPojo.getUnread_count());
+            zy4Var.G(imMessageCenterPojo.getLast_content());
+            zy4Var.B(imMessageCenterPojo.getGroup_name());
         }
     }
 
-    public final void l(ImMessageCenterPojo imMessageCenterPojo, yy4 yy4Var) {
+    public final void l(ImMessageCenterPojo imMessageCenterPojo, zy4 zy4Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048582, this, imMessageCenterPojo, yy4Var) == null) && imMessageCenterPojo != null && imMessageCenterPojo.getCustomGroupType() == 1) {
-            HashMap<String, String> a2 = yy4Var.a();
+        if ((interceptable == null || interceptable.invokeLL(1048582, this, imMessageCenterPojo, zy4Var) == null) && imMessageCenterPojo != null && imMessageCenterPojo.getCustomGroupType() == 1) {
+            HashMap<String, String> a2 = zy4Var.a();
             if (!q77.k().c(TbadkCoreApplication.getCurrentAccount(), imMessageCenterPojo.getGid())) {
-                yy4Var.K(yy4Var.l() + imMessageCenterPojo.getUnread_count());
+                zy4Var.K(zy4Var.l() + imMessageCenterPojo.getUnread_count());
             } else if (imMessageCenterPojo.getUnread_count() > 0) {
                 if (TextUtils.isEmpty(imMessageCenterPojo.getLast_user_name())) {
-                    yy4Var.E(imMessageCenterPojo.getLast_content());
+                    zy4Var.E(imMessageCenterPojo.getLast_content());
                 } else {
-                    yy4Var.E(imMessageCenterPojo.getLast_user_name() + ":" + imMessageCenterPojo.getLast_content());
+                    zy4Var.E(imMessageCenterPojo.getLast_user_name() + ":" + imMessageCenterPojo.getLast_content());
                 }
                 a2.put(imMessageCenterPojo.getGid(), imMessageCenterPojo.getGroup_name());
             }
-            yy4Var.J(yy4Var.j() + imMessageCenterPojo.getUnread_count());
+            zy4Var.J(zy4Var.j() + imMessageCenterPojo.getUnread_count());
         }
     }
 
-    public final void m(List<yy4.a> list, List<yy4.a> list2) {
+    public final void m(List<zy4.a> list, List<zy4.a> list2) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLL(1048583, this, list, list2) == null) || list == null || list.size() == 0 || list2 == null || list2.size() == 0) {
             return;
         }
-        for (yy4.a aVar : list) {
+        for (zy4.a aVar : list) {
             if (aVar != null) {
-                for (yy4.a aVar2 : list2) {
+                for (zy4.a aVar2 : list2) {
                     if (aVar2 != null && StringHelper.equals(aVar.a, aVar2.a)) {
                         aVar.h = aVar2.g;
                     }
@@ -399,41 +399,41 @@ public class h77 {
     public final void u(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048590, this, z) == null) {
-            yy4 yy4Var = new yy4();
-            yy4Var.I(z);
-            x(yy4Var);
-            yy4Var.C();
-            yy4Var.D();
-            yy4Var.U(ny4.f0().D().w());
-            yy4Var.L(ny4.f0().D().k());
-            yy4Var.S(ny4.f0().D().u());
-            yy4Var.O(ny4.f0().D().q());
-            yy4Var.M(ny4.f0().D().n());
-            m(yy4Var.g(), ny4.f0().D().g());
-            if (!py4.d().r()) {
-                yy4Var.J(0);
+            zy4 zy4Var = new zy4();
+            zy4Var.I(z);
+            x(zy4Var);
+            zy4Var.C();
+            zy4Var.D();
+            zy4Var.U(oy4.f0().D().w());
+            zy4Var.L(oy4.f0().D().k());
+            zy4Var.S(oy4.f0().D().u());
+            zy4Var.O(oy4.f0().D().q());
+            zy4Var.M(oy4.f0().D().n());
+            m(zy4Var.g(), oy4.f0().D().g());
+            if (!qy4.d().r()) {
+                zy4Var.J(0);
             }
-            if (!py4.d().t()) {
-                yy4Var.T(0);
+            if (!qy4.d().t()) {
+                zy4Var.T(0);
             }
-            if (!py4.d().n()) {
-                yy4Var.R(0);
-                yy4Var.Q(0);
-                yy4Var.P(0);
+            if (!qy4.d().n()) {
+                zy4Var.R(0);
+                zy4Var.Q(0);
+                zy4Var.P(0);
             }
-            if (py4.d().f() <= 0) {
-                yy4Var.J(0);
-                yy4Var.T(0);
-                yy4Var.Q(0);
-                yy4Var.R(0);
-                yy4Var.P(0);
-                yy4Var.V(0);
-                yy4Var.I(false);
+            if (qy4.d().f() <= 0) {
+                zy4Var.J(0);
+                zy4Var.T(0);
+                zy4Var.Q(0);
+                zy4Var.R(0);
+                zy4Var.P(0);
+                zy4Var.V(0);
+                zy4Var.I(false);
             }
-            if ((((((yy4Var.w() + yy4Var.j()) + yy4Var.n()) + yy4Var.q()) + yy4Var.t()) + yy4Var.u()) - yy4Var.l() <= 0) {
-                yy4Var.I(false);
+            if ((((((zy4Var.w() + zy4Var.j()) + zy4Var.n()) + zy4Var.q()) + zy4Var.t()) + zy4Var.u()) - zy4Var.l() <= 0) {
+                zy4Var.I(false);
             }
-            ny4.f0().U(yy4Var);
+            oy4.f0().U(zy4Var);
         }
     }
 
@@ -463,19 +463,19 @@ public class h77 {
         }
     }
 
-    public final void x(yy4 yy4Var) {
+    public final void x(zy4 zy4Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048593, this, yy4Var) == null) || yy4Var == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048593, this, zy4Var) == null) || zy4Var == null) {
             return;
         }
         for (ImMessageCenterPojo imMessageCenterPojo : this.a) {
             if (imMessageCenterPojo != null && imMessageCenterPojo.getIs_hidden() != 1 && p(imMessageCenterPojo)) {
-                l(imMessageCenterPojo, yy4Var);
-                h(imMessageCenterPojo, yy4Var);
-                i(imMessageCenterPojo, yy4Var);
-                k(imMessageCenterPojo, yy4Var);
-                g(imMessageCenterPojo, yy4Var);
-                j(imMessageCenterPojo, yy4Var);
+                l(imMessageCenterPojo, zy4Var);
+                h(imMessageCenterPojo, zy4Var);
+                i(imMessageCenterPojo, zy4Var);
+                k(imMessageCenterPojo, zy4Var);
+                g(imMessageCenterPojo, zy4Var);
+                j(imMessageCenterPojo, zy4Var);
             }
         }
     }

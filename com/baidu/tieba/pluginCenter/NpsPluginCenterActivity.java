@@ -6,7 +6,6 @@ import android.widget.LinearLayout;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.nps.pm.BundleInfo;
-import com.baidu.pass.ecommerce.common.view.ToastUtil;
 import com.baidu.searchbox.live.nps.LiveNPSPluginManager;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -67,7 +66,7 @@ public class NpsPluginCenterActivity extends BaseActivity {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                ToastUtil.show(this.a.getPackageName());
+                this.b.showToast(this.a.getPackageName());
             }
         }
     }
@@ -95,9 +94,9 @@ public class NpsPluginCenterActivity extends BaseActivity {
             if (getIntent() != null) {
                 getIntent().getIntExtra("key_from_type", 0);
             }
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f092437);
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f092439);
             this.b = navigationBar;
-            navigationBar.setCenterTextTitle(getString(R.string.obfuscated_res_0x7f0f0e7d));
+            navigationBar.setCenterTextTitle(getString(R.string.obfuscated_res_0x7f0f0e66));
             this.b.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         }
     }
@@ -105,7 +104,7 @@ public class NpsPluginCenterActivity extends BaseActivity {
     public final void B1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            LinearLayout linearLayout = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091c8d);
+            LinearLayout linearLayout = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091c93);
             this.e.add("com.baidu.searchbox.bjhlivenps");
             this.e.add("com.baidu.live.media.business");
             this.e.add(LiveNPSPluginManager.NPS_PLUGIN_PKG_NAME);
@@ -162,7 +161,7 @@ public class NpsPluginCenterActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d0633);
+            setContentView(R.layout.obfuscated_res_0x7f0d063d);
             A1();
             B1();
         }

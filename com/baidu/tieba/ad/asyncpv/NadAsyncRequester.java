@@ -10,7 +10,6 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.common.param.CommonUrlParamManager;
 import com.baidu.mobstat.Config;
 import com.baidu.nadcore.net.request.Headers;
-import com.baidu.sofire.d.D;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -28,22 +27,22 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.cn4;
 import com.repackage.co0;
-import com.repackage.en4;
+import com.repackage.dn4;
+import com.repackage.fn4;
 import com.repackage.gd7;
 import com.repackage.hh0;
 import com.repackage.mk5;
 import com.repackage.mo0;
 import com.repackage.ni;
 import com.repackage.no0;
-import com.repackage.p65;
 import com.repackage.pj5;
 import com.repackage.q65;
+import com.repackage.r65;
 import com.repackage.to0;
 import com.repackage.uo0;
-import com.repackage.xc5;
 import com.repackage.yc5;
+import com.repackage.zc5;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -176,7 +175,7 @@ public class NadAsyncRequester {
         d(CommonUrlParamManager.PARAM_CMODE, PermissionUtil.isAgreePrivacyPolicy() ? "1" : "2");
         String sampleId = TbSingleton.getInstance().getSampleId();
         d("eid", sampleId == null ? "" : sampleId.replace(SignatureImpl.SEP, ','));
-        d("app_transmit_data", yc5.a());
+        d("app_transmit_data", zc5.a());
         d("is_https", "1");
         d("flr", "1");
         d(TbConfig.SW_APID, "0");
@@ -245,7 +244,7 @@ public class NadAsyncRequester {
         if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, map)) == null) {
             JSONArray jSONArray = new JSONArray();
             if (pj5.a().b("tieba_no_oaid_param", 0) != 1) {
-                jSONArray.put(e(AdExtParam.KEY_IADEX, xc5.e()));
+                jSONArray.put(e(AdExtParam.KEY_IADEX, yc5.e()));
                 jSONArray.put(e("oaid_v", PermissionUtil.getLastCachedOid(TbadkCoreApplication.getInst())));
                 jSONArray.put(e("mac", PermissionUtil.getLocalMacAddress(TbadkCoreApplication.getInst())));
             }
@@ -270,10 +269,10 @@ public class NadAsyncRequester {
             } else if (!TbadkCoreApplication.getInst().isRemoteProcess()) {
                 return;
             } else {
-                b2 = p65.b();
+                b2 = q65.b();
             }
             if (TbadkCoreApplication.getInst().isRemoteProcess() && TextUtils.isEmpty(b2)) {
-                currentAccountInfo = cn4.e();
+                currentAccountInfo = dn4.e();
                 if (currentAccountInfo == null) {
                     return;
                 }
@@ -283,7 +282,7 @@ public class NadAsyncRequester {
                 return;
             }
             c(to0Var, HttpRequest.BDUSS, b2);
-            String a2 = en4.a(currentAccountInfo);
+            String a2 = fn4.a(currentAccountInfo);
             if (StringUtils.isNull(a2)) {
                 return;
             }
@@ -296,7 +295,7 @@ public class NadAsyncRequester {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             if (TextUtils.isEmpty(TbSingleton.getInstance().getSampleId())) {
-                TbSingleton.getInstance().setSampleId(q65.d("multi_process_sample_id", ""));
+                TbSingleton.getInstance().setSampleId(r65.d("multi_process_sample_id", ""));
             }
             return TbSingleton.getInstance().getSampleId();
         }
@@ -332,7 +331,7 @@ public class NadAsyncRequester {
             to0 e3 = to0.e(e);
             c(e3, "ext", f(map));
             c(e3, "pid", this.a.value);
-            c(e3, D.COLUMN_PLUGIN_ACTIVITY_INFO_LIST, String.valueOf(i));
+            c(e3, "ac", String.valueOf(i));
             c(e3, TiebaStatic.Params.SAMPLE_ID, g());
             b(e3);
             uo0Var.f(e3);

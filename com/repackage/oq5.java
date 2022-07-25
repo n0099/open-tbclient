@@ -52,7 +52,7 @@ public class oq5 extends jx5<mp5> {
     public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d07f7 : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d0801 : invokeV.intValue;
     }
 
     @Override // com.repackage.jx5
@@ -81,7 +81,7 @@ public class oq5 extends jx5<mp5> {
             int[] b = dp5.b(getContext());
             int i = b[0];
             int i2 = b[1];
-            TabLiveStageLiveView tabLiveStageLiveView = (TabLiveStageLiveView) this.i.findViewById(R.id.obfuscated_res_0x7f091e1d);
+            TabLiveStageLiveView tabLiveStageLiveView = (TabLiveStageLiveView) this.i.findViewById(R.id.obfuscated_res_0x7f091e23);
             this.j = tabLiveStageLiveView;
             FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) tabLiveStageLiveView.getLayoutParams();
             if (layoutParams == null) {

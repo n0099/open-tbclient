@@ -40,12 +40,12 @@ public abstract class ThumbnailImageViewTarget<T> extends ImageViewTarget<T> {
     public void setResource(@Nullable T t) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t) == null) {
-            ViewGroup.LayoutParams layoutParams = ((ImageView) this.f1780view).getLayoutParams();
+            ViewGroup.LayoutParams layoutParams = ((ImageView) this.f1060view).getLayoutParams();
             Drawable drawable = getDrawable(t);
             if (layoutParams != null && layoutParams.width > 0 && layoutParams.height > 0) {
                 drawable = new FixedSizeDrawable(drawable, layoutParams.width, layoutParams.height);
             }
-            ((ImageView) this.f1780view).setImageDrawable(drawable);
+            ((ImageView) this.f1060view).setImageDrawable(drawable);
         }
     }
 

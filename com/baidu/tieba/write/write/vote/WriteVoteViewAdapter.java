@@ -245,7 +245,7 @@ public class WriteVoteViewAdapter extends RecyclerView.Adapter {
                 }
             }
             this.a = (EditText) view2.findViewById(R.id.obfuscated_res_0x7f09249d);
-            this.b = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090e7b);
+            this.b = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090e74);
             this.c = new g(writeVoteViewAdapter, this);
             this.a.setOnEditorActionListener(writeVoteViewAdapter.e);
         }
@@ -316,7 +316,7 @@ public class WriteVoteViewAdapter extends RecyclerView.Adapter {
             WriteVoteItemData writeVoteItemData = new WriteVoteItemData();
             writeVoteItemData.setId(this.b + 1);
             if (je5.d(replace) > 28) {
-                this.c.a.showToast(String.format(this.c.a.getString(R.string.obfuscated_res_0x7f0f15f5), 14));
+                this.c.a.showToast(String.format(this.c.a.getString(R.string.obfuscated_res_0x7f0f15a4), 14));
             }
             String n = je5.n(replace, 28);
             if (!n.equals(editable.toString())) {
@@ -443,7 +443,7 @@ public class WriteVoteViewAdapter extends RecyclerView.Adapter {
             if (viewHolder instanceof e) {
                 e eVar = (e) viewHolder;
                 String text = this.b.get(i).getText();
-                eVar.a.setHint(String.format(this.a.getString(R.string.obfuscated_res_0x7f0f15f0), Integer.valueOf(i + 1)));
+                eVar.a.setHint(String.format(this.a.getString(R.string.obfuscated_res_0x7f0f159f), Integer.valueOf(i + 1)));
                 eVar.a.setGravity(19);
                 if (i < this.b.size() - 1) {
                     eVar.a.setImeOptions(5);
@@ -469,7 +469,7 @@ public class WriteVoteViewAdapter extends RecyclerView.Adapter {
                 }
             } else if (viewHolder instanceof d) {
                 d dVar = (d) viewHolder;
-                dVar.a.setText(String.format(this.a.getString(R.string.obfuscated_res_0x7f0f15cc), Integer.valueOf(20 - this.b.size())));
+                dVar.a.setText(String.format(this.a.getString(R.string.obfuscated_res_0x7f0f157b), Integer.valueOf(20 - this.b.size())));
                 dVar.c.setOnClickListener(new c(this));
             }
             g(viewHolder);
@@ -483,9 +483,9 @@ public class WriteVoteViewAdapter extends RecyclerView.Adapter {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048583, this, viewGroup, i)) == null) {
             if (i == 1) {
-                return new e(this, LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d08a7, viewGroup, false));
+                return new e(this, LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d08b1, viewGroup, false));
             }
-            return new d(this, LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d08a4, viewGroup, false));
+            return new d(this, LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d08ae, viewGroup, false));
         }
         return (RecyclerView.ViewHolder) invokeLI.objValue;
     }

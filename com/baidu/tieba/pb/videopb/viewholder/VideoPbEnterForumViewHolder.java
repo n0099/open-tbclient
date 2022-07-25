@@ -49,7 +49,7 @@ public class VideoPbEnterForumViewHolder extends TypeAdapter.ViewHolder implemen
         }
     }
 
-    public void c() {
+    public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             this.a.d();

@@ -109,10 +109,10 @@ public class HeadCustomImageView extends RelativeLayout {
             LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0382, (ViewGroup) this, true);
             setClipChildren(false);
             setClipToPadding(false);
-            this.c = (RoundRelativeLayout) findViewById(R.id.obfuscated_res_0x7f090cd7);
-            this.b = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090cd6);
-            this.a = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090cd4);
-            this.d = (RoundRelativeLayout) findViewById(R.id.obfuscated_res_0x7f090cd5);
+            this.c = (RoundRelativeLayout) findViewById(R.id.obfuscated_res_0x7f090cd0);
+            this.b = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090ccf);
+            this.a = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090ccd);
+            this.d = (RoundRelativeLayout) findViewById(R.id.obfuscated_res_0x7f090cce);
             int f = pi.f(context, R.dimen.tbds90);
             this.e = f;
             this.d.setRoundLayoutRadius(new float[]{f, f, f, f, f, f, f, f});

@@ -529,14 +529,14 @@ public final class vi9 extends ni9<b> {
 
         /* renamed from: com.repackage.vi9$b$b  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public class C0747b implements gd9<FunSplashAd> {
+        public class C0595b implements gd9<FunSplashAd> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ Activity a;
             public final /* synthetic */ ViewGroup b;
             public final /* synthetic */ b c;
 
-            public C0747b(b bVar, Activity activity, ViewGroup viewGroup) {
+            public C0595b(b bVar, Activity activity, ViewGroup viewGroup) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -717,9 +717,9 @@ public final class vi9 extends ni9<b> {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, activity, viewGroup, funAdInteractionListener)) == null) {
                 vi9 vi9Var = this.h;
-                C0747b c0747b = new C0747b(this, activity, viewGroup);
+                C0595b c0595b = new C0595b(this, activity, viewGroup);
                 int i = vi9.l;
-                return (FunSplashAd) vi9Var.k(funAdInteractionListener, c0747b);
+                return (FunSplashAd) vi9Var.k(funAdInteractionListener, c0595b);
             }
             return (FunSplashAd) invokeLLL.objValue;
         }

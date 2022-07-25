@@ -27,9 +27,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.gd5;
+import com.repackage.hd5;
 import com.repackage.j28;
-import com.repackage.k55;
+import com.repackage.l55;
 import com.repackage.ni;
 import com.repackage.oi;
 import com.repackage.p28;
@@ -45,7 +45,7 @@ public class SmartAppBrowseHistoryActivity extends BaseActivity {
     public FrameLayout b;
     public BdRecyclerView c;
     public NoNetworkView d;
-    public k55 e;
+    public l55 e;
     public NoDataView f;
     public TextView g;
     public SmartAppBrowseHistoryAdapter h;
@@ -299,7 +299,7 @@ public class SmartAppBrowseHistoryActivity extends BaseActivity {
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && !gd5.a() && ni.A()) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && !hd5.a() && ni.A()) {
                 this.a.a();
             }
         }
@@ -369,10 +369,10 @@ public class SmartAppBrowseHistoryActivity extends BaseActivity {
             }
             this.c.setVisibility(8);
             if (this.e == null) {
-                this.e = new k55(getActivity(), this.o);
+                this.e = new l55(getActivity(), this.o);
             }
             this.e.k(getActivity().getResources().getDimensionPixelSize(R.dimen.tbds340));
-            this.e.m(getString(R.string.obfuscated_res_0x7f0f0c2b));
+            this.e.m(getString(R.string.obfuscated_res_0x7f0f0c17));
             this.e.attachView(this.b, true);
             this.e.p();
             this.e.onChangeSkinType();
@@ -383,15 +383,15 @@ public class SmartAppBrowseHistoryActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             setContentView(R.layout.obfuscated_res_0x7f0d0051);
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f091592);
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f09156d);
             this.a = navigationBar;
-            navigationBar.setCenterTextTitle(getResources().getString(R.string.obfuscated_res_0x7f0f0843));
+            navigationBar.setCenterTextTitle(getResources().getString(R.string.obfuscated_res_0x7f0f083f));
             this.a.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-            this.d = (NoNetworkView) findViewById(R.id.obfuscated_res_0x7f091dc1);
-            this.f = NoDataViewFactory.a(getActivity(), null, NoDataViewFactory.d.a(NoDataViewFactory.ImgType.NODATA), NoDataViewFactory.e.d(null, getString(R.string.obfuscated_res_0x7f0f0c54)), NoDataViewFactory.c.a(new NoDataViewFactory.b(getResources().getString(R.string.obfuscated_res_0x7f0f0f98), this.p)));
+            this.d = (NoNetworkView) findViewById(R.id.obfuscated_res_0x7f091dc7);
+            this.f = NoDataViewFactory.a(getActivity(), null, NoDataViewFactory.d.a(NoDataViewFactory.ImgType.NODATA), NoDataViewFactory.e.d(null, getString(R.string.obfuscated_res_0x7f0f0c40)), NoDataViewFactory.c.a(new NoDataViewFactory.b(getResources().getString(R.string.obfuscated_res_0x7f0f0f81), this.p)));
             this.f.setLayoutParams(new RecyclerView.LayoutParams(-1, -2));
-            this.b = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f091dc0);
-            BdRecyclerView bdRecyclerView = (BdRecyclerView) findViewById(R.id.obfuscated_res_0x7f091dbf);
+            this.b = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f091dc6);
+            BdRecyclerView bdRecyclerView = (BdRecyclerView) findViewById(R.id.obfuscated_res_0x7f091dc5);
             this.c = bdRecyclerView;
             bdRecyclerView.setLayoutManager(new LinearLayoutManager(this));
             SmartAppBrowseHistoryAdapter smartAppBrowseHistoryAdapter = new SmartAppBrowseHistoryAdapter(getActivity());
@@ -402,7 +402,7 @@ public class SmartAppBrowseHistoryActivity extends BaseActivity {
             this.g = new TextView(getActivity());
             this.g.setLayoutParams(new RecyclerView.LayoutParams(-1, pi.f(getActivity(), R.dimen.tbds182)));
             this.g.setGravity(17);
-            this.g.setText(R.string.obfuscated_res_0x7f0f09e5);
+            this.g.setText(R.string.obfuscated_res_0x7f0f09cf);
             this.g.setTextSize(0, pi.f(getActivity(), R.dimen.tbds33));
         }
     }
@@ -426,9 +426,9 @@ public class SmartAppBrowseHistoryActivity extends BaseActivity {
             super.onChangeSkinType(i);
             this.a.onChangeSkinType(getPageContext(), i);
             this.d.d(getPageContext(), i);
-            k55 k55Var = this.e;
-            if (k55Var != null) {
-                k55Var.onChangeSkinType();
+            l55 l55Var = this.e;
+            if (l55Var != null) {
+                l55Var.onChangeSkinType();
             }
             NoDataView noDataView = this.f;
             if (noDataView != null) {

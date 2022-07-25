@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ma5;
+import com.repackage.na5;
 /* loaded from: classes3.dex */
 public class HomePageStatic {
     public static /* synthetic */ Interceptable $ic;
@@ -56,12 +56,12 @@ public class HomePageStatic {
             TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_GET_MY_POST, TbConfig.SERVER_ADDRESS + TbConfig.GET_MY_POST + "?cmd=303111");
             tbHttpMessageTask.setResponsedClass(GetMyPostHttpResponseMessage.class);
             messageManager.registerTask(tbHttpMessageTask);
-            ma5 ma5Var = new ma5(303111);
-            ma5Var.setResponsedClass(GetMyPostSocketResponseMessage.class);
-            ma5Var.g(true);
-            ma5Var.h(false);
-            ma5Var.f(SocketMessageTask.DupLicateMode.NONE);
-            messageManager.registerTask(ma5Var);
+            na5 na5Var = new na5(303111);
+            na5Var.setResponsedClass(GetMyPostSocketResponseMessage.class);
+            na5Var.g(true);
+            na5Var.h(false);
+            na5Var.f(SocketMessageTask.DupLicateMode.NONE);
+            messageManager.registerTask(na5Var);
         }
     }
 }

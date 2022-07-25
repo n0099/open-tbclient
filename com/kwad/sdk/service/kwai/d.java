@@ -5,29 +5,29 @@ import com.kwad.sdk.api.SdkConfig;
 import com.kwad.sdk.core.response.model.AdTemplate;
 /* loaded from: classes5.dex */
 public interface d {
-    Context a();
+    boolean G(AdTemplate adTemplate);
 
-    boolean a(AdTemplate adTemplate);
+    String getApiVersion();
 
-    String b();
+    int getApiVersionCode();
 
-    String c();
+    String getAppId();
 
-    boolean d();
+    String getAppName();
 
-    String e();
+    Context getContext();
 
-    int f();
+    boolean getIsExternal();
 
-    boolean g();
+    String getSDKVersion();
 
-    boolean h();
+    SdkConfig getSdkConfig();
 
-    String i();
+    boolean isDebugLogEnable();
 
-    boolean j();
+    boolean isPersonalRecommend();
 
-    SdkConfig k();
+    boolean isProgrammaticRecommend();
 
-    com.kwad.sdk.core.response.a.e l();
+    com.kwad.sdk.core.response.a.e lw();
 }

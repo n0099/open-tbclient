@@ -38,8 +38,8 @@ public class rs8 implements View.OnClickListener, Animator.AnimatorListener, Val
                 return;
             }
         }
-        d = xt4.k().h("key_video_guide_up_slide_animated", false);
-        e = xt4.k().h("key_video_guide_left_slide_animated", false);
+        d = yt4.k().h("key_video_guide_up_slide_animated", false);
+        e = yt4.k().h("key_video_guide_left_slide_animated", false);
     }
 
     public rs8(TBLottieAnimationView tBLottieAnimationView, VerticalViewPager verticalViewPager) {
@@ -87,7 +87,7 @@ public class rs8 implements View.OnClickListener, Animator.AnimatorListener, Val
         k(R.raw.obfuscated_res_0x7f11005e);
         e = true;
         this.c = true;
-        xt4.k().u("key_video_guide_left_slide_animated", true);
+        yt4.k().u("key_video_guide_left_slide_animated", true);
     }
 
     public void d() {
@@ -100,7 +100,7 @@ public class rs8 implements View.OnClickListener, Animator.AnimatorListener, Val
         k(R.raw.obfuscated_res_0x7f11005f);
         d = true;
         this.c = true;
-        xt4.k().u("key_video_guide_up_slide_animated", true);
+        yt4.k().u("key_video_guide_up_slide_animated", true);
     }
 
     public final void e() {

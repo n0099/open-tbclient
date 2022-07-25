@@ -24,7 +24,7 @@ public class jg6 {
     public transient /* synthetic */ FieldHolder $fh;
     public eg6 a;
     public TbPageContext b;
-    public ty4 c;
+    public uy4 c;
     public BdUniqueId d;
     public CustomMessageListener e;
 
@@ -91,7 +91,7 @@ public class jg6 {
         this.e = new a(this, 2001115);
         this.b = tbPageContext;
         this.a = eg6Var;
-        this.c = new ty4(tbPageContext);
+        this.c = new uy4(tbPageContext);
         this.e.setSelfListener(true);
         this.e.setTag(this.d);
         MessageManager.getInstance().registerListener(this.e);
@@ -100,9 +100,9 @@ public class jg6 {
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            ty4 ty4Var = this.c;
-            if (ty4Var != null) {
-                ty4Var.g();
+            uy4 uy4Var = this.c;
+            if (uy4Var != null) {
+                uy4Var.g();
             }
             MessageManager.getInstance().unRegisterListener(this.e);
         }
@@ -112,12 +112,12 @@ public class jg6 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ig6Var) == null) {
             if (!ni.z()) {
-                this.b.showToast(R.string.obfuscated_res_0x7f0f0c63);
+                this.b.showToast(R.string.obfuscated_res_0x7f0f0c4f);
             } else if (ig6Var == null || ig6Var.m == null || this.c == null || !ViewHelper.checkUpIsLogin(this.b.getPageActivity())) {
             } else {
-                ty4 ty4Var = this.c;
+                uy4 uy4Var = this.c;
                 ig6.b bVar = ig6Var.m;
-                ty4Var.k(!bVar.e, bVar.d, bVar.a, this.d);
+                uy4Var.k(!bVar.e, bVar.d, bVar.a, this.d);
             }
         }
     }
@@ -126,7 +126,7 @@ public class jg6 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, ig6Var) == null) {
             if (!ni.z()) {
-                this.b.showToast(R.string.obfuscated_res_0x7f0f0c63);
+                this.b.showToast(R.string.obfuscated_res_0x7f0f0c4f);
             } else if (ig6Var == null || this.a == null || !ViewHelper.checkUpIsLogin(this.b.getPageActivity())) {
             } else {
                 HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_PB_FLOOR_AGREE);

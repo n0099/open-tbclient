@@ -43,8 +43,8 @@ public class t87 implements CustomMessageTask.CustomRunnable<Object> {
             responseSearchGroupLocalMessage.setError(0);
             responseSearchGroupLocalMessage.setGid(groupId);
             String str = groupId + "";
-            br4.f();
-            te<String> g = br4.g("tb.im_group_search_history");
+            cr4.f();
+            te<String> g = cr4.g("tb.im_group_search_history");
             g.g(str, g.get(str));
             return responseSearchGroupLocalMessage;
         }

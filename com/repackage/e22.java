@@ -1,42 +1,21 @@
 package com.repackage;
 
-import android.content.Context;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import android.app.Activity;
 /* loaded from: classes5.dex */
-public class e22 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface e22 {
+    void E(w62 w62Var);
 
-    public e22() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
+    String b();
 
-    public d22 a(Context context, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, context, i)) == null) {
-            if (i != 0) {
-                if (i != 1) {
-                    return new f22(context);
-                }
-                return new h22(context);
-            }
-            return new f22(context);
-        }
-        return (d22) invokeLI.objValue;
-    }
+    void c(wy1 wy1Var);
+
+    void destroy();
+
+    void e(Activity activity);
+
+    gz1 g();
+
+    void loadUrl(String str);
+
+    void q(int i);
 }

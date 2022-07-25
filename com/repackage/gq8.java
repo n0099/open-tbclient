@@ -171,11 +171,11 @@ public class gq8 extends BaseAdapter {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeILL = interceptable.invokeILL(1048581, this, i, view2, viewGroup)) == null) {
             if (view2 == null) {
-                view2 = LayoutInflater.from(this.b.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d04ac, (ViewGroup) null);
+                view2 = LayoutInflater.from(this.b.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d04aa, (ViewGroup) null);
                 cVar = new c(this);
-                cVar.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0906ee);
-                cVar.b = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f0917dd);
-                cVar.c = (ProgressBar) view2.findViewById(R.id.obfuscated_res_0x7f0917e1);
+                cVar.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0906ed);
+                cVar.b = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f0917b8);
+                cVar.c = (ProgressBar) view2.findViewById(R.id.obfuscated_res_0x7f0917bc);
                 cVar.b.setDefaultBgResource(R.color.transparent);
                 cVar.b.setDefaultResource(R.color.CAM_X0101);
                 view2.setOnClickListener(new a(this));

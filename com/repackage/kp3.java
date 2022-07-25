@@ -1,98 +1,204 @@
 package com.repackage;
 
 import android.content.Context;
-import android.telephony.TelephonyManager;
 import android.text.TextUtils;
-import android.webkit.WebSettings;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.ar.constants.HttpConstants;
-import com.baidu.mobstat.Config;
 import com.baidu.swan.game.ad.utils.NetworkUtils;
+import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.httpNet.HttpRequest;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.net.Inet6Address;
-import java.net.InetAddress;
-import java.net.NetworkInterface;
-import java.util.Enumeration;
+import com.meizu.cloud.pushsdk.constants.PushConstants;
 import java.util.HashMap;
-import java.util.UUID;
-import org.apache.http.cookie.ClientCookie;
+import java.util.Iterator;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class kp3 extends jp3 {
-    public static /* synthetic */ Interceptable $ic;
+public abstract class kp3 {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static String k = "ug_";
+    public static String l = "ug_business";
+    public static String m = "ctkey";
+    public static String n = "CTK";
+    public static String o = "sid_eid";
+    public static String p = "exps";
     public transient /* synthetic */ FieldHolder $fh;
-    public int q;
-    public int r;
-    public int s;
-    public String t;
+    public String a;
+    public Context b;
+    public String c;
+    public String d;
+    public String e;
+    public String f;
+    public String g;
+    public String h;
+    public ip3 i;
+    public String j;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public kp3(Context context, hp3 hp3Var, int i, int i2) {
-        super(context, hp3Var);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755551229, "Lcom/repackage/kp3;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-755551229, "Lcom/repackage/kp3;");
+        }
+    }
+
+    public kp3(Context context, ip3 ip3Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, hp3Var, Integer.valueOf(i), Integer.valueOf(i2)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (hp3) objArr2[1]);
+            Object[] objArr = {context, ip3Var};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.q = 1;
-        this.r = 1;
-        this.s = 1;
-        this.r = i;
-        this.s = i2;
+        this.a = "https://mobads.baidu.com/cpro/ui/mads.php";
+        this.f = "1";
+        this.g = "2";
+        this.h = "8.800201";
+        this.b = context;
+        this.i = ip3Var;
+        if (ip3Var != null) {
+            this.c = ip3Var.b();
+            this.d = this.i.e();
+            this.e = this.i.g();
+        }
+        if (aq3.o()) {
+            return;
+        }
+        this.j = aq3.b();
     }
 
-    @Override // com.repackage.jp3
-    public HashMap<String, String> a() {
+    public abstract HashMap<String, String> a();
+
+    public final HashMap<String, String> b() {
         InterceptResult invokeV;
+        JSONArray optJSONArray;
+        JSONObject jSONObject;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            HashMap<String, String> hashMap = new HashMap<>();
+            try {
+                hashMap.put("lw", String.valueOf(Math.round(aq3.i(this.b) / aq3.d(this.b))));
+                hashMap.put("lh", String.valueOf(Math.round(aq3.h(this.b) / aq3.d(this.b))));
+                StringBuilder sb = new StringBuilder();
+                sb.append("");
+                sb.append(NetworkUtils.c(false));
+                hashMap.put("net", sb.toString());
+                hashMap.put("n", this.f);
+                hashMap.put(PushConstants.URI_PACKAGE_NAME, this.e);
+                hashMap.put("appid", this.d);
+                hashMap.put(TbConfig.SW_APID, "" + aq3.i(this.b));
+                hashMap.put("sh", "" + aq3.h(this.b));
+                hashMap.put("sn", "" + f());
+                hashMap.put("os", "android");
+                hashMap.put("pa", zo3.b().c());
+                hashMap.put("apid", "" + this.c);
+                hashMap.put("chid", "0");
+                String m2 = zo3.b().m();
+                if (m2.equals("0")) {
+                    m2 = "";
+                }
+                hashMap.put("imei", m2);
+                hashMap.put("cuid", zo3.b().e());
+                hashMap.put("osv", aq3.f());
+                hashMap.put("tp", aq3.e());
+                hashMap.put("app_ver", aq3.l());
+                String c = aq3.c(d(), "BAIDUID");
+                hashMap.put("baiduid", (TextUtils.isEmpty(c) || c.split(":").length <= 0) ? "" : c.split(":")[0]);
+                hashMap.put("p_ver", this.h);
+                hashMap.put("rpt", this.g);
+                hashMap.put("tab", "2");
+                hashMap.put("req_id", "");
+                hashMap.put("scene", zo3.b().getScene());
+                String e = e();
+                hashMap.put(p, e);
+                hashMap.put(TiebaStatic.Params.EQID, zo3.b().g());
+                JSONObject n2 = zo3.b().n();
+                if (n2 != null) {
+                    if (n2.has(l) && (jSONObject = n2.getJSONObject(l)) != null) {
+                        Iterator<String> keys = jSONObject.keys();
+                        while (keys != null && keys.hasNext()) {
+                            String next = keys.next();
+                            if (!TextUtils.isEmpty(next)) {
+                                String optString = jSONObject.optString(next, "none");
+                                if (n.equals(next)) {
+                                    hashMap.put(m, optString);
+                                    this.j = optString;
+                                } else {
+                                    hashMap.put(k + next, optString);
+                                }
+                            }
+                        }
+                    }
+                    if (n2.has(o) && (optJSONArray = n2.optJSONArray(o)) != null && optJSONArray.length() > 0) {
+                        StringBuilder sb2 = new StringBuilder();
+                        if (!TextUtils.isEmpty(e)) {
+                            sb2.append(e + ",");
+                        }
+                        for (int i = 0; i < optJSONArray.length(); i++) {
+                            String optString2 = optJSONArray.optString(i);
+                            if (!TextUtils.isEmpty(optString2)) {
+                                sb2.append(optString2);
+                                if (i >= 0 && i < optJSONArray.length() - 1) {
+                                    sb2.append(",");
+                                }
+                            }
+                        }
+                        if (sb2.length() > 0) {
+                            hashMap.put(p, sb2.toString());
+                        }
+                    }
+                }
+                if (!hashMap.containsKey(n) && !TextUtils.isEmpty(this.j)) {
+                    hashMap.put(n, this.j);
+                }
+                hashMap.put("con_name", zo3.b().a());
+            } catch (Exception unused) {
+            }
+            return hashMap;
         }
         return (HashMap) invokeV.objValue;
     }
 
-    @Override // com.repackage.jp3
-    public String e() {
+    public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return null;
-        }
-        return (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.j : (String) invokeV.objValue;
     }
 
-    @Override // com.repackage.jp3
-    public String g() {
+    public String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "https://powerful.xdplt.com/api/v1/front/ltc" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? zo3.b().f(".baidu.com") : (String) invokeV.objValue;
     }
 
-    public final String h() {
+    public abstract String e();
+
+    public final String f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             try {
-                String a = ll3.b.a(this.b);
-                return TextUtils.isEmpty(a) ? UUID.randomUUID().toString() : a;
+                String m2 = zo3.b().m();
+                return TextUtils.isEmpty(m2) ? NetworkUtils.e(this.b) : m2;
             } catch (Exception unused) {
                 return "";
             }
@@ -100,126 +206,13 @@ public class kp3 extends jp3 {
         return (String) invokeV.objValue;
     }
 
-    public JSONObject i() {
+    public String g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("id", String.valueOf(System.currentTimeMillis()));
-                JSONObject jSONObject2 = new JSONObject();
-                jSONObject2.put("id", this.i.e());
-                jSONObject2.put("name", yo3.b().a());
-                jSONObject2.put("bundle", zp3.k());
-                jSONObject2.put("version", zp3.l());
-                jSONObject.put("app", jSONObject2);
-                JSONObject jSONObject3 = new JSONObject();
-                jSONObject3.put("ua", l());
-                jSONObject3.put("imei", yo3.b().m());
-                jSONObject3.put(HttpRequest.ANDROID_ID, h());
-                jSONObject3.put("ip", j(true));
-                jSONObject3.put("type", 1);
-                jSONObject3.put("os", 1);
-                jSONObject3.put(HttpConstants.OS_VERSION, zp3.f());
-                jSONObject3.put("make", zp3.g());
-                jSONObject3.put("model", zp3.e());
-                jSONObject3.put("language", this.b.getResources().getConfiguration().locale.getLanguage());
-                jSONObject3.put("connection_type", NetworkUtils.c(true));
-                jSONObject3.put("carrier", k(this.b));
-                jSONObject3.put("mac", NetworkUtils.e(this.b));
-                jSONObject3.put("screen_width", zp3.i(this.b));
-                jSONObject3.put("screen_height", zp3.h(this.b));
-                jSONObject3.put("screen_orientation", this.b.getResources().getConfiguration().orientation);
-                jSONObject.put(Config.DEVICE_PART, jSONObject3);
-                JSONObject jSONObject4 = new JSONObject();
-                jSONObject4.put("sid", this.i.b());
-                jSONObject4.put("ad_count", this.q);
-                jSONObject4.put(TiebaStatic.Params.AD_TYPE, this.r);
-                jSONObject4.put("pos", this.s);
-                jSONObject4.put("width", this.i.d());
-                jSONObject4.put("height", this.i.a());
-                jSONObject4.put(ClientCookie.SECURE_ATTR, 1);
-                JSONArray jSONArray = new JSONArray();
-                jSONArray.put(jSONObject4);
-                jSONObject.put("imps", jSONArray);
-                return jSONObject;
-            } catch (Exception unused) {
-                return null;
-            }
-        }
-        return (JSONObject) invokeV.objValue;
-    }
-
-    /* JADX WARN: Code restructure failed: missing block: B:18:0x0032, code lost:
-        r0 = r3.getHostAddress().toString();
-     */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public final String j(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048581, this, z)) == null) {
-            String str = null;
-            try {
-                Enumeration<NetworkInterface> networkInterfaces = NetworkInterface.getNetworkInterfaces();
-                loop0: while (true) {
-                    if (!networkInterfaces.hasMoreElements()) {
-                        break;
-                    }
-                    Enumeration<InetAddress> inetAddresses = networkInterfaces.nextElement().getInetAddresses();
-                    while (inetAddresses.hasMoreElements()) {
-                        InetAddress nextElement = inetAddresses.nextElement();
-                        if (!z || !(nextElement instanceof Inet6Address)) {
-                            if (!nextElement.isLoopbackAddress()) {
-                                break loop0;
-                            }
-                        }
-                    }
-                }
-            } catch (Exception unused) {
-            }
-            return TextUtils.isEmpty(str) ? "" : str;
-        }
-        return (String) invokeZ.objValue;
-    }
-
-    public int k(Context context) {
-        InterceptResult invokeL;
-        TelephonyManager telephonyManager;
-        String simOperator;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, context)) == null) {
-            if (context == null || (telephonyManager = (TelephonyManager) context.getSystemService("phone")) == null || (simOperator = telephonyManager.getSimOperator()) == null) {
-                return 0;
-            }
-            if ("46000".equals(simOperator) || "46002".equals(simOperator) || "46007".equals(simOperator)) {
-                return 1;
-            }
-            if ("46001".equals(simOperator)) {
-                return 2;
-            }
-            return "46003".equals(simOperator) ? 3 : 0;
-        }
-        return invokeL.intValue;
-    }
-
-    public final String l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            if (TextUtils.isEmpty(this.t)) {
-                try {
-                    try {
-                        this.t = WebSettings.getDefaultUserAgent(this.b);
-                    } catch (Exception unused) {
-                        this.t = "";
-                    }
-                } catch (Exception unused2) {
-                    this.t = System.getProperty("http.agent");
-                }
-            }
-            return this.t;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            HashMap<String, String> b = b();
+            b.putAll(a());
+            return xp3.a(this.a, b);
         }
         return (String) invokeV.objValue;
     }

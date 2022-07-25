@@ -184,8 +184,8 @@ public class LoadCircleView extends View {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(1048576, this, valueAnimator) == null) {
                     this.this$0.mCurrentRadius = ((Float) valueAnimator.getAnimatedValue()).floatValue();
-                    this.this$0.mPrimaryPaint.setShader(new LinearGradient((this.this$0.mWidth / 2) - this.this$0.mCurrentRadius, 0.0f, (this.this$0.mWidth / 2) + this.this$0.mCurrentRadius, 0.0f, this.this$0.getResources().getColor(R.color.obfuscated_res_0x7f0609e9), this.this$0.getResources().getColor(R.color.obfuscated_res_0x7f0609e8), Shader.TileMode.MIRROR));
-                    this.this$0.mSecondaryPaint.setShader(new LinearGradient((this.this$0.mWidth / 2) - this.this$0.mCurrentRadius, 0.0f, (this.this$0.mWidth / 2) + this.this$0.mCurrentRadius, 0.0f, this.this$0.getResources().getColor(R.color.obfuscated_res_0x7f0609eb), this.this$0.getResources().getColor(R.color.obfuscated_res_0x7f0609ea), Shader.TileMode.MIRROR));
+                    this.this$0.mPrimaryPaint.setShader(new LinearGradient((this.this$0.mWidth / 2) - this.this$0.mCurrentRadius, 0.0f, (this.this$0.mWidth / 2) + this.this$0.mCurrentRadius, 0.0f, this.this$0.getResources().getColor(R.color.obfuscated_res_0x7f0609d9), this.this$0.getResources().getColor(R.color.obfuscated_res_0x7f0609d8), Shader.TileMode.MIRROR));
+                    this.this$0.mSecondaryPaint.setShader(new LinearGradient((this.this$0.mWidth / 2) - this.this$0.mCurrentRadius, 0.0f, (this.this$0.mWidth / 2) + this.this$0.mCurrentRadius, 0.0f, this.this$0.getResources().getColor(R.color.obfuscated_res_0x7f0609db), this.this$0.getResources().getColor(R.color.obfuscated_res_0x7f0609da), Shader.TileMode.MIRROR));
                 }
             }
         };

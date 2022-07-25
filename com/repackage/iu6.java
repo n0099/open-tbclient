@@ -50,7 +50,7 @@ public class iu6 {
     public final LinearLayoutManager j;
     public final LinkedHashMap<Integer, Integer> k;
     public int l;
-    public g05 m;
+    public h05 m;
 
     /* loaded from: classes6.dex */
     public class a implements BdListView.m {
@@ -142,19 +142,19 @@ public class iu6 {
         this.e.addView(this.g);
     }
 
-    public static void g(g05 g05Var, TbImageView tbImageView, View view2) {
+    public static void g(h05 h05Var, TbImageView tbImageView, View view2) {
         String c;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(65543, null, g05Var, tbImageView, view2) == null) || g05Var == null) {
+        if (!(interceptable == null || interceptable.invokeLLL(65543, null, h05Var, tbImageView, view2) == null) || h05Var == null) {
             return;
         }
         int skinType = TbadkApplication.getInst().getSkinType();
         if (skinType == 1) {
-            c = g05Var.c();
+            c = h05Var.c();
         } else if (skinType != 4) {
-            c = g05Var.a();
+            c = h05Var.a();
         } else {
-            c = g05Var.b();
+            c = h05Var.b();
         }
         if (StringUtils.isNull(c)) {
             return;
@@ -164,19 +164,19 @@ public class iu6 {
         view2.setBackgroundColor(sg8.f(c));
     }
 
-    public static void h(g05 g05Var, TbImageView tbImageView, View view2, ig<ym> igVar, BdUniqueId bdUniqueId) {
+    public static void h(h05 h05Var, TbImageView tbImageView, View view2, ig<ym> igVar, BdUniqueId bdUniqueId) {
         String f;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLLLL(65544, null, g05Var, tbImageView, view2, igVar, bdUniqueId) == null) || g05Var == null) {
+        if (!(interceptable == null || interceptable.invokeLLLLL(65544, null, h05Var, tbImageView, view2, igVar, bdUniqueId) == null) || h05Var == null) {
             return;
         }
         int skinType = TbadkApplication.getInst().getSkinType();
         if (skinType == 1) {
-            f = g05Var.f();
+            f = h05Var.f();
         } else if (skinType != 4) {
-            f = g05Var.d();
+            f = h05Var.d();
         } else {
-            f = g05Var.e();
+            f = h05Var.e();
         }
         if (TextUtils.isEmpty(f)) {
             return;
@@ -193,13 +193,13 @@ public class iu6 {
     }
 
     public void f() {
-        HashMap<String, g05> colourHeaderConfig;
+        HashMap<String, h05> colourHeaderConfig;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && UbsABTestHelper.isHomeTabModifyABTestA() && (colourHeaderConfig = TbSingleton.getInstance().getColourHeaderConfig()) != null && colourHeaderConfig.containsKey(this.b)) {
-            g05 g05Var = colourHeaderConfig.get(this.b);
-            this.m = g05Var;
-            if (g05Var != null) {
-                int i = g05Var.i();
+            h05 h05Var = colourHeaderConfig.get(this.b);
+            this.m = h05Var;
+            if (h05Var != null) {
+                int i = h05Var.i();
                 int g = this.m.g();
                 if (i <= 0 || g <= 0) {
                     return;
@@ -259,7 +259,7 @@ public class iu6 {
     public void l() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            if (this.d.getString(R.string.obfuscated_res_0x7f0f1366).equals(this.b)) {
+            if (this.d.getString(R.string.obfuscated_res_0x7f0f1315).equals(this.b)) {
                 View childAt = this.i.getChildAt(0);
                 if (childAt == null || childAt != this.h) {
                     return;
@@ -283,7 +283,7 @@ public class iu6 {
     public final boolean m() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.d.getString(R.string.obfuscated_res_0x7f0f135e).equals(this.b) || this.d.getString(R.string.obfuscated_res_0x7f0f1361).equals(this.b) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.d.getString(R.string.obfuscated_res_0x7f0f130d).equals(this.b) || this.d.getString(R.string.obfuscated_res_0x7f0f1310).equals(this.b) : invokeV.booleanValue;
     }
 
     public void n() {

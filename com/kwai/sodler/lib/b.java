@@ -9,7 +9,7 @@ import com.kwai.sodler.lib.a.b;
 public final class b implements com.kwai.sodler.lib.a.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public b.a a;
+    public b.a axf;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -26,14 +26,14 @@ public final class b implements com.kwai.sodler.lib.a.b {
     }
 
     @Override // com.kwai.sodler.lib.a.b
-    public final void a(com.kwai.sodler.lib.a.f fVar) {
+    public final void e(com.kwai.sodler.lib.a.f fVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, fVar) == null) {
-            b.a aVar = this.a;
+            b.a aVar = this.axf;
             if (aVar != null) {
-                fVar.a(aVar.a());
+                fVar.b(aVar.Fj());
             } else {
-                a.b("Sodler.PluginConfigUpdater", "config reqester not set");
+                a.w("Sodler.PluginConfigUpdater", "config reqester not set");
             }
         }
     }

@@ -136,7 +136,7 @@ public class j57 {
                 TiebaStatic.pushMsg(next.getMsgId(), 1, next.getLink(), next.getStat());
             }
             CustomMessage customMessage = new CustomMessage(2012100);
-            customMessage.setData(new mp4(next.getMsgId(), next.getTaskId(), next.getLink(), next.getContent(), next.getStat(), next.getServiceId()));
+            customMessage.setData(new np4(next.getMsgId(), next.getTaskId(), next.getLink(), next.getContent(), next.getStat(), next.getServiceId()));
             MessageManager.getInstance().sendMessage(customMessage);
         }
         if (groupMsgData.getListMessage().size() > 0) {

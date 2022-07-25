@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.ng;
-import com.repackage.y85;
+import com.repackage.z85;
 /* loaded from: classes3.dex */
 public class VideoAggregationActivity extends BaseFragmentActivity {
     public static /* synthetic */ Interceptable $ic;
@@ -38,7 +38,7 @@ public class VideoAggregationActivity extends BaseFragmentActivity {
         }
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.repackage.v85
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.repackage.w85
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -46,17 +46,17 @@ public class VideoAggregationActivity extends BaseFragmentActivity {
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
-    public y85 getPageStayDurationItem() {
+    public z85 getPageStayDurationItem() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            y85 pageStayDurationItem = super.getPageStayDurationItem();
+            z85 pageStayDurationItem = super.getPageStayDurationItem();
             if (pageStayDurationItem != null && StringUtils.isNull(this.b) && VideoAggregationActivityConfig.TYPE_FROM_VIDEO_CARD.equals(this.c)) {
                 pageStayDurationItem.C(ng.g(this.b, 0L));
             }
             return pageStayDurationItem;
         }
-        return (y85) invokeV.objValue;
+        return (z85) invokeV.objValue;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
@@ -97,7 +97,7 @@ public class VideoAggregationActivity extends BaseFragmentActivity {
                 finish();
             }
             this.a = VideoAggregationFragment.w1(this.b, this.c, stringExtra, stringExtra2);
-            getSupportFragmentManager().beginTransaction().replace(R.id.obfuscated_res_0x7f0906a0, this.a).commit();
+            getSupportFragmentManager().beginTransaction().replace(R.id.obfuscated_res_0x7f09069f, this.a).commit();
         }
     }
 

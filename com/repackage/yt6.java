@@ -62,7 +62,7 @@ public class yt6 extends an<cu6, ThreadCardViewHolder<cu6>> implements ck5 {
             bVar.l().e(0);
             bVar.l().h(0);
             ThreadCardViewHolder<cu6> threadCardViewHolder = new ThreadCardViewHolder<>(bVar.k(BaseCardInfo.SupportType.FULL, viewGroup, this.k));
-            threadCardViewHolder.k(this.j);
+            threadCardViewHolder.j(this.j);
             return threadCardViewHolder;
         }
         return (ThreadCardViewHolder) invokeL.objValue;
@@ -75,13 +75,13 @@ public class yt6 extends an<cu6, ThreadCardViewHolder<cu6>> implements ck5 {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, cu6Var, threadCardViewHolder})) == null) {
-            threadCardViewHolder.g(cu6Var);
-            if (threadCardViewHolder.c() != null) {
-                threadCardViewHolder.c().q(i);
-                threadCardViewHolder.c().b(this.l);
-                threadCardViewHolder.c().onChangeSkinType(this.i, TbadkCoreApplication.getInst().getSkinType());
+            threadCardViewHolder.f(cu6Var);
+            if (threadCardViewHolder.b() != null) {
+                threadCardViewHolder.b().q(i);
+                threadCardViewHolder.b().b(this.l);
+                threadCardViewHolder.b().onChangeSkinType(this.i, TbadkCoreApplication.getInst().getSkinType());
             }
-            return threadCardViewHolder.b();
+            return threadCardViewHolder.a();
         }
         return (View) invokeCommon.objValue;
     }

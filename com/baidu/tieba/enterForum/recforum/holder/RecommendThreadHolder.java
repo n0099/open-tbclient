@@ -35,7 +35,7 @@ public class RecommendThreadHolder extends TypeAdapter.ViewHolder {
         this.a = recommendThreadView;
     }
 
-    public void c(c66 c66Var) {
+    public void b(c66 c66Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, c66Var) == null) {
             this.a.setData(c66Var);

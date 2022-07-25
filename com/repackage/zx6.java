@@ -111,7 +111,7 @@ public class zx6 extends an<v17, ThreadCardViewHolder<v17>> implements ck5 {
             cy j = bVar.j(BaseCardInfo.SupportType.FULL, viewGroup);
             j.r(2);
             ThreadCardViewHolder<v17> threadCardViewHolder = new ThreadCardViewHolder<>(j);
-            threadCardViewHolder.k(this.i);
+            threadCardViewHolder.j(this.i);
             V(new a(this));
             return threadCardViewHolder;
         }
@@ -125,16 +125,16 @@ public class zx6 extends an<v17, ThreadCardViewHolder<v17>> implements ck5 {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, v17Var, threadCardViewHolder})) == null) {
-            if (v17Var == null || threadCardViewHolder == null || threadCardViewHolder.b() == null) {
+            if (v17Var == null || threadCardViewHolder == null || threadCardViewHolder.a() == null) {
                 return null;
             }
             TiebaStatic.log(new StatisticItem("c13448").param("topic_id", v17Var.S));
-            threadCardViewHolder.c().q(i);
-            threadCardViewHolder.c().b(this.k);
-            threadCardViewHolder.q(false).u(this.l);
-            threadCardViewHolder.g(v17Var);
-            threadCardViewHolder.c().onChangeSkinType(this.j, TbadkCoreApplication.getInst().getSkinType());
-            return threadCardViewHolder.b();
+            threadCardViewHolder.b().q(i);
+            threadCardViewHolder.b().b(this.k);
+            threadCardViewHolder.p(false).u(this.l);
+            threadCardViewHolder.f(v17Var);
+            threadCardViewHolder.b().onChangeSkinType(this.j, TbadkCoreApplication.getInst().getSkinType());
+            return threadCardViewHolder.a();
         }
         return (View) invokeCommon.objValue;
     }

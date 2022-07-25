@@ -108,7 +108,7 @@ public class BigBgHeaderLoadingLayout extends LoadingLayout {
             if (relativeLayout != null) {
                 return relativeLayout.getHeight();
             }
-            return (int) getResources().getDimension(R.dimen.obfuscated_res_0x7f070161);
+            return (int) getResources().getDimension(R.dimen.obfuscated_res_0x7f07015f);
         }
         return invokeV.intValue;
     }
@@ -156,13 +156,13 @@ public class BigBgHeaderLoadingLayout extends LoadingLayout {
     public final void n(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, context) == null) {
-            this.e = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091a0b);
-            this.f = (ImageView) findViewById(R.id.obfuscated_res_0x7f091a09);
-            this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f091a0c);
-            this.g = (ProgressBar) findViewById(R.id.obfuscated_res_0x7f091a0d);
-            this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f091a0f);
-            this.j = (TextView) findViewById(R.id.obfuscated_res_0x7f091a11);
-            this.m = (ImageView) findViewById(R.id.obfuscated_res_0x7f091a0a);
+            this.e = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f0919e5);
+            this.f = (ImageView) findViewById(R.id.obfuscated_res_0x7f0919e3);
+            this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f0919e6);
+            this.g = (ProgressBar) findViewById(R.id.obfuscated_res_0x7f0919e7);
+            this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f0919e9);
+            this.j = (TextView) findViewById(R.id.obfuscated_res_0x7f0919eb);
+            this.m = (ImageView) findViewById(R.id.obfuscated_res_0x7f0919e4);
             RotateAnimation rotateAnimation = new RotateAnimation(0.0f, -180.0f, 1, 0.5f, 1, 0.5f);
             this.k = rotateAnimation;
             rotateAnimation.setDuration(120L);

@@ -7,8 +7,8 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.br4;
-import com.repackage.in4;
+import com.repackage.cr4;
+import com.repackage.jn4;
 import com.repackage.te;
 import com.squareup.wire.Wire;
 import java.util.ArrayList;
@@ -20,7 +20,7 @@ import tbclient.GetBigday.GetBigdayResIdl;
 public class GetBigdayInfoHttpResMessage extends HttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<in4> bigdayInfos;
+    public ArrayList<jn4> bigdayInfos;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public GetBigdayInfoHttpResMessage() {
@@ -49,8 +49,8 @@ public class GetBigdayInfoHttpResMessage extends HttpResponsedMessage {
             if (bArr == null) {
                 return;
             }
-            br4.f();
-            te<byte[]> d = br4.d("tb.bigday_datas");
+            cr4.f();
+            te<byte[]> d = cr4.d("tb.bigday_datas");
             d.remove("tb.bigday_datas");
             d.g("tb.bigday_datas", bArr);
         }
@@ -76,10 +76,10 @@ public class GetBigdayInfoHttpResMessage extends HttpResponsedMessage {
         this.bigdayInfos = new ArrayList<>();
         for (BigdayInfo bigdayInfo : getBigdayResIdl.data.bigday_list) {
             if (bigdayInfo != null) {
-                in4 in4Var = new in4();
-                in4Var.b(bigdayInfo);
-                if (in4Var.a()) {
-                    this.bigdayInfos.add(in4Var);
+                jn4 jn4Var = new jn4();
+                jn4Var.b(bigdayInfo);
+                if (jn4Var.a()) {
+                    this.bigdayInfos.add(jn4Var);
                 }
             }
         }

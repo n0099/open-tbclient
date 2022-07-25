@@ -7,18 +7,14 @@ import java.net.Socket;
 import java.util.Locale;
 /* loaded from: classes5.dex */
 public final class e extends j {
-    public final h a;
-    public final com.kwad.sdk.core.videocache.kwai.b b;
-    public b c;
+    public final h aeq;
+    public final com.kwad.sdk.core.videocache.kwai.b aer;
+    public b aes;
 
     public e(h hVar, com.kwad.sdk.core.videocache.kwai.b bVar) {
         super(hVar, bVar);
-        this.b = bVar;
-        this.a = hVar;
-    }
-
-    public static String a(String str, Object... objArr) {
-        return String.format(Locale.US, str, objArr);
+        this.aer = bVar;
+        this.aeq = hVar;
     }
 
     private void a(OutputStream outputStream, long j) {
@@ -36,65 +32,69 @@ public final class e extends j {
     }
 
     private boolean a(d dVar) {
-        long a = this.a.a();
-        return (((a > 0L ? 1 : (a == 0L ? 0 : -1)) > 0) && dVar.c && ((float) dVar.b) > ((float) this.b.a()) + (((float) a) * 0.2f)) ? false : true;
+        long length = this.aeq.length();
+        return (((length > 0L ? 1 : (length == 0L ? 0 : -1)) > 0) && dVar.aep && ((float) dVar.aeo) > ((float) this.aer.vJ()) + (((float) length) * 0.2f)) ? false : true;
     }
 
     private String b(d dVar) {
-        String c = this.a.c();
-        boolean z = !TextUtils.isEmpty(c);
-        long a = this.b.d() ? this.b.a() : this.a.a();
-        boolean z2 = a >= 0;
-        long j = dVar.c ? a - dVar.b : a;
-        boolean z3 = z2 && dVar.c;
+        String vS = this.aeq.vS();
+        boolean z = !TextUtils.isEmpty(vS);
+        long vJ = this.aer.isCompleted() ? this.aer.vJ() : this.aeq.length();
+        boolean z2 = vJ >= 0;
+        long j = dVar.aep ? vJ - dVar.aeo : vJ;
+        boolean z3 = z2 && dVar.aep;
         StringBuilder sb = new StringBuilder();
-        sb.append(dVar.c ? "HTTP/1.1 206 PARTIAL CONTENT\n" : "HTTP/1.1 200 OK\n");
+        sb.append(dVar.aep ? "HTTP/1.1 206 PARTIAL CONTENT\n" : "HTTP/1.1 200 OK\n");
         sb.append("Accept-Ranges: bytes\n");
-        sb.append(z2 ? a("Content-Length: %d\n", Long.valueOf(j)) : "");
-        sb.append(z3 ? a("Content-Range: bytes %d-%d/%d\n", Long.valueOf(dVar.b), Long.valueOf(a - 1), Long.valueOf(a)) : "");
-        sb.append(z ? a("Content-Type: %s\n", c) : "");
+        sb.append(z2 ? format("Content-Length: %d\n", Long.valueOf(j)) : "");
+        sb.append(z3 ? format("Content-Range: bytes %d-%d/%d\n", Long.valueOf(dVar.aeo), Long.valueOf(vJ - 1), Long.valueOf(vJ)) : "");
+        sb.append(z ? format("Content-Type: %s\n", vS) : "");
         sb.append("\n");
         return sb.toString();
     }
 
     private void b(OutputStream outputStream, long j) {
-        h hVar = new h(this.a);
+        h hVar = new h(this.aeq);
         try {
-            hVar.a((int) j);
+            hVar.I((int) j);
             byte[] bArr = new byte[8192];
             while (true) {
-                int a = hVar.a(bArr);
-                if (a == -1) {
+                int read = hVar.read(bArr);
+                if (read == -1) {
                     outputStream.flush();
                     return;
                 }
-                outputStream.write(bArr, 0, a);
+                outputStream.write(bArr, 0, read);
             }
         } finally {
-            hVar.b();
+            hVar.close();
         }
     }
 
-    @Override // com.kwad.sdk.core.videocache.j
-    public final void a(int i) {
-        b bVar = this.c;
-        if (bVar != null) {
-            bVar.a(this.b.a, i);
-        }
+    public static String format(String str, Object... objArr) {
+        return String.format(Locale.US, str, objArr);
     }
 
     public final void a(b bVar) {
-        this.c = bVar;
+        this.aes = bVar;
     }
 
     public final void a(d dVar, Socket socket) {
         BufferedOutputStream bufferedOutputStream = new BufferedOutputStream(socket.getOutputStream());
         bufferedOutputStream.write(b(dVar).getBytes("UTF-8"));
-        long j = dVar.b;
+        long j = dVar.aeo;
         if (a(dVar)) {
             a(bufferedOutputStream, j);
         } else {
             b(bufferedOutputStream, j);
+        }
+    }
+
+    @Override // com.kwad.sdk.core.videocache.j
+    public final void aZ(int i) {
+        b bVar = this.aes;
+        if (bVar != null) {
+            bVar.a(this.aer.file, i);
         }
     }
 }

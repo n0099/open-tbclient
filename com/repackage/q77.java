@@ -192,8 +192,8 @@ public class q77 extends p77 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            br4.f();
-            return br4.g("tb.im_group_setting");
+            cr4.f();
+            return cr4.g("tb.im_group_setting");
         }
         return (te) invokeV.objValue;
     }
@@ -220,9 +220,9 @@ public class q77 extends p77 {
     }
 
     @Override // com.repackage.p77
-    public void i(ChatSetting chatSetting, jd5<Void> jd5Var) {
+    public void i(ChatSetting chatSetting, kd5<Void> kd5Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048579, this, chatSetting, jd5Var) == null) && chatSetting != null && (chatSetting instanceof GroupSettingItemData)) {
+        if ((interceptable == null || interceptable.invokeLL(1048579, this, chatSetting, kd5Var) == null) && chatSetting != null && (chatSetting instanceof GroupSettingItemData)) {
             GroupSettingItemData groupSettingItemData = (GroupSettingItemData) chatSetting;
             String uid = groupSettingItemData.getUid();
             String gid = groupSettingItemData.getGid();
@@ -231,23 +231,23 @@ public class q77 extends p77 {
                 synchronized (this.a) {
                     this.a.put(str, groupSettingItemData);
                 }
-                he5.c(new b(this, groupSettingItemData, str), jd5Var);
+                he5.c(new b(this, groupSettingItemData, str), kd5Var);
             } else if (TbConfig.getDebugSwitch()) {
                 throw new RuntimeException("key param is null");
             }
         }
     }
 
-    public void j(String str, String str2, jd5<Void> jd5Var) {
+    public void j(String str, String str2, kd5<Void> kd5Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(1048580, this, str, str2, jd5Var) == null) || TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
+        if (!(interceptable == null || interceptable.invokeLLL(1048580, this, str, str2, kd5Var) == null) || TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
             return;
         }
         String str3 = str + "@" + str2;
         synchronized (this.a) {
             this.a.remove(str3);
         }
-        he5.c(new c(this, str3), jd5Var);
+        he5.c(new c(this, str3), kd5Var);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -279,10 +279,10 @@ public class q77 extends p77 {
         return (GroupSettingItemData) invokeLL.objValue;
     }
 
-    public void m(String str, String str2, long j, jd5<Boolean> jd5Var) {
+    public void m(String str, String str2, long j, kd5<Boolean> kd5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{str, str2, Long.valueOf(j), jd5Var}) == null) {
-            he5.c(new a(this, str, str2, j), jd5Var);
+        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{str, str2, Long.valueOf(j), kd5Var}) == null) {
+            he5.c(new a(this, str, str2, j), kd5Var);
         }
     }
 
@@ -293,24 +293,24 @@ public class q77 extends p77 {
         }
     }
 
-    public void o(String str, String str2, boolean z, jd5<Void> jd5Var) {
+    public void o(String str, String str2, boolean z, kd5<Void> kd5Var) {
         GroupSettingItemData a2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{str, str2, Boolean.valueOf(z), jd5Var}) == null) || (a2 = a(str, str2)) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{str, str2, Boolean.valueOf(z), kd5Var}) == null) || (a2 = a(str, str2)) == null) {
             return;
         }
         a2.setAlreadyApply(z);
         a2.setLastApplyTimeStamp(System.currentTimeMillis());
-        i(a2, jd5Var);
+        i(a2, kd5Var);
     }
 
-    public void p(String str, String str2, boolean z, jd5<Void> jd5Var) {
+    public void p(String str, String str2, boolean z, kd5<Void> kd5Var) {
         GroupSettingItemData a2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{str, str2, Boolean.valueOf(z), jd5Var}) == null) || (a2 = a(str, str2)) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{str, str2, Boolean.valueOf(z), kd5Var}) == null) || (a2 = a(str, str2)) == null) {
             return;
         }
         a2.setInGroup(z);
-        i(a2, jd5Var);
+        i(a2, kd5Var);
     }
 }

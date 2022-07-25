@@ -1,64 +1,97 @@
 package com.repackage;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.http.statistics.NetworkStatRecord;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.List;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.p94;
+import okhttp3.Response;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class q94 {
+public class q94 extends n94<String> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final p94.a a;
 
-    public static void a(@NonNull za4 za4Var, @Nullable List<f94> list, @Nullable List<g94> list2, @NonNull a84 a84Var) {
+    public q94(p94.a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(65536, null, za4Var, list, list2, a84Var) == null) {
-            ka4 b = s94.b(za4Var, a84Var);
-            if (list != null && !list.isEmpty()) {
-                s94.a(b, ja4.h(list, a84Var));
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {aVar};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            if (list2 != null && !list2.isEmpty()) {
-                s94.a(b, ja4.e(list2, a84Var));
+        }
+        this.a = aVar;
+    }
+
+    public final boolean a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a != null : invokeV.booleanValue;
+    }
+
+    @Override // com.repackage.p94.a
+    public void b(String str, String str2, JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, jSONObject) == null) && a()) {
+            this.a.b(str, str2, jSONObject);
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.searchbox.http.callback.StatResponseCallback
+    /* renamed from: c */
+    public void onSuccess(String str, int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, str, i) == null) && a()) {
+            this.a.c(str, i);
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.searchbox.http.callback.StatResponseCallback
+    /* renamed from: d */
+    public String parseResponse(Response response, int i, NetworkStatRecord networkStatRecord) throws Exception {
+        InterceptResult invokeLIL;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048579, this, response, i, networkStatRecord)) == null) {
+            String str2 = "";
+            if (response == null || response.body() == null) {
+                str = "";
+            } else {
+                str2 = response.request().url().toString();
+                str = response.body().string();
             }
-            b.e();
+            b(str2, str, networkStatRecord.toUBCJson());
+            return str;
+        }
+        return (String) invokeLIL.objValue;
+    }
+
+    @Override // com.baidu.searchbox.http.callback.StatResponseCallback, com.repackage.p94.a
+    public void onFail(Exception exc) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048580, this, exc) == null) && a()) {
+            this.a.onFail(exc);
         }
     }
 
-    public static void b(ab4 ab4Var, a84 a84Var) {
+    @Override // com.repackage.p94.a
+    public void onStart() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65537, null, ab4Var, a84Var) == null) {
-            s94.c(ab4Var, a84Var);
-        }
-    }
-
-    public static void c(bb4 bb4Var, a84 a84Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65538, null, bb4Var, a84Var) == null) {
-            s94.d(bb4Var, a84Var);
-        }
-    }
-
-    public static void d(cb4 cb4Var, a84 a84Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65539, null, cb4Var, a84Var) == null) {
-            s94.e(cb4Var, a84Var);
-        }
-    }
-
-    public static void e(xc4 xc4Var, a84 a84Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, xc4Var, a84Var) == null) {
-            s94.f(xc4Var, a84Var);
-        }
-    }
-
-    public static synchronized void f(List<g94> list, a84 a84Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65541, null, list, a84Var) == null) {
-            synchronized (q94.class) {
-                s94.g(list, a84Var);
-            }
+        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && a()) {
+            this.a.onStart();
         }
     }
 }

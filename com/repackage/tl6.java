@@ -20,7 +20,7 @@ import java.util.ArrayList;
 import tbclient.ApkDetail;
 import tbclient.ItemInfo;
 /* loaded from: classes7.dex */
-public class tl6 extends nn4 {
+public class tl6 extends on4 {
     public static /* synthetic */ Interceptable $ic;
     public static final BdUniqueId b;
     public transient /* synthetic */ FieldHolder $fh;
@@ -82,55 +82,55 @@ public class tl6 extends nn4 {
                 return;
             }
             if (!oi.isEmpty(apkDetail.developer)) {
-                this.a.add(new yl6(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f04de), itemInfo.apk_detail.developer, null));
+                this.a.add(new yl6(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f04da), itemInfo.apk_detail.developer, null));
             }
             if (!oi.isEmpty(itemInfo.apk_detail.publisher)) {
-                this.a.add(new yl6(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0f25), itemInfo.apk_detail.publisher, null));
+                this.a.add(new yl6(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0f0e), itemInfo.apk_detail.publisher, null));
             }
             if (!oi.isEmpty(itemInfo.apk_detail.version)) {
-                this.a.add(new yl6(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0473), itemInfo.apk_detail.version, null));
+                this.a.add(new yl6(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0472), itemInfo.apk_detail.version, null));
             }
             if (!oi.isEmpty(itemInfo.apk_detail.update_time)) {
-                this.a.add(new yl6(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f14d8), itemInfo.apk_detail.update_time, null));
+                this.a.add(new yl6(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f1487), itemInfo.apk_detail.update_time, null));
             }
             if (ng.g(itemInfo.apk_detail.size, 0L) > 0) {
-                this.a.add(new yl6(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f060a), StringHelper.getFormatSize(ng.g(itemInfo.apk_detail.size, 0L)), null));
+                this.a.add(new yl6(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0606), StringHelper.getFormatSize(ng.g(itemInfo.apk_detail.size, 0L)), null));
             }
             int intValue = itemInfo.apk_detail.need_network.intValue();
-            int i = R.string.obfuscated_res_0x7f0f0528;
+            int i = R.string.obfuscated_res_0x7f0f0524;
             if (intValue > 0) {
-                this.a.add(new yl6(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f097c), TbadkCoreApplication.getInst().getResources().getString(itemInfo.apk_detail.need_network.intValue() == 1 ? R.string.obfuscated_res_0x7f0f0528 : R.string.obfuscated_res_0x7f0f0527), null));
+                this.a.add(new yl6(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0967), TbadkCoreApplication.getInst().getResources().getString(itemInfo.apk_detail.need_network.intValue() == 1 ? R.string.obfuscated_res_0x7f0f0524 : R.string.obfuscated_res_0x7f0f0523), null));
             }
             if (itemInfo.apk_detail.need_inner_buy.intValue() > 0) {
                 ArrayList<yl6> arrayList = this.a;
-                String string = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0822);
+                String string = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f081e);
                 Resources resources = TbadkCoreApplication.getInst().getResources();
                 if (itemInfo.apk_detail.need_inner_buy.intValue() != 1) {
-                    i = R.string.obfuscated_res_0x7f0f0527;
+                    i = R.string.obfuscated_res_0x7f0f0523;
                 }
                 arrayList.add(new yl6(string, resources.getString(i), null));
             }
             if (!oi.isEmpty(itemInfo.apk_detail.authority_url)) {
-                this.a.add(new yl6(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0df6), TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f097f), itemInfo.apk_detail.authority_url));
+                this.a.add(new yl6(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0ddf), TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f096a), itemInfo.apk_detail.authority_url));
             }
             if (oi.isEmpty(itemInfo.apk_detail.privacy_url)) {
                 return;
             }
-            this.a.add(new yl6(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0ee0), TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f097f), itemInfo.apk_detail.privacy_url));
+            this.a.add(new yl6(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0ec9), TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f096a), itemInfo.apk_detail.privacy_url));
         }
     }
 
-    @Override // com.repackage.nn4
-    public kp4 getNegFeedBackData() {
+    @Override // com.repackage.on4
+    public lp4 getNegFeedBackData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             return null;
         }
-        return (kp4) invokeV.objValue;
+        return (lp4) invokeV.objValue;
     }
 
-    @Override // com.repackage.nn4
+    @Override // com.repackage.on4
     public ThreadData getThreadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

@@ -10,7 +10,6 @@ import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobstat.Config;
-import com.baidu.sofire.core.ForHostApp;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.TbSingleton;
@@ -143,7 +142,7 @@ public class ChannelTabNetFeedModel extends BdBaseModel implements xz6 {
             httpMessage.addParam(Config.PACKAGE_NAME, i2);
             httpMessage.addParam("rn", 20);
             httpMessage.addParam("q_type", TbImageHelper.getInstance().getUrlQuality());
-            if (ForHostApp.KEY_NAME_LOCAL.equals(this.d)) {
+            if ("local".equals(this.d)) {
                 httpMessage.addParam("app_pos", ab8.e().b());
             }
             ChannelIconConfigFinalData c = TbSingleton.getInstance().getChannelConfigModel().c();

@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.v12;
+import com.repackage.w12;
 /* loaded from: classes2.dex */
 public class SwanAppSimpleH5Widget extends SwanAppWebViewWidget {
     public static /* synthetic */ Interceptable $ic;
@@ -161,14 +161,14 @@ public class SwanAppSimpleH5Widget extends SwanAppWebViewWidget {
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.swan.apps.core.slave.SwanAppWebViewWidget, com.baidu.swan.apps.core.SwanAppWebViewManager, com.repackage.hz1
+    @Override // com.baidu.swan.apps.core.slave.SwanAppWebViewWidget, com.baidu.swan.apps.core.SwanAppWebViewManager, com.repackage.iz1
     public boolean p() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            v12 v12Var = this.U;
-            if (v12Var != null) {
-                v12Var.goBack();
+            w12 w12Var = this.U;
+            if (w12Var != null) {
+                w12Var.goBack();
             }
             return super.p();
         }

@@ -380,9 +380,9 @@ public class TaskBuoyView extends ep implements su {
         View view2 = this.d;
         this.f = view2 != null ? (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090455) : null;
         View view3 = this.d;
-        this.g = view3 != null ? (TextView) view3.findViewById(R.id.obfuscated_res_0x7f091f77) : null;
+        this.g = view3 != null ? (TextView) view3.findViewById(R.id.obfuscated_res_0x7f091f7b) : null;
         View view4 = this.d;
-        this.h = view4 != null ? (ProgressBar) view4.findViewById(R.id.obfuscated_res_0x7f091f7d) : null;
+        this.h = view4 != null ? (ProgressBar) view4.findViewById(R.id.obfuscated_res_0x7f091f81) : null;
         this.i = new tu();
         this.k = new ConcurrentLinkedQueue();
         this.l = 1000;
@@ -468,7 +468,7 @@ public class TaskBuoyView extends ep implements su {
     public int K() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? R.layout.obfuscated_res_0x7f0d074d : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? R.layout.obfuscated_res_0x7f0d0757 : invokeV.intValue;
     }
 
     public int L() {
@@ -519,7 +519,7 @@ public class TaskBuoyView extends ep implements su {
             if (v == null || (h = v.h()) == null || (appContext = h.getAppContext()) == null || (resources = appContext.getResources()) == null) {
                 return;
             }
-            fv.a(this.d, this.f, resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07063c));
+            fv.a(this.d, this.f, resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07062d));
             getContentView().setVisibility(4);
         }
     }
@@ -639,7 +639,7 @@ public class TaskBuoyView extends ep implements su {
         if (!(interceptable == null || interceptable.invokeL(1048596, this, str) == null) || (v = BDPTask.m.v()) == null || (h = v.h()) == null || (appContext = h.getAppContext()) == null || (resources = appContext.getResources()) == null || (textView = this.g) == null) {
             return;
         }
-        textView.setTextColor(ev.a.a(str, resources.getColor(R.color.obfuscated_res_0x7f060abc)));
+        textView.setTextColor(ev.a.a(str, resources.getColor(R.color.obfuscated_res_0x7f060aac)));
     }
 
     public final void a0(String str, String str2) {
@@ -661,14 +661,14 @@ public class TaskBuoyView extends ep implements su {
             LayerDrawable layerDrawable = (LayerDrawable) mutate;
             Drawable drawable = layerDrawable.getDrawable(0);
             if (drawable != null) {
-                ((GradientDrawable) drawable).setColor(ev.a.a(str, resources.getColor(R.color.obfuscated_res_0x7f060ab9)));
+                ((GradientDrawable) drawable).setColor(ev.a.a(str, resources.getColor(R.color.obfuscated_res_0x7f060aa9)));
                 Drawable drawable2 = layerDrawable.getDrawable(1);
                 if (drawable2 == null) {
                     throw new TypeCastException("null cannot be cast to non-null type android.graphics.drawable.ScaleDrawable");
                 }
                 Drawable drawable3 = ((ScaleDrawable) drawable2).getDrawable();
                 if (drawable3 != null) {
-                    ((GradientDrawable) drawable3).setColor(ev.a.a(str2, resources.getColor(R.color.obfuscated_res_0x7f060aba)));
+                    ((GradientDrawable) drawable3).setColor(ev.a.a(str2, resources.getColor(R.color.obfuscated_res_0x7f060aaa)));
                     ProgressBar progressBar2 = this.h;
                     if (progressBar2 != null) {
                         progressBar2.setProgressDrawable(layerDrawable);

@@ -198,7 +198,7 @@ public class AlaSquareLiveModel extends BdBaseModel {
     public void N() {
         Pair<List<nn>, List<nn>> d;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (d = po5.d(this.a.getString(R.string.obfuscated_res_0x7f0f11e5), this.e)) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (d = po5.d(this.a.getString(R.string.obfuscated_res_0x7f0f1194), this.e)) == null) {
             return;
         }
         this.f = (List) d.first;

@@ -14,9 +14,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.b65;
+import com.repackage.c65;
 import com.repackage.d9;
-import com.repackage.op4;
+import com.repackage.pp4;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -29,14 +29,14 @@ public class VideoHotTopicModel extends BdBaseModel {
     @Nullable
     public b b;
     @NonNull
-    public b65 c;
+    public c65 c;
     @NonNull
     public List<Map<String, Object>> d;
     public int e;
     public boolean f;
 
     /* loaded from: classes4.dex */
-    public class a implements b65.a {
+    public class a implements c65.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ VideoHotTopicParams a;
@@ -61,7 +61,7 @@ public class VideoHotTopicModel extends BdBaseModel {
             this.a = videoHotTopicParams;
         }
 
-        @Override // com.repackage.b65.a
+        @Override // com.repackage.c65.a
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -69,7 +69,7 @@ public class VideoHotTopicModel extends BdBaseModel {
             }
         }
 
-        @Override // com.repackage.b65.a
+        @Override // com.repackage.c65.a
         public void b(@NonNull List<ThreadData> list, @Nullable Map<String, Object> map) {
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list, map) == null) || this.b.b == null || list.isEmpty()) {
@@ -112,7 +112,7 @@ public class VideoHotTopicModel extends BdBaseModel {
                 return;
             }
         }
-        this.c = (b65) ServiceManager.getService(b65.a);
+        this.c = (c65) ServiceManager.getService(c65.a);
         this.d = new ArrayList();
         this.f = false;
         this.a = videoHotTopicParams;
@@ -134,9 +134,9 @@ public class VideoHotTopicModel extends BdBaseModel {
         }
         this.f = true;
         this.e = this.a.getCurrentPn() + 1;
-        op4 op4Var = new op4();
-        op4Var.k(this.e);
-        this.c.b(this.a.getSortType(), op4Var, l.longValue());
+        pp4 pp4Var = new pp4();
+        pp4Var.k(this.e);
+        this.c.b(this.a.getSortType(), pp4Var, l.longValue());
     }
 
     public void G(@Nullable b bVar) {

@@ -27,7 +27,7 @@ import com.repackage.d9;
 import com.repackage.ng;
 import com.repackage.ni;
 import com.repackage.o18;
-import com.repackage.p95;
+import com.repackage.q95;
 import com.repackage.y08;
 import com.repackage.za;
 /* loaded from: classes3.dex */
@@ -50,14 +50,14 @@ public class PersonCenterModel extends BdBaseModel<BaseFragmentActivity> {
 
         /* renamed from: com.baidu.tieba.personCenter.model.PersonCenterModel$a$a  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        public class C0237a implements MessageQueue.IdleHandler {
+        public class C0251a implements MessageQueue.IdleHandler {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ ResponsedMessage a;
             public final /* synthetic */ long b;
             public final /* synthetic */ a c;
 
-            public C0237a(a aVar, ResponsedMessage responsedMessage, long j) {
+            public C0251a(a aVar, ResponsedMessage responsedMessage, long j) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -126,7 +126,7 @@ public class PersonCenterModel extends BdBaseModel<BaseFragmentActivity> {
                     personCenterModel.b.a(this.a.a);
                 }
                 if (responsedMessage instanceof ProfileHttpResponseMessage) {
-                    Looper.myQueue().addIdleHandler(new C0237a(this, responsedMessage, System.currentTimeMillis()));
+                    Looper.myQueue().addIdleHandler(new C0251a(this, responsedMessage, System.currentTimeMillis()));
                 }
             }
         }
@@ -220,7 +220,7 @@ public class PersonCenterModel extends BdBaseModel<BaseFragmentActivity> {
             if (a2 > 0 && j > a2) {
                 j2 = j - a2;
             }
-            new p95(1008, z, responsedMessage, 0L, b2, c2, false, 0L, 0L, j2).c();
+            new q95(1008, z, responsedMessage, 0L, b2, c2, false, 0L, 0L, j2).c();
             y08.d().h(0L);
         }
     }

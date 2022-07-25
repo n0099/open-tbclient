@@ -1,16 +1,45 @@
 package com.repackage;
 
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class ac4 extends ob4 {
+public class ac4 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile ac4 c;
     public transient /* synthetic */ FieldHolder $fh;
+    public final a a;
+    public zb4 b;
+
+    /* loaded from: classes5.dex */
+    public static class a extends qg4 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a() {
+            super("swan_clean_stratey");
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((String) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+        }
+    }
 
     public ac4() {
         Interceptable interceptable = $ic;
@@ -22,70 +51,64 @@ public class ac4 extends ob4 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = new a();
     }
 
-    @Override // com.repackage.ob4
-    public JSONObject d() {
+    public static ac4 b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (c == null) {
+                synchronized (ac4.class) {
+                    if (c == null) {
+                        c = new ac4();
+                    }
+                }
+            }
+            return c;
+        }
+        return (ac4) invokeV.objValue;
+    }
+
+    @NonNull
+    public zb4 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                JSONObject jSONObject2 = new JSONObject();
-                jSONObject2.put("version", dc4.b().d());
-                jSONObject.put("tipmsgs", jSONObject2);
-                JSONObject jSONObject3 = new JSONObject();
-                nc4.b();
-                jSONObject3.put("version", nc4.c());
-                jSONObject.put("web_degrade_strategy", jSONObject3);
-                JSONObject jSONObject4 = new JSONObject();
-                jSONObject4.put("version", jc4.a().b());
-                jSONObject.put("pkg_preload", jSONObject4);
-                JSONObject jSONObject5 = new JSONObject();
-                jSONObject5.put("version", zb4.b().c());
-                jSONObject.put("pkg_clean_strategy", jSONObject5);
-                JSONObject jSONObject6 = new JSONObject();
-                jSONObject6.put("version", cc4.a().b());
-                jSONObject.put("getpkg_retry_switch", jSONObject6);
-                JSONObject jSONObject7 = new JSONObject();
-                jSONObject7.put("version", pc4.d());
-                jSONObject.put("update_expire_time", jSONObject7);
-                JSONObject jSONObject8 = new JSONObject();
-                jSONObject8.put("version", hc4.f().h());
-                jSONObject.put("page_tips", jSONObject8);
-                if (lc4.a) {
-                    JSONObject jSONObject9 = new JSONObject();
-                    jSONObject9.put("version", lc4.b);
-                    jSONObject.put("heartbeat", jSONObject9);
+            if (this.b == null) {
+                synchronized (ac4.class) {
+                    if (this.b == null) {
+                        this.b = zb4.b(this.a.getString("data", ""));
+                    }
                 }
-                JSONObject jSONObject10 = new JSONObject();
-                jSONObject10.put("version", ec4.a().b());
-                jSONObject.put("local_debug", jSONObject10);
-                JSONObject jSONObject11 = new JSONObject();
-                jSONObject11.put("version", q74.a().a());
-                jSONObject.put(q74.a().c(), jSONObject11);
-                if (mc4.b()) {
-                    JSONObject jSONObject12 = new JSONObject();
-                    jSONObject12.put("version", mc4.a());
-                    jSONObject.put("api_description", jSONObject12);
-                }
-                JSONObject jSONObject13 = new JSONObject();
-                jSONObject13.put("version", oc4.b().c());
-                jSONObject.put("tts", jSONObject13);
-                new JSONObject().put("version", fc4.a().c());
-                jSONObject.put("no_history_apps", jSONObject13);
-                JSONObject jSONObject14 = new JSONObject();
-                jSONObject14.put("version", rc4.d());
-                jSONObject.put("app_inner_preload", jSONObject14);
-                JSONObject jSONObject15 = new JSONObject();
-                jSONObject15.put("version", kc4.a().b());
-                jSONObject.put("simple_control_item", jSONObject15);
-            } catch (JSONException unused) {
             }
-            return jSONObject;
+            return this.b;
         }
-        return (JSONObject) invokeV.objValue;
+        return (zb4) invokeV.objValue;
+    }
+
+    public String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a.getString("version", "0") : (String) invokeV.objValue;
+    }
+
+    public void d(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) || jSONObject == null) {
+            return;
+        }
+        String optString = jSONObject.optString("version");
+        if (TextUtils.isEmpty(optString)) {
+            return;
+        }
+        String optString2 = jSONObject.optString("data");
+        if (TextUtils.isEmpty(optString2)) {
+            return;
+        }
+        this.a.edit().putString("version", optString).putString("data", optString2).apply();
     }
 }

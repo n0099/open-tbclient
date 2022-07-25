@@ -110,7 +110,7 @@ public class cf7 extends BaseAdapter {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
             if (i >= 100000) {
-                return String.valueOf(i / 10000) + this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f0aa4);
+                return String.valueOf(i / 10000) + this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f0a90);
             }
             return String.valueOf(i);
         }
@@ -181,16 +181,16 @@ public class cf7 extends BaseAdapter {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeILL = interceptable.invokeILL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, view2, viewGroup)) == null) {
             if (view2 == null) {
-                view2 = LayoutInflater.from(this.a.getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0799, (ViewGroup) null);
+                view2 = LayoutInflater.from(this.a.getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d07a3, (ViewGroup) null);
                 bVar = new b(this, null);
-                BarImageView barImageView = (BarImageView) view2.findViewById(R.id.obfuscated_res_0x7f0909fc);
+                BarImageView barImageView = (BarImageView) view2.findViewById(R.id.obfuscated_res_0x7f0909f5);
                 bVar.c = barImageView;
                 barImageView.setGifIconSupport(false);
-                bVar.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09155e);
-                bVar.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090a3b);
-                bVar.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090a67);
-                bVar.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091dbb);
-                bVar.a = view2.findViewById(R.id.obfuscated_res_0x7f091645);
+                bVar.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091539);
+                bVar.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090a34);
+                bVar.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090a60);
+                bVar.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091dc1);
+                bVar.a = view2.findViewById(R.id.obfuscated_res_0x7f091620);
                 view2.setTag(bVar);
             } else {
                 bVar = (b) view2.getTag();
@@ -214,7 +214,7 @@ public class cf7 extends BaseAdapter {
             TextView textView = bVar.d;
             textView.setText(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f02a7) + " " + b(item.member_num));
             TextView textView2 = bVar.e;
-            textView2.setText(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f13c6) + " " + b(item.thread_num));
+            textView2.setText(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f1375) + " " + b(item.thread_num));
             if (!this.b && TextUtils.isEmpty(item.slogan)) {
                 bVar.f.setVisibility(8);
             } else {

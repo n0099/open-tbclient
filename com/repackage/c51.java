@@ -79,8 +79,8 @@ public class c51 extends z41 {
                 return;
             }
         }
-        this.g = (TextView) a(R.id.obfuscated_res_0x7f090960);
-        this.f = (TextView) a(R.id.obfuscated_res_0x7f09152c);
+        this.g = (TextView) a(R.id.obfuscated_res_0x7f090959);
+        this.f = (TextView) a(R.id.obfuscated_res_0x7f091507);
         k();
     }
 

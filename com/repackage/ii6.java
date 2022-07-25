@@ -31,7 +31,7 @@ public class ii6 extends hi6 {
     public TbPageContext r0;
     public TextView s0;
     public EntelechyUserLikeButton t0;
-    public yv4 u0;
+    public zv4 u0;
     public int v0;
     public ThreadData w0;
     public CommonUserLikeButton.a x0;
@@ -135,23 +135,23 @@ public class ii6 extends hi6 {
         textView.setIncludeFontPadding(false);
         this.s0.setTextSize(0, pi.f(tbPageContext.getPageActivity(), R.dimen.obfuscated_res_0x7f0701e8));
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
-        layoutParams.topMargin = pi.f(tbPageContext.getPageActivity(), R.dimen.obfuscated_res_0x7f0702e8);
+        layoutParams.topMargin = pi.f(tbPageContext.getPageActivity(), R.dimen.obfuscated_res_0x7f0702e6);
         this.s0.setLayoutParams(layoutParams);
         this.s0.setOnClickListener(this.y0);
         this.q.addView(this.s0, 1);
         EntelechyUserLikeButton entelechyUserLikeButton = new EntelechyUserLikeButton(tbPageContext.getPageActivity());
         this.t0 = entelechyUserLikeButton;
         entelechyUserLikeButton.setFanNumCallBack(this.x0);
-        RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams(-2, pi.f(this.r0.getPageActivity(), R.dimen.obfuscated_res_0x7f0702df));
+        RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams(-2, pi.f(this.r0.getPageActivity(), R.dimen.obfuscated_res_0x7f0702dd));
         layoutParams2.addRule(11);
-        layoutParams2.addRule(3, R.id.obfuscated_res_0x7f090cf0);
+        layoutParams2.addRule(3, R.id.obfuscated_res_0x7f090ce9);
         layoutParams2.rightMargin = pi.f(this.r0.getPageActivity(), R.dimen.obfuscated_res_0x7f070207);
         layoutParams2.topMargin = pi.f(this.r0.getPageActivity(), R.dimen.obfuscated_res_0x7f0701e8);
         this.t0.setLayoutParams(layoutParams2);
         ((ViewGroup) h()).addView(this.t0);
-        yv4 yv4Var = new yv4(tbPageContext, this.t0);
-        this.u0 = yv4Var;
-        yv4Var.m("1");
+        zv4 zv4Var = new zv4(tbPageContext, this.t0);
+        this.u0 = zv4Var;
+        zv4Var.m("1");
         this.u0.l(bdUniqueId);
     }
 
@@ -208,9 +208,9 @@ public class ii6 extends hi6 {
         if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) || this.s0 == null) {
             return;
         }
-        String string = this.r0.getResources().getString(R.string.obfuscated_res_0x7f0f05fa);
+        String string = this.r0.getResources().getString(R.string.obfuscated_res_0x7f0f05f6);
         ThreadData threadData = this.w0;
-        if (threadData != null && !StringUtils.isNull(threadData.getForum_name()) && this.w0.getForum_name().equals(this.g0)) {
+        if (threadData != null && !StringUtils.isNull(threadData.getForum_name()) && this.w0.getForum_name().equals(this.a0)) {
             if (this.w0.isGodThread()) {
                 String format = String.format(string, StringHelper.numberUniformFormat(i));
                 this.s0.setVisibility(0);
@@ -220,7 +220,7 @@ public class ii6 extends hi6 {
             this.s0.setVisibility(8);
             return;
         }
-        this.s0.setText(this.r0.getResources().getString(R.string.obfuscated_res_0x7f0f048a));
+        this.s0.setText(this.r0.getResources().getString(R.string.obfuscated_res_0x7f0f0489));
     }
 
     @Override // com.repackage.hi6, com.repackage.jx5

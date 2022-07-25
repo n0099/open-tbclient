@@ -53,7 +53,7 @@ public class ar7 {
         this.b = inflate;
         this.c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0905fd);
         this.g = this.b.findViewById(R.id.obfuscated_res_0x7f0905fa);
-        this.a = this.b.findViewById(R.id.obfuscated_res_0x7f090658);
+        this.a = this.b.findViewById(R.id.obfuscated_res_0x7f090657);
         this.d = new zq7((ViewStub) this.b.findViewById(R.id.obfuscated_res_0x7f0905fe), aVar);
         this.e = new zq7((ViewStub) this.b.findViewById(R.id.obfuscated_res_0x7f0905ff), aVar);
         this.f = new zq7((ViewStub) this.b.findViewById(R.id.obfuscated_res_0x7f090600), aVar);

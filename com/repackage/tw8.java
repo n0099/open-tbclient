@@ -28,7 +28,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.nr4;
+import com.baidu.webkit.sdk.PermissionRequest;
+import com.repackage.or4;
 import java.lang.reflect.Field;
 import java.util.ArrayList;
 /* loaded from: classes7.dex */
@@ -74,7 +75,7 @@ public class tw8 {
     }
 
     /* loaded from: classes7.dex */
-    public static class b implements nr4.e {
+    public static class b implements or4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ String a;
@@ -86,14 +87,14 @@ public class tw8 {
         public final /* synthetic */ String g;
         public final /* synthetic */ String h;
         public final /* synthetic */ String i;
-        public final /* synthetic */ lr4 j;
+        public final /* synthetic */ mr4 j;
 
-        public b(String str, String str2, String str3, String str4, int i, Boolean bool, String str5, String str6, String str7, lr4 lr4Var) {
+        public b(String str, String str2, String str3, String str4, int i, Boolean bool, String str5, String str6, String str7, mr4 mr4Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, str2, str3, str4, Integer.valueOf(i), bool, str5, str6, str7, lr4Var};
+                Object[] objArr = {str, str2, str3, str4, Integer.valueOf(i), bool, str5, str6, str7, mr4Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -112,38 +113,38 @@ public class tw8 {
             this.g = str5;
             this.h = str6;
             this.i = str7;
-            this.j = lr4Var;
+            this.j = mr4Var;
         }
 
-        @Override // com.repackage.nr4.e
-        public void N(nr4 nr4Var, int i, View view2) {
+        @Override // com.repackage.or4.e
+        public void N(or4 or4Var, int i, View view2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLIL(1048576, this, nr4Var, i, view2) == null) {
+            if (interceptable == null || interceptable.invokeLIL(1048576, this, or4Var, i, view2) == null) {
                 if (i == 0) {
                     tw8.k(true, true, this.a, this.b, this.c, this.d, this.e, this.f, this.g, this.h, this.i);
                 } else if (i == 1) {
                     tw8.k(true, false, this.a, this.b, this.c, this.d, this.e, this.f, this.g, this.h, this.i);
                 }
-                lr4 lr4Var = this.j;
-                if (lr4Var != null) {
-                    lr4Var.dismiss();
+                mr4 mr4Var = this.j;
+                if (mr4Var != null) {
+                    mr4Var.dismiss();
                 }
             }
         }
     }
 
     /* loaded from: classes7.dex */
-    public static class c implements nr4.c {
+    public static class c implements or4.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ lr4 a;
+        public final /* synthetic */ mr4 a;
 
-        public c(lr4 lr4Var) {
+        public c(mr4 mr4Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {lr4Var};
+                Object[] objArr = {mr4Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -153,24 +154,24 @@ public class tw8 {
                     return;
                 }
             }
-            this.a = lr4Var;
+            this.a = mr4Var;
         }
 
-        @Override // com.repackage.nr4.c
+        @Override // com.repackage.or4.c
         public void onClick() {
-            lr4 lr4Var;
+            mr4 mr4Var;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (lr4Var = this.a) == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (mr4Var = this.a) == null) {
                 return;
             }
-            lr4Var.dismiss();
+            mr4Var.dismiss();
         }
     }
 
     public static int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? xt4.k().l("key_work_video_guide_pop", -1) : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? yt4.k().l("key_work_video_guide_pop", -1) : invokeV.intValue;
     }
 
     public static boolean b() {
@@ -214,27 +215,27 @@ public class tw8 {
         if (!(interceptable == null || interceptable.invokeCommon(65541, null, new Object[]{d9Var, str, str2, str3, str4, Integer.valueOf(i), bool, str5, str6, str7}) == null) || d9Var == null || d9Var.getPageActivity() == null) {
             return;
         }
-        String string = d9Var.getString(R.string.obfuscated_res_0x7f0f15c1);
-        lr4 lr4Var = new lr4(d9Var);
-        nr4 nr4Var = new nr4(d9Var.getPageActivity());
-        nr4Var.q(string);
+        String string = d9Var.getString(R.string.obfuscated_res_0x7f0f1570);
+        mr4 mr4Var = new mr4(d9Var);
+        or4 or4Var = new or4(d9Var.getPageActivity());
+        or4Var.q(string);
         ArrayList arrayList = new ArrayList();
-        jr4 jr4Var = new jr4(0, d9Var.getString(R.string.obfuscated_res_0x7f0f15c0), nr4Var);
-        jr4Var.q(R.color.CAM_X0105);
-        jr4Var.o(R.color.CAM_X0204);
-        arrayList.add(jr4Var);
-        jr4 jr4Var2 = new jr4(1, d9Var.getString(R.string.obfuscated_res_0x7f0f15bf), nr4Var);
-        jr4Var2.q(R.color.CAM_X0105);
-        jr4Var2.o(R.color.CAM_X0204);
-        arrayList.add(jr4Var2);
-        b bVar = new b(str, str2, str3, str4, i, bool, str5, str6, str7, lr4Var);
-        c cVar = new c(lr4Var);
-        nr4Var.j(arrayList);
-        nr4Var.n(bVar);
-        nr4Var.m(cVar);
-        lr4Var.setCanceledOnTouchOutside(true);
-        lr4Var.i(nr4Var);
-        lr4Var.m();
+        kr4 kr4Var = new kr4(0, d9Var.getString(R.string.obfuscated_res_0x7f0f156f), or4Var);
+        kr4Var.q(R.color.CAM_X0105);
+        kr4Var.o(R.color.CAM_X0204);
+        arrayList.add(kr4Var);
+        kr4 kr4Var2 = new kr4(1, d9Var.getString(R.string.obfuscated_res_0x7f0f156e), or4Var);
+        kr4Var2.q(R.color.CAM_X0105);
+        kr4Var2.o(R.color.CAM_X0204);
+        arrayList.add(kr4Var2);
+        b bVar = new b(str, str2, str3, str4, i, bool, str5, str6, str7, mr4Var);
+        c cVar = new c(mr4Var);
+        or4Var.j(arrayList);
+        or4Var.n(bVar);
+        or4Var.m(cVar);
+        mr4Var.setCanceledOnTouchOutside(true);
+        mr4Var.i(or4Var);
+        mr4Var.m();
     }
 
     public static void g(String str, String str2, String str3, String str4, int i, Boolean bool) {
@@ -275,8 +276,8 @@ public class tw8 {
         PermissionJudgePolicy permissionJudgePolicy = new PermissionJudgePolicy();
         permissionJudgePolicy.clearRequestPermissionList();
         permissionJudgePolicy.appendRequestPermission(tbPageContext.getPageActivity(), "android.permission.WRITE_EXTERNAL_STORAGE");
-        permissionJudgePolicy.appendRequestPermission(tbPageContext.getPageActivity(), "android.permission.CAMERA");
-        permissionJudgePolicy.appendRequestPermission(tbPageContext.getPageActivity(), "android.permission.RECORD_AUDIO");
+        permissionJudgePolicy.appendRequestPermission(tbPageContext.getPageActivity(), PermissionRequest.RESOURCE_VIDEO_CAPTURE);
+        permissionJudgePolicy.appendRequestPermission(tbPageContext.getPageActivity(), PermissionRequest.RESOURCE_AUDIO_CAPTURE);
         permissionJudgePolicy.setOnPermissionsGrantedListener(new a(tbPageContext, str, forumWriteData));
         permissionJudgePolicy.startRequestPermission(tbPageContext.getPageActivity());
     }

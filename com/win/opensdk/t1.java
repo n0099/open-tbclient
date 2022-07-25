@@ -7,7 +7,6 @@ import android.os.Build;
 import android.provider.Settings;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
-import com.baidu.sofire.utility.PermissionChecker;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.httpNet.HttpRequest;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -232,7 +231,7 @@ public class t1 {
                     if (Build.VERSION.SDK_INT < 23) {
                         deviceId = telephonyManager.getDeviceId();
                         str7 = "";
-                    } else if (context.checkSelfPermission(PermissionChecker.READ_PHONE_STATE) == 0) {
+                    } else if (context.checkSelfPermission(com.kuaishou.weapon.p0.h.c) == 0) {
                         deviceId = telephonyManager.getDeviceId(1);
                         str7 = telephonyManager.getDeviceId(2);
                     } else {

@@ -244,11 +244,11 @@ public class au8 {
             }
             View inflate = LayoutInflater.from(this.b.getContext()).inflate(R.layout.obfuscated_res_0x7f0d015b, this.b.l(), false);
             this.c = inflate;
-            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090f7e);
+            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090f77);
             this.d = textView;
             textView.setText(this.f);
             this.d.setGravity(this.g);
-            View findViewById = this.c.findViewById(R.id.obfuscated_res_0x7f0907ca);
+            View findViewById = this.c.findViewById(R.id.obfuscated_res_0x7f0907c8);
             this.e = findViewById;
             if (this.i) {
                 findViewById.setVisibility(0);
@@ -316,29 +316,29 @@ public class au8 {
             return;
         }
         this.a = context;
-        View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0718, (ViewGroup) null);
+        View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0722, (ViewGroup) null);
         this.b = inflate;
-        this.c = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f0906c1);
-        this.d = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0920bc);
-        this.e = this.b.findViewById(R.id.obfuscated_res_0x7f0920ce);
+        this.c = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f0906c0);
+        this.d = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0920be);
+        this.e = this.b.findViewById(R.id.obfuscated_res_0x7f0920d0);
         this.h = new ArrayList();
-        this.f = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090771);
-        RadioButton radioButton = (RadioButton) this.b.findViewById(R.id.obfuscated_res_0x7f090651);
+        this.f = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090770);
+        RadioButton radioButton = (RadioButton) this.b.findViewById(R.id.obfuscated_res_0x7f090650);
         this.l = radioButton;
         radioButton.setOnClickListener(this.s);
-        RadioButton radioButton2 = (RadioButton) this.b.findViewById(R.id.obfuscated_res_0x7f090652);
+        RadioButton radioButton2 = (RadioButton) this.b.findViewById(R.id.obfuscated_res_0x7f090651);
         this.m = radioButton2;
         radioButton2.setOnClickListener(this.s);
-        RadioButton radioButton3 = (RadioButton) this.b.findViewById(R.id.obfuscated_res_0x7f090653);
+        RadioButton radioButton3 = (RadioButton) this.b.findViewById(R.id.obfuscated_res_0x7f090652);
         this.n = radioButton3;
         radioButton3.setOnClickListener(this.s);
-        RadioButton radioButton4 = (RadioButton) this.b.findViewById(R.id.obfuscated_res_0x7f090654);
+        RadioButton radioButton4 = (RadioButton) this.b.findViewById(R.id.obfuscated_res_0x7f090653);
         this.o = radioButton4;
         radioButton4.setOnClickListener(this.s);
-        RadioButton radioButton5 = (RadioButton) this.b.findViewById(R.id.obfuscated_res_0x7f090655);
+        RadioButton radioButton5 = (RadioButton) this.b.findViewById(R.id.obfuscated_res_0x7f090654);
         this.p = radioButton5;
         radioButton5.setOnClickListener(this.s);
-        this.q = (LinearLayout) this.b.findViewById(R.id.obfuscated_res_0x7f090650);
+        this.q = (LinearLayout) this.b.findViewById(R.id.obfuscated_res_0x7f09064f);
     }
 
     public Context getContext() {

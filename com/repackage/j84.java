@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes6.dex */
-public class j84 extends f84<e94> {
+public class j84 extends g84<d94> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -29,8 +29,8 @@ public class j84 extends f84<e94> {
         }
     }
 
-    @Override // com.repackage.f84
-    public List<e94> e(Cursor cursor) {
+    @Override // com.repackage.g84
+    public List<d94> e(Cursor cursor) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cursor)) == null) {
@@ -39,9 +39,9 @@ public class j84 extends f84<e94> {
                 return arrayList;
             }
             do {
-                e94 e94Var = new e94();
-                if (b(cursor, e94Var)) {
-                    arrayList.add(e94Var);
+                d94 d94Var = new d94();
+                if (b(cursor, d94Var)) {
+                    arrayList.add(d94Var);
                 }
             } while (cursor.moveToNext());
             return arrayList;
@@ -50,35 +50,30 @@ public class j84 extends f84<e94> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.f84
+    @Override // com.repackage.g84
     /* renamed from: f */
-    public ContentValues c(e94 e94Var) {
+    public ContentValues c(d94 d94Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, e94Var)) == null) {
-            ContentValues a = super.a(e94Var);
-            a.put("pkg_type", Integer.valueOf(e94Var.o));
-            return a;
-        }
-        return (ContentValues) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, d94Var)) == null) ? a(d94Var) : (ContentValues) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.f84
+    @Override // com.repackage.g84
     /* renamed from: g */
-    public e94 d(Cursor cursor) {
+    public d94 d(Cursor cursor) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, cursor)) == null) {
             if (cursor == null || cursor.getCount() <= 0 || !cursor.moveToFirst()) {
                 return null;
             }
-            e94 e94Var = new e94();
-            if (b(cursor, e94Var)) {
-                return e94Var;
+            d94 d94Var = new d94();
+            if (b(cursor, d94Var)) {
+                return d94Var;
             }
             return null;
         }
-        return (e94) invokeL.objValue;
+        return (d94) invokeL.objValue;
     }
 }

@@ -21,9 +21,9 @@ public final class f extends d {
         Exception e;
         JavaExceptionMessage javaExceptionMessage2 = null;
         try {
-            str2 = o.h(file);
+            str2 = o.S(file);
         } catch (Exception e2) {
-            this.b += e2 + "\n";
+            this.mErrorMessage += e2 + "\n";
             str2 = null;
         }
         if (str2 != null) {
@@ -33,19 +33,19 @@ public final class f extends d {
                     javaExceptionMessage.parseJson(new JSONObject(str2));
                 } catch (Exception e3) {
                     e = e3;
-                    this.b += e + "\n";
+                    this.mErrorMessage += e + "\n";
                     javaExceptionMessage2 = javaExceptionMessage;
                     if (javaExceptionMessage2 == null) {
                     }
-                    javaExceptionMessage2.mLogUUID = com.kwad.sdk.crash.utils.f.a(file.getName());
+                    javaExceptionMessage2.mLogUUID = com.kwad.sdk.crash.utils.f.df(file.getName());
                     new StringBuilder("------ Java Crash Report Begin ------\n").append(javaExceptionMessage2);
                     d.a(new File(str + ".jtrace"), javaExceptionMessage2);
                     b(file3, javaExceptionMessage2);
                     com.kwad.sdk.crash.utils.f.a(file, javaExceptionMessage2.toString());
-                    com.kwad.sdk.crash.utils.f.a(file3, file);
+                    com.kwad.sdk.crash.utils.f.b(file3, file);
                     file.renameTo(file3);
-                    javaExceptionMessage2.mDumpsys = o.h(new File(str + ".minfo"));
-                    if (!TextUtils.isEmpty(this.b)) {
+                    javaExceptionMessage2.mDumpsys = o.S(new File(str + ".minfo"));
+                    if (!TextUtils.isEmpty(this.mErrorMessage)) {
                     }
                     return javaExceptionMessage2;
                 }
@@ -62,20 +62,20 @@ public final class f extends d {
             }
         }
         try {
-            javaExceptionMessage2.mLogUUID = com.kwad.sdk.crash.utils.f.a(file.getName());
+            javaExceptionMessage2.mLogUUID = com.kwad.sdk.crash.utils.f.df(file.getName());
             new StringBuilder("------ Java Crash Report Begin ------\n").append(javaExceptionMessage2);
             d.a(new File(str + ".jtrace"), javaExceptionMessage2);
             b(file3, javaExceptionMessage2);
             com.kwad.sdk.crash.utils.f.a(file, javaExceptionMessage2.toString());
-            com.kwad.sdk.crash.utils.f.a(file3, file);
+            com.kwad.sdk.crash.utils.f.b(file3, file);
             file.renameTo(file3);
-            javaExceptionMessage2.mDumpsys = o.h(new File(str + ".minfo"));
+            javaExceptionMessage2.mDumpsys = o.S(new File(str + ".minfo"));
         } catch (Throwable th) {
-            this.b += th + "\n";
-            com.kwad.sdk.core.d.b.b(th);
+            this.mErrorMessage += th + "\n";
+            com.kwad.sdk.core.e.b.printStackTraceOnly(th);
         }
-        if (!TextUtils.isEmpty(this.b)) {
-            javaExceptionMessage2.mErrorMessage += this.b;
+        if (!TextUtils.isEmpty(this.mErrorMessage)) {
+            javaExceptionMessage2.mErrorMessage += this.mErrorMessage;
         }
         return javaExceptionMessage2;
     }

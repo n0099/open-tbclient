@@ -89,7 +89,7 @@ public class be5 {
     }
 
     /* loaded from: classes5.dex */
-    public class b implements jd5<Cursor> {
+    public class b implements kd5<Cursor> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ be5 a;
@@ -113,7 +113,7 @@ public class be5 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.jd5
+        @Override // com.repackage.kd5
         /* renamed from: a */
         public void onReturnDataInUI(Cursor cursor) {
             Interceptable interceptable = $ic;

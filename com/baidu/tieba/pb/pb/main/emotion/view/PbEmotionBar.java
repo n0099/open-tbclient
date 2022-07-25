@@ -712,20 +712,20 @@ public class PbEmotionBar extends LinearLayout implements EmotionView.c {
     public final void t() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
-            setId(R.id.obfuscated_res_0x7f091720);
-            LinearLayout.inflate(getContext(), R.layout.obfuscated_res_0x7f0d04a9, this);
+            setId(R.id.obfuscated_res_0x7f0916fb);
+            LinearLayout.inflate(getContext(), R.layout.obfuscated_res_0x7f0d04a7, this);
             setOrientation(1);
             setBackgroundColor(getResources().getColor(R.color.CAM_X0201));
-            this.b = (HListView) findViewById(R.id.obfuscated_res_0x7f0913c3);
+            this.b = (HListView) findViewById(R.id.obfuscated_res_0x7f09139f);
             ow7 ow7Var = new ow7();
             this.c = ow7Var;
             ow7Var.f(this);
             this.b.setAdapter((ListAdapter) this.c);
-            this.b.setDividerWidth(pi.f(getContext(), R.dimen.obfuscated_res_0x7f0702f8));
-            this.b.setSelector(getResources().getDrawable(R.drawable.obfuscated_res_0x7f0811a4));
-            this.q = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091252);
-            this.r = (EditText) findViewById(R.id.obfuscated_res_0x7f090836);
-            this.s = (ImageView) findViewById(R.id.obfuscated_res_0x7f090fc0);
+            this.b.setDividerWidth(pi.f(getContext(), R.dimen.obfuscated_res_0x7f0702f6));
+            this.b.setSelector(getResources().getDrawable(R.drawable.obfuscated_res_0x7f0811a8));
+            this.q = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f09122e);
+            this.r = (EditText) findViewById(R.id.obfuscated_res_0x7f090834);
+            this.s = (ImageView) findViewById(R.id.obfuscated_res_0x7f090fb7);
             this.r.addTextChangedListener(this.A);
             this.r.setOnClickListener(new a(this));
             this.r.setFilters(new InputFilter[]{new b(this)});
@@ -733,10 +733,10 @@ public class PbEmotionBar extends LinearLayout implements EmotionView.c {
             this.j = ViewConfiguration.get(getContext()).getScaledTouchSlop();
             this.v = ViewConfiguration.getMaximumFlingVelocity();
             this.u = ViewConfiguration.getMinimumFlingVelocity();
-            this.w = pi.f(getContext(), R.dimen.obfuscated_res_0x7f07024f);
-            this.k = pi.f(getContext(), R.dimen.obfuscated_res_0x7f0702e5);
-            this.l = pi.f(getContext(), R.dimen.obfuscated_res_0x7f07023a);
-            this.m = pi.f(getContext(), R.dimen.obfuscated_res_0x7f070232);
+            this.w = pi.f(getContext(), R.dimen.obfuscated_res_0x7f07024d);
+            this.k = pi.f(getContext(), R.dimen.obfuscated_res_0x7f0702e3);
+            this.l = pi.f(getContext(), R.dimen.obfuscated_res_0x7f070238);
+            this.m = pi.f(getContext(), R.dimen.obfuscated_res_0x7f070230);
             int f2 = this.h - pi.f(getContext(), R.dimen.tbds196);
             this.i = f2;
             this.g = (this.k - this.l) * (1.0d / f2);

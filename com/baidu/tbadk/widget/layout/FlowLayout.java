@@ -189,7 +189,7 @@ public class FlowLayout extends ViewGroup {
     public final void h(Context context, AttributeSet attributeSet) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048588, this, context, attributeSet) == null) {
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f0401e4, R.attr.obfuscated_res_0x7f0402ec, R.attr.obfuscated_res_0x7f040328, R.attr.obfuscated_res_0x7f0403f0, R.attr.obfuscated_res_0x7f04049f, R.attr.obfuscated_res_0x7f0406c9});
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f0401e4, R.attr.obfuscated_res_0x7f0402ec, R.attr.obfuscated_res_0x7f040328, R.attr.obfuscated_res_0x7f0403f0, R.attr.obfuscated_res_0x7f04049f, R.attr.obfuscated_res_0x7f0406cb});
             try {
                 this.a = obtainStyledAttributes.getDimensionPixelSize(1, 0);
                 this.b = obtainStyledAttributes.getDimensionPixelSize(5, 0);

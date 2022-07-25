@@ -284,16 +284,16 @@ public class YYPayResultView extends LinearLayout implements IYYPayResultView {
             RLog.error("YYPayResultView", "YYPayResultView construct error viewParams null", new Object[0]);
         }
         this.j = payUIKitConfig;
-        LayoutInflater.from(new ContextThemeWrapper(activity, nz9.a.a(payUIKitConfig))).inflate(R.layout.obfuscated_res_0x7f0d0668, (ViewGroup) this, true);
+        LayoutInflater.from(new ContextThemeWrapper(activity, nz9.a.a(payUIKitConfig))).inflate(R.layout.obfuscated_res_0x7f0d0672, (ViewGroup) this, true);
         this.a = activity;
         this.n = cVar;
-        this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f092287);
+        this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f092289);
         Button button = (Button) findViewById(R.id.obfuscated_res_0x7f09040a);
         this.b = i;
         this.c = i2;
         this.k = py9Var;
-        this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f090ea0);
-        this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f092241);
+        this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f090e99);
+        this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f092243);
         m(cVar != null ? cVar.a : null);
         button.setOnClickListener(new a(this));
         this.f.setOnClickListener(new b(this));
@@ -401,7 +401,7 @@ public class YYPayResultView extends LinearLayout implements IYYPayResultView {
                 str6 = str4;
             }
             this.f.setText(str6);
-            this.e.setImageResource(R.drawable.obfuscated_res_0x7f080e43);
+            this.e.setImageResource(R.drawable.obfuscated_res_0x7f080e4a);
             yy9.b(this.b, this.c, UiEventType.successpageshow);
             RLog.info("YYPayResultView", UiEventType.successpageshow);
         } else if (result == IYYPayResultView.Result.PAY_FAIL) {
@@ -416,7 +416,7 @@ public class YYPayResultView extends LinearLayout implements IYYPayResultView {
             this.d.setText(str);
             PaysSettingInfo paysSettingInfo2 = sy9.a;
             this.f.setText((paysSettingInfo2 == null || (str2 = paysSettingInfo2.customerServiceMsg) == null || str2.isEmpty()) ? "如有问题可以联系客服 " : sy9.a.customerServiceMsg);
-            this.e.setImageResource(R.drawable.obfuscated_res_0x7f080e40);
+            this.e.setImageResource(R.drawable.obfuscated_res_0x7f080e47);
             RLog.info("YYPayResultView", UiEventType.failpageshow);
             yy9.b(this.b, this.c, UiEventType.failpageshow);
         }

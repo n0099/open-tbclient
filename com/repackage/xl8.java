@@ -55,7 +55,7 @@ public class xl8 extends CustomMessageListener {
     }
 
     /* loaded from: classes7.dex */
-    public class b implements jd5<String> {
+    public class b implements kd5<String> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ xl8 a;
@@ -79,7 +79,7 @@ public class xl8 extends CustomMessageListener {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.jd5
+        @Override // com.repackage.kd5
         /* renamed from: a */
         public void onReturnDataInUI(String str) {
             Interceptable interceptable = $ic;
@@ -119,7 +119,7 @@ public class xl8 extends CustomMessageListener {
             if (TextUtils.isEmpty(tempString)) {
                 return;
             }
-            xt4.k().D("user_interest_info");
+            yt4.k().D("user_interest_info");
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_GUIDE_INTEREST_COMMIT);
             httpMessage.addParam("interestList", tempString);
             httpMessage.addParam("user_id", TbadkCoreApplication.getCurrentAccount());
@@ -135,9 +135,9 @@ public class xl8 extends CustomMessageListener {
         if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2005016) {
             this.a.o = true;
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2005009, null));
-            xt4.k().D("key_feedback_tip");
-            xt4.k().D("key_feedback_tip_show");
-            xt4.k().D("key_feedback_tip_tab_show");
+            yt4.k().D("key_feedback_tip");
+            yt4.k().D("key_feedback_tip_show");
+            yt4.k().D("key_feedback_tip_tab_show");
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016560));
             if (this.a.y != null) {
                 if (AsyncGetClipboardSwitch.isOn() && TbadkCoreApplication.getInst().isMIUIRom()) {
@@ -152,8 +152,8 @@ public class xl8 extends CustomMessageListener {
             }
             this.a.w0();
             b();
-            j65.b().a();
-            iz4.f();
+            k65.b().a();
+            jz4.f();
         }
     }
 }

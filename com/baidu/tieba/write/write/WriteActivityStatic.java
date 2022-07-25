@@ -73,7 +73,7 @@ import com.repackage.kk8;
 import com.repackage.kw8;
 import com.repackage.pa;
 import com.repackage.pi;
-import com.repackage.rl4;
+import com.repackage.sl4;
 import com.repackage.sz5;
 import com.repackage.wh8;
 import java.util.Map;
@@ -331,7 +331,7 @@ public class WriteActivityStatic {
     public static void d(TbPageContext<?> tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65541, null, tbPageContext) == null) {
-            rl4.t(tbPageContext.getPageActivity(), TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f05ff), TbConfig.FEED_BACK_WEB_VIEW_URL, true, true, false, false, true);
+            sl4.t(tbPageContext.getPageActivity(), TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f05fb), TbConfig.FEED_BACK_WEB_VIEW_URL, true, true, false, false, true);
         }
     }
 

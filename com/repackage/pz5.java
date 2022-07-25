@@ -30,7 +30,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class pz5 extends BaseAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -38,7 +38,7 @@ public class pz5 extends BaseAdapter {
     public TbPageContext<?> b;
     public int c;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class a implements View.OnLongClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -76,7 +76,7 @@ public class pz5 extends BaseAdapter {
                 ClipboardManager clipboardManager = (ClipboardManager) this.b.b.getPageActivity().getSystemService(GrowthConstant.UBC_VALUE_TYPE_CLIP_BOARD);
                 clipboardManager.setText(h);
                 if (clipboardManager.getText() != null) {
-                    pi.N(this.b.b.getPageActivity(), R.string.obfuscated_res_0x7f0f0448);
+                    pi.N(this.b.b.getPageActivity(), R.string.obfuscated_res_0x7f0f0447);
                     return false;
                 }
                 return false;
@@ -85,7 +85,7 @@ public class pz5 extends BaseAdapter {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -120,7 +120,7 @@ public class pz5 extends BaseAdapter {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static class c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -182,8 +182,8 @@ public class pz5 extends BaseAdapter {
             int f = pi.f(TbadkCoreApplication.getInst().getContext(), R.dimen.obfuscated_res_0x7f0701e8);
             moneyIcon.setBounds(0, 0, f, f);
             ze5 ze5Var = new ze5(moneyIcon);
-            ze5Var.b(pi.f(TbadkCoreApplication.getInst().getContext(), R.dimen.obfuscated_res_0x7f070232));
-            ze5Var.c(pi.f(TbadkCoreApplication.getInst().getContext(), R.dimen.obfuscated_res_0x7f070232));
+            ze5Var.b(pi.f(TbadkCoreApplication.getInst().getContext(), R.dimen.obfuscated_res_0x7f070230));
+            ze5Var.c(pi.f(TbadkCoreApplication.getInst().getContext(), R.dimen.obfuscated_res_0x7f070230));
             UtilHelper.setSpan(spannableString, str, "[icon]", ze5Var);
             UtilHelper.setSpan(spannableString, str, formatOverBaiwanNum, foregroundColorSpan2);
             UtilHelper.setSpan(spannableString, str, formatOverBaiwanNum, absoluteSizeSpan);
@@ -232,7 +232,7 @@ public class pz5 extends BaseAdapter {
         if (!(interceptable == null || interceptable.invokeLL(1048579, this, cVar, nz5Var) == null) || cVar == null || nz5Var == null) {
             return;
         }
-        cVar.g.setText(this.b.getString(R.string.obfuscated_res_0x7f0f0cf4) + "    ");
+        cVar.g.setText(this.b.getString(R.string.obfuscated_res_0x7f0f0ce0) + "    ");
         cVar.a.setText(nz5Var.h());
         cVar.a.setOnLongClickListener(new a(this, nz5Var));
         if (nz5Var.k() == 1) {
@@ -249,13 +249,13 @@ public class pz5 extends BaseAdapter {
         int i3 = this.c;
         if (i3 == 1) {
             SpannableString d = d(R.string.obfuscated_res_0x7f0f0353, nz5Var.l(), foregroundColorSpan, foregroundColorSpan2);
-            spannableString3 = b(R.string.obfuscated_res_0x7f0f0436, nz5Var.m(), foregroundColorSpan, foregroundColorSpan2, absoluteSizeSpan, nz5Var.e());
+            spannableString3 = b(R.string.obfuscated_res_0x7f0f0435, nz5Var.m(), foregroundColorSpan, foregroundColorSpan2, absoluteSizeSpan, nz5Var.e());
             spannableString = c(R.string.obfuscated_res_0x7f0f0355, nz5Var.d(), foregroundColorSpan, foregroundColorSpan2);
             spannableString4 = d;
             spannableString2 = null;
         } else if (i3 == 2) {
-            SpannableString d2 = d(R.string.obfuscated_res_0x7f0f07a8, nz5Var.l(), foregroundColorSpan, foregroundColorSpan2);
-            spannableString3 = b(CurrencySwitchUtil.isYyIsConvert(nz5Var.e()) ? R.string.obfuscated_res_0x7f0f07a9 : R.string.obfuscated_res_0x7f0f07a6, nz5Var.m(), foregroundColorSpan, foregroundColorSpan2, absoluteSizeSpan, nz5Var.e());
+            SpannableString d2 = d(R.string.obfuscated_res_0x7f0f07a4, nz5Var.l(), foregroundColorSpan, foregroundColorSpan2);
+            spannableString3 = b(CurrencySwitchUtil.isYyIsConvert(nz5Var.e()) ? R.string.obfuscated_res_0x7f0f07a5 : R.string.obfuscated_res_0x7f0f07a2, nz5Var.m(), foregroundColorSpan, foregroundColorSpan2, absoluteSizeSpan, nz5Var.e());
             spannableString = c(R.string.obfuscated_res_0x7f0f0355, nz5Var.d(), foregroundColorSpan, foregroundColorSpan2);
             String str = "" + nz5Var.j();
             String str2 = this.b.getString(R.string.obfuscated_res_0x7f0f0278) + "    " + str;
@@ -265,9 +265,9 @@ public class pz5 extends BaseAdapter {
             spannableString2 = spannableString5;
             spannableString4 = d2;
         } else if (i3 == 3) {
-            String string = this.b.getString(R.string.obfuscated_res_0x7f0f0f6c);
+            String string = this.b.getString(R.string.obfuscated_res_0x7f0f0f55);
             if (CurrencySwitchUtil.isYyIsConvert(nz5Var.e())) {
-                l = String.format(this.b.getString(R.string.obfuscated_res_0x7f0f1606), g(Double.valueOf(nz5Var.i())));
+                l = String.format(this.b.getString(R.string.obfuscated_res_0x7f0f15b5), g(Double.valueOf(nz5Var.i())));
             } else {
                 l = nz5Var.l();
             }
@@ -275,16 +275,16 @@ public class pz5 extends BaseAdapter {
             spannableString4 = new SpannableString(str3);
             UtilHelper.setSpan(spannableString4, str3, str3, foregroundColorSpan);
             UtilHelper.setSpan(spannableString4, str3, l, foregroundColorSpan2);
-            String str4 = ("" + nz5Var.g()) + this.b.getString(R.string.obfuscated_res_0x7f0f0f71);
-            String str5 = this.b.getString(R.string.obfuscated_res_0x7f0f0f6b) + "    " + str4;
+            String str4 = ("" + nz5Var.g()) + this.b.getString(R.string.obfuscated_res_0x7f0f0f5a);
+            String str5 = this.b.getString(R.string.obfuscated_res_0x7f0f0f54) + "    " + str4;
             SpannableString spannableString6 = new SpannableString(str5);
             UtilHelper.setSpan(spannableString6, str5, str5, foregroundColorSpan);
             UtilHelper.setSpan(spannableString6, str5, str4, foregroundColorSpan2);
             UtilHelper.setSpan(spannableString6, str5, str4, absoluteSizeSpan);
             spannableString3 = spannableString6;
-            SpannableString c2 = c(R.string.obfuscated_res_0x7f0f0f70, nz5Var.f(), foregroundColorSpan, foregroundColorSpan2);
+            SpannableString c2 = c(R.string.obfuscated_res_0x7f0f0f59, nz5Var.f(), foregroundColorSpan, foregroundColorSpan2);
             String str6 = "" + nz5Var.j();
-            String str7 = this.b.getString(R.string.obfuscated_res_0x7f0f0f6a) + "    " + str6;
+            String str7 = this.b.getString(R.string.obfuscated_res_0x7f0f0f53) + "    " + str6;
             spannableString2 = new SpannableString(str7);
             UtilHelper.setSpan(spannableString2, str7, str7, foregroundColorSpan);
             UtilHelper.setSpan(spannableString2, str7, str6, foregroundColorSpan2);
@@ -383,16 +383,16 @@ public class pz5 extends BaseAdapter {
             if (view2 != null) {
                 cVar = (c) view2.getTag();
             } else {
-                view2 = LayoutInflater.from(this.b.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0732, viewGroup, false);
+                view2 = LayoutInflater.from(this.b.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d073c, viewGroup, false);
                 cVar = new c();
-                cVar.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091678);
-                cVar.b = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f09167c);
-                cVar.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09167e);
-                cVar.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09167b);
-                cVar.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091679);
-                cVar.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091675);
-                cVar.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09167d);
-                cVar.h = view2.findViewById(R.id.obfuscated_res_0x7f091676);
+                cVar.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091653);
+                cVar.b = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f091657);
+                cVar.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091659);
+                cVar.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091656);
+                cVar.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091654);
+                cVar.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091650);
+                cVar.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091658);
+                cVar.h = view2.findViewById(R.id.obfuscated_res_0x7f091651);
                 cVar.i = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090071);
                 cVar.j = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09006e);
                 view2.setTag(cVar);

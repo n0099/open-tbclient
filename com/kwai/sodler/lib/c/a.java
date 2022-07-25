@@ -10,9 +10,9 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public final class a implements Comparable<a> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public boolean c;
+    public String ayz;
+    public boolean nQ;
+    public String version;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -35,6 +35,6 @@ public final class a implements Comparable<a> {
     public int compareTo(@NonNull a aVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, this, aVar)) == null) ? aVar.b.compareTo(this.b) : invokeL.intValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65537, this, aVar)) == null) ? aVar.version.compareTo(this.version) : invokeL.intValue;
     }
 }

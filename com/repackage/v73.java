@@ -3,32 +3,33 @@ package com.repackage;
 import android.content.Context;
 import android.text.TextUtils;
 import android.util.Log;
-import com.baidu.android.imsdk.retrieve.util.FileMetaUtil;
+import com.baidu.searchbox.pms.db.PackageTable;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.tbadk.core.data.SmallTailInfo;
+import com.baidu.swan.apps.storage.PathType;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class v73 extends e23 {
+public class v73 extends f23 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public v73(e13 e13Var) {
-        super(e13Var, "/swanAPI/file/getSavedFileInfo");
+    public v73(f13 f13Var) {
+        super(f13Var, "/swanAPI/file/getInfo");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {e13Var};
+            Object[] objArr = {f13Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -42,57 +43,60 @@ public class v73 extends e23 {
         }
     }
 
-    @Override // com.repackage.e23
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, h03 h03Var) {
+    @Override // com.repackage.f23
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, i03 i03Var) {
         InterceptResult invokeLLLL;
+        String L;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, h03Var)) == null) {
-            if (context != null && callbackHandler != null && h03Var != null && h03Var.f0() != null) {
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, i03Var)) == null) {
+            if (context != null && callbackHandler != null && i03Var != null && i03Var.f0() != null) {
                 JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
                 if (optParamsAsJo == null) {
-                    hx1.c("getSavedFile", "params is null");
+                    ix1.c("fileInfo", "params is null");
                     unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
                     return false;
                 }
-                String M = p73.M(optParamsAsJo.optString("filePath"), h03.g0());
-                if (e23.b) {
-                    Log.d("GetSavedFileInfoAction", "——> handle: fileUrl " + optParamsAsJo.optString("filePath"));
-                    Log.d("GetSavedFileInfoAction", "——> handle: filePath " + M);
+                String optString = optParamsAsJo.optString("filePath");
+                if (q73.s(optString) == PathType.BD_FILE) {
+                    L = q73.M(optString, i03.g0());
+                } else {
+                    L = q73.s(optString) == PathType.RELATIVE ? q73.L(optString, i03Var, i03Var.k0()) : "";
                 }
-                if (TextUtils.isEmpty(M)) {
-                    hx1.c("getSavedFile", "file path is null");
+                if (f23.b) {
+                    Log.d("GetFileInfoAction", "——> handle: fileUrl " + optString);
+                    Log.d("GetFileInfoAction", "——> handle: filePath " + L);
+                }
+                if (TextUtils.isEmpty(L)) {
+                    ix1.c("fileInfo", "absolute filePath is null");
                     unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
                     return false;
                 }
-                o73 h = h03Var.f0().h(M);
-                if (h == null) {
-                    hx1.c("getSavedFile", "file info is null");
-                    UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(2001, b13.a(2001)));
-                    if (e23.b) {
-                        Log.d("GetSavedFileInfoAction", "——> handle: file not exist");
+                File file = new File(L);
+                String b = ad3.b(TextUtils.equals(optParamsAsJo.optString("digestAlgorithm", PackageTable.MD5), PackageTable.MD5) ? "MD5" : "SHA-1", file, false);
+                if (TextUtils.isEmpty(b)) {
+                    ix1.c("fileInfo", "hash is null");
+                    UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(2001, c13.a(2001)));
+                    if (f23.b) {
+                        Log.d("GetFileInfoAction", "——> handle: file not exist");
                     }
                     return false;
                 }
                 JSONObject jSONObject = new JSONObject();
                 try {
-                    jSONObject.put(FileMetaUtil.CREATE_TIME, Math.round((float) (h.a() / 1000)));
-                    jSONObject.put("size", h.c());
-                    if (e23.b) {
-                        Log.d("GetSavedFileInfoAction", "——> handle: fileInfo (" + jSONObject.get(FileMetaUtil.CREATE_TIME) + " , " + jSONObject.get("size") + SmallTailInfo.EMOTION_SUFFIX);
-                    }
+                    jSONObject.put("digest", b);
+                    jSONObject.put("size", file.length());
                     UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0));
                     return true;
                 } catch (JSONException e) {
-                    hx1.o("getSavedFile", "file info to json fail");
                     e.printStackTrace();
-                    UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(2003, b13.a(2003)));
-                    if (e23.b) {
-                        Log.d("GetSavedFileInfoAction", "——> handle: jsonException ");
+                    UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(2003, c13.a(2003)));
+                    if (f23.b) {
+                        Log.d("GetFileInfoAction", "——> handle: jsonException ");
                     }
                     return false;
                 }
             }
-            hx1.c("getSavedFile", "execute fail");
+            ix1.c("fileInfo", "execute fail");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
         }

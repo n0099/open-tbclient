@@ -43,14 +43,14 @@ public final class NativeExceptionMessage extends ExceptionMessage {
     @Override // com.kwad.sdk.crash.model.message.ExceptionMessage, com.kwad.sdk.core.b
     public final JSONObject toJson() {
         JSONObject json = super.toJson();
-        r.a(json, "mFingerprint", this.mFingerprint);
-        r.a(json, "mRevision", this.mRevision);
-        r.a(json, "mRegister", this.mRegister);
-        r.a(json, "mSignal", this.mSignal);
-        r.a(json, "mCode", this.mCode);
-        r.a(json, "mManuallyKill", this.mManuallyKill);
-        r.a(json, "mFaultAddr", this.mFaultAddr);
-        r.a(json, "mAbortMsg", this.mAbortMsg);
+        r.putValue(json, "mFingerprint", this.mFingerprint);
+        r.putValue(json, "mRevision", this.mRevision);
+        r.putValue(json, "mRegister", this.mRegister);
+        r.putValue(json, "mSignal", this.mSignal);
+        r.putValue(json, "mCode", this.mCode);
+        r.putValue(json, "mManuallyKill", this.mManuallyKill);
+        r.putValue(json, "mFaultAddr", this.mFaultAddr);
+        r.putValue(json, "mAbortMsg", this.mAbortMsg);
         return json;
     }
 }

@@ -30,7 +30,7 @@ import org.json.JSONObject;
 @Singleton
 @Service
 /* loaded from: classes6.dex */
-public final class mn5 implements zj1 {
+public final class mn5 implements ak1 {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean a;
     public static String b;
@@ -84,7 +84,7 @@ public final class mn5 implements zj1 {
                 return;
             }
         }
-        a = rg1.a;
+        a = sg1.a;
         b = NewUrlSchemaHelper.SCHEME;
     }
 
@@ -178,7 +178,7 @@ public final class mn5 implements zj1 {
             if (!TextUtils.isEmpty(str) && str.contains("com.baidu.tieba")) {
                 Uri parse2 = Uri.parse(str);
                 if ("miniapp".equals(parse2.getAuthority()) && "/goods".equals(parse2.getPath())) {
-                    r65.i(new GoodsEvent(parse2.getQueryParameter("goodsList")));
+                    s65.i(new GoodsEvent(parse2.getQueryParameter("goodsList")));
                     return true;
                 }
             }
@@ -187,15 +187,15 @@ public final class mn5 implements zj1 {
         return invokeLL.booleanValue;
     }
 
-    @Override // com.repackage.zj1
-    public ac3 a(Context context, String str, String str2, String str3, String str4, String str5) {
+    @Override // com.repackage.ak1
+    public bc3 a(Context context, String str, String str2, String str3, String str4, String str5) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{context, str, str2, str3, str4, str5})) == null) {
             if (context == null) {
-                ac3 ac3Var = new ac3();
-                ac3Var.f("Context exception");
-                return ac3Var;
+                bc3 bc3Var = new bc3();
+                bc3Var.f("Context exception");
+                return bc3Var;
             } else if (TextUtils.isEmpty(str5)) {
                 return c(str5);
             } else {
@@ -211,9 +211,9 @@ public final class mn5 implements zj1 {
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
-                    ac3 ac3Var2 = new ac3();
-                    ac3Var2.f("invoke failed");
-                    return ac3Var2;
+                    bc3 bc3Var2 = new bc3();
+                    bc3Var2.f("invoke failed");
+                    return bc3Var2;
                 }
                 try {
                     JSONObject jSONObject = new JSONObject(str5);
@@ -226,9 +226,9 @@ public final class mn5 implements zj1 {
                     if (d) {
                         return null;
                     }
-                    ac3 ac3Var3 = new ac3();
-                    ac3Var3.f("invoke failed");
-                    return ac3Var3;
+                    bc3 bc3Var3 = new bc3();
+                    bc3Var3.f("invoke failed");
+                    return bc3Var3;
                 } catch (JSONException e2) {
                     if (a) {
                         Log.i("DefaultInnerSkip", Log.getStackTraceString(e2));
@@ -237,16 +237,16 @@ public final class mn5 implements zj1 {
                 }
             }
         }
-        return (ac3) invokeCommon.objValue;
+        return (bc3) invokeCommon.objValue;
     }
 
-    public final ac3 c(String str) {
+    public final bc3 c(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            ac3 ac3Var = new ac3();
-            ac3Var.k(5L);
-            ac3Var.i(1L);
+            bc3 bc3Var = new bc3();
+            bc3Var.k(5L);
+            bc3Var.i(1L);
             StringBuilder sb = new StringBuilder();
             sb.append("Error in parameter parsing: from PageTransitionAction:\n called by");
             sb.append(TextUtils.isEmpty(str) ? " empty" : "");
@@ -254,22 +254,22 @@ public final class mn5 implements zj1 {
             sb.append(str);
             sb.append("\n");
             sb.append(" appId:");
-            sb.append(g03.K().getAppId());
+            sb.append(h03.K().getAppId());
             sb.append("\n");
             sb.append(" curPage:");
-            sb.append(ul2.U().T());
+            sb.append(vl2.U().T());
             sb.append("\n");
-            ac3Var.f(sb.toString());
-            return ac3Var;
+            bc3Var.f(sb.toString());
+            return bc3Var;
         }
-        return (ac3) invokeL.objValue;
+        return (bc3) invokeL.objValue;
     }
 
     public final void e(String str) {
-        h03 M;
-        cx2 y;
+        i03 M;
+        dx2 y;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) || (M = h03.M()) == null || (y = M.y()) == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) || (M = i03.M()) == null || (y = M.y()) == null) {
             return;
         }
         Bundle bundle = new Bundle();

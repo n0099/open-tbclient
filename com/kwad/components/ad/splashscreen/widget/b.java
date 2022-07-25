@@ -18,8 +18,8 @@ import com.kwad.sdk.widget.KSFrameLayout;
 public abstract class b extends KSFrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Animator a;
-    public boolean b;
+    public Animator Ag;
+    public boolean Ah;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public b(@NonNull Context context) {
@@ -82,9 +82,9 @@ public abstract class b extends KSFrameLayout {
                 return;
             }
         }
-        this.b = false;
+        this.Ah = false;
         a(context, attributeSet, i);
-        d();
+        kp();
     }
 
     public void a(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
@@ -94,11 +94,30 @@ public abstract class b extends KSFrameLayout {
     }
 
     @Override // com.kwad.sdk.widget.KSFrameLayout
-    public final void a_() {
+    public final void an() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            super.a_();
-            Animator animator = this.a;
+            super.an();
+            Animator animator = this.Ag;
+            if (animator != null) {
+                animator.cancel();
+            }
+        }
+    }
+
+    public abstract int getAnimationDelayTime();
+
+    public abstract View getInteractionView();
+
+    public abstract Animator kD();
+
+    public abstract void kE();
+
+    public final void kF() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            this.Ah = true;
+            Animator animator = this.Ag;
             if (animator != null) {
                 animator.cancel();
             }
@@ -106,21 +125,21 @@ public abstract class b extends KSFrameLayout {
     }
 
     @MainThread
-    public final void c() {
+    public final void kk() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            Animator animator = this.a;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            Animator animator = this.Ag;
             if (animator != null) {
                 animator.cancel();
-                this.a = null;
+                this.Ag = null;
             }
-            Animator e = e();
-            this.a = e;
-            if (e != null) {
-                e.addListener(new AnimatorListenerAdapter(this) { // from class: com.kwad.components.ad.splashscreen.widget.b.1
+            Animator kD = kD();
+            this.Ag = kD;
+            if (kD != null) {
+                kD.addListener(new AnimatorListenerAdapter(this) { // from class: com.kwad.components.ad.splashscreen.widget.b.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
-                    public final /* synthetic */ b a;
+                    public final /* synthetic */ b Ai;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -137,7 +156,7 @@ public abstract class b extends KSFrameLayout {
                                 return;
                             }
                         }
-                        this.a = this;
+                        this.Ai = this;
                     }
 
                     @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
@@ -145,7 +164,7 @@ public abstract class b extends KSFrameLayout {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, animator2) == null) {
                             super.onAnimationCancel(animator2);
-                            this.a.f();
+                            this.Ai.kE();
                         }
                     }
 
@@ -154,13 +173,13 @@ public abstract class b extends KSFrameLayout {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator2) == null) {
                             super.onAnimationEnd(animator2);
-                            if (this.a.b) {
+                            if (this.Ai.Ah) {
                                 return;
                             }
-                            this.a.getInteractionView().postDelayed(new Runnable(this) { // from class: com.kwad.components.ad.splashscreen.widget.b.1.1
+                            this.Ai.getInteractionView().postDelayed(new Runnable(this) { // from class: com.kwad.components.ad.splashscreen.widget.b.1.1
                                 public static /* synthetic */ Interceptable $ic;
                                 public transient /* synthetic */ FieldHolder $fh;
-                                public final /* synthetic */ AnonymousClass1 a;
+                                public final /* synthetic */ AnonymousClass1 Aj;
 
                                 {
                                     Interceptable interceptable3 = $ic;
@@ -177,43 +196,24 @@ public abstract class b extends KSFrameLayout {
                                             return;
                                         }
                                     }
-                                    this.a = this;
+                                    this.Aj = this;
                                 }
 
                                 @Override // java.lang.Runnable
                                 public final void run() {
                                     Interceptable interceptable3 = $ic;
                                     if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
-                                        this.a.a.a.start();
+                                        this.Aj.Ai.Ag.start();
                                     }
                                 }
-                            }, this.a.getAnimationDelayTime());
+                            }, this.Ai.getAnimationDelayTime());
                         }
                     }
                 });
-                this.a.start();
+                this.Ag.start();
             }
         }
     }
 
-    public abstract void d();
-
-    public abstract Animator e();
-
-    public abstract void f();
-
-    public final void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.b = true;
-            Animator animator = this.a;
-            if (animator != null) {
-                animator.cancel();
-            }
-        }
-    }
-
-    public abstract int getAnimationDelayTime();
-
-    public abstract View getInteractionView();
+    public abstract void kp();
 }

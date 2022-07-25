@@ -33,8 +33,8 @@ import com.repackage.bd7;
 import com.repackage.hk5;
 import com.repackage.nb8;
 import com.repackage.pi;
-import com.repackage.pn4;
 import com.repackage.qa8;
+import com.repackage.qn4;
 import com.repackage.rk5;
 import com.repackage.sk5;
 import com.repackage.wa8;
@@ -445,9 +445,9 @@ public class AdEnhanceButtonView extends FrameLayout {
                     return;
                 }
                 setVisibility(0);
-                pn4 pn4Var = this.k.appInfoModel;
-                if (pn4Var != null) {
-                    this.a.setAppInfo(pn4Var);
+                qn4 qn4Var = this.k.appInfoModel;
+                if (qn4Var != null) {
+                    this.a.setAppInfo(qn4Var);
                     this.a.setVisibility(0);
                 }
                 String str = this.k.operate.a;
@@ -472,16 +472,16 @@ public class AdEnhanceButtonView extends FrameLayout {
         if (interceptable == null || interceptable.invokeL(1048579, this, context) == null) {
             LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0067, this);
             this.a = (AdAppInfoView) findViewById(R.id.obfuscated_res_0x7f090285);
-            this.b = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0907ee);
-            this.c = (ApkDownloadView) findViewById(R.id.obfuscated_res_0x7f0907ed);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f09066a);
+            this.b = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0907ec);
+            this.c = (ApkDownloadView) findViewById(R.id.obfuscated_res_0x7f0907eb);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f090669);
             this.a.setTextSize(R.dimen.T_X08);
             this.a.setTextColor(R.color.CAM_X0620);
             this.c.setTextColorInitSkin(R.color.CAM_X0101);
             this.c.setTextColor(SkinManager.getColor(R.color.CAM_X0101));
             this.c.setTextSize(R.dimen.T_X08);
             this.c.setForegroundSkin(R.color.black_alpha15);
-            this.c.setBackgroundSkin(R.drawable.obfuscated_res_0x7f0811d0);
+            this.c.setBackgroundSkin(R.drawable.obfuscated_res_0x7f0811d4);
             this.c.setRatio(0);
             this.c.c();
         }

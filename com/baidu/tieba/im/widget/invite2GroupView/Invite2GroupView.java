@@ -25,7 +25,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.jd5;
+import com.repackage.kd5;
 import com.repackage.q77;
 import com.repackage.s67;
 /* loaded from: classes3.dex */
@@ -146,7 +146,7 @@ public final class Invite2GroupView extends LinearLayout {
     }
 
     /* loaded from: classes3.dex */
-    public class d implements jd5<Boolean> {
+    public class d implements kd5<Boolean> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ TbPageContext a;
@@ -180,7 +180,7 @@ public final class Invite2GroupView extends LinearLayout {
             public void onClick(View view2) {
                 Interceptable interceptable = $ic;
                 if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && (this.a.b.getContext() instanceof Activity)) {
-                    this.a.a.showToast(R.string.obfuscated_res_0x7f0f0824);
+                    this.a.a.showToast(R.string.obfuscated_res_0x7f0f0820);
                 }
             }
         }
@@ -205,7 +205,7 @@ public final class Invite2GroupView extends LinearLayout {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.jd5
+        @Override // com.repackage.kd5
         /* renamed from: a */
         public void onReturnDataInUI(Boolean bool) {
             Interceptable interceptable = $ic;
@@ -252,7 +252,7 @@ public final class Invite2GroupView extends LinearLayout {
             this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f0905dd);
             this.b = (TbImageView) findViewById(R.id.obfuscated_res_0x7f0905d3);
             this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f0905d2);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f090f1f);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f090f18);
             this.b.setIsRound(false);
         }
     }
@@ -262,7 +262,7 @@ public final class Invite2GroupView extends LinearLayout {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext) == null) {
             this.d.setEnabled(true);
             this.d.setTag(String.valueOf(this.e.getGroupId()));
-            this.d.setText(R.string.obfuscated_res_0x7f0f08a9);
+            this.d.setText(R.string.obfuscated_res_0x7f0f0894);
             this.d.setTextColor(getContext().getResources().getColor(R.color.CAM_X0201));
             this.d.setOnClickListener(new a(this));
             this.a.setText(this.e.getTitle());
@@ -272,7 +272,7 @@ public final class Invite2GroupView extends LinearLayout {
             setOnClickListener(new b(this, tbPageContext));
             if (s67.o().i(String.valueOf(this.e.getGroupId()), 1) != null) {
                 if (String.valueOf(this.e.getGroupId()).equals(this.d.getTag())) {
-                    this.d.setText(R.string.obfuscated_res_0x7f0f08aa);
+                    this.d.setText(R.string.obfuscated_res_0x7f0f0895);
                     this.d.setOnClickListener(new c(this));
                     return;
                 }

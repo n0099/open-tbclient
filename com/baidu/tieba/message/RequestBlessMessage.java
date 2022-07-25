@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.td5;
+import com.repackage.ud5;
 import tbclient.CommonReq;
 import tbclient.UserPk.DataReq;
 import tbclient.UserPk.UserPkReqIdl;
@@ -20,7 +20,7 @@ public class RequestBlessMessage extends NetMessage {
     public int click_type;
 
     /* renamed from: common  reason: collision with root package name */
-    public CommonReq f1774common;
+    public CommonReq f1054common;
     public Long pk_id;
     public int pk_index;
     public int pk_type;
@@ -52,7 +52,7 @@ public class RequestBlessMessage extends NetMessage {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
             DataReq.Builder builder = new DataReq.Builder();
-            builder.f2094common = this.f1774common;
+            builder.f1380common = this.f1054common;
             builder.pk_id = this.pk_id;
             builder.topic_id = this.topic_id;
             builder.pk_index = Integer.valueOf(this.pk_index);
@@ -60,7 +60,7 @@ public class RequestBlessMessage extends NetMessage {
             builder.pk_type = Integer.valueOf(this.pk_type);
             builder.user_pk_id = Long.valueOf(this.user_pk_id);
             if (z || SocketAddCommonParamSwitch.getIsOn()) {
-                td5.a(builder, true);
+                ud5.a(builder, true);
             }
             UserPkReqIdl.Builder builder2 = new UserPkReqIdl.Builder();
             builder2.data = builder.build(false);
@@ -79,7 +79,7 @@ public class RequestBlessMessage extends NetMessage {
     public void setCommon(CommonReq commonReq) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, commonReq) == null) {
-            this.f1774common = commonReq;
+            this.f1054common = commonReq;
         }
     }
 

@@ -62,7 +62,7 @@ public class co6 {
                     String optString2 = jSONObject.optString("gameName");
                     String optString3 = jSONObject.optString("gameTime");
                     String optString4 = jSONObject.optString("gameType");
-                    String q = xt4.k().q("key_match_id_list_" + optString4, "");
+                    String q = yt4.k().q("key_match_id_list_" + optString4, "");
                     String str2 = "match_id_" + optString4 + "_" + optString;
                     if (TextUtils.isEmpty(q)) {
                         str = str2;
@@ -70,7 +70,7 @@ public class co6 {
                         str = "," + str2;
                     }
                     if (TextUtils.isEmpty(q) || !q.contains(str2)) {
-                        xt4.k().y("key_match_id_list_" + optString4, q + str);
+                        yt4.k().y("key_match_id_list_" + optString4, q + str);
                     }
                     Intent intent = new Intent(this.a.a.getPageActivity(), AlarmReceiver.class);
                     intent.putExtra("KEY_MATCH_NAME", optString2);

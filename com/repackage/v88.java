@@ -210,11 +210,11 @@ public class v88 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             String version = TbConfig.getVersion();
-            if (version.equals(xt4.k().q("key_rate_version", ""))) {
+            if (version.equals(yt4.k().q("key_rate_version", ""))) {
                 return;
             }
-            xt4.k().y("key_rate_version", version);
-            xt4.k().x("key_rate_version_time", new Date().getTime());
+            yt4.k().y("key_rate_version", version);
+            yt4.k().x("key_rate_version_time", new Date().getTime());
         }
     }
 
@@ -223,16 +223,16 @@ public class v88 {
         if (!(interceptable == null || interceptable.invokeL(1048579, this, tbPageContext) == null) || tbPageContext == null || TbConfig.getVersionType() == 2) {
             return;
         }
-        if (Long.valueOf(new Date().getTime()).longValue() - xt4.k().m("key_rate_version_time", 0L) < 86400000) {
+        if (Long.valueOf(new Date().getTime()).longValue() - yt4.k().m("key_rate_version_time", 0L) < 86400000) {
             return;
         }
         String version = TbConfig.getVersion();
         String currentAccount = TbadkCoreApplication.getCurrentAccount();
-        xt4 k = xt4.k();
+        yt4 k = yt4.k();
         if (k.h("key_rate_same_version_is_score" + version + currentAccount, false)) {
             return;
         }
-        xt4 k2 = xt4.k();
+        yt4 k2 = yt4.k();
         k2.u("key_rate_same_version_is_score" + version + currentAccount, true);
         n(tbPageContext);
     }
@@ -243,29 +243,29 @@ public class v88 {
             return;
         }
         String currentAccount = TbadkCoreApplication.getCurrentAccount();
-        xt4 k = xt4.k();
+        yt4 k = yt4.k();
         int l = k.l("key_rate_like_count" + currentAccount, 0) + 1;
         if (l < 3) {
             if (l == 1) {
                 Long valueOf = Long.valueOf(new Date().getTime());
-                xt4 k2 = xt4.k();
+                yt4 k2 = yt4.k();
                 k2.x("key_rate_first_like_time" + currentAccount, valueOf.longValue());
-                xt4 k3 = xt4.k();
+                yt4 k3 = yt4.k();
                 k3.w("key_rate_like_count" + currentAccount, l);
                 return;
             }
-            xt4 k4 = xt4.k();
+            yt4 k4 = yt4.k();
             k4.w("key_rate_like_count" + currentAccount, l);
             return;
         }
-        xt4 k5 = xt4.k();
+        yt4 k5 = yt4.k();
         if (Long.valueOf(new Date().getTime()).longValue() - k5.m("key_rate_first_like_time" + currentAccount, 0L) < 86400000) {
-            xt4 k6 = xt4.k();
+            yt4 k6 = yt4.k();
             k6.w("key_rate_like_count" + currentAccount, 0);
             k(tbPageContext);
             return;
         }
-        xt4 k7 = xt4.k();
+        yt4 k7 = yt4.k();
         k7.w("key_rate_like_count" + currentAccount, 0);
     }
 
@@ -283,12 +283,12 @@ public class v88 {
             return;
         }
         au8 au8Var = new au8(tbPageContext.getContext());
-        au8Var.x(tbPageContext.getContext().getString(R.string.obfuscated_res_0x7f0f097d));
+        au8Var.x(tbPageContext.getContext().getString(R.string.obfuscated_res_0x7f0f0968));
         au8Var.n(8);
         au8Var.r(0);
-        int f = pi.f(tbPageContext.getContext(), R.dimen.obfuscated_res_0x7f070307);
-        int f2 = pi.f(tbPageContext.getContext(), R.dimen.obfuscated_res_0x7f070248);
-        int f3 = pi.f(tbPageContext.getContext(), R.dimen.obfuscated_res_0x7f07028f);
+        int f = pi.f(tbPageContext.getContext(), R.dimen.obfuscated_res_0x7f070305);
+        int f2 = pi.f(tbPageContext.getContext(), R.dimen.obfuscated_res_0x7f070246);
+        int f3 = pi.f(tbPageContext.getContext(), R.dimen.obfuscated_res_0x7f07028d);
         au8Var.w(R.dimen.obfuscated_res_0x7f0701f9);
         au8Var.v(0, f, 0, f3);
         au8Var.p(0, 0, 0, f2);
@@ -310,11 +310,11 @@ public class v88 {
         au8 au8Var = new au8(tbPageContext.getContext());
         int i = this.a;
         if (i != 1 && i != 2) {
-            au8Var.x(tbPageContext.getContext().getString(R.string.obfuscated_res_0x7f0f07c4));
-            cVar = new au8.c(tbPageContext.getContext().getString(R.string.obfuscated_res_0x7f0f07c2), au8Var);
+            au8Var.x(tbPageContext.getContext().getString(R.string.obfuscated_res_0x7f0f07c0));
+            cVar = new au8.c(tbPageContext.getContext().getString(R.string.obfuscated_res_0x7f0f07be), au8Var);
         } else {
-            au8Var.x(tbPageContext.getContext().getString(R.string.obfuscated_res_0x7f0f0834));
-            cVar = new au8.c(tbPageContext.getContext().getString(R.string.obfuscated_res_0x7f0f07bf), au8Var);
+            au8Var.x(tbPageContext.getContext().getString(R.string.obfuscated_res_0x7f0f0830));
+            cVar = new au8.c(tbPageContext.getContext().getString(R.string.obfuscated_res_0x7f0f07bb), au8Var);
         }
         ArrayList arrayList = new ArrayList();
         arrayList.add(cVar);
@@ -322,10 +322,10 @@ public class v88 {
         au8Var.r(0);
         au8Var.n(0);
         au8Var.o(false);
-        pi.f(tbPageContext.getContext(), R.dimen.obfuscated_res_0x7f0702c0);
+        pi.f(tbPageContext.getContext(), R.dimen.obfuscated_res_0x7f0702be);
         int f = pi.f(tbPageContext.getContext(), R.dimen.obfuscated_res_0x7f070207);
-        pi.f(tbPageContext.getContext(), R.dimen.obfuscated_res_0x7f0702d7);
-        au8Var.v(0, pi.f(tbPageContext.getContext(), R.dimen.obfuscated_res_0x7f070274), 0, 0);
+        pi.f(tbPageContext.getContext(), R.dimen.obfuscated_res_0x7f0702d5);
+        au8Var.v(0, pi.f(tbPageContext.getContext(), R.dimen.obfuscated_res_0x7f070272), 0, 0);
         au8Var.p(0, f, 0, f);
         cVar.h(new b(this, tbPageContext));
         au8Var.t(new c(this));

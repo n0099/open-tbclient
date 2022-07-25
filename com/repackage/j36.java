@@ -57,14 +57,14 @@ public class j36 implements nn {
         this.d = true;
     }
 
-    public static j36 b(i05 i05Var) {
+    public static j36 b(j05 j05Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, i05Var)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, j05Var)) == null) {
             j36 j36Var = new j36();
-            j36Var.a = i05Var.b;
-            j36Var.b = i05Var.d;
-            j36Var.c = i05Var.e;
+            j36Var.a = j05Var.b;
+            j36Var.b = j05Var.d;
+            j36Var.c = j05Var.e;
             return j36Var;
         }
         return (j36) invokeL.objValue;

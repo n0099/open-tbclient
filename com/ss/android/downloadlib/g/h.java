@@ -9,7 +9,6 @@ import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
-import com.baidu.sofire.d.D;
 import com.google.protobuf.CodedInputStream;
 import com.ss.android.download.api.config.q;
 import com.ss.android.download.api.constant.BaseConstants;
@@ -371,7 +370,7 @@ public class h {
             JSONObject i = com.ss.android.downloadlib.addownload.j.i();
             String optString = i.optString("s");
             String a = com.ss.android.socialbase.appdownloader.f.c.a(i.optString("aa"), optString);
-            String a2 = com.ss.android.socialbase.appdownloader.f.c.a(i.optString(D.COLUMN_PLUGIN_ACTIVITY_INFO_LIST), optString);
+            String a2 = com.ss.android.socialbase.appdownloader.f.c.a(i.optString("ac"), optString);
             String a3 = com.ss.android.socialbase.appdownloader.f.c.a(i.optString("af"), optString);
             boolean a4 = com.ss.android.socialbase.appdownloader.f.a.a(i, context, a2);
             StringBuilder sb = new StringBuilder(String.format(a, str, a3, a2));

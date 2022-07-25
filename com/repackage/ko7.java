@@ -32,7 +32,7 @@ public class ko7 implements Object<List<EmotionPackageData>> {
     public View c;
     public eo7 d;
     public io7 e;
-    public j55 f;
+    public k55 f;
     public FrameLayout g;
     public boolean h;
     public co7 i;
@@ -164,10 +164,10 @@ public class ko7 implements Object<List<EmotionPackageData>> {
         this.a = tbPageContext;
         View inflate = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d02d6, (ViewGroup) null, false);
         this.c = inflate;
-        this.g = (FrameLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091504);
-        this.k = (NoNetworkView) this.c.findViewById(R.id.obfuscated_res_0x7f092439);
-        this.e = new io7(this.c.findViewById(R.id.obfuscated_res_0x7f09087d), tbPageContext.getString(R.string.obfuscated_res_0x7f0f054b));
-        SimpleDragSortListView simpleDragSortListView = (SimpleDragSortListView) this.c.findViewById(R.id.obfuscated_res_0x7f091503);
+        this.g = (FrameLayout) inflate.findViewById(R.id.obfuscated_res_0x7f0914df);
+        this.k = (NoNetworkView) this.c.findViewById(R.id.obfuscated_res_0x7f09243b);
+        this.e = new io7(this.c.findViewById(R.id.obfuscated_res_0x7f09087b), tbPageContext.getString(R.string.obfuscated_res_0x7f0f0547));
+        SimpleDragSortListView simpleDragSortListView = (SimpleDragSortListView) this.c.findViewById(R.id.obfuscated_res_0x7f0914de);
         this.b = simpleDragSortListView;
         simpleDragSortListView.setDivider(null);
         this.b.setOverScrollMode(2);
@@ -281,9 +281,9 @@ public class ko7 implements Object<List<EmotionPackageData>> {
         }
         i();
         this.g.setVisibility(0);
-        j55 j55Var = new j55(this.a.getPageActivity());
-        this.f = j55Var;
-        j55Var.attachView(this.g, true);
+        k55 k55Var = new k55(this.a.getPageActivity());
+        this.f = k55Var;
+        k55Var.attachView(this.g, true);
         this.f.onChangeSkinType();
     }
 
@@ -294,7 +294,7 @@ public class ko7 implements Object<List<EmotionPackageData>> {
         }
         i();
         this.g.setVisibility(0);
-        NoDataView b2 = NoDataViewFactory.b(this.a.getPageActivity(), this.g, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.WEBVIEW, pi.f(this.a.getPageActivity(), R.dimen.obfuscated_res_0x7f070238)), NoDataViewFactory.e.d(null, this.a.getString(R.string.obfuscated_res_0x7f0f054e)), null, true);
+        NoDataView b2 = NoDataViewFactory.b(this.a.getPageActivity(), this.g, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.WEBVIEW, pi.f(this.a.getPageActivity(), R.dimen.obfuscated_res_0x7f070236)), NoDataViewFactory.e.d(null, this.a.getString(R.string.obfuscated_res_0x7f0f054a)), null, true);
         this.j = b2;
         b2.setVisibility(0);
         this.j.d(this.a);

@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.t75;
+import com.repackage.u75;
 import com.repackage.vm6;
 import com.repackage.wm6;
 /* loaded from: classes3.dex */
@@ -33,7 +33,7 @@ public class FrsProfessionPermissionModel<T> extends NetAutoModel<vm6, wm6, T> {
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((TbPageContext) objArr2[0], (t75) objArr2[1]);
+                super((TbPageContext) objArr2[0], (u75) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;

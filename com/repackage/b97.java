@@ -14,7 +14,7 @@ public class b97 {
     public static long a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) ? xt4.k().m(b(str), 0L) : invokeL.longValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) ? yt4.k().m(b(str), 0L) : invokeL.longValue;
     }
 
     public static String b(String str) {
@@ -31,9 +31,9 @@ public class b97 {
         if (interceptable == null || interceptable.invokeLZ(65538, null, str, z) == null) {
             String b = b(str);
             if (z) {
-                xt4.k().x(b, System.currentTimeMillis());
+                yt4.k().x(b, System.currentTimeMillis());
             } else {
-                xt4.k().D(b);
+                yt4.k().D(b);
             }
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921691, str));
         }

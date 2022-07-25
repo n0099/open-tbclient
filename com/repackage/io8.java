@@ -169,7 +169,7 @@ public class io8 extends BaseAdapter {
                 } else {
                     bVar = new b();
                     view2 = LayoutInflater.from(this.d.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0128, viewGroup, false);
-                    TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090ca8);
+                    TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090ca1);
                     bVar.a = textView;
                     textView.setPadding(0, this.a, 0, this.b);
                     view2.setTag(bVar);
@@ -186,7 +186,7 @@ public class io8 extends BaseAdapter {
                     aVar2.a = (PersonalCardItemView) inflate.findViewById(R.id.obfuscated_res_0x7f0904a1);
                     aVar2.b = (PersonalCardItemView) inflate.findViewById(R.id.obfuscated_res_0x7f0904a2);
                     aVar2.c = (PersonalCardItemView) inflate.findViewById(R.id.obfuscated_res_0x7f0904a3);
-                    aVar2.d = inflate.findViewById(R.id.obfuscated_res_0x7f0907ca);
+                    aVar2.d = inflate.findViewById(R.id.obfuscated_res_0x7f0907c8);
                     aVar2.a.setCardViewController(this.e);
                     aVar2.b.setCardViewController(this.e);
                     aVar2.c.setCardViewController(this.e);

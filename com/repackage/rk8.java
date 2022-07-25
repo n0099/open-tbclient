@@ -43,21 +43,21 @@ public class rk8 {
     public static void b(Context context, String str, String str2, String str3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(65537, null, context, str, str2, str3) == null) {
-            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0701, (ViewGroup) null);
+            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d070b, (ViewGroup) null);
             inflate.setBackgroundDrawable(SkinManager.createShapeDrawableFromColor(pi.f(context, R.dimen.tbds32), SkinManager.getColor(R.color.CAM_X0701)));
-            View findViewById = inflate.findViewById(R.id.obfuscated_res_0x7f090918);
-            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091e61);
+            View findViewById = inflate.findViewById(R.id.obfuscated_res_0x7f090911);
+            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091e65);
             SkinManager.setViewTextColor(textView, (int) R.color.CAM_X0101);
-            TextView textView2 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091972);
+            TextView textView2 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09194d);
             SkinManager.setViewTextColor(textView2, (int) R.color.CAM_X0101);
-            TextView textView3 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090646);
+            TextView textView3 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090645);
             SkinManager.setViewTextColor(textView3, (int) R.color.CAM_X0305);
-            ImageView imageView = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091e60);
+            ImageView imageView = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091e64);
             if (imageView != null) {
                 imageView.setBackgroundDrawable(SvgManager.getInstance().getPureDrawable(R.drawable.obfuscated_res_0x7f0809c0, R.color.CAM_X0101, null));
             }
             if (StringUtils.isNull(str)) {
-                str = context.getString(R.string.obfuscated_res_0x7f0f1119);
+                str = context.getString(R.string.obfuscated_res_0x7f0f10d5);
             }
             textView.setText(str);
             if (str2 != null || str3 != null) {

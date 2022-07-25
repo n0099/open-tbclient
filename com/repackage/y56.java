@@ -54,8 +54,8 @@ public class y56 extends an<c66, RecommendThreadHolder> {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, c66Var, recommendThreadHolder})) == null) {
-            recommendThreadHolder.c(c66Var);
-            return recommendThreadHolder.b();
+            recommendThreadHolder.b(c66Var);
+            return recommendThreadHolder.a();
         }
         return (View) invokeCommon.objValue;
     }

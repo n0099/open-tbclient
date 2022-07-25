@@ -13,7 +13,7 @@ import com.kwad.sdk.utils.t;
 public final class l extends e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public com.kwad.sdk.core.download.kwai.a b;
+    public com.kwad.sdk.core.download.kwai.a zn;
 
     public l() {
         Interceptable interceptable = $ic;
@@ -29,10 +29,10 @@ public final class l extends e {
         }
     }
 
-    public static String b(Context context) {
+    public static String Z(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
             try {
                 PackageInfo packageInfo = context.getPackageManager().getPackageInfo(context.getPackageName(), 0);
                 if (packageInfo == null) {
@@ -48,14 +48,14 @@ public final class l extends e {
     }
 
     @Override // com.kwad.components.ad.splashscreen.b.e, com.kwad.sdk.mvp.Presenter
-    public final void a() {
+    public final void aq() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            super.a();
+            super.aq();
             com.kwad.sdk.core.download.kwai.a aVar = new com.kwad.sdk.core.download.kwai.a(this) { // from class: com.kwad.components.ad.splashscreen.b.l.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ l a;
+                public final /* synthetic */ l zo;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -72,7 +72,7 @@ public final class l extends e {
                             return;
                         }
                     }
-                    this.a = this;
+                    this.zo = this;
                 }
 
                 @Override // com.kwad.sdk.api.KsAppDownloadListener
@@ -95,15 +95,15 @@ public final class l extends e {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
                         super.onDownloadStarted();
-                        Context u = this.a.u();
-                        if (u != null) {
-                            String b = l.b(u);
-                            if (b != null) {
-                                str = b + ":已开始下载";
+                        Context context = this.zo.getContext();
+                        if (context != null) {
+                            String Z = l.Z(context);
+                            if (Z != null) {
+                                str = Z + ":已开始下载";
                             } else {
                                 str = "已开始下载";
                             }
-                            t.a(u, str);
+                            t.z(context, str);
                         }
                     }
                 }
@@ -129,18 +129,18 @@ public final class l extends e {
                     }
                 }
             };
-            this.b = aVar;
-            ((e) this).a.f.a(aVar);
+            this.zn = aVar;
+            this.yF.mApkDownloadHelper.b(aVar);
         }
     }
 
     @Override // com.kwad.sdk.mvp.Presenter
-    public final void k_() {
+    public final void onUnbind() {
         com.kwad.sdk.core.download.kwai.a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (aVar = this.b) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (aVar = this.zn) == null) {
             return;
         }
-        ((e) this).a.f.b(aVar);
+        this.yF.mApkDownloadHelper.c(aVar);
     }
 }

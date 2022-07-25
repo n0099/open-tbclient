@@ -23,7 +23,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ga5;
+import com.repackage.ha5;
 import com.repackage.pi;
 import com.repackage.u78;
 import com.repackage.x78;
@@ -63,7 +63,7 @@ public class PostSearchListFragment extends BaseFragment implements BdListView.p
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             if (this.f == null) {
-                NoDataView a = NoDataViewFactory.a(this.a.getPageContext().getPageActivity(), this.b, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NODATA, pi.f(this.a.getActivity(), R.dimen.obfuscated_res_0x7f0702a0)), NoDataViewFactory.e.a(R.string.obfuscated_res_0x7f0f13c4), null);
+                NoDataView a = NoDataViewFactory.a(this.a.getPageContext().getPageActivity(), this.b, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NODATA, pi.f(this.a.getActivity(), R.dimen.obfuscated_res_0x7f07029e)), NoDataViewFactory.e.a(R.string.obfuscated_res_0x7f0f1373), null);
                 this.f = a;
                 a.f(this.a.getPageContext(), TbadkCoreApplication.getInst().getSkinType());
             }
@@ -76,7 +76,7 @@ public class PostSearchListFragment extends BaseFragment implements BdListView.p
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             this.c.setNextPage(this.e);
             this.e.f();
-            this.e.C(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f09e7));
+            this.e.C(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f09d3));
         }
     }
 
@@ -121,7 +121,7 @@ public class PostSearchListFragment extends BaseFragment implements BdListView.p
             super.onChangeSkinType(i);
             PostSearchActivity postSearchActivity = this.a;
             if (postSearchActivity != null) {
-                ga5.a(postSearchActivity.getPageContext(), this.b);
+                ha5.a(postSearchActivity.getPageContext(), this.b);
             }
             PbListView pbListView = this.e;
             if (pbListView != null) {
@@ -139,7 +139,7 @@ public class PostSearchListFragment extends BaseFragment implements BdListView.p
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048582, this, layoutInflater, viewGroup, bundle)) == null) {
-            this.b = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d06fc, (ViewGroup) null);
+            this.b = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d0706, (ViewGroup) null);
             v1();
             return this.b;
         }
@@ -203,7 +203,7 @@ public class PostSearchListFragment extends BaseFragment implements BdListView.p
     public final void v1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            this.c = (BdListView) this.b.findViewById(R.id.obfuscated_res_0x7f091b04);
+            this.c = (BdListView) this.b.findViewById(R.id.obfuscated_res_0x7f091ade);
         }
     }
 
@@ -276,7 +276,7 @@ public class PostSearchListFragment extends BaseFragment implements BdListView.p
             z2 = z3;
         }
         if (z2) {
-            showLoadingView(this.b, false, this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702a0));
+            showLoadingView(this.b, false, this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07029e));
             this.a.o0().l(str, this.h);
             this.i = str;
         }
@@ -287,7 +287,7 @@ public class PostSearchListFragment extends BaseFragment implements BdListView.p
         if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
             this.c.setNextPage(this.e);
             this.e.f();
-            this.e.C(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0dc1));
+            this.e.C(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0daa));
         }
     }
 

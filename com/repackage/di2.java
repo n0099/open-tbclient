@@ -8,9 +8,8 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.plugin.ZeusPlugin;
-import java.util.ArrayList;
 /* loaded from: classes5.dex */
-public class di2 extends be2<si2> {
+public class di2 extends ce2<ti2> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -28,29 +27,23 @@ public class di2 extends be2<si2> {
         }
     }
 
-    @Override // com.repackage.be2
+    @Override // com.repackage.ce2
     @NonNull
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "setDataSource" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "seekTo" : (String) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.be2
+    @Override // com.repackage.ce2
     /* renamed from: e */
-    public void a(@NonNull ZeusPlugin.Command command, @NonNull si2 si2Var) {
-        Object obj;
+    public void a(@NonNull ZeusPlugin.Command command, @NonNull ti2 ti2Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, si2Var) == null) || (obj = command.obj) == null) {
-            return;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, ti2Var) == null) {
+            ti2Var.seekTo(command.arg1);
+            String str = command.what;
+            d(ti2Var, str, "SeekTo: " + command.arg1, false);
         }
-        ArrayList arrayList = (ArrayList) obj;
-        boolean z = command.arg1 != 0;
-        String str = (String) arrayList.get(0);
-        String f = d93.l().f(str, (String) arrayList.get(1));
-        command.ret = si2Var.O(str, f, (String) arrayList.get(2), z) ? 1 : 0;
-        String str2 = command.what;
-        d(si2Var, str2, "DataSource: " + str + " ;UserAgent: " + ((String) arrayList.get(2)) + " ;Cookies: " + f + ";hideUrlLog: " + z, true);
     }
 }

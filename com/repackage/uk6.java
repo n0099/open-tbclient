@@ -75,7 +75,7 @@ public class uk6 implements TabLayout.OnTabSelectedListener {
     public PbListView g;
     public vk6 h;
     public BannerView i;
-    public uo4 j;
+    public vo4 j;
     public ThemeColorInfo k;
     public String l;
     public boolean m;
@@ -598,17 +598,17 @@ public class uk6 implements TabLayout.OnTabSelectedListener {
         if (!(interceptable == null || interceptable.invokeL(1048590, this, frsViewData) == null) || frsViewData == null || frsViewData.getForum() == null || frsViewData.getForum().getGood_classify() == null) {
             return;
         }
-        ArrayList<ap4> good_classify = frsViewData.getForum().getGood_classify();
+        ArrayList<bp4> good_classify = frsViewData.getForum().getGood_classify();
         TabData tabData = new TabData();
         lo6 lo6Var = new lo6();
         lo6Var.b = 0;
         lo6Var.a = this.a.getPageContext().getResources().getString(R.string.obfuscated_res_0x7f0f0265);
         tabData.add(lo6Var);
-        for (ap4 ap4Var : good_classify) {
-            if (ap4Var != null && ap4Var.a() > 0 && !TextUtils.isEmpty(ap4Var.b()) && !TextUtils.isEmpty(ap4Var.b().trim())) {
+        for (bp4 bp4Var : good_classify) {
+            if (bp4Var != null && bp4Var.a() > 0 && !TextUtils.isEmpty(bp4Var.b()) && !TextUtils.isEmpty(bp4Var.b().trim())) {
                 lo6 lo6Var2 = new lo6();
-                lo6Var2.b = ap4Var.a();
-                lo6Var2.a = ap4Var.b();
+                lo6Var2.b = bp4Var.a();
+                lo6Var2.a = bp4Var.b();
                 tabData.add(lo6Var2);
             }
         }
@@ -626,11 +626,11 @@ public class uk6 implements TabLayout.OnTabSelectedListener {
         if (!(interceptable == null || interceptable.invokeL(1048591, this, tab) == null) || tab.getCustomView() == null) {
             return;
         }
-        vu4 vu4Var = (vu4) ((TBSpecificationBtn) tab.getCustomView()).getStyleConfig();
+        wu4 wu4Var = (wu4) ((TBSpecificationBtn) tab.getCustomView()).getStyleConfig();
         if (oi.isEmpty(this.l)) {
-            vu4Var.r(R.color.CAM_X0105);
+            wu4Var.r(R.color.CAM_X0105);
         } else {
-            vu4Var.q(hd7.b(this.l));
+            wu4Var.q(hd7.b(this.l));
         }
     }
 
@@ -639,7 +639,7 @@ public class uk6 implements TabLayout.OnTabSelectedListener {
         if (!(interceptable == null || interceptable.invokeL(1048592, this, tab) == null) || tab == null || tab.getCustomView() == null) {
             return;
         }
-        ((vu4) ((TBSpecificationBtn) tab.getCustomView()).getStyleConfig()).r(R.color.CAM_X0108);
+        ((wu4) ((TBSpecificationBtn) tab.getCustomView()).getStyleConfig()).r(R.color.CAM_X0108);
     }
 
     public final void R(TabData tabData, TabLayout tabLayout) {
@@ -667,9 +667,9 @@ public class uk6 implements TabLayout.OnTabSelectedListener {
                 }
                 if (!(tabAt.getCustomView() instanceof TBSpecificationBtn)) {
                     TBSpecificationBtn tBSpecificationBtn = new TBSpecificationBtn(this.a.getContext());
-                    vu4 vu4Var = new vu4();
-                    vu4Var.r(R.color.CAM_X0108);
-                    tBSpecificationBtn.setConfig(vu4Var);
+                    wu4 wu4Var = new wu4();
+                    wu4Var.r(R.color.CAM_X0108);
+                    tBSpecificationBtn.setConfig(wu4Var);
                     LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, this.p);
                     int i3 = this.q;
                     layoutParams.setMargins(i3 / 2, 0, i3 / 2, 0);
@@ -727,7 +727,7 @@ public class uk6 implements TabLayout.OnTabSelectedListener {
             this.g.L(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
             this.g.B(this.r);
             this.g.f();
-            this.g.C(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f09e4));
+            this.g.C(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f09ce));
         }
     }
 
@@ -766,7 +766,7 @@ public class uk6 implements TabLayout.OnTabSelectedListener {
             this.g.L(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
             this.g.B(null);
             this.g.f();
-            this.g.C(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f09e5));
+            this.g.C(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f09cf));
         }
     }
 
@@ -791,12 +791,12 @@ public class uk6 implements TabLayout.OnTabSelectedListener {
     }
 
     public final void l() {
-        uo4 uo4Var;
+        vo4 vo4Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048603, this) == null) || (uo4Var = this.j) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048603, this) == null) || (vo4Var = this.j) == null) {
             return;
         }
-        String d2 = uo4Var.d();
+        String d2 = vo4Var.d();
         if (this.j.a() == 1) {
             MessageManager.getInstance().sendMessage(new CustomMessage(2902014, new FacePackageDetailActivityConfig(this.a.getPageContext().getPageActivity(), d2, false, "frs_banner")));
         } else if (this.j.a() == 2) {
@@ -883,7 +883,7 @@ public class uk6 implements TabLayout.OnTabSelectedListener {
         }
         if (tab.getTag() instanceof Integer) {
             int intValue = ((Integer) tab.getTag()).intValue();
-            go6.f0.f = intValue;
+            go6.p0.f = intValue;
             if (!this.n) {
                 this.o = intValue;
                 G(intValue, this.f, false);
@@ -911,14 +911,14 @@ public class uk6 implements TabLayout.OnTabSelectedListener {
         }
     }
 
-    public final void q(uo4 uo4Var) {
+    public final void q(vo4 vo4Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048611, this, uo4Var) == null) && this.i == null) {
+        if ((interceptable == null || interceptable.invokeL(1048611, this, vo4Var) == null) && this.i == null) {
             this.i = new BannerView(this.a.getPageContext().getPageActivity());
             this.i.setLayoutParams(new AbsListView.LayoutParams(-1, this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07019a)));
             this.i.setVisibility(8);
             this.i.setBannerViewClickListener(this.s);
-            this.i.setBannerData(uo4Var);
+            this.i.setBannerData(vo4Var);
             this.i.setBannerViewEvent(new c(this));
         }
     }
@@ -926,7 +926,7 @@ public class uk6 implements TabLayout.OnTabSelectedListener {
     public final void r(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048612, this, view2) == null) {
-            TabLayout tabLayout = (TabLayout) view2.findViewById(R.id.obfuscated_res_0x7f090aef);
+            TabLayout tabLayout = (TabLayout) view2.findViewById(R.id.obfuscated_res_0x7f090ae8);
             this.f = tabLayout;
             tabLayout.setPadding(UtilHelper.getDimenPixelSize(R.dimen.M_W_X004) - (this.q / 2), 0, UtilHelper.getDimenPixelSize(R.dimen.M_W_X004) - (this.q / 2), 0);
             this.f.setOnTabSelectedListener((TabLayout.OnTabSelectedListener) new e(this));
@@ -941,13 +941,13 @@ public class uk6 implements TabLayout.OnTabSelectedListener {
         for (int i = 0; i < tabLayout.getTabCount(); i++) {
             TabLayout.Tab tabAt = tabLayout.getTabAt(i);
             if (tabAt != null && (tabAt.getCustomView() instanceof TBSpecificationBtn)) {
-                vu4 vu4Var = (vu4) ((TBSpecificationBtn) tabAt.getCustomView()).getStyleConfig();
+                wu4 wu4Var = (wu4) ((TBSpecificationBtn) tabAt.getCustomView()).getStyleConfig();
                 if (!tabAt.isSelected()) {
-                    vu4Var.r(R.color.CAM_X0108);
+                    wu4Var.r(R.color.CAM_X0108);
                 } else if (oi.isEmpty(this.l)) {
-                    vu4Var.r(R.color.CAM_X0105);
+                    wu4Var.r(R.color.CAM_X0105);
                 } else {
-                    vu4Var.q(hd7.b(this.l));
+                    wu4Var.q(hd7.b(this.l));
                 }
             }
         }
@@ -969,9 +969,9 @@ public class uk6 implements TabLayout.OnTabSelectedListener {
     public final void u(View view2, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(1048615, this, view2, z) == null) {
-            this.b = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f090aee);
+            this.b = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f090ae7);
             r(view2);
-            BdTypeRecyclerView bdTypeRecyclerView = (BdTypeRecyclerView) view2.findViewById(R.id.obfuscated_res_0x7f090af0);
+            BdTypeRecyclerView bdTypeRecyclerView = (BdTypeRecyclerView) view2.findViewById(R.id.obfuscated_res_0x7f090ae9);
             this.c = bdTypeRecyclerView;
             bdTypeRecyclerView.setLayoutManager(new LinearLayoutManager(bdTypeRecyclerView.getContext()));
             this.c.setFadingEdgeLength(0);
@@ -990,7 +990,7 @@ public class uk6 implements TabLayout.OnTabSelectedListener {
             this.g.E(SkinManager.getColor(R.color.CAM_X0107));
             this.g.A(R.color.CAM_X0110);
             this.c.setOnSrollToBottomListener(this.a);
-            this.d = (FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f090b50);
+            this.d = (FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f090b49);
             this.h = new vk6(this.a, this.c);
             I(false);
             this.a.registerListener(this.t);
@@ -1055,12 +1055,12 @@ public class uk6 implements TabLayout.OnTabSelectedListener {
             return;
         }
         for (nn nnVar : l) {
-            if (nnVar instanceof qq4) {
-                qq4 qq4Var = (qq4) nnVar;
-                if (qq4Var.t != 0 && (threadData = qq4Var.s) != null) {
+            if (nnVar instanceof rq4) {
+                rq4 rq4Var = (rq4) nnVar;
+                if (rq4Var.t != 0 && (threadData = rq4Var.s) != null) {
                     int[] imageWidthAndHeight = threadData.getImageWidthAndHeight();
-                    qq4Var.t = imageWidthAndHeight[0];
-                    qq4Var.u = imageWidthAndHeight[1];
+                    rq4Var.t = imageWidthAndHeight[0];
+                    rq4Var.u = imageWidthAndHeight[1];
                 }
             }
         }
@@ -1072,7 +1072,7 @@ public class uk6 implements TabLayout.OnTabSelectedListener {
         if (!(interceptable == null || interceptable.invokeLL(1048620, this, forumData, userData) == null) || this.m || forumData == null || forumData.getFrsBannerData() == null || !forumData.getFrsBannerData().e()) {
             return;
         }
-        uo4 frsBannerData = forumData.getFrsBannerData();
+        vo4 frsBannerData = forumData.getFrsBannerData();
         this.j = frsBannerData;
         q(frsBannerData);
         this.i.k();

@@ -7,18 +7,19 @@ import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.pass.permissions.PassPermissions;
 import com.baidu.sapi2.ServiceManager;
-import com.baidu.sofire.utility.PermissionChecker;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.kuaishou.weapon.p0.h;
 import java.io.FileInputStream;
 import java.net.URLEncoder;
 import java.util.ArrayList;
 /* loaded from: classes2.dex */
 public class SapiDeviceUtils {
     public static /* synthetic */ Interceptable $ic;
+    public static String mImei;
     public transient /* synthetic */ FieldHolder $fh;
 
     public SapiDeviceUtils() {
@@ -115,9 +116,19 @@ public class SapiDeviceUtils {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
             try {
-                if (!isForbidDangerousPermissionApp(context) && Build.VERSION.SDK_INT < 29 && ServiceManager.getInstance().getIsAccountManager().getConfignation().isAgreeDangerousProtocol() && PassPermissions.checkRequestPermission(PermissionChecker.READ_PHONE_STATE, context)) {
-                    String deviceId = ((TelephonyManager) context.getSystemService("phone")).getDeviceId();
-                    return deviceId == null ? "" : deviceId;
+                if (!isForbidDangerousPermissionApp(context) && Build.VERSION.SDK_INT < 29 && ServiceManager.getInstance().getIsAccountManager().getConfignation().isAgreeDangerousProtocol()) {
+                    if (!TextUtils.isEmpty(mImei)) {
+                        return mImei;
+                    }
+                    if (PassPermissions.checkRequestPermission(h.c, context)) {
+                        String deviceId = ((TelephonyManager) context.getSystemService("phone")).getDeviceId();
+                        mImei = deviceId;
+                        if (deviceId == null) {
+                            mImei = "";
+                        }
+                        return mImei;
+                    }
+                    return "";
                 }
                 return "";
             } catch (Exception unused) {

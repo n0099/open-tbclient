@@ -1,14 +1,17 @@
 package com.repackage;
 
+import android.app.Activity;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.sapi2.activity.BaseActivity;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.searchbox.unitedscheme.SchemeRouter;
+import com.baidu.searchbox.v8engine.JsObject;
+import com.baidu.swan.apps.SwanAppActivity;
 import com.baidu.swan.apps.process.SwanAppProcessInfo;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,35 +19,103 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.facebook.common.internal.Sets;
-import java.util.Collections;
-import java.util.List;
-import java.util.Set;
-import java.util.concurrent.TimeUnit;
-import rx.schedulers.Schedulers;
+import com.repackage.fl2;
+import com.repackage.mz2;
 /* loaded from: classes7.dex */
-public class yz3 extends hw2 implements ex2 {
+public class yz3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean g;
-    public static final Set<String> h;
-    public static long i;
+    public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
-    public int f;
+    public mz2 a;
 
     /* loaded from: classes7.dex */
-    public class a implements is9<String> {
+    public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ boolean a;
-        public final /* synthetic */ Bundle b;
-        public final /* synthetic */ yz3 c;
+        public final /* synthetic */ SwanAppActivity a;
+        public final /* synthetic */ String b;
+        public final /* synthetic */ ps1 c;
+        public final /* synthetic */ fl2 d;
+        public final /* synthetic */ yz3 e;
 
-        public a(yz3 yz3Var, boolean z, Bundle bundle) {
+        public a(yz3 yz3Var, SwanAppActivity swanAppActivity, String str, ps1 ps1Var, fl2 fl2Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {yz3Var, Boolean.valueOf(z), bundle};
+                Object[] objArr = {yz3Var, swanAppActivity, str, ps1Var, fl2Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.e = yz3Var;
+            this.a = swanAppActivity;
+            this.b = str;
+            this.c = ps1Var;
+            this.d = fl2Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.e.f(this.a, this.b, this.c, this.d);
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class b implements DialogInterface.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ps1 a;
+
+        public b(yz3 yz3Var, ps1 ps1Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {yz3Var, ps1Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = ps1Var;
+        }
+
+        @Override // android.content.DialogInterface.OnClickListener
+        public void onClick(DialogInterface dialogInterface, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLI(1048576, this, dialogInterface, i) == null) {
+                t24.call(this.a, true, new a04(false));
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class c implements DialogInterface.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ps1 a;
+        public final /* synthetic */ fl2 b;
+        public final /* synthetic */ yz3 c;
+
+        public c(yz3 yz3Var, ps1 ps1Var, fl2 fl2Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {yz3Var, ps1Var, fl2Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -55,35 +126,16 @@ public class yz3 extends hw2 implements ex2 {
                 }
             }
             this.c = yz3Var;
-            this.a = z;
-            this.b = bundle;
+            this.a = ps1Var;
+            this.b = fl2Var;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.is9
-        public void call(String str) {
+        @Override // android.content.DialogInterface.OnClickListener
+        public void onClick(DialogInterface dialogInterface, int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-                if (this.a) {
-                    if (yz3.g) {
-                        Log.i("SwanGameReloadDelegate", "execCall: addCallback CALLBACK_TERM = " + yz3.i);
-                    }
-                    ix2.k().c(this.c, yz3.i);
-                }
-                r82 d = t82.c().d();
-                if (d != null) {
-                    List<String> singletonList = Collections.singletonList(this.b.getString(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID));
-                    ca2 l = ca2.l();
-                    l.i(6);
-                    d.h(singletonList, true, l.k());
-                }
-                if (yz3.g) {
-                    Log.i("SwanGameReloadDelegate", "execCall: addCallback purge finish = " + d);
-                }
-                if (this.a) {
-                    return;
-                }
-                this.c.h();
+            if (interceptable == null || interceptable.invokeLI(1048576, this, dialogInterface, i) == null) {
+                t24.call(this.a, true, new a04(true));
+                this.c.e(this.b);
             }
         }
     }
@@ -101,9 +153,7 @@ public class yz3 extends hw2 implements ex2 {
                 return;
             }
         }
-        g = rg1.a;
-        h = Sets.newHashSet("event_puppet_unload_app", "event_puppet_offline");
-        i = TimeUnit.SECONDS.toMillis(10L);
+        b = sg1.a;
     }
 
     public yz3() {
@@ -111,66 +161,84 @@ public class yz3 extends hw2 implements ex2 {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
+
+    public final void c(ps1 ps1Var, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, ps1Var, str) == null) {
+            qu3 qu3Var = new qu3();
+            qu3Var.errMsg = str;
+            t24.call(ps1Var, false, qu3Var);
+        }
+    }
+
+    public void d(JsObject jsObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jsObject) == null) {
+            ps1 F = ps1.F(jsObject);
+            if (F == null) {
+                F = new ps1();
+            }
+            ps1 ps1Var = F;
+            i03 q = h03.K().q();
+            if (!q.I()) {
+                c(ps1Var, "reload failed, api internal error.");
                 return;
             }
-        }
-        this.f = SwanAppProcessInfo.UNKNOWN.index;
-    }
-
-    @Override // com.repackage.ex2
-    public void a(String str, gx2 gx2Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048576, this, str, gx2Var) == null) && gx2Var.b.index == this.f && h.contains(str)) {
-            ix2.k().h(this);
-            if (g) {
-                Log.i("SwanGameReloadDelegate", "onEvent: event = " + str);
-            }
-            h();
-        }
-    }
-
-    @Override // com.repackage.hw2
-    public void b(@NonNull Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
-            int i2 = bundle.getInt("target", SwanAppProcessInfo.UNKNOWN.index);
-            this.f = i2;
-            boolean checkProcessId = SwanAppProcessInfo.checkProcessId(i2);
-            if (g) {
-                Log.i("SwanGameReloadDelegate", "execCall: target = " + this.f);
-                Log.i("SwanGameReloadDelegate", "execCall: waitCallback = " + checkProcessId);
-            }
-            ur9.f("").k(Schedulers.io()).w(new a(this, checkProcessId, bundle));
-        }
-    }
-
-    public final void h() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            String string = this.a.getString("scheme");
-            if (g) {
-                Log.i("SwanGameReloadDelegate", "invoke: scheme = " + string);
-            }
-            if (TextUtils.isEmpty(string)) {
+            SwanAppActivity w = q.w();
+            fl2.a W = q.W();
+            if (w == null) {
+                c(ps1Var, "reload failed, api internal error.");
                 return;
             }
-            SchemeRouter.invoke(AppRuntime.getAppContext(), string);
+            String B = ps1Var.B("content");
+            if (TextUtils.isEmpty(B)) {
+                B = w.getString(R.string.obfuscated_res_0x7f0f017d);
+            }
+            ce3.e0(new a(this, w, B, ps1Var, W));
         }
     }
 
-    @Override // com.repackage.ex2
-    public void timeout() {
+    public final void e(@NonNull fl2 fl2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            if (g) {
-                Log.i("SwanGameReloadDelegate", "timeout");
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, fl2Var) == null) {
+            String H = fl2Var.H();
+            String h1 = gl2.h1(fl2Var.H(), fl2Var.T(), fl2Var.G());
+            Bundle bundle = new Bundle();
+            bundle.putString(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID, H);
+            bundle.putString("scheme", h1);
+            bundle.putInt("target", SwanAppProcessInfo.current().index);
+            if (b) {
+                Log.d("SwanGameReloadApi", "reload-appid:" + fl2Var.H());
             }
-            h();
+            dx2.Q().W(bundle, zz3.class);
+        }
+    }
+
+    public final void f(@NonNull Activity activity, @NonNull String str, @NonNull ps1 ps1Var, @NonNull fl2 fl2Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(1048579, this, activity, str, ps1Var, fl2Var) == null) {
+            mz2 mz2Var = this.a;
+            if (mz2Var != null && mz2Var.isShowing()) {
+                c(ps1Var, "reload failed, the reload dialog has been displayed.");
+                return;
+            }
+            mz2.a aVar = new mz2.a(activity);
+            aVar.U(R.string.obfuscated_res_0x7f0f017e);
+            aVar.x(str);
+            aVar.a();
+            aVar.n(new qf3());
+            aVar.m(false);
+            aVar.B(R.string.obfuscated_res_0x7f0f010d, new b(this, ps1Var));
+            aVar.O(R.string.obfuscated_res_0x7f0f019d, new c(this, ps1Var, fl2Var));
+            this.a = aVar.X();
         }
     }
 }

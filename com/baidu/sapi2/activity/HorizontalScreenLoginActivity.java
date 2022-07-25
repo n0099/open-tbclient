@@ -245,7 +245,7 @@ public class HorizontalScreenLoginActivity extends LoginActivity {
             ViewUtility.setOrientationToUndefined(this);
             super.onCreate(bundle);
             try {
-                setContentView(R.layout.obfuscated_res_0x7f0d04d0);
+                setContentView(R.layout.obfuscated_res_0x7f0d04db);
                 AndroidBug5497Workaround.assistActivity(this);
                 init();
                 setupViews();
@@ -286,7 +286,7 @@ public class HorizontalScreenLoginActivity extends LoginActivity {
                 SapiWebView sapiWebView = ((LoginActivity) this).sapiWebView;
                 if (sapiWebView instanceof RoundWebview) {
                     RoundWebview roundWebview = (RoundWebview) sapiWebView;
-                    roundWebview.a(getResources().getDimension(R.dimen.obfuscated_res_0x7f07063a), getResources().getDimension(R.dimen.obfuscated_res_0x7f07063a), getResources().getDimension(R.dimen.obfuscated_res_0x7f07063a), getResources().getDimension(R.dimen.obfuscated_res_0x7f07063a));
+                    roundWebview.a(getResources().getDimension(R.dimen.obfuscated_res_0x7f07062a), getResources().getDimension(R.dimen.obfuscated_res_0x7f07062a), getResources().getDimension(R.dimen.obfuscated_res_0x7f07062a), getResources().getDimension(R.dimen.obfuscated_res_0x7f07062a));
                     roundWebview.setLayerType(1, null);
                 }
             } catch (Throwable th) {

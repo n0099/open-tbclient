@@ -54,7 +54,7 @@ public class Download {
     public String mUrl;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public static final class DownloadState {
         public static final /* synthetic */ DownloadState[] $VALUES;
         public static /* synthetic */ Interceptable $ic;

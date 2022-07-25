@@ -24,14 +24,14 @@ import tbclient.ActivityPage.SpecialColumnList;
 import tbclient.BannerImage;
 import tbclient.Error;
 /* loaded from: classes7.dex */
-public class qs6 extends nb5<ActivityPageResIdl> {
+public class qs6 extends ob5<ActivityPageResIdl> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public kb5 c;
+    public lb5 c;
     public List<ThreadData> d;
-    public List<nn4> e;
-    public bo4 f;
-    public zo4 g;
+    public List<on4> e;
+    public co4 f;
+    public ap4 g;
 
     public qs6() {
         Interceptable interceptable = $ic;
@@ -46,10 +46,10 @@ public class qs6 extends nb5<ActivityPageResIdl> {
                 return;
             }
         }
-        this.c = new kb5();
+        this.c = new lb5();
     }
 
-    @Override // com.repackage.qb5
+    @Override // com.repackage.rb5
     public final void a(int i, byte[] bArr) throws Exception {
         DataRes dataRes;
         String str;
@@ -73,32 +73,32 @@ public class qs6 extends nb5<ActivityPageResIdl> {
         }
     }
 
-    @Override // com.repackage.nb5
-    public List<nn4> e() {
+    @Override // com.repackage.ob5
+    public List<on4> e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.e : (List) invokeV.objValue;
     }
 
-    @Override // com.repackage.nb5
+    @Override // com.repackage.ob5
     public List<ThreadData> f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.d : (List) invokeV.objValue;
     }
 
-    @Override // com.repackage.nb5, com.repackage.qb5
-    public kb5 getPageInfo() {
+    @Override // com.repackage.ob5, com.repackage.rb5
+    public lb5 getPageInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.c : (kb5) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.c : (lb5) invokeV.objValue;
     }
 
-    @Override // com.repackage.nb5
+    @Override // com.repackage.ob5
     public List<nn> i(List<? extends nn> list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, list)) == null) ? gc5.a(list) : (List) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, list)) == null) ? hc5.a(list) : (List) invokeL.objValue;
     }
 
     public final void j(DataRes dataRes) {
@@ -117,22 +117,22 @@ public class qs6 extends nb5<ActivityPageResIdl> {
             ArrayList arrayList = new ArrayList();
             RecommendForumList recommendForumList = dataRes.recommend_forum;
             if (recommendForumList != null && ListUtils.getCount(recommendForumList.forum_list) >= 5) {
-                dq4 dq4Var = new dq4();
-                dq4Var.i(recommendForumList.forum_list);
-                dq4Var.f = recommendForumList.class_name;
-                dq4Var.floorPosition = recommendForumList.floor_position.intValue();
-                dq4Var.d = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0f7c);
-                dq4Var.e = R.color.CAM_X0108;
-                arrayList.add(dq4Var);
+                eq4 eq4Var = new eq4();
+                eq4Var.i(recommendForumList.forum_list);
+                eq4Var.f = recommendForumList.class_name;
+                eq4Var.floorPosition = recommendForumList.floor_position.intValue();
+                eq4Var.d = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0f65);
+                eq4Var.e = R.color.CAM_X0108;
+                arrayList.add(eq4Var);
             }
             RecommendUserList recommendUserList = dataRes.recommend_user;
             if (recommendUserList != null && ListUtils.getCount(recommendUserList.user_list) >= 4) {
-                hq4 hq4Var = new hq4();
-                hq4Var.d(recommendUserList.user_list);
-                hq4Var.floorPosition = recommendUserList.floor_position.intValue();
-                hq4Var.a = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0f94);
-                hq4Var.b = R.color.CAM_X0108;
-                arrayList.add(hq4Var);
+                iq4 iq4Var = new iq4();
+                iq4Var.d(recommendUserList.user_list);
+                iq4Var.floorPosition = recommendUserList.floor_position.intValue();
+                iq4Var.a = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0f7d);
+                iq4Var.b = R.color.CAM_X0108;
+                arrayList.add(iq4Var);
             }
             HotTopic hotTopic = dataRes.hot_topic;
             if (hotTopic != null && ListUtils.getCount(hotTopic.topic_list) >= 4) {
@@ -155,15 +155,15 @@ public class qs6 extends nb5<ActivityPageResIdl> {
         if (interceptable == null || interceptable.invokeL(1048583, this, dataRes) == null) {
             List<BannerImage> list = dataRes.banner_image;
             if (!ListUtils.isEmpty(list)) {
-                bo4 bo4Var = new bo4();
-                this.f = bo4Var;
-                bo4Var.parserProtobuf(list);
+                co4 co4Var = new co4();
+                this.f = co4Var;
+                co4Var.parserProtobuf(list);
             }
             List<BannerImage> list2 = dataRes.grid;
             if (ListUtils.getCount(list2) >= 4) {
-                zo4 zo4Var = new zo4();
-                this.g = zo4Var;
-                zo4Var.parserProtobuf(list2);
+                ap4 ap4Var = new ap4();
+                this.g = ap4Var;
+                ap4Var.parserProtobuf(list2);
             }
         }
     }
@@ -178,7 +178,7 @@ public class qs6 extends nb5<ActivityPageResIdl> {
     public final void n(DataRes dataRes) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, dataRes) == null) {
-            this.d = gc5.c(dataRes.thread_list);
+            this.d = hc5.c(dataRes.thread_list);
         }
     }
 }

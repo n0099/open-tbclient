@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class vx extends qw<dq4> {
+public class vx extends qw<eq4> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public RecommendForumLayout f;
@@ -66,10 +66,10 @@ public class vx extends qw<dq4> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.repackage.gx
     /* renamed from: p */
-    public void a(dq4 dq4Var) {
+    public void a(eq4 eq4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, dq4Var) == null) {
-            this.f.setData(dq4Var);
+        if (interceptable == null || interceptable.invokeL(1048579, this, eq4Var) == null) {
+            this.f.setData(eq4Var);
         }
     }
 
@@ -87,10 +87,10 @@ public class vx extends qw<dq4> {
         }
     }
 
-    public void s(jm4<cq4> jm4Var) {
+    public void s(km4<dq4> km4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, jm4Var) == null) {
-            this.f.setOnItemCoverListener(jm4Var);
+        if (interceptable == null || interceptable.invokeL(1048582, this, km4Var) == null) {
+            this.f.setOnItemCoverListener(km4Var);
         }
     }
 

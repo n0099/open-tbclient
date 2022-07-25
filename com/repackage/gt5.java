@@ -111,20 +111,20 @@ public class gt5 implements View.OnClickListener {
                 }
             }
             this.a = view2;
-            this.b = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090e5e);
-            this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0921ed);
-            this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0921ec);
-            this.e = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f091b46);
-            this.f = (ClickableHeaderImageView) view2.findViewById(R.id.obfuscated_res_0x7f090e5f);
-            this.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0921f9);
-            this.i = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f091b48);
-            this.j = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0921f6);
-            this.k = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091345);
-            this.h = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090e60);
-            this.l = view2.findViewById(R.id.obfuscated_res_0x7f09133c);
-            TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0921e8);
+            this.b = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090e57);
+            this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0921ef);
+            this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0921ee);
+            this.e = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f091b20);
+            this.f = (ClickableHeaderImageView) view2.findViewById(R.id.obfuscated_res_0x7f090e58);
+            this.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0921fb);
+            this.i = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f091b22);
+            this.j = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0921f8);
+            this.k = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091321);
+            this.h = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090e59);
+            this.l = view2.findViewById(R.id.obfuscated_res_0x7f091318);
+            TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0921ea);
             this.m = textView;
-            textView.setTextSize(0, view2.getContext().getResources().getDimension(R.dimen.obfuscated_res_0x7f07032d));
+            textView.setTextSize(0, view2.getContext().getResources().getDimension(R.dimen.obfuscated_res_0x7f07032b));
             this.n = (LinearLayout.LayoutParams) this.j.getLayoutParams();
             this.o = (LinearLayout.LayoutParams) this.k.getLayoutParams();
             this.h.setDefaultBgResource(R.drawable.pic_bg_video_frs);
@@ -201,7 +201,7 @@ public class gt5 implements View.OnClickListener {
                 this.c.g.setText(name_show);
             }
             this.c.l.setVisibility(0);
-            this.c.c.setBackgroundResource(R.drawable.obfuscated_res_0x7f0811a4);
+            this.c.c.setBackgroundResource(R.drawable.obfuscated_res_0x7f0811a8);
             this.c.c.setText(this.e.getThreadAlaInfo().label_name);
             this.c.c.setVisibility(0);
             if (this.e.getAuthor() != null && this.e.getAuthor().getAlaUserData() != null && !oi.isEmpty(this.e.getAuthor().getAlaUserData().great_anchor_icon)) {
@@ -247,7 +247,7 @@ public class gt5 implements View.OnClickListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, view2) == null) {
             if (!ni.z()) {
-                pi.L(this.b.getPageActivity(), this.b.getPageActivity().getString(R.string.obfuscated_res_0x7f0f0c64));
+                pi.L(this.b.getPageActivity(), this.b.getPageActivity().getString(R.string.obfuscated_res_0x7f0f0c50));
                 return;
             }
             ThreadData threadData = this.e;

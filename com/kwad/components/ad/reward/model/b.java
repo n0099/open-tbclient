@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.ksad.json.annotation.KsJson;
-import com.kwad.sdk.utils.as;
+import com.kwad.sdk.utils.w;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import org.json.JSONObject;
@@ -19,10 +19,10 @@ import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class b extends com.kwad.sdk.core.response.kwai.a {
     public static /* synthetic */ Interceptable $ic;
-    public static SimpleDateFormat c;
+    public static SimpleDateFormat em;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-    public int b;
+    public long pg;
+    public int ph;
 
     static {
         InterceptResult invokeClinit;
@@ -37,7 +37,7 @@ public class b extends com.kwad.sdk.core.response.kwai.a {
                 return;
             }
         }
-        c = new SimpleDateFormat("yyyy-MM-dd");
+        em = new SimpleDateFormat("yyyy-MM-dd");
     }
 
     public b() {
@@ -53,55 +53,32 @@ public class b extends com.kwad.sdk.core.response.kwai.a {
                 return;
             }
         }
-        this.a = -1L;
-        this.b = 0;
+        this.pg = -1L;
+        this.ph = 0;
     }
 
-    public static int a() {
-        InterceptResult invokeV;
+    public static void P(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            String d = as.d();
-            if (TextUtils.isEmpty(d)) {
-                return 0;
-            }
+        if (interceptable == null || interceptable.invokeL(65538, null, context) == null) {
+            String zC = w.zC();
             b bVar = new b();
-            try {
-                bVar.parseJson(new JSONObject(d));
-                if (a(bVar.a, System.currentTimeMillis())) {
-                    return bVar.b;
-                }
-                return 0;
-            } catch (Exception e) {
-                com.kwad.sdk.core.d.b.a(e);
-                return 0;
-            }
-        }
-        return invokeV.intValue;
-    }
-
-    public static void a(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, null, context) == null) {
-            String d = as.d();
-            b bVar = new b();
-            if (TextUtils.isEmpty(d)) {
-                bVar.b = 1;
-                bVar.a = System.currentTimeMillis();
-                as.i(context, bVar.toJson().toString());
+            if (TextUtils.isEmpty(zC)) {
+                bVar.ph = 1;
+                bVar.pg = System.currentTimeMillis();
+                w.J(context, bVar.toJson().toString());
                 return;
             }
             try {
-                bVar.parseJson(new JSONObject(d));
-                if (a(bVar.a, System.currentTimeMillis())) {
-                    bVar.b++;
+                bVar.parseJson(new JSONObject(zC));
+                if (a(bVar.pg, System.currentTimeMillis())) {
+                    bVar.ph++;
                 } else {
-                    bVar.b = 1;
-                    bVar.a = System.currentTimeMillis();
+                    bVar.ph = 1;
+                    bVar.pg = System.currentTimeMillis();
                 }
-                as.i(context, bVar.toJson().toString());
+                w.J(context, bVar.toJson().toString());
             } catch (Exception e) {
-                com.kwad.sdk.core.d.b.a(e);
+                com.kwad.sdk.core.e.b.printStackTrace(e);
             }
         }
     }
@@ -109,16 +86,39 @@ public class b extends com.kwad.sdk.core.response.kwai.a {
     public static boolean a(long j, long j2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) {
             if (j > 0 && j2 > 0) {
                 try {
-                    return c.format(new Date(j)).equals(c.format(new Date(j2)));
+                    return em.format(new Date(j)).equals(em.format(new Date(j2)));
                 } catch (Exception e) {
-                    com.kwad.sdk.core.d.b.a(e);
+                    com.kwad.sdk.core.e.b.printStackTrace(e);
                 }
             }
             return false;
         }
         return invokeCommon.booleanValue;
+    }
+
+    public static int gK() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            String zC = w.zC();
+            if (TextUtils.isEmpty(zC)) {
+                return 0;
+            }
+            b bVar = new b();
+            try {
+                bVar.parseJson(new JSONObject(zC));
+                if (a(bVar.pg, System.currentTimeMillis())) {
+                    return bVar.ph;
+                }
+                return 0;
+            } catch (Exception e) {
+                com.kwad.sdk.core.e.b.printStackTrace(e);
+                return 0;
+            }
+        }
+        return invokeV.intValue;
     }
 }

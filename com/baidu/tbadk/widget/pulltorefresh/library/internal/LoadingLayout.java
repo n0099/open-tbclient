@@ -132,27 +132,27 @@ public abstract class LoadingLayout extends FrameLayout implements jg5 {
         this.g = mode;
         this.h = orientation;
         if (a.a[orientation.ordinal()] != 1) {
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d081a, this);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0824, this);
         } else {
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0819, this);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0823, this);
         }
-        FrameLayout frameLayout = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f09099b);
+        FrameLayout frameLayout = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f090994);
         this.a = frameLayout;
-        this.e = (TextView) frameLayout.findViewById(R.id.obfuscated_res_0x7f091a14);
-        this.c = (ProgressBar) this.a.findViewById(R.id.obfuscated_res_0x7f091a12);
-        this.f = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f091a13);
-        this.b = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f091a10);
+        this.e = (TextView) frameLayout.findViewById(R.id.obfuscated_res_0x7f0919ee);
+        this.c = (ProgressBar) this.a.findViewById(R.id.obfuscated_res_0x7f0919ec);
+        this.f = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f0919ed);
+        this.b = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f0919ea);
         FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.a.getLayoutParams();
         if (a.b[mode.ordinal()] != 1) {
             layoutParams.gravity = orientation == PullToRefreshBase.Orientation.VERTICAL ? 80 : 5;
-            this.i = context.getString(R.string.obfuscated_res_0x7f0f0f2b);
-            this.j = context.getString(R.string.obfuscated_res_0x7f0f0f2c);
-            this.k = context.getString(R.string.obfuscated_res_0x7f0f0f2d);
+            this.i = context.getString(R.string.obfuscated_res_0x7f0f0f14);
+            this.j = context.getString(R.string.obfuscated_res_0x7f0f0f15);
+            this.k = context.getString(R.string.obfuscated_res_0x7f0f0f16);
         } else {
             layoutParams.gravity = orientation == PullToRefreshBase.Orientation.VERTICAL ? 48 : 3;
-            this.i = context.getString(R.string.obfuscated_res_0x7f0f0f2b);
-            this.j = context.getString(R.string.obfuscated_res_0x7f0f0f2c);
-            this.k = context.getString(R.string.obfuscated_res_0x7f0f0f2d);
+            this.i = context.getString(R.string.obfuscated_res_0x7f0f0f14);
+            this.j = context.getString(R.string.obfuscated_res_0x7f0f0f15);
+            this.k = context.getString(R.string.obfuscated_res_0x7f0f0f16);
         }
         if (typedArray.hasValue(7) && (drawable = typedArray.getDrawable(7)) != null) {
             mg5.b(this, drawable);

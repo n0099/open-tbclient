@@ -3,11 +3,11 @@ package com.kwad.sdk.core.report;
 import java.util.List;
 /* loaded from: classes5.dex */
 public interface j<T> {
-    long a();
+    void d(T t);
 
-    void a(T t);
+    void q(List<T> list);
 
-    void a(List<T> list);
+    long size();
 
-    List<T> b();
+    List<T> uy();
 }

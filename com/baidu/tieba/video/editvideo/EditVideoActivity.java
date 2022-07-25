@@ -45,7 +45,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidubce.auth.NTLMEngineImpl;
 import com.google.protobuf.CodedInputStream;
-import com.repackage.au4;
+import com.repackage.bu4;
 import com.repackage.eq8;
 import com.repackage.fq8;
 import com.repackage.jq8;
@@ -81,7 +81,7 @@ public class EditVideoActivity extends BaseActivity implements eq8, fq8, MaskVid
     public String k;
     public boolean l;
     public boolean m;
-    public au4 n;
+    public bu4 n;
     public jq8 o;
     public String p;
     public int q;
@@ -338,12 +338,12 @@ public class EditVideoActivity extends BaseActivity implements eq8, fq8, MaskVid
     }
 
     public final void K1() {
-        au4 au4Var;
+        bu4 bu4Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (au4Var = this.n) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (bu4Var = this.n) == null) {
             return;
         }
-        au4Var.h(false);
+        bu4Var.h(false);
     }
 
     public final void L1() {
@@ -566,7 +566,7 @@ public class EditVideoActivity extends BaseActivity implements eq8, fq8, MaskVid
             this.i = new SelectCoverModel(getPageContext(), this, this.t);
             this.j = new SelectMusicModel(getPageContext(), this);
             this.o = new jq8(this);
-            wq8 wq8Var = new wq8(getPageContext(), this, findViewById(R.id.obfuscated_res_0x7f091b6a), this.t);
+            wq8 wq8Var = new wq8(getPageContext(), this, findViewById(R.id.obfuscated_res_0x7f091b44), this.t);
             this.h = wq8Var;
             wq8Var.S(this.d);
             this.h.Y(getIntent());
@@ -574,9 +574,9 @@ public class EditVideoActivity extends BaseActivity implements eq8, fq8, MaskVid
             this.h.U(this);
             this.i.D();
             this.j.B();
-            au4 au4Var = new au4(getPageContext());
-            this.n = au4Var;
-            au4Var.i(R.string.obfuscated_res_0x7f0f0ace);
+            bu4 bu4Var = new bu4(getPageContext());
+            this.n = bu4Var;
+            bu4Var.i(R.string.obfuscated_res_0x7f0f0aba);
             registerListener(this.x);
             L1();
             registerListener(this.w);
@@ -635,7 +635,7 @@ public class EditVideoActivity extends BaseActivity implements eq8, fq8, MaskVid
         if (interceptable == null || interceptable.invokeV(1048596, this) == null) {
             if (this.h != null && this.i != null && this.j != null) {
                 if (!ni.z()) {
-                    getPageContext().showToast(R.string.obfuscated_res_0x7f0f0c63);
+                    getPageContext().showToast(R.string.obfuscated_res_0x7f0f0c4f);
                     return;
                 } else if (this.l) {
                     return;
@@ -776,8 +776,8 @@ public class EditVideoActivity extends BaseActivity implements eq8, fq8, MaskVid
             if (list == null) {
                 list = new ArrayList<>();
             }
-            list.add(0, new MusicData(com.baidu.tieba.external.music.data.MusicData.MUSIC_NORMAL_ID, 1, getPageContext().getString(R.string.obfuscated_res_0x7f0f0b1a)));
-            list.add(1, new MusicData(com.baidu.tieba.external.music.data.MusicData.MUSIC_CLOUD_ID, 2, getPageContext().getString(R.string.obfuscated_res_0x7f0f0b18)));
+            list.add(0, new MusicData(com.baidu.tieba.external.music.data.MusicData.MUSIC_NORMAL_ID, 1, getPageContext().getString(R.string.obfuscated_res_0x7f0f0b06)));
+            list.add(1, new MusicData(com.baidu.tieba.external.music.data.MusicData.MUSIC_CLOUD_ID, 2, getPageContext().getString(R.string.obfuscated_res_0x7f0f0b04)));
             this.h.V(list);
         }
     }

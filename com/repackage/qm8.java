@@ -48,16 +48,16 @@ public class qm8 extends CustomMessageListener {
         if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null) {
             return;
         }
-        UserData e = f45.d().e();
+        UserData e = g45.d().e();
         if (TbadkCoreApplication.isLogin() && e != null && e.getUserId() != null && !e.getUserId().equals(this.a.t) && e.getIsGodInvited()) {
             this.a.t = e.getUserId();
             this.a.sendMessage(new CustomMessage(2002001, new TbWebViewActivityConfig(this.a.getPageContext().getPageActivity(), "", TbWebViewActivityConfig.GOD_INVITE_JUMP_URL + TbWebViewActivityConfig.JUMP_PARAMS_PAGE_TYPE, true)));
         }
-        if (xt4.k().h("key_new_god_invited_my_tab_red_tip_showed", false) || !TbadkCoreApplication.isLogin() || e == null || e.getUserId() == null || e.getUserId().equals(this.a.t) || e.getNewGodData() == null || !e.getNewGodData().isNewGodInvited()) {
+        if (yt4.k().h("key_new_god_invited_my_tab_red_tip_showed", false) || !TbadkCoreApplication.isLogin() || e == null || e.getUserId() == null || e.getUserId().equals(this.a.t) || e.getNewGodData() == null || !e.getNewGodData().isNewGodInvited()) {
             return;
         }
         PersonRedTipManager.getInstance().updateRedTipState(11, true, true);
         TiebaStatic.log(new StatisticItem("c13688").param("uid", TbadkCoreApplication.getCurrentAccountId()).param("obj_locate", 0));
-        xt4.k().u("key_new_god_invited_my_tab_red_tip_showed", true);
+        yt4.k().u("key_new_god_invited_my_tab_red_tip_showed", true);
     }
 }

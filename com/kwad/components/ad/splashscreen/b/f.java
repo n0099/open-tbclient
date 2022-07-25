@@ -11,7 +11,7 @@ import com.kwad.components.core.widget.ComplianceTextView;
 public final class f extends e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ComplianceTextView b;
+    public ComplianceTextView bc;
 
     public f() {
         Interceptable interceptable = $ic;
@@ -28,21 +28,21 @@ public final class f extends e {
     }
 
     @Override // com.kwad.components.ad.splashscreen.b.e, com.kwad.sdk.mvp.Presenter
-    public final void a() {
+    public final void aq() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            super.a();
-            this.b.setVisibility(0);
-            this.b.setAdTemplate(((e) this).a.c);
+            super.aq();
+            this.bc.setVisibility(0);
+            this.bc.setAdTemplate(this.yF.mAdTemplate);
         }
     }
 
     @Override // com.kwad.sdk.mvp.Presenter
-    public final void i_() {
+    public final void onCreate() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            super.i_();
-            this.b = (ComplianceTextView) b(R.id.obfuscated_res_0x7f09101a);
+            super.onCreate();
+            this.bc = (ComplianceTextView) findViewById(R.id.obfuscated_res_0x7f091011);
         }
     }
 }

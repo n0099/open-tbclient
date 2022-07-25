@@ -116,7 +116,7 @@ public class qk5 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             if (this.l == null) {
-                this.l = NoDataViewFactory.a(this.c.getPageContext().getPageActivity(), this.a, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.WEBVIEW, BdListViewHelper.a(BdListViewHelper.HeadType.DEFAULT)), NoDataViewFactory.e.d(null, this.c.getPageContext().getString(R.string.obfuscated_res_0x7f0f14e6)), NoDataViewFactory.c.a(new NoDataViewFactory.b(this.c.getResources().getString(R.string.obfuscated_res_0x7f0f0f98), this.m)));
+                this.l = NoDataViewFactory.a(this.c.getPageContext().getPageActivity(), this.a, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.WEBVIEW, BdListViewHelper.a(BdListViewHelper.HeadType.DEFAULT)), NoDataViewFactory.e.d(null, this.c.getPageContext().getString(R.string.obfuscated_res_0x7f0f1495)), NoDataViewFactory.c.a(new NoDataViewFactory.b(this.c.getResources().getString(R.string.obfuscated_res_0x7f0f0f81), this.m)));
             }
             this.l.f(this.c.getPageContext(), TbadkCoreApplication.getInst().getSkinType());
             this.j.setVisibility(8);
@@ -214,16 +214,16 @@ public class qk5 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
             this.c.setContentView(R.layout.obfuscated_res_0x7f0d013b);
-            this.a = this.c.findViewById(R.id.obfuscated_res_0x7f091b72);
-            this.d = (NavigationBar) this.c.findViewById(R.id.obfuscated_res_0x7f092437);
+            this.a = this.c.findViewById(R.id.obfuscated_res_0x7f091b4c);
+            this.d = (NavigationBar) this.c.findViewById(R.id.obfuscated_res_0x7f092439);
             w("");
             this.j = (LinearLayout) this.c.findViewById(R.id.obfuscated_res_0x7f0924cc);
             this.p = (ApkDownloadBannerView) this.c.findViewById(R.id.obfuscated_res_0x7f0924c6);
             RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.j.getLayoutParams();
-            layoutParams.addRule(3, R.id.obfuscated_res_0x7f092437);
+            layoutParams.addRule(3, R.id.obfuscated_res_0x7f092439);
             this.j.setLayoutParams(layoutParams);
             this.k = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f0924ce);
-            View addCustomView = this.d.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_LEFT, R.layout.obfuscated_res_0x7f0d08c9, new a(this));
+            View addCustomView = this.d.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_LEFT, R.layout.obfuscated_res_0x7f0d08d3, new a(this));
             this.f = addCustomView;
             ImageView imageView = (ImageView) addCustomView.findViewById(R.id.obfuscated_res_0x7f0924ef);
             this.g = imageView;
@@ -322,7 +322,7 @@ public class qk5 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
             RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.j.getLayoutParams();
-            layoutParams.addRule(3, R.id.obfuscated_res_0x7f092437);
+            layoutParams.addRule(3, R.id.obfuscated_res_0x7f092439);
             this.j.setLayoutParams(layoutParams);
             this.g.setBackgroundDrawable(null);
             this.h.setBackgroundDrawable(null);
@@ -401,7 +401,7 @@ public class qk5 {
             this.e = this.d.setCenterTextTitle(str);
             ImageView imageView2 = this.g;
             if (imageView2 != null && imageView2.getVisibility() == 0 && (imageView = this.h) != null && imageView.getVisibility() == 0) {
-                this.e.setMaxWidth(pi.f(this.c.getPageContext().getPageActivity(), R.dimen.obfuscated_res_0x7f070250) * 2);
+                this.e.setMaxWidth(pi.f(this.c.getPageContext().getPageActivity(), R.dimen.obfuscated_res_0x7f07024e) * 2);
             }
             SkinManager.setNavbarTitleColor(this.e, R.color.CAM_X0105, R.color.s_navbar_title_color);
         }

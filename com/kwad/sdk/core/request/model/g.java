@@ -5,18 +5,18 @@ import com.kwad.sdk.utils.r;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public final class g implements com.kwad.sdk.core.b {
-    public int a;
-    public int b;
-    public String c;
-    public String d;
-    public String e;
+    public String acX;
+    public String acY;
+    public int acZ;
+    public int ada;
+    public String adb;
 
-    public static g a() {
+    public static g uT() {
         return new g();
     }
 
-    public final void a(String str) {
-        this.e = str;
+    public final void cu(String str) {
+        this.acY = str;
     }
 
     @Override // com.kwad.sdk.core.b
@@ -26,17 +26,17 @@ public final class g implements com.kwad.sdk.core.b {
     @Override // com.kwad.sdk.core.b
     public final JSONObject toJson() {
         JSONObject jSONObject = new JSONObject();
-        r.a(jSONObject, "user_id", this.d);
-        r.a(jSONObject, "thirdUserId", this.e);
-        int i = this.a;
+        r.putValue(jSONObject, "user_id", this.acX);
+        r.putValue(jSONObject, "thirdUserId", this.acY);
+        int i = this.acZ;
         if (i != 0) {
-            r.a(jSONObject, "thirdAge", i);
+            r.putValue(jSONObject, "thirdAge", i);
         }
-        int i2 = this.b;
+        int i2 = this.ada;
         if (i2 != 0) {
-            r.a(jSONObject, "thirdGender", i2);
+            r.putValue(jSONObject, "thirdGender", i2);
         }
-        r.a(jSONObject, "thirdInterest", this.c);
+        r.putValue(jSONObject, "thirdInterest", this.adb);
         return jSONObject;
     }
 }

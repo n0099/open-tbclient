@@ -33,7 +33,7 @@ public class li8 {
     public SpannableStringBuilder e;
 
     /* loaded from: classes6.dex */
-    public class a extends md5 {
+    public class a extends nd5 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ li8 a;
@@ -66,7 +66,7 @@ public class li8 {
     }
 
     /* loaded from: classes6.dex */
-    public class b extends md5 {
+    public class b extends nd5 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ li8 a;
@@ -119,7 +119,7 @@ public class li8 {
     }
 
     /* loaded from: classes6.dex */
-    public class c extends md5 {
+    public class c extends nd5 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ li8 a;
@@ -262,7 +262,7 @@ public class li8 {
                     if (!this.b.endsWith(" ")) {
                         this.b += " ";
                     }
-                    String string = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f1507);
+                    String string = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f14b6);
                     String str = string + this.b;
                     SpannableString spannableString4 = new SpannableString(str);
                     spannableString4.setSpan(new a(this), string.length(), str.length() - 1, 33);

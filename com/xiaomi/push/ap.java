@@ -44,7 +44,7 @@ public class ap extends Handler {
             if (i == 0) {
                 bVar.a();
             } else if (i == 1) {
-                bVar.mo1203c();
+                bVar.mo265c();
             }
             super.handleMessage(message);
         }

@@ -55,8 +55,8 @@ public final class ImmersiveVideoDetailActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
             super.B0(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d05b9);
-            View findViewById = findViewById(R.id.obfuscated_res_0x7f091b73);
+            setContentView(R.layout.obfuscated_res_0x7f0d05c3);
+            View findViewById = findViewById(R.id.obfuscated_res_0x7f091b4d);
             Intrinsics.checkNotNullExpressionValue(findViewById, "findViewById(R.id.rootview)");
             this.v = (FrameLayout) findViewById;
             getWindow().setFormat(-3);

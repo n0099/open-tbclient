@@ -3,7 +3,6 @@ package com.vivo.push.util;
 import android.os.Build;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.sofire.sharedpreferences.SharedPreferenceManager;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -51,7 +50,7 @@ public final class j {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, str2)) == null) {
             try {
-                str3 = (String) Class.forName("android.os.SystemProperties").getMethod(SharedPreferenceManager.OPERATION_GET_PERFIX, String.class).invoke(null, str);
+                str3 = (String) Class.forName("android.os.SystemProperties").getMethod("get", String.class).invoke(null, str);
             } catch (Exception e2) {
                 e2.printStackTrace();
                 str3 = str2;
@@ -83,7 +82,7 @@ public final class j {
             synchronized (j.class) {
                 if (f == null && g == null) {
                     try {
-                        Method declaredMethod = Class.forName("android.os.SystemProperties").getDeclaredMethod(SharedPreferenceManager.OPERATION_GET_PERFIX, String.class, String.class);
+                        Method declaredMethod = Class.forName("android.os.SystemProperties").getDeclaredMethod("get", String.class, String.class);
                         e = declaredMethod;
                         declaredMethod.setAccessible(true);
                         f = (String) e.invoke(null, "ro.vivo.rom", "@><@");

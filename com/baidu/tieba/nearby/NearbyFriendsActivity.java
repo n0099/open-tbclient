@@ -13,8 +13,8 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.mm7;
 import com.repackage.nm7;
-import com.repackage.o25;
 import com.repackage.p25;
+import com.repackage.q25;
 /* loaded from: classes3.dex */
 public class NearbyFriendsActivity extends BaseFragmentActivity {
     public static /* synthetic */ Interceptable $ic;
@@ -95,12 +95,12 @@ public class NearbyFriendsActivity extends BaseFragmentActivity {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || customResponsedMessage.getData() == null) {
                 return;
             }
-            p25 p25Var = customResponsedMessage.getData() instanceof p25 ? (p25) customResponsedMessage.getData() : null;
-            if (p25Var == null || p25Var.b() != 1) {
+            q25 q25Var = customResponsedMessage.getData() instanceof q25 ? (q25) customResponsedMessage.getData() : null;
+            if (q25Var == null || q25Var.b() != 1) {
                 return;
             }
             NearbyFriendsActivity nearbyFriendsActivity = this.a;
-            new o25(nearbyFriendsActivity, nearbyFriendsActivity.findViewById(R.id.obfuscated_res_0x7f0915a5), p25Var).m();
+            new p25(nearbyFriendsActivity, nearbyFriendsActivity.findViewById(R.id.obfuscated_res_0x7f091580), q25Var).m();
         }
     }
 

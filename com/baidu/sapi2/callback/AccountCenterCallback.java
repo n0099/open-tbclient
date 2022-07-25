@@ -1,6 +1,7 @@
 package com.baidu.sapi2.callback;
 
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.sapi2.SapiAccount;
 import com.baidu.sapi2.result.AccountCenterResult;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -40,4 +41,10 @@ public abstract class AccountCenterCallback {
     }
 
     public abstract void onSocialBind(String str);
+
+    public void onSyncAccount(SapiAccount sapiAccount) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, sapiAccount) == null) {
+        }
+    }
 }

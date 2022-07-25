@@ -1,33 +1,50 @@
 package com.repackage;
 
 import android.content.Context;
-import android.widget.FrameLayout;
+import android.content.Intent;
+import android.net.Uri;
+import android.view.View;
 import androidx.annotation.NonNull;
+import com.baidu.swan.game.ad.downloader.model.DownloadParams;
+import java.io.File;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public interface bp3 {
-    void a(FrameLayout frameLayout);
+    String a();
 
-    void d(boolean z);
+    boolean b(Context context, Intent intent, String str, String str2, String str3);
 
-    bp3 e(Context context, @NonNull xn3 xn3Var);
+    String c();
 
-    void g(vo3 vo3Var);
+    boolean d(@NonNull Context context, @NonNull JSONObject jSONObject, @NonNull DownloadParams.SwanAppDownloadType swanAppDownloadType, @NonNull io3 io3Var);
 
-    int getCurrentPosition();
+    String e();
 
-    int getDuration();
+    String f(String str);
 
-    void h(xn3 xn3Var);
+    String g();
 
-    boolean isEnd();
+    String getAppId();
 
-    boolean isPlaying();
+    String getAppKey();
 
-    void mute(boolean z);
+    String getScene();
 
-    void pause();
+    String getSdkVersion();
 
-    void resume();
+    int h();
 
-    void stop();
+    String i(String str);
+
+    int j();
+
+    int k();
+
+    Uri l(@NonNull Context context, @NonNull File file);
+
+    String m();
+
+    JSONObject n();
+
+    boolean o(View view2);
 }

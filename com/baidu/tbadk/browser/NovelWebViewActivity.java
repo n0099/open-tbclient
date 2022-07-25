@@ -24,9 +24,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.l85;
 import com.repackage.m85;
-import com.repackage.yl4;
+import com.repackage.n85;
+import com.repackage.zl4;
 /* loaded from: classes2.dex */
 public class NovelWebViewActivity extends TbWebViewActivity {
     public static /* synthetic */ Interceptable $ic = null;
@@ -117,11 +117,11 @@ public class NovelWebViewActivity extends TbWebViewActivity {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, webView, str) == null) {
                 super.onPageFinished(webView, str);
-                String unused = NovelWebViewActivity.g = l85.c(NovelWebViewActivity.f, TbadkCoreApplication.getCurrentAccount());
+                String unused = NovelWebViewActivity.g = m85.c(NovelWebViewActivity.f, TbadkCoreApplication.getCurrentAccount());
                 if (this.c.b && StringUtils.isNull(NovelWebViewActivity.g)) {
                     this.c.F1();
                 }
-                m85.a(CommonStatisticKey.KEY_PB_NOVEL_INFO_JUMP_H5, this.c.b ? 2 : 1, NovelWebViewActivity.f, this.c.c, this.c.d);
+                n85.a(CommonStatisticKey.KEY_PB_NOVEL_INFO_JUMP_H5, this.c.b ? 2 : 1, NovelWebViewActivity.f, this.c.c, this.c.d);
             }
         }
 
@@ -166,10 +166,10 @@ public class NovelWebViewActivity extends TbWebViewActivity {
     public final void F1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            l85.e(f, new ReadRecordsData(f));
+            m85.e(f, new ReadRecordsData(f));
             BdTopToast bdTopToast = new BdTopToast(getPageContext().getPageActivity());
             bdTopToast.i(true);
-            bdTopToast.h(getPageContext().getString(R.string.obfuscated_res_0x7f0f0ca8));
+            bdTopToast.h(getPageContext().getString(R.string.obfuscated_res_0x7f0f0c94));
             bdTopToast.j((ViewGroup) getPageContext().getPageActivity().findViewById(16908290));
         }
     }
@@ -187,8 +187,8 @@ public class NovelWebViewActivity extends TbWebViewActivity {
                 this.d = getIntent().getStringExtra(NovelWebViewActivityConfig.KEY_NOVEL_FID);
             }
             this.mWebView.setWebViewClient(new b(this, null));
-            yl4 yl4Var = this.mView;
-            if (yl4Var != null && (imageView = yl4Var.i) != null) {
+            zl4 zl4Var = this.mView;
+            if (zl4Var != null && (imageView = zl4Var.i) != null) {
                 imageView.setVisibility(8);
             }
             registerListener(this.e);

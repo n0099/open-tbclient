@@ -134,11 +134,11 @@ public class jf7 extends BaseAdapter {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeILL = interceptable.invokeILL(1048583, this, i, view2, viewGroup)) == null) {
             if (view2 == null) {
-                view2 = LayoutInflater.from(this.c).inflate(R.layout.obfuscated_res_0x7f0d0754, (ViewGroup) null);
+                view2 = LayoutInflater.from(this.c).inflate(R.layout.obfuscated_res_0x7f0d075e, (ViewGroup) null);
                 bVar = new b(this, null);
-                bVar.b = view2.findViewById(R.id.obfuscated_res_0x7f091b73);
-                bVar.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091c9a);
-                bVar.d = view2.findViewById(R.id.obfuscated_res_0x7f091c99);
+                bVar.b = view2.findViewById(R.id.obfuscated_res_0x7f091b4d);
+                bVar.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091ca0);
+                bVar.d = view2.findViewById(R.id.obfuscated_res_0x7f091c9f);
                 view2.setTag(bVar);
             } else {
                 bVar = (b) view2.getTag();

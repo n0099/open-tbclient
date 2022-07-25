@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.af;
-import com.repackage.xt4;
+import com.repackage.yt4;
 /* loaded from: classes3.dex */
 public class WeChatShareSmallAppToH5Switch extends af {
     public static /* synthetic */ Interceptable $ic = null;
@@ -33,7 +33,7 @@ public class WeChatShareSmallAppToH5Switch extends af {
     public static boolean isOn() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? xt4.k().l("key_wechat_small_app_to_h5", 0) == 1 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? yt4.k().l("key_wechat_small_app_to_h5", 0) == 1 : invokeV.booleanValue;
     }
 
     @Override // com.repackage.af

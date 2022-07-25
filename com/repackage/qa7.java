@@ -66,12 +66,12 @@ public class qa7 extends an<oa7, CardViewHolder<ra7>> {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, oa7Var, cardViewHolder})) == null) {
-            if (oa7Var == null || cardViewHolder == null || cardViewHolder.c() == null) {
+            if (oa7Var == null || cardViewHolder == null || cardViewHolder.b() == null) {
                 return null;
             }
-            cardViewHolder.c().w(this.k);
-            cardViewHolder.c().i(oa7Var);
-            return cardViewHolder.b();
+            cardViewHolder.b().w(this.k);
+            cardViewHolder.b().i(oa7Var);
+            return cardViewHolder.a();
         }
         return (View) invokeCommon.objValue;
     }

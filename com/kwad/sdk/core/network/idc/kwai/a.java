@@ -16,43 +16,38 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public final class a implements b {
-    public final Map<String, List<String>> a = new ConcurrentHashMap();
+    public final Map<String, List<String>> Zg = new ConcurrentHashMap();
 
-    public static a b(String str) {
+    public static a cb(String str) {
         a aVar = new a();
         try {
             aVar.parseJson(new JSONObject(str));
         } catch (JSONException e) {
-            com.kwad.sdk.core.d.b.b(e);
+            com.kwad.sdk.core.e.b.printStackTraceOnly(e);
         }
         return aVar;
     }
 
     @NonNull
-    private Map<String, List<String>> c() {
-        return this.a;
+    private Map<String, List<String>> tK() {
+        return this.Zg;
     }
 
-    @NonNull
-    public final List<String> a(String str) {
-        List<String> list = this.a.get(str);
-        return list == null ? Collections.emptyList() : list;
-    }
-
-    public final void a(a aVar) {
-        this.a.clear();
+    public final void b(a aVar) {
+        this.Zg.clear();
         if (aVar != null) {
-            this.a.putAll(aVar.c());
+            this.Zg.putAll(aVar.tK());
         }
     }
 
-    public final boolean a() {
-        return this.a.isEmpty();
+    @NonNull
+    public final List<String> ca(String str) {
+        List<String> list = this.Zg.get(str);
+        return list == null ? Collections.emptyList() : list;
     }
 
-    @NonNull
-    public final Set<String> b() {
-        return this.a.keySet();
+    public final boolean isEmpty() {
+        return this.Zg.isEmpty();
     }
 
     @Override // com.kwad.sdk.core.b
@@ -65,19 +60,24 @@ public final class a implements b {
         while (keys.hasNext()) {
             String next = keys.next();
             if (!TextUtils.isEmpty(next)) {
-                hashMap.put(next, r.a(jSONObject.optJSONArray(next)));
+                hashMap.put(next, r.f(jSONObject.optJSONArray(next)));
             }
         }
-        this.a.clear();
-        this.a.putAll(hashMap);
+        this.Zg.clear();
+        this.Zg.putAll(hashMap);
+    }
+
+    @NonNull
+    public final Set<String> tL() {
+        return this.Zg.keySet();
     }
 
     @Override // com.kwad.sdk.core.b
     public final JSONObject toJson() {
-        Map<String, List<String>> map = this.a;
+        Map<String, List<String>> map = this.Zg;
         JSONObject jSONObject = new JSONObject();
         for (String str : map.keySet()) {
-            r.a(jSONObject, str, r.b(map.get(str)));
+            r.putValue(jSONObject, str, r.B(map.get(str)));
         }
         return jSONObject;
     }

@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class o46 extends b25 {
+public class o46 extends c25 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -33,42 +33,42 @@ public class o46 extends b25 {
         u();
     }
 
-    @Override // com.repackage.b25
+    @Override // com.repackage.c25
     public String b(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) ? TbFaceManager.i().n(i) : (String) invokeI.objValue;
     }
 
-    @Override // com.repackage.b25
+    @Override // com.repackage.c25
     public int c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? TbFaceManager.i().m() : invokeV.intValue;
     }
 
-    @Override // com.repackage.b25
+    @Override // com.repackage.c25
     public String f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "_local" : (String) invokeV.objValue;
     }
 
-    @Override // com.repackage.b25
+    @Override // com.repackage.c25
     public String g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? "_local" : (String) invokeV.objValue;
     }
 
-    @Override // com.repackage.b25
+    @Override // com.repackage.c25
     public EmotionGroupType h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? EmotionGroupType.LOCAL : (EmotionGroupType) invokeV.objValue;
     }
 
-    @Override // com.repackage.b25
+    @Override // com.repackage.c25
     public int i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -78,7 +78,7 @@ public class o46 extends b25 {
         return invokeV.intValue;
     }
 
-    @Override // com.repackage.b25
+    @Override // com.repackage.c25
     public boolean j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -88,7 +88,7 @@ public class o46 extends b25 {
         return invokeV.booleanValue;
     }
 
-    @Override // com.repackage.b25
+    @Override // com.repackage.c25
     public int l() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -98,21 +98,21 @@ public class o46 extends b25 {
         return invokeV.intValue;
     }
 
-    @Override // com.repackage.b25
+    @Override // com.repackage.c25
     public boolean m(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) ? TbFaceManager.i().p(str) : invokeL.booleanValue;
     }
 
-    @Override // com.repackage.b25
+    @Override // com.repackage.c25
     public ym n(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, str)) == null) ? o(str) : (ym) invokeL.objValue;
     }
 
-    @Override // com.repackage.b25
+    @Override // com.repackage.c25
     public ym o(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;

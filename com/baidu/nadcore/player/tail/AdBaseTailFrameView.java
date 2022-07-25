@@ -224,7 +224,7 @@ public abstract class AdBaseTailFrameView extends FrameLayout {
             qy0.b(textView, Font.F_F_X02);
             this.e = (AdProgressButton) findViewById(R.id.obfuscated_res_0x7f0900fc);
             this.f = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0900fa);
-            this.k = (TextView) findViewById(R.id.obfuscated_res_0x7f09237a);
+            this.k = (TextView) findViewById(R.id.obfuscated_res_0x7f09237c);
             g();
         }
     }
@@ -306,7 +306,7 @@ public abstract class AdBaseTailFrameView extends FrameLayout {
                         if (!TextUtils.isEmpty(on0Var.e)) {
                             this.e.setText(on0Var.e);
                         } else {
-                            this.e.setText(getResources().getString(R.string.obfuscated_res_0x7f0f0b5e));
+                            this.e.setText(getResources().getString(R.string.obfuscated_res_0x7f0f0b4a));
                         }
                         si0 c2 = si0.c(on0Var.m, on0Var.l, on0Var.d);
                         c2.e = TextUtils.isEmpty(c2.d);
@@ -325,7 +325,7 @@ public abstract class AdBaseTailFrameView extends FrameLayout {
                     if (!TextUtils.isEmpty(on0Var.e)) {
                         this.d.setText(on0Var.e);
                     } else {
-                        this.d.setText(getResources().getText(R.string.obfuscated_res_0x7f0f0b4e));
+                        this.d.setText(getResources().getText(R.string.obfuscated_res_0x7f0f0b3a));
                     }
                 }
                 b bVar = new b(this, h, on0Var);

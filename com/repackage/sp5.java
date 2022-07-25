@@ -61,7 +61,7 @@ public class sp5 extends an<mr5, LiveTabConcernEmptyViewHolder> {
                 return null;
             }
             eq5Var.i(mr5Var);
-            return liveTabConcernEmptyViewHolder.b();
+            return liveTabConcernEmptyViewHolder.a();
         }
         return (View) invokeCommon.objValue;
     }

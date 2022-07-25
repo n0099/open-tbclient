@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.oj2;
+import com.repackage.pj2;
 /* loaded from: classes2.dex */
 public class SwanAppSubscribeMsgProvider extends ContentProvider {
     public static /* synthetic */ Interceptable $ic;
@@ -39,7 +39,7 @@ public class SwanAppSubscribeMsgProvider extends ContentProvider {
                 return;
             }
         }
-        b = oj2.c().getPackageName() + ".swan.subscribe_msg";
+        b = pj2.c().getPackageName() + ".swan.subscribe_msg";
         c = Uri.parse("content://" + b);
     }
 
@@ -65,7 +65,7 @@ public class SwanAppSubscribeMsgProvider extends ContentProvider {
                 if (this.a != null) {
                     return false;
                 }
-                SQLiteOpenHelper h = SwanAppDbControl.f(oj2.c()).h();
+                SQLiteOpenHelper h = SwanAppDbControl.f(pj2.c()).h();
                 if (h != null) {
                     SQLiteDatabase writableDatabase = h.getWritableDatabase();
                     this.a = writableDatabase;

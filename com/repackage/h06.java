@@ -7,7 +7,7 @@ public interface h06 {
 
     /* loaded from: classes6.dex */
     public interface a {
-        void b(long j);
+        void onProgress(long j);
     }
 
     /* loaded from: classes6.dex */

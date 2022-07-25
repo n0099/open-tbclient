@@ -23,9 +23,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.cr4;
+import com.repackage.dr4;
 /* loaded from: classes6.dex */
-public class ku7 extends n15 {
+public class ku7 extends o15 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public VoiceData.VoiceModel b;
@@ -64,7 +64,7 @@ public class ku7 extends n15 {
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.e.showToast(R.string.obfuscated_res_0x7f0f0c64);
+                this.a.e.showToast(R.string.obfuscated_res_0x7f0f0c50);
                 this.a.n(0, false, null);
             }
         }
@@ -87,7 +87,7 @@ public class ku7 extends n15 {
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
                 BaseActivity baseActivity = this.a.e;
                 if (StringUtils.isNull(str)) {
-                    str = this.a.a().getContext().getString(R.string.obfuscated_res_0x7f0f0a40);
+                    str = this.a.a().getContext().getString(R.string.obfuscated_res_0x7f0f0a2c);
                 }
                 baseActivity.showToast(str);
                 this.a.n(0, false, null);
@@ -137,7 +137,7 @@ public class ku7 extends n15 {
     }
 
     /* loaded from: classes6.dex */
-    public class c implements cr4.e {
+    public class c implements dr4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ku7 a;
@@ -160,18 +160,18 @@ public class ku7 extends n15 {
             this.a = ku7Var;
         }
 
-        @Override // com.repackage.cr4.e
-        public void onClick(cr4 cr4Var) {
+        @Override // com.repackage.dr4.e
+        public void onClick(dr4 dr4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, cr4Var) == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, dr4Var) == null) {
                 this.a.n(0, true, null);
-                cr4Var.dismiss();
+                dr4Var.dismiss();
             }
         }
     }
 
     /* loaded from: classes6.dex */
-    public class d implements cr4.e {
+    public class d implements dr4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ku7 a;
@@ -194,17 +194,17 @@ public class ku7 extends n15 {
             this.a = ku7Var;
         }
 
-        @Override // com.repackage.cr4.e
-        public void onClick(cr4 cr4Var) {
+        @Override // com.repackage.dr4.e
+        public void onClick(dr4 dr4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, cr4Var) == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, dr4Var) == null) {
                 if (ni.z()) {
                     this.a.n(1, true, null);
                     this.a.c.O();
                 } else {
                     this.a.g.a();
                 }
-                cr4Var.dismiss();
+                dr4Var.dismiss();
             }
         }
     }
@@ -265,12 +265,12 @@ public class ku7 extends n15 {
             locationModel.R(this.g);
             this.c.S(this.h);
             if (!StringUtils.isNull(TbadkCoreApplication.getInst().getDefaultBubble()) && a() != null) {
-                a().A(new j15(2, 12, " "));
+                a().A(new k15(2, 12, " "));
             }
             if (this.c.D() || a() == null) {
                 return;
             }
-            a().A(new j15(20, 8, null));
+            a().A(new k15(20, 8, null));
         }
     }
 
@@ -329,7 +329,7 @@ public class ku7 extends n15 {
         if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z), str}) == null) {
             this.f = i;
             if (a() != null) {
-                a().A(new j15(19, 8, new z25(i, z, str)));
+                a().A(new k15(19, 8, new a35(i, z, str)));
             }
         }
     }
@@ -363,9 +363,9 @@ public class ku7 extends n15 {
     public final void r() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
-            cr4 cr4Var = new cr4(this.e.getActivity());
-            cr4Var.setMessageId(R.string.obfuscated_res_0x7f0f0a3e).setPositiveButton(R.string.obfuscated_res_0x7f0f097e, new d(this)).setNegativeButton(R.string.obfuscated_res_0x7f0f036a, new c(this)).create(this.e.getPageContext());
-            cr4Var.show();
+            dr4 dr4Var = new dr4(this.e.getActivity());
+            dr4Var.setMessageId(R.string.obfuscated_res_0x7f0f0a2a).setPositiveButton(R.string.obfuscated_res_0x7f0f0969, new d(this)).setNegativeButton(R.string.obfuscated_res_0x7f0f036a, new c(this)).create(this.e.getPageContext());
+            dr4Var.show();
         }
     }
 
@@ -373,7 +373,7 @@ public class ku7 extends n15 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
             if (!this.c.I(this.e.getActivity())) {
-                this.e.showToast((int) R.string.obfuscated_res_0x7f0f0a45);
+                this.e.showToast((int) R.string.obfuscated_res_0x7f0f0a31);
             } else if (!TbadkCoreApplication.getInst().getLocationShared()) {
                 r();
             } else if (this.c.H()) {

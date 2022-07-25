@@ -1,27 +1,37 @@
 package com.repackage;
 
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+@Singleton
+@Service
 /* loaded from: classes6.dex */
-public class j24 {
+public class j24 implements ai1 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile i24 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static synchronized i24 a() {
-        InterceptResult invokeV;
-        i24 i24Var;
+    public j24() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            synchronized (j24.class) {
-                if (a == null) {
-                    a = new i24();
-                }
-                i24Var = a;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            return i24Var;
         }
-        return (i24) invokeV.objValue;
+    }
+
+    @Override // com.repackage.ai1
+    public void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            l24.c.f();
+        }
     }
 }

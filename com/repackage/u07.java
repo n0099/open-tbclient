@@ -31,7 +31,7 @@ public class u07 extends zv6 {
                 return;
             }
         }
-        this.b = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0f93);
+        this.b = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0f7c);
     }
 
     public void g(HotTopic hotTopic) {

@@ -368,18 +368,18 @@ public class SingleImageTextView extends RelativeLayout {
     public final void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0569, (ViewGroup) this, true);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f091db5);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f091db1);
-            TbImageView tbImageView = (TbImageView) findViewById(R.id.obfuscated_res_0x7f091db2);
+            LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0573, (ViewGroup) this, true);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f091dbb);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f091db7);
+            TbImageView tbImageView = (TbImageView) findViewById(R.id.obfuscated_res_0x7f091db8);
             this.d = tbImageView;
             tbImageView.setAutoChangeStyle(false);
             this.d.setRadius(pi.f(getContext(), R.dimen.tbds20));
             this.d.setConrers(15);
-            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f091a61);
+            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f091a3b);
             this.g = (ImageView) findViewById(R.id.obfuscated_res_0x7f0902a0);
-            this.e = findViewById(R.id.obfuscated_res_0x7f091db3);
-            this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f091d84);
+            this.e = findViewById(R.id.obfuscated_res_0x7f091db9);
+            this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f091d8a);
             setOnLongClickListener(new a(this));
             int dimension = (int) this.a.getResources().getDimension(R.dimen.tbds38);
             int dimension2 = (int) this.a.getResources().getDimension(R.dimen.tbds10);
@@ -437,9 +437,9 @@ public class SingleImageTextView extends RelativeLayout {
         }
         this.b.setText(!TextUtils.isEmpty(aVar.a) ? aVar.a : "");
         String str = TextUtils.isEmpty(aVar.b) ? "" : aVar.b;
-        if (!TextUtils.isEmpty(aVar.b) && aVar.b.contains(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f08e3))) {
+        if (!TextUtils.isEmpty(aVar.b) && aVar.b.contains(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f08ce))) {
             b bVar = new b(this, 2, aVar.d, aVar);
-            int indexOf = aVar.b.indexOf(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f08e3));
+            int indexOf = aVar.b.indexOf(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f08ce));
             SpannableString spannableString = new SpannableString(aVar.b);
             spannableString.setSpan(bVar, indexOf - 1, indexOf + 6, 33);
             this.c.setOnTouchListener(new bu8(spannableString));

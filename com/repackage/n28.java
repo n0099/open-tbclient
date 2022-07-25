@@ -67,7 +67,7 @@ public class n28 implements v38 {
                     return;
                 }
                 if (this.a.b != null) {
-                    this.a.b.showToast(R.string.obfuscated_res_0x7f0f0ef3);
+                    this.a.b.showToast(R.string.obfuscated_res_0x7f0f0edc);
                 }
                 this.a.e = 1;
                 this.a.a.e();
@@ -152,7 +152,7 @@ public class n28 implements v38 {
             if (!ni.z()) {
                 TbPageContext tbPageContext = this.b;
                 if (tbPageContext != null) {
-                    tbPageContext.showToast(R.string.obfuscated_res_0x7f0f0c2b);
+                    tbPageContext.showToast(R.string.obfuscated_res_0x7f0f0c17);
                     return;
                 }
                 return;

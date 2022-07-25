@@ -189,12 +189,12 @@ public class ob7 {
 
             /* renamed from: com.repackage.ob7$c$a$a  reason: collision with other inner class name */
             /* loaded from: classes6.dex */
-            public class C0697a implements qf0.d {
+            public class C0545a implements qf0.d {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ a a;
 
-                public C0697a(a aVar) {
+                public C0545a(a aVar) {
                     Interceptable interceptable = $ic;
                     if (interceptable != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
@@ -263,7 +263,7 @@ public class ob7 {
             public void b(@NonNull List<AdBaseModel> list) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
-                    qf0.b(this.a.a.b, this.a.a.e, list, this.a.a.l, new C0697a(this));
+                    qf0.b(this.a.a.b, this.a.a.e, list, this.a.a.l, new C0545a(this));
                     StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.FUN_AD_REQUEST);
                     statisticItem.param("obj_type", "a002").param("obj_locate", 0).param("obj_source", 1);
                     TiebaStatic.log(statisticItem);
@@ -375,7 +375,7 @@ public class ob7 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65549, null)) == null) {
             String clipBoardContent = UtilHelper.getClipBoardContent();
-            return !StringUtils.isNull(clipBoardContent) && mi4.j.matcher(clipBoardContent).find();
+            return !StringUtils.isNull(clipBoardContent) && ni4.j.matcher(clipBoardContent).find();
         }
         return invokeV.booleanValue;
     }
@@ -460,14 +460,14 @@ public class ob7 {
     public final void E() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            long m2 = xt4.k().m("key_home_insert_ad_show_time", 0L);
-            int l = xt4.k().l("key_home_insert_ad_show_num", 0);
+            long m2 = yt4.k().m("key_home_insert_ad_show_time", 0L);
+            int l = yt4.k().l("key_home_insert_ad_show_num", 0);
             if (StringHelper.isTaday(m2)) {
-                xt4.k().w("key_home_insert_ad_show_num", l + 1);
+                yt4.k().w("key_home_insert_ad_show_num", l + 1);
                 return;
             }
-            xt4.k().x("key_home_insert_ad_show_time", System.currentTimeMillis());
-            xt4.k().w("key_home_insert_ad_show_num", 1);
+            yt4.k().x("key_home_insert_ad_show_time", System.currentTimeMillis());
+            yt4.k().w("key_home_insert_ad_show_num", 1);
         }
     }
 
@@ -575,15 +575,15 @@ public class ob7 {
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
             View inflate = LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d003c, (ViewGroup) null);
             this.c = inflate;
-            this.e = (RoundRelativeLayout) inflate.findViewById(R.id.obfuscated_res_0x7f090d31);
-            this.f = (RoundRelativeLayout) this.c.findViewById(R.id.obfuscated_res_0x7f090d32);
+            this.e = (RoundRelativeLayout) inflate.findViewById(R.id.obfuscated_res_0x7f090d2a);
+            this.f = (RoundRelativeLayout) this.c.findViewById(R.id.obfuscated_res_0x7f090d2b);
             RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.e.getLayoutParams();
             layoutParams.width = (pi.k(this.b) * 837) / 1076;
             layoutParams.height = -2;
             this.e.setLayoutParams(layoutParams);
-            this.e.setRoundLayoutRadius(sr4.y(R.string.J_X06));
-            this.f.setRoundLayoutRadius(sr4.y(R.string.J_X06));
-            ImageView imageView = (ImageView) this.c.findViewById(R.id.obfuscated_res_0x7f090d30);
+            this.e.setRoundLayoutRadius(tr4.y(R.string.J_X06));
+            this.f.setRoundLayoutRadius(tr4.y(R.string.J_X06));
+            ImageView imageView = (ImageView) this.c.findViewById(R.id.obfuscated_res_0x7f090d29);
             this.g = imageView;
             imageView.setOnClickListener(new View.OnClickListener() { // from class: com.repackage.mb7
                 public static /* synthetic */ Interceptable $ic;
@@ -632,7 +632,7 @@ public class ob7 {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
             if ((!o || p) && UbsABTestHelper.isRequestInsertAd() && PermissionUtil.isAgreePrivacyPolicy()) {
                 if (this.k || !v()) {
-                    nx4 homeInsertAdData = TbSingleton.getInstance().getHomeInsertAdData();
+                    ox4 homeInsertAdData = TbSingleton.getInstance().getHomeInsertAdData();
                     return (w() || (homeInsertAdData != null && homeInsertAdData.b() == 0) || u()) ? false : true;
                 }
                 return false;
@@ -655,7 +655,7 @@ public class ob7 {
                 } else if (!p(i, i2)) {
                     return false;
                 }
-                nx4 homeInsertAdData = TbSingleton.getInstance().getHomeInsertAdData();
+                ox4 homeInsertAdData = TbSingleton.getInstance().getHomeInsertAdData();
                 return (((System.currentTimeMillis() - j) / 1000) > ((long) (homeInsertAdData != null ? homeInsertAdData.c() : 30)) ? 1 : (((System.currentTimeMillis() - j) / 1000) == ((long) (homeInsertAdData != null ? homeInsertAdData.c() : 30)) ? 0 : -1)) > 0;
             }
             return false;
@@ -700,9 +700,9 @@ public class ob7 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
-            if (StringHelper.isTaday(xt4.k().m("key_home_insert_ad_show_time", 0L))) {
-                int l = xt4.k().l("key_home_insert_ad_show_num", 0);
-                nx4 homeInsertAdData = TbSingleton.getInstance().getHomeInsertAdData();
+            if (StringHelper.isTaday(yt4.k().m("key_home_insert_ad_show_time", 0L))) {
+                int l = yt4.k().l("key_home_insert_ad_show_num", 0);
+                ox4 homeInsertAdData = TbSingleton.getInstance().getHomeInsertAdData();
                 if (l >= (homeInsertAdData != null ? homeInsertAdData.a() : 1)) {
                     return true;
                 }
@@ -733,6 +733,6 @@ public class ob7 {
         layoutParams.height = height;
         this.f.setLayoutParams(layoutParams);
         this.f.setVisibility(0);
-        ur4.d(this.f).f(R.color.CAM_X0503);
+        vr4.d(this.f).f(R.color.CAM_X0503);
     }
 }

@@ -9,23 +9,23 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.hs1;
-import com.repackage.io1;
-import com.repackage.vp1;
+import com.repackage.is1;
+import com.repackage.jo1;
+import com.repackage.wp1;
 @Keep
 /* loaded from: classes2.dex */
 public class SwanApiNetworkV8Module {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String MODULE_NAME = "_naV8Network";
     public transient /* synthetic */ FieldHolder $fh;
-    public vp1 requestApi;
+    public wp1 requestApi;
 
-    public SwanApiNetworkV8Module(@NonNull io1 io1Var) {
+    public SwanApiNetworkV8Module(@NonNull jo1 jo1Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {io1Var};
+            Object[] objArr = {jo1Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -35,7 +35,7 @@ public class SwanApiNetworkV8Module {
                 return;
             }
         }
-        this.requestApi = new vp1(io1Var);
+        this.requestApi = new wp1(jo1Var);
     }
 
     @JavascriptInterface
@@ -43,7 +43,7 @@ public class SwanApiNetworkV8Module {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jsObject)) == null) {
-            hs1 T = this.requestApi.T(jsObject);
+            is1 T = this.requestApi.T(jsObject);
             return T == null ? "" : T.a();
         }
         return (String) invokeL.objValue;

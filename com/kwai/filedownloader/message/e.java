@@ -12,13 +12,13 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public final class e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public volatile g a;
-    public volatile b b;
+    public volatile g avT;
+    public volatile b avU;
 
     /* loaded from: classes5.dex */
     public static final class a {
         public static /* synthetic */ Interceptable $ic;
-        public static final e a;
+        public static final e avV;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -34,13 +34,13 @@ public final class e {
                     return;
                 }
             }
-            a = new e();
+            avV = new e();
         }
     }
 
     /* loaded from: classes5.dex */
     public interface b {
-        void a(MessageSnapshot messageSnapshot);
+        void r(MessageSnapshot messageSnapshot);
     }
 
     public e() {
@@ -57,33 +57,33 @@ public final class e {
         }
     }
 
-    public static e a() {
+    public static e Eg() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? a.a : (e) invokeV.objValue;
-    }
-
-    public final void a(MessageSnapshot messageSnapshot) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, messageSnapshot) == null) {
-            if (messageSnapshot instanceof com.kwai.filedownloader.message.b) {
-                if (this.b != null) {
-                    this.b.a(messageSnapshot);
-                }
-            } else if (this.a != null) {
-                this.a.a(messageSnapshot);
-            }
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? a.avV : (e) invokeV.objValue;
     }
 
     public final void a(b bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) {
-            this.b = bVar;
+        if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
+            this.avU = bVar;
             if (bVar == null) {
-                this.a = null;
+                this.avT = null;
             } else {
-                this.a = new g(5, bVar);
+                this.avT = new g(5, bVar);
+            }
+        }
+    }
+
+    public final void s(MessageSnapshot messageSnapshot) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, messageSnapshot) == null) {
+            if (messageSnapshot instanceof com.kwai.filedownloader.message.b) {
+                if (this.avU != null) {
+                    this.avU.r(messageSnapshot);
+                }
+            } else if (this.avT != null) {
+                this.avT.u(messageSnapshot);
             }
         }
     }

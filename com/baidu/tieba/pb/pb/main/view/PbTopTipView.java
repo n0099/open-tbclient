@@ -354,7 +354,7 @@ public class PbTopTipView extends TextView {
             setupPaddings();
             this.d = AnimationUtils.loadAnimation(getContext(), R.anim.obfuscated_res_0x7f0100fc);
             this.c = AnimationUtils.loadAnimation(getContext(), R.anim.obfuscated_res_0x7f0100fd);
-            setTextSize(0, TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070330));
+            setTextSize(0, TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07032e));
             this.c.setAnimationListener(new d(this));
             this.d.setDuration(400L);
             this.d.setAnimationListener(new e(this));

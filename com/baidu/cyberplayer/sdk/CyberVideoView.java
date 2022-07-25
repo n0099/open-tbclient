@@ -24,6 +24,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.yy.mobile.framework.revenuesdk.baseapi.ErrorCode;
 import java.nio.Buffer;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -693,16 +694,16 @@ public class CyberVideoView extends FrameLayout implements CyberPlayerManager.On
     }
 
     private void c() {
-        ArrayList<a.C0087a> b;
+        ArrayList<a.C0088a> b;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(65547, this) == null) || this.b == null || (b = this.x.b()) == null) {
             return;
         }
         int size = b.size();
         for (int i = 0; i < size; i++) {
-            a.C0087a c0087a = b.get(i);
-            if (c0087a != null && c0087a.a() != null) {
-                this.b.setExternalInfo(c0087a.a(), c0087a.b());
+            a.C0088a c0088a = b.get(i);
+            if (c0088a != null && c0088a.a() != null) {
+                this.b.setExternalInfo(c0088a.a(), c0088a.b());
             }
         }
     }
@@ -801,7 +802,7 @@ public class CyberVideoView extends FrameLayout implements CyberPlayerManager.On
             } else {
                 this.b.changeProxyDynamic(str, true);
             }
-            this.b.seekTo(getCurrentPosition() - 500);
+            this.b.seekTo(getCurrentPosition() + ErrorCode.SERVER_ERROR);
             HashMap<String, String> hashMap2 = this.l;
             if (hashMap2 != null) {
                 hashMap2.put(CyberPlayerManager.OPT_HTTP_PROXY, str);

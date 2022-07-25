@@ -29,7 +29,7 @@ import com.repackage.ki7;
 import com.repackage.li7;
 import com.repackage.mi7;
 import com.repackage.pi;
-import com.repackage.rl4;
+import com.repackage.sl4;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class BubbleChooseActivity extends BaseActivity<BubbleChooseActivity> {
@@ -79,14 +79,14 @@ public class BubbleChooseActivity extends BaseActivity<BubbleChooseActivity> {
                             this.a.showToast(bubbleListData.getError_msg());
                             return;
                         } else {
-                            this.a.showToast(R.string.obfuscated_res_0x7f0f0c2b);
+                            this.a.showToast(R.string.obfuscated_res_0x7f0f0c17);
                             return;
                         }
                     }
-                    this.a.showToast(R.string.obfuscated_res_0x7f0f0c2b);
+                    this.a.showToast(R.string.obfuscated_res_0x7f0f0c17);
                     return;
                 }
-                this.a.showToast(R.string.obfuscated_res_0x7f0f0c2b);
+                this.a.showToast(R.string.obfuscated_res_0x7f0f0c17);
             }
         }
 
@@ -167,7 +167,7 @@ public class BubbleChooseActivity extends BaseActivity<BubbleChooseActivity> {
                     a.d(false);
                     a.notifyDataSetChanged();
                 } else {
-                    this.a.showToast(R.string.obfuscated_res_0x7f0f1126);
+                    this.a.showToast(R.string.obfuscated_res_0x7f0f10e2);
                 }
             }
         }
@@ -183,14 +183,14 @@ public class BubbleChooseActivity extends BaseActivity<BubbleChooseActivity> {
                             this.a.showToast(setBubbleResultData.getError_msg());
                             return;
                         } else {
-                            this.a.showToast(R.string.obfuscated_res_0x7f0f0c2b);
+                            this.a.showToast(R.string.obfuscated_res_0x7f0f0c17);
                             return;
                         }
                     }
-                    this.a.showToast(R.string.obfuscated_res_0x7f0f0c2b);
+                    this.a.showToast(R.string.obfuscated_res_0x7f0f0c17);
                     return;
                 }
-                this.a.showToast(R.string.obfuscated_res_0x7f0f0c2b);
+                this.a.showToast(R.string.obfuscated_res_0x7f0f0c17);
             }
         }
     }
@@ -409,8 +409,8 @@ public class BubbleChooseActivity extends BaseActivity<BubbleChooseActivity> {
             super.onClick(view2);
             if (view2 == this.a.h()) {
                 Activity pageActivity = getPageContext().getPageActivity();
-                String string = getPageContext().getString(R.string.obfuscated_res_0x7f0f159e);
-                rl4.s(pageActivity, string, TbConfig.SERVER_ADDRESS_WEB_VIEW + "mo/q/tbeanrights?type=1&_client_version=" + TbConfig.getVersion(), true, true, true);
+                String string = getPageContext().getString(R.string.obfuscated_res_0x7f0f154d);
+                sl4.s(pageActivity, string, TbConfig.SERVER_ADDRESS_WEB_VIEW + "mo/q/tbeanrights?type=1&_client_version=" + TbConfig.getVersion(), true, true, true);
             }
         }
     }

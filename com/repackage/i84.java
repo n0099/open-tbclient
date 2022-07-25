@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes6.dex */
-public class i84 extends f84<c94> {
+public class i84 extends g84<b94> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -29,8 +29,8 @@ public class i84 extends f84<c94> {
         }
     }
 
-    @Override // com.repackage.f84
-    public List<c94> e(Cursor cursor) {
+    @Override // com.repackage.g84
+    public List<b94> e(Cursor cursor) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cursor)) == null) {
@@ -39,9 +39,9 @@ public class i84 extends f84<c94> {
                 return arrayList;
             }
             do {
-                c94 c94Var = new c94();
-                if (b(cursor, c94Var)) {
-                    arrayList.add(c94Var);
+                b94 b94Var = new b94();
+                if (b(cursor, b94Var)) {
+                    arrayList.add(b94Var);
                 }
             } while (cursor.moveToNext());
             return arrayList;
@@ -50,30 +50,30 @@ public class i84 extends f84<c94> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.f84
+    @Override // com.repackage.g84
     /* renamed from: f */
-    public ContentValues c(c94 c94Var) {
+    public ContentValues c(b94 b94Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, c94Var)) == null) ? a(c94Var) : (ContentValues) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, b94Var)) == null) ? a(b94Var) : (ContentValues) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.f84
+    @Override // com.repackage.g84
     /* renamed from: g */
-    public c94 d(Cursor cursor) {
+    public b94 d(Cursor cursor) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, cursor)) == null) {
             if (cursor == null || cursor.getCount() <= 0 || !cursor.moveToFirst()) {
                 return null;
             }
-            c94 c94Var = new c94();
-            if (b(cursor, c94Var)) {
-                return c94Var;
+            b94 b94Var = new b94();
+            if (b(cursor, b94Var)) {
+                return b94Var;
             }
             return null;
         }
-        return (c94) invokeL.objValue;
+        return (b94) invokeL.objValue;
     }
 }

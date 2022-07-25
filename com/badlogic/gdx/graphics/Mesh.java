@@ -339,8 +339,8 @@ public class Mesh implements h7 {
             t3 b = this.a.b();
             int size = b.size();
             for (int i2 = 0; i2 < size; i2++) {
-                if (b.d(i2).a == i) {
-                    return b.d(i2);
+                if (b.c(i2).a == i) {
+                    return b.c(i2);
                 }
             }
             return null;

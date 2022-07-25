@@ -26,9 +26,9 @@ public final class R$attr {
     public static final int layoutManager = 2130969548;
     public static final int recyclerViewStyle = 2130969903;
     public static final int reverseLayout = 2130969917;
-    public static final int spanCount = 2130970042;
-    public static final int stackFromEnd = 2130970053;
-    public static final int ttcIndex = 2130970291;
+    public static final int spanCount = 2130970044;
+    public static final int stackFromEnd = 2130970055;
+    public static final int ttcIndex = 2130970293;
     public transient /* synthetic */ FieldHolder $fh;
 
     public R$attr() {

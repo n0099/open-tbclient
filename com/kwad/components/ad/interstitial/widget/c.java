@@ -5,7 +5,7 @@ import android.animation.AnimatorListenerAdapter;
 import android.animation.ValueAnimator;
 import android.app.Dialog;
 import android.content.Context;
-import android.content.res.Configuration;
+import android.os.Build;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
@@ -30,32 +30,35 @@ import com.kwad.sdk.api.KsAdVideoPlayConfig;
 import com.kwad.sdk.api.KsInterstitialAd;
 import com.kwad.sdk.core.response.model.AdInfo;
 import com.kwad.sdk.core.response.model.AdTemplate;
-import com.kwad.sdk.utils.ae;
+import com.kwad.sdk.utils.ag;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes5.dex */
 public final class c extends b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public com.kwad.components.core.widget.kwai.b aM;
+    public final com.kwad.sdk.core.h.b bX;
+    public KsInterstitialAd.AdInteractionListener fo;
+    public boolean ia;
+
+    /* renamed from: if  reason: not valid java name */
+    public TransViewPager f7if;
+    public a ig;
+    public ViewPagerIndicator ih;
+    public SlideTipsView ij;
+    public SlideTipsView ik;
+    public ValueAnimator il;
+    public boolean im;
+
+    /* renamed from: io  reason: collision with root package name */
+    public boolean f1076io;
+    public final ViewPager.OnPageChangeListener iq;
+    public AdInfo mAdInfo;
     @NonNull
-    public AdTemplate b;
-    public AdInfo c;
-    public KsInterstitialAd.AdInteractionListener d;
-    @NonNull
-    public Context e;
-    public final List<AdTemplate> f;
-    public final View g;
-    public TransViewPager h;
-    public a i;
-    public ViewPagerIndicator j;
-    public SlideTipsView k;
-    public SlideTipsView l;
-    public boolean m;
-    public boolean n;
-    public ValueAnimator o;
-    public boolean p;
-    public boolean q;
-    public final ViewPager.OnPageChangeListener r;
+    public AdTemplate mAdTemplate;
+    public final List<AdTemplate> mAdTemplateList;
+    public final View mRootView;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public c(@NonNull Context context) {
@@ -97,11 +100,11 @@ public final class c extends b {
                 return;
             }
         }
-        this.f = new ArrayList();
-        this.r = new ViewPager.SimpleOnPageChangeListener(this) { // from class: com.kwad.components.ad.interstitial.widget.c.2
+        this.mAdTemplateList = new ArrayList();
+        this.bX = new com.kwad.sdk.core.h.c(this) { // from class: com.kwad.components.ad.interstitial.widget.c.2
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ c a;
+            public final /* synthetic */ c ir;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -118,7 +121,66 @@ public final class c extends b {
                         return;
                     }
                 }
-                this.a = this;
+                this.ir = this;
+            }
+
+            @Override // com.kwad.sdk.core.h.c, com.kwad.sdk.core.h.b
+            public final void aR() {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                    super.aR();
+                    if (Build.VERSION.SDK_INT >= 19 && this.ir.im) {
+                        if (this.ir.ih != null) {
+                            this.ir.ih.ek();
+                        }
+                        if (this.ir.il != null) {
+                            this.ir.il.resume();
+                        }
+                        this.ir.im = false;
+                    }
+                }
+            }
+
+            @Override // com.kwad.sdk.core.h.c, com.kwad.sdk.core.h.b
+            public final void aS() {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                    super.aS();
+                    if (Build.VERSION.SDK_INT >= 19 && !this.ir.im) {
+                        if (this.ir.ih != null) {
+                            this.ir.ih.ej();
+                        }
+                        if (this.ir.il != null) {
+                            this.ir.il.pause();
+                        }
+                        this.ir.im = true;
+                    }
+                }
+            }
+        };
+        this.iq = new ViewPager.SimpleOnPageChangeListener(this) { // from class: com.kwad.components.ad.interstitial.widget.c.3
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ c ir;
+            public int is;
+
+            {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext2 = TitanRuntime.newInitContext();
+                    newInitContext2.initArgs = r2;
+                    Object[] objArr3 = {this};
+                    interceptable2.invokeUnInit(65536, newInitContext2);
+                    int i3 = newInitContext2.flag;
+                    if ((i3 & 1) != 0) {
+                        int i4 = i3 & 2;
+                        newInitContext2.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext2);
+                        return;
+                    }
+                }
+                this.ir = this;
+                this.is = 0;
             }
 
             @Override // androidx.viewpager.widget.ViewPager.SimpleOnPageChangeListener, androidx.viewpager.widget.ViewPager.OnPageChangeListener
@@ -127,46 +189,47 @@ public final class c extends b {
                 if (!(interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i3), Float.valueOf(f), Integer.valueOf(i4)}) == null) || f == 0.0f) {
                     return;
                 }
-                if (this.a.k.getVisibility() == 0) {
-                    this.a.k.clearAnimation();
-                    this.a.k.setVisibility(8);
+                if (this.ir.ij.getVisibility() == 0) {
+                    this.ir.ij.clearAnimation();
+                    this.ir.ij.setVisibility(8);
                 }
-                if (this.a.l.getVisibility() == 0) {
-                    this.a.l.clearAnimation();
-                    this.a.l.setVisibility(8);
+                if (this.ir.ik.getVisibility() == 0) {
+                    this.ir.ik.clearAnimation();
+                    this.ir.ik.setVisibility(8);
+                }
+            }
+
+            @Override // androidx.viewpager.widget.ViewPager.SimpleOnPageChangeListener, androidx.viewpager.widget.ViewPager.OnPageChangeListener
+            public final void onPageSelected(int i3) {
+                e F;
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i3) == null) {
+                    e F2 = this.ir.f7if.F(i3);
+                    if (F2 != null) {
+                        F2.dW();
+                    }
+                    if (this.is != i3 && (F = this.ir.f7if.F(this.is)) != null) {
+                        F.dX();
+                    }
+                    this.is = i3;
                 }
             }
         };
-        this.g = FrameLayout.inflate(context, R.layout.obfuscated_res_0x7f0d042e, this);
-        this.e = context;
-        c();
-    }
-
-    private void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65542, this) == null) {
-            this.h = (TransViewPager) this.g.findViewById(R.id.obfuscated_res_0x7f091096);
-            this.j = (ViewPagerIndicator) this.g.findViewById(R.id.obfuscated_res_0x7f091097);
-            this.k = (SlideTipsView) this.g.findViewById(R.id.obfuscated_res_0x7f091080);
-            this.l = (SlideTipsView) this.g.findViewById(R.id.obfuscated_res_0x7f091181);
-            ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.j.getLayoutParams();
-            if (marginLayoutParams != null) {
-                marginLayoutParams.bottomMargin = com.kwad.sdk.b.kwai.a.a(this.e, ae.e(this.e) ? 12.0f : 6.0f);
-                this.j.setLayoutParams(marginLayoutParams);
-            }
-        }
+        this.mRootView = FrameLayout.inflate(context, R.layout.obfuscated_res_0x7f0d042e, this);
+        this.mContext = context;
+        initView();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void d() {
+    public void dO() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65544, this) == null) || this.b.mAdScene == null) {
+        if (!(interceptable == null || interceptable.invokeV(65544, this) == null) || this.mAdTemplate.mAdScene == null) {
             return;
         }
-        com.kwad.components.ad.interstitial.c.a().a(16, com.kwad.components.ad.interstitial.kwai.b.f(), this.b.mAdScene, new c.b(this) { // from class: com.kwad.components.ad.interstitial.widget.c.5
+        com.kwad.components.ad.interstitial.c.cd().a(16, com.kwad.components.ad.interstitial.kwai.b.cn(), this.mAdTemplate.mAdScene, new c.b(this) { // from class: com.kwad.components.ad.interstitial.widget.c.6
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ c a;
+            public final /* synthetic */ c ir;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -183,36 +246,37 @@ public final class c extends b {
                         return;
                     }
                 }
-                this.a = this;
+                this.ir = this;
             }
 
             @Override // com.kwad.components.ad.interstitial.c.b
-            public final void a(@Nullable List<AdTemplate> list) {
+            public final void onInterstitialAdLoad(@Nullable List<AdTemplate> list) {
                 Interceptable interceptable2 = $ic;
                 if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, list) == null) || list == null || list.size() <= 0) {
                     return;
                 }
-                this.a.f.addAll(list);
-                this.a.i.a(this.a.f);
-                this.a.i.notifyDataSetChanged();
-                this.a.h.setOffscreenPageLimit(this.a.f.size() - 1);
-                this.a.h.addOnPageChangeListener(this.a.r);
-                this.a.e();
-                this.a.j.setViewPager(this.a.h);
-                this.a.j.setVisibility(0);
-                com.kwad.components.ad.interstitial.a.a.a(this.a.e);
+                this.ir.mAdTemplateList.addAll(list);
+                this.ir.ig.setAdTemplateList(this.ir.mAdTemplateList);
+                this.ir.ig.notifyDataSetChanged();
+                this.ir.f7if.setOffscreenPageLimit(this.ir.mAdTemplateList.size() - 1);
+                this.ir.f7if.addOnPageChangeListener(this.ir.iq);
+                this.ir.dP();
+                this.ir.ih.setViewPager(this.ir.f7if);
+                this.ir.ih.setVisibility(0);
+                this.ir.aM.a(this.ir.bX);
+                com.kwad.components.ad.interstitial.a.a.I(this.ir.mContext);
             }
         });
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void e() {
+    public void dP() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65545, this) == null) {
-            this.j.setPlayProgressListener(new ViewPagerIndicator.a(this) { // from class: com.kwad.components.ad.interstitial.widget.c.6
+            this.ih.setPlayProgressListener(new ViewPagerIndicator.a(this) { // from class: com.kwad.components.ad.interstitial.widget.c.7
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ c a;
+                public final /* synthetic */ c ir;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -229,20 +293,20 @@ public final class c extends b {
                             return;
                         }
                     }
-                    this.a = this;
+                    this.ir = this;
                 }
 
                 @Override // com.kwad.components.ad.interstitial.widget.ViewPagerIndicator.a
-                public final void a() {
+                public final void dS() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.a.q = true;
-                        if (this.a.m) {
-                            this.a.g();
+                        this.ir.f1076io = true;
+                        if (this.ir.ia) {
+                            this.ir.dR();
                         } else {
-                            this.a.f();
+                            this.ir.dQ();
                         }
-                        this.a.h.setScrollable(true);
+                        this.ir.f7if.setScrollable(true);
                     }
                 }
             });
@@ -250,16 +314,16 @@ public final class c extends b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void f() {
+    public void dQ() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65548, this) == null) {
+        if (interceptable == null || interceptable.invokeV(65546, this) == null) {
             ValueAnimator ofInt = ValueAnimator.ofInt(0, 120, 0);
-            this.o = ofInt;
+            this.il = ofInt;
             ofInt.setDuration(IMLikeRequest.TIME_INTERVAL);
-            this.o.addUpdateListener(new ValueAnimator.AnimatorUpdateListener(this) { // from class: com.kwad.components.ad.interstitial.widget.c.7
+            this.il.addUpdateListener(new ValueAnimator.AnimatorUpdateListener(this) { // from class: com.kwad.components.ad.interstitial.widget.c.8
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ c a;
+                public final /* synthetic */ c ir;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -276,7 +340,7 @@ public final class c extends b {
                             return;
                         }
                     }
-                    this.a = this;
+                    this.ir = this;
                 }
 
                 @Override // android.animation.ValueAnimator.AnimatorUpdateListener
@@ -284,15 +348,15 @@ public final class c extends b {
                     float f;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, valueAnimator) == null) {
-                        this.a.h.scrollTo(com.kwad.sdk.b.kwai.a.a(this.a.e, ((Integer) valueAnimator.getAnimatedValue()).intValue()), 0);
-                        this.a.h.onPageScrolled(0, com.kwad.sdk.b.kwai.a.a(this.a.e, f) / this.a.getWidth(), 0);
+                        this.ir.f7if.scrollTo(com.kwad.sdk.b.kwai.a.a(this.ir.mContext, ((Integer) valueAnimator.getAnimatedValue()).intValue()), 0);
+                        this.ir.f7if.onPageScrolled(0, com.kwad.sdk.b.kwai.a.a(this.ir.mContext, f) / this.ir.getWidth(), 0);
                     }
                 }
             });
-            this.o.addListener(new AnimatorListenerAdapter(this) { // from class: com.kwad.components.ad.interstitial.widget.c.8
+            this.il.addListener(new AnimatorListenerAdapter(this) { // from class: com.kwad.components.ad.interstitial.widget.c.9
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ c a;
+                public final /* synthetic */ c ir;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -309,14 +373,14 @@ public final class c extends b {
                             return;
                         }
                     }
-                    this.a = this;
+                    this.ir = this;
                 }
 
                 @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
                 public final void onAnimationEnd(Animator animator) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, animator) == null) {
-                        this.a.k.setVisibility(0);
+                        this.ir.ij.setVisibility(0);
                         TranslateAnimation translateAnimation = new TranslateAnimation(1, 0.5f, 1, 0.1f, 1, 0.0f, 1, 0.0f);
                         AlphaAnimation alphaAnimation = new AlphaAnimation(0.0f, 0.8f);
                         AnimationSet animationSet = new AnimationSet(true);
@@ -324,25 +388,25 @@ public final class c extends b {
                         animationSet.addAnimation(alphaAnimation);
                         animationSet.setDuration(800L);
                         animationSet.setFillAfter(true);
-                        this.a.k.startAnimation(animationSet);
+                        this.ir.ij.startAnimation(animationSet);
                     }
                 }
             });
-            this.o.start();
+            this.il.start();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void g() {
+    public void dR() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65550, this) == null) {
+        if (interceptable == null || interceptable.invokeV(65547, this) == null) {
             ValueAnimator ofInt = ValueAnimator.ofInt(0, getWidth());
-            this.o = ofInt;
+            this.il = ofInt;
             ofInt.setDuration(800L);
-            this.o.addUpdateListener(new ValueAnimator.AnimatorUpdateListener(this) { // from class: com.kwad.components.ad.interstitial.widget.c.9
+            this.il.addUpdateListener(new ValueAnimator.AnimatorUpdateListener(this) { // from class: com.kwad.components.ad.interstitial.widget.c.10
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ c a;
+                public final /* synthetic */ c ir;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -359,7 +423,7 @@ public final class c extends b {
                             return;
                         }
                     }
-                    this.a = this;
+                    this.ir = this;
                 }
 
                 @Override // android.animation.ValueAnimator.AnimatorUpdateListener
@@ -367,15 +431,15 @@ public final class c extends b {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, valueAnimator) == null) {
                         int intValue = ((Integer) valueAnimator.getAnimatedValue()).intValue();
-                        this.a.h.scrollTo(intValue, 0);
-                        this.a.h.onPageScrolled(0, intValue / this.a.getWidth(), 0);
+                        this.ir.f7if.scrollTo(intValue, 0);
+                        this.ir.f7if.onPageScrolled(0, intValue / this.ir.getWidth(), 0);
                     }
                 }
             });
-            this.o.addListener(new AnimatorListenerAdapter(this) { // from class: com.kwad.components.ad.interstitial.widget.c.10
+            this.il.addListener(new AnimatorListenerAdapter(this) { // from class: com.kwad.components.ad.interstitial.widget.c.11
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ c a;
+                public final /* synthetic */ c ir;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -392,14 +456,15 @@ public final class c extends b {
                             return;
                         }
                     }
-                    this.a = this;
+                    this.ir = this;
                 }
 
                 @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
                 public final void onAnimationEnd(Animator animator) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, animator) == null) {
-                        this.a.l.setVisibility(0);
+                        this.ir.f7if.setCurrentItem(1);
+                        this.ir.ik.setVisibility(0);
                         TranslateAnimation translateAnimation = new TranslateAnimation(1, -0.5f, 1, -0.1f, 1, 0.0f, 1, 0.0f);
                         AlphaAnimation alphaAnimation = new AlphaAnimation(0.0f, 0.8f);
                         AnimationSet animationSet = new AnimationSet(true);
@@ -407,39 +472,42 @@ public final class c extends b {
                         animationSet.addAnimation(alphaAnimation);
                         animationSet.setDuration(800L);
                         animationSet.setFillAfter(true);
-                        this.a.l.startAnimation(animationSet);
+                        this.ir.ik.startAnimation(animationSet);
                     }
                 }
             });
-            this.o.start();
+            this.il.start();
         }
     }
 
-    @Override // com.kwad.components.ad.interstitial.widget.b
-    public final void a() {
+    private void initView() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+        if (interceptable == null || interceptable.invokeV(65553, this) == null) {
+            this.f7if = (TransViewPager) this.mRootView.findViewById(R.id.obfuscated_res_0x7f09108d);
+            this.ih = (ViewPagerIndicator) this.mRootView.findViewById(R.id.obfuscated_res_0x7f09108e);
+            this.ij = (SlideTipsView) this.mRootView.findViewById(R.id.obfuscated_res_0x7f091077);
+            this.ik = (SlideTipsView) this.mRootView.findViewById(R.id.obfuscated_res_0x7f09115f);
+            this.aM = new com.kwad.components.core.widget.kwai.b(this.mRootView, 100);
         }
     }
 
     @Override // com.kwad.components.ad.interstitial.widget.b
     public final void a(@NonNull AdTemplate adTemplate, Dialog dialog, @NonNull KsAdVideoPlayConfig ksAdVideoPlayConfig, KsInterstitialAd.AdInteractionListener adInteractionListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, adTemplate, dialog, ksAdVideoPlayConfig, adInteractionListener) == null) {
-            this.b = adTemplate;
-            AdInfo i = com.kwad.sdk.core.response.a.d.i(adTemplate);
-            this.c = i;
-            this.m = com.kwad.sdk.core.response.a.a.aL(i) == 1;
-            this.f.clear();
-            this.f.add(this.b);
-            this.d = adInteractionListener;
-            this.n = ae.e(this.e);
+        if (interceptable == null || interceptable.invokeLLLL(1048576, this, adTemplate, dialog, ksAdVideoPlayConfig, adInteractionListener) == null) {
+            this.mAdTemplate = adTemplate;
+            AdInfo bQ = com.kwad.sdk.core.response.a.d.bQ(adTemplate);
+            this.mAdInfo = bQ;
+            this.ia = com.kwad.sdk.core.response.a.a.bu(bQ) == 1;
+            this.mAdTemplateList.clear();
+            this.mAdTemplateList.add(this.mAdTemplate);
+            this.fo = adInteractionListener;
             a aVar = new a(adTemplate, dialog, ksAdVideoPlayConfig, adInteractionListener);
-            this.i = aVar;
+            this.ig = aVar;
             aVar.a(new a.b(this) { // from class: com.kwad.components.ad.interstitial.widget.c.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ c a;
+                public final /* synthetic */ c ir;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -448,29 +516,29 @@ public final class c extends b {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
                         }
                     }
-                    this.a = this;
+                    this.ir = this;
                 }
 
                 @Override // com.kwad.components.ad.interstitial.widget.a.b
-                public final void a(e eVar, int i2) {
+                public final void a(e eVar, int i) {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeLI(1048576, this, eVar, i2) == null) {
-                        this.a.h.a(i2, eVar);
+                    if (interceptable2 == null || interceptable2.invokeLI(1048576, this, eVar, i) == null) {
+                        this.ir.f7if.a(i, eVar);
                     }
                 }
             });
-            this.i.a(new a.InterfaceC0473a(this) { // from class: com.kwad.components.ad.interstitial.widget.c.3
+            this.ig.a(new a.InterfaceC0320a(this) { // from class: com.kwad.components.ad.interstitial.widget.c.4
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ c a;
+                public final /* synthetic */ c ir;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -479,39 +547,49 @@ public final class c extends b {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
                         }
                     }
-                    this.a = this;
+                    this.ir = this;
                 }
 
-                @Override // com.kwad.components.ad.interstitial.widget.a.InterfaceC0473a
-                public final void a() {
+                @Override // com.kwad.components.ad.interstitial.widget.a.InterfaceC0320a
+                public final void dL() {
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.a.q) {
+                    if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.ir.f1076io) {
                         return;
                     }
-                    if (this.a.o != null) {
-                        this.a.o.cancel();
+                    if (this.ir.il != null) {
+                        this.ir.il.cancel();
                     }
-                    this.a.j.setPlayProgressListener(null);
-                    this.a.j.setVisibility(8);
-                    this.a.h.setScrollable(false);
+                    this.ir.ih.setPlayProgressListener(null);
+                    this.ir.ih.setVisibility(8);
+                    this.ir.f7if.setScrollable(false);
                 }
             });
-            this.h.setAdapter(this.i);
-            this.i.a(this.f);
-            this.i.notifyDataSetChanged();
-            this.j.setFirstAdShowTime(com.kwad.sdk.core.response.a.a.aM(this.c));
-            post(new Runnable(this) { // from class: com.kwad.components.ad.interstitial.widget.c.4
+            this.f7if.setAdapter(this.ig);
+            this.ig.setAdTemplateList(this.mAdTemplateList);
+            this.ig.notifyDataSetChanged();
+            this.aM.qi();
+            ViewPagerIndicator viewPagerIndicator = this.ih;
+            if (viewPagerIndicator == null) {
+                return;
+            }
+            ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) viewPagerIndicator.getLayoutParams();
+            if (marginLayoutParams != null) {
+                marginLayoutParams.bottomMargin = com.kwad.sdk.b.kwai.a.a(this.mContext, ag.cB(this.mContext) ? 12.0f : 6.0f);
+                this.ih.setLayoutParams(marginLayoutParams);
+            }
+            this.ih.setFirstAdShowTime(com.kwad.sdk.core.response.a.a.bv(this.mAdInfo));
+            post(new Runnable(this) { // from class: com.kwad.components.ad.interstitial.widget.c.5
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ c a;
+                public final /* synthetic */ c ir;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -520,22 +598,22 @@ public final class c extends b {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
                         }
                     }
-                    this.a = this;
+                    this.ir = this;
                 }
 
                 @Override // java.lang.Runnable
                 public final void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.a.d();
+                        this.ir.dO();
                     }
                 }
             });
@@ -543,49 +621,36 @@ public final class c extends b {
     }
 
     @Override // com.kwad.components.ad.interstitial.widget.b
-    public final void b() {
+    public final void dM() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
         }
     }
 
-    @Override // android.view.View
-    public final void onConfigurationChanged(Configuration configuration) {
-        g gVar;
+    @Override // com.kwad.components.ad.interstitial.widget.b
+    public final void dN() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, configuration) == null) {
-            super.onConfigurationChanged(configuration);
-            if (!this.p || ae.e(this.e) == this.n || (gVar = this.a) == null) {
-                return;
-            }
-            gVar.a();
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
         }
     }
 
     @Override // android.view.ViewGroup, android.view.View
     public final void onDetachedFromWindow() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             super.onDetachedFromWindow();
-            this.f.clear();
-            com.kwad.components.ad.interstitial.c.a().b();
-        }
-    }
-
-    @Override // android.view.View
-    public final void onWindowVisibilityChanged(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
-            super.onWindowVisibilityChanged(i);
-            this.p = i == 0;
+            this.aM.b(this.bX);
+            this.aM.qj();
+            this.mAdTemplateList.clear();
+            com.kwad.components.ad.interstitial.c.cd().release();
         }
     }
 
     @Override // com.kwad.components.ad.interstitial.widget.b
     public final void setAdInteractionListener(KsInterstitialAd.AdInteractionListener adInteractionListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, adInteractionListener) == null) {
-            this.d = adInteractionListener;
+        if (interceptable == null || interceptable.invokeL(1048580, this, adInteractionListener) == null) {
+            this.fo = adInteractionListener;
         }
     }
 }

@@ -42,8 +42,8 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.bb;
 import com.repackage.c77;
-import com.repackage.fu4;
 import com.repackage.gu4;
+import com.repackage.hu4;
 import com.repackage.ni;
 import java.util.List;
 import org.json.JSONException;
@@ -53,7 +53,7 @@ public class PersonalGroupFragment extends BaseFragment implements AdapterView.O
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public BdListView a;
-    public gu4 b;
+    public hu4 b;
     public c77 c;
     public NoDataView d;
     public View e;
@@ -103,7 +103,7 @@ public class PersonalGroupFragment extends BaseFragment implements AdapterView.O
     }
 
     /* loaded from: classes3.dex */
-    public class b implements fu4.g {
+    public class b implements gu4.g {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PersonalGroupFragment a;
@@ -126,7 +126,7 @@ public class PersonalGroupFragment extends BaseFragment implements AdapterView.O
             this.a = personalGroupFragment;
         }
 
-        @Override // com.repackage.fu4.g
+        @Override // com.repackage.gu4.g
         public void e(boolean z) {
             PersonGroupActivity w1;
             Interceptable interceptable = $ic;
@@ -230,7 +230,7 @@ public class PersonalGroupFragment extends BaseFragment implements AdapterView.O
                 ResponseGroupsByUidMessage responseGroupsByUidMessage = (ResponseGroupsByUidMessage) socketResponsedMessage;
                 if (responseGroupsByUidMessage.getError() != 0) {
                     if (responseGroupsByUidMessage.getError() != 0) {
-                        this.a.showToast(StringUtils.isNull(responseGroupsByUidMessage.getErrorString()) ? this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0c2b) : responseGroupsByUidMessage.getErrorString());
+                        this.a.showToast(StringUtils.isNull(responseGroupsByUidMessage.getErrorString()) ? this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0c17) : responseGroupsByUidMessage.getErrorString());
                         return;
                     }
                     return;
@@ -476,20 +476,20 @@ public class PersonalGroupFragment extends BaseFragment implements AdapterView.O
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, layoutInflater, viewGroup, bundle)) == null) {
             this.g = getArguments().getInt("page_type", 0);
             getArguments().getInt(SuggestAddrField.KEY_PAGE_SIZE, 1);
-            View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d06c2, viewGroup, false);
+            View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d06cc, viewGroup, false);
             PersonGroupActivity w1 = w1();
             if (w1 != null && !w1.B0()) {
                 if (this.g == 0) {
-                    d2 = NoDataViewFactory.e.c(String.format(getString(R.string.obfuscated_res_0x7f0f0e33), w1.D0()));
+                    d2 = NoDataViewFactory.e.c(String.format(getString(R.string.obfuscated_res_0x7f0f0e1c), w1.D0()));
                 } else {
-                    d2 = NoDataViewFactory.e.c(getString(R.string.obfuscated_res_0x7f0f0e32));
+                    d2 = NoDataViewFactory.e.c(getString(R.string.obfuscated_res_0x7f0f0e1b));
                 }
             } else {
-                d2 = (w1 == null || !w1.B0()) ? null : NoDataViewFactory.e.d(getString(R.string.obfuscated_res_0x7f0f07f7), getString(R.string.obfuscated_res_0x7f0f07f8));
+                d2 = (w1 == null || !w1.B0()) ? null : NoDataViewFactory.e.d(getString(R.string.obfuscated_res_0x7f0f07f3), getString(R.string.obfuscated_res_0x7f0f07f4));
             }
-            this.d = NoDataViewFactory.a(getActivity(), null, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NODATA, (int) getResources().getDimension(R.dimen.obfuscated_res_0x7f070234)), d2, null);
-            this.a = (BdListView) inflate.findViewById(R.id.obfuscated_res_0x7f091859);
-            this.b = new gu4(getPageContext());
+            this.d = NoDataViewFactory.a(getActivity(), null, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NODATA, (int) getResources().getDimension(R.dimen.obfuscated_res_0x7f070231)), d2, null);
+            this.a = (BdListView) inflate.findViewById(R.id.obfuscated_res_0x7f091834);
+            this.b = new hu4(getPageContext());
             this.c = new c77(this);
             this.b.f(new b(this));
             this.a.setPullRefresh(this.b);
@@ -497,7 +497,7 @@ public class PersonalGroupFragment extends BaseFragment implements AdapterView.O
             this.a.setOnItemClickListener(this);
             this.d.setVisibility(8);
             this.a.removeHeaderView(this.d);
-            this.e = inflate.findViewById(R.id.obfuscated_res_0x7f090ca4);
+            this.e = inflate.findViewById(R.id.obfuscated_res_0x7f090c9d);
             if (w1() != null && this.g == w1().z0()) {
                 this.a.F();
             }

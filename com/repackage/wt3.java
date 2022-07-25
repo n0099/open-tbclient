@@ -12,8 +12,6 @@ public class wt3 {
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
     public String b;
-    public int c;
-    public long d;
 
     public wt3() {
         Interceptable interceptable = $ic;
@@ -36,8 +34,6 @@ public class wt3 {
             wt3 wt3Var = new wt3();
             wt3Var.a = jSONObject.optInt("state");
             wt3Var.b = jSONObject.optString("msg");
-            wt3Var.c = jSONObject.optInt("switch_open");
-            wt3Var.d = jSONObject.optLong("heartbeat_time");
             return wt3Var;
         }
         return (wt3) invokeL.objValue;
@@ -47,7 +43,7 @@ public class wt3 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "UpUseTimeModel{state=" + this.a + ", limit='" + this.b + "', open=" + this.c + ", interval=" + this.d + '}';
+            return "CheckPayAuthModel{state=" + this.a + ", msg='" + this.b + "'}";
         }
         return (String) invokeV.objValue;
     }

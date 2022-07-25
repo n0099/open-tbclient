@@ -58,16 +58,16 @@ public class jo8 {
         this.a = 3;
         this.k = 0;
         this.b = personalCardCategoryActivity;
-        this.k = pi.f(personalCardCategoryActivity.getPageContext().getPageActivity(), R.dimen.obfuscated_res_0x7f07023e);
+        this.k = pi.f(personalCardCategoryActivity.getPageContext().getPageActivity(), R.dimen.obfuscated_res_0x7f07023c);
         View inflate = LayoutInflater.from(this.b.getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d01c3, (ViewGroup) null);
         this.c = inflate;
         this.b.setContentView(inflate);
         this.i = this.c.findViewById(R.id.obfuscated_res_0x7f090394);
-        NavigationBar navigationBar = (NavigationBar) this.c.findViewById(R.id.obfuscated_res_0x7f092437);
+        NavigationBar navigationBar = (NavigationBar) this.c.findViewById(R.id.obfuscated_res_0x7f092439);
         this.d = navigationBar;
         navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.d.setTitleText(R.string.obfuscated_res_0x7f0f0e59);
-        this.e = (NoNetworkView) this.c.findViewById(R.id.obfuscated_res_0x7f092439);
+        this.d.setTitleText(R.string.obfuscated_res_0x7f0f0e42);
+        this.e = (NoNetworkView) this.c.findViewById(R.id.obfuscated_res_0x7f09243b);
         MemberRecommendView memberRecommendView = (MemberRecommendView) this.c.findViewById(R.id.obfuscated_res_0x7f090581);
         this.f = memberRecommendView;
         memberRecommendView.setFromType(9);
@@ -206,7 +206,7 @@ public class jo8 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             this.i.setVisibility(8);
-            String string = this.b.getPageContext().getResources().getString(R.string.obfuscated_res_0x7f0f0c45);
+            String string = this.b.getPageContext().getResources().getString(R.string.obfuscated_res_0x7f0f0c31);
             this.b.setNetRefreshViewTopMargin(this.k);
             this.b.showNetRefreshView(this.c, string, false);
         }

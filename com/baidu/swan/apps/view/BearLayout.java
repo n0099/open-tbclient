@@ -27,8 +27,8 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.drawee.view.SimpleDraweeView;
-import com.repackage.ef3;
-import com.repackage.rg1;
+import com.repackage.ff3;
+import com.repackage.sg1;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 /* loaded from: classes2.dex */
@@ -85,16 +85,16 @@ public class BearLayout extends LinearLayout {
     public class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ef3 a;
+        public final /* synthetic */ ff3 a;
         public final /* synthetic */ SwanAppBearInfo b;
         public final /* synthetic */ BearLayout c;
 
-        public b(BearLayout bearLayout, ef3 ef3Var, SwanAppBearInfo swanAppBearInfo) {
+        public b(BearLayout bearLayout, ff3 ff3Var, SwanAppBearInfo swanAppBearInfo) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {bearLayout, ef3Var, swanAppBearInfo};
+                Object[] objArr = {bearLayout, ff3Var, swanAppBearInfo};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -105,7 +105,7 @@ public class BearLayout extends LinearLayout {
                 }
             }
             this.c = bearLayout;
-            this.a = ef3Var;
+            this.a = ff3Var;
             this.b = swanAppBearInfo;
         }
 
@@ -203,7 +203,7 @@ public class BearLayout extends LinearLayout {
                 return;
             }
         }
-        j = rg1.a;
+        j = sg1.a;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -300,9 +300,9 @@ public class BearLayout extends LinearLayout {
         }
     }
 
-    public void k(@NonNull Context context, @NonNull SwanAppBearInfo swanAppBearInfo, ef3 ef3Var) {
+    public void k(@NonNull Context context, @NonNull SwanAppBearInfo swanAppBearInfo, ff3 ff3Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, context, swanAppBearInfo, ef3Var) == null) {
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, context, swanAppBearInfo, ff3Var) == null) {
             this.i = context;
             LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0094, this);
             linearLayout.setOnClickListener(new a(this, swanAppBearInfo));
@@ -317,7 +317,7 @@ public class BearLayout extends LinearLayout {
             this.d = (FrameLayout) linearLayout.findViewById(R.id.obfuscated_res_0x7f09034b);
             TextView textView2 = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f09034c);
             this.e = textView2;
-            textView2.setOnClickListener(new b(this, ef3Var, swanAppBearInfo));
+            textView2.setOnClickListener(new b(this, ff3Var, swanAppBearInfo));
             BdBaseImageView bdBaseImageView = (BdBaseImageView) linearLayout.findViewById(R.id.obfuscated_res_0x7f09034f);
             this.f = bdBaseImageView;
             bdBaseImageView.setVisibility(8);

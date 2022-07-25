@@ -8,8 +8,8 @@ public final class n implements com.kwad.sdk.core.d<com.kwad.components.core.f.a
         if (jSONObject == null) {
             return;
         }
-        aVar.a = jSONObject.optInt("currentActiveCount");
-        aVar.b = jSONObject.optLong("lastForceActiveTimestamp");
+        aVar.ED = jSONObject.optInt("currentActiveCount");
+        aVar.EE = jSONObject.optLong("lastForceActiveTimestamp");
     }
 
     /* renamed from: b  reason: avoid collision after fix types in other method */
@@ -17,8 +17,14 @@ public final class n implements com.kwad.sdk.core.d<com.kwad.components.core.f.a
         if (jSONObject == null) {
             jSONObject = new JSONObject();
         }
-        com.kwad.sdk.utils.r.a(jSONObject, "currentActiveCount", aVar.a);
-        com.kwad.sdk.utils.r.a(jSONObject, "lastForceActiveTimestamp", aVar.b);
+        int i = aVar.ED;
+        if (i != 0) {
+            com.kwad.sdk.utils.r.putValue(jSONObject, "currentActiveCount", i);
+        }
+        long j = aVar.EE;
+        if (j != 0) {
+            com.kwad.sdk.utils.r.putValue(jSONObject, "lastForceActiveTimestamp", j);
+        }
         return jSONObject;
     }
 

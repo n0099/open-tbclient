@@ -49,8 +49,8 @@ public class pb6 {
     public final void b() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.a == null) {
-            br4.f();
-            this.a = br4.d("tb.tbtiel_level_info");
+            cr4.f();
+            this.a = cr4.d("tb.tbtiel_level_info");
         }
     }
 

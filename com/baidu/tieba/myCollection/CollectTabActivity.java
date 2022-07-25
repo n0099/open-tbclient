@@ -24,9 +24,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ej4;
-import com.repackage.om4;
-import com.repackage.q55;
+import com.repackage.fj4;
+import com.repackage.pm4;
+import com.repackage.r55;
 import com.repackage.wl7;
 import com.repackage.xl7;
 import com.repackage.yl7;
@@ -97,7 +97,7 @@ public class CollectTabActivity extends BaseFragmentActivity {
         this.b = new a(this, 2022209);
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.repackage.v85
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.repackage.w85
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -120,7 +120,7 @@ public class CollectTabActivity extends BaseFragmentActivity {
         Map<String, String> paramPair = UrlManager.getParamPair(decode);
         if (paramPair != null) {
             StatisticItem param = new StatisticItem(TbadkCoreStatisticKey.KEY_SCHEME_JUMP_CALL_NATIVE).param("obj_locate", paramPair.get("obj_locate")).param("obj_type", 1).param("obj_source", paramPair.get("obj_source")).param(TiebaStatic.Params.OBJ_PARAM2, paramPair.get(TiebaStatic.Params.OBJ_PARAM2)).param(TiebaStatic.Params.OBJ_TO, 4).param("obj_name", TbadkCoreApplication.getInst().getStartType()).param(TiebaStatic.Params.OBJ_PARAM3, 1);
-            ej4.b(param, paramPair);
+            fj4.b(param, paramPair);
             TiebaStatic.log(param);
         }
     }
@@ -219,17 +219,17 @@ public class CollectTabActivity extends BaseFragmentActivity {
     public void p0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            om4 om4Var = new om4(getPageContext().getPageActivity());
+            pm4 pm4Var = new pm4(getPageContext().getPageActivity());
             ThreadDelegateStatic threadDelegateStatic = new ThreadDelegateStatic();
-            om4Var.a(threadDelegateStatic);
-            if (om4Var.getContext() != null) {
-                q55 b = threadDelegateStatic.b();
+            pm4Var.a(threadDelegateStatic);
+            if (pm4Var.getContext() != null) {
+                r55 b = threadDelegateStatic.b();
                 if (b == null) {
                     return;
                 }
                 b.a.setArguments(new Bundle());
             }
-            this.a.h(om4Var.b());
+            this.a.h(pm4Var.b());
         }
     }
 }

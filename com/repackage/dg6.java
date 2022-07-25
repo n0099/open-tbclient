@@ -416,26 +416,26 @@ public class dg6 extends jx5<ig6> implements eg6 {
         this.N = z;
         View h = h();
         this.z = tbPageContext;
-        this.i = (FrameLayout) h.findViewById(R.id.obfuscated_res_0x7f09237f);
-        FrameLayout frameLayout = (FrameLayout) h.findViewById(R.id.obfuscated_res_0x7f09238b);
+        this.i = (FrameLayout) h.findViewById(R.id.obfuscated_res_0x7f092381);
+        FrameLayout frameLayout = (FrameLayout) h.findViewById(R.id.obfuscated_res_0x7f09238d);
         this.j = frameLayout;
         a68 a68Var = new a68(tbPageContext, frameLayout, false);
         this.y = a68Var;
         a68Var.z1("2005");
-        this.k = (TextView) h.findViewById(R.id.obfuscated_res_0x7f0920bc);
-        this.l = (TextView) h.findViewById(R.id.obfuscated_res_0x7f090818);
-        this.m = (FrameLayout) h.findViewById(R.id.obfuscated_res_0x7f091494);
-        this.n = (TextView) h.findViewById(R.id.obfuscated_res_0x7f091496);
-        this.o = (TextView) h.findViewById(R.id.obfuscated_res_0x7f091495);
-        this.p = (HeadImageView) h.findViewById(R.id.obfuscated_res_0x7f09231d);
-        this.q = (TextView) h.findViewById(R.id.obfuscated_res_0x7f09232d);
+        this.k = (TextView) h.findViewById(R.id.obfuscated_res_0x7f0920be);
+        this.l = (TextView) h.findViewById(R.id.obfuscated_res_0x7f090816);
+        this.m = (FrameLayout) h.findViewById(R.id.obfuscated_res_0x7f09146f);
+        this.n = (TextView) h.findViewById(R.id.obfuscated_res_0x7f091471);
+        this.o = (TextView) h.findViewById(R.id.obfuscated_res_0x7f091470);
+        this.p = (HeadImageView) h.findViewById(R.id.obfuscated_res_0x7f09231f);
+        this.q = (TextView) h.findViewById(R.id.obfuscated_res_0x7f09232f);
         this.r = (TextView) h.findViewById(R.id.obfuscated_res_0x7f0902b9);
-        this.w = (LinearLayout) h.findViewById(R.id.obfuscated_res_0x7f09203e);
+        this.w = (LinearLayout) h.findViewById(R.id.obfuscated_res_0x7f092042);
         this.x = (LinearLayout) h.findViewById(R.id.obfuscated_res_0x7f09015a);
-        this.s = (TextView) h.findViewById(R.id.obfuscated_res_0x7f092041);
-        this.t = (TextView) h.findViewById(R.id.obfuscated_res_0x7f092046);
-        this.u = (ImageView) h.findViewById(R.id.obfuscated_res_0x7f092040);
-        this.v = (ImageView) h.findViewById(R.id.obfuscated_res_0x7f092045);
+        this.s = (TextView) h.findViewById(R.id.obfuscated_res_0x7f092045);
+        this.t = (TextView) h.findViewById(R.id.obfuscated_res_0x7f09204a);
+        this.u = (ImageView) h.findViewById(R.id.obfuscated_res_0x7f092044);
+        this.v = (ImageView) h.findViewById(R.id.obfuscated_res_0x7f092049);
         this.w.setOnClickListener(this);
         this.x.setOnClickListener(this);
         this.k.setOnClickListener(this);
@@ -564,9 +564,9 @@ public class dg6 extends jx5<ig6> implements eg6 {
         this.l.setText(StringHelper.stringForVideoTime(ig6Var.n.e * 1000));
         long j = ig6Var.n.h;
         if (j == 0) {
-            format = this.z.getString(R.string.obfuscated_res_0x7f0f1525);
+            format = this.z.getString(R.string.obfuscated_res_0x7f0f14d4);
         } else {
-            format = String.format(this.z.getString(R.string.obfuscated_res_0x7f0f1524), Q(String.format("%.1f", Float.valueOf(((float) j) / 1048576.0f))));
+            format = String.format(this.z.getString(R.string.obfuscated_res_0x7f0f14d3), Q(String.format("%.1f", Float.valueOf(((float) j) / 1048576.0f))));
         }
         this.n.setText(format);
         this.m.setVisibility(8);
@@ -689,7 +689,7 @@ public class dg6 extends jx5<ig6> implements eg6 {
         if (ig6Var.m.e) {
             SkinManager.setViewTextColor(this.r, (int) R.color.CAM_X0109);
             this.r.setCompoundDrawables(null, null, null, null);
-            this.r.setText(this.z.getString(R.string.obfuscated_res_0x7f0f0f9e));
+            this.r.setText(this.z.getString(R.string.obfuscated_res_0x7f0f0f87));
             return;
         }
         SkinManager.setViewTextColor(this.r, (int) R.color.CAM_X0302);
@@ -884,7 +884,7 @@ public class dg6 extends jx5<ig6> implements eg6 {
                         this.C.c(ig6Var3);
                         return;
                     } else if (view2 == this.x) {
-                        p85 currentVisiblePageExtra = TbPageExtraHelper.getCurrentVisiblePageExtra(getContext());
+                        q85 currentVisiblePageExtra = TbPageExtraHelper.getCurrentVisiblePageExtra(getContext());
                         if (currentVisiblePageExtra != null) {
                             this.A.i = currentVisiblePageExtra.a();
                         }

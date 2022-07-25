@@ -12,8 +12,8 @@ import com.kwad.sdk.core.response.model.AdTemplate;
 public final class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public AdTemplate a;
-    public AdInfo b;
+    public AdInfo mAdInfo;
+    public AdTemplate mAdTemplate;
 
     public b(AdTemplate adTemplate) {
         Interceptable interceptable = $ic;
@@ -30,25 +30,25 @@ public final class b {
                 return;
             }
         }
-        this.a = adTemplate;
-        this.b = com.kwad.sdk.core.response.a.d.i(adTemplate);
+        this.mAdTemplate = adTemplate;
+        this.mAdInfo = com.kwad.sdk.core.response.a.d.bQ(adTemplate);
     }
 
-    public final AdTemplate a() {
+    public final AdInfo by() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (AdTemplate) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mAdInfo : (AdInfo) invokeV.objValue;
     }
 
-    public final AdInfo b() {
+    public final boolean bz() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : (AdInfo) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? com.kwad.sdk.core.response.a.d.cd(this.mAdTemplate) : invokeV.booleanValue;
     }
 
-    public final boolean c() {
+    public final AdTemplate getAdTemplate() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? com.kwad.sdk.core.response.a.d.w(this.a) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mAdTemplate : (AdTemplate) invokeV.objValue;
     }
 }

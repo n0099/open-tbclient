@@ -242,11 +242,11 @@ public class GuideAgreeNoPwdPayActivity extends Activity implements View.OnClick
     public final void j() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.e = findViewById(R.id.obfuscated_res_0x7f091928);
-            this.f = findViewById(R.id.obfuscated_res_0x7f091929);
-            this.g = findViewById(R.id.obfuscated_res_0x7f091914);
+            this.e = findViewById(R.id.obfuscated_res_0x7f091903);
+            this.f = findViewById(R.id.obfuscated_res_0x7f091904);
+            this.g = findViewById(R.id.obfuscated_res_0x7f0918ef);
             this.h = (ProgressButton) findViewById(R.id.obfuscated_res_0x7f090155);
-            this.i = findViewById(R.id.obfuscated_res_0x7f09191c);
+            this.i = findViewById(R.id.obfuscated_res_0x7f0918f7);
             this.h.setText("立即开启小额免密支付");
             this.g.setOnClickListener(this);
             this.h.setOnClickListener(this);
@@ -309,7 +309,7 @@ public class GuideAgreeNoPwdPayActivity extends Activity implements View.OnClick
     public void onClick(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, view2) == null) {
-            if (view2.getId() == R.id.obfuscated_res_0x7f091914) {
+            if (view2.getId() == R.id.obfuscated_res_0x7f0918ef) {
                 finish();
             } else if (view2.getId() == R.id.obfuscated_res_0x7f090155) {
                 this.h.b();
@@ -317,7 +317,7 @@ public class GuideAgreeNoPwdPayActivity extends Activity implements View.OnClick
                 this.h.setPressed(true);
                 z81.e(new w81(Info.kBaiduPIDValue));
                 l(this.a, this.c, this.b);
-            } else if (view2.getId() == R.id.obfuscated_res_0x7f09191c) {
+            } else if (view2.getId() == R.id.obfuscated_res_0x7f0918f7) {
                 finish();
             }
         }

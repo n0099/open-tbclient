@@ -22,49 +22,51 @@ import com.kwad.sdk.core.imageloader.KSImageLoader;
 import com.kwad.sdk.core.response.model.AdInfo;
 import com.kwad.sdk.core.response.model.AdProductInfo;
 import com.kwad.sdk.core.response.model.AdTemplate;
-import com.kwad.sdk.utils.ae;
-import com.kwad.sdk.utils.at;
+import com.kwad.sdk.utils.ag;
+import com.kwad.sdk.utils.ax;
 import com.kwad.sdk.widget.KSFrameLayout;
 /* loaded from: classes5.dex */
 public final class f extends KSFrameLayout implements com.kwad.sdk.widget.c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
+    public KsLogoView bq;
+    public ImageView cw;
+    public KSFrameLayout dN;
+    public TextView dh;
+
+    /* renamed from: do  reason: not valid java name */
+    public ImageView f8do;
+    public KSFrameLayout hn;
+    public String iD;
     @Nullable
-    public View b;
-    public ImageView c;
-    public KSFrameLayout d;
-    public KSFrameLayout e;
-    public KsLogoView f;
-    public ImageView g;
-    public TextProgressBar h;
-    public ViewGroup i;
-    public ViewGroup j;
-    public ImageView k;
-    public View l;
-    public View m;
-    public TextView n;
-    public ImageView o;
-    public ImageView p;
-    public TextView q;
-    public TextView r;
-    public TextView s;
-    public TextView t;
-    public TextProgressBar u;
-    public TextView v;
-    public h w;
-    public final a x;
-    public boolean y;
-    public AdTemplate z;
+    public View iE;
+    public ImageView iF;
+    public TextProgressBar iG;
+    public ViewGroup iH;
+    public ViewGroup iI;
+    public ImageView iJ;
+    public View iK;
+    public View iL;
+    public TextView iM;
+    public ImageView iN;
+    public TextView iO;
+    public TextView iP;
+    public TextView iQ;
+    public TextProgressBar iR;
+    public TextView iS;
+    public i iT;
+    public final a iU;
+    public boolean iV;
+    public AdTemplate mAdTemplate;
 
     /* loaded from: classes5.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public boolean a;
-        public boolean b;
-        public int c;
-        public boolean d;
+        public boolean iX;
+        public boolean iY;
+        public int iZ;
+        public boolean ja;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -79,49 +81,49 @@ public final class f extends KSFrameLayout implements com.kwad.sdk.widget.c {
                     return;
                 }
             }
-            this.a = false;
-            this.b = false;
-            this.c = 0;
-            this.d = true;
+            this.iX = false;
+            this.iY = false;
+            this.iZ = 0;
+            this.ja = true;
         }
 
-        public final int a() {
+        public final void E(int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+                this.iZ = i;
+            }
+        }
+
+        public final int ee() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.c : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.iZ : invokeV.intValue;
         }
 
-        public final void a(int i) {
+        public final boolean ef() {
+            InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-                this.c = i;
-            }
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.ja : invokeV.booleanValue;
         }
 
-        public final void a(boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-                this.a = z;
-            }
-        }
-
-        public final void b(boolean z) {
+        public final void v(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-                this.b = z;
+                this.iX = z;
             }
         }
 
-        public final boolean b() {
-            InterceptResult invokeV;
+        public final void w(boolean z) {
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.d : invokeV.booleanValue;
+            if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
+                this.iY = z;
+            }
         }
 
-        public final void c(boolean z) {
+        public final void x(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-                this.d = z;
+                this.ja = z;
             }
         }
     }
@@ -144,17 +146,17 @@ public final class f extends KSFrameLayout implements com.kwad.sdk.widget.c {
                 return;
             }
         }
-        this.a = "%s秒后进入试玩页";
-        this.y = false;
-        this.x = aVar;
-        FrameLayout.inflate(context, aVar.b() ? R.layout.obfuscated_res_0x7f0d0430 : R.layout.obfuscated_res_0x7f0d042f, this);
-        c(this.x.a);
+        this.iD = "%s秒后进入试玩页";
+        this.iV = false;
+        this.iU = aVar;
+        FrameLayout.inflate(context, aVar.ef() ? R.layout.obfuscated_res_0x7f0d0430 : R.layout.obfuscated_res_0x7f0d042f, this);
+        s(this.iU.iX);
     }
 
     private void a(View view2, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(65538, this, view2, i) == null) {
-            com.kwad.sdk.b.kwai.a.a(view2, 0, com.kwad.sdk.b.kwai.a.a(getContext(), i), 0, 0);
+            com.kwad.sdk.b.kwai.a.b(view2, 0, com.kwad.sdk.b.kwai.a.a(getContext(), i), 0, 0);
         }
     }
 
@@ -168,141 +170,156 @@ public final class f extends KSFrameLayout implements com.kwad.sdk.widget.c {
         }
     }
 
-    private void a(View view2, boolean z) {
-        h hVar;
-        h hVar2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(InputDeviceCompat.SOURCE_TRACKBALL, this, view2, z) == null) {
-            h hVar3 = this.w;
-            if (hVar3 != null) {
-                hVar3.b(z);
-                this.w.a(this.e);
-            }
-            if (view2.equals(this)) {
-                h hVar4 = this.w;
-                if (hVar4 != null) {
-                    hVar4.a();
-                }
-            } else if (view2.equals(this.l)) {
-                if (!(1 == this.x.a()) || (hVar2 = this.w) == null) {
-                    return;
-                }
-                hVar2.b();
-            } else if (view2.equals(this.u)) {
-                h hVar5 = this.w;
-                if (hVar5 != null) {
-                    hVar5.c();
-                }
-            } else if (view2.equals(this.j)) {
-                h hVar6 = this.w;
-                if (hVar6 != null) {
-                    hVar6.n();
-                }
-            } else if (view2.equals(this.h)) {
-                h hVar7 = this.w;
-                if (hVar7 != null) {
-                    hVar7.d();
-                }
-            } else if (view2.equals(this.m)) {
-                h hVar8 = this.w;
-                if (hVar8 != null) {
-                    hVar8.g();
-                }
-            } else if (view2.equals(this.d)) {
-                h hVar9 = this.w;
-                if (hVar9 != null) {
-                    hVar9.e();
-                }
-            } else if (view2.equals(this.g)) {
-                h hVar10 = this.w;
-                if (hVar10 != null) {
-                    hVar10.f();
-                }
-            } else if (view2.equals(this.p)) {
-                h hVar11 = this.w;
-                if (hVar11 != null) {
-                    hVar11.h();
-                }
-            } else if (view2.equals(this.q)) {
-                h hVar12 = this.w;
-                if (hVar12 != null) {
-                    hVar12.i();
-                }
-            } else if (view2.equals(this.r)) {
-                h hVar13 = this.w;
-                if (hVar13 != null) {
-                    hVar13.j();
-                }
-            } else if (view2.equals(this.o)) {
-                h hVar14 = this.w;
-                if (hVar14 != null) {
-                    hVar14.k();
-                }
-            } else if (view2.equals(this.s)) {
-                h hVar15 = this.w;
-                if (hVar15 != null) {
-                    hVar15.l();
-                }
-            } else if (!view2.equals(this.t) || (hVar = this.w) == null) {
-            } else {
-                hVar.m();
-            }
-        }
-    }
-
     private void a(KSFrameLayout kSFrameLayout, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(65541, this, kSFrameLayout, z) == null) {
+        if (interceptable == null || interceptable.invokeLZ(InputDeviceCompat.SOURCE_TRACKBALL, this, kSFrameLayout, z) == null) {
             kSFrameLayout.setClickable(true);
             new com.kwad.sdk.widget.f(kSFrameLayout, this);
-            this.d.setWidthBasedRatio(!z);
+            this.dN.setWidthBasedRatio(!z);
         }
     }
 
-    private void c(boolean z) {
+    private void b(View view2, boolean z) {
+        i iVar;
+        i iVar2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65543, this, z) == null) {
+        if (interceptable == null || interceptable.invokeLZ(65542, this, view2, z) == null) {
+            i iVar3 = this.iT;
+            if (iVar3 != null) {
+                iVar3.p(z);
+                this.iT.a(this.hn);
+            }
+            if (view2.equals(this)) {
+                i iVar4 = this.iT;
+                if (iVar4 != null) {
+                    iVar4.di();
+                }
+            } else if (view2.equals(this.iK)) {
+                if (!(1 == this.iU.ee()) || (iVar2 = this.iT) == null) {
+                    return;
+                }
+                iVar2.dh();
+            } else if (view2.equals(this.iR)) {
+                i iVar5 = this.iT;
+                if (iVar5 != null) {
+                    iVar5.dj();
+                }
+            } else if (view2.equals(this.iI)) {
+                i iVar6 = this.iT;
+                if (iVar6 != null) {
+                    iVar6.du();
+                }
+            } else if (view2.equals(this.iG)) {
+                i iVar7 = this.iT;
+                if (iVar7 != null) {
+                    iVar7.dk();
+                }
+            } else if (view2.equals(this.iL)) {
+                i iVar8 = this.iT;
+                if (iVar8 != null) {
+                    iVar8.dn();
+                }
+            } else if (view2.equals(this.dN)) {
+                i iVar9 = this.iT;
+                if (iVar9 != null) {
+                    iVar9.dl();
+                }
+            } else if (view2.equals(this.f8do)) {
+                i iVar10 = this.iT;
+                if (iVar10 != null) {
+                    iVar10.dm();
+                }
+            } else if (view2.equals(this.cw)) {
+                i iVar11 = this.iT;
+                if (iVar11 != null) {
+                    iVar11.mo81do();
+                }
+            } else if (view2.equals(this.iO)) {
+                i iVar12 = this.iT;
+                if (iVar12 != null) {
+                    iVar12.dp();
+                }
+            } else if (view2.equals(this.dh)) {
+                i iVar13 = this.iT;
+                if (iVar13 != null) {
+                    iVar13.dq();
+                }
+            } else if (view2.equals(this.iN)) {
+                i iVar14 = this.iT;
+                if (iVar14 != null) {
+                    iVar14.dr();
+                }
+            } else if (view2.equals(this.iP)) {
+                i iVar15 = this.iT;
+                if (iVar15 != null) {
+                    iVar15.ds();
+                }
+            } else if (!view2.equals(this.iQ) || (iVar = this.iT) == null) {
+            } else {
+                iVar.dt();
+            }
+        }
+    }
+
+    private void dY() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65543, this) == null) {
+            a(this.iN, 40, 40);
+            a(this.iR, 130, 30);
+            this.iP.setTextSize(14.0f);
+            a(this.iR, 11);
+            a(this.iP, 7);
+            a(this.iQ, 7);
+        }
+    }
+
+    private void s(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(65544, this, z) == null) {
             setClickable(true);
-            this.e = (KSFrameLayout) findViewById(R.id.obfuscated_res_0x7f09106b);
-            this.d = (KSFrameLayout) findViewById(R.id.obfuscated_res_0x7f09106c);
-            this.b = findViewById(R.id.obfuscated_res_0x7f091060);
-            this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f091070);
-            this.g = (ImageView) findViewById(R.id.obfuscated_res_0x7f0911d3);
-            this.f = (KsLogoView) findViewById(R.id.obfuscated_res_0x7f090fe5);
-            this.i = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f09106f);
-            this.j = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f09106d);
-            this.h = (TextProgressBar) findViewById(R.id.obfuscated_res_0x7f09105f);
-            this.l = findViewById(R.id.obfuscated_res_0x7f09105c);
-            this.h.setTextDimen(com.kwad.sdk.b.kwai.a.a(getContext(), 10.0f));
-            this.h.setTextColor(-1);
-            this.k = (ImageView) findViewById(R.id.obfuscated_res_0x7f091068);
-            this.n = (TextView) findViewById(R.id.obfuscated_res_0x7f09105d);
-            this.o = (ImageView) findViewById(R.id.obfuscated_res_0x7f091067);
-            this.s = (TextView) findViewById(R.id.obfuscated_res_0x7f091069);
-            this.t = (TextView) findViewById(R.id.obfuscated_res_0x7f09105e);
-            this.u = (TextProgressBar) findViewById(R.id.obfuscated_res_0x7f090ff3);
-            this.m = findViewById(R.id.obfuscated_res_0x7f090fde);
-            this.p = (ImageView) findViewById(R.id.obfuscated_res_0x7f090ff5);
-            this.q = (TextView) findViewById(R.id.obfuscated_res_0x7f090ff9);
-            this.r = (TextView) findViewById(R.id.obfuscated_res_0x7f090ff1);
+            this.hn = (KSFrameLayout) findViewById(R.id.obfuscated_res_0x7f091062);
+            this.dN = (KSFrameLayout) findViewById(R.id.obfuscated_res_0x7f091063);
+            this.iE = findViewById(R.id.obfuscated_res_0x7f091057);
+            this.iF = (ImageView) findViewById(R.id.obfuscated_res_0x7f091067);
+            this.f8do = (ImageView) findViewById(R.id.obfuscated_res_0x7f0911af);
+            this.bq = (KsLogoView) findViewById(R.id.obfuscated_res_0x7f090fdc);
+            this.iH = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f091066);
+            this.iI = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f091064);
+            this.iG = (TextProgressBar) findViewById(R.id.obfuscated_res_0x7f091056);
+            this.iK = findViewById(R.id.obfuscated_res_0x7f091053);
+            TextProgressBar textProgressBar = this.iG;
+            if (textProgressBar != null) {
+                textProgressBar.setTextDimen(com.kwad.sdk.b.kwai.a.a(getContext(), 10.0f));
+                this.iG.setTextColor(-1);
+            }
+            this.iJ = (ImageView) findViewById(R.id.obfuscated_res_0x7f09105f);
+            this.iM = (TextView) findViewById(R.id.obfuscated_res_0x7f091054);
+            this.iN = (ImageView) findViewById(R.id.obfuscated_res_0x7f09105e);
+            this.iP = (TextView) findViewById(R.id.obfuscated_res_0x7f091060);
+            this.iQ = (TextView) findViewById(R.id.obfuscated_res_0x7f091055);
+            this.iR = (TextProgressBar) findViewById(R.id.obfuscated_res_0x7f090fea);
+            this.iL = findViewById(R.id.obfuscated_res_0x7f090fd5);
+            this.cw = (ImageView) findViewById(R.id.obfuscated_res_0x7f090fec);
+            this.iO = (TextView) findViewById(R.id.obfuscated_res_0x7f090ff0);
+            this.dh = (TextView) findViewById(R.id.obfuscated_res_0x7f090fe8);
             new com.kwad.sdk.widget.f(this, this);
-            new com.kwad.sdk.widget.f(this.g, this);
-            new com.kwad.sdk.widget.f(this.h, this);
-            new com.kwad.sdk.widget.f(this.u, this);
-            new com.kwad.sdk.widget.f(this.l, this);
-            new com.kwad.sdk.widget.f(this.j, this);
-            new com.kwad.sdk.widget.f(this.n, this);
-            new com.kwad.sdk.widget.f(this.m, this);
-            new com.kwad.sdk.widget.f(this.p, this);
-            new com.kwad.sdk.widget.f(this.q, this);
-            new com.kwad.sdk.widget.f(this.r, this);
-            new com.kwad.sdk.widget.f(this.o, this);
-            new com.kwad.sdk.widget.f(this.s, this);
-            new com.kwad.sdk.widget.f(this.t, this);
-            this.k.setOnClickListener(new View.OnClickListener(this) { // from class: com.kwad.components.ad.interstitial.widget.f.1
+            new com.kwad.sdk.widget.f(this.f8do, this);
+            new com.kwad.sdk.widget.f(this.iG, this);
+            new com.kwad.sdk.widget.f(this.iR, this);
+            new com.kwad.sdk.widget.f(this.iK, this);
+            new com.kwad.sdk.widget.f(this.iI, this);
+            new com.kwad.sdk.widget.f(this.iM, this);
+            new com.kwad.sdk.widget.f(this.iL, this);
+            new com.kwad.sdk.widget.f(this.cw, this);
+            new com.kwad.sdk.widget.f(this.iO, this);
+            new com.kwad.sdk.widget.f(this.dh, this);
+            new com.kwad.sdk.widget.f(this.iN, this);
+            new com.kwad.sdk.widget.f(this.iP, this);
+            new com.kwad.sdk.widget.f(this.iQ, this);
+            this.iJ.setOnClickListener(new View.OnClickListener(this) { // from class: com.kwad.components.ad.interstitial.widget.f.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ f a;
+                public final /* synthetic */ f iW;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -319,46 +336,49 @@ public final class f extends KSFrameLayout implements com.kwad.sdk.widget.c {
                             return;
                         }
                     }
-                    this.a = this;
+                    this.iW = this;
                 }
 
                 @Override // android.view.View.OnClickListener
                 public final void onClick(View view2) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
-                        this.a.k.setSelected(!this.a.k.isSelected());
-                        if (this.a.w != null) {
-                            this.a.w.a(this.a.k.isSelected());
+                        this.iW.iJ.setSelected(!this.iW.iJ.isSelected());
+                        if (this.iW.iT != null) {
+                            this.iW.iT.o(this.iW.iJ.isSelected());
                         }
                     }
                 }
             });
-            this.v = (TextView) findViewById(R.id.obfuscated_res_0x7f09106e);
-            a(this.d, z);
-            if (ae.a()) {
+            this.iS = (TextView) findViewById(R.id.obfuscated_res_0x7f091065);
+            a(this.dN, z);
+            if (ag.zL()) {
                 return;
             }
-            g();
+            dY();
         }
     }
 
-    private void g() {
+    public final void B(String str) {
+        TextView textView;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65544, this) == null) {
-            a(this.o, 40, 40);
-            a(this.u, 130, 30);
-            this.s.setTextSize(14.0f);
-            a(this.u, 11);
-            a(this.s, 7);
-            a(this.t, 7);
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || (textView = this.iM) == null) {
+            return;
         }
+        if (str != null) {
+            textView.setText(str);
+        }
+        if (!this.iU.iY || this.iV || this.iM.getVisibility() == 0) {
+            return;
+        }
+        this.iM.setVisibility(0);
     }
 
     public final void a(float f, com.kwad.sdk.core.video.videoview.a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Float.valueOf(f), aVar}) == null) {
-            this.d.setRatio(f);
-            this.d.addView(aVar);
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Float.valueOf(f), aVar}) == null) {
+            this.dN.setRatio(f);
+            this.dN.addView(aVar);
             FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) aVar.getLayoutParams();
             layoutParams.topMargin = 0;
             layoutParams.width = -1;
@@ -368,223 +388,216 @@ public final class f extends KSFrameLayout implements com.kwad.sdk.widget.c {
         }
     }
 
-    public final void a(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2) == null) {
-            ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) getLayoutParams();
-            marginLayoutParams.width = i;
-            marginLayoutParams.height = i2;
-            setLayoutParams(marginLayoutParams);
-            requestLayout();
-        }
-    }
-
-    public final void a(AdTemplate adTemplate) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, adTemplate) == null) {
-            this.f.a(adTemplate);
-        }
-    }
-
     public final void a(AdTemplate adTemplate, AdInfo adInfo) {
         TextView textView;
-        String aC;
+        String bl;
         TextProgressBar textProgressBar;
-        String H;
+        String al;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, adTemplate, adInfo) == null) {
-            this.o.setImageResource(R.drawable.obfuscated_res_0x7f080bc0);
-            if (com.kwad.sdk.core.response.a.a.aT(adInfo)) {
-                KSImageLoader.loadCircleIcon(this.o, com.kwad.sdk.core.response.a.a.aZ(adInfo), getContext().getResources().getDrawable(R.drawable.obfuscated_res_0x7f080bc0));
-                this.s.setText(com.kwad.sdk.core.response.a.a.aD(adInfo));
-                this.t.setText(com.kwad.sdk.core.response.a.a.z(adInfo));
-                if (com.kwad.sdk.core.response.a.a.aU(adInfo)) {
-                    textProgressBar = this.u;
-                    H = com.kwad.components.ad.c.b.a();
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, adTemplate, adInfo) == null) {
+            this.iN.setImageResource(R.drawable.obfuscated_res_0x7f080bc0);
+            if (com.kwad.sdk.core.response.a.a.bD(adInfo)) {
+                KSImageLoader.loadCircleIcon(this.iN, com.kwad.sdk.core.response.a.a.bI(adInfo), getContext().getResources().getDrawable(R.drawable.obfuscated_res_0x7f080bc0));
+                this.iP.setText(com.kwad.sdk.core.response.a.a.bm(adInfo));
+                this.iQ.setText(com.kwad.sdk.core.response.a.a.ad(adInfo));
+                if (com.kwad.sdk.core.response.a.a.bE(adInfo)) {
+                    textProgressBar = this.iR;
+                    al = com.kwad.components.ad.c.b.ah();
                 } else {
-                    textProgressBar = this.u;
-                    H = com.kwad.components.ad.c.b.d();
+                    textProgressBar = this.iR;
+                    al = com.kwad.components.ad.c.b.ak();
                 }
-            } else if (com.kwad.components.ad.interstitial.kwai.b.b(adInfo)) {
-                AdProductInfo bd = com.kwad.sdk.core.response.a.a.bd(adInfo);
-                KSImageLoader.loadWithRadius(this.o, bd.icon, adTemplate, 4);
-                this.s.setText(bd.name);
-                this.t.setVisibility(8);
-                textProgressBar = this.u;
-                H = com.kwad.components.ad.c.b.b();
+            } else if (com.kwad.components.ad.interstitial.kwai.b.c(adInfo)) {
+                AdProductInfo bN = com.kwad.sdk.core.response.a.a.bN(adInfo);
+                KSImageLoader.loadWithRadius(this.iN, bN.icon, adTemplate, 4);
+                this.iP.setText(bN.name);
+                this.iQ.setVisibility(8);
+                textProgressBar = this.iR;
+                al = com.kwad.components.ad.c.b.ai();
             } else {
-                if (com.kwad.sdk.core.response.a.a.I(adInfo)) {
-                    KSImageLoader.loadWithRadius(this.o, com.kwad.sdk.core.response.a.a.aE(adInfo), adTemplate, 4);
-                    textView = this.s;
-                    aC = com.kwad.sdk.core.response.a.a.A(adInfo);
+                if (com.kwad.sdk.core.response.a.a.am(adInfo)) {
+                    KSImageLoader.loadWithRadius(this.iN, com.kwad.sdk.core.response.a.a.bn(adInfo), adTemplate, 4);
+                    textView = this.iP;
+                    bl = com.kwad.sdk.core.response.a.a.ae(adInfo);
                 } else {
-                    KSImageLoader.loadWithRadius(this.o, com.kwad.sdk.core.response.a.d.m(adTemplate), adTemplate, 4);
-                    textView = this.s;
-                    aC = com.kwad.sdk.core.response.a.a.aC(adInfo);
+                    KSImageLoader.loadWithRadius(this.iN, com.kwad.sdk.core.response.a.d.bU(adTemplate), adTemplate, 4);
+                    textView = this.iP;
+                    bl = com.kwad.sdk.core.response.a.a.bl(adInfo);
                 }
-                textView.setText(aC);
-                this.t.setText(com.kwad.sdk.core.response.a.a.z(adInfo));
-                textProgressBar = this.u;
-                H = com.kwad.sdk.core.response.a.a.H(adInfo);
+                textView.setText(bl);
+                this.iQ.setText(com.kwad.sdk.core.response.a.a.ad(adInfo));
+                textProgressBar = this.iR;
+                al = com.kwad.sdk.core.response.a.a.al(adInfo);
             }
-            textProgressBar.a(H, 0);
-        }
-    }
-
-    public final void a(String str) {
-        TextView textView;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, str) == null) || (textView = this.n) == null) {
-            return;
-        }
-        if (str != null) {
-            textView.setText(str);
-        }
-        if (!this.x.b || this.y || this.n.getVisibility() == 0) {
-            return;
-        }
-        this.n.setVisibility(0);
-    }
-
-    public final void a(String str, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048581, this, str, i) == null) {
-            TextProgressBar textProgressBar = this.h;
-            if (textProgressBar != null) {
-                textProgressBar.a(str, 0);
-            }
-            TextProgressBar textProgressBar2 = this.u;
-            if (textProgressBar2 != null) {
-                textProgressBar2.a(str, 0);
-            }
+            textProgressBar.f(al, 0);
         }
     }
 
     public final void a(String str, AdTemplate adTemplate) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048582, this, str, adTemplate) == null) || at.a(str)) {
+        if (!(interceptable == null || interceptable.invokeLL(1048579, this, str, adTemplate) == null) || ax.dT(str)) {
             return;
         }
-        this.g.setImageDrawable(null);
-        KSImageLoader.loadImage(this.g, str, adTemplate);
+        this.f8do.setImageDrawable(null);
+        KSImageLoader.loadImage(this.f8do, str, adTemplate);
     }
 
-    public final void a(boolean z) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048583, this, z) == null) || this.i == null) {
-            return;
-        }
-        this.i.setVisibility(z ? 0 : 8);
-    }
-
-    public final void a(boolean z, int i) {
+    public final void b(boolean z, int i) {
         TextView textView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i)}) == null) || (textView = this.v) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i)}) == null) || (textView = this.iS) == null) {
             return;
         }
         textView.setVisibility(0);
         if (i >= 0) {
-            this.v.setText(String.format(this.a, String.valueOf(i)));
+            this.iS.setText(String.format(this.iD, String.valueOf(i)));
         }
     }
 
-    public final void a(boolean z, boolean z2) {
+    public final void b(boolean z, boolean z2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) || this.g == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) || this.f8do == null) {
             return;
         }
-        this.g.setVisibility(z ? 0 : 8);
-        this.g.setClickable(z2);
+        this.f8do.setVisibility(z ? 0 : 8);
+        this.f8do.setClickable(z2);
     }
 
-    @Override // com.kwad.sdk.widget.c
-    public final void a_(View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, view2) == null) {
-            a(view2, true);
-        }
-    }
-
-    @Override // com.kwad.sdk.widget.c
-    public final void b(View view2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048587, this, view2) == null) && com.kwad.sdk.core.response.a.c.d(this.z)) {
-            a(view2, false);
-        }
-    }
-
-    public final void b(boolean z) {
-        ImageView imageView;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048588, this, z) == null) || (imageView = this.k) == null) {
-            return;
-        }
-        imageView.setSelected(z);
-    }
-
-    public final void c() {
+    public final void dZ() {
         TextView textView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048589, this) == null) || (textView = this.n) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (textView = this.iM) == null) {
             return;
         }
         textView.setVisibility(8);
-        this.y = true;
+        this.iV = true;
     }
 
-    public final void d() {
+    public final void ea() {
         View view2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048590, this) == null) || (view2 = this.l) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || (view2 = this.iK) == null) {
             return;
         }
         view2.setVisibility(8);
     }
 
-    public final void e() {
+    public final void eb() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
-            a(false);
-            this.j.setVisibility(0);
-            this.c.setVisibility(0);
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            t(false);
+            this.iI.setVisibility(0);
+            this.iF.setVisibility(0);
         }
     }
 
-    public final boolean f() {
+    public final void ec() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            this.iI.setVisibility(8);
+            this.iF.setVisibility(8);
+            t(true);
+        }
+    }
+
+    public final boolean ed() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
-            ViewGroup viewGroup = this.j;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            ViewGroup viewGroup = this.iI;
             return viewGroup != null && viewGroup.getVisibility() == 0;
         }
         return invokeV.booleanValue;
+    }
+
+    public final void f(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048587, this, i, i2) == null) {
+            ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) getLayoutParams();
+            marginLayoutParams.width = i;
+            marginLayoutParams.height = i2;
+            setLayoutParams(marginLayoutParams);
+        }
+    }
+
+    @Override // com.kwad.sdk.widget.c
+    public final void f(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048588, this, view2) == null) {
+            b(view2, true);
+        }
+    }
+
+    @Override // com.kwad.sdk.widget.c
+    public final void g(View view2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048589, this, view2) == null) && com.kwad.sdk.core.response.a.c.bF(this.mAdTemplate)) {
+            b(view2, false);
+        }
+    }
+
+    public final void g(String str, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048590, this, str, i) == null) {
+            TextProgressBar textProgressBar = this.iG;
+            if (textProgressBar != null) {
+                textProgressBar.f(str, 0);
+            }
+            TextProgressBar textProgressBar2 = this.iR;
+            if (textProgressBar2 != null) {
+                textProgressBar2.f(str, 0);
+            }
+        }
     }
 
     @Nullable
     public final View getBlurBgView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.b : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.iE : (View) invokeV.objValue;
     }
 
     public final ImageView getTailFrameView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this.c : (ImageView) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.iF : (ImageView) invokeV.objValue;
+    }
+
+    public final void i(AdTemplate adTemplate) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048593, this, adTemplate) == null) {
+            this.bq.T(adTemplate);
+        }
     }
 
     public final void setAdTemplate(AdTemplate adTemplate) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048595, this, adTemplate) == null) {
-            this.z = adTemplate;
+        if (interceptable == null || interceptable.invokeL(1048594, this, adTemplate) == null) {
+            this.mAdTemplate = adTemplate;
         }
     }
 
-    public final void setViewListener(h hVar) {
+    public final void setViewListener(i iVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048596, this, hVar) == null) {
-            this.w = hVar;
+        if (interceptable == null || interceptable.invokeL(1048595, this, iVar) == null) {
+            this.iT = iVar;
         }
+    }
+
+    public final void t(boolean z) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeZ(1048596, this, z) == null) || this.iH == null) {
+            return;
+        }
+        this.iH.setVisibility(z ? 0 : 8);
+    }
+
+    public final void u(boolean z) {
+        ImageView imageView;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeZ(1048597, this, z) == null) || (imageView = this.iJ) == null) {
+            return;
+        }
+        imageView.setSelected(z);
     }
 }

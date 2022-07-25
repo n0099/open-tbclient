@@ -10,89 +10,89 @@ import com.kwad.sdk.service.ServiceProvider;
 import com.kwad.sdk.service.kwai.d;
 /* loaded from: classes5.dex */
 public final class c {
-    public IProgressRemoteView a;
+    public IProgressRemoteView Xn;
 
     public c(IProgressRemoteView iProgressRemoteView) {
-        this.a = iProgressRemoteView;
+        this.Xn = iProgressRemoteView;
     }
 
     @Nullable
     public static c a(Context context, int i, boolean z) {
         c cVar;
         try {
-            cVar = ((d) ServiceProvider.a(d.class)).f() >= 3031000 ? new c(RemoteViewBuilder.createProgressView(context, i, z)) : new c(RemoteViewBuilder.createProgressView(context));
+            cVar = ((d) ServiceProvider.get(d.class)).getApiVersionCode() >= 3031000 ? new c(RemoteViewBuilder.createProgressView(context, i, z)) : new c(RemoteViewBuilder.createProgressView(context));
         } catch (Throwable th) {
-            com.kwad.sdk.core.d.b.b(th);
+            com.kwad.sdk.core.e.b.printStackTraceOnly(th);
             cVar = null;
         }
         if (cVar == null) {
             try {
                 return new c(RemoteViewBuilder.createProgressView(context));
             } catch (Throwable th2) {
-                com.kwad.sdk.core.d.b.b(th2);
+                com.kwad.sdk.core.e.b.printStackTraceOnly(th2);
                 return cVar;
             }
         }
         return cVar;
     }
 
-    public final RemoteViews a() {
-        IProgressRemoteView iProgressRemoteView = this.a;
+    public final RemoteViews build() {
+        IProgressRemoteView iProgressRemoteView = this.Xn;
         if (iProgressRemoteView != null) {
             return iProgressRemoteView.build();
         }
         return null;
     }
 
-    public final void a(int i, int i2, boolean z) {
-        IProgressRemoteView iProgressRemoteView = this.a;
-        if (iProgressRemoteView != null) {
-            iProgressRemoteView.setProgress(100, i2, false);
+    public final void setControlBtnPaused(boolean z) {
+        try {
+            if (this.Xn != null) {
+                this.Xn.setControlBtnPaused(z);
+            }
+        } catch (Throwable th) {
+            com.kwad.sdk.core.e.b.printStackTraceOnly(th);
         }
     }
 
-    public final void a(Bitmap bitmap) {
-        IProgressRemoteView iProgressRemoteView = this.a;
+    public final void setIcon(Bitmap bitmap) {
+        IProgressRemoteView iProgressRemoteView = this.Xn;
         if (iProgressRemoteView != null) {
             iProgressRemoteView.setIcon(bitmap);
         }
     }
 
-    public final void a(String str) {
-        IProgressRemoteView iProgressRemoteView = this.a;
+    public final void setName(String str) {
+        IProgressRemoteView iProgressRemoteView = this.Xn;
         if (iProgressRemoteView != null) {
             iProgressRemoteView.setName(str);
         }
     }
 
-    public final void a(boolean z) {
-        try {
-            if (this.a != null) {
-                this.a.setControlBtnPaused(z);
-            }
-        } catch (Throwable th) {
-            com.kwad.sdk.core.d.b.b(th);
-        }
-    }
-
-    public final void b(String str) {
-        IProgressRemoteView iProgressRemoteView = this.a;
+    public final void setPercentNum(String str) {
+        IProgressRemoteView iProgressRemoteView = this.Xn;
         if (iProgressRemoteView != null) {
-            iProgressRemoteView.setStatus(str);
+            iProgressRemoteView.setPercentNum(str);
         }
     }
 
-    public final void c(String str) {
-        IProgressRemoteView iProgressRemoteView = this.a;
+    public final void setProgress(int i, int i2, boolean z) {
+        IProgressRemoteView iProgressRemoteView = this.Xn;
+        if (iProgressRemoteView != null) {
+            iProgressRemoteView.setProgress(100, i2, false);
+        }
+    }
+
+    public final void setSize(String str) {
+        IProgressRemoteView iProgressRemoteView = this.Xn;
         if (iProgressRemoteView != null) {
             iProgressRemoteView.setSize(str);
         }
     }
 
-    public final void d(String str) {
-        IProgressRemoteView iProgressRemoteView = this.a;
+    public final void setStatus(String str) {
+        IProgressRemoteView iProgressRemoteView = this.Xn;
         if (iProgressRemoteView != null) {
-            iProgressRemoteView.setPercentNum(str);
+            iProgressRemoteView.setStatus(str);
         }
     }
 }

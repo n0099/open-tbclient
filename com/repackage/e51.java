@@ -19,14 +19,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.pn0;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class e51 extends Dialog implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     @NonNull
     public final b a;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class a implements DialogInterface.OnDismissListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -59,7 +59,7 @@ public class e51 extends Dialog implements View.OnClickListener {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public interface b {
         void a(boolean z);
     }
@@ -91,15 +91,15 @@ public class e51 extends Dialog implements View.OnClickListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, adBaseModel) == null) {
             pn0.b bVar = (adBaseModel == null || (pn0Var = adBaseModel.p) == null) ? null : pn0Var.f;
-            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d05cf, (ViewGroup) null);
-            String string = (bVar == null || TextUtils.isEmpty(bVar.a)) ? getContext().getResources().getString(R.string.obfuscated_res_0x7f0f0bcc) : bVar.a;
-            String string2 = (bVar == null || TextUtils.isEmpty(bVar.b)) ? getContext().getResources().getString(R.string.obfuscated_res_0x7f0f0bcb) : bVar.b;
-            String string3 = (bVar == null || TextUtils.isEmpty(bVar.c)) ? getContext().getResources().getString(R.string.obfuscated_res_0x7f0f0bca) : bVar.c;
-            ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09154f)).setText(string);
-            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091550);
+            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d05d9, (ViewGroup) null);
+            String string = (bVar == null || TextUtils.isEmpty(bVar.a)) ? getContext().getResources().getString(R.string.obfuscated_res_0x7f0f0bb8) : bVar.a;
+            String string2 = (bVar == null || TextUtils.isEmpty(bVar.b)) ? getContext().getResources().getString(R.string.obfuscated_res_0x7f0f0bb7) : bVar.b;
+            String string3 = (bVar == null || TextUtils.isEmpty(bVar.c)) ? getContext().getResources().getString(R.string.obfuscated_res_0x7f0f0bb6) : bVar.c;
+            ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09152a)).setText(string);
+            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09152b);
             textView.setText(string2);
             textView.setOnClickListener(this);
-            TextView textView2 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09154e);
+            TextView textView2 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091529);
             textView2.setText(string3);
             textView2.setOnClickListener(this);
             setContentView(inflate);
@@ -117,7 +117,7 @@ public class e51 extends Dialog implements View.OnClickListener {
             WindowManager.LayoutParams attributes = window.getAttributes();
             attributes.width = -1;
             attributes.height = -2;
-            attributes.windowAnimations = R.style.obfuscated_res_0x7f1003ba;
+            attributes.windowAnimations = R.style.obfuscated_res_0x7f1003bd;
             attributes.gravity = 17;
             window.setAttributes(attributes);
             window.setBackgroundDrawableResource(17170445);
@@ -128,9 +128,9 @@ public class e51 extends Dialog implements View.OnClickListener {
     public void onClick(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2) == null) {
-            if (view2.getId() == R.id.obfuscated_res_0x7f091550) {
+            if (view2.getId() == R.id.obfuscated_res_0x7f09152b) {
                 this.a.a(false);
-            } else if (view2.getId() == R.id.obfuscated_res_0x7f09154e) {
+            } else if (view2.getId() == R.id.obfuscated_res_0x7f091529) {
                 this.a.a(true);
             }
         }

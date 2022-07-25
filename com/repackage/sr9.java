@@ -64,12 +64,12 @@ public class sr9 {
 
             /* renamed from: com.repackage.sr9$b$a$a  reason: collision with other inner class name */
             /* loaded from: classes7.dex */
-            public class C0730a implements hs9 {
+            public class C0578a implements hs9 {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ a a;
 
-                public C0730a(a aVar) {
+                public C0578a(a aVar) {
                     Interceptable interceptable = $ic;
                     if (interceptable != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
@@ -102,13 +102,13 @@ public class sr9 {
 
             /* renamed from: com.repackage.sr9$b$a$b  reason: collision with other inner class name */
             /* loaded from: classes7.dex */
-            public class C0731b implements hs9 {
+            public class C0579b implements hs9 {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ Throwable a;
                 public final /* synthetic */ a b;
 
-                public C0731b(a aVar, Throwable th) {
+                public C0579b(a aVar, Throwable th) {
                     Interceptable interceptable = $ic;
                     if (interceptable != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
@@ -164,7 +164,7 @@ public class sr9 {
             public void onCompleted() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.a.b(new C0730a(this));
+                    this.a.b(new C0578a(this));
                 }
             }
 
@@ -172,7 +172,7 @@ public class sr9 {
             public void onError(Throwable th) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
-                    this.a.b(new C0731b(this, th));
+                    this.a.b(new C0579b(this, th));
                 }
             }
 

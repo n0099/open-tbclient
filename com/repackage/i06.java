@@ -123,26 +123,24 @@ public class i06 implements h06 {
             }
         }
 
-        @Override // com.repackage.h89.b
-        public void b(long j) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) || this.a.i == null) {
-                return;
-            }
-            this.a.i.b(j);
-        }
-
         @Override // com.repackage.w79.e
-        public void c() {
+        public void b() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             }
         }
 
         @Override // com.repackage.w79.e
-        public void d(int i) {
+        public void c(int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            }
+        }
+
+        @Override // com.repackage.w79.e
+        public void d() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             }
         }
 
@@ -154,33 +152,35 @@ public class i06 implements h06 {
         }
 
         @Override // com.repackage.w79.e
-        public void f() {
+        public void f(int i, int i2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            }
-        }
-
-        @Override // com.repackage.w79.e
-        public void g(int i, int i2) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeII(1048582, this, i, i2) == null) || i <= 0 || i2 <= 0) {
+            if (!(interceptable == null || interceptable.invokeII(1048581, this, i, i2) == null) || i <= 0 || i2 <= 0) {
                 return;
             }
             this.a.g.setAspectRatio(i / i2, 1);
         }
 
         @Override // com.repackage.w79.e
-        public void h(boolean z) {
+        public void g(boolean z) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
+            if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
             }
         }
 
         @Override // com.repackage.h89.b
         public void onError(int i, String str) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, str) == null) {
+            if (interceptable == null || interceptable.invokeIL(1048583, this, i, str) == null) {
             }
+        }
+
+        @Override // com.repackage.h89.b
+        public void onProgress(long j) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j) == null) || this.a.i == null) {
+                return;
+            }
+            this.a.i.onProgress(j);
         }
 
         @Override // com.repackage.h89.b

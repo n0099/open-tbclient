@@ -10,10 +10,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.an4;
 import com.repackage.d08;
 import com.repackage.pi;
-import com.repackage.td5;
-import com.repackage.zm4;
+import com.repackage.ud5;
 import tbclient.Personal.DataReq;
 import tbclient.Personal.PersonalReqIdl;
 /* loaded from: classes3.dex */
@@ -52,10 +52,10 @@ public class PersonPolymericReqMsg extends NetMessage {
             builder.pn = Integer.valueOf(this.pn);
             builder.scr_w = Integer.valueOf(pi.k(TbadkCoreApplication.getInst().getApp()));
             builder.scr_h = Integer.valueOf(pi.i(TbadkCoreApplication.getInst().getApp()));
-            builder.q_type = Integer.valueOf(zm4.c().e());
+            builder.q_type = Integer.valueOf(an4.c().e());
             builder.scr_dip = Double.valueOf(pi.h(TbadkCoreApplication.getInst().getApp()));
             if (z || SocketAddCommonParamSwitch.getIsOn()) {
-                td5.a(builder, true);
+                ud5.a(builder, true);
             }
             PersonalReqIdl.Builder builder2 = new PersonalReqIdl.Builder();
             builder2.data = builder.build(false);

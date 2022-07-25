@@ -1,6 +1,7 @@
 package com.repackage;
 
 import android.content.Context;
+import android.provider.Settings;
 import android.util.Log;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
@@ -11,19 +12,21 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class ua3 extends e23 {
+public class ua3 extends f23 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ua3(e13 e13Var) {
-        super(e13Var, "/swanAPI/vibrateLong");
+    public ua3(f13 f13Var) {
+        super(f13Var, "/swanAPI/getAutoRotationSync");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {e13Var};
+            Object[] objArr = {f13Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -37,24 +40,51 @@ public class ua3 extends e23 {
         }
     }
 
-    @Override // com.repackage.e23
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, h03 h03Var) {
+    @Override // com.repackage.f23
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, i03 i03Var) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, h03Var)) == null) {
-            if (e23.b) {
-                Log.d("LongVibrateAction", "handle entity: " + unitedSchemeEntity.toString());
-            }
-            if (h03Var != null && h03Var.n0()) {
-                if (e23.b) {
-                    Log.d("LongVibrateAction", "LongVibrateAction does not supported when app is invisible.");
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, i03Var)) == null) {
+            if (i03Var == null) {
+                ix1.c("getAutoRotationSync", "none swanApp");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal swanApp");
+                if (f23.b) {
+                    Log.e("SwanAppAction", "getAutoRotationSync --- illegal swanApp");
                 }
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "this operation does not supported when app is invisible.");
                 return false;
+            } else if (context == null) {
+                ix1.c("getAutoRotationSync", "none context");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal context");
+                if (f23.b) {
+                    Log.e("SwanAppAction", "getAutoRotationSync --- illegal context");
+                }
+                return false;
+            } else {
+                try {
+                    int i = Settings.System.getInt(context.getApplicationContext().getContentResolver(), "accelerometer_rotation");
+                    if (f23.b) {
+                        Log.d("SwanAppAction", "getAutoRotationSync --- isRotateOn: " + i);
+                    }
+                    JSONObject jSONObject = new JSONObject();
+                    try {
+                        jSONObject.put("isRotateOn", i != 0);
+                        unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0);
+                        return true;
+                    } catch (JSONException unused) {
+                        unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "json exception");
+                        if (f23.b) {
+                            Log.e("SwanAppAction", "getAutoRotationSync --- json exception");
+                        }
+                        return false;
+                    }
+                } catch (Exception e) {
+                    if (f23.b) {
+                        e.printStackTrace();
+                        Log.e("SwanAppAction", "getAutoRotationSync --- can't get setting");
+                    }
+                    return false;
+                }
             }
-            wa3.d().f();
-            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
-            return true;
         }
         return invokeLLLL.booleanValue;
     }

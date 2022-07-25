@@ -10,11 +10,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.do4;
+import com.repackage.eo4;
 import com.tencent.open.SocialConstants;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public class AlaBroadcastGiftToastData extends do4 implements Parcelable {
+public class AlaBroadcastGiftToastData extends eo4 implements Parcelable {
     public static /* synthetic */ Interceptable $ic;
     public static final Parcelable.Creator<AlaBroadcastGiftToastData> CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
@@ -105,7 +105,7 @@ public class AlaBroadcastGiftToastData extends do4 implements Parcelable {
         return invokeV.intValue;
     }
 
-    @Override // com.repackage.do4
+    @Override // com.repackage.eo4
     public void parserJson(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) || jSONObject == null) {

@@ -53,13 +53,13 @@ public class ml8 {
             this.b = true;
             InterestGuideActivityConfig interestGuideActivityConfig = new InterestGuideActivityConfig(this.a);
             if (TbSingleton.getInstance().triggerInterestPanelYDaysConfig) {
-                interestGuideActivityConfig.setCustomTitle(new String[]{this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0910), this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0911), this.a.getResources().getString(R.string.obfuscated_res_0x7f0f090c)});
+                interestGuideActivityConfig.setCustomTitle(new String[]{this.a.getResources().getString(R.string.obfuscated_res_0x7f0f08fb), this.a.getResources().getString(R.string.obfuscated_res_0x7f0f08fc), this.a.getResources().getString(R.string.obfuscated_res_0x7f0f08f7)});
                 interestGuideActivityConfig.setScene(10);
             }
             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, interestGuideActivityConfig));
             TbSingleton.getInstance().setExceptInsertAdDiaShow(true);
         }
-        xt4.k().x("key_app_launch_time", System.currentTimeMillis());
+        yt4.k().x("key_app_launch_time", System.currentTimeMillis());
         b();
     }
 
@@ -113,7 +113,7 @@ public class ml8 {
             InterestPanelShowManager.a().d(this.a);
             TbSingleton.getInstance().setExceptInsertAdDiaShow(true);
         }
-        xt4.k().x("key_app_launch_time", System.currentTimeMillis());
+        yt4.k().x("key_app_launch_time", System.currentTimeMillis());
         b();
         if (!UbsABTestHelper.isFirstLoginTestA() && !UbsABTestHelper.isFirstLoginTestB() && !TbadkApplication.getInst().isNeedNewUserLead()) {
             InterestPanelShowManager.a().d(this.a);

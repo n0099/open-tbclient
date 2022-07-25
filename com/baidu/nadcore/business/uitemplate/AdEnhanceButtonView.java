@@ -502,11 +502,11 @@ public class AdEnhanceButtonView extends FrameLayout implements i51<View> {
     public final void n(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d05ab, this);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d05b5, this);
             this.b = (NadEnhanceButtonDownloadView) findViewById(R.id.obfuscated_res_0x7f0900f6);
-            this.c = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090668);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f09066a);
-            this.e = (AdImageView) findViewById(R.id.obfuscated_res_0x7f090669);
+            this.c = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090667);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f090669);
+            this.e = (AdImageView) findViewById(R.id.obfuscated_res_0x7f090668);
             this.l = (SimpleAdInfoView) findViewById(R.id.obfuscated_res_0x7f090286);
         }
     }
@@ -675,7 +675,7 @@ public class AdEnhanceButtonView extends FrameLayout implements i51<View> {
             if (!TextUtils.isEmpty(bn0Var.b)) {
                 this.d.setText(bn0Var.b);
             } else {
-                this.d.setText(getResources().getText(R.string.obfuscated_res_0x7f0f0b67));
+                this.d.setText(getResources().getText(R.string.obfuscated_res_0x7f0f0b53));
             }
             this.d.setTextColor(eg0.e("", R.color.obfuscated_res_0x7f060868));
             this.c.setOnClickListener(new h(this, bn0Var));

@@ -98,7 +98,7 @@ public class ml7 implements ll7 {
             if (interceptable != null && (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, voidArr)) != null) {
                 return (Void) invokeL.objValue;
             }
-            int b = zy4.b();
+            int b = az4.b();
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put("baseInfo", this.a.s());
@@ -167,8 +167,8 @@ public class ml7 implements ll7 {
             return;
         }
         x();
-        int b = zy4.b();
-        if ((zy4.c() || !this.s) && b != 3) {
+        int b = az4.b();
+        if ((az4.c() || !this.s) && b != 3) {
             this.w = true;
             new a(this).execute(new Void[0]);
         }
@@ -503,7 +503,7 @@ public class ml7 implements ll7 {
     public final void x() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048595, this) == null) && PerformanceLoggerHelper.getInstance().isSmallFlow() && this.k != null) {
-            vg a2 = r95.a();
+            vg a2 = s95.a();
             a2.b("action", "video_monitor");
             a2.c("play_time", this.k.get("playDuration"));
             a2.c("caton_time", this.k.get("stallDuration"));

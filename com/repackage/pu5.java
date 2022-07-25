@@ -140,12 +140,12 @@ public class pu5 extends an<fv5, CardViewHolder<aw5>> {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i), view2, viewGroup, fv5Var, cardViewHolder})) == null) {
-            if (cardViewHolder.c() == null) {
+            if (cardViewHolder.b() == null) {
                 return null;
             }
-            a0(fv5Var, cardViewHolder.c());
-            cardViewHolder.c().h().setOnClickListener(new a(this, fv5Var));
-            return cardViewHolder.c().h();
+            a0(fv5Var, cardViewHolder.b());
+            cardViewHolder.b().h().setOnClickListener(new a(this, fv5Var));
+            return cardViewHolder.b().h();
         }
         return (View) invokeCommon.objValue;
     }

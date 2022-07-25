@@ -14,10 +14,10 @@ public final class am extends al.a {
     public final /* synthetic */ int a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final /* synthetic */ ax f1617a;
+    public final /* synthetic */ ax f897a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final /* synthetic */ String f1618a;
+    public final /* synthetic */ String f898a;
 
     public am(String str, ax axVar, int i) {
         Interceptable interceptable = $ic;
@@ -34,24 +34,24 @@ public final class am extends al.a {
                 return;
             }
         }
-        this.f1618a = str;
-        this.f1617a = axVar;
+        this.f898a = str;
+        this.f897a = axVar;
         this.a = i;
     }
 
     @Override // com.xiaomi.push.al.a
     /* renamed from: a */
-    public String mo1145a() {
+    public String mo207a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f1618a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f898a : (String) invokeV.objValue;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f1617a.a(this.a);
+            this.f897a.a(this.a);
         }
     }
 }

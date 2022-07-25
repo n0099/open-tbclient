@@ -1,10 +1,11 @@
 package com.repackage;
 
 import android.os.Bundle;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.searchbox.process.ipc.delegate.DelegateUtils;
-import com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation;
-import com.baidu.searchbox.process.ipc.util.ProcessUtils;
+import android.text.TextUtils;
+import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
+import com.baidu.searchbox.ubcprocessor.UBCCloudControlProcessor;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,12 +13,57 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
+import com.repackage.gl2;
 /* loaded from: classes5.dex */
-public class d92 extends ProviderDelegation {
+public class d92 {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean a;
+    public static long b;
+    public static String c;
+    public static String d;
     public transient /* synthetic */ FieldHolder $fh;
+
+    /* loaded from: classes5.dex */
+    public static class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Bundle a;
+
+        public a(Bundle bundle) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {bundle};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = bundle;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                gl2.a aVar = (gl2.a) new gl2.a().s(this.a);
+                l73 l73Var = new l73();
+                l73Var.a = b73.n(0);
+                l73Var.b = "launch";
+                l73Var.e = "repeatlaunch";
+                l73Var.a("launchInterval", Long.valueOf(aVar.l("launch_interval", -1L)));
+                l73Var.j(aVar);
+                l73Var.d(aVar.s0().getString(UBCCloudControlProcessor.UBC_KEY));
+                l73Var.b(b73.k(aVar.W()));
+                b73.onEvent(l73Var);
+            }
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -32,58 +78,48 @@ public class d92 extends ProviderDelegation {
                 return;
             }
         }
-        oj2.g0().getSwitch("swan_recovery_enable", true);
-        a = true;
+        a = sg1.a;
     }
 
-    public d92() {
+    public static long a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? System.currentTimeMillis() - b : invokeV.longValue;
+    }
+
+    public static boolean b(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, str2)) == null) {
+            long currentTimeMillis = System.currentTimeMillis() - b;
+            boolean z = currentTimeMillis < 800 && TextUtils.equals(c, str) && TextUtils.equals(d, str2);
+            if (a && z) {
+                Log.d("SeriesLaunchChecker", "CurrentLaunchInterval:" + currentTimeMillis + ",PreventSeriesLaunchInterval:800");
             }
+            return z;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public static void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65539, null) == null) {
+            b = System.currentTimeMillis();
         }
     }
 
-    public static void c(n92 n92Var) {
+    public static void d(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65538, null, n92Var) == null) && a && n92Var != null) {
-            if (ProcessUtils.isMainProcess()) {
-                e92.a(n92Var).b();
-                m92.b().a(n92Var.a);
-                return;
-            }
-            Bundle bundle = new Bundle();
-            bundle.putInt("recovery_level", n92Var.a);
-            bundle.putStringArrayList("recovery_app_list", n92Var.b);
-            DelegateUtils.callOnMainWithContentProvider(AppRuntime.getAppContext(), d92.class, bundle);
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, bundle) == null) {
+            ExecutorUtilsExt.postOnElastic(new a(bundle), "SeriesLaunchChecker", 3);
         }
     }
 
-    @Override // com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation
-    public Bundle execCall(Bundle bundle) {
-        InterceptResult invokeL;
+    public static void e(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bundle)) == null) {
-            if (a) {
-                int i = bundle.getInt("recovery_level", -1);
-                ArrayList<String> stringArrayList = bundle.getStringArrayList("recovery_app_list");
-                n92 n92Var = new n92();
-                n92Var.a = i;
-                if (stringArrayList != null) {
-                    n92Var.b = stringArrayList;
-                }
-                e92.a(n92Var).b();
-                m92.b().a(n92Var.a);
-                return null;
-            }
-            return null;
+        if (interceptable == null || interceptable.invokeLL(65541, null, str, str2) == null) {
+            c = str;
+            d = str2;
         }
-        return (Bundle) invokeL.objValue;
     }
 }

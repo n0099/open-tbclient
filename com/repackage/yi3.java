@@ -1,101 +1,35 @@
 package com.repackage;
 
 import android.content.Context;
+import android.telephony.TelephonyManager;
 import android.text.TextUtils;
+import android.util.Base64;
 import android.util.Log;
 import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.account.contants.AccountConstants;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.tbadk.core.atomData.ImageViewerConfig;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
+import com.baidu.location.BDLocation;
+import com.baidu.mapsdkplatform.comapi.location.CoordinateType;
+import com.baidu.swan.apps.impl.nalib.encrypt.EncryptConstant;
+import com.baidu.swan.apps.network.SwanAppNetworkUtils;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.m53;
-import com.yy.mobile.framework.revenuesdk.statistics.hiido.BaseHiidoContent;
-import java.util.HashSet;
-import java.util.Set;
+import com.repackage.q63;
+import com.repackage.wi3;
+import javax.crypto.Cipher;
+import javax.crypto.spec.IvParameterSpec;
+import javax.crypto.spec.SecretKeySpec;
+import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class yi3 extends e23 {
+public class yi3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final Set<String> d;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-    public String c;
-
-    /* loaded from: classes7.dex */
-    public class a implements af3<k53<m53.e>> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ CallbackHandler a;
-        public final /* synthetic */ Context b;
-        public final /* synthetic */ String c;
-        public final /* synthetic */ String d;
-        public final /* synthetic */ String e;
-        public final /* synthetic */ String f;
-        public final /* synthetic */ String g;
-        public final /* synthetic */ yi3 h;
-
-        public a(yi3 yi3Var, CallbackHandler callbackHandler, Context context, String str, String str2, String str3, String str4, String str5) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {yi3Var, callbackHandler, context, str, str2, str3, str4, str5};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.h = yi3Var;
-            this.a = callbackHandler;
-            this.b = context;
-            this.c = str;
-            this.d = str2;
-            this.e = str3;
-            this.f = str4;
-            this.g = str5;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.af3
-        /* renamed from: b */
-        public void a(k53<m53.e> k53Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, k53Var) == null) {
-                if (!f53.h(k53Var)) {
-                    f53.q(k53Var, this.a, this.h.c);
-                    return;
-                }
-                ac3 a = oj2.F().a(this.b, this.c, this.d, this.e, this.f, this.g);
-                if (a != null) {
-                    if (a.h() != 0) {
-                        hx1.c("PageTransitionAction", a.g().toString());
-                        CallbackHandler callbackHandler = this.a;
-                        String str = this.h.c;
-                        callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(1001, a.a() + ":" + a.g().toString()).toString());
-                        return;
-                    }
-                    hx1.c("PageTransitionAction", "page transition fail");
-                    this.a.handleSchemeDispatchCallback(this.h.c, UnitedSchemeUtility.wrapCallbackParams(1001, "execute fail").toString());
-                    return;
-                }
-                hx1.i("PageTransitionAction", "page transition success");
-                this.a.handleSchemeDispatchCallback(this.h.c, UnitedSchemeUtility.wrapCallbackParams(0).toString());
-            }
-        }
-    }
 
     static {
         InterceptResult invokeClinit;
@@ -110,118 +44,142 @@ public class yi3 extends e23 {
                 return;
             }
         }
-        HashSet hashSet = new HashSet();
-        d = hashSet;
-        hashSet.add("easybrowse");
-        d.add("live");
-        d.add("appTab");
-        d.add("browser");
-        d.add(AccountConstants.LOGIN_TYPE_NATIVE_SRC_COMIC);
-        d.add(AccountConstants.LOGIN_TYPE_NATIVE_SRC_NOVEL);
-        d.add("imChatHN");
+        a = sg1.a;
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public yi3(e13 e13Var) {
-        super(e13Var, "/swanAPI/pageTransition");
+    @Nullable
+    public static String a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {e13Var};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-    }
-
-    @Override // com.repackage.e23
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, h03 h03Var) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, h03Var)) == null) {
-            if (h03Var == null) {
-                hx1.c("PageTransitionAction", "runtime exception");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "null swanApp");
-                return false;
-            } else if (h03Var.n0()) {
-                if (e23.b) {
-                    Log.d("PageTransitionAction", "PageTransitionAction does not supported when app is invisible.");
-                }
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "this operation does not supported when app is invisible.");
-                return false;
-            } else {
-                String param = unitedSchemeEntity.getParam("params");
-                if (TextUtils.isEmpty(param)) {
-                    hx1.c("PageTransitionAction", "params is null");
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "params is null");
-                    return false;
-                }
-                JSONObject d2 = hd3.d(param);
-                String optString = d2.optString("cb");
-                this.c = optString;
-                if (TextUtils.isEmpty(optString)) {
-                    hx1.c("PageTransitionAction", "callback is null");
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
-                    return false;
-                }
-                String optString2 = d2.optString("authority");
-                String optString3 = d2.optString("path");
-                String optString4 = d2.optString("module");
-                String optString5 = d2.optString("action");
-                String optString6 = d2.optString("scheme");
-                k(h03Var, optString4);
-                if (oj2.E().a(d2)) {
-                    h03Var.e0().g(context, "mapp_i_baiduapp_page_trans", new a(this, callbackHandler, context, optString2, optString3, optString4, optString5, optString6));
-                } else {
-                    ac3 a2 = oj2.F().a(context, optString2, optString3, optString4, optString5, optString6);
-                    if (a2 != null) {
-                        if (a2.h() != 0) {
-                            hx1.c("PageTransitionAction", a2.g().toString());
-                            String str = this.c;
-                            callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(1001, a2.a() + ":" + a2.g().toString()).toString());
-                        } else {
-                            hx1.c("PageTransitionAction", "page transition fail");
-                            callbackHandler.handleSchemeDispatchCallback(this.c, UnitedSchemeUtility.wrapCallbackParams(1001, "execute fail").toString());
-                        }
-                    } else {
-                        hx1.i("PageTransitionAction", "page transition success");
-                        callbackHandler.handleSchemeDispatchCallback(this.c, UnitedSchemeUtility.wrapCallbackParams(0).toString());
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            try {
+                Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
+                cipher.init(1, new SecretKeySpec((EncryptConstant.getPartRecommendAesKey() + "rtad@mic").getBytes(), "AES"), new IvParameterSpec((EncryptConstant.getPartRecommendAesIv() + "21248000").getBytes()));
+                return Base64.encodeToString(cipher.doFinal(str.getBytes(IMAudioTransRequest.CHARSET)), 2);
+            } catch (Exception e) {
+                e.printStackTrace();
+                JSONObject jSONObject = new JSONObject();
+                try {
+                    jSONObject.put("info", "encrypt request param fail with exception : " + e.getMessage());
+                } catch (JSONException e2) {
+                    if (a) {
+                        e2.printStackTrace();
                     }
                 }
-                hx1.i("PageTransitionAction", "callback success");
-                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
-                return true;
+                f(jSONObject.toString());
+                return null;
             }
         }
-        return invokeLLLL.booleanValue;
+        return (String) invokeL.objValue;
     }
 
-    public final void k(@NonNull h03 h03Var, @NonNull String str) {
+    /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
+    public static void b(wi3 wi3Var, xi3 xi3Var) {
+        char c;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, h03Var, str) == null) {
-            j73 j73Var = new j73();
-            j73Var.c = h03Var.W().T();
-            j73Var.a = "swan";
-            if (be3.G()) {
-                if (d.contains(str)) {
-                    j73Var.b = str.toLowerCase();
-                } else {
-                    j73Var.b = ImageViewerConfig.FROM_OTHER;
-                }
-            } else {
-                j73Var.b = ImageViewerConfig.FROM_OTHER;
-            }
-            j73Var.a(BaseHiidoContent.HOSTID, oj2.n().a());
-            j73Var.a("appid", h03Var.getAppId());
-            a73.x("1895", j73Var);
+        if (!(interceptable == null || interceptable.invokeLL(65538, null, wi3Var, xi3Var) == null) || wi3Var == null || xi3Var == null) {
+            return;
         }
+        String str = TextUtils.isEmpty(xi3Var.a) ? "unknown" : xi3Var.a;
+        switch (str.hashCode()) {
+            case -1395470197:
+                if (str.equals("bd09ll")) {
+                    c = 3;
+                    break;
+                }
+                c = 65535;
+                break;
+            case 3017163:
+                if (str.equals(BDLocation.BDLOCATION_GCJ02_TO_BD09)) {
+                    c = 0;
+                    break;
+                }
+                c = 65535;
+                break;
+            case 98175376:
+                if (str.equals("gcj02")) {
+                    c = 1;
+                    break;
+                }
+                c = 65535;
+                break;
+            case 113079775:
+                if (str.equals(CoordinateType.WGS84)) {
+                    c = 2;
+                    break;
+                }
+                c = 65535;
+                break;
+            default:
+                c = 65535;
+                break;
+        }
+        int i = c != 0 ? c != 1 ? c != 2 ? c != 3 ? -1 : 3 : 2 : 1 : 0;
+        wi3.c cVar = wi3Var.c;
+        cVar.a = i;
+        cVar.b = xi3Var.b;
+        cVar.c = xi3Var.c;
+    }
+
+    public static int c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            String e = SwanAppNetworkUtils.e();
+            if ("wifi".equals(e)) {
+                return 1;
+            }
+            if ("2g".equals(e)) {
+                return 2;
+            }
+            if ("3g".equals(e)) {
+                return 3;
+            }
+            if ("4g".equals(e)) {
+                return 4;
+            }
+            return "5g".equals(e) ? 5 : 0;
+        }
+        return invokeV.intValue;
+    }
+
+    public static int d(Context context) {
+        InterceptResult invokeL;
+        TelephonyManager telephonyManager;
+        String simOperator;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
+            if (context == null || (telephonyManager = (TelephonyManager) context.getSystemService("phone")) == null || (simOperator = telephonyManager.getSimOperator()) == null) {
+                return 0;
+            }
+            if ("46000".equals(simOperator) || "46002".equals(simOperator) || "46007".equals(simOperator)) {
+                return 1;
+            }
+            if ("46001".equals(simOperator)) {
+                return 3;
+            }
+            return "46003".equals(simOperator) ? 2 : 0;
+        }
+        return invokeL.intValue;
+    }
+
+    public static boolean e(@NonNull Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) ? (context.getResources().getConfiguration().screenLayout & 15) >= 3 : invokeL.booleanValue;
+    }
+
+    public static void f(String str) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(65542, null, str) == null) || TextUtils.isEmpty(str)) {
+            return;
+        }
+        if (a) {
+            Log.d("recommend", "reportInfoWhenResponseIsNull: " + str);
+        }
+        q63.b bVar = new q63.b(10003);
+        bVar.i(str);
+        bVar.h(i03.g0());
+        bVar.m();
     }
 }

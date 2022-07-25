@@ -4,8 +4,8 @@ public interface b {
 
     /* loaded from: classes5.dex */
     public interface a {
-        com.kwai.sodler.lib.c.b a();
+        com.kwai.sodler.lib.c.b Fj();
     }
 
-    void a(f fVar);
+    void e(f fVar);
 }

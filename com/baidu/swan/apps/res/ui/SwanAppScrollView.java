@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.rg1;
+import com.repackage.sg1;
 /* loaded from: classes2.dex */
 public class SwanAppScrollView extends ScrollView {
     public static /* synthetic */ Interceptable $ic;
@@ -38,7 +38,7 @@ public class SwanAppScrollView extends ScrollView {
                 return;
             }
         }
-        b = rg1.a;
+        b = sg1.a;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -70,7 +70,7 @@ public class SwanAppScrollView extends ScrollView {
             if (2 == getContext().getResources().getConfiguration().orientation) {
                 i = getContext().getResources().getDisplayMetrics().widthPixels;
             }
-            return ((i - (getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070129) * 2)) - getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07012d)) - getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070125);
+            return ((i - (getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070127) * 2)) - getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07012b)) - getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070123);
         }
         return invokeV.intValue;
     }

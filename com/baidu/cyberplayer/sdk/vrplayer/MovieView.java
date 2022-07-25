@@ -25,6 +25,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.yy.mobile.framework.revenuesdk.baseapi.ErrorCode;
 import java.util.HashMap;
 import java.util.Map;
 @Keep
@@ -823,7 +824,7 @@ public class MovieView extends FrameLayout implements ICyberVideoView {
             } else {
                 this.h.changeProxyDynamic(str, true);
             }
-            this.h.seekTo(getCurrentPosition() - 500);
+            this.h.seekTo(getCurrentPosition() + ErrorCode.SERVER_ERROR);
             HashMap<String, String> hashMap2 = this.ae;
             if (hashMap2 != null) {
                 hashMap2.put(CyberPlayerManager.OPT_HTTP_PROXY, str);

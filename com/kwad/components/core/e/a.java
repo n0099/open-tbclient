@@ -1,6 +1,7 @@
 package com.kwad.components.core.e;
 
 import android.content.Context;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.nps.utils.Constant;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -9,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.kwad.sdk.core.d.b;
+import com.kwad.sdk.core.e.b;
 import com.kwad.sdk.utils.g;
 import java.io.File;
 import java.io.FileFilter;
@@ -21,9 +22,9 @@ public final class a {
 
     /* renamed from: com.kwad.components.core.e.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public static final class C0510a {
+    public static final class C0355a {
         public static /* synthetic */ Interceptable $ic;
-        public static final a a;
+        public static final a Ez;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -39,7 +40,7 @@ public final class a {
                     return;
                 }
             }
-            a = new a((byte) 0);
+            Ez = new a((byte) 0);
         }
     }
 
@@ -61,20 +62,14 @@ public final class a {
         this();
     }
 
-    public static a a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? C0510a.a : (a) invokeV.objValue;
-    }
-
     /* JADX INFO: Access modifiers changed from: private */
     public void a(Context context, long j) {
         File[] listFiles;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLJ(65539, this, context, j) == null) || (listFiles = c(context).listFiles(new FileFilter(this) { // from class: com.kwad.components.core.e.a.2
+        if (!(interceptable == null || interceptable.invokeLJ(65538, this, context, j) == null) || (listFiles = ak(context).listFiles(new FileFilter(this) { // from class: com.kwad.components.core.e.a.2
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ a a;
+            public final /* synthetic */ a Ey;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -91,7 +86,7 @@ public final class a {
                         return;
                     }
                 }
-                this.a = this;
+                this.Ey = this;
             }
 
             @Override // java.io.FileFilter
@@ -119,15 +114,15 @@ public final class a {
         }
     }
 
-    private void b(Context context) {
+    private void aj(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65541, this, context) == null) {
-            g.a(new Runnable(this, context, System.currentTimeMillis()) { // from class: com.kwad.components.core.e.a.1
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, context) == null) {
+            g.schedule(new Runnable(this, context, System.currentTimeMillis()) { // from class: com.kwad.components.core.e.a.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ Context a;
-                public final /* synthetic */ long b;
-                public final /* synthetic */ a c;
+                public final /* synthetic */ long Ex;
+                public final /* synthetic */ a Ey;
+                public final /* synthetic */ Context gC;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -144,9 +139,9 @@ public final class a {
                             return;
                         }
                     }
-                    this.c = this;
-                    this.a = context;
-                    this.b = r8;
+                    this.Ey = this;
+                    this.gC = context;
+                    this.Ex = r8;
                 }
 
                 @Override // java.lang.Runnable
@@ -154,9 +149,9 @@ public final class a {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                         try {
-                            this.c.a(this.a, this.b);
+                            this.Ey.a(this.gC, this.Ex);
                         } catch (Throwable th) {
-                            b.b(th);
+                            b.printStackTraceOnly(th);
                         }
                     }
                 }
@@ -164,16 +159,22 @@ public final class a {
         }
     }
 
-    public static File c(Context context) {
+    public static File ak(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65542, null, context)) == null) ? new File(context.getApplicationInfo().dataDir, "ksad_dynamic") : (File) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) ? new File(context.getApplicationInfo().dataDir, "ksad_dynamic") : (File) invokeL.objValue;
     }
 
-    public final void a(Context context) {
+    public static a ng() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) ? C0355a.Ez : (a) invokeV.objValue;
+    }
+
+    public final void init(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            b(context);
+            aj(context);
         }
     }
 }

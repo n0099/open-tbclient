@@ -3,13 +3,13 @@ package com.kwad.sdk.core.videocache;
 public interface a {
     int a(byte[] bArr, long j, int i);
 
-    long a();
+    void close();
 
-    void a(byte[] bArr, int i);
+    void complete();
 
-    void b();
+    void d(byte[] bArr, int i);
 
-    void c();
+    boolean isCompleted();
 
-    boolean d();
+    long vJ();
 }

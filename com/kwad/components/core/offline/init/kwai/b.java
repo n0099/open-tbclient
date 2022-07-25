@@ -1,16 +1,16 @@
 package com.kwad.components.core.offline.init.kwai;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.text.TextUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.kwad.components.offline.api.core.api.IEncrypt;
+import com.kwad.components.offline.api.core.api.ICache;
+import com.kwad.sdk.KsAdSDKImpl;
 import java.io.File;
-import java.io.IOException;
 /* loaded from: classes5.dex */
-public final class b implements IEncrypt {
+public final class b implements ICache {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -28,31 +28,24 @@ public final class b implements IEncrypt {
         }
     }
 
-    @Override // com.kwad.components.offline.api.core.api.IEncrypt
-    public final String getFileMD5(File file) {
+    @Override // com.kwad.components.offline.api.core.api.ICache
+    public final String getPreCacheUrl(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, file)) == null) ? com.kwad.sdk.utils.a.b(file) : (String) invokeL.objValue;
-    }
-
-    @Override // com.kwad.components.offline.api.core.api.IEncrypt
-    public final byte[] getFileMD5Digest(File file) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, file)) == null) {
-            try {
-                return com.kwad.sdk.utils.a.a(file);
-            } catch (IOException unused) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return "";
+            }
+            int sc = com.kwad.sdk.core.config.d.sc();
+            if (sc >= 0) {
+                return sc == 0 ? str : com.kwad.sdk.core.videocache.b.a.bC(KsAdSDKImpl.get().getContext()).cA(str);
+            }
+            File ad = com.kwad.sdk.core.diskcache.a.a.sS().ad(str);
+            if (ad == null || !ad.exists()) {
                 return null;
             }
+            return ad.getAbsolutePath();
         }
-        return (byte[]) invokeL.objValue;
-    }
-
-    @Override // com.kwad.components.offline.api.core.api.IEncrypt
-    public final String getResponseData(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) ? com.kwad.sdk.core.a.d.b(str) : (String) invokeL.objValue;
+        return (String) invokeL.objValue;
     }
 }

@@ -25,7 +25,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.jy5;
 import com.repackage.pi;
 import com.repackage.r18;
-import com.repackage.rl4;
+import com.repackage.sl4;
 import com.repackage.w08;
 /* loaded from: classes3.dex */
 public class PersonCenterMoreActivity extends BaseActivity<PersonCenterMoreActivity> {
@@ -117,14 +117,14 @@ public class PersonCenterMoreActivity extends BaseActivity<PersonCenterMoreActiv
         }
         if (str.startsWith("tieba&")) {
             if (!TbadkCoreApplication.getInst().appResponseToIntentClass(ConsumptionRecordsActivityConfig.class)) {
-                pi.N(getPageContext().getPageActivity(), R.string.obfuscated_res_0x7f0f0456);
+                pi.N(getPageContext().getPageActivity(), R.string.obfuscated_res_0x7f0f0455);
                 return;
             }
             UrlManager.getInstance().dealOneLink(getPageContext(), new String[]{str.substring(6)});
         } else if (!str.startsWith(UrlSchemaHelper.SCHEMA_TYPE_HTTP) && !str.startsWith(UrlSchemaHelper.SCHEMA_TYPE_HTTPS)) {
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001387, str));
         } else {
-            rl4.x(getPageContext().getPageActivity(), true, str);
+            sl4.x(getPageContext().getPageActivity(), true, str);
         }
     }
 
@@ -162,7 +162,7 @@ public class PersonCenterMoreActivity extends BaseActivity<PersonCenterMoreActiv
             if (intent != null) {
                 this.b = intent.getBundleExtra(PersonMoreActivityConfig.URL_BUNDLE);
             }
-            setContentView(R.layout.obfuscated_res_0x7f0d06b2);
+            setContentView(R.layout.obfuscated_res_0x7f0d06bc);
             w08 w08Var = new w08(getPageContext(), this.b, this.d);
             this.a = w08Var;
             w08Var.b();

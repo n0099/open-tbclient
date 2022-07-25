@@ -6,6 +6,7 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.sapi2.CoreViewRouter;
 import com.baidu.sapi2.SapiAccount;
+import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.sapi2.SapiContext;
 import com.baidu.sapi2.SapiJsCallBacks;
 import com.baidu.sapi2.SapiWebView;
@@ -14,6 +15,7 @@ import com.baidu.sapi2.dto.PassNameValuePair;
 import com.baidu.sapi2.dto.SapiWebDTO;
 import com.baidu.sapi2.dto.WebLoginDTO;
 import com.baidu.sapi2.result.NormalizeGuestAccountResult;
+import com.baidu.sapi2.utils.Log;
 import com.baidu.sapi2.utils.PtokenStat;
 import com.baidu.sapi2.utils.enums.SocialType;
 import com.baidu.tieba.R;
@@ -122,7 +124,7 @@ public class NormalizeGuestAccountActivity extends BaseActivity {
         if (interceptable == null || interceptable.invokeL(1048580, this, bundle) == null) {
             super.onCreate(bundle);
             try {
-                setContentView(R.layout.obfuscated_res_0x7f0d04e1);
+                setContentView(R.layout.obfuscated_res_0x7f0d04eb);
                 this.u = getIntent().getStringExtra("EXTRA_BDUSS");
                 SapiAccount accountFromBduss = SapiContext.getInstance().getAccountFromBduss(this.u);
                 if (!TextUtils.isEmpty(this.u) && accountFromBduss != null) {
@@ -269,6 +271,11 @@ public class NormalizeGuestAccountActivity extends BaseActivity {
                 public void onSuccess(boolean z, String str2) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeZL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z, str2) == null) {
+                        try {
+                            SapiAccountManager.getGlobalCallback().onLoginStatusChange();
+                        } catch (Exception unused) {
+                            Log.e(Log.TAG, new Object[0]);
+                        }
                         this.a.t.isAccountMerge = z;
                         this.a.t.setNormalizeWay(str2);
                         this.a.t.setResultCode(0);

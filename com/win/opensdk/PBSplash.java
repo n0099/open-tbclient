@@ -336,7 +336,7 @@ public class PBSplash implements A {
                 }
             } else if (this.b.b().equals("image")) {
                 viewGroup.removeAllViews();
-                View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d08d9, viewGroup);
+                View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d08e3, viewGroup);
                 ImageView imageView = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f092506);
                 a(inflate);
                 imageView.setVisibility(0);
@@ -346,7 +346,7 @@ public class PBSplash implements A {
                 this.b.a(viewGroup, null);
             } else {
                 viewGroup.removeAllViews();
-                View inflate2 = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d08d9, viewGroup);
+                View inflate2 = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d08e3, viewGroup);
                 a(inflate2);
                 GifImageView gifImageView = (GifImageView) inflate2.findViewById(R.id.obfuscated_res_0x7f0924fe);
                 gifImageView.setVisibility(0);
@@ -407,8 +407,8 @@ public class PBSplash implements A {
             CircleProgressbar circleProgressbar = (CircleProgressbar) view2.findViewById(R.id.obfuscated_res_0x7f092509);
             this.d = circleProgressbar;
             circleProgressbar.setOutLineColor(0);
-            this.d.setInCircleColor(Color.parseColor(this.a.getString(R.string.obfuscated_res_0x7f0f15aa)));
-            this.d.setProgressColor(Color.parseColor(this.a.getString(R.string.obfuscated_res_0x7f0f15a9)));
+            this.d.setInCircleColor(Color.parseColor(this.a.getString(R.string.obfuscated_res_0x7f0f1559)));
+            this.d.setProgressColor(Color.parseColor(this.a.getString(R.string.obfuscated_res_0x7f0f1558)));
             this.d.setProgressLineWidth(this.h);
             this.d.setProgressType(s2.b);
             CircleProgressbar circleProgressbar2 = this.d;

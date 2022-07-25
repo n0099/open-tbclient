@@ -341,8 +341,8 @@ public final class a0a {
         }
         Window window = dialog.getWindow();
         Intrinsics.checkExpressionValueIsNotNull(window, "dialog.getWindow()");
-        ViewGroup viewGroup = (ViewGroup) window.findViewById(R.id.obfuscated_res_0x7f091b6b);
-        ImageView imageView = (ImageView) window.findViewById(R.id.obfuscated_res_0x7f090faa);
+        ViewGroup viewGroup = (ViewGroup) window.findViewById(R.id.obfuscated_res_0x7f091b45);
+        ImageView imageView = (ImageView) window.findViewById(R.id.obfuscated_res_0x7f090fa3);
         if (viewGroup == null || imageView == null) {
             return;
         }
@@ -371,13 +371,13 @@ public final class a0a {
             attributes.height = -2;
             window.setAttributes(attributes);
             window.setWindowAnimations(R.style.obfuscated_res_0x7f10014b);
-            window.setContentView(R.layout.obfuscated_res_0x7f0d0659);
-            View findViewById = window.findViewById(R.id.obfuscated_res_0x7f0922a1);
+            window.setContentView(R.layout.obfuscated_res_0x7f0d0663);
+            View findViewById = window.findViewById(R.id.obfuscated_res_0x7f0922a3);
             Intrinsics.checkExpressionValueIsNotNull(findViewById, "window.findViewById<TextView>(R.id.tv_title)");
             ((TextView) findViewById).setText(str);
-            window.findViewById(R.id.obfuscated_res_0x7f091b5b).setOnClickListener(new a(payDialogType, c0aVar, dialog, iViewEventListener));
+            window.findViewById(R.id.obfuscated_res_0x7f091b35).setOnClickListener(new a(payDialogType, c0aVar, dialog, iViewEventListener));
             ((Button) window.findViewById(R.id.obfuscated_res_0x7f090409)).setOnClickListener(new b(payDialogType, c0aVar, dialog, iViewEventListener));
-            ((ViewGroup) window.findViewById(R.id.obfuscated_res_0x7f0906a0)).addView(view2);
+            ((ViewGroup) window.findViewById(R.id.obfuscated_res_0x7f09069f)).addView(view2);
         }
     }
 
@@ -409,8 +409,8 @@ public final class a0a {
         }
         Window window = dialog.getWindow();
         Intrinsics.checkExpressionValueIsNotNull(window, "dialog.getWindow()");
-        ViewGroup viewGroup = (ViewGroup) window.findViewById(R.id.obfuscated_res_0x7f091b6b);
-        ImageView imageView = (ImageView) window.findViewById(R.id.obfuscated_res_0x7f090faa);
+        ViewGroup viewGroup = (ViewGroup) window.findViewById(R.id.obfuscated_res_0x7f091b45);
+        ImageView imageView = (ImageView) window.findViewById(R.id.obfuscated_res_0x7f090fa3);
         if (viewGroup == null || imageView == null) {
             return;
         }

@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.br4;
+import com.repackage.cr4;
 import com.repackage.s37;
 import com.squareup.wire.Wire;
 import tbclient.Error;
@@ -84,8 +84,8 @@ public class HotSelectHttpResponseMessage extends TbHttpResponsedMessage {
             if (bArr == null || bArr.length <= 0 || getError() != 0) {
                 return;
             }
-            br4.f();
-            br4.e("topic_select_space", TbadkCoreApplication.getCurrentAccount()).a("topic_select_user", bArr);
+            cr4.f();
+            cr4.e("topic_select_space", TbadkCoreApplication.getCurrentAccount()).a("topic_select_user", bArr);
         }
     }
 

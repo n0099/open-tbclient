@@ -22,11 +22,11 @@ public class TrafficProvider extends ContentProvider {
     public static final UriMatcher a;
 
     /* renamed from: a  reason: collision with other field name */
-    public static final Uri f1541a;
+    public static final Uri f821a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
-    public SQLiteOpenHelper f1542a;
+    public SQLiteOpenHelper f822a;
 
     static {
         InterceptResult invokeClinit;
@@ -41,7 +41,7 @@ public class TrafficProvider extends ContentProvider {
                 return;
             }
         }
-        f1541a = Uri.parse("content://com.xiaomi.push.providers.TrafficProvider/traffic");
+        f821a = Uri.parse("content://com.xiaomi.push.providers.TrafficProvider/traffic");
         UriMatcher uriMatcher = new UriMatcher(-1);
         a = uriMatcher;
         uriMatcher.addURI("com.xiaomi.push.providers.TrafficProvider", "traffic", 1);
@@ -110,7 +110,7 @@ public class TrafficProvider extends ContentProvider {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            this.f1542a = new a(getContext());
+            this.f822a = new a(getContext());
             return true;
         }
         return invokeV.booleanValue;
@@ -122,11 +122,11 @@ public class TrafficProvider extends ContentProvider {
         Cursor query;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048581, this, uri, strArr, str, strArr2, str2)) == null) {
-            synchronized (a.f1543a) {
+            synchronized (a.f823a) {
                 if (a.match(uri) != 1) {
                     throw new IllegalArgumentException("Unknown URI " + uri);
                 }
-                query = this.f1542a.getReadableDatabase().query("traffic", strArr, str, strArr2, null, null, str2);
+                query = this.f822a.getReadableDatabase().query("traffic", strArr, str, strArr2, null, null, str2);
             }
             return query;
         }
@@ -139,7 +139,7 @@ public class TrafficProvider extends ContentProvider {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048582, this, uri, contentValues, str, strArr)) == null) {
             if (a.match(uri) == 2 && contentValues != null && contentValues.containsKey(BaseStatisContent.IMSI)) {
-                hb.m1331a(contentValues.getAsString(BaseStatisContent.IMSI));
+                hb.m393a(contentValues.getAsString(BaseStatisContent.IMSI));
                 return 0;
             }
             return 0;

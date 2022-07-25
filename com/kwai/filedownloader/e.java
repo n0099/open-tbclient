@@ -11,7 +11,7 @@ import com.kwai.filedownloader.event.DownloadServiceConnectChangedEvent;
 public abstract class e extends com.kwai.filedownloader.event.c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public DownloadServiceConnectChangedEvent.ConnectStatus a;
+    public DownloadServiceConnectChangedEvent.ConnectStatus atb;
 
     public e() {
         Interceptable interceptable = $ic;
@@ -27,33 +27,33 @@ public abstract class e extends com.kwai.filedownloader.event.c {
         }
     }
 
-    public abstract void a();
+    public abstract void CB();
+
+    public abstract void CC();
+
+    public final DownloadServiceConnectChangedEvent.ConnectStatus CD() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.atb : (DownloadServiceConnectChangedEvent.ConnectStatus) invokeV.objValue;
+    }
 
     @Override // com.kwai.filedownloader.event.c
     public final boolean a(com.kwai.filedownloader.event.b bVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, bVar)) == null) {
             if (bVar instanceof DownloadServiceConnectChangedEvent) {
-                DownloadServiceConnectChangedEvent.ConnectStatus a = ((DownloadServiceConnectChangedEvent) bVar).a();
-                this.a = a;
-                if (a == DownloadServiceConnectChangedEvent.ConnectStatus.connected) {
-                    a();
+                DownloadServiceConnectChangedEvent.ConnectStatus DU = ((DownloadServiceConnectChangedEvent) bVar).DU();
+                this.atb = DU;
+                if (DU == DownloadServiceConnectChangedEvent.ConnectStatus.connected) {
+                    CB();
                     return false;
                 }
-                b();
+                CC();
                 return false;
             }
             return false;
         }
         return invokeL.booleanValue;
-    }
-
-    public abstract void b();
-
-    public final DownloadServiceConnectChangedEvent.ConnectStatus c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a : (DownloadServiceConnectChangedEvent.ConnectStatus) invokeV.objValue;
     }
 }

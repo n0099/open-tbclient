@@ -62,7 +62,7 @@ public class d39 extends GZIPOutputStream {
         this.c = 0;
     }
 
-    public byte[] c() {
+    public byte[] a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -75,7 +75,7 @@ public class d39 extends GZIPOutputStream {
         return (byte[]) invokeV.objValue;
     }
 
-    public String e() {
+    public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -85,7 +85,7 @@ public class d39 extends GZIPOutputStream {
         return (String) invokeV.objValue;
     }
 
-    public final void f() {
+    public final void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             if (this.a == null) {
@@ -102,7 +102,7 @@ public class d39 extends GZIPOutputStream {
         }
     }
 
-    public void g() {
+    public void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             this.b = 1;
@@ -113,7 +113,7 @@ public class d39 extends GZIPOutputStream {
         }
     }
 
-    public void j() {
+    public void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             this.b = 2;
@@ -133,7 +133,7 @@ public class d39 extends GZIPOutputStream {
                         i2--;
                     }
                     if (this.a == null) {
-                        f();
+                        e();
                     }
                     if (this.a == null) {
                         return;

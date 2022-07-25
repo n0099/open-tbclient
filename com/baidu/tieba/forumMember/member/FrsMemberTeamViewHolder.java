@@ -56,41 +56,41 @@ public class FrsMemberTeamViewHolder extends TypeAdapter.ViewHolder {
         }
         int f = pi.f(BdBaseApplication.getInst().getApp(), R.dimen.obfuscated_res_0x7f070198);
         int color = SkinManager.getColor(R.color.black_alpha10);
-        TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0920e9);
+        TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0920eb);
         this.a = textView;
         textView.setOnClickListener(onClickListener);
-        this.b = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091436);
-        this.f = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f090e57);
-        this.j = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092008);
+        this.b = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091412);
+        this.f = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f090e50);
+        this.j = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09200c);
         this.f.setIsRound(true);
         this.f.setBorderColor(color);
         this.f.setBorderWidth(f);
         this.f.setOnClickListener(onClickListener);
-        this.c = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091437);
-        this.g = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f090e58);
-        this.k = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092009);
+        this.c = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091413);
+        this.g = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f090e51);
+        this.k = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09200d);
         this.g.setIsRound(true);
         this.g.setBorderColor(color);
         this.g.setBorderWidth(f);
         this.g.setOnClickListener(onClickListener);
-        this.d = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091438);
-        this.h = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f090e59);
-        this.l = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09200a);
+        this.d = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091414);
+        this.h = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f090e52);
+        this.l = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09200e);
         this.h.setIsRound(true);
         this.h.setBorderColor(color);
         this.h.setBorderWidth(f);
         this.h.setOnClickListener(onClickListener);
-        this.e = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091439);
-        this.i = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f090e5a);
-        this.m = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09200b);
+        this.e = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091415);
+        this.i = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f090e53);
+        this.m = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09200f);
         this.i.setIsRound(true);
         this.i.setBorderColor(color);
         this.i.setBorderWidth(f);
         this.i.setOnClickListener(onClickListener);
-        this.n = (NoPressedLinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090a3e);
+        this.n = (NoPressedLinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090a37);
     }
 
-    public void c(BawuRoleInfoPub bawuRoleInfoPub, int i) {
+    public void b(BawuRoleInfoPub bawuRoleInfoPub, int i) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLI(1048576, this, bawuRoleInfoPub, i) == null) || bawuRoleInfoPub == null || i < 0 || i > 3) {
             return;
@@ -124,7 +124,7 @@ public class FrsMemberTeamViewHolder extends TypeAdapter.ViewHolder {
         }
     }
 
-    public void d(int i) {
+    public void c(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
             if (this.f.getVisibility() == 0) {

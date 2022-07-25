@@ -172,7 +172,7 @@ public class a88 {
             if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
                 String valueOf = String.valueOf((int) (j / 1000));
                 TextView textView = this.a.d;
-                textView.setText(valueOf + this.a.b.getString(R.string.obfuscated_res_0x7f0f0df3));
+                textView.setText(valueOf + this.a.b.getString(R.string.obfuscated_res_0x7f0f0ddc));
             }
         }
     }
@@ -429,32 +429,32 @@ public class a88 {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             View inflate = LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d036b, (ViewGroup) null);
             this.c = inflate;
-            this.d = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0917d7);
-            HeadImageView headImageView = (HeadImageView) this.c.findViewById(R.id.obfuscated_res_0x7f0917db);
+            this.d = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0917b2);
+            HeadImageView headImageView = (HeadImageView) this.c.findViewById(R.id.obfuscated_res_0x7f0917b6);
             headImageView.setIsRound(true);
             headImageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
             headImageView.J(this.j.getImage(), 12, false);
-            TextView textView = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f0917dc);
+            TextView textView = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f0917b7);
             textView.setText(this.j.getTitle());
-            TextView textView2 = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f0917da);
+            TextView textView2 = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f0917b5);
             textView2.setText(this.j.getDesc());
-            ur4.d(textView).v(R.color.CAM_X0101);
-            ur4.d(textView2).v(R.color.CAM_X0103);
-            ur4 d2 = ur4.d(this.d);
+            vr4.d(textView).v(R.color.CAM_X0101);
+            vr4.d(textView2).v(R.color.CAM_X0103);
+            vr4 d2 = vr4.d(this.d);
             d2.v(R.color.CAM_X0103);
             d2.z(R.dimen.T_X08);
-            TBLottieAnimationView tBLottieAnimationView = (TBLottieAnimationView) this.c.findViewById(R.id.obfuscated_res_0x7f0917d5);
+            TBLottieAnimationView tBLottieAnimationView = (TBLottieAnimationView) this.c.findViewById(R.id.obfuscated_res_0x7f0917b0);
             this.f = tBLottieAnimationView;
             tBLottieAnimationView.setAnimation(R.raw.obfuscated_res_0x7f110044);
             this.f.setRepeatMode(1);
             this.f.setRepeatCount(-1);
-            TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) this.c.findViewById(R.id.obfuscated_res_0x7f0917d8);
+            TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) this.c.findViewById(R.id.obfuscated_res_0x7f0917b3);
             this.e = tBSpecificationBtn;
             tBSpecificationBtn.setTextSize(R.dimen.T_X07);
-            uu4 uu4Var = new uu4();
-            uu4Var.p(R.color.CAM_X0101, R.color.CAM_X0302);
-            uu4Var.l(UtilHelper.getDimenPixelSize(R.dimen.M_W_X019));
-            this.e.setConfig(uu4Var);
+            vu4 vu4Var = new vu4();
+            vu4Var.p(R.color.CAM_X0101, R.color.CAM_X0302);
+            vu4Var.l(UtilHelper.getDimenPixelSize(R.dimen.M_W_X019));
+            this.e.setConfig(vu4Var);
             this.e.k();
             this.e.setText(this.j.getBtnText());
             this.e.setOnClickListener(new a(this));
@@ -468,17 +468,17 @@ public class a88 {
             int i = this.k;
             if (i != 1 && i != 2 && i != 5) {
                 if (i == 4) {
-                    this.d.setText(this.b.getString(R.string.obfuscated_res_0x7f0f0df2));
+                    this.d.setText(this.b.getString(R.string.obfuscated_res_0x7f0f0ddb));
                     this.d.setOnClickListener(new d(this));
                     this.h = new e(this, this.j.getShowtime(), 1000L);
                     return;
                 }
                 return;
             }
-            TextView textView = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f0917d6);
+            TextView textView = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f0917b1);
             textView.setText(this.j.getTagText());
             textView.setVisibility(0);
-            View findViewById = this.c.findViewById(R.id.obfuscated_res_0x7f0917d9);
+            View findViewById = this.c.findViewById(R.id.obfuscated_res_0x7f0917b4);
             findViewById.setVisibility(0);
             findViewById.setOnClickListener(new b(this));
             this.h = new c(this, this.j.getShowtime(), 1000L);
@@ -546,7 +546,7 @@ public class a88 {
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -2);
             layoutParams.gravity = 48;
-            layoutParams.topMargin = h35.a(this.b);
+            layoutParams.topMargin = i35.a(this.b);
             int f2 = pi.f(this.b, R.dimen.M_W_X007);
             layoutParams.leftMargin = f2;
             layoutParams.rightMargin = f2;
@@ -558,7 +558,7 @@ public class a88 {
             loadAnimation.setDuration(400L);
             this.g.setAnimationListener(new g(this));
             this.c.startAnimation(this.g);
-            this.c.findViewById(R.id.obfuscated_res_0x7f0917d9).setOnClickListener(new h(this));
+            this.c.findViewById(R.id.obfuscated_res_0x7f0917b4).setOnClickListener(new h(this));
             this.l = c88.f();
         }
     }

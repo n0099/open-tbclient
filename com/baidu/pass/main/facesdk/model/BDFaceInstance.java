@@ -42,13 +42,9 @@ public class BDFaceInstance {
     public void creatInstance() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            try {
-                long nativeCreateInstance = nativeCreateInstance();
-                this.index = nativeCreateInstance;
-                setIndex(nativeCreateInstance);
-            } catch (Throwable th) {
-                th.printStackTrace();
-            }
+            long nativeCreateInstance = nativeCreateInstance();
+            this.index = nativeCreateInstance;
+            setIndex(nativeCreateInstance);
         }
     }
 
@@ -57,11 +53,7 @@ public class BDFaceInstance {
     public void getDefautlInstance() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            try {
-                setIndex(nativeGetDefautlInstance());
-            } catch (Throwable th) {
-                th.printStackTrace();
-            }
+            setIndex(nativeGetDefautlInstance());
         }
     }
 

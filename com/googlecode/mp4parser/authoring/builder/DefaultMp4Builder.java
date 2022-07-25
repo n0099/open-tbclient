@@ -34,6 +34,7 @@ import com.coremedia.iso.boxes.SyncSampleBox;
 import com.coremedia.iso.boxes.TimeToSampleBox;
 import com.coremedia.iso.boxes.TrackBox;
 import com.coremedia.iso.boxes.TrackHeaderBox;
+import com.coremedia.iso.boxes.mdat.MediaDataBox;
 import com.googlecode.mp4parser.BasicContainer;
 import com.googlecode.mp4parser.DataSource;
 import com.googlecode.mp4parser.authoring.Movie;
@@ -582,7 +583,7 @@ public class DefaultMp4Builder implements Mp4Builder {
                 } else {
                     IsoTypeWriter.writeUInt32(allocate, 1L);
                 }
-                allocate.put(IsoFile.fourCCtoBytes("mdat"));
+                allocate.put(IsoFile.fourCCtoBytes(MediaDataBox.TYPE));
                 if (isSmallBox(size)) {
                     allocate.put(new byte[8]);
                 } else {
@@ -646,7 +647,7 @@ public class DefaultMp4Builder implements Mp4Builder {
         public String getType() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? "mdat" : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? MediaDataBox.TYPE : (String) invokeV.objValue;
         }
 
         @Override // com.coremedia.iso.boxes.Box

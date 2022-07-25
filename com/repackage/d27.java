@@ -107,10 +107,10 @@ public class d27 extends an<vy5, ThreadCardViewHolder<vy5>> {
                 vy5 vy5Var = (vy5) nnVar;
                 vy5Var.f = 1;
                 if (this.a.m != null) {
-                    this.a.m.a(threadCardViewHolder.b(), vy5Var);
+                    this.a.m.a(threadCardViewHolder.a(), vy5Var);
                 }
-                ThreadCardUtils.jumpToPB((nn4) vy5Var, view2.getContext(), 19, false);
-                threadCardViewHolder.c().o(new ny.a(1));
+                ThreadCardUtils.jumpToPB((on4) vy5Var, view2.getContext(), 19, false);
+                threadCardViewHolder.b().o(new ny.a(1));
             }
         }
     }
@@ -152,7 +152,7 @@ public class d27 extends an<vy5, ThreadCardViewHolder<vy5>> {
             cy k = bVar.k(BaseCardInfo.SupportType.EXTEND, viewGroup, this.l);
             k.r(19);
             ThreadCardViewHolder threadCardViewHolder = new ThreadCardViewHolder(k);
-            threadCardViewHolder.k(this.i);
+            threadCardViewHolder.j(this.i);
             V(new b(this));
             return threadCardViewHolder;
         }
@@ -166,18 +166,18 @@ public class d27 extends an<vy5, ThreadCardViewHolder<vy5>> {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, vy5Var, threadCardViewHolder})) == null) {
-            if (vy5Var == null || threadCardViewHolder == null || threadCardViewHolder.b() == null || vy5Var.a == null) {
+            if (vy5Var == null || threadCardViewHolder == null || threadCardViewHolder.a() == null || vy5Var.a == null) {
                 return null;
             }
             vy5Var.I(vy5Var.position + 1);
-            threadCardViewHolder.c().q(i);
-            threadCardViewHolder.g(vy5Var);
-            threadCardViewHolder.c().onChangeSkinType(this.j, TbadkCoreApplication.getInst().getSkinType());
-            threadCardViewHolder.c().p(this.m);
+            threadCardViewHolder.b().q(i);
+            threadCardViewHolder.f(vy5Var);
+            threadCardViewHolder.b().onChangeSkinType(this.j, TbadkCoreApplication.getInst().getSkinType());
+            threadCardViewHolder.b().p(this.m);
             cy5.b().a(vy5Var.B());
             ak5.c().a(vy5Var.B());
             iz6.i(vy5Var.a, this.i, vy5Var.m());
-            return threadCardViewHolder.b();
+            return threadCardViewHolder.a();
         }
         return (View) invokeCommon.objValue;
     }
@@ -191,7 +191,7 @@ public class d27 extends an<vy5, ThreadCardViewHolder<vy5>> {
             if (vy5Var == null) {
                 return;
             }
-            if (view2.getId() == R.id.obfuscated_res_0x7f09202a || id == R.id.obfuscated_res_0x7f09203e) {
+            if (view2.getId() == R.id.obfuscated_res_0x7f09202e || id == R.id.obfuscated_res_0x7f092042) {
                 if (vy5Var.isVideoThreadType()) {
                     A = vy5Var.C();
                 } else {
@@ -199,7 +199,7 @@ public class d27 extends an<vy5, ThreadCardViewHolder<vy5>> {
                 }
                 TbSingleton.getInstance().setCurrentClickTime(TiebaStatic.logWithBackTime(A));
                 i = 1;
-            } else if (id == R.id.obfuscated_res_0x7f090a40 || id == R.id.obfuscated_res_0x7f090a18) {
+            } else if (id == R.id.obfuscated_res_0x7f090a39 || id == R.id.obfuscated_res_0x7f090a11) {
                 TiebaStatic.log(vy5Var.i());
                 i = 9;
             } else {

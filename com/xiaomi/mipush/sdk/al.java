@@ -13,7 +13,7 @@ public final class al implements Runnable {
     public final /* synthetic */ Context a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final /* synthetic */ Intent f771a;
+    public final /* synthetic */ Intent f51a;
 
     public al(Context context, Intent intent) {
         Interceptable interceptable = $ic;
@@ -31,14 +31,14 @@ public final class al implements Runnable {
             }
         }
         this.a = context;
-        this.f771a = intent;
+        this.f51a = intent;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            PushMessageHandler.b(this.a, this.f771a);
+            PushMessageHandler.b(this.a, this.f51a);
         }
     }
 }

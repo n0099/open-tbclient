@@ -121,7 +121,7 @@ public class pj6 extends rj6 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             TextView textView = new TextView(this.d);
-            textView.setTextSize(0, this.d.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07032f));
+            textView.setTextSize(0, this.d.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07032d));
             textView.setGravity(17);
             textView.setHeight(d());
             return textView;

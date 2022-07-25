@@ -32,14 +32,14 @@ public class yz5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext a;
-    public ty4 b;
+    public uy4 b;
     public ThreadData c;
     public PopupWindow d;
     public PopupWindow e;
     public ViewGroup f;
     public TextView g;
     public TBSpecificationBtn h;
-    public uu4 i;
+    public vu4 i;
     public int j;
     public int k;
     public int l;
@@ -117,7 +117,7 @@ public class yz5 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 if (!ni.A()) {
-                    this.a.a.showToast(R.string.obfuscated_res_0x7f0f0c2d);
+                    this.a.a.showToast(R.string.obfuscated_res_0x7f0f0c19);
                 }
                 if (ViewHelper.checkUpIsLogin(this.a.a.getPageActivity())) {
                     if (this.a.c == null) {
@@ -156,7 +156,7 @@ public class yz5 {
         this.s = new a(this);
         this.t = new b(this);
         this.a = tbPageContext;
-        this.b = new ty4(tbPageContext);
+        this.b = new uy4(tbPageContext);
         this.q = view2;
         m();
     }
@@ -211,20 +211,20 @@ public class yz5 {
                 return null;
             }
             if (this.f == null) {
-                ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(this.a.getContext()).inflate(R.layout.obfuscated_res_0x7f0d05f1, (ViewGroup) null);
+                ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(this.a.getContext()).inflate(R.layout.obfuscated_res_0x7f0d05fb, (ViewGroup) null);
                 this.f = viewGroup;
-                TextView textView = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f090cdd);
+                TextView textView = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f090cd6);
                 this.g = textView;
-                textView.setText(this.a.getString(R.string.obfuscated_res_0x7f0f0431));
+                textView.setText(this.a.getString(R.string.obfuscated_res_0x7f0f0430));
                 SkinManager.setViewTextColor(this.g, R.color.CAM_X0105, 1);
-                TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) this.f.findViewById(R.id.obfuscated_res_0x7f0922f1);
+                TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) this.f.findViewById(R.id.obfuscated_res_0x7f0922f3);
                 this.h = tBSpecificationBtn;
-                tBSpecificationBtn.setText(this.a.getString(R.string.obfuscated_res_0x7f0f0432));
+                tBSpecificationBtn.setText(this.a.getString(R.string.obfuscated_res_0x7f0f0431));
                 this.h.setTextSize(R.dimen.T_X08);
                 this.h.setOnClickListener(this.t);
-                uu4 uu4Var = new uu4();
-                this.i = uu4Var;
-                uu4Var.r(R.color.CAM_X0304);
+                vu4 vu4Var = new vu4();
+                this.i = vu4Var;
+                vu4Var.r(R.color.CAM_X0304);
                 this.h.setConfig(this.i);
                 ViewGroup viewGroup2 = this.f;
                 int i = this.j;
@@ -282,7 +282,7 @@ public class yz5 {
         popupWindow.setFocusable(true);
         this.d.setTouchable(true);
         this.d.setOnDismissListener(this.s);
-        PopupWindow popupWindow2 = new PopupWindow(LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0897, (ViewGroup) null), -1, -1);
+        PopupWindow popupWindow2 = new PopupWindow(LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d08a1, (ViewGroup) null), -1, -1);
         this.e = popupWindow2;
         if (Build.VERSION.SDK_INT >= 22) {
             popupWindow2.setAttachedInDecor(false);

@@ -40,7 +40,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 /* loaded from: classes7.dex */
-public class yy8 implements ia5, View.OnClickListener {
+public class yy8 implements ja5, View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Intent A;
@@ -143,7 +143,7 @@ public class yy8 implements ia5, View.OnClickListener {
             }
             String replace = obj.replace(" ", "");
             if (je5.d(replace) > 40) {
-                this.a.a.showToast(String.format(this.a.a.getString(R.string.obfuscated_res_0x7f0f15f5), 20));
+                this.a.a.showToast(String.format(this.a.a.getString(R.string.obfuscated_res_0x7f0f15a4), 20));
             }
             String n = je5.n(replace, 40);
             if (!n.equals(editable.toString())) {
@@ -370,7 +370,7 @@ public class yy8 implements ia5, View.OnClickListener {
                 for (int i = 0; i < size; i++) {
                     WriteVoteItemData writeVoteItemData = w.get(i);
                     if (hashMap.containsKey(writeVoteItemData.getText())) {
-                        this.a.a.showToast(String.format(this.a.a.getString(R.string.obfuscated_res_0x7f0f15f3), Integer.valueOf(((Integer) hashMap.get(writeVoteItemData.getText())).intValue() + 1), Integer.valueOf(i + 1)));
+                        this.a.a.showToast(String.format(this.a.a.getString(R.string.obfuscated_res_0x7f0f15a2), Integer.valueOf(((Integer) hashMap.get(writeVoteItemData.getText())).intValue() + 1), Integer.valueOf(i + 1)));
                         return;
                     }
                     hashMap.put(writeVoteItemData.getText(), Integer.valueOf(i));
@@ -436,7 +436,7 @@ public class yy8 implements ia5, View.OnClickListener {
     public final void A() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d08a6, (ViewGroup) null);
+            LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d08b0, (ViewGroup) null);
             this.f = linearLayout;
             this.h = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f0924a2);
             this.i = (EditText) this.f.findViewById(R.id.obfuscated_res_0x7f0924b3);
@@ -462,8 +462,8 @@ public class yy8 implements ia5, View.OnClickListener {
     public final void C() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.c.setCenterTextTitle(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f15cb));
-            TextView addTextButton = this.c.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, this.a.getResources().getString(R.string.obfuscated_res_0x7f0f04ef));
+            this.c.setCenterTextTitle(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f157a));
+            TextView addTextButton = this.c.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, this.a.getResources().getString(R.string.obfuscated_res_0x7f0f04eb));
             this.v = addTextButton;
             addTextButton.setTextSize(0, pi.f(this.a.getPageActivity(), R.dimen.tbds44));
             this.v.setEnabled(false);
@@ -541,7 +541,7 @@ public class yy8 implements ia5, View.OnClickListener {
         }
     }
 
-    @Override // com.repackage.ia5
+    @Override // com.repackage.ja5
     public boolean J0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -551,14 +551,14 @@ public class yy8 implements ia5, View.OnClickListener {
         return invokeV.booleanValue;
     }
 
-    @Override // com.repackage.ia5
+    @Override // com.repackage.ja5
     public Intent getResultIntent() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.A : (Intent) invokeV.objValue;
     }
 
-    @Override // com.repackage.ia5
+    @Override // com.repackage.ja5
     public void n(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
@@ -607,7 +607,7 @@ public class yy8 implements ia5, View.OnClickListener {
         }
     }
 
-    @Override // com.repackage.ia5
+    @Override // com.repackage.ja5
     public boolean s() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -685,7 +685,7 @@ public class yy8 implements ia5, View.OnClickListener {
     public final void z() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
-            LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d08a5, (ViewGroup) null);
+            LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d08af, (ViewGroup) null);
             this.g = linearLayout;
             this.n = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f092543);
             this.o = (TextView) this.g.findViewById(R.id.obfuscated_res_0x7f0924b5);

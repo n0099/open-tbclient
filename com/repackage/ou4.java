@@ -1,6 +1,6 @@
 package com.repackage;
 
-import com.baidu.tieba.R;
+import com.baidu.tbadk.core.view.breathetip.BreatheTipWidget;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -9,14 +9,9 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class ou4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public CharSequence a;
-    public CharSequence b;
+    public BreatheTipWidget.PointType a;
+    public int b;
     public int c;
-    public int d;
-    public int e;
-    public int f;
-    public int g;
-    public int h;
 
     public ou4() {
         Interceptable interceptable = $ic;
@@ -28,10 +23,7 @@ public class ou4 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.c = R.color.CAM_X0105;
-        this.d = R.color.CAM_X0108;
     }
 }

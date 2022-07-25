@@ -63,7 +63,7 @@ public class AdBitResultData extends AdResultData {
                     }
                 }
             } catch (Exception e) {
-                com.kwad.sdk.core.d.b.b(e);
+                com.kwad.sdk.core.e.b.printStackTraceOnly(e);
             }
         }
     }

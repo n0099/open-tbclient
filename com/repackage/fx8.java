@@ -35,7 +35,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.source.hls.DefaultHlsExtractorFactory;
-import com.repackage.cr4;
+import com.repackage.dr4;
 import java.io.File;
 /* loaded from: classes6.dex */
 public class fx8 implements zp8, Handler.Callback {
@@ -55,7 +55,7 @@ public class fx8 implements zp8, Handler.Callback {
     public final CustomMessageListener l;
 
     /* loaded from: classes6.dex */
-    public class a implements cr4.e {
+    public class a implements dr4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -75,11 +75,11 @@ public class fx8 implements zp8, Handler.Callback {
             }
         }
 
-        @Override // com.repackage.cr4.e
-        public void onClick(cr4 cr4Var) {
+        @Override // com.repackage.dr4.e
+        public void onClick(dr4 dr4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, cr4Var) == null) {
-                cr4Var.dismiss();
+            if (interceptable == null || interceptable.invokeL(1048576, this, dr4Var) == null) {
+                dr4Var.dismiss();
             }
         }
     }
@@ -288,11 +288,11 @@ public class fx8 implements zp8, Handler.Callback {
             if (videoConvertUtil == null || !videoConvertUtil.n()) {
                 String str3 = this.b.videoPath;
                 if (TextUtils.isEmpty(str3)) {
-                    pi.N(this.a, R.string.obfuscated_res_0x7f0f0b29);
+                    pi.N(this.a, R.string.obfuscated_res_0x7f0f0b15);
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016328, str3));
                     n(107);
                 } else if (!new File(str3).exists()) {
-                    pi.N(this.a, R.string.obfuscated_res_0x7f0f0b29);
+                    pi.N(this.a, R.string.obfuscated_res_0x7f0f0b15);
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016328, str3));
                     n(106);
                 } else {
@@ -310,7 +310,7 @@ public class fx8 implements zp8, Handler.Callback {
     public final void h() {
         RelativeLayout relativeLayout;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (relativeLayout = (RelativeLayout) this.a.findViewById(R.id.obfuscated_res_0x7f0916ba)) == null || this.g.getParent() == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (relativeLayout = (RelativeLayout) this.a.findViewById(R.id.obfuscated_res_0x7f091695)) == null || this.g.getParent() == null) {
             return;
         }
         relativeLayout.removeView(this.g);
@@ -333,7 +333,7 @@ public class fx8 implements zp8, Handler.Callback {
                 handler.sendMessageDelayed(handler.obtainMessage(5), 60000L);
             } else if (i == 2) {
                 if (!this.f) {
-                    pi.N(this.a, R.string.obfuscated_res_0x7f0f0b26);
+                    pi.N(this.a, R.string.obfuscated_res_0x7f0f0b12);
                     n(103);
                 }
                 this.k = false;
@@ -362,7 +362,7 @@ public class fx8 implements zp8, Handler.Callback {
                 n(104);
             } else if (i == 5) {
                 this.k = false;
-                pi.N(this.a, R.string.obfuscated_res_0x7f0f0b26);
+                pi.N(this.a, R.string.obfuscated_res_0x7f0f0b12);
                 VideoConvertUtil videoConvertUtil = this.h;
                 if (videoConvertUtil != null && videoConvertUtil.n()) {
                     d();
@@ -499,7 +499,7 @@ public class fx8 implements zp8, Handler.Callback {
     public final void s() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
-            cr4 positiveButton = new cr4(this.a).setTitle(R.string.obfuscated_res_0x7f0f0b28).setPositiveButton(R.string.obfuscated_res_0x7f0f07ee, new a(this));
+            dr4 positiveButton = new dr4(this.a).setTitle(R.string.obfuscated_res_0x7f0f0b14).setPositiveButton(R.string.obfuscated_res_0x7f0f07ea, new a(this));
             positiveButton.create(this.a.getPageContext());
             positiveButton.setCanceledOnTouchOutside(false);
             positiveButton.show();

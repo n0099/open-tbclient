@@ -46,13 +46,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.material.appbar.AppBarLayout;
-import com.repackage.k05;
+import com.repackage.l05;
 import com.repackage.pi;
 import com.repackage.sg8;
 import com.repackage.sz6;
-import com.repackage.t05;
-import com.repackage.tm4;
-import com.repackage.ur4;
+import com.repackage.u05;
+import com.repackage.um4;
+import com.repackage.vr4;
 import java.util.HashMap;
 /* loaded from: classes3.dex */
 public class NestedScrollHeader extends RelativeLayout {
@@ -159,7 +159,7 @@ public class NestedScrollHeader extends RelativeLayout {
                             }
                         } else if (WriteActivityConfig.isAsyncWriting()) {
                         } else {
-                            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921452, new t05(1)));
+                            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921452, new u05(1)));
                             TiebaStatic.log(new StatisticItem(CommonStatisticKey.UBS_TEST_PUBLISH_BUTTON_CLICK).param("uid", TbadkCoreApplication.getCurrentAccount()));
                         }
                     } else {
@@ -299,13 +299,13 @@ public class NestedScrollHeader extends RelativeLayout {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
             SpeedStatsManager.getInstance().addStatsTimeStamp(4012);
             this.j = context;
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d04b2, (ViewGroup) this, true);
-            this.a = (PublishButton) findViewById(R.id.obfuscated_res_0x7f0919e9);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f091c98);
-            this.e = findViewById(R.id.obfuscated_res_0x7f090c19);
-            this.f = (ImageView) findViewById(R.id.obfuscated_res_0x7f090c0c);
-            this.g = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f091322);
-            TBLottieAnimationView tBLottieAnimationView = (TBLottieAnimationView) findViewById(R.id.obfuscated_res_0x7f091321);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d04b0, (ViewGroup) this, true);
+            this.a = (PublishButton) findViewById(R.id.obfuscated_res_0x7f0919c3);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f091c9e);
+            this.e = findViewById(R.id.obfuscated_res_0x7f090c12);
+            this.f = (ImageView) findViewById(R.id.obfuscated_res_0x7f090c05);
+            this.g = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0912fe);
+            TBLottieAnimationView tBLottieAnimationView = (TBLottieAnimationView) findViewById(R.id.obfuscated_res_0x7f0912fd);
             this.h = tBLottieAnimationView;
             tBLottieAnimationView.setImageAssetsFolder("lottie_home_live_entrance/");
             this.h.setAnimation(R.raw.obfuscated_res_0x7f11003e);
@@ -313,7 +313,7 @@ public class NestedScrollHeader extends RelativeLayout {
             this.h.setRepeatCount(-1);
             this.h.setSpeed(0.67f);
             this.h.playAnimation();
-            TBLottieAnimationView tBLottieAnimationView2 = (TBLottieAnimationView) findViewById(R.id.obfuscated_res_0x7f091323);
+            TBLottieAnimationView tBLottieAnimationView2 = (TBLottieAnimationView) findViewById(R.id.obfuscated_res_0x7f0912ff);
             this.i = tBLottieAnimationView2;
             tBLottieAnimationView2.setImageAssetsFolder("lottie_home_live_entrance_lh/");
             this.i.setAnimation(R.raw.obfuscated_res_0x7f11003f);
@@ -321,13 +321,13 @@ public class NestedScrollHeader extends RelativeLayout {
             this.i.setRepeatCount(-1);
             this.i.setSpeed(0.67f);
             this.i.playAnimation();
-            this.b = (ImageView) findViewById(R.id.obfuscated_res_0x7f090739);
-            this.b = (ImageView) findViewById(R.id.obfuscated_res_0x7f090739);
+            this.b = (ImageView) findViewById(R.id.obfuscated_res_0x7f090738);
+            this.b = (ImageView) findViewById(R.id.obfuscated_res_0x7f090738);
             this.a.setOnClickListener(this.k);
             this.c.setOnClickListener(this.k);
             this.f.setOnClickListener(this.k);
             this.b.setOnClickListener(this.k);
-            this.b.setVisibility(tm4.h() ? 0 : 8);
+            this.b.setVisibility(um4.h() ? 0 : 8);
             this.g.setOnClickListener(this.k);
             if (UbsABTestHelper.isMainTabShowA()) {
                 this.a.setVisibility(8);
@@ -355,7 +355,7 @@ public class NestedScrollHeader extends RelativeLayout {
     public final void l(float f) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(1048579, this, f) == null) {
-            k05 f2 = sz6.f(TbadkApplication.getInst().getHomeBarShowTabName());
+            l05 f2 = sz6.f(TbadkApplication.getInst().getHomeBarShowTabName());
             if (f2 != null) {
                 setBackgroundColor(sg8.a(sg8.f(sz6.d(f2)), 1.0f - f));
             } else {
@@ -369,7 +369,7 @@ public class NestedScrollHeader extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             if (TbadkApplication.getInst().isUseLuckyHeader()) {
-                ur4 d2 = ur4.d(this.c);
+                vr4 d2 = vr4.d(this.c);
                 d2.v(R.color.CAM_X0619);
                 d2.n(R.string.J_X01);
                 d2.f(R.color.CAM_X0613);
@@ -381,7 +381,7 @@ public class NestedScrollHeader extends RelativeLayout {
                 }
                 l(this.d);
             } else {
-                ur4 d3 = ur4.d(this.c);
+                vr4 d3 = vr4.d(this.c);
                 d3.v(R.color.CAM_X0109);
                 d3.n(R.string.J_X01);
                 d3.f(R.color.CAM_X0210);

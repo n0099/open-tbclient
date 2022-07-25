@@ -55,6 +55,6 @@ public class fc6 extends an<lc6, CardViewHolder<qc6>> {
     public View S(int i, View view2, ViewGroup viewGroup, lc6 lc6Var, CardViewHolder<qc6> cardViewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, lc6Var, cardViewHolder})) == null) ? cardViewHolder.b() : (View) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, lc6Var, cardViewHolder})) == null) ? cardViewHolder.a() : (View) invokeCommon.objValue;
     }
 }

@@ -70,7 +70,7 @@ public class AppStatusRules extends BaseResultData implements com.kwad.sdk.core.
                     this.namedStrategy = Strategy.createFromJSONArray(jSONObject.getJSONArray("namedStrategy"));
                 }
                 if (jSONObject.has("uploadTarget")) {
-                    this.uploadTarget = com.kwad.sdk.collector.model.c.a(jSONObject.optJSONArray("uploadTarget"));
+                    this.uploadTarget = com.kwad.sdk.collector.model.c.d(jSONObject.optJSONArray("uploadTarget"));
                 }
                 if (jSONObject.has("uploadConfig")) {
                     this.uploadConfig.parseJson(jSONObject.optJSONObject("uploadConfig"));
@@ -78,12 +78,12 @@ public class AppStatusRules extends BaseResultData implements com.kwad.sdk.core.
                 JSONObject optJSONObject = jSONObject.optJSONObject("strategy");
                 JSONArray optJSONArray = jSONObject.optJSONArray("target");
                 this.strategy.parseJson(optJSONObject);
-                ArrayList<com.kwad.sdk.collector.model.d> a = com.kwad.sdk.collector.model.c.a(optJSONArray);
-                this.target = a;
-                this.strategy.setTarget(a);
+                ArrayList<com.kwad.sdk.collector.model.d> d = com.kwad.sdk.collector.model.c.d(optJSONArray);
+                this.target = d;
+                this.strategy.setTarget(d);
                 duplicateTarget();
             } catch (Exception e) {
-                com.kwad.sdk.core.d.b.a(e);
+                com.kwad.sdk.core.e.b.printStackTrace(e);
             }
         }
 
@@ -91,9 +91,9 @@ public class AppStatusRules extends BaseResultData implements com.kwad.sdk.core.
         public JSONObject toJson() {
             JSONObject jSONObject = new JSONObject();
             r.a(jSONObject, "strategy", this.strategy);
-            r.a(jSONObject, "target", this.target);
-            r.a(jSONObject, "namedStrategy", this.namedStrategy);
-            r.a(jSONObject, "uploadTarget", this.uploadTarget);
+            r.putValue(jSONObject, "target", this.target);
+            r.putValue(jSONObject, "namedStrategy", this.namedStrategy);
+            r.putValue(jSONObject, "uploadTarget", this.uploadTarget);
             r.a(jSONObject, "uploadConfig", this.uploadConfig);
             return jSONObject;
         }
@@ -196,9 +196,9 @@ public class AppStatusRules extends BaseResultData implements com.kwad.sdk.core.
                 this.minLaunchInterval = jSONObject.optLong("minLaunchInterval");
                 this.needSaveLaunchTime = jSONObject.optLong("needSaveLaunchTime");
                 this.needLaunch = jSONObject.optBoolean("needLaunch");
-                setTarget(com.kwad.sdk.collector.model.c.a(jSONObject.optJSONArray("target")));
+                setTarget(com.kwad.sdk.collector.model.c.d(jSONObject.optJSONArray("target")));
             } catch (Exception e) {
-                com.kwad.sdk.core.d.b.a(e);
+                com.kwad.sdk.core.e.b.printStackTrace(e);
             }
         }
 
@@ -243,14 +243,14 @@ public class AppStatusRules extends BaseResultData implements com.kwad.sdk.core.
         @Override // com.kwad.sdk.core.b
         public JSONObject toJson() {
             JSONObject jSONObject = new JSONObject();
-            r.a(jSONObject, FetchLog.START_TIME, this.startTime);
-            r.a(jSONObject, "scanInterval", this.scanInterval);
-            r.a(jSONObject, "historyGranularity", this.historyGranularity / 1000);
-            r.a(jSONObject, "name", this.name);
-            r.a(jSONObject, "target", getTarget());
-            r.a(jSONObject, "minLaunchInterval", this.minLaunchInterval);
-            r.a(jSONObject, "needSaveLaunchTime", this.needSaveLaunchTime);
-            r.a(jSONObject, "needLaunch", this.needLaunch);
+            r.putValue(jSONObject, FetchLog.START_TIME, this.startTime);
+            r.putValue(jSONObject, "scanInterval", this.scanInterval);
+            r.putValue(jSONObject, "historyGranularity", this.historyGranularity / 1000);
+            r.putValue(jSONObject, "name", this.name);
+            r.putValue(jSONObject, "target", getTarget());
+            r.putValue(jSONObject, "minLaunchInterval", this.minLaunchInterval);
+            r.putValue(jSONObject, "needSaveLaunchTime", this.needSaveLaunchTime);
+            r.putValue(jSONObject, "needLaunch", this.needLaunch);
             return jSONObject;
         }
     }
@@ -280,7 +280,7 @@ public class AppStatusRules extends BaseResultData implements com.kwad.sdk.core.
         @Override // com.kwad.sdk.core.response.kwai.a, com.kwad.sdk.core.b
         public JSONObject toJson() {
             JSONObject jSONObject = new JSONObject();
-            r.a(jSONObject, "fileMaxSize", this.fileMaxSize);
+            r.putValue(jSONObject, "fileMaxSize", this.fileMaxSize);
             return jSONObject;
         }
     }
@@ -294,7 +294,7 @@ public class AppStatusRules extends BaseResultData implements com.kwad.sdk.core.
         try {
             appStatusRules.parseJson(new JSONObject(str));
         } catch (Exception e) {
-            com.kwad.sdk.core.d.b.a(e);
+            com.kwad.sdk.core.e.b.printStackTrace(e);
         }
         return appStatusRules;
     }
@@ -378,9 +378,9 @@ public class AppStatusRules extends BaseResultData implements com.kwad.sdk.core.
             return;
         }
         try {
-            this.data.parseJson(new JSONObject(com.kwad.sdk.core.a.d.b(jSONObject.optString("data"))));
+            this.data.parseJson(new JSONObject(com.kwad.sdk.core.a.d.getResponseData(jSONObject.optString("data"))));
         } catch (Exception e) {
-            com.kwad.sdk.core.d.b.a(e);
+            com.kwad.sdk.core.e.b.printStackTrace(e);
         }
     }
 

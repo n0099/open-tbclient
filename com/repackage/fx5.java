@@ -7,13 +7,13 @@ public interface fx5 {
         boolean a(int i);
     }
 
-    float a();
+    int a();
 
-    int b();
+    void b(int i);
 
-    void c(int i);
+    boolean c();
 
-    boolean d();
+    float getSpeed();
 
     void reset();
 }

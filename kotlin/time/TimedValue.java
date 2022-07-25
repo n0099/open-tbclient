@@ -23,14 +23,14 @@ public final class TimedValue<T> {
     /* JADX DEBUG: Multi-variable search result rejected for r0v0, resolved type: kotlin.time.TimedValue */
     /* JADX WARN: Multi-variable type inference failed */
     /* renamed from: copy-RFiDyg4$default  reason: not valid java name */
-    public static /* synthetic */ TimedValue m3009copyRFiDyg4$default(TimedValue timedValue, Object obj, long j, int i, Object obj2) {
+    public static /* synthetic */ TimedValue m2071copyRFiDyg4$default(TimedValue timedValue, Object obj, long j, int i, Object obj2) {
         if ((i & 1) != 0) {
             obj = timedValue.value;
         }
         if ((i & 2) != 0) {
             j = timedValue.duration;
         }
-        return timedValue.m3011copyRFiDyg4(obj, j);
+        return timedValue.m2073copyRFiDyg4(obj, j);
     }
 
     public final T component1() {
@@ -38,12 +38,12 @@ public final class TimedValue<T> {
     }
 
     /* renamed from: component2-UwyO8pc  reason: not valid java name */
-    public final long m3010component2UwyO8pc() {
+    public final long m2072component2UwyO8pc() {
         return this.duration;
     }
 
     /* renamed from: copy-RFiDyg4  reason: not valid java name */
-    public final TimedValue<T> m3011copyRFiDyg4(T t, long j) {
+    public final TimedValue<T> m2073copyRFiDyg4(T t, long j) {
         return new TimedValue<>(t, j);
     }
 
@@ -59,7 +59,7 @@ public final class TimedValue<T> {
     }
 
     /* renamed from: getDuration-UwyO8pc  reason: not valid java name */
-    public final long m3012getDurationUwyO8pc() {
+    public final long m2074getDurationUwyO8pc() {
         return this.duration;
     }
 
@@ -75,7 +75,7 @@ public final class TimedValue<T> {
     }
 
     public String toString() {
-        return "TimedValue(value=" + this.value + ", duration=" + Duration.m2970toStringimpl(this.duration) + SmallTailInfo.EMOTION_SUFFIX;
+        return "TimedValue(value=" + this.value + ", duration=" + Duration.m2032toStringimpl(this.duration) + SmallTailInfo.EMOTION_SUFFIX;
     }
 
     public /* synthetic */ TimedValue(Object obj, long j, DefaultConstructorMarker defaultConstructorMarker) {

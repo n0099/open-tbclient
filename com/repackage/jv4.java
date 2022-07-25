@@ -1,7 +1,11 @@
 package com.repackage;
 /* loaded from: classes6.dex */
 public interface jv4 {
-    void a();
+    void a(int i, float f);
 
-    void onLoadingStart();
+    void b(int i, float f);
+
+    void c(int i, float f);
+
+    void d(int i, float f);
 }

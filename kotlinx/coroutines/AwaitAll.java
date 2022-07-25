@@ -86,7 +86,7 @@ public final class AwaitAll<T> {
                     arrayList.add(deferred.getCompleted());
                 }
                 Result.Companion companion = Result.Companion;
-                cancellableContinuation.resumeWith(Result.m1636constructorimpl(arrayList));
+                cancellableContinuation.resumeWith(Result.m698constructorimpl(arrayList));
             }
         }
     }

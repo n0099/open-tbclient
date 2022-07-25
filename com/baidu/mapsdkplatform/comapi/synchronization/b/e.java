@@ -133,7 +133,7 @@ public class e extends Handler {
                 BitmapDescriptor startPositionIcon = this.c.getStartPositionIcon();
                 if (startPositionIcon == null) {
                     com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(a, "There is no startPositionIcon");
-                    a(100019, "History trace end point icon is null, can't render start point marker");
+                    a(HistoryTraceConstant.LBS_HISTORY_TRACE_CODE_START_POINT_ICON_NULL, "History trace end point icon is null, can't render start point marker");
                     return;
                 }
                 this.f = (Marker) this.d.addOverlay(new MarkerOptions().position(latLng).icon(startPositionIcon).zIndex(5));

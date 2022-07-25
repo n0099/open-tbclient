@@ -106,18 +106,18 @@ public class wt6 extends an<wy5, AutoVideoCardViewHolder<wy5>> implements ck5 {
         }
 
         @Override // com.repackage.qw.a
-        public void a(nn4 nn4Var) {
+        public void a(on4 on4Var) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, nn4Var) == null) || nn4Var == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, on4Var) == null) || on4Var == null) {
                 return;
             }
             Rect computeViewArea = ThreadCardUtils.computeViewArea(this.a.getVideoContainer());
-            if (!(nn4Var instanceof wy5)) {
-                ThreadCardUtils.jumpToPB(nn4Var, this.b.a, 1, false, computeViewArea);
+            if (!(on4Var instanceof wy5)) {
+                ThreadCardUtils.jumpToPB(on4Var, this.b.a, 1, false, computeViewArea);
                 return;
             }
-            nn4Var.objType = 5;
-            ThreadCardUtils.jumpToPB(nn4Var, this.b.a, 1, false, computeViewArea);
+            on4Var.objType = 5;
+            ThreadCardUtils.jumpToPB(on4Var, this.b.a, 1, false, computeViewArea);
         }
     }
 
@@ -153,10 +153,10 @@ public class wt6 extends an<wy5, AutoVideoCardViewHolder<wy5>> implements ck5 {
                 wy5 wy5Var = (wy5) nnVar;
                 wy5Var.f = 1;
                 if (this.a.n != null) {
-                    this.a.n.a(threadCardViewHolder.b(), wy5Var);
+                    this.a.n.a(threadCardViewHolder.a(), wy5Var);
                 }
-                ThreadCardUtils.jumpToPB((nn4) wy5Var, view2.getContext(), 1, false, uw.a((tn) viewGroup, view2, i));
-                threadCardViewHolder.c().o(new ny.a(1));
+                ThreadCardUtils.jumpToPB((on4) wy5Var, view2.getContext(), 1, false, uw.a((tn) viewGroup, view2, i));
+                threadCardViewHolder.b().o(new ny.a(1));
             }
         }
     }
@@ -220,7 +220,7 @@ public class wt6 extends an<wy5, AutoVideoCardViewHolder<wy5>> implements ck5 {
         }
         if (view2.getId() == this.m.p().getMainView().getId()) {
             vs6.b(view2, wy5Var, 4);
-        } else if (view2.getId() == R.id.obfuscated_res_0x7f09202a) {
+        } else if (view2.getId() == R.id.obfuscated_res_0x7f09202e) {
             vs6.b(view2, wy5Var, 2);
         }
     }
@@ -245,7 +245,7 @@ public class wt6 extends an<wy5, AutoVideoCardViewHolder<wy5>> implements ck5 {
             }
             cy k = bVar.k(BaseCardInfo.SupportType.CONTENT, viewGroup, this.l);
             AutoVideoCardViewHolder<wy5> autoVideoCardViewHolder = new AutoVideoCardViewHolder<>(k);
-            autoVideoCardViewHolder.k(this.i);
+            autoVideoCardViewHolder.j(this.i);
             k.p(this.n);
             k.r(1);
             V(new c(this));
@@ -270,23 +270,23 @@ public class wt6 extends an<wy5, AutoVideoCardViewHolder<wy5>> implements ck5 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{Integer.valueOf(i), view2, viewGroup, wy5Var, autoVideoCardViewHolder})) == null) {
             if (wy5Var == null) {
-                return autoVideoCardViewHolder.b();
+                return autoVideoCardViewHolder.a();
             }
             if (autoVideoCardViewHolder == null) {
                 return null;
             }
             wy5Var.I(wy5Var.position + 1);
             cy5.b().a(wy5Var.d("c12351"));
-            autoVideoCardViewHolder.c().q(i);
+            autoVideoCardViewHolder.b().q(i);
             wy5Var.T = 0;
-            autoVideoCardViewHolder.w(d0(wy5Var));
-            if (autoVideoCardViewHolder.c() instanceof bk5) {
-                autoVideoCardViewHolder.c().b(this.k);
+            autoVideoCardViewHolder.v(d0(wy5Var));
+            if (autoVideoCardViewHolder.b() instanceof bk5) {
+                autoVideoCardViewHolder.b().b(this.k);
             }
-            autoVideoCardViewHolder.g(wy5Var);
-            autoVideoCardViewHolder.c().onChangeSkinType(this.j, TbadkCoreApplication.getInst().getSkinType());
-            autoVideoCardViewHolder.c().p(this.n);
-            return autoVideoCardViewHolder.b();
+            autoVideoCardViewHolder.f(wy5Var);
+            autoVideoCardViewHolder.b().onChangeSkinType(this.j, TbadkCoreApplication.getInst().getSkinType());
+            autoVideoCardViewHolder.b().p(this.n);
+            return autoVideoCardViewHolder.a();
         }
         return (View) invokeCommon.objValue;
     }

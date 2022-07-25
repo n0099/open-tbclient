@@ -17,134 +17,138 @@ import org.json.JSONObject;
 @KsJson
 /* loaded from: classes5.dex */
 public class m extends c {
-    public long A;
-    public int B;
-    public String D;
-    public URLPackage E;
-    public URLPackage F;
-    public long G;
-    public String H;
-    public JSONArray I;
-    public JSONArray J;
-    public a K;
-    public int L;
-    public int M;
-    public int N;
-    public int O;
-    public int P;
-    public String Q;
-    public String R;
-    public int S;
-    public long T;
-    public int U;
-    public int V;
-    public String W;
-    public JSONObject X;
-    public JSONArray Y;
-    public long Z;
-    public JSONArray aA;
-    public String aB;
-    public String aC;
-    public String aD;
-    public String aE;
-    public String aF;
-    public String aH;
-    public String aI;
-    public int aa;
-    public int ab;
-    public JSONArray af;
-    public boolean ag;
-    public String ah;
-    public long ak;
-    public long al;
-    public int am;
-    public String an;
-    public long ao;
-    public long ap;
-    public long aq;
-    public long ar;
-    public String as;
-    public String at;
-    public long au;
-    public long av;
-    public JSONArray aw;
-    public long ax;
-    public long ay;
-    public long az;
-    public transient SceneImpl b;
+    public long HD;
+    public long HE;
+    public long HF;
+    public transient SceneImpl HS;
+    public String Hx;
+    public long Iw;
+    public String Mn;
+    public int Mo;
+    public int aaA;
+    public int aaB;
+    public int aaC;
+    public int aaD;
+    public int aaE;
+    public String aaF;
+    public JSONObject aaG;
+    public JSONArray aaH;
+    public int aaI;
+    public int aaJ;
+    public int aaK;
+    public JSONArray aaM;
+    public boolean aaN;
+    public String aaO;
+    public long aaR;
+    public int aaS;
+    public String aaT;
+    public long aaU;
+    public long aaV;
+    public long aaW;
+    public long aaX;
+    public String aaY;
+    public int aaZ;
+    public long aag;
+    public long aah;
+    public long aai;
+    public JSONObject aaj;
+    public JSONObject aak;
+    public long aal;
+    public long aam;
+    public long aan;
+    public long aao;
+    public long aap;
+    public long aaq;
+    public long aas;
+    public URLPackage aau;
+    public String aav;
+    public JSONArray aaw;
+    public JSONArray aax;
+    public a aay;
+    public int aaz;
+    public JSONArray aba;
+    public long abb;
+    public long abc;
+    public JSONArray abd;
+    public String abe;
+    public String abf;
+    public String abg;
+    public String abh;
+    public String abi;
+    public String abk;
+    public String abl;
+    public int abm;
+    public int abn;
+    public long blockDuration;
+    public long clickTime;
+    public int contentSourceType;
+    public long creativeId;
+    public long downloadDuration;
+    public String entryPageSource;
+    public int errorCode;
+    public String errorMsg;
+    public String failUrl;
+    public long llsid;
     @Nullable
-    public transient AdTemplate c;
-    public long d;
-    public String e;
-    public long f;
-    public long h;
-    public long i;
-    public String j;
-    public long k;
-    public JSONObject l;
-    public JSONObject m;
-    public long n;
-    public long q;
-    public long r;
-    public long s;
-    public long t;
-    public long u;
-    public long v;
-    public long w;
-    public long x;
-    public long y;
-    public int g = -1;
-    public int o = 0;
-    public int p = 0;
-    public long z = -1;
-    public int C = 0;
-    public int ac = -1;
-    public int ad = -1;
-    public long ae = 0;
-    public int ai = 0;
-    public int aj = -1;
-    public int aG = 0;
+    public transient AdTemplate mAdTemplate;
+    public int pageType;
+    public long photoId;
+    public long posId;
+    public long position;
+    public String sessionId;
+    public long timestamp;
+    public String trace;
+    public URLPackage urlPackage;
+    public int adStyle = -1;
+    public int contentType = 0;
+    public int realShowType = 0;
+    public long aar = -1;
+    public int aat = 0;
+    public long aaL = 0;
+    public int aaP = 0;
+    public int aaQ = -1;
+    public int abj = 0;
 
     @KsJson
     /* loaded from: classes5.dex */
     public static final class a extends com.kwad.sdk.core.response.kwai.a {
-        public int a;
-        public int b;
+        public int abo;
+        public int abp;
 
-        public static a a() {
+        public static a uB() {
             a aVar = new a();
-            aVar.a = b.a;
-            aVar.b = b.b;
+            aVar.abo = b.abo;
+            aVar.abp = b.abp;
             return aVar;
         }
     }
 
     /* loaded from: classes5.dex */
     public static class b {
-        public static int a;
-        public static int b;
+        public static int abo;
+        public static int abp;
     }
 
     public m(long j) {
-        this.i = j;
+        this.aai = j;
     }
 
     public m(long j, @NonNull AdTemplate adTemplate) {
-        this.i = j;
-        this.c = adTemplate;
+        this.aai = j;
+        this.mAdTemplate = adTemplate;
     }
 
     public m(long j, @NonNull AdTemplate adTemplate, String str) {
-        this.i = j;
-        this.c = adTemplate;
-        this.j = str;
+        this.aai = j;
+        this.mAdTemplate = adTemplate;
+        this.Mn = str;
     }
 
     public m(String str) {
         try {
             parseJson(new JSONObject(str));
         } catch (JSONException e) {
-            com.kwad.sdk.core.d.b.a(e);
+            com.kwad.sdk.core.e.b.printStackTrace(e);
         }
     }
 
@@ -158,88 +162,88 @@ public class m extends c {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private void a(@Nullable AdTemplate adTemplate) {
+    private void aI(@Nullable AdTemplate adTemplate) {
         SceneImpl sceneImpl;
-        this.M = 3;
-        r rVar = (r) ServiceProvider.a(r.class);
+        this.aaA = 3;
+        r rVar = (r) ServiceProvider.get(r.class);
         if (rVar != null) {
-            this.ai = rVar.b();
+            this.aaP = rVar.ls();
         }
-        this.a = UUID.randomUUID().toString();
-        this.d = System.currentTimeMillis();
-        this.e = s.b();
+        this.ZR = UUID.randomUUID().toString();
+        this.timestamp = System.currentTimeMillis();
+        this.sessionId = s.uG();
         try {
-            this.f = s.c();
+            this.aag = s.uH();
         } catch (Exception e) {
-            com.kwad.sdk.core.d.b.b(e);
+            com.kwad.sdk.core.e.b.printStackTraceOnly(e);
         }
-        this.h = s.e();
-        SceneImpl sceneImpl2 = this.b;
+        this.aah = s.uI();
+        SceneImpl sceneImpl2 = this.HS;
         if (sceneImpl2 == null) {
             if (adTemplate != null && (sceneImpl2 = adTemplate.mAdScene) != null) {
-                this.b = sceneImpl2;
+                this.HS = sceneImpl2;
             }
             if (adTemplate != null) {
-                this.r = adTemplate.getShowPosition() + 1;
-                this.s = adTemplate.getServerPosition() + 1;
-                this.k = com.kwad.sdk.core.response.a.d.f(adTemplate);
-                String g = com.kwad.sdk.core.response.a.d.g(adTemplate);
-                if (!TextUtils.isEmpty(g)) {
+                this.position = adTemplate.getShowPosition() + 1;
+                this.aal = adTemplate.getServerPosition() + 1;
+                this.llsid = com.kwad.sdk.core.response.a.d.bN(adTemplate);
+                String bO = com.kwad.sdk.core.response.a.d.bO(adTemplate);
+                if (!TextUtils.isEmpty(bO)) {
                     try {
-                        this.l = new JSONObject(g);
+                        this.aaj = new JSONObject(bO);
                     } catch (Exception e2) {
-                        com.kwad.sdk.core.d.b.b(e2);
+                        com.kwad.sdk.core.e.b.printStackTraceOnly(e2);
                     }
                 }
-                String h = com.kwad.sdk.core.response.a.d.h(adTemplate);
-                if (!TextUtils.isEmpty(h)) {
+                String bP = com.kwad.sdk.core.response.a.d.bP(adTemplate);
+                if (!TextUtils.isEmpty(bP)) {
                     try {
-                        this.m = new JSONObject(h);
+                        this.aak = new JSONObject(bP);
                     } catch (Exception e3) {
-                        com.kwad.sdk.core.d.b.b(e3);
+                        com.kwad.sdk.core.e.b.printStackTraceOnly(e3);
                     }
                 }
-                this.n = com.kwad.sdk.core.response.a.d.b(adTemplate);
-                this.o = com.kwad.sdk.core.response.a.d.e(adTemplate);
-                this.p = adTemplate.realShowType;
-                this.q = com.kwad.sdk.core.response.a.d.n(adTemplate);
-                if (this.p == 2) {
-                    AdInfo i = com.kwad.sdk.core.response.a.d.i(adTemplate);
-                    this.T = i.adBaseInfo.creativeId;
-                    this.t = com.kwad.sdk.core.response.a.a.c(i) * 1000;
-                    this.G = i.advertiserInfo.userId;
+                this.posId = com.kwad.sdk.core.response.a.d.bJ(adTemplate);
+                this.contentType = com.kwad.sdk.core.response.a.d.bM(adTemplate);
+                this.realShowType = adTemplate.realShowType;
+                this.photoId = com.kwad.sdk.core.response.a.d.bV(adTemplate);
+                if (this.realShowType == 2) {
+                    AdInfo bQ = com.kwad.sdk.core.response.a.d.bQ(adTemplate);
+                    this.creativeId = bQ.adBaseInfo.creativeId;
+                    this.aam = com.kwad.sdk.core.response.a.a.B(bQ) * 1000;
+                    this.Iw = bQ.advertiserInfo.userId;
                 }
-                this.L = adTemplate.mMediaPlayerType;
-                this.N = adTemplate.mIsLeftSlipStatus;
-                this.P = adTemplate.mPhotoResponseType;
+                this.aaz = adTemplate.mMediaPlayerType;
+                this.aaB = adTemplate.mIsLeftSlipStatus;
+                this.aaC = adTemplate.mPhotoResponseType;
                 PageInfo pageInfo = adTemplate.mPageInfo;
                 if (pageInfo != null) {
-                    this.aa = pageInfo.pageType;
+                    this.pageType = pageInfo.pageType;
                 }
-                this.B = com.kwad.sdk.core.response.a.d.o(adTemplate);
+                this.contentSourceType = com.kwad.sdk.core.response.a.d.bW(adTemplate);
             }
-            this.K = a.a();
-            if (this.b == null && adTemplate != null) {
-                this.b = adTemplate.mAdScene;
+            this.aay = a.uB();
+            if (this.HS == null && adTemplate != null) {
+                this.HS = adTemplate.mAdScene;
             }
-            sceneImpl = this.b;
+            sceneImpl = this.HS;
             if (sceneImpl == null) {
-                this.n = sceneImpl.getPosId();
-                this.E = this.b.getUrlPackage();
+                this.posId = sceneImpl.getPosId();
+                this.urlPackage = this.HS.getUrlPackage();
                 return;
             }
             return;
         }
-        this.n = sceneImpl2.getPosId();
-        this.E = this.b.getUrlPackage();
-        this.g = this.b.getAdStyle();
+        this.posId = sceneImpl2.getPosId();
+        this.urlPackage = this.HS.getUrlPackage();
+        this.adStyle = this.HS.getAdStyle();
         if (adTemplate != null) {
         }
-        this.K = a.a();
-        if (this.b == null) {
-            this.b = adTemplate.mAdScene;
+        this.aay = a.uB();
+        if (this.HS == null) {
+            this.HS = adTemplate.mAdScene;
         }
-        sceneImpl = this.b;
+        sceneImpl = this.HS;
         if (sceneImpl == null) {
         }
     }
@@ -250,59 +254,59 @@ public class m extends c {
         if (jSONObject == null) {
             return;
         }
-        this.M = 3;
-        this.g = jSONObject.optInt("adStyle", -1);
-        this.V = jSONObject.optInt("num");
-        this.U = jSONObject.optInt("state");
-        this.ae = jSONObject.optLong("timeSpend");
-        this.ay = jSONObject.optLong("loadingDuration");
-        this.az = jSONObject.optLong("loadingDurationLimt");
-        this.aj = jSONObject.optInt("playerTypeInfo", -1);
+        this.aaA = 3;
+        this.adStyle = jSONObject.optInt("adStyle", -1);
+        this.aaE = jSONObject.optInt("num");
+        this.aaD = jSONObject.optInt("state");
+        this.aaL = jSONObject.optLong("timeSpend");
+        this.abb = jSONObject.optLong("loadingDuration");
+        this.abc = jSONObject.optLong("loadingDurationLimt");
+        this.aaQ = jSONObject.optInt("playerTypeInfo", -1);
         if (jSONObject.has("actionId")) {
-            this.a = jSONObject.optString("actionId");
+            this.ZR = jSONObject.optString("actionId");
         }
     }
 
     @Override // com.kwad.sdk.core.report.c, com.kwad.sdk.core.response.kwai.a
     public void afterToJson(JSONObject jSONObject) {
         super.afterToJson(jSONObject);
-        com.kwad.sdk.utils.r.a(jSONObject, "actionId", this.a);
-        int i = this.g;
+        com.kwad.sdk.utils.r.putValue(jSONObject, "actionId", this.ZR);
+        int i = this.adStyle;
         if (i > 0) {
-            com.kwad.sdk.utils.r.a(jSONObject, "adStyle", i);
+            com.kwad.sdk.utils.r.putValue(jSONObject, "adStyle", i);
         }
-        int i2 = this.V;
+        int i2 = this.aaE;
         if (i2 > 0) {
-            com.kwad.sdk.utils.r.a(jSONObject, "num", i2);
+            com.kwad.sdk.utils.r.putValue(jSONObject, "num", i2);
         }
-        int i3 = this.U;
+        int i3 = this.aaD;
         if (i3 != 0) {
-            com.kwad.sdk.utils.r.a(jSONObject, "state", i3);
+            com.kwad.sdk.utils.r.putValue(jSONObject, "state", i3);
         }
-        long j = this.ae;
+        long j = this.aaL;
         if (j > 0) {
-            com.kwad.sdk.utils.r.a(jSONObject, "timeSpend", j);
+            com.kwad.sdk.utils.r.putValue(jSONObject, "timeSpend", j);
         }
-        long j2 = this.ay;
+        long j2 = this.abb;
         if (j2 > 0) {
-            com.kwad.sdk.utils.r.a(jSONObject, "loadingDuration", j2);
+            com.kwad.sdk.utils.r.putValue(jSONObject, "loadingDuration", j2);
         }
-        long j3 = this.az;
+        long j3 = this.abc;
         if (j3 > 0) {
-            com.kwad.sdk.utils.r.a(jSONObject, "loadingDurationLimt", j3);
+            com.kwad.sdk.utils.r.putValue(jSONObject, "loadingDurationLimt", j3);
         }
-        com.kwad.sdk.utils.r.a(jSONObject, "playerTypeInfo", this.aj);
+        com.kwad.sdk.utils.r.putValue(jSONObject, "playerTypeInfo", this.aaQ);
     }
 
-    public final m b() {
-        a(this.c);
+    public final void uA() {
+        com.kwad.sdk.service.kwai.h hVar = (com.kwad.sdk.service.kwai.h) ServiceProvider.get(com.kwad.sdk.service.kwai.h.class);
+        this.aaI = hVar.ln() ? 1 : 0;
+        this.aaJ = hVar.lo();
+        this.aaK = hVar.lp();
+    }
+
+    public final m uz() {
+        aI(this.mAdTemplate);
         return this;
-    }
-
-    public final void c() {
-        com.kwad.sdk.service.kwai.h hVar = (com.kwad.sdk.service.kwai.h) ServiceProvider.a(com.kwad.sdk.service.kwai.h.class);
-        this.ab = hVar.a() ? 1 : 0;
-        this.ac = hVar.b();
-        this.ad = hVar.c();
     }
 }

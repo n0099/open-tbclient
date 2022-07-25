@@ -33,7 +33,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.c9;
-import com.repackage.cr4;
+import com.repackage.dr4;
 import com.repackage.oh8;
 import com.repackage.oi;
 import com.repackage.yh8;
@@ -51,7 +51,7 @@ public class ItemFootNavView extends LinearLayout {
     public View g;
     public RecommendForumInfo h;
     public boolean i;
-    public cr4 j;
+    public dr4 j;
     public LikeModel k;
     public AntiHelper.k l;
 
@@ -80,17 +80,17 @@ public class ItemFootNavView extends LinearLayout {
         }
 
         @Override // com.baidu.tieba.tbadkCore.util.AntiHelper.k
-        public void onNavigationButtonClick(cr4 cr4Var) {
+        public void onNavigationButtonClick(dr4 dr4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, cr4Var) == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, dr4Var) == null) {
                 TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_ANTI_DIALOG_NEG_CLICK).param("obj_locate", TbadkCoreStatisticKey.AntiLocateValue.LOCATE_LIKE_BAR));
             }
         }
 
         @Override // com.baidu.tieba.tbadkCore.util.AntiHelper.k
-        public void onPositiveButtonClick(cr4 cr4Var) {
+        public void onPositiveButtonClick(dr4 dr4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cr4Var) == null) {
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dr4Var) == null) {
                 TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_ANTI_DIALOG_POS_CLICK).param("obj_locate", TbadkCoreStatisticKey.AntiLocateValue.LOCATE_LIKE_BAR));
             }
         }
@@ -236,7 +236,7 @@ public class ItemFootNavView extends LinearLayout {
                         }
                     }
                     ForumDetailActivity forumDetailActivity = this.a;
-                    forumDetailActivity.showToast(forumDetailActivity.getPageContext().getString(R.string.obfuscated_res_0x7f0f0c2b));
+                    forumDetailActivity.showToast(forumDetailActivity.getPageContext().getString(R.string.obfuscated_res_0x7f0f0c17));
                 } else if (AntiHelper.t(this.a.getPageContext().getPageActivity(), this.b.k.O(), this.b.l) != null) {
                     TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_ANTI_DIALOG_SHOW).param("obj_locate", TbadkCoreStatisticKey.AntiLocateValue.LOCATE_LIKE_BAR));
                 }
@@ -245,7 +245,7 @@ public class ItemFootNavView extends LinearLayout {
     }
 
     /* loaded from: classes3.dex */
-    public class e implements cr4.e {
+    public class e implements dr4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ BaseActivity a;
@@ -290,7 +290,7 @@ public class ItemFootNavView extends LinearLayout {
                         return;
                     }
                     BaseActivity baseActivity = this.a.a;
-                    baseActivity.showToast(baseActivity.getPageContext().getString(R.string.obfuscated_res_0x7f0f14cc));
+                    baseActivity.showToast(baseActivity.getPageContext().getString(R.string.obfuscated_res_0x7f0f147b));
                 }
             }
 
@@ -332,10 +332,10 @@ public class ItemFootNavView extends LinearLayout {
             this.a = baseActivity;
         }
 
-        @Override // com.repackage.cr4.e
-        public void onClick(cr4 cr4Var) {
+        @Override // com.repackage.dr4.e
+        public void onClick(dr4 dr4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, cr4Var) == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, dr4Var) == null) {
                 this.b.j.dismiss();
                 yh8 yh8Var = new yh8();
                 yh8Var.a(BarDetailForDirSwitch.BAR_DETAIL_DIR);
@@ -346,7 +346,7 @@ public class ItemFootNavView extends LinearLayout {
     }
 
     /* loaded from: classes3.dex */
-    public class f implements cr4.e {
+    public class f implements dr4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ItemFootNavView a;
@@ -369,10 +369,10 @@ public class ItemFootNavView extends LinearLayout {
             this.a = itemFootNavView;
         }
 
-        @Override // com.repackage.cr4.e
-        public void onClick(cr4 cr4Var) {
+        @Override // com.repackage.dr4.e
+        public void onClick(dr4 dr4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, cr4Var) == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, dr4Var) == null) {
                 this.a.j.dismiss();
             }
         }
@@ -419,9 +419,9 @@ public class ItemFootNavView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, baseActivity, z) == null) {
             if (this.j == null) {
-                cr4 cr4Var = new cr4(baseActivity.getPageContext().getPageActivity());
-                this.j = cr4Var;
-                cr4Var.setMessageId(R.string.obfuscated_res_0x7f0f0677);
+                dr4 dr4Var = new dr4(baseActivity.getPageContext().getPageActivity());
+                this.j = dr4Var;
+                dr4Var.setMessageId(R.string.obfuscated_res_0x7f0f0673);
                 this.j.setPositiveButton(R.string.obfuscated_res_0x7f0f0262, new e(this, baseActivity));
                 this.j.setNegativeButton(R.string.obfuscated_res_0x7f0f036a, new f(this));
                 this.j.setCanceledOnTouchOutside(true);
@@ -437,11 +437,11 @@ public class ItemFootNavView extends LinearLayout {
             LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d02a0, (ViewGroup) this, true);
             setOrientation(1);
             setVisibility(8);
-            this.c = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f0909c5);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f0909c6);
-            this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f090dc8);
-            this.f = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f0909c7);
-            this.g = findViewById(R.id.obfuscated_res_0x7f0909e9);
+            this.c = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f0909be);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f0909bf);
+            this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f090dc1);
+            this.f = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f0909c0);
+            this.g = findViewById(R.id.obfuscated_res_0x7f0909e2);
         }
     }
 
@@ -482,7 +482,7 @@ public class ItemFootNavView extends LinearLayout {
                 textView.setText(R.string.obfuscated_res_0x7f0f02a7);
             } else {
                 imageView.setImageDrawable(SkinManager.getDrawable(R.drawable.icon_tips_attention_cancel));
-                textView.setText(R.string.obfuscated_res_0x7f0f14b1);
+                textView.setText(R.string.obfuscated_res_0x7f0f1460);
             }
             Toast toast = new Toast(this.b);
             toast.setView(inflate);
@@ -523,7 +523,7 @@ public class ItemFootNavView extends LinearLayout {
         if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
             if (z) {
                 SkinManager.setImageResource(this.e, R.drawable.icon_pop_pass);
-                i = R.string.obfuscated_res_0x7f0f0f9e;
+                i = R.string.obfuscated_res_0x7f0f0f87;
                 this.c.setTag(0);
             } else {
                 SkinManager.setImageResource(this.e, R.drawable.icon_brief_attention);

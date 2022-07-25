@@ -1,9 +1,7 @@
 package com.repackage;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.TbPageContext;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -12,32 +10,30 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.ref.WeakReference;
+import com.repackage.ml4;
 import java.util.ArrayList;
 /* loaded from: classes6.dex */
-public abstract class ll4 {
+public class ll4 {
     public static /* synthetic */ Interceptable $ic;
-    public static WeakReference<TbPageContext<?>> a;
-    public static boolean b;
+    public static ml4 a;
+    public static ll4 b;
+    public static boolean c;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* loaded from: classes6.dex */
-    public interface a {
-    }
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755525251, "Lcom/repackage/ll4;")) == null) {
-            return;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755525251, "Lcom/repackage/ll4;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755525251, "Lcom/repackage/ll4;");
+                return;
+            }
         }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(-755525251, "Lcom/repackage/ll4;");
-        }
+        new ArrayList(5);
     }
 
     public ll4() {
@@ -50,75 +46,183 @@ public abstract class ll4 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
-                return;
             }
         }
-        new ArrayList(5);
     }
 
     public static ll4 a(BaseFragmentActivity baseFragmentActivity) {
         InterceptResult invokeL;
+        ml4 ml4Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, baseFragmentActivity)) == null) {
-            CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2004505, ll4.class, baseFragmentActivity);
-            if (runTask == null || runTask.getData() == null) {
-                return null;
+            if (b == null) {
+                synchronized (ll4.class) {
+                    if (b == null) {
+                        b = new ll4();
+                        a = ml4.a(baseFragmentActivity);
+                    }
+                }
+            } else {
+                ml4 ml4Var2 = a;
+                if (ml4Var2 != null) {
+                    ml4Var2.j(baseFragmentActivity.getPageContext());
+                }
             }
-            return (ll4) runTask.getData();
+            if (c && (ml4Var = a) != null) {
+                ml4Var.d();
+                a.c();
+                c = false;
+            }
+            return b;
         }
         return (ll4) invokeL.objValue;
     }
 
-    public boolean b() {
-        InterceptResult invokeV;
+    public static void h() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? b : invokeV.booleanValue;
-    }
-
-    public abstract void c();
-
-    public abstract void d();
-
-    public abstract void e();
-
-    public abstract void f();
-
-    public abstract void g(int i);
-
-    public void h() {
-        WeakReference<TbPageContext<?>> weakReference;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (weakReference = a) == null) {
-            return;
-        }
-        weakReference.get();
-        a.clear();
-        a = null;
-    }
-
-    public abstract void i();
-
-    public void j(TbPageContext<?> tbPageContext) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, tbPageContext) == null) {
-            WeakReference<TbPageContext<?>> weakReference = a;
-            if (weakReference == null) {
-                a = new WeakReference<>(tbPageContext);
-                return;
+        if (interceptable == null || interceptable.invokeV(65539, null) == null) {
+            try {
+                if (a != null) {
+                    if (b != null) {
+                        b.j();
+                    }
+                    a.e();
+                    a.i();
+                    a = null;
+                }
+                if (b != null) {
+                    b = null;
+                }
+            } catch (Throwable th) {
+                th.printStackTrace();
             }
-            weakReference.clear();
-            a = null;
-            a = new WeakReference<>(tbPageContext);
         }
     }
 
-    public abstract void k(a aVar);
+    public final void b() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || a == null) {
+        }
+    }
+
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            b();
+            ml4 ml4Var = a;
+            if (ml4Var != null) {
+                ml4Var.d();
+                c = false;
+            }
+        }
+    }
+
+    public void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            b();
+            ml4 ml4Var = a;
+            if (ml4Var != null) {
+                ml4Var.c();
+                c = false;
+            }
+        }
+    }
+
+    public void e(boolean z, boolean z2, boolean z3, ml4.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3), aVar}) == null) {
+            b();
+            if (z) {
+                c();
+            }
+            if (z2) {
+                d();
+            }
+            l(z3);
+            k(aVar);
+        }
+    }
+
+    public void f(ml4.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) {
+            b();
+            ml4 ml4Var = a;
+            if (ml4Var != null) {
+                if (ml4Var.b()) {
+                    a.k(aVar);
+                }
+                a.f();
+            }
+        }
+    }
+
+    public void g(int i, ml4.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(1048581, this, i, aVar) == null) {
+            b();
+            ml4 ml4Var = a;
+            if (ml4Var != null) {
+                if (ml4Var.b()) {
+                    a.k(aVar);
+                }
+                a.g(i);
+            }
+        }
+    }
+
+    public void i() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            b();
+            ml4 ml4Var = a;
+            if (ml4Var != null) {
+                ml4Var.h();
+            }
+        }
+    }
+
+    public void j() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            b();
+            i();
+            m();
+        }
+    }
+
+    public void k(ml4.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, aVar) == null) {
+            b();
+            ml4 ml4Var = a;
+            if (ml4Var != null) {
+                ml4Var.k(aVar);
+            }
+        }
+    }
 
     public void l(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
+            b();
+            ml4 ml4Var = a;
+            if (ml4Var != null) {
+                ml4Var.l(z);
+            }
         }
     }
 
-    public abstract void m();
+    public void m() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+            b();
+            ml4 ml4Var = a;
+            if (ml4Var != null) {
+                ml4Var.m();
+                c = true;
+            }
+        }
+    }
 }

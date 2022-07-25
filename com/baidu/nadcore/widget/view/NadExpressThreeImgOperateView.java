@@ -62,7 +62,7 @@ public class NadExpressThreeImgOperateView extends NadExpressNaBaseView {
     public void j(LayoutInflater layoutInflater, pn0 pn0Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, layoutInflater, pn0Var) == null) {
-            int i = R.layout.obfuscated_res_0x7f0d05d5;
+            int i = R.layout.obfuscated_res_0x7f0d05df;
             if (pn0Var != null) {
                 if (pn0Var.a(AdBaseModel.STYLE.THREE_IMAGE) != 0) {
                     i = pn0Var.a(AdBaseModel.STYLE.THREE_IMAGE);
@@ -83,12 +83,12 @@ public class NadExpressThreeImgOperateView extends NadExpressNaBaseView {
     public void k(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
-            this.q = (AdImageView) findViewById(R.id.obfuscated_res_0x7f091537);
-            this.r = (AdImageView) findViewById(R.id.obfuscated_res_0x7f091539);
-            this.s = (AdImageView) findViewById(R.id.obfuscated_res_0x7f091538);
+            this.q = (AdImageView) findViewById(R.id.obfuscated_res_0x7f091512);
+            this.r = (AdImageView) findViewById(R.id.obfuscated_res_0x7f091514);
+            this.s = (AdImageView) findViewById(R.id.obfuscated_res_0x7f091513);
             Resources resources = context.getResources();
             this.t = (((((q01.c.e(context) - q01.c.a(getContext(), this.m)) - q01.c.a(getContext(), this.n)) - q01.c.a(getContext(), this.o)) - q01.c.a(getContext(), this.p)) - (resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070051) * 2)) / 3;
-            this.u = Math.round((this.t / ((int) resources.getDimension(R.dimen.obfuscated_res_0x7f070587))) * ((int) resources.getDimension(R.dimen.obfuscated_res_0x7f070586)));
+            this.u = Math.round((this.t / ((int) resources.getDimension(R.dimen.obfuscated_res_0x7f070585))) * ((int) resources.getDimension(R.dimen.obfuscated_res_0x7f070584)));
             AdImageView adImageView = this.q;
             if (adImageView != null) {
                 RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) adImageView.getLayoutParams();

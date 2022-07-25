@@ -47,7 +47,7 @@ public class vz8 {
         if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.d == null) {
             return;
         }
-        ur4 d = ur4.d(this.c);
+        vr4 d = vr4.d(this.c);
         d.w(R.dimen.M_T_X001);
         d.z(R.dimen.T_X05);
     }
@@ -61,10 +61,10 @@ public class vz8 {
     public final void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d08dd, (ViewGroup) null);
+            View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d08e7, (ViewGroup) null);
             this.d = inflate;
-            this.b = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090f47);
-            this.c = (EMTextView) this.d.findViewById(R.id.obfuscated_res_0x7f090f77);
+            this.b = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090f40);
+            this.c = (EMTextView) this.d.findViewById(R.id.obfuscated_res_0x7f090f70);
             a();
         }
     }

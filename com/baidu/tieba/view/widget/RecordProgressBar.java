@@ -125,7 +125,7 @@ public class RecordProgressBar extends View implements bv8, Runnable {
             }
             bv8.a aVar = this.s;
             if (aVar != null) {
-                aVar.b(this.t);
+                aVar.a(this.t);
             }
         }
     }
@@ -156,7 +156,7 @@ public class RecordProgressBar extends View implements bv8, Runnable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             bv8.a aVar = this.s;
-            postDelayed(this, (aVar == null || !(aVar.a() == 0.5f || this.s.a() == 0.33333334f)) ? 50L : 25L);
+            postDelayed(this, (aVar == null || !(aVar.getSpeed() == 0.5f || this.s.getSpeed() == 0.33333334f)) ? 50L : 25L);
         }
     }
 

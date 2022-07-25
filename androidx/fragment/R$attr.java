@@ -18,7 +18,7 @@ public final class R$attr {
     public static final int fontStyle = 2130969247;
     public static final int fontVariationSettings = 2130969248;
     public static final int fontWeight = 2130969249;
-    public static final int ttcIndex = 2130970291;
+    public static final int ttcIndex = 2130970293;
     public transient /* synthetic */ FieldHolder $fh;
 
     public R$attr() {

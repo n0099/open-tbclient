@@ -20,7 +20,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.qg;
-import com.repackage.y95;
+import com.repackage.z95;
 /* loaded from: classes3.dex */
 public class FlutterPluginManager {
     public static /* synthetic */ Interceptable $ic = null;
@@ -349,23 +349,23 @@ public class FlutterPluginManager {
         }
     }
 
-    public void init(y95 y95Var) {
+    public void init(z95 z95Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, y95Var) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, z95Var) == null) {
             if (this.mIFlutterPlugin == null) {
                 UtilHelper.showToast(TbadkCoreApplication.getInst().getCurrentActivity(), "加载插件中...");
-                invokePlugin(new IInvokeCallback(this, y95Var) { // from class: com.baidu.tieba.flutter.FlutterPluginManager.3
+                invokePlugin(new IInvokeCallback(this, z95Var) { // from class: com.baidu.tieba.flutter.FlutterPluginManager.3
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ FlutterPluginManager this$0;
-                    public final /* synthetic */ y95 val$callback;
+                    public final /* synthetic */ z95 val$callback;
 
                     {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 != null) {
                             InitContext newInitContext = TitanRuntime.newInitContext();
                             newInitContext.initArgs = r2;
-                            Object[] objArr = {this, y95Var};
+                            Object[] objArr = {this, z95Var};
                             interceptable2.invokeUnInit(65536, newInitContext);
                             int i = newInitContext.flag;
                             if ((i & 1) != 0) {
@@ -376,7 +376,7 @@ public class FlutterPluginManager {
                             }
                         }
                         this.this$0 = this;
-                        this.val$callback = y95Var;
+                        this.val$callback = z95Var;
                     }
 
                     @Override // com.baidu.nps.main.invoke.IInvokeCallback
@@ -408,7 +408,7 @@ public class FlutterPluginManager {
                 });
                 return;
             }
-            y95Var.onSuccess();
+            z95Var.onSuccess();
         }
     }
 }

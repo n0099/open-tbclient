@@ -74,7 +74,7 @@ public class f58 {
                 o48Var.d = c;
                 o48Var.c = b;
                 o48Var.b = a;
-                o48Var.a = R.string.obfuscated_res_0x7f0f0e17;
+                o48Var.a = R.string.obfuscated_res_0x7f0f0e00;
                 arrayList.add(o48Var);
                 for (int i = 0; i < list.size(); i++) {
                     ThreadData threadData = list.get(i);
@@ -158,8 +158,8 @@ public class f58 {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, nnVar)) == null) {
-            if (nnVar != null && (nnVar instanceof nn4)) {
-                ThreadData threadData = ((nn4) nnVar).getThreadData();
+            if (nnVar != null && (nnVar instanceof on4)) {
+                ThreadData threadData = ((on4) nnVar).getThreadData();
                 threadData.isFromPersonPolymeric = true;
                 AbsGroupUbsABTest.setCardInfoUbsABTest(threadData);
                 return threadData;

@@ -157,9 +157,9 @@ public class cl5 extends BaseAdapter implements View.OnClickListener {
         f = new HashMap<>();
         d.put(0, Integer.valueOf((int) R.string.obfuscated_res_0x7f0f00b8));
         d.put(4, Integer.valueOf((int) R.string.obfuscated_res_0x7f0f00d7));
-        d.put(1, Integer.valueOf((int) R.string.obfuscated_res_0x7f0f0d20));
-        d.put(2, Integer.valueOf((int) R.string.obfuscated_res_0x7f0f0d51));
-        d.put(3, Integer.valueOf((int) R.string.obfuscated_res_0x7f0f1598));
+        d.put(1, Integer.valueOf((int) R.string.obfuscated_res_0x7f0f0d0c));
+        d.put(2, Integer.valueOf((int) R.string.obfuscated_res_0x7f0f0d3a));
+        d.put(3, Integer.valueOf((int) R.string.obfuscated_res_0x7f0f1547));
         e.put(new b(false), Integer.valueOf((int) R.drawable.btn_pass));
         e.put(new b(true), Integer.valueOf((int) R.drawable.btn_all_blue));
         f.put(new b(false), Integer.valueOf((int) R.color.btn_pass_text_color));
@@ -288,10 +288,10 @@ public class cl5 extends BaseAdapter implements View.OnClickListener {
             } else {
                 view2 = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0075, (ViewGroup) null);
                 dVar = new d(null);
-                dVar.a = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f090a8a);
-                dVar.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090a8c);
-                dVar.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090a8b);
-                dVar.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090a88);
+                dVar.a = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f090a83);
+                dVar.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090a85);
+                dVar.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090a84);
+                dVar.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090a81);
                 view2.setTag(dVar);
             }
             n57 item = getItem(i);

@@ -11,13 +11,14 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class dn2 implements gq2 {
+public class dn2 implements hq2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<an2> a;
+    public ArrayList<bn2> a;
     public int b;
-    public float c;
-    public boolean d;
+    public int c;
+    public int d;
+    public int e;
 
     public dn2() {
         Interceptable interceptable = $ic;
@@ -32,12 +33,13 @@ public class dn2 implements gq2 {
                 return;
             }
         }
-        this.b = 0;
-        this.c = 0.0f;
-        this.d = false;
+        this.b = 1;
+        this.c = -16777216;
+        this.d = 0;
+        this.e = 0;
     }
 
-    @Override // com.repackage.gq2
+    @Override // com.repackage.hq2
     public void a(JSONObject jSONObject) throws JSONException {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) && jSONObject != null && jSONObject.has("points")) {
@@ -48,35 +50,32 @@ public class dn2 implements gq2 {
                 for (int i = 0; i < length; i++) {
                     JSONObject optJSONObject = optJSONArray.optJSONObject(i);
                     if (optJSONObject != null) {
-                        an2 an2Var = new an2();
-                        an2Var.a(optJSONObject);
-                        if (an2Var.isValid()) {
-                            this.a.add(an2Var);
+                        bn2 bn2Var = new bn2();
+                        bn2Var.a(optJSONObject);
+                        if (bn2Var.isValid()) {
+                            this.a.add(bn2Var);
                         }
                     }
                 }
             }
-            ArrayList<an2> arrayList = this.a;
+            ArrayList<bn2> arrayList = this.a;
             if (arrayList == null || arrayList.size() <= 0) {
                 return;
             }
-            this.b = um2.a(jSONObject.optString("color"), 0);
-            this.c = Math.abs(um2.b(jSONObject.optDouble("width", 0.0d)));
-            this.d = jSONObject.optBoolean("dottedLine", false);
-            jSONObject.optBoolean("arrowLine", false);
-            jSONObject.optString("arrowIconPath");
-            um2.a(jSONObject.optString("borderColor"), 0);
-            Math.abs(um2.b(jSONObject.optDouble("borderWidth", 0.0d)));
+            this.b = (int) Math.abs(vm2.b(jSONObject.optInt("strokeWidth", 1)));
+            this.c = vm2.a(jSONObject.optString("strokeColor"), -16777216);
+            this.d = vm2.a(jSONObject.optString("fillColor"), 0);
+            this.e = jSONObject.optInt("zIndex", 0);
         }
     }
 
-    @Override // com.repackage.gq2
+    @Override // com.repackage.hq2
     public boolean isValid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            ArrayList<an2> arrayList = this.a;
-            return arrayList != null && arrayList.size() > 0;
+            ArrayList<bn2> arrayList = this.a;
+            return (arrayList == null || arrayList.isEmpty()) ? false : true;
         }
         return invokeV.booleanValue;
     }

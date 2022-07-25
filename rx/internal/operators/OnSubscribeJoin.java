@@ -50,14 +50,14 @@ public final class OnSubscribeJoin<TLeft, TRight, TLeftDuration, TRightDuration,
 
             /* renamed from: rx.internal.operators.OnSubscribeJoin$ResultSink$a$a  reason: collision with other inner class name */
             /* loaded from: classes8.dex */
-            public final class C0863a extends as9<TLeftDuration> {
+            public final class C0712a extends as9<TLeftDuration> {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final int e;
                 public boolean f;
                 public final /* synthetic */ a g;
 
-                public C0863a(a aVar, int i) {
+                public C0712a(a aVar, int i) {
                     Interceptable interceptable = $ic;
                     if (interceptable != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
@@ -183,9 +183,9 @@ public final class OnSubscribeJoin<TLeft, TRight, TLeftDuration, TRightDuration,
                         i2 = this.e.rightId;
                     }
                     try {
-                        C0863a c0863a = new C0863a(this, i);
-                        this.e.group.a(c0863a);
-                        this.e.this$0.c.call(tleft).B(c0863a);
+                        C0712a c0712a = new C0712a(this, i);
+                        this.e.group.a(c0712a);
+                        this.e.this$0.c.call(tleft).B(c0712a);
                         ArrayList<Object> arrayList = new ArrayList();
                         synchronized (this.e) {
                             for (Map.Entry<Integer, TRight> entry : this.e.rightMap.entrySet()) {

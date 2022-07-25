@@ -27,9 +27,9 @@ import com.repackage.gc8;
 import com.repackage.jc8;
 import com.repackage.oc8;
 import com.repackage.pc8;
-import com.repackage.rl4;
-import com.repackage.xt4;
-import com.repackage.xy4;
+import com.repackage.sl4;
+import com.repackage.yt4;
+import com.repackage.yy4;
 import java.util.Date;
 /* loaded from: classes4.dex */
 public class AboutActivity extends BaseActivity<AboutActivity> {
@@ -80,8 +80,8 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
                 } else if (i == 2) {
                     this.a.sendMessage(new CustomMessage(2015001, new GuildActivityConfig(this.a.getPageContext().getPageActivity()).createNormalCfg(GuildActivityConfig.FROM_ABOUT_PAGE, false)));
                 } else if (i == 3) {
-                    xt4.k().u(SettingTextFunctionIntroView.h, true);
-                    rl4.s(this.a.getPageContext().getPageActivity(), this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f0783), this.a.d, true, false, false);
+                    yt4.k().u(SettingTextFunctionIntroView.h, true);
+                    sl4.s(this.a.getPageContext().getPageActivity(), this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f077f), this.a.d, true, false, false);
                 } else if (i != 4) {
                     if (i == 5) {
                         if (this.a.e == null) {
@@ -230,16 +230,16 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
             if (gc8Var != null) {
                 gc8Var.t();
             }
-            xy4 xy4Var = obj != null ? (xy4) obj : null;
-            if (xy4Var != null) {
-                TbadkCoreApplication.getInst().setVersionData(xy4Var.s());
+            yy4 yy4Var = obj != null ? (yy4) obj : null;
+            if (yy4Var != null) {
+                TbadkCoreApplication.getInst().setVersionData(yy4Var.s());
                 TbadkCoreApplication.getInst().refreshNewVersion(false);
-                if (xy4Var.s().hasNewVer() && TbConfig.COULD_UPDATE) {
-                    if (xy4Var.s().forceUpdate()) {
-                        sendMessage(new CustomMessage(2002001, new UpdateDialogConfig(TbadkCoreApplication.getInst().getApp(), xy4Var.s(), xy4Var.j())));
+                if (yy4Var.s().hasNewVer() && TbConfig.COULD_UPDATE) {
+                    if (yy4Var.s().forceUpdate()) {
+                        sendMessage(new CustomMessage(2002001, new UpdateDialogConfig(TbadkCoreApplication.getInst().getApp(), yy4Var.s(), yy4Var.j())));
                     } else {
                         Long valueOf = Long.valueOf(new Date().getTime());
-                        CustomMessage customMessage = new CustomMessage(2002001, new UpdateDialogConfig(TbadkCoreApplication.getInst().getApp(), xy4Var.s(), xy4Var.j()));
+                        CustomMessage customMessage = new CustomMessage(2002001, new UpdateDialogConfig(TbadkCoreApplication.getInst().getApp(), yy4Var.s(), yy4Var.j()));
                         TbadkCoreApplication.getInst().setUpdateNotifyTime(valueOf.longValue());
                         sendMessage(customMessage);
                     }
@@ -251,7 +251,7 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
                 }
                 return;
             }
-            showToast(getResources().getString(R.string.obfuscated_res_0x7f0f0c2b));
+            showToast(getResources().getString(R.string.obfuscated_res_0x7f0f0c17));
         }
     }
 
@@ -340,7 +340,7 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
             if (PermissionUtil.checkWriteExternalStorage(getActivity().getApplicationContext())) {
                 L1();
             } else {
-                showToast(R.string.obfuscated_res_0x7f0f15d5);
+                showToast(R.string.obfuscated_res_0x7f0f1584);
             }
         }
     }

@@ -42,7 +42,7 @@ public class n58 extends jx5<l48> {
         View h = h();
         this.j = h;
         this.i = (TbImageView) h.findViewById(R.id.obfuscated_res_0x7f0905b4);
-        this.k = this.j.findViewById(R.id.obfuscated_res_0x7f0914bb);
+        this.k = this.j.findViewById(R.id.obfuscated_res_0x7f091496);
     }
 
     @Override // com.repackage.jx5

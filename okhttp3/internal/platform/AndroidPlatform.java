@@ -5,7 +5,6 @@ import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.security.RSAUtil;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.sofire.sharedpreferences.SharedPreferenceManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -210,7 +209,7 @@ public class AndroidPlatform extends Platform {
                 Method method3 = null;
                 try {
                     Class<?> cls = Class.forName("dalvik.system.CloseGuard");
-                    Method method4 = cls.getMethod(SharedPreferenceManager.OPERATION_GET_PERFIX, new Class[0]);
+                    Method method4 = cls.getMethod("get", new Class[0]);
                     method2 = cls.getMethod("open", String.class);
                     method = cls.getMethod("warnIfOpen", new Class[0]);
                     method3 = method4;

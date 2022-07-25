@@ -454,7 +454,7 @@ public class x36 {
         }
         View inflate = LayoutInflater.from(b2).inflate(R.layout.obfuscated_res_0x7f0d023a, (ViewGroup) null);
         inflate.setLayoutParams(new FrameLayout.LayoutParams(-1, -1));
-        BaseWebView baseWebView = (BaseWebView) inflate.findViewById(R.id.obfuscated_res_0x7f090795);
+        BaseWebView baseWebView = (BaseWebView) inflate.findViewById(R.id.obfuscated_res_0x7f090793);
         this.e = baseWebView;
         baseWebView.loadUrl(str);
         this.e.setOnPageFinishedListener(new e(this));
@@ -478,7 +478,7 @@ public class x36 {
             }
             View inflate = LayoutInflater.from(b2).inflate(R.layout.obfuscated_res_0x7f0d023b, (ViewGroup) null);
             inflate.setLayoutParams(new FrameLayout.LayoutParams(-1, -1));
-            TBLottieAnimationView tBLottieAnimationView = (TBLottieAnimationView) inflate.findViewById(R.id.obfuscated_res_0x7f09081e);
+            TBLottieAnimationView tBLottieAnimationView = (TBLottieAnimationView) inflate.findViewById(R.id.obfuscated_res_0x7f09081c);
             tBLottieAnimationView.setBackgroundResource(R.color.transparent);
             tBLottieAnimationView.setAnimationUrl(str);
             tBLottieAnimationView.setRenderMode(RenderMode.HARDWARE);

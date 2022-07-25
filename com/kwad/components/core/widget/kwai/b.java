@@ -11,6 +11,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class b extends a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public View mRootView;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public b(@NonNull View view2, int i) {
@@ -31,12 +32,13 @@ public class b extends a {
                 return;
             }
         }
+        this.mRootView = view2;
     }
 
     @Override // com.kwad.components.core.widget.kwai.a
-    public boolean a() {
+    public boolean dK() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? d() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? com.kwad.sdk.b.kwai.a.a(this.mRootView, 70, true) : invokeV.booleanValue;
     }
 }

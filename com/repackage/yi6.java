@@ -55,7 +55,7 @@ public class yi6 {
         if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) && this.b == null) {
             View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d02ba, (ViewGroup) null);
             this.b = inflate;
-            this.c = (EMTextView) inflate.findViewById(R.id.obfuscated_res_0x7f090a5f);
+            this.c = (EMTextView) inflate.findViewById(R.id.obfuscated_res_0x7f090a58);
             c(TbadkCoreApplication.getInst().getSkinType());
         }
     }
@@ -63,7 +63,7 @@ public class yi6 {
     public void c(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            ur4 d = ur4.d(this.c);
+            vr4 d = vr4.d(this.c);
             d.A(R.string.F_X02);
             d.v(R.color.CAM_X0105);
         }

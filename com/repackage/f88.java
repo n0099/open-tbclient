@@ -148,9 +148,9 @@ public class f88 implements View.OnClickListener {
         this.u = false;
         this.a = pushDialogActivity;
         pushDialogActivity.setContentView(i);
-        this.d = d(R.id.obfuscated_res_0x7f091b72);
-        this.c = d(R.id.obfuscated_res_0x7f090796);
-        EditorScrollView editorScrollView = (EditorScrollView) d(R.id.obfuscated_res_0x7f091a1a);
+        this.d = d(R.id.obfuscated_res_0x7f091b4c);
+        this.c = d(R.id.obfuscated_res_0x7f090794);
+        EditorScrollView editorScrollView = (EditorScrollView) d(R.id.obfuscated_res_0x7f0919f4);
         this.e = editorScrollView;
         editorScrollView.setOverScrollMode(2);
         this.e.setListener(new a(this));
@@ -168,17 +168,17 @@ public class f88 implements View.OnClickListener {
                 this.a.getWindow().setBackgroundDrawable(this.b);
             }
         }
-        View d = d(R.id.obfuscated_res_0x7f091a18);
+        View d = d(R.id.obfuscated_res_0x7f0919f2);
         this.p = d;
         d.setOnClickListener(this);
-        this.q = (TextView) d(R.id.obfuscated_res_0x7f090659);
-        TbImageView tbImageView = (TbImageView) d(R.id.obfuscated_res_0x7f091a1c);
+        this.q = (TextView) d(R.id.obfuscated_res_0x7f090658);
+        TbImageView tbImageView = (TbImageView) d(R.id.obfuscated_res_0x7f0919f6);
         this.f = tbImageView;
         tbImageView.setDefaultBgResource(R.drawable.obfuscated_res_0x7f081833);
         this.f.setAutoChangeStyle(false);
-        this.g = (TextView) d(R.id.obfuscated_res_0x7f091a1d);
-        this.i = (TextView) d(R.id.obfuscated_res_0x7f091a1b);
-        ClickableHeaderImageView clickableHeaderImageView = (ClickableHeaderImageView) d(R.id.obfuscated_res_0x7f091a1f);
+        this.g = (TextView) d(R.id.obfuscated_res_0x7f0919f7);
+        this.i = (TextView) d(R.id.obfuscated_res_0x7f0919f5);
+        ClickableHeaderImageView clickableHeaderImageView = (ClickableHeaderImageView) d(R.id.obfuscated_res_0x7f0919f9);
         this.l = clickableHeaderImageView;
         clickableHeaderImageView.setBorderSurroundContent(true);
         this.l.setIsRound(true);
@@ -187,7 +187,7 @@ public class f88 implements View.OnClickListener {
         this.l.setBorderWidth(pi.f(this.a, R.dimen.tbds1));
         this.l.setBorderColor(ContextCompat.getColor(this.a, R.color.black_alpha15));
         this.r = new ng5();
-        TbRichTextView tbRichTextView = (TbRichTextView) d(R.id.obfuscated_res_0x7f091a19);
+        TbRichTextView tbRichTextView = (TbRichTextView) d(R.id.obfuscated_res_0x7f0919f3);
         this.j = tbRichTextView;
         tbRichTextView.setTextColor(ContextCompat.getColor(this.a, R.color.CAM_X0107));
         this.r.s(pi.f(this.a, R.dimen.tbds38));
@@ -196,15 +196,15 @@ public class f88 implements View.OnClickListener {
         this.r.o(pi.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds7), 1.0f);
         this.r.i(pi.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds48), pi.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds48));
         this.j.setLayoutStrategy(this.r);
-        PushDialogVideoView pushDialogVideoView = (PushDialogVideoView) d(R.id.obfuscated_res_0x7f091a22);
+        PushDialogVideoView pushDialogVideoView = (PushDialogVideoView) d(R.id.obfuscated_res_0x7f0919fc);
         this.k = pushDialogVideoView;
         pushDialogVideoView.setPageContext(this.a.getPageContext());
-        this.m = (TextView) d(R.id.obfuscated_res_0x7f091a21);
-        this.n = (TextView) d(R.id.obfuscated_res_0x7f091a1e);
-        CommonUserLikeButton commonUserLikeButton = (CommonUserLikeButton) d(R.id.obfuscated_res_0x7f091a20);
+        this.m = (TextView) d(R.id.obfuscated_res_0x7f0919fb);
+        this.n = (TextView) d(R.id.obfuscated_res_0x7f0919f8);
+        CommonUserLikeButton commonUserLikeButton = (CommonUserLikeButton) d(R.id.obfuscated_res_0x7f0919fa);
         this.o = commonUserLikeButton;
         commonUserLikeButton.setAfterOnClickListener(this);
-        ImageView imageView = (ImageView) d(R.id.obfuscated_res_0x7f090779);
+        ImageView imageView = (ImageView) d(R.id.obfuscated_res_0x7f090778);
         this.h = imageView;
         imageView.setOnClickListener(this);
     }
@@ -229,7 +229,7 @@ public class f88 implements View.OnClickListener {
         DecimalFormat decimalFormat = new DecimalFormat("0.0");
         double c = ((this.t.c() * (1.0f - ((this.k.getCurrentPosition() * 1.0f) / (this.t.b() * 1000)))) * 1.0f) / 1048576.0f;
         if (c >= 0.1d) {
-            pi.O(this.a.getPageContext().getPageActivity(), String.format(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f0f35), decimalFormat.format(c)));
+            pi.O(this.a.getPageContext().getPageActivity(), String.format(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f0f1e), decimalFormat.format(c)));
         }
     }
 
@@ -281,7 +281,7 @@ public class f88 implements View.OnClickListener {
             if (TbadkCoreApplication.getCurrentAccount() != null && TbadkCoreApplication.getCurrentAccount().equals(g88Var.d().getUserId())) {
                 this.o.setVisibility(8);
             } else {
-                new yv4(this.a.getPageContext(), this.o).n(g88Var.d());
+                new zv4(this.a.getPageContext(), this.o).n(g88Var.d());
                 this.o.g(0);
                 this.o.setVisibility(0);
             }

@@ -15,8 +15,8 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.ab8;
 import com.repackage.db8;
 import com.repackage.ng;
-import com.repackage.td5;
-import com.repackage.yc5;
+import com.repackage.ud5;
+import com.repackage.zc5;
 import com.squareup.wire.Wire;
 import tbclient.PbPage.AdParam;
 import tbclient.PbPage.DataReq;
@@ -199,9 +199,9 @@ public class PbPageRequestMessage extends NetMessage {
                 b.h(this.updateType);
                 builder.ad_ext_params = b.a();
                 builder.source_type = Integer.valueOf(this.sourceType);
-                td5.c(builder, true, false, true);
+                ud5.c(builder, true, false, true);
                 builder.immersion_video_comment_source = Integer.valueOf(this.immersionVideoCommentSource);
-                builder.app_transmit_data = yc5.b();
+                builder.app_transmit_data = zc5.b();
                 if (!this.isReqFoldComment) {
                     i = 0;
                 }

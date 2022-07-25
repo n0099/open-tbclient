@@ -5,15 +5,15 @@ import com.kwad.components.ad.splashscreen.widget.SkipView;
 import com.kwad.sdk.core.response.model.AdInfo;
 /* loaded from: classes5.dex */
 public interface a {
-    int a(int i);
+    int Y(int i);
 
     void a(SplashSkipViewModel splashSkipViewModel, AdInfo adInfo);
 
-    void a(AdInfo adInfo);
+    void bj();
 
-    void b(AdInfo adInfo);
-
-    void c();
+    void s(AdInfo adInfo);
 
     void setOnViewListener(SkipView.a aVar);
+
+    void t(AdInfo adInfo);
 }

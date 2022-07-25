@@ -8,27 +8,27 @@ public final class UShortKt {
     @WasExperimental(markerClass = {ExperimentalUnsignedTypes.class})
     @InlineOnly
     public static final short toUShort(byte b) {
-        return UShort.m1914constructorimpl(b);
+        return UShort.m976constructorimpl(b);
     }
 
     @SinceKotlin(version = "1.5")
     @WasExperimental(markerClass = {ExperimentalUnsignedTypes.class})
     @InlineOnly
     public static final short toUShort(short s) {
-        return UShort.m1914constructorimpl(s);
+        return UShort.m976constructorimpl(s);
     }
 
     @SinceKotlin(version = "1.5")
     @WasExperimental(markerClass = {ExperimentalUnsignedTypes.class})
     @InlineOnly
     public static final short toUShort(int i) {
-        return UShort.m1914constructorimpl((short) i);
+        return UShort.m976constructorimpl((short) i);
     }
 
     @SinceKotlin(version = "1.5")
     @WasExperimental(markerClass = {ExperimentalUnsignedTypes.class})
     @InlineOnly
     public static final short toUShort(long j) {
-        return UShort.m1914constructorimpl((short) j);
+        return UShort.m976constructorimpl((short) j);
     }
 }

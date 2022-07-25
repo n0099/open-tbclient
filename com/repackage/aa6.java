@@ -66,8 +66,8 @@ public class aa6 extends an<ba6, ForumEmotionEmptyViewHolder> {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, ba6Var, forumEmotionEmptyViewHolder})) == null) {
-            forumEmotionEmptyViewHolder.d(ba6Var, i, this.k, this.j);
-            return forumEmotionEmptyViewHolder.b();
+            forumEmotionEmptyViewHolder.c(ba6Var, i, this.k, this.j);
+            return forumEmotionEmptyViewHolder.a();
         }
         return (View) invokeCommon.objValue;
     }

@@ -48,14 +48,14 @@ public class kk8 implements NewWriteModel.e {
 
         /* renamed from: com.repackage.kk8$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class RunnableC0664a implements Runnable {
+        public class RunnableC0512a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ WriteData a;
             public final /* synthetic */ PostWriteCallBackData b;
             public final /* synthetic */ a c;
 
-            public RunnableC0664a(a aVar, WriteData writeData, PostWriteCallBackData postWriteCallBackData) {
+            public RunnableC0512a(a aVar, WriteData writeData, PostWriteCallBackData postWriteCallBackData) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -117,9 +117,9 @@ public class kk8 implements NewWriteModel.e {
         }
 
         @Override // com.baidu.tieba.tbadkCore.writeModel.NewWriteModel.e
-        public void callback(boolean z, PostWriteCallBackData postWriteCallBackData, fy4 fy4Var, WriteData writeData, AntiData antiData) {
+        public void callback(boolean z, PostWriteCallBackData postWriteCallBackData, gy4 gy4Var, WriteData writeData, AntiData antiData) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), postWriteCallBackData, fy4Var, writeData, antiData}) == null) || writeData == null) {
+            if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), postWriteCallBackData, gy4Var, writeData, antiData}) == null) || writeData == null) {
                 return;
             }
             if (z) {
@@ -129,14 +129,14 @@ public class kk8 implements NewWriteModel.e {
                 notifyFlutterPostSucc.setThreadDataByWriteData(writeData);
                 notifyFlutterPostSucc.setFlutterPageId(this.a.j());
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921592, notifyFlutterPostSucc));
-                int l = xt4.k().l("key_video_works_progress_bar_waiting_time", 3);
-                qg.a().postDelayed(new RunnableC0664a(this, writeData, postWriteCallBackData), ((l > 0 ? l : 3) + 1) * 1000);
+                int l = yt4.k().l("key_video_works_progress_bar_waiting_time", 3);
+                qg.a().postDelayed(new RunnableC0512a(this, writeData, postWriteCallBackData), ((l > 0 ? l : 3) + 1) * 1000);
                 kk8.k().w(null);
                 this.a.u();
-            } else if (ve5.d(postWriteCallBackData, fy4Var, writeData, antiData)) {
+            } else if (ve5.d(postWriteCallBackData, gy4Var, writeData, antiData)) {
             } else {
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921592, WorkPostNotifyFlutterData.notifyFlutterPostFail(postWriteCallBackData != null ? postWriteCallBackData.getErrorString() : "")));
-                mk8.l(postWriteCallBackData, fy4Var, writeData, antiData);
+                mk8.l(postWriteCallBackData, gy4Var, writeData, antiData);
                 kk8.k().w(null);
                 this.a.u();
             }
@@ -301,18 +301,18 @@ public class kk8 implements NewWriteModel.e {
     }
 
     @Override // com.baidu.tieba.tbadkCore.writeModel.NewWriteModel.e
-    public void callback(boolean z, PostWriteCallBackData postWriteCallBackData, fy4 fy4Var, WriteData writeData, AntiData antiData) {
+    public void callback(boolean z, PostWriteCallBackData postWriteCallBackData, gy4 gy4Var, WriteData writeData, AntiData antiData) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{Boolean.valueOf(z), postWriteCallBackData, fy4Var, writeData, antiData}) == null) || writeData == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{Boolean.valueOf(z), postWriteCallBackData, gy4Var, writeData, antiData}) == null) || writeData == null) {
             return;
         }
         if (z) {
             PublishProgressData.valueOf(writeData, 100).send(true);
             qg.a().postDelayed(new b(this, postWriteCallBackData, writeData), 200L);
             if (writeData.isRichTextEditorMode()) {
-                sv4.b(writeData.getRichContentData().toString(), "2");
+                tv4.b(writeData.getRichContentData().toString(), "2");
             } else {
-                sv4.b(writeData.getContentString(), "2");
+                tv4.b(writeData.getContentString(), "2");
             }
             f();
             g();
@@ -326,10 +326,10 @@ public class kk8 implements NewWriteModel.e {
             PublishProgressData.valueOf(writeData, 100).send(false);
             k().w(null);
             u();
-        } else if (ve5.d(postWriteCallBackData, fy4Var, writeData, antiData)) {
+        } else if (ve5.d(postWriteCallBackData, gy4Var, writeData, antiData)) {
         } else {
             PublishProgressData.valueOf(writeData, 100).send(false);
-            mk8.l(postWriteCallBackData, fy4Var, writeData, antiData);
+            mk8.l(postWriteCallBackData, gy4Var, writeData, antiData);
             k().w(null);
             u();
         }
@@ -382,13 +382,13 @@ public class kk8 implements NewWriteModel.e {
         }
     }
 
-    public void h(boolean z, PostWriteCallBackData postWriteCallBackData, fy4 fy4Var, WriteData writeData, AntiData antiData) {
+    public void h(boolean z, PostWriteCallBackData postWriteCallBackData, gy4 gy4Var, WriteData writeData, AntiData antiData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048590, this, new Object[]{Boolean.valueOf(z), postWriteCallBackData, fy4Var, writeData, antiData}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048590, this, new Object[]{Boolean.valueOf(z), postWriteCallBackData, gy4Var, writeData, antiData}) == null) {
             if (writeData != null && writeData.isWork() && this.c == null) {
-                this.j.callback(z, postWriteCallBackData, fy4Var, writeData, antiData);
+                this.j.callback(z, postWriteCallBackData, gy4Var, writeData, antiData);
             } else {
-                callback(z, postWriteCallBackData, fy4Var, writeData, antiData);
+                callback(z, postWriteCallBackData, gy4Var, writeData, antiData);
             }
         }
     }

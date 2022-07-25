@@ -43,8 +43,8 @@ import com.repackage.a97;
 import com.repackage.d77;
 import com.repackage.f77;
 import com.repackage.l77;
-import com.repackage.mp4;
 import com.repackage.ng;
+import com.repackage.np4;
 import com.repackage.oi;
 import com.repackage.s67;
 import com.repackage.z87;
@@ -384,7 +384,7 @@ public class MessageUtils {
         }
     }
 
-    public static mp4 generatePushNotifyData(MsgInfo msgInfo) {
+    public static np4 generatePushNotifyData(MsgInfo msgInfo) {
         InterceptResult invokeL;
         String str;
         String str2;
@@ -414,7 +414,7 @@ public class MessageUtils {
                             }
                             str3 = str5;
                             if (!oi.isEmpty(str3)) {
-                                return new mp4(0L, msgInfo.taskId.longValue(), str2, str3, msgInfo.stat, msgInfo.serviceId.longValue());
+                                return new np4(0L, msgInfo.taskId.longValue(), str2, str3, msgInfo.stat, msgInfo.serviceId.longValue());
                             }
                             return null;
                         }
@@ -432,12 +432,12 @@ public class MessageUtils {
                 }
                 str3 = str5;
                 if (!oi.isEmpty(str3) && !oi.isEmpty(str2)) {
-                    return new mp4(0L, msgInfo.taskId.longValue(), str2, str3, msgInfo.stat, msgInfo.serviceId.longValue());
+                    return new np4(0L, msgInfo.taskId.longValue(), str2, str3, msgInfo.stat, msgInfo.serviceId.longValue());
                 }
             }
             return null;
         }
-        return (mp4) invokeL.objValue;
+        return (np4) invokeL.objValue;
     }
 
     public static long getTaskId(MsgInfo msgInfo) {

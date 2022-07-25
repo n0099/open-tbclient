@@ -6,7 +6,6 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.components.ad.reward.presenter.platdetail.kwai.c;
 import com.kwad.components.ad.reward.presenter.platdetail.kwai.d;
-import com.kwad.sdk.mvp.Presenter;
 /* loaded from: classes5.dex */
 public final class a extends com.kwad.components.ad.reward.presenter.a {
     public static /* synthetic */ Interceptable $ic;
@@ -25,9 +24,9 @@ public final class a extends com.kwad.components.ad.reward.presenter.a {
                 return;
             }
         }
-        a((Presenter) new com.kwad.components.ad.reward.presenter.platdetail.kwai.a());
-        a((Presenter) new com.kwad.components.ad.reward.presenter.platdetail.kwai.b());
-        a((Presenter) new d());
-        a((Presenter) new c());
+        a(new com.kwad.components.ad.reward.presenter.platdetail.kwai.a());
+        a(new com.kwad.components.ad.reward.presenter.platdetail.kwai.b());
+        a(new d());
+        a(new c());
     }
 }

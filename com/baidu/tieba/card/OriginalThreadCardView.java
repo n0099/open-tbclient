@@ -46,7 +46,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.pi;
 import com.repackage.rg5;
-import com.repackage.ur4;
+import com.repackage.vr4;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
 public class OriginalThreadCardView extends RelativeLayout {
@@ -185,9 +185,9 @@ public class OriginalThreadCardView extends RelativeLayout {
             setPadding(i, i, i, u);
             RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.f.getLayoutParams();
             if (this.c.getVisibility() == 0) {
-                layoutParams.addRule(3, R.id.obfuscated_res_0x7f090e56);
+                layoutParams.addRule(3, R.id.obfuscated_res_0x7f090e4f);
             } else {
-                layoutParams.addRule(3, R.id.obfuscated_res_0x7f092004);
+                layoutParams.addRule(3, R.id.obfuscated_res_0x7f092008);
             }
             this.f.setLayoutParams(layoutParams);
             this.h.setStarSpacing(s);
@@ -368,7 +368,7 @@ public class OriginalThreadCardView extends RelativeLayout {
                     TextView textView = this.i;
                     textView.setText(itemData.mScore + "");
                 } else {
-                    this.i.setText(R.string.obfuscated_res_0x7f0f06cb);
+                    this.i.setText(R.string.obfuscated_res_0x7f0f06c7);
                 }
                 if (this.c.getVisibility() == 8) {
                     RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.b.getLayoutParams();
@@ -404,15 +404,15 @@ public class OriginalThreadCardView extends RelativeLayout {
         this.a = context;
         View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d01a6, (ViewGroup) this, true);
         this.p = inflate;
-        this.b = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092004);
-        this.c = (TbImageView) this.p.findViewById(R.id.obfuscated_res_0x7f090e56);
-        this.d = (ImageView) this.p.findViewById(R.id.obfuscated_res_0x7f090dd6);
-        this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f092052);
+        this.b = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092008);
+        this.c = (TbImageView) this.p.findViewById(R.id.obfuscated_res_0x7f090e4f);
+        this.d = (ImageView) this.p.findViewById(R.id.obfuscated_res_0x7f090dcf);
+        this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f092056);
         this.c.setLongIconSupport(false);
         this.c.setGifIconSupport(false);
         this.c.setRadius(pi.f(context, R.dimen.tbds10));
         this.c.setConrers(15);
-        this.c.setBorderWidth(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070740));
+        this.c.setBorderWidth(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070732));
         this.c.setBorderColor(SkinManager.getColor(R.color.CAM_X0401));
         this.c.setBorderSurroundContent(true);
         this.c.setDrawBorder(true);
@@ -430,11 +430,11 @@ public class OriginalThreadCardView extends RelativeLayout {
         layoutParams3.height = k;
         this.b.setLayoutParams(layoutParams3);
         this.f = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090112);
-        TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f090f77);
+        TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f090f70);
         this.g = textView;
         textView.setMaxWidth(pi.q(context)[0] / 2);
-        this.h = (RankStarView) findViewById(R.id.obfuscated_res_0x7f090f6e);
-        this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f090f6a);
+        this.h = (RankStarView) findViewById(R.id.obfuscated_res_0x7f090f67);
+        this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f090f63);
         VoteView voteView = (VoteView) findViewById(R.id.obfuscated_res_0x7f0924bc);
         this.j = voteView;
         voteView.setBgColor(R.color.CAM_X0207);
@@ -559,11 +559,11 @@ public class OriginalThreadCardView extends RelativeLayout {
         if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {
             View view2 = this.p;
             if (view2 != null) {
-                ur4.d(view2).f(i);
+                vr4.d(view2).f(i);
             }
             TextView textView = this.b;
             if (textView != null) {
-                ur4.d(textView).f(i);
+                vr4.d(textView).f(i);
             }
         }
     }

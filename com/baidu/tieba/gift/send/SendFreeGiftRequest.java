@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.td5;
+import com.repackage.ud5;
 import tbclient.SendFreeGift.DataReq;
 import tbclient.SendFreeGift.SendFreeGiftReqIdl;
 /* loaded from: classes3.dex */
@@ -58,7 +58,7 @@ public class SendFreeGiftRequest extends NetMessage {
             builder.post_id = Long.valueOf(this.postId);
             builder.num = Integer.valueOf(this.sendCount);
             if (z || SocketAddCommonParamSwitch.getIsOn()) {
-                td5.a(builder, true);
+                ud5.a(builder, true);
             }
             SendFreeGiftReqIdl.Builder builder2 = new SendFreeGiftReqIdl.Builder();
             builder2.data = builder.build(false);

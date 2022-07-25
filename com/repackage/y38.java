@@ -43,12 +43,12 @@ public class y38 extends x38 {
     public TbPageContext b;
     public NoDataView c;
     public View d;
-    public k55 e;
+    public l55 e;
     public e f;
     public PbListView g;
     public NoNetworkView h;
     public ImageView i;
-    public j55 j;
+    public k55 j;
     public int k;
     public LinearLayout l;
     public FrameLayout m;
@@ -234,22 +234,22 @@ public class y38 extends x38 {
         }
         this.b = tbPageContext;
         this.d = view2;
-        this.h = (NoNetworkView) view2.findViewById(R.id.obfuscated_res_0x7f09181a);
-        this.l = (LinearLayout) this.d.findViewById(R.id.obfuscated_res_0x7f0917f7);
-        s58 s58Var = new s58(this.b, this.d.findViewById(R.id.obfuscated_res_0x7f0917f9), this.d.findViewById(R.id.obfuscated_res_0x7f0917fb), z);
+        this.h = (NoNetworkView) view2.findViewById(R.id.obfuscated_res_0x7f0917f5);
+        this.l = (LinearLayout) this.d.findViewById(R.id.obfuscated_res_0x7f0917d2);
+        s58 s58Var = new s58(this.b, this.d.findViewById(R.id.obfuscated_res_0x7f0917d4), this.d.findViewById(R.id.obfuscated_res_0x7f0917d6), z);
         this.p = s58Var;
         s58Var.k(PersonStatus.GUEST_DEFAULT);
-        this.m = (FrameLayout) this.d.findViewById(R.id.obfuscated_res_0x7f0917f8);
-        this.n = (NoNetworkView) this.d.findViewById(R.id.obfuscated_res_0x7f0917fa);
-        this.o = (RelativeLayout) this.d.findViewById(R.id.obfuscated_res_0x7f09181b);
+        this.m = (FrameLayout) this.d.findViewById(R.id.obfuscated_res_0x7f0917d3);
+        this.n = (NoNetworkView) this.d.findViewById(R.id.obfuscated_res_0x7f0917d5);
+        this.o = (RelativeLayout) this.d.findViewById(R.id.obfuscated_res_0x7f0917f6);
         PbListView pbListView = new PbListView(this.b.getPageActivity());
         this.g = pbListView;
         pbListView.b();
         this.g.E(SkinManager.getColor(R.color.CAM_X0109));
         this.g.A(R.color.CAM_X0110);
         this.g.p(R.color.CAM_X0201);
-        this.g.t(pi.f(this.b.getPageActivity(), R.dimen.obfuscated_res_0x7f070249));
-        this.g.r(pi.f(this.b.getPageActivity(), R.dimen.obfuscated_res_0x7f07023d));
+        this.g.t(pi.f(this.b.getPageActivity(), R.dimen.obfuscated_res_0x7f070247));
+        this.g.r(pi.f(this.b.getPageActivity(), R.dimen.obfuscated_res_0x7f07023b));
         this.g.z();
         this.g.w(R.color.CAM_X0205);
         s(TbadkCoreApplication.getInst().getSkinType());
@@ -271,12 +271,12 @@ public class y38 extends x38 {
             imageView.setVisibility(8);
         }
         this.l.setVisibility(0);
-        int dimensionPixelSize = this.b.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07027c);
-        int dimensionPixelSize2 = this.b.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702ce);
-        int dimensionPixelSize3 = this.b.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702ac);
+        int dimensionPixelSize = this.b.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07027a);
+        int dimensionPixelSize2 = this.b.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702cc);
+        int dimensionPixelSize3 = this.b.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702aa);
         int dimensionPixelSize4 = this.b.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070253);
         int dimensionPixelSize5 = this.b.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701d5);
-        NoDataView a2 = NoDataViewFactory.a(this.b.getPageActivity(), this.m, NoDataViewFactory.d.c(NoDataViewFactory.ImgType.LOCAL, R.drawable.new_pic_emotion_01, dimensionPixelSize, dimensionPixelSize3, dimensionPixelSize2), NoDataViewFactory.e.e(R.string.obfuscated_res_0x7f0f14cf, dimensionPixelSize4), NoDataViewFactory.c.b(new NoDataViewFactory.b(this.b.getString(R.string.obfuscated_res_0x7f0f14ce), new a(this)), dimensionPixelSize5));
+        NoDataView a2 = NoDataViewFactory.a(this.b.getPageActivity(), this.m, NoDataViewFactory.d.c(NoDataViewFactory.ImgType.LOCAL, R.drawable.new_pic_emotion_01, dimensionPixelSize, dimensionPixelSize3, dimensionPixelSize2), NoDataViewFactory.e.e(R.string.obfuscated_res_0x7f0f147e, dimensionPixelSize4), NoDataViewFactory.c.b(new NoDataViewFactory.b(this.b.getString(R.string.obfuscated_res_0x7f0f147d), new a(this)), dimensionPixelSize5));
         this.c = a2;
         a2.setVisibility(0);
         this.c.f(this.b, TbadkCoreApplication.getInst().getSkinType());
@@ -310,9 +310,9 @@ public class y38 extends x38 {
     public void o() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            j55 j55Var = this.j;
-            if (j55Var != null) {
-                j55Var.dettachView(this.d);
+            k55 k55Var = this.j;
+            if (k55Var != null) {
+                k55Var.dettachView(this.d);
                 this.j = null;
             }
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921440, Boolean.TRUE));
@@ -320,12 +320,12 @@ public class y38 extends x38 {
     }
 
     public void p() {
-        k55 k55Var;
+        l55 l55Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || (k55Var = this.e) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || (l55Var = this.e) == null) {
             return;
         }
-        k55Var.dettachView(this.m);
+        l55Var.dettachView(this.m);
         this.e = null;
     }
 
@@ -339,9 +339,9 @@ public class y38 extends x38 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            k55 k55Var = this.e;
-            if (k55Var != null) {
-                return k55Var.isViewAttached();
+            l55 l55Var = this.e;
+            if (l55Var != null) {
+                return l55Var.isViewAttached();
             }
             return false;
         }
@@ -366,9 +366,9 @@ public class y38 extends x38 {
             s58Var.g(i);
         }
         SkinManager.setBackgroundResource(this.d, R.color.CAM_X0201);
-        k55 k55Var = this.e;
-        if (k55Var != null) {
-            k55Var.onChangeSkinType();
+        l55 l55Var = this.e;
+        if (l55Var != null) {
+            l55Var.onChangeSkinType();
         }
         this.k = i;
     }
@@ -391,9 +391,9 @@ public class y38 extends x38 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048589, this, z) == null) {
             this.o.setVisibility(8);
-            int dimensionPixelSize = this.b.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070285);
+            int dimensionPixelSize = this.b.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070283);
             if (this.c == null) {
-                this.c = NoDataViewFactory.a(this.b.getPageActivity(), this.d, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.ANTI, dimensionPixelSize), NoDataViewFactory.e.d(null, this.b.getString(R.string.obfuscated_res_0x7f0f14f8)), null);
+                this.c = NoDataViewFactory.a(this.b.getPageActivity(), this.d, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.ANTI, dimensionPixelSize), NoDataViewFactory.e.d(null, this.b.getString(R.string.obfuscated_res_0x7f0f14a7)), null);
             }
             SkinManager.setViewTextColor(this.c.getSuTextView(), (int) R.color.CAM_X0106);
             this.c.f(this.b, TbadkCoreApplication.getInst().getSkinType());
@@ -413,9 +413,9 @@ public class y38 extends x38 {
         if (interceptable == null || interceptable.invokeCommon(1048591, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i)}) == null) {
             if (this.j == null) {
                 if (i < 0) {
-                    this.j = new j55(this.b.getContext());
+                    this.j = new k55(this.b.getContext());
                 } else {
-                    this.j = new j55(this.b.getContext(), i);
+                    this.j = new k55(this.b.getContext(), i);
                 }
                 this.j.onChangeSkinType();
             }
@@ -431,7 +431,7 @@ public class y38 extends x38 {
         }
         this.l.setVisibility(0);
         if (this.e == null) {
-            this.e = new k55(this.b.getPageActivity(), new b(this));
+            this.e = new l55(this.b.getPageActivity(), new b(this));
         }
         this.e.h(R.drawable.new_pic_emotion_08);
         this.e.attachView(this.m, z);
@@ -459,7 +459,7 @@ public class y38 extends x38 {
                 RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
                 layoutParams.addRule(11);
                 layoutParams.addRule(10);
-                layoutParams.topMargin = pi.f(this.b.getPageActivity(), R.dimen.obfuscated_res_0x7f0702d6);
+                layoutParams.topMargin = pi.f(this.b.getPageActivity(), R.dimen.obfuscated_res_0x7f0702d4);
                 layoutParams.rightMargin = pi.f(this.b.getPageActivity(), R.dimen.obfuscated_res_0x7f0701f0);
                 View view2 = this.d;
                 if (view2 instanceof RelativeLayout) {

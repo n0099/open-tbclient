@@ -13,7 +13,7 @@ import java.util.HashMap;
 public class nc7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final HashMap<String, nk4> a;
+    public final HashMap<String, ok4> a;
 
     /* loaded from: classes6.dex */
     public static /* synthetic */ class a {
@@ -54,27 +54,27 @@ public class nc7 {
         return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b.a : (nc7) invokeV.objValue;
     }
 
-    public void b(nk4 nk4Var) {
+    public void b(ok4 ok4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, nk4Var) == null) {
-            c(nk4Var.a(), nk4Var);
+        if (interceptable == null || interceptable.invokeL(1048576, this, ok4Var) == null) {
+            c(ok4Var.a(), ok4Var);
         }
     }
 
-    public final void c(String str, nk4 nk4Var) {
+    public final void c(String str, ok4 ok4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, nk4Var) == null) {
-            this.a.put(str, nk4Var);
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, ok4Var) == null) {
+            this.a.put(str, ok4Var);
         }
     }
 
-    public void d(String str, HashMap<String, String> hashMap, ok4 ok4Var) {
-        nk4 nk4Var;
+    public void d(String str, HashMap<String, String> hashMap, pk4 pk4Var) {
+        ok4 ok4Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, str, hashMap, ok4Var) == null) || str == null || hashMap == null || hashMap.isEmpty() || ok4Var == null || (nk4Var = this.a.get(str)) == null) {
+        if (!(interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, str, hashMap, pk4Var) == null) || str == null || hashMap == null || hashMap.isEmpty() || pk4Var == null || (ok4Var = this.a.get(str)) == null) {
             return;
         }
-        nk4Var.b(hashMap, ok4Var);
+        ok4Var.b(hashMap, pk4Var);
     }
 
     public nc7() {

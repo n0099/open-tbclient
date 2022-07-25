@@ -38,7 +38,7 @@ public class ra6 {
     public NoNetworkView f;
     public boolean g;
     public View h;
-    public sz4 i;
+    public tz4 i;
     public sa6.d j;
     public TextView k;
 
@@ -134,22 +134,22 @@ public class ra6 {
         View inflate = LayoutInflater.from(bawuTeamInfoActivity.getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0144, (ViewGroup) null);
         this.e = inflate;
         this.a.setContentView(inflate);
-        this.h = this.e.findViewById(R.id.obfuscated_res_0x7f091b5f);
-        NavigationBar navigationBar = (NavigationBar) this.e.findViewById(R.id.obfuscated_res_0x7f092437);
+        this.h = this.e.findViewById(R.id.obfuscated_res_0x7f091b39);
+        NavigationBar navigationBar = (NavigationBar) this.e.findViewById(R.id.obfuscated_res_0x7f092439);
         this.d = navigationBar;
         navigationBar.setCenterTextTitle(this.a.getString(R.string.obfuscated_res_0x7f0f02f5));
         this.d.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         this.k = new TextView(bawuTeamInfoActivity);
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(pi.f(bawuTeamInfoActivity, R.dimen.tbds160), -2);
         layoutParams.rightMargin = pi.f(bawuTeamInfoActivity, R.dimen.M_W_X011);
-        this.k.setText(R.string.obfuscated_res_0x7f0f0416);
+        this.k.setText(R.string.obfuscated_res_0x7f0f0415);
         this.k.setTextColor(R.color.CAM_X0107);
         this.k.setLayoutParams(layoutParams);
         this.k.setOnClickListener(new a(this, j, bawuTeamInfoActivity));
         this.d.getViewGroup(NavigationBar.ControlAlign.HORIZONTAL_RIGHT).addView(this.k);
         this.d.showBottomLine();
-        this.f = (NoNetworkView) this.e.findViewById(R.id.obfuscated_res_0x7f092439);
-        this.b = (BdListView) this.e.findViewById(R.id.obfuscated_res_0x7f0912de);
+        this.f = (NoNetworkView) this.e.findViewById(R.id.obfuscated_res_0x7f09243b);
+        this.b = (BdListView) this.e.findViewById(R.id.obfuscated_res_0x7f0912ba);
         sa6 sa6Var = new sa6(this.a.getPageContext());
         this.c = sa6Var;
         this.b.setAdapter((ListAdapter) sa6Var);
@@ -185,7 +185,7 @@ public class ra6 {
             this.a.getLayoutMode().j(this.e);
             this.d.onChangeSkinType(this.a.getPageContext(), i);
             this.f.d(this.a.getPageContext(), i);
-            ur4 d = ur4.d(this.k);
+            vr4 d = vr4.d(this.k);
             d.z(R.dimen.T_X07);
             d.v(R.color.CAM_X0107);
             this.c.notifyDataSetChanged();
@@ -193,12 +193,12 @@ public class ra6 {
     }
 
     public void g() {
-        sz4 sz4Var;
+        tz4 tz4Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (sz4Var = this.i) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (tz4Var = this.i) == null) {
             return;
         }
-        sz4Var.s();
+        tz4Var.s();
     }
 
     public void h(NoNetworkView.b bVar) {
@@ -212,7 +212,7 @@ public class ra6 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, accountData) == null) {
             if (this.i == null) {
-                this.i = new sz4(this.a);
+                this.i = new tz4(this.a);
             }
             this.i.p();
             this.i.u(accountData);
@@ -224,7 +224,7 @@ public class ra6 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             this.b.setVisibility(8);
-            this.a.showNetRefreshView(this.e, this.a.getPageContext().getResources().getString(R.string.obfuscated_res_0x7f0f0c45), true);
+            this.a.showNetRefreshView(this.e, this.a.getPageContext().getResources().getString(R.string.obfuscated_res_0x7f0f0c31), true);
         }
     }
 

@@ -50,8 +50,8 @@ public class rh8 {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, voidArr)) == null) {
-                br4.f();
-                te<String> g = br4.g("tb.pb_editor");
+                cr4.f();
+                te<String> g = cr4.g("tb.pb_editor");
                 WriteData writeData = this.a;
                 if (writeData != null && writeData.hasContentToSave()) {
                     g.e(rh8.f(this.b), this.a.toDraftString(), 604800000L);
@@ -100,8 +100,8 @@ public class rh8 {
             WriteData writeData2;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, voidArr)) == null) {
-                br4.f();
-                te<String> g = br4.g("tb.pb_editor");
+                cr4.f();
+                te<String> g = cr4.g("tb.pb_editor");
                 WriteData writeData3 = this.a;
                 if (writeData3 != null && writeData3.hasContentToSave() && !this.b) {
                     String draftString = this.a.toDraftString();
@@ -155,8 +155,8 @@ public class rh8 {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, voidArr)) == null) {
-                br4.f();
-                te<String> g = br4.g("tb.pb_editor");
+                cr4.f();
+                te<String> g = cr4.g("tb.pb_editor");
                 if (!TextUtils.isEmpty(this.a)) {
                     g.e(rh8.d(this.b), this.a, 604800000L);
                     return null;
@@ -200,8 +200,8 @@ public class rh8 {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, voidArr)) == null) {
-                br4.f();
-                te<String> g = br4.g("tb.pb_editor");
+                cr4.f();
+                te<String> g = cr4.g("tb.pb_editor");
                 WriteData writeData = this.a;
                 if (writeData != null && writeData.hasContentToSave()) {
                     g.e(rh8.g(this.b), this.a.toDraftString(), 604800000L);
@@ -244,8 +244,8 @@ public class rh8 {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, voidArr)) == null) {
-                br4.f();
-                te<String> g = br4.g("tb.pb_editor");
+                cr4.f();
+                te<String> g = cr4.g("tb.pb_editor");
                 if (!TextUtils.isEmpty(this.a)) {
                     g.e(rh8.e(), this.a, 604800000L);
                     return null;
@@ -304,8 +304,8 @@ public class rh8 {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, strArr)) == null) {
                 try {
-                    br4.f();
-                    str = br4.g("tb.pb_editor").get(this.b);
+                    cr4.f();
+                    str = cr4.g("tb.pb_editor").get(this.b);
                 } catch (Exception unused) {
                     str = null;
                 }
@@ -363,8 +363,8 @@ public class rh8 {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, strArr)) == null) {
                 try {
-                    br4.f();
-                    return br4.g("tb.pb_editor").get(this.b);
+                    cr4.f();
+                    return cr4.g("tb.pb_editor").get(this.b);
                 } catch (Exception unused) {
                     return null;
                 }
@@ -543,8 +543,8 @@ public class rh8 {
         if (!(interceptable == null || interceptable.invokeLL(65552, null, str, writeData) == null) || str == null) {
             return;
         }
-        br4.f();
-        te<String> g2 = br4.g("tb.pb_editor");
+        cr4.f();
+        te<String> g2 = cr4.g("tb.pb_editor");
         if (writeData != null && writeData.hasContentToSave()) {
             g2.e(a(str), writeData.toDraftString(), 604800000L);
             g2.e(a(""), writeData.toDraftString(), 604800000L);
@@ -572,8 +572,8 @@ public class rh8 {
     public static void t(WriteData writeData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65555, null, writeData) == null) {
-            br4.f();
-            te<String> g2 = br4.g("tb.pb_editor");
+            cr4.f();
+            te<String> g2 = cr4.g("tb.pb_editor");
             if (writeData != null && writeData.hasContentToSave()) {
                 g2.e(c(), writeData.toDraftString(), 604800000L);
             } else {
@@ -618,8 +618,8 @@ public class rh8 {
         if (!(interceptable == null || interceptable.invokeLL(65560, null, str, writeData) == null) || oi.isEmpty(str)) {
             return;
         }
-        br4.f();
-        te<String> g2 = br4.g("tb.pb_editor");
+        cr4.f();
+        te<String> g2 = cr4.g("tb.pb_editor");
         if (writeData != null && writeData.hasContentToSave()) {
             g2.i(h(str), writeData.toDraftString(), 604800000L);
         } else {
@@ -632,8 +632,8 @@ public class rh8 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65561, null)) == null) {
             String e2 = e();
-            br4.f();
-            return br4.g("tb.pb_editor").get(e2);
+            cr4.f();
+            return cr4.g("tb.pb_editor").get(e2);
         }
         return (String) invokeV.objValue;
     }

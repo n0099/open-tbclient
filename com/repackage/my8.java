@@ -38,8 +38,8 @@ public class my8 extends BaseAdapter {
     public transient /* synthetic */ FieldHolder $fh;
     public List<ImageFileInfo> a;
     public Context b;
-    public o45 c;
-    public v15 d;
+    public p45 c;
+    public w15 d;
     public f e;
     public LayoutInflater f;
     public boolean g;
@@ -123,11 +123,11 @@ public class my8 extends BaseAdapter {
                 z = false;
             }
             if (!z) {
-                pi.K(this.b.b, R.string.obfuscated_res_0x7f0f0531);
+                pi.K(this.b.b, R.string.obfuscated_res_0x7f0f052d);
                 return;
             }
             if (this.b.d != null) {
-                this.b.d.L(new j15(15, 0, Integer.valueOf(this.a)));
+                this.b.d.L(new k15(15, 0, Integer.valueOf(this.a)));
             }
             if (this.b.e != null) {
                 this.b.e.c(this.a);
@@ -172,7 +172,7 @@ public class my8 extends BaseAdapter {
     }
 
     /* loaded from: classes6.dex */
-    public class d implements k45 {
+    public class d implements l45 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ViewGroup a;
@@ -195,7 +195,7 @@ public class my8 extends BaseAdapter {
             this.a = viewGroup;
         }
 
-        @Override // com.repackage.k45
+        @Override // com.repackage.l45
         public void a(ym ymVar, String str, boolean z) {
             TbImageView tbImageView;
             Interceptable interceptable = $ic;
@@ -253,12 +253,12 @@ public class my8 extends BaseAdapter {
         void c(int i);
     }
 
-    public my8(Context context, o45 o45Var, v15 v15Var, f fVar) {
+    public my8(Context context, p45 p45Var, w15 w15Var, f fVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, o45Var, v15Var, fVar};
+            Object[] objArr = {context, p45Var, w15Var, fVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -271,10 +271,10 @@ public class my8 extends BaseAdapter {
         this.a = new ArrayList();
         this.g = false;
         this.h = false;
-        this.d = v15Var;
+        this.d = w15Var;
         this.b = context;
         this.f = LayoutInflater.from(context);
-        this.c = o45Var;
+        this.c = p45Var;
         this.e = fVar;
     }
 
@@ -289,11 +289,11 @@ public class my8 extends BaseAdapter {
         if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{imageFileInfo, view2, viewGroup, Integer.valueOf(i), Integer.valueOf(i2)}) == null) || imageFileInfo == null || i <= 0 || i2 <= 0) {
             return;
         }
-        ImageOperation g = x45.g(i, i2);
+        ImageOperation g = y45.g(i, i2);
         imageFileInfo.clearPageActions();
         imageFileInfo.addPageAction(g);
-        TbImageView tbImageView = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090f83);
-        ((FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f090f68)).setForeground(SkinManager.getDrawable(R.drawable.obfuscated_res_0x7f080dc5));
+        TbImageView tbImageView = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090f7c);
+        ((FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f090f61)).setForeground(SkinManager.getDrawable(R.drawable.obfuscated_res_0x7f080dc5));
         if (imageFileInfo.getImageType() == 0) {
             ym c2 = this.c.c(imageFileInfo, true);
             tbImageView.setTag(imageFileInfo.toCachedKey(true));
@@ -302,7 +302,7 @@ public class my8 extends BaseAdapter {
             } else {
                 this.c.d(imageFileInfo, new d(this, viewGroup), true);
             }
-            tbImageView.setTagStr(this.b.getString(R.string.obfuscated_res_0x7f0f051e));
+            tbImageView.setTagStr(this.b.getString(R.string.obfuscated_res_0x7f0f051a));
         } else if (imageFileInfo.getImageType() == 1) {
             String filePath = imageFileInfo.getFilePath();
             if (!oi.isEmpty(filePath) && filePath.startsWith(SmallTailInfo.EMOTION_PREFIX)) {
@@ -372,7 +372,7 @@ public class my8 extends BaseAdapter {
                 return null;
             }
             if (view2 == null) {
-                view2 = this.f.inflate(R.layout.obfuscated_res_0x7f0d05f9, (ViewGroup) null);
+                view2 = this.f.inflate(R.layout.obfuscated_res_0x7f0d0603, (ViewGroup) null);
             }
             int k = (pi.k(this.b) - ((pi.f(this.b, R.dimen.tbds44) * 2) + (pi.f(this.b, R.dimen.tbds10) * 2))) / 3;
             if (view2.getLayoutParams() instanceof AbsListView.LayoutParams) {
@@ -383,16 +383,16 @@ public class my8 extends BaseAdapter {
                 layoutParams = new AbsListView.LayoutParams(k, k);
             }
             view2.setLayoutParams(layoutParams);
-            TbImageView tbImageView = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090f83);
+            TbImageView tbImageView = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090f7c);
             tbImageView.setTagTextSize(pi.f(this.b, R.dimen.T_X10));
             tbImageView.setDrawBorder(true);
             tbImageView.setDrawCorner(true);
             tbImageView.setAutoChangeStyle(true);
             tbImageView.setConrers(15);
             tbImageView.setRadiusById(R.string.J_X05);
-            LinearLayout linearLayout = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f09074f);
-            ((ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090749)).setImageDrawable(WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f0807ee, WebPManager.ResourceStateType.NORMAL));
-            FrameLayout frameLayout = (FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f090f68);
+            LinearLayout linearLayout = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f09074e);
+            ((ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090748)).setImageDrawable(WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f0807ee, WebPManager.ResourceStateType.NORMAL));
+            FrameLayout frameLayout = (FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f090f61);
             if ("FLAG_ADD_ICON".equals(imageFileInfo.getFilePath())) {
                 tbImageView.setVisibility(8);
                 linearLayout.setVisibility(8);
@@ -407,7 +407,7 @@ public class my8 extends BaseAdapter {
                 tbImageView.setGifIconSupport(true);
                 tbImageView.setLongIconSupport(true);
                 tbImageView.setIsLongPic(imageFileInfo.isLong());
-                tbImageView.setTagStr(d(R.string.obfuscated_res_0x7f0f051e));
+                tbImageView.setTagStr(d(R.string.obfuscated_res_0x7f0f051a));
                 if (TbadkCoreApplication.getInst().getSkinType() == 1) {
                     tbImageView.setTagColor(this.b.getResources().getColor(R.color.CAM_X0101));
                 } else {

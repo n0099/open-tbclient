@@ -22,7 +22,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.cr4;
+import com.repackage.dr4;
 import java.util.HashMap;
 /* loaded from: classes6.dex */
 public class ng6 {
@@ -36,21 +36,21 @@ public class ng6 {
     public HttpMessageListener f;
 
     /* loaded from: classes6.dex */
-    public class a implements cr4.e {
+    public class a implements dr4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ cr4 a;
+        public final /* synthetic */ dr4 a;
         public final /* synthetic */ int b;
         public final /* synthetic */ ng6 c;
 
         /* renamed from: com.repackage.ng6$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class View$OnClickListenerC0688a implements View.OnClickListener {
+        public class View$OnClickListenerC0533a implements View.OnClickListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public View$OnClickListenerC0688a(a aVar) {
+            public View$OnClickListenerC0533a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -79,12 +79,12 @@ public class ng6 {
             }
         }
 
-        public a(ng6 ng6Var, cr4 cr4Var, int i) {
+        public a(ng6 ng6Var, dr4 dr4Var, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {ng6Var, cr4Var, Integer.valueOf(i)};
+                Object[] objArr = {ng6Var, dr4Var, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -95,22 +95,22 @@ public class ng6 {
                 }
             }
             this.c = ng6Var;
-            this.a = cr4Var;
+            this.a = dr4Var;
             this.b = i;
         }
 
-        @Override // com.repackage.cr4.e
-        public void onClick(cr4 cr4Var) {
+        @Override // com.repackage.dr4.e
+        public void onClick(dr4 dr4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, cr4Var) == null) {
-                xt4.k().u("key_forum_broadcast_no_tip_again", this.a.isNoTipAgainChecked());
+            if (interceptable == null || interceptable.invokeL(1048576, this, dr4Var) == null) {
+                yt4.k().u("key_forum_broadcast_no_tip_again", this.a.isNoTipAgainChecked());
                 this.a.dismiss();
                 if (this.b == 0) {
                     ScreenTopToast screenTopToast = new ScreenTopToast(this.c.a.getPageActivity());
-                    screenTopToast.m(this.c.a.getPageActivity().getString(R.string.obfuscated_res_0x7f0f06d3));
-                    screenTopToast.k(this.c.a.getString(R.string.obfuscated_res_0x7f0f0733));
-                    screenTopToast.j(new View$OnClickListenerC0688a(this));
-                    screenTopToast.n((ViewGroup) this.c.a.getPageActivity().findViewById(R.id.obfuscated_res_0x7f090a90));
+                    screenTopToast.m(this.c.a.getPageActivity().getString(R.string.obfuscated_res_0x7f0f06cf));
+                    screenTopToast.k(this.c.a.getString(R.string.obfuscated_res_0x7f0f072f));
+                    screenTopToast.j(new View$OnClickListenerC0533a(this));
+                    screenTopToast.n((ViewGroup) this.c.a.getPageActivity().findViewById(R.id.obfuscated_res_0x7f090a89));
                     return;
                 }
                 ForumBroadcastHelper forumBroadcastHelper = new ForumBroadcastHelper(this.c.a.getPageActivity());
@@ -128,17 +128,17 @@ public class ng6 {
     }
 
     /* loaded from: classes6.dex */
-    public class b implements cr4.e {
+    public class b implements dr4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ cr4 a;
+        public final /* synthetic */ dr4 a;
 
-        public b(ng6 ng6Var, cr4 cr4Var) {
+        public b(ng6 ng6Var, dr4 dr4Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {ng6Var, cr4Var};
+                Object[] objArr = {ng6Var, dr4Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -148,14 +148,14 @@ public class ng6 {
                     return;
                 }
             }
-            this.a = cr4Var;
+            this.a = dr4Var;
         }
 
-        @Override // com.repackage.cr4.e
-        public void onClick(cr4 cr4Var) {
+        @Override // com.repackage.dr4.e
+        public void onClick(dr4 dr4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, cr4Var) == null) {
-                xt4.k().u("key_call_fans_no_tip_again", false);
+            if (interceptable == null || interceptable.invokeL(1048576, this, dr4Var) == null) {
+                yt4.k().u("key_call_fans_no_tip_again", false);
                 this.a.dismiss();
             }
         }
@@ -194,14 +194,14 @@ public class ng6 {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && (httpResponsedMessage instanceof ForumManagerRightsResMsg)) {
                 ForumManagerRightsResMsg forumManagerRightsResMsg = (ForumManagerRightsResMsg) httpResponsedMessage;
-                boolean h = xt4.k().h("key_forum_broadcast_no_tip_again", false);
+                boolean h = yt4.k().h("key_forum_broadcast_no_tip_again", false);
                 int i = forumManagerRightsResMsg.broadcastTotalCount - forumManagerRightsResMsg.broadcastUsedCount;
                 if (!h) {
                     this.a.j(i);
                 } else if (this.a.b == 1) {
-                    this.a.a.showToast(R.string.obfuscated_res_0x7f0f1447);
+                    this.a.a.showToast(R.string.obfuscated_res_0x7f0f13f6);
                 } else if (this.a.b == 2) {
-                    this.a.a.showToast(R.string.obfuscated_res_0x7f0f1121);
+                    this.a.a.showToast(R.string.obfuscated_res_0x7f0f10dd);
                 }
             }
         }
@@ -264,20 +264,20 @@ public class ng6 {
     public final void j(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            cr4 cr4Var = new cr4(this.a.getPageActivity());
-            cr4Var.setUseNoTipAgainStyle(true);
-            cr4Var.setNegativeTextColor(R.color.CAM_X0105);
+            dr4 dr4Var = new dr4(this.a.getPageActivity());
+            dr4Var.setUseNoTipAgainStyle(true);
+            dr4Var.setNegativeTextColor(R.color.CAM_X0105);
             int i2 = this.b;
             if (i2 == 1) {
-                cr4Var.setTitle(R.string.obfuscated_res_0x7f0f1447);
+                dr4Var.setTitle(R.string.obfuscated_res_0x7f0f13f6);
             } else if (i2 == 2) {
-                cr4Var.setTitle(R.string.obfuscated_res_0x7f0f1121);
+                dr4Var.setTitle(R.string.obfuscated_res_0x7f0f10dd);
             }
-            cr4Var.setMessage(String.format(this.a.getString(R.string.obfuscated_res_0x7f0f0655), Integer.valueOf(i)));
-            cr4Var.setContentViewSize(1);
-            cr4Var.setPositiveButton(this.a.getString(R.string.obfuscated_res_0x7f0f110f), new a(this, cr4Var, i));
-            cr4Var.setNegativeButton(this.a.getString(R.string.obfuscated_res_0x7f0f0c37), new b(this, cr4Var));
-            cr4Var.create(this.a).show();
+            dr4Var.setMessage(String.format(this.a.getString(R.string.obfuscated_res_0x7f0f0651), Integer.valueOf(i)));
+            dr4Var.setContentViewSize(1);
+            dr4Var.setPositiveButton(this.a.getString(R.string.obfuscated_res_0x7f0f10cb), new a(this, dr4Var, i));
+            dr4Var.setNegativeButton(this.a.getString(R.string.obfuscated_res_0x7f0f0c23), new b(this, dr4Var));
+            dr4Var.create(this.a).show();
         }
     }
 }

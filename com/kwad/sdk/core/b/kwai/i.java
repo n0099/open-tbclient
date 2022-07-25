@@ -18,8 +18,14 @@ public final class i implements com.kwad.sdk.core.d<AdStyleInfo.AdBrowseInfo> {
         if (jSONObject == null) {
             jSONObject = new JSONObject();
         }
-        com.kwad.sdk.utils.r.a(jSONObject, "enableAdBrowse", adBrowseInfo.enableAdBrowse);
-        com.kwad.sdk.utils.r.a(jSONObject, "adBrowseDuration", adBrowseInfo.adBrowseDuration);
+        int i = adBrowseInfo.enableAdBrowse;
+        if (i != 0) {
+            com.kwad.sdk.utils.r.putValue(jSONObject, "enableAdBrowse", i);
+        }
+        int i2 = adBrowseInfo.adBrowseDuration;
+        if (i2 != 0) {
+            com.kwad.sdk.utils.r.putValue(jSONObject, "adBrowseDuration", i2);
+        }
         return jSONObject;
     }
 

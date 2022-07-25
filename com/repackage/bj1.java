@@ -1,12 +1,13 @@
 package com.repackage;
 
+import android.os.Message;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class bj1 implements ml1 {
+public class bj1 implements il1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -24,11 +25,13 @@ public class bj1 implements ml1 {
         }
     }
 
-    @Override // com.repackage.ml1
-    public void b(h03 h03Var, JSONObject jSONObject) {
+    @Override // com.repackage.il1
+    public boolean a(Message message) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, h03Var, jSONObject) == null) {
-            qs2.e().b(h03Var, jSONObject);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, message)) == null) {
+            return false;
         }
+        return invokeL.booleanValue;
     }
 }

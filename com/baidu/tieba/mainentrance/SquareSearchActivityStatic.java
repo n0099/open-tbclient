@@ -26,7 +26,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.gf7;
 import com.repackage.hf7;
-import com.repackage.ma5;
+import com.repackage.na5;
 import com.repackage.oj8;
 import com.repackage.wh8;
 import java.util.ArrayList;
@@ -292,12 +292,12 @@ public class SquareSearchActivityStatic {
     public static void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65543, null) == null) {
-            ma5 ma5Var = new ma5(309438);
-            ma5Var.setResponsedClass(SearchListSocketResMessage.class);
-            ma5Var.g(true);
-            ma5Var.h(false);
-            ma5Var.f(SocketMessageTask.DupLicateMode.NONE);
-            MessageManager.getInstance().registerTask(ma5Var);
+            na5 na5Var = new na5(309438);
+            na5Var.setResponsedClass(SearchListSocketResMessage.class);
+            na5Var.g(true);
+            na5Var.h(false);
+            na5Var.f(SocketMessageTask.DupLicateMode.NONE);
+            MessageManager.getInstance().registerTask(na5Var);
             TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_SEARCH_LIST, wh8.a("c/s/searchSug", 309438));
             tbHttpMessageTask.setResponsedClass(SearchListHttpResMessage.class);
             MessageManager.getInstance().registerTask(tbHttpMessageTask);

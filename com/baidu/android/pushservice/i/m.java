@@ -37,8 +37,6 @@ import com.baidu.android.util.devices.RomUtils;
 import com.baidu.down.utils.Constants;
 import com.baidu.sapi2.SapiOptions;
 import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
-import com.baidu.sofire.sharedpreferences.SharedPreferenceManager;
-import com.baidu.sofire.utility.PermissionChecker;
 import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
 import com.baidu.tbadk.core.util.RomTypeUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -92,7 +90,7 @@ public final class m {
                 return;
             }
         }
-        b = new String[]{PermissionChecker.INTERNET, "android.permission.ACCESS_NETWORK_STATE"};
+        b = new String[]{com.kuaishou.weapon.p0.h.a, "android.permission.ACCESS_NETWORK_STATE"};
     }
 
     public static boolean A(Context context) {
@@ -1275,7 +1273,7 @@ public final class m {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65594, null, str)) == null) {
             try {
-                return (String) Class.forName("android.os.SystemProperties").getDeclaredMethod(SharedPreferenceManager.OPERATION_GET_PERFIX, String.class).invoke(null, str);
+                return (String) Class.forName("android.os.SystemProperties").getDeclaredMethod("get", String.class).invoke(null, str);
             } catch (Exception unused) {
                 return "";
             }
@@ -1657,7 +1655,7 @@ public final class m {
                     str = SystemProperties.get(str2);
                 } else {
                     Class<?> cls = Class.forName("android.os.SystemProperties");
-                    str = (String) cls.getDeclaredMethod(SharedPreferenceManager.OPERATION_GET_PERFIX, String.class).invoke(cls, str2);
+                    str = (String) cls.getDeclaredMethod("get", String.class).invoke(cls, str2);
                 }
                 return str;
             } catch (Throwable th) {
@@ -2015,7 +2013,7 @@ public final class m {
                         Class<?> cls = Class.forName("android.os.SystemProperties");
                         str = Constants.SDK_VER;
                         try {
-                            str2 = (String) cls.getDeclaredMethod(SharedPreferenceManager.OPERATION_GET_PERFIX, String.class).invoke(cls, str3);
+                            str2 = (String) cls.getDeclaredMethod("get", String.class).invoke(cls, str3);
                         } catch (Throwable th) {
                             th = th;
                             new b.c(context).a(Log.getStackTraceString(th)).a();

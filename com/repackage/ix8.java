@@ -48,8 +48,8 @@ public class ix8 {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
                 int i = this.a;
-                br4.f();
-                te<String> g = br4.g("tb.write_privacy_state_space" + this.b);
+                cr4.f();
+                te<String> g = cr4.g("tb.write_privacy_state_space" + this.b);
                 if (g != null) {
                     i = ng.e(g.get(this.c), this.a);
                 }
@@ -60,7 +60,7 @@ public class ix8 {
     }
 
     /* loaded from: classes6.dex */
-    public static class b implements jd5<Integer> {
+    public static class b implements kd5<Integer> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ c a;
@@ -84,7 +84,7 @@ public class ix8 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.jd5
+        @Override // com.repackage.kd5
         /* renamed from: a */
         public void onReturnDataInUI(Integer num) {
             c cVar;
@@ -122,8 +122,8 @@ public class ix8 {
         if (StringUtils.isNull(currentAccount)) {
             return;
         }
-        br4.f();
-        te<String> g = br4.g("tb.write_privacy_state_space" + currentAccount);
+        cr4.f();
+        te<String> g = cr4.g("tb.write_privacy_state_space" + currentAccount);
         if (g != null) {
             g.a(str, String.valueOf(i));
         }

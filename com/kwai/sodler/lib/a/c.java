@@ -4,19 +4,19 @@ import androidx.annotation.NonNull;
 import java.io.File;
 /* loaded from: classes5.dex */
 public interface c {
-    File a(String str, boolean z);
+    void ES();
 
-    String a(a aVar);
+    void ag(String str, String str2);
 
-    void a();
+    String ai(String str, String str2);
 
-    void a(String str);
+    boolean aj(String str, String str2);
 
-    void a(String str, String str2);
+    String b(a aVar);
 
-    String b(@NonNull String str);
+    File e(String str, boolean z);
 
-    String b(String str, String str2);
+    void eO(String str);
 
-    boolean c(String str, String str2);
+    String eP(@NonNull String str);
 }

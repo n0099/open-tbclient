@@ -1,15 +1,14 @@
 package com.repackage;
 
-import android.text.TextUtils;
-import com.baidu.tbadk.mutiprocess.prePageKey.PrePageKeyEvent;
-import com.baidu.tbadk.pageExtra.TbPageExtraHelper;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
-public class e75 implements l65<PrePageKeyEvent> {
+/* loaded from: classes6.dex */
+public class e75 implements m65<MissionEvent> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -28,17 +27,30 @@ public class e75 implements l65<PrePageKeyEvent> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.l65
+    @Override // com.repackage.m65
     /* renamed from: a */
-    public boolean onEvent(PrePageKeyEvent prePageKeyEvent) {
+    public boolean onEvent(MissionEvent missionEvent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, prePageKeyEvent)) == null) {
-            if (prePageKeyEvent == null || TextUtils.isEmpty(prePageKeyEvent.prePageKey)) {
-                return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, missionEvent)) == null) {
+            if (TbadkCoreApplication.getInst().isMainProcess(true)) {
+                int i = missionEvent.pageId;
+                int i2 = missionEvent.pageType;
+                long j = missionEvent.tid;
+                String str = missionEvent.actionType;
+                if ("onResume".equals(str)) {
+                    mi4.w().K(i, j);
+                    mi4.w().P(i2, j);
+                } else if (MissionEvent.MESSAGE_PAUSE.equals(str)) {
+                    mi4.w().E();
+                } else if (MissionEvent.MESSAGE_TOUCH.equals(str)) {
+                    mi4.w().F();
+                } else if (MissionEvent.MESSAGE_ACTIVITY.equals(str)) {
+                    mi4.w().K(i, j);
+                }
+                return true;
             }
-            TbPageExtraHelper.setPrePageKey(prePageKeyEvent.prePageKey);
-            return true;
+            return false;
         }
         return invokeL.booleanValue;
     }

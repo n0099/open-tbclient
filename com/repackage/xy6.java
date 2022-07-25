@@ -160,7 +160,7 @@ public class xy6 {
         this.e = 0;
         this.j = 0L;
         this.a = new zy6();
-        this.b = xt4.k().l("home_page_max_thread_count", 300);
+        this.b = yt4.k().l("home_page_max_thread_count", 300);
         this.h = new ArrayList<>();
         this.i = new ArrayList<>();
         this.k = new ArrayList();
@@ -278,7 +278,7 @@ public class xy6 {
             }
             if (builder != null && !ListUtils.isEmpty(builder.thread_list) && builder.active_center != null) {
                 ThreadInfo threadInfo = builder.thread_list.get(builder.thread_list.size() - 1);
-                if (threadInfo.id.longValue() > 0 && zi4.f().l()) {
+                if (threadInfo.id.longValue() > 0 && aj4.f().l()) {
                     this.j = threadInfo.id;
                 }
             }
@@ -298,10 +298,10 @@ public class xy6 {
                 }
             }
             if (i2 == 0 && UbsABTestHelper.isPersonalizeFunAdABTest()) {
-                int f = tw4.f();
-                int e2 = tw4.e();
+                int f = uw4.f();
+                int e2 = uw4.e();
                 if (i == 0) {
-                    e2 = tw4.a();
+                    e2 = uw4.a();
                     this.k.clear();
                 }
                 h(e2, f, arrayList);
@@ -315,10 +315,10 @@ public class xy6 {
                 } else if (z2) {
                     ThreadData threadData2 = (ThreadData) nnVar;
                     if (!TextUtils.isEmpty(threadData2.getLegoCard())) {
-                        dp4 dp4Var = new dp4();
-                        dp4Var.g(threadData2.getLegoCard());
-                        dp4Var.position = i3;
-                        linkedList.add(dp4Var);
+                        ep4 ep4Var = new ep4();
+                        ep4Var.g(threadData2.getLegoCard());
+                        ep4Var.position = i3;
+                        linkedList.add(ep4Var);
                     } else if (v17.N(threadData2)) {
                         if (!StringUtils.isNull(threadData2.getTopicModule().topic_name)) {
                             v17 v17Var = new v17();
@@ -571,8 +571,8 @@ public class xy6 {
                 int i7 = 0;
                 int i8 = 0;
                 for (nn nnVar2 : linkedList) {
-                    if (nnVar2 instanceof bp4) {
-                        ((bp4) nnVar2).setPosition(i7 + 1);
+                    if (nnVar2 instanceof cp4) {
+                        ((cp4) nnVar2).setPosition(i7 + 1);
                         i8++;
                     } else if (nnVar2 instanceof BaseCardInfo) {
                         BaseCardInfo baseCardInfo = (BaseCardInfo) nnVar2;
@@ -598,9 +598,9 @@ public class xy6 {
         return (List) invokeCommon.objValue;
     }
 
-    public void g(nn4 nn4Var, int i, List<nn> list) {
+    public void g(on4 on4Var, int i, List<nn> list) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLIL(1048582, this, nn4Var, i, list) == null) || nn4Var == null || list == null || i <= 0) {
+        if (!(interceptable == null || interceptable.invokeLIL(1048582, this, on4Var, i, list) == null) || on4Var == null || list == null || i <= 0) {
             return;
         }
         int size = list.size();
@@ -608,8 +608,8 @@ public class xy6 {
         for (int i3 = 0; i3 < size; i3++) {
             if (list.get(i3) instanceof ThreadData) {
                 if (i == i2) {
-                    nn4Var.floorPosition = i;
-                    ListUtils.add(list, i3, nn4Var);
+                    on4Var.floorPosition = i;
+                    ListUtils.add(list, i3, on4Var);
                     return;
                 }
                 i2++;
@@ -664,7 +664,7 @@ public class xy6 {
         int i2 = 0;
         if (list.size() > 0) {
             int i3 = 0;
-            while (i3 < list.size() && ((!(list.get(i3) instanceof ny5) || ((ny5) list.get(i3)).position + 1 != i) && (!(list.get(i3) instanceof bp4) || ((bp4) list.get(i3)).j() + 1 != i))) {
+            while (i3 < list.size() && ((!(list.get(i3) instanceof ny5) || ((ny5) list.get(i3)).position + 1 != i) && (!(list.get(i3) instanceof cp4) || ((cp4) list.get(i3)).j() + 1 != i))) {
                 i3++;
             }
         }
@@ -692,13 +692,13 @@ public class xy6 {
             i(list, cu6.c(yb8Var), yb8Var.a);
             return;
         }
-        while (i < list.size() && !(list.get(i) instanceof ny5) && !(list.get(i) instanceof bp4)) {
+        while (i < list.size() && !(list.get(i) instanceof ny5) && !(list.get(i) instanceof cp4)) {
             i++;
         }
         if (list.get(i) instanceof ny5) {
             i(list, cu6.c(yb8Var), ((ny5) list.get(i)).position + 2);
-        } else if (list.get(i) instanceof bp4) {
-            i(list, cu6.c(yb8Var), ((bp4) list.get(i)).j() + 2);
+        } else if (list.get(i) instanceof cp4) {
+            i(list, cu6.c(yb8Var), ((cp4) list.get(i)).j() + 2);
         }
     }
 

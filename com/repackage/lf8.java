@@ -76,8 +76,8 @@ public class lf8 extends BaseAdapter {
             View inflate = LayoutInflater.from(this.d).inflate(R.layout.obfuscated_res_0x7f0d02ad, (ViewGroup) null);
             a aVar = new a(this);
             this.c = aVar;
-            aVar.a = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091458);
-            this.c.b = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09145f);
+            aVar.a = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091434);
+            this.c.b = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09143b);
             inflate.setTag(this.c);
             return inflate;
         }

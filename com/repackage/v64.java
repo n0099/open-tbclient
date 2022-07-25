@@ -1,5 +1,5 @@
 package com.repackage;
 /* loaded from: classes7.dex */
 public interface v64 {
-    void onPause();
+    void a(u64 u64Var);
 }

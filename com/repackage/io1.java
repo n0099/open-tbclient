@@ -1,16 +1,10 @@
 package com.repackage;
 
-import android.content.Context;
 import androidx.annotation.NonNull;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
 /* loaded from: classes6.dex */
 public interface io1 {
     @NonNull
-    fz1 g();
+    jo1 a();
 
-    @NonNull
-    Context getContext();
-
-    @NonNull
-    CallbackHandler h();
+    void d(String str, is1 is1Var);
 }

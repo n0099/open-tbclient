@@ -538,7 +538,7 @@ public class PayCommonWebActivity extends YYPayBaseActivity implements YYPayWebV
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d065b);
+            setContentView(R.layout.obfuscated_res_0x7f0d0665);
             this.a = this.b + "@" + hashCode();
             if (Build.VERSION.SDK_INT >= 19) {
                 gx9 H = gx9.H(this);
@@ -554,10 +554,10 @@ public class PayCommonWebActivity extends YYPayBaseActivity implements YYPayWebV
             String str = this.a;
             RLog.info(str, "onCreate mPayFlowType:" + this.q);
             r();
-            this.o = (TextView) findViewById(R.id.obfuscated_res_0x7f091f9d);
-            this.p = (TextView) findViewById(R.id.obfuscated_res_0x7f091fa2);
-            this.d = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f09099a);
-            SimpleNavigationBar simpleNavigationBar = (SimpleNavigationBar) findViewById(R.id.obfuscated_res_0x7f091dad);
+            this.o = (TextView) findViewById(R.id.obfuscated_res_0x7f091fa1);
+            this.p = (TextView) findViewById(R.id.obfuscated_res_0x7f091fa6);
+            this.d = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f090993);
+            SimpleNavigationBar simpleNavigationBar = (SimpleNavigationBar) findViewById(R.id.obfuscated_res_0x7f091db3);
             this.c = simpleNavigationBar;
             simpleNavigationBar.setCallback(new a(this));
             A();

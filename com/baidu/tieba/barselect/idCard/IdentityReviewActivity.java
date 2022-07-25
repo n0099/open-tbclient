@@ -27,8 +27,8 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.ig;
 import com.repackage.jg;
 import com.repackage.kw5;
-import com.repackage.l45;
 import com.repackage.lw5;
+import com.repackage.m45;
 import com.repackage.pi;
 import com.repackage.pw5;
 import com.repackage.sg;
@@ -92,10 +92,10 @@ public class IdentityReviewActivity extends BaseActivity {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                if (view2.getId() == R.id.obfuscated_res_0x7f090e05) {
+                if (view2.getId() == R.id.obfuscated_res_0x7f090dfe) {
                     IdentityReviewActivity identityReviewActivity = this.a;
                     MessageManager.getInstance().sendMessage(new CustomMessage(2921412, new CameraActivityConfig(identityReviewActivity, identityReviewActivity.e, CameraActivityConfig.CONTENT_TYPE_ID_CARD_FRONT, 101)));
-                } else if (view2.getId() == R.id.obfuscated_res_0x7f090e03) {
+                } else if (view2.getId() == R.id.obfuscated_res_0x7f090dfc) {
                     IdentityReviewActivity identityReviewActivity2 = this.a;
                     MessageManager.getInstance().sendMessage(new CustomMessage(2921412, new CameraActivityConfig(identityReviewActivity2, identityReviewActivity2.f, CameraActivityConfig.CONTENT_TYPE_ID_CARD_BACK, 102)));
                 } else if (view2.getId() == R.id.obfuscated_res_0x7f0903cf) {
@@ -152,7 +152,7 @@ public class IdentityReviewActivity extends BaseActivity {
                     }
                 }
                 if (str != null) {
-                    l45 k = l45.k();
+                    m45 k = m45.k();
                     k.h(str + 32);
                 }
             }
@@ -380,21 +380,21 @@ public class IdentityReviewActivity extends BaseActivity {
             this.b = new kw5(getPageContext());
             this.e = new File(TbadkCoreApplication.getInst().getFilesDir(), "positive.jpg").getAbsolutePath();
             this.f = new File(TbadkCoreApplication.getInst().getFilesDir(), "negative.jpg").getAbsolutePath();
-            this.g = findViewById(R.id.obfuscated_res_0x7f090dd7);
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f090df0);
+            this.g = findViewById(R.id.obfuscated_res_0x7f090dd0);
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f090de9);
             this.h = navigationBar;
             navigationBar.setCenterTextTitle(getResources().getString(R.string.obfuscated_res_0x7f0f02e0));
             this.h.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
             TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f0903cf);
             this.i = textView;
             textView.setEnabled(false);
-            this.j = (TextView) findViewById(R.id.obfuscated_res_0x7f090e08);
-            this.k = (TextView) findViewById(R.id.obfuscated_res_0x7f09194b);
-            this.l = (TextView) findViewById(R.id.obfuscated_res_0x7f0915a9);
-            this.m = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090e05);
-            this.n = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090e03);
-            this.o = (TextView) findViewById(R.id.obfuscated_res_0x7f090e06);
-            this.p = (TextView) findViewById(R.id.obfuscated_res_0x7f090e04);
+            this.j = (TextView) findViewById(R.id.obfuscated_res_0x7f090e01);
+            this.k = (TextView) findViewById(R.id.obfuscated_res_0x7f091926);
+            this.l = (TextView) findViewById(R.id.obfuscated_res_0x7f091584);
+            this.m = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090dfe);
+            this.n = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090dfc);
+            this.o = (TextView) findViewById(R.id.obfuscated_res_0x7f090dff);
+            this.p = (TextView) findViewById(R.id.obfuscated_res_0x7f090dfd);
             MessageManager.getInstance().registerListener(this.v);
             MessageManager.getInstance().registerListener(this.w);
             this.m.setOnClickListener(this.t);

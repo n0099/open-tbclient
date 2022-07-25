@@ -66,7 +66,7 @@ public class l6 implements h7 {
         public void i(Object obj, JsonValue jsonValue) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj, jsonValue) == null) {
-                if (jsonValue.t("parent")) {
+                if (jsonValue.s("parent")) {
                     String str = (String) l("parent", String.class, jsonValue);
                     Class<?> cls = obj.getClass();
                     do {
@@ -76,13 +76,13 @@ public class l6 implements h7 {
                             cls = cls.getSuperclass();
                             if (cls == Object.class) {
                                 SerializationException serializationException = new SerializationException("Unable to find parent resource with name: " + str);
-                                serializationException.addTrace(jsonValue.f.R());
+                                serializationException.addTrace(jsonValue.f.Q());
                                 throw serializationException;
                             }
                         }
                     } while (cls == Object.class);
                     SerializationException serializationException2 = new SerializationException("Unable to find parent resource with name: " + str);
-                    serializationException2.addTrace(jsonValue.f.R());
+                    serializationException2.addTrace(jsonValue.f.Q());
                     throw serializationException2;
                 }
                 super.i(obj, jsonValue);
@@ -94,8 +94,8 @@ public class l6 implements h7 {
             InterceptResult invokeLLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, cls, cls2, jsonValue)) == null) {
-                if (jsonValue != null && jsonValue.E() && !t8.f(CharSequence.class, cls)) {
-                    return (T) this.n.h(jsonValue.k(), cls);
+                if (jsonValue != null && jsonValue.D() && !t8.f(CharSequence.class, cls)) {
+                    return (T) this.n.h(jsonValue.j(), cls);
                 }
                 return (T) super.k(cls, cls2, jsonValue);
             }
@@ -138,9 +138,9 @@ public class l6 implements h7 {
             if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, o7Var, jsonValue, cls)) == null) {
                 for (JsonValue jsonValue2 = jsonValue.f; jsonValue2 != null; jsonValue2 = jsonValue2.h) {
                     try {
-                        Class e = o7Var.e(jsonValue2.H());
+                        Class e = o7Var.e(jsonValue2.G());
                         if (e == null) {
-                            e = t8.a(jsonValue2.H());
+                            e = t8.a(jsonValue2.G());
                         }
                         c(o7Var, e, jsonValue2);
                     } catch (ReflectionException e2) {
@@ -281,8 +281,8 @@ public class l6 implements h7 {
             InterceptResult invokeLLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, o7Var, jsonValue, cls)) == null) {
-                if (jsonValue.E()) {
-                    return (k3) this.a.h(jsonValue.k(), k3.class);
+                if (jsonValue.D()) {
+                    return (k3) this.a.h(jsonValue.j(), k3.class);
                 }
                 String str = (String) o7Var.n("hex", String.class, null, jsonValue);
                 if (str != null) {
@@ -412,10 +412,10 @@ public class l6 implements h7 {
                 b4Var.dispose();
             }
             w7.e<w7<String, Object>> n = this.a.n();
-            n.d();
+            n.c();
             while (n.hasNext()) {
                 w7.e<Object> n2 = n.next().n();
-                n2.d();
+                n2.c();
                 while (n2.hasNext()) {
                     Object next = n2.next();
                     if (next instanceof h7) {

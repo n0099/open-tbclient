@@ -19,8 +19,8 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.d9;
-import com.repackage.ly4;
-import com.repackage.ma5;
+import com.repackage.my4;
+import com.repackage.na5;
 import com.repackage.wh8;
 import com.repackage.za;
 import java.util.HashMap;
@@ -92,8 +92,8 @@ public class LiveRemindModel extends BdBaseModel {
                     hashMap.put("view_top_params_key_yyext", yyExtData);
                     hashMap.put("view_top_params_key_type", 2);
                     hashMap.put("view_top_params_is_breathe", Boolean.FALSE);
-                    ly4.b(null, this.a.a, hashMap, 0L, 4000L);
-                    ly4.a();
+                    my4.b(null, this.a.a, hashMap, 0L, 4000L);
+                    my4.a();
                     TbSingleton.getInstance().setIsNeedRemindLiveRoom(false);
                 }
             }
@@ -123,11 +123,11 @@ public class LiveRemindModel extends BdBaseModel {
         setUniqueId(bdUniqueId);
         this.b = bdUniqueId;
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_LIVE_REMIND_INFO, wh8.a(TbConfig.GET_LIVE_ROOM_REMIND_DATA, 309728));
-        ma5 ma5Var = new ma5(309728);
-        ma5Var.setResponsedClass(GetLiveRemindSocketMessage.class);
-        ma5Var.g(true);
-        ma5Var.h(false);
-        MessageManager.getInstance().registerTask(ma5Var);
+        na5 na5Var = new na5(309728);
+        na5Var.setResponsedClass(GetLiveRemindSocketMessage.class);
+        na5Var.g(true);
+        na5Var.h(false);
+        MessageManager.getInstance().registerTask(na5Var);
         tbHttpMessageTask.setResponsedClass(GetLiveRemindHttpResMessage.class);
         tbHttpMessageTask.setIsNeedAddCommenParam(true);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);

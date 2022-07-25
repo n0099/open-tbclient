@@ -94,8 +94,8 @@ public class ox5 extends jx5<c36> {
             this.k.setOnClickListener(this);
             this.l.setOnClickListener(this);
             this.m.setOnClickListener(this);
-            this.n = view2.findViewById(R.id.obfuscated_res_0x7f0907cb);
-            this.o = view2.findViewById(R.id.obfuscated_res_0x7f0907cc);
+            this.n = view2.findViewById(R.id.obfuscated_res_0x7f0907c9);
+            this.o = view2.findViewById(R.id.obfuscated_res_0x7f0907ca);
         }
     }
 

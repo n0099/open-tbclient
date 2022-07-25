@@ -80,10 +80,10 @@ public class MsgPhotoLiveItemAdapter extends MsgCommonItemAdapter<MsgPhotoLiveCa
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), view2, viewGroup, chatMessage, msgViewHolder})) == null) {
             super.S(i, view2, viewGroup, chatMessage, msgViewHolder);
-            MsgPhotoLiveCardVew c = msgViewHolder.c();
-            c.a0(this.i, chatMessage, viewGroup);
-            c.z(this.j);
-            c.B(i);
+            MsgPhotoLiveCardVew b = msgViewHolder.b();
+            b.a0(this.i, chatMessage, viewGroup);
+            b.z(this.j);
+            b.B(i);
             this.i.getLayoutMode().k(false);
             this.i.getLayoutMode().j(view2);
             return view2;

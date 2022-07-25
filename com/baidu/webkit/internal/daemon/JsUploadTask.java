@@ -18,6 +18,7 @@ import com.baidu.webkit.internal.blink.WebSettingsGlobalBlink;
 import com.baidu.webkit.internal.daemon.CloudSettings;
 import com.baidu.webkit.sdk.Log;
 import com.baidu.webkit.sdk.WebKitFactory;
+import com.yy.mobile.framework.revenuesdk.baseapi.ErrorCode;
 import java.util.HashMap;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
@@ -309,7 +310,7 @@ public class JsUploadTask implements INoProGuard {
                 addRawLogItem(sb2, ETAG.KEY_SUB_RESOURCE_ENABLE, WebSettingsGlobalBlink.getSubResourceMonitorEnabled());
                 mNetError = 0;
                 mHttpcode = -1;
-                mNetcode = -500;
+                mNetcode = ErrorCode.SERVER_ERROR;
                 mFirstJumpType = JumpType.DefaultJump;
                 mLastJumpType = JumpType.DefaultJump;
                 if (WebKitFactory.getCurEngine() == 1) {

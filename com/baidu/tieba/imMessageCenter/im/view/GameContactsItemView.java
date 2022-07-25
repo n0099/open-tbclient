@@ -20,7 +20,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.k57;
 import com.repackage.pi;
-import com.repackage.ur4;
+import com.repackage.vr4;
 /* loaded from: classes3.dex */
 public class GameContactsItemView extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
@@ -107,7 +107,7 @@ public class GameContactsItemView extends RelativeLayout {
             layoutParams.addRule(15);
             this.c.setLayoutParams(layoutParams);
             this.c.setVisibility(8);
-            ur4 d = ur4.d(this.c);
+            vr4 d = vr4.d(this.c);
             d.n(R.string.J_X12);
             d.f(R.color.CAM_X0302);
             addView(this.c);

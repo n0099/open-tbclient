@@ -23,7 +23,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
 public class BdExpandListView extends BdTypeListView {
     public static /* synthetic */ Interceptable $ic = null;
-    public static int j0 = 1;
+    public static int d0 = 1;
     public transient /* synthetic */ FieldHolder $fh;
     public final Context J;
     public final Scroller K;
@@ -39,9 +39,9 @@ public class BdExpandListView extends BdTypeListView {
     public long U;
     public Handler V;
     public int W;
-    public boolean g0;
-    public Runnable h0;
-    public int i0;
+    public boolean a0;
+    public Runnable b0;
+    public int c0;
 
     /* loaded from: classes4.dex */
     public class a implements Runnable {
@@ -158,14 +158,14 @@ public class BdExpandListView extends BdTypeListView {
         this.T = 0L;
         this.U = 0L;
         this.V = new Handler();
-        this.g0 = false;
-        this.h0 = new a(this);
-        this.i0 = 0;
+        this.a0 = false;
+        this.b0 = new a(this);
+        this.c0 = 0;
         this.J = context;
         this.K = new Scroller(this.J);
         this.Q = ViewConfiguration.get(context).getScaledTouchSlop();
         TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f0400c7, R.attr.obfuscated_res_0x7f04025f});
-        this.R = obtainStyledAttributes.getDimensionPixelSize(j0, 0);
+        this.R = obtainStyledAttributes.getDimensionPixelSize(d0, 0);
         obtainStyledAttributes.recycle();
     }
 
@@ -194,7 +194,7 @@ public class BdExpandListView extends BdTypeListView {
     public void F() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            if (this.g0) {
+            if (this.a0) {
                 super.F();
                 return;
             }
@@ -212,8 +212,8 @@ public class BdExpandListView extends BdTypeListView {
             scroller.startScroll(0, originalHeight + i, 0, -i, 200);
             L();
             invalidate();
-            this.V.removeCallbacks(this.h0);
-            this.V.postDelayed(this.h0, 200L);
+            this.V.removeCallbacks(this.b0);
+            this.V.postDelayed(this.b0, 200L);
             this.P = false;
         }
     }
@@ -259,12 +259,12 @@ public class BdExpandListView extends BdTypeListView {
     public void computeScroll() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            if (this.g0) {
+            if (this.a0) {
                 super.computeScroll();
             } else if (this.K.computeScrollOffset()) {
                 int currY = this.K.getCurrY();
-                if (Math.abs(this.i0 - currY) > this.Q * 2) {
-                    this.i0 = currY;
+                if (Math.abs(this.c0 - currY) > this.Q * 2) {
+                    this.c0 = currY;
                     this.L.setLayoutParams(new AbsListView.LayoutParams(this.L.getWidth(), currY));
                 }
             } else {
@@ -285,7 +285,7 @@ public class BdExpandListView extends BdTypeListView {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, motionEvent)) == null) {
-            if (this.g0) {
+            if (this.a0) {
                 return super.dispatchTouchEvent(motionEvent);
             }
             int action = motionEvent.getAction();
@@ -333,8 +333,8 @@ public class BdExpandListView extends BdTypeListView {
                             bVar.b();
                         }
                     }
-                    this.V.removeCallbacks(this.h0);
-                    this.V.postDelayed(this.h0, 200L);
+                    this.V.removeCallbacks(this.b0);
+                    this.V.postDelayed(this.b0, 200L);
                 } else {
                     this.T = System.currentTimeMillis() - this.U;
                     this.U = System.currentTimeMillis();
@@ -397,7 +397,7 @@ public class BdExpandListView extends BdTypeListView {
     public void setStarForum(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
-            this.g0 = z;
+            this.a0 = z;
         }
     }
 }

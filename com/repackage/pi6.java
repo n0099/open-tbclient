@@ -62,7 +62,7 @@ public class pi6 extends an<vi6, ForumRuleDetailItemVH> {
                     nn nnVar = (nn) this.b.k.get(this.a);
                     if (nnVar instanceof vi6) {
                         ei.a(TbRichTextView.X(((vi6) nnVar).b(), false).toString());
-                        pi.N(this.b.i, R.string.obfuscated_res_0x7f0f06a7);
+                        pi.N(this.b.i, R.string.obfuscated_res_0x7f0f06a3);
                     }
                 }
                 return false;
@@ -120,7 +120,7 @@ public class pi6 extends an<vi6, ForumRuleDetailItemVH> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, vi6Var, forumRuleDetailItemVH})) == null) {
             if (vi6Var != null && this.i != null) {
-                forumRuleDetailItemVH.e(vi6Var.a());
+                forumRuleDetailItemVH.d(vi6Var.a());
                 if (!StringUtils.isNull(vi6Var.c())) {
                     z = true;
                     forumRuleDetailItemVH.c.setVisibility(0);

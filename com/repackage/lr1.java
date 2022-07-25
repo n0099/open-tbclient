@@ -1,88 +1,137 @@
 package com.repackage;
 
-import android.app.Activity;
-import android.content.Context;
+import android.annotation.SuppressLint;
+import android.os.Bundle;
 import android.text.TextUtils;
-import android.util.Log;
-import android.util.Pair;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.el2;
-import com.repackage.m53;
-import com.repackage.u53;
+import com.repackage.ko1;
+import com.repackage.n53;
+import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class lr1 extends gr1 {
+public class lr1 extends hr1 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean f;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes6.dex */
-    public class a implements af3<k53<m53.e>> {
+    public class a extends ko1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ h03 b;
-        public final /* synthetic */ lr1 c;
+        public final /* synthetic */ lr1 d;
 
-        public a(lr1 lr1Var, String str, h03 h03Var) {
+        /* renamed from: com.repackage.lr1$a$a  reason: collision with other inner class name */
+        /* loaded from: classes6.dex */
+        public class C0519a implements bf3<l53<n53.e>> {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ ko1.b a;
+            public final /* synthetic */ a b;
+
+            public C0519a(a aVar, ko1.b bVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {aVar, bVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.b = aVar;
+                this.a = bVar;
+            }
+
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.repackage.bf3
+            /* renamed from: b */
+            public void a(l53<n53.e> l53Var) {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, l53Var) == null) {
+                    if (g53.h(l53Var)) {
+                        this.a.a(this.b.d.A());
+                        return;
+                    }
+                    int b = l53Var.b();
+                    this.a.a(new is1(b, g53.f(b)));
+                }
+            }
+        }
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(lr1 lr1Var, String str) {
+            super(str);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {lr1Var, str, h03Var};
+                Object[] objArr = {lr1Var, str};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
+                    super((String) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.c = lr1Var;
-            this.a = str;
-            this.b = h03Var;
+            this.d = lr1Var;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.af3
-        /* renamed from: b */
-        public void a(k53<m53.e> k53Var) {
+        @Override // com.repackage.ko1
+        @NonNull
+        public is1 d(@NonNull JSONObject jSONObject, @NonNull ko1.b bVar) {
+            InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, k53Var) == null) {
-                if (f53.h(k53Var)) {
-                    if (lr1.f) {
-                        Log.d("DesktopShortcutApi", "start add to desktop");
-                    }
-                    this.c.A(this.b.w(), this.b);
-                    this.c.d(this.a, new hs1(0));
-                    return;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, jSONObject, bVar)) == null) {
+                i03 b0 = i03.b0();
+                if (b0 == null) {
+                    return new is1(1001, "null swan runtime");
                 }
-                int b = k53Var.b();
-                this.c.d(this.a, new hs1(b, f53.f(b)));
+                b0.e0().g(h03.K(), "mapp_i_get_common_sys_info", new C0519a(this, bVar));
+                return new is1(0);
             }
+            return (is1) invokeLL.objValue;
+        }
+
+        @Override // com.repackage.ko1
+        @NonNull
+        public is1 e(@NonNull JSONObject jSONObject) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject)) == null) ? this.d.A() : (is1) invokeL.objValue;
+        }
+
+        @Override // com.repackage.ko1
+        public boolean i() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? h03.K().E() && h03.K().q().e0().f("mapp_i_get_common_sys_info") : invokeV.booleanValue;
         }
     }
 
     /* loaded from: classes6.dex */
-    public class b implements u53.f {
+    public static class b extends ProviderDelegation {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public b(lr1 lr1Var) {
+        public b() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {lr1Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -93,113 +142,112 @@ public class lr1 extends gr1 {
             }
         }
 
-        @Override // com.repackage.u53.f
-        public void a(int i) {
+        @Override // com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation
+        public Bundle execCall(Bundle bundle) {
+            InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-                lr1.C(i);
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bundle)) == null) {
+                String string = bundle.getString("httpUrl");
+                Bundle bundle2 = new Bundle();
+                bundle2.putString("zid", pj2.G0().a(AppRuntime.getAppContext()));
+                bundle2.putString("uid", pj2.h0().h(AppRuntime.getAppContext()));
+                bundle2.putString("cookie", TextUtils.isEmpty(string) ? "" : pj2.q().a().getCookie(string));
+                return bundle2;
             }
+            return (Bundle) invokeL.objValue;
         }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755519578, "Lcom/repackage/lr1;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755519578, "Lcom/repackage/lr1;");
-                return;
-            }
-        }
-        f = rg1.a;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public lr1(@NonNull io1 io1Var) {
-        super(io1Var);
+    public lr1(@NonNull jo1 jo1Var) {
+        super(jo1Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {io1Var};
-            interceptable.invokeUnInit(65537, newInitContext);
+            Object[] objArr = {jo1Var};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((io1) newInitContext.callArgs[0]);
+                super((jo1) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
     }
 
-    public static void C(int i) {
+    @NonNull
+    public final is1 A() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65538, null, i) == null) {
-            k73 k73Var = new k73();
-            g03 K = g03.K();
-            String appId = K.getAppId();
-            String n = a73.n(K.k());
-            k73Var.f = appId;
-            k73Var.b = "api";
-            k73Var.a = n;
-            k73Var.e = "addshortcut";
-            el2.a W = K.q().W();
-            if (W != null) {
-                k73Var.c = W.T();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            JSONObject z = z();
+            if (z == null) {
+                return new is1(1001, "result JSONException");
             }
-            k73Var.a("appid", appId);
-            k73Var.a("resultstate", Integer.valueOf(i));
-            q63.b(k73Var);
+            return new is1(0, z);
         }
+        return (is1) invokeV.objValue;
     }
 
-    public final void A(@NonNull Context context, @NonNull h03 h03Var) {
-        el2.a Y;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048576, this, context, h03Var) == null) || (Y = h03Var.Y()) == null) {
-            return;
-        }
-        u53.k(context, Y, new b(this));
-    }
-
-    public hs1 B(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            q("#addToDesktop", false);
-            if (f) {
-                Log.d("DesktopShortcutApi", "#addToDesktop params = " + str);
-            }
-            Pair<hs1, JSONObject> s = s(str);
-            JSONObject jSONObject = (JSONObject) s.second;
-            if (((hs1) s.first).isSuccess() && jSONObject != null) {
-                String optString = jSONObject.optString("cb");
-                if (TextUtils.isEmpty(optString)) {
-                    return new hs1(202, "cb is empty");
-                }
-                h03 b0 = h03.b0();
-                Context context = getContext();
-                if (!(context instanceof Activity) && (context = b0.w()) == null) {
-                    return new hs1(1001, "the context is not an activity");
-                }
-                b0.e0().g(context, "scope_add_to_desktop", new a(this, optString, b0));
-                return hs1.f();
-            }
-            return (hs1) s.first;
-        }
-        return (hs1) invokeL.objValue;
-    }
-
-    @Override // com.repackage.ko1
+    @Override // com.repackage.lo1
     public String j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "DesktopShortcutApi" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "CommonSysInfoApi" : (String) invokeV.objValue;
+    }
+
+    @SuppressLint({"SwanBindApiNote"})
+    public is1 y(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            q("#getCommonSysInfo", false);
+            return m(str, new a(this, "getCommonSysInfo"));
+        }
+        return (is1) invokeL.objValue;
+    }
+
+    public final JSONObject z() {
+        InterceptResult invokeV;
+        String str;
+        String str2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            String i = pj2.h0().i(h03.K());
+            String r = ce3.r();
+            Bundle bundle = new Bundle();
+            bundle.putString("httpUrl", ".baidu.com");
+            xw2 c = vw2.c(b.class, bundle);
+            String str3 = "";
+            if (c.a()) {
+                String string = c.a.getString("zid");
+                str2 = c.a.getString("uid");
+                str3 = c.a.getString("cookie");
+                str = string;
+            } else {
+                str = "";
+                str2 = str;
+            }
+            String l = ae3.l(str3, "BAIDUID");
+            String l2 = ae3.l(str3, "H_WISE_SIDS");
+            String a2 = sg4.b(AppRuntime.getAppContext()).a();
+            try {
+                JSONObject jSONObject = new JSONObject();
+                jSONObject.put("cuid", i);
+                jSONObject.put("imei", r);
+                jSONObject.put("zid", str);
+                jSONObject.put("uid", str2);
+                jSONObject.put("baidu_id", l);
+                jSONObject.put("sid", l2);
+                jSONObject.put("uuid", a2);
+                return jSONObject;
+            } catch (JSONException unused) {
+                return null;
+            }
+        }
+        return (JSONObject) invokeV.objValue;
     }
 }

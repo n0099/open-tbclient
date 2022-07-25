@@ -1,90 +1,166 @@
 package com.repackage;
 
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.logsystem.basic.upload.ContentUtil;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.searchbox.http.callback.ResponseCallback;
+import com.baidu.swan.game.ad.entity.AdElementInfo;
+import com.baidu.swan.game.ad.utils.NetworkUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.exoplayer2.text.cea.Cea608Decoder;
+import com.qq.e.comm.constants.Constants;
+import okhttp3.Response;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class sp3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final byte[] a;
-    public static final byte[] b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755312901, "Lcom/repackage/sp3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes7.dex */
+    public static class a extends ResponseCallback<zn3> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ vo3 a;
+
+        public a(vo3 vo3Var) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {vo3Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755312901, "Lcom/repackage/sp3;");
-                return;
-            }
+            this.a = vo3Var;
         }
-        a = new byte[]{48, 75, 97, 106, 68, 55, 65, 90, 99, 70, 50, 81, 110, 80, 114, 53, 102, 119, 105, 72, 82, 78, 121, 103, 109, ContentUtil.GZIP_HEAD_1, 112, 85, 84, 73, 88, 120, 54, 57, 66, 87, 98, 45, 104, 77, 67, 71, 74, 111, 95, 86, 56, 69, 115, 107, 122, 49, 89, 100, 118, 76, 51, 52, 108, Constants.SHORT_PING_CMD_TYPE, 116, 113, 83, 79};
-        b = new byte[128];
-        int i = 0;
-        while (true) {
-            byte[] bArr = a;
-            if (i >= bArr.length) {
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        /* renamed from: a */
+        public void onSuccess(zn3 zn3Var, int i) {
+            vo3 vo3Var;
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeLI(1048576, this, zn3Var, i) == null) || zn3Var == null || (vo3Var = this.a) == null) {
                 return;
             }
-            b[bArr[i]] = (byte) i;
-            i++;
+            vo3Var.d(zn3Var.a, zn3Var.b);
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        /* renamed from: b */
+        public zn3 parseResponse(Response response, int i) {
+            InterceptResult invokeLI;
+            JSONObject optJSONObject;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, response, i)) == null) {
+                if (response == null || response.body() == null || !response.isSuccessful()) {
+                    return null;
+                }
+                try {
+                    String string = response.body().string();
+                    if (!TextUtils.isEmpty(string)) {
+                        try {
+                            JSONObject jSONObject = new JSONObject(string);
+                            if (TextUtils.equals(jSONObject.optString(Constants.KEYS.RET, ""), "0") && (optJSONObject = jSONObject.optJSONObject("data")) != null) {
+                                zn3 zn3Var = new zn3();
+                                zn3Var.a = optJSONObject.optString("clickid");
+                                zn3Var.b = optJSONObject.optString("dstlink");
+                                return zn3Var;
+                            }
+                            return null;
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                    }
+                } catch (Exception | OutOfMemoryError unused) {
+                }
+                return null;
+            }
+            return (zn3) invokeLI.objValue;
+        }
+
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        public void onFail(Exception exc) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(com.baidu.android.imsdk.internal.Constants.METHOD_SEND_USER_MSG, this, exc) == null) {
+            }
         }
     }
 
-    public sp3() {
+    public static void a(pp3 pp3Var, AdElementInfo adElementInfo, yo3 yo3Var, vo3 vo3Var) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
+        if (!(interceptable == null || interceptable.invokeLLLL(65536, null, pp3Var, adElementInfo, yo3Var, vo3Var) == null) || adElementInfo == null || TextUtils.isEmpty(adElementInfo.getClickUrl())) {
+            return;
+        }
+        String c = c(adElementInfo.getClickUrl(), pp3Var);
+        a aVar = new a(vo3Var);
+        if (!NetworkUtils.f(AppRuntime.getAppContext()) || yo3Var == null) {
+            return;
+        }
+        yo3Var.c(c, aVar);
+    }
+
+    public static void b(String str, yo3 yo3Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65537, null, str, yo3Var) == null) {
+            yo3Var.e(str);
         }
     }
 
-    public String a(String str) {
-        InterceptResult invokeL;
+    public static String c(String str, pp3 pp3Var) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return "";
-            }
-            for (int length = str.getBytes().length % 3; length > 0 && length < 3; length++) {
-                str = str + "$";
-            }
-            byte[] bytes = str.getBytes();
-            byte[] bArr = new byte[(bytes.length / 3) * 4];
-            int i = 0;
-            int i2 = 0;
-            while (i < bytes.length) {
-                byte[] bArr2 = a;
-                bArr[i2] = bArr2[(bytes[i] & Cea608Decoder.CC_IMPLICIT_DATA_HEADER) >> 2];
-                int i3 = i + 1;
-                bArr[i2 + 1] = bArr2[((bytes[i] & 3) << 4) + ((bytes[i3] & 240) >> 4)];
-                int i4 = i + 2;
-                bArr[i2 + 2] = bArr2[((bytes[i3] & 15) << 2) + ((bytes[i4] & 192) >> 6)];
-                bArr[i2 + 3] = bArr2[bytes[i4] & 63];
-                i += 3;
-                i2 += 4;
-            }
-            return new String(bArr);
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, pp3Var)) == null) ? pp3Var == null ? str : str.replaceAll("\\{REQ_WIDTH\\}", pp3Var.a).replaceAll("\\{REQ_HEIGHT\\}", pp3Var.b).replaceAll("\\{WIDTH\\}", pp3Var.c).replaceAll("\\{HEIGHT\\}", pp3Var.d).replaceAll("\\{DOWN_X\\}", pp3Var.e).replaceAll("\\{DOWN_Y\\}", pp3Var.f).replaceAll("\\{UP_X\\}", pp3Var.g).replaceAll("\\{UP_Y\\}", pp3Var.h).replaceAll("\\{VIDEO_TIME\\}", pp3Var.i).replaceAll("\\{BEGIN_TIME\\}", pp3Var.j).replaceAll("\\{END_TIME\\}", pp3Var.k).replaceAll("\\{PLAY_FIRST_FRAME\\}", pp3Var.l).replaceAll("\\{PLAY_LAST_FRAME\\}", pp3Var.m).replaceAll("\\{SCENE\\}", pp3Var.n).replaceAll("\\{TYPE\\}", pp3Var.o).replaceAll("\\{BEHAVIOR\\}", pp3Var.p).replaceAll("\\{STATUS\\}", pp3Var.q).replaceAll("\\{CONVERSION_ACTION\\}", pp3Var.r).replaceAll("\\{CLICK_ID\\}", pp3Var.s) : (String) invokeLL.objValue;
+    }
+
+    public static void d(AdElementInfo adElementInfo, yo3 yo3Var) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(65539, null, adElementInfo, yo3Var) == null) || adElementInfo == null) {
+            return;
         }
-        return (String) invokeL.objValue;
+        for (String str : adElementInfo.getThirdClickTrackingUrls()) {
+            b(c(str, null), yo3Var);
+        }
+    }
+
+    public static void e(pp3 pp3Var, AdElementInfo adElementInfo, yo3 yo3Var) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, pp3Var, adElementInfo, yo3Var) == null) || adElementInfo == null) {
+            return;
+        }
+        for (String str : adElementInfo.getConversionUrls()) {
+            b(c(str, pp3Var), yo3Var);
+        }
+    }
+
+    public static void f(AdElementInfo adElementInfo, yo3 yo3Var) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(65541, null, adElementInfo, yo3Var) == null) || adElementInfo == null) {
+            return;
+        }
+        for (String str : adElementInfo.getImpressionUrls()) {
+            b(c(str, null), yo3Var);
+        }
+    }
+
+    public static void g(pp3 pp3Var, AdElementInfo adElementInfo, yo3 yo3Var) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLLL(65542, null, pp3Var, adElementInfo, yo3Var) == null) || adElementInfo == null) {
+            return;
+        }
+        for (String str : adElementInfo.getCloseTrackers()) {
+            b(c(str, pp3Var), yo3Var);
+        }
     }
 }

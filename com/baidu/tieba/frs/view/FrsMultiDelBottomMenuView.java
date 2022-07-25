@@ -27,7 +27,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.kj5;
-import com.repackage.kp4;
+import com.repackage.lp4;
 import com.repackage.nj5;
 import com.repackage.oj5;
 import com.repackage.tc6;
@@ -93,17 +93,17 @@ public class FrsMultiDelBottomMenuView extends RelativeLayout implements View.On
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0334, this);
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f0914ea);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f0914c5);
             this.b = textView;
             textView.setText(R.string.obfuscated_res_0x7f0f036a);
-            TextView textView2 = (TextView) findViewById(R.id.obfuscated_res_0x7f0914e9);
+            TextView textView2 = (TextView) findViewById(R.id.obfuscated_res_0x7f0914c4);
             this.c = textView2;
-            textView2.setText(R.string.obfuscated_res_0x7f0f049f);
-            TextView textView3 = (TextView) findViewById(R.id.obfuscated_res_0x7f0914eb);
+            textView2.setText(R.string.obfuscated_res_0x7f0f049e);
+            TextView textView3 = (TextView) findViewById(R.id.obfuscated_res_0x7f0914c6);
             this.d = textView3;
-            textView3.setText(R.string.obfuscated_res_0x7f0f04a2);
-            this.e = findViewById(R.id.obfuscated_res_0x7f0907db);
-            this.f = findViewById(R.id.obfuscated_res_0x7f0907b7);
+            textView3.setText(R.string.obfuscated_res_0x7f0f04a1);
+            this.e = findViewById(R.id.obfuscated_res_0x7f0907d9);
+            this.f = findViewById(R.id.obfuscated_res_0x7f0907b5);
             this.b.setOnClickListener(this);
             this.c.setOnClickListener(this);
             this.d.setOnClickListener(this);
@@ -251,14 +251,14 @@ public class FrsMultiDelBottomMenuView extends RelativeLayout implements View.On
                 }
             }
         }
-        kp4 kp4Var = new kp4();
-        kp4Var.j(sparseArray);
-        kp4Var.i(i);
-        kp4Var.p(jSONArray);
-        kp4Var.m(jSONArray2);
-        kp4Var.l(tc6.f().d());
-        this.g.E(new String[]{getContext().getString(R.string.obfuscated_res_0x7f0f04b3), getContext().getString(R.string.obfuscated_res_0x7f0f04b4), getContext().getString(R.string.obfuscated_res_0x7f0f04b5), getContext().getString(R.string.obfuscated_res_0x7f0f04b6), getContext().getString(R.string.obfuscated_res_0x7f0f04b7)});
-        this.g.D(kp4Var);
+        lp4 lp4Var = new lp4();
+        lp4Var.j(sparseArray);
+        lp4Var.i(i);
+        lp4Var.p(jSONArray);
+        lp4Var.m(jSONArray2);
+        lp4Var.l(tc6.f().d());
+        this.g.E(new String[]{getContext().getString(R.string.obfuscated_res_0x7f0f04b2), getContext().getString(R.string.obfuscated_res_0x7f0f04b3), getContext().getString(R.string.obfuscated_res_0x7f0f04b4), getContext().getString(R.string.obfuscated_res_0x7f0f04b5), getContext().getString(R.string.obfuscated_res_0x7f0f04b6)});
+        this.g.D(lp4Var);
     }
 
     public void setDeleteCallback(kj5.c cVar) {
@@ -284,20 +284,20 @@ public class FrsMultiDelBottomMenuView extends RelativeLayout implements View.On
             if (z) {
                 TextView textView = this.c;
                 if (textView != null) {
-                    textView.setText(R.string.obfuscated_res_0x7f0f1189);
+                    textView.setText(R.string.obfuscated_res_0x7f0f1138);
                 }
                 TextView textView2 = this.d;
                 if (textView2 != null) {
-                    textView2.setText(R.string.obfuscated_res_0x7f0f118a);
+                    textView2.setText(R.string.obfuscated_res_0x7f0f1139);
                 }
             } else {
                 TextView textView3 = this.c;
                 if (textView3 != null) {
-                    textView3.setText(R.string.obfuscated_res_0x7f0f049f);
+                    textView3.setText(R.string.obfuscated_res_0x7f0f049e);
                 }
                 TextView textView4 = this.d;
                 if (textView4 != null) {
-                    textView4.setText(R.string.obfuscated_res_0x7f0f04a2);
+                    textView4.setText(R.string.obfuscated_res_0x7f0f04a1);
                 }
             }
             oj5 oj5Var = this.g;
@@ -317,9 +317,9 @@ public class FrsMultiDelBottomMenuView extends RelativeLayout implements View.On
     public void setSelectNumber(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
-            String string = getContext().getString(R.string.obfuscated_res_0x7f0f049f);
+            String string = getContext().getString(R.string.obfuscated_res_0x7f0f049e);
             if (this.i) {
-                string = getContext().getString(R.string.obfuscated_res_0x7f0f1189);
+                string = getContext().getString(R.string.obfuscated_res_0x7f0f1138);
             }
             if (i > 0) {
                 string = string + String.format(Locale.CHINA, "(%d)", Integer.valueOf(i));

@@ -52,15 +52,15 @@ public class b extends Dialog {
     private void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65537, this) == null) {
-            setContentView(R.layout.obfuscated_res_0x7f0d04a4);
+            setContentView(R.layout.obfuscated_res_0x7f0d04a2);
             setCanceledOnTouchOutside(false);
-            this.b = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0916c8);
-            this.a = (ViewSwitcher) findViewById(R.id.obfuscated_res_0x7f092443);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f0920e7);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f0914ce);
-            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f091949);
-            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f0915a7);
-            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f0915b3);
+            this.b = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0916a3);
+            this.a = (ViewSwitcher) findViewById(R.id.obfuscated_res_0x7f092445);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f0920e9);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f0914a9);
+            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f091924);
+            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f091582);
+            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f09158e);
         }
     }
 

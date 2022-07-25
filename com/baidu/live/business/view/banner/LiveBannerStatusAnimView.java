@@ -121,12 +121,12 @@ public class LiveBannerStatusAnimView extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
             this.a = context;
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0509, this);
-            this.b = (ImageView) findViewById(R.id.obfuscated_res_0x7f09130e);
-            this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f09130f);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f091310);
-            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f09130d);
-            this.f = findViewById(R.id.obfuscated_res_0x7f0912f5);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0513, this);
+            this.b = (ImageView) findViewById(R.id.obfuscated_res_0x7f0912ea);
+            this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f0912eb);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f0912ec);
+            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f0912e9);
+            this.f = findViewById(R.id.obfuscated_res_0x7f0912d1);
             this.l = new LottieDrawable();
             c();
             this.l.loop(true);
@@ -284,23 +284,23 @@ public class LiveBannerStatusAnimView extends FrameLayout {
                         this.g = false;
                         this.b.setVisibility(0);
                         this.f.setBackgroundResource(R.drawable.obfuscated_res_0x7f080cbe);
-                        this.d.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f09f4));
+                        this.d.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f09e0));
                         this.d.setPadding(t80.a(this.a, 2.0f), 0, t80.a(this.a, 4.0f), 0);
                         this.e.setVisibility(8);
                     } else if (i2 == 0) {
                         this.g = false;
                         this.b.setVisibility(0);
                         this.f.setBackgroundResource(R.drawable.obfuscated_res_0x7f080cbe);
-                        this.d.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f09f6));
+                        this.d.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f09e2));
                         this.d.setPadding(t80.a(this.a, 2.0f), 0, t80.a(this.a, 4.0f), 0);
                         this.e.setVisibility(8);
                     } else {
                         this.g = true;
                         this.b.setVisibility(8);
-                        this.d.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f09f5));
+                        this.d.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f09e1));
                         this.d.setPadding(0, 0, t80.a(this.a, 4.0f), 0);
                         this.e.setVisibility(0);
-                        this.e.setText(String.format(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f09f3), x80.a(this.a, liveBannerEntity.audienceCount)));
+                        this.e.setText(String.format(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f09df), x80.a(this.a, liveBannerEntity.audienceCount)));
                     }
                     f(Config.TRACE_VISIT_RECENT_DAY);
                     setVisibility(0);

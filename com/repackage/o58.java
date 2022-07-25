@@ -95,14 +95,14 @@ public class o58 extends jx5<m48> {
             }
             if (StringUtils.isNull(this.l)) {
                 TextView textView = this.k;
-                String string2 = this.c.getString(R.string.obfuscated_res_0x7f0f0e49);
+                String string2 = this.c.getString(R.string.obfuscated_res_0x7f0f0e32);
                 Object[] objArr = new Object[1];
                 if (m48Var.a) {
-                    string = this.c.getString(R.string.obfuscated_res_0x7f0f1607);
+                    string = this.c.getString(R.string.obfuscated_res_0x7f0f15b6);
                 } else if (m48Var.b == 2) {
-                    string = this.c.getString(R.string.obfuscated_res_0x7f0f1187);
+                    string = this.c.getString(R.string.obfuscated_res_0x7f0f1136);
                 } else {
-                    string = this.c.getString(R.string.obfuscated_res_0x7f0f082f);
+                    string = this.c.getString(R.string.obfuscated_res_0x7f0f082b);
                 }
                 objArr[0] = string;
                 textView.setText(String.format(string2, objArr));

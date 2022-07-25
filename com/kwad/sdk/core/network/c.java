@@ -1,8 +1,12 @@
 package com.kwad.sdk.core.network;
 /* loaded from: classes5.dex */
 public final class c {
-    public int a;
-    public int b = -1;
-    public Exception c;
-    public String d;
+    public int XT = -1;
+    public Exception XU;
+    public String XV;
+    public int code;
+
+    public final boolean tx() {
+        return this.code == 200;
+    }
 }

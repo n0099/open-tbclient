@@ -64,7 +64,7 @@ public class em5 extends dc1<ja1> {
         public int c() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? R.drawable.obfuscated_res_0x7f080efb : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? R.drawable.obfuscated_res_0x7f080f02 : invokeV.intValue;
         }
 
         @Override // com.repackage.ja1
@@ -98,7 +98,7 @@ public class em5 extends dc1<ja1> {
         public int f() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? vc5.l() : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? wc5.l() : invokeV.intValue;
         }
 
         @Override // com.repackage.ja1

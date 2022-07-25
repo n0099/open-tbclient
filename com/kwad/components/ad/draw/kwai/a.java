@@ -9,7 +9,7 @@ import com.kwad.sdk.mvp.Presenter;
 public class a extends Presenter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public b a;
+    public b aK;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -26,11 +26,11 @@ public class a extends Presenter {
     }
 
     @Override // com.kwad.sdk.mvp.Presenter
-    public void a() {
+    public void aq() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            super.a();
-            this.a = (b) t();
+            super.aq();
+            this.aK = (b) xR();
         }
     }
 }

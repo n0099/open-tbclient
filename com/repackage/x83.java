@@ -2,14 +2,17 @@ package com.repackage;
 
 import android.os.Bundle;
 import androidx.annotation.NonNull;
-import com.baidu.searchbox.process.ipc.util.ProcessUtils;
+import androidx.annotation.Nullable;
+import com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation;
 import com.baidu.storage.swankv.AshmemFileDescriptor;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class x83 extends hw2 {
+public class x83 extends ProviderDelegation {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -27,25 +30,36 @@ public class x83 extends hw2 {
         }
     }
 
-    public static void e(@NonNull AshmemFileDescriptor ashmemFileDescriptor) {
+    @Nullable
+    public static AshmemFileDescriptor c(@NonNull String str, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65537, null, ashmemFileDescriptor) == null) && ProcessUtils.isMainProcess()) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, str, i)) == null) {
             Bundle bundle = new Bundle();
-            bundle.setClassLoader(AshmemFileDescriptor.class.getClassLoader());
-            bundle.putParcelable("result", ashmemFileDescriptor);
-            bx2.a(bundle, x83.class);
+            bundle.putString("name", str);
+            bundle.putInt("size", i);
+            xw2 c = vw2.c(x83.class, bundle);
+            if (c.a()) {
+                c.a.setClassLoader(AshmemFileDescriptor.class.getClassLoader());
+                return (AshmemFileDescriptor) c.a.getParcelable(TiebaStatic.LogFields.RESULT);
+            }
+            return null;
         }
+        return (AshmemFileDescriptor) invokeLI.objValue;
     }
 
-    @Override // com.repackage.hw2
-    public void b(@NonNull Bundle bundle) {
+    @Override // com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation
+    public Bundle execCall(Bundle bundle) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
-            bundle.setClassLoader(AshmemFileDescriptor.class.getClassLoader());
-            AshmemFileDescriptor ashmemFileDescriptor = (AshmemFileDescriptor) bundle.getParcelable("result");
-            if (ashmemFileDescriptor != null) {
-                b93.b(ashmemFileDescriptor);
-            }
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bundle)) == null) {
+            String string = bundle.getString("name", null);
+            int i = bundle.getInt("size", 0);
+            Bundle bundle2 = new Bundle();
+            bundle2.setClassLoader(AshmemFileDescriptor.class.getClassLoader());
+            bundle2.putParcelable(TiebaStatic.LogFields.RESULT, c93.a(string, i));
+            return bundle2;
         }
+        return (Bundle) invokeL.objValue;
     }
 }

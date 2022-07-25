@@ -133,7 +133,7 @@ public class c2 extends o1<Texture, b> {
                 }
                 this.b.b = TextureData.a.a(j3Var, format, z);
             }
-            if (this.b.b.a()) {
+            if (this.b.b.isPrepared()) {
                 return;
             }
             this.b.b.prepare();

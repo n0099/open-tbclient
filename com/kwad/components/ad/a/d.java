@@ -5,5 +5,5 @@ import com.kwad.sdk.api.KsLoadManager;
 import com.kwad.sdk.api.KsScene;
 /* loaded from: classes5.dex */
 public interface d extends com.kwad.sdk.components.a {
-    void a(KsScene ksScene, @NonNull KsLoadManager.FullScreenVideoAdListener fullScreenVideoAdListener);
+    void loadFullScreenVideoAd(KsScene ksScene, @NonNull KsLoadManager.FullScreenVideoAdListener fullScreenVideoAdListener);
 }

@@ -245,7 +245,7 @@ public class NadRoundProgressBar extends View {
         }
         this.a = new Paint();
         this.l = new RectF();
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f04045f, R.attr.obfuscated_res_0x7f04048f, R.attr.obfuscated_res_0x7f04053c, R.attr.obfuscated_res_0x7f04054c, R.attr.obfuscated_res_0x7f04054d, R.attr.obfuscated_res_0x7f04054e, R.attr.obfuscated_res_0x7f04054f, R.attr.obfuscated_res_0x7f040550, R.attr.obfuscated_res_0x7f040552, R.attr.obfuscated_res_0x7f040554, R.attr.obfuscated_res_0x7f040555, R.attr.obfuscated_res_0x7f040658, R.attr.obfuscated_res_0x7f040662, R.attr.obfuscated_res_0x7f040665});
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f04045f, R.attr.obfuscated_res_0x7f04048f, R.attr.obfuscated_res_0x7f04053c, R.attr.obfuscated_res_0x7f04054c, R.attr.obfuscated_res_0x7f04054d, R.attr.obfuscated_res_0x7f04054e, R.attr.obfuscated_res_0x7f04054f, R.attr.obfuscated_res_0x7f040550, R.attr.obfuscated_res_0x7f040552, R.attr.obfuscated_res_0x7f040554, R.attr.obfuscated_res_0x7f040555, R.attr.obfuscated_res_0x7f04065a, R.attr.obfuscated_res_0x7f040664, R.attr.obfuscated_res_0x7f040667});
         this.b = obtainStyledAttributes.getColor(3, getResources().getColor(R.color.obfuscated_res_0x7f06082f));
         this.c = obtainStyledAttributes.getColor(7, getResources().getColor(R.color.obfuscated_res_0x7f060830));
         this.d = obtainStyledAttributes.getColor(8, getResources().getColor(R.color.obfuscated_res_0x7f060831));

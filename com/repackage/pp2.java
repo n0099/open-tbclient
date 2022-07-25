@@ -1,178 +1,57 @@
 package com.repackage;
 
 import android.content.Context;
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class pp2 implements fn2 {
+public class pp2 extends kp2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public zl1 a;
-    public String b;
-    public rp2 c;
-    public boolean d;
-    public Context e;
 
-    public pp2(Context context, @NonNull rp2 rp2Var) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public pp2(String str) {
+        super(str);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, rp2Var};
+            Object[] objArr = {str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.e = context;
-        this.c = rp2Var;
-        this.b = rp2Var.j;
-        e();
-        a();
     }
 
-    public final void a() {
+    private void update(ap2 ap2Var, cp2 cp2Var, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || TextUtils.isEmpty(this.b)) {
-            return;
-        }
-        gn2.a(this);
-    }
-
-    @Override // com.repackage.fn2
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.c.c : (String) invokeV.objValue;
-    }
-
-    @Override // com.repackage.fn2
-    public String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.b : (String) invokeV.objValue;
-    }
-
-    public rp2 d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.c : (rp2) invokeV.objValue;
-    }
-
-    public zl1 e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (this.a == null) {
-                hx1.i("VrVideo", "create player");
-                this.a = oj2.D0().create();
-            }
-            return this.a;
-        }
-        return (zl1) invokeV.objValue;
-    }
-
-    @Override // com.repackage.fn2
-    public String f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            rp2 rp2Var = this.c;
-            return rp2Var != null ? rp2Var.t : "";
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public void g(rp2 rp2Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, rp2Var) == null) {
-            hx1.i("VrVideo", "Open Player " + rp2Var.j);
-            zl1 zl1Var = this.a;
-            if (zl1Var != null) {
-                zl1Var.e(rp2Var, this.e);
-            }
-            this.c = rp2Var;
+        if (interceptable == null || interceptable.invokeLLLL(65537, this, ap2Var, cp2Var, unitedSchemeEntity, callbackHandler) == null) {
+            ap2Var.A(cp2Var);
+            ap2Var.z(cp2Var);
+            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
         }
     }
 
-    public void h(rp2 rp2Var) {
+    @Override // com.repackage.kp2
+    public boolean a(ap2 ap2Var, cp2 cp2Var, Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, i03 i03Var) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, rp2Var) == null) {
-            hx1.b("VrVideo", "update 接口");
-            zl1 zl1Var = this.a;
-            if (zl1Var != null) {
-                zl1Var.d(rp2Var, true);
-            }
-            this.c = rp2Var;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{ap2Var, cp2Var, context, unitedSchemeEntity, callbackHandler, i03Var})) == null) {
+            ix1.i("video", "update, video id:" + cp2Var.j + " slave id: " + cp2Var.c);
+            update(ap2Var, cp2Var, unitedSchemeEntity, callbackHandler);
+            return true;
         }
-    }
-
-    @Override // com.repackage.fn2
-    public Object i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this : invokeV.objValue;
-    }
-
-    @Override // com.repackage.fn2
-    public void j(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
-        }
-    }
-
-    @Override // com.repackage.fn2
-    public void k(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
-            if (z) {
-                if (this.d) {
-                    e().resume();
-                }
-                e().b();
-            } else if (this.a != null) {
-                this.d = e().isPlaying();
-                e().pause();
-                e().c();
-            }
-        }
-    }
-
-    @Override // com.repackage.fn2
-    public boolean onBackPressed() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            hx1.i("VrVideo", "onBackPressed");
-            zl1 zl1Var = this.a;
-            return zl1Var != null && zl1Var.onBackPressed();
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.repackage.fn2
-    public void onDestroy() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            hx1.i("VrVideo", MissionEvent.MESSAGE_DESTROY);
-            zl1 zl1Var = this.a;
-            if (zl1Var != null) {
-                zl1Var.stop();
-                this.a = null;
-            }
-            gn2.k(this);
-        }
+        return invokeCommon.booleanValue;
     }
 }

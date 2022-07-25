@@ -30,7 +30,7 @@ public class nh8 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            sw4 adAdSense = TbadkCoreApplication.getInst().getAdAdSense();
+            tw4 adAdSense = TbadkCoreApplication.getInst().getAdAdSense();
             if (!(adAdSense != null && adAdSense.f())) {
                 return ni.H();
             } else if (ni.x() && TbadkCoreApplication.getInst().getAutoPlaySwitch() == 2) {
@@ -139,13 +139,13 @@ public class nh8 {
         boolean z2 = MessageManager.getInstance().findTask(2016447) != null;
         int i3 = 0;
         while (i3 < list.size()) {
-            if (list.get(i3) instanceof dp4) {
+            if (list.get(i3) instanceof ep4) {
                 if (z2) {
-                    if (!((dp4) list.get(i3)).isValid()) {
-                        ((dp4) list.get(i3)).d();
+                    if (!((ep4) list.get(i3)).isValid()) {
+                        ((ep4) list.get(i3)).d();
                     }
-                    if (((dp4) list.get(i3)).isValid()) {
-                        ICardInfo c = ((dp4) list.get(i3)).c();
+                    if (((ep4) list.get(i3)).isValid()) {
+                        ICardInfo c = ((ep4) list.get(i3)).c();
                         int viewCount = c.getViewCount();
                         ArrayList arrayList = new ArrayList();
                         for (int i4 = 0; i4 < viewCount; i4++) {

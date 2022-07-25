@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 import tbclient.AlaLiveInfo;
 /* loaded from: classes5.dex */
-public class bz5 extends nn4 {
+public class bz5 extends on4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
@@ -46,17 +46,17 @@ public class bz5 extends nn4 {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (String) invokeV.objValue;
     }
 
-    @Override // com.repackage.nn4
-    public kp4 getNegFeedBackData() {
+    @Override // com.repackage.on4
+    public lp4 getNegFeedBackData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return null;
         }
-        return (kp4) invokeV.objValue;
+        return (lp4) invokeV.objValue;
     }
 
-    @Override // com.repackage.nn4
+    @Override // com.repackage.on4
     public ThreadData getThreadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

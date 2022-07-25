@@ -19,7 +19,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.br4;
+import com.repackage.cr4;
 import com.repackage.d9;
 import com.repackage.k28;
 import com.repackage.te;
@@ -118,8 +118,8 @@ public class PersonBarModel extends BdBaseModel {
             String id = TbadkCoreApplication.getCurrentAccountObj() != null ? TbadkCoreApplication.getCurrentAccountObj().getID() : "";
             if (str != null) {
                 try {
-                    br4.f();
-                    te<String> g = br4.g("tb.my_pages");
+                    cr4.f();
+                    te<String> g = cr4.g("tb.my_pages");
                     if (g != null) {
                         g.e(id, str, 604800000L);
                     }

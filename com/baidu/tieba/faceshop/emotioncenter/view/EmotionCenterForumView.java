@@ -55,9 +55,9 @@ public class EmotionCenterForumView extends RelativeLayout implements View.OnCli
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d024c, this);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f090a6c);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f090a48);
-            this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f0909f9);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f090a65);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f090a41);
+            this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f0909f2);
             setOnClickListener(this);
         }
     }

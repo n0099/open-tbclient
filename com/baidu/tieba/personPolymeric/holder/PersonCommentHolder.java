@@ -69,20 +69,20 @@ public class PersonCommentHolder extends TypeAdapter.ViewHolder implements View.
         }
         this.n = tbPageContext;
         this.o = z;
-        ReplyLinearLayout replyLinearLayout = (ReplyLinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f0906b5);
+        ReplyLinearLayout replyLinearLayout = (ReplyLinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f0906b4);
         this.a = replyLinearLayout;
         replyLinearLayout.setIsHost(this.o);
-        this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091687);
-        this.h = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f092148);
-        this.i = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f091945);
-        this.j = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092357);
-        this.k = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091af9);
-        this.l = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090a3f);
-        this.m = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091aea);
-        this.d = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090f2f);
-        this.e = (ColumnLayout) view2.findViewById(R.id.obfuscated_res_0x7f090f43);
-        this.f = (ColumnLayout) view2.findViewById(R.id.obfuscated_res_0x7f090f39);
-        this.c = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f09182f);
+        this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091662);
+        this.h = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f09214a);
+        this.i = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f091920);
+        this.j = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092359);
+        this.k = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091ad3);
+        this.l = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090a38);
+        this.m = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091ac4);
+        this.d = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090f28);
+        this.e = (ColumnLayout) view2.findViewById(R.id.obfuscated_res_0x7f090f3c);
+        this.f = (ColumnLayout) view2.findViewById(R.id.obfuscated_res_0x7f090f32);
+        this.c = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f09180a);
         this.g = pi.d(view2.getContext(), 42.0f);
         LinearLayout linearLayout = this.d;
         if (linearLayout != null) {
@@ -97,11 +97,11 @@ public class PersonCommentHolder extends TypeAdapter.ViewHolder implements View.
         this.b.setOnClickListener(this);
     }
 
-    public void c(int i) {
+    public void b(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
             SkinManager.setBackgroundResource(this.b, R.color.CAM_X0205);
-            SkinManager.setBackgroundColor(b(), R.color.CAM_X0204);
+            SkinManager.setBackgroundColor(a(), R.color.CAM_X0204);
             SkinManager.setBackgroundResource(this.c, R.drawable.daily_recommend_item_selector);
             SkinManager.setViewTextColor(this.j, R.color.CAM_X0109, 1);
             SkinManager.setViewTextColor(this.k, R.color.CAM_X0109, 1);
@@ -110,7 +110,7 @@ public class PersonCommentHolder extends TypeAdapter.ViewHolder implements View.
         }
     }
 
-    public final void d(String str) {
+    public final void c(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
             String str2 = q;
@@ -167,7 +167,7 @@ public class PersonCommentHolder extends TypeAdapter.ViewHolder implements View.
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public void e(PersonPostModel.PostInfoList postInfoList, boolean z, String str) {
+    public void d(PersonPostModel.PostInfoList postInfoList, boolean z, String str) {
         Object[] objArr;
         Object obj;
         Object obj2;
@@ -288,9 +288,9 @@ public class PersonCommentHolder extends TypeAdapter.ViewHolder implements View.
             this.k.setText(r2);
             this.l.setText(r3);
             this.l.setTag(r3);
-            this.m.setText(String.format(TbadkCoreApplication.getInst().getContext().getString(R.string.obfuscated_res_0x7f0f0401), new Object[]{obj6}));
+            this.m.setText(String.format(TbadkCoreApplication.getInst().getContext().getString(R.string.obfuscated_res_0x7f0f0400), new Object[]{obj6}));
             this.l.setOnClickListener(this);
-            d(str);
+            c(str);
             LinearLayout linearLayout = this.d;
             if (linearLayout != null) {
                 linearLayout.setTag(strArr);

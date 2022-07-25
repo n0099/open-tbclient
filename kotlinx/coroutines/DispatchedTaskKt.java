@@ -59,7 +59,7 @@ public final class DispatchedTaskKt {
     }
 
     public static final <T> void resume(DispatchedTask<? super T> dispatchedTask, Continuation<? super T> continuation, int i) {
-        Object m1636constructorimpl;
+        Object m698constructorimpl;
         Object takeState$kotlinx_coroutines_core = dispatchedTask.takeState$kotlinx_coroutines_core();
         Throwable exceptionalResult$kotlinx_coroutines_core = dispatchedTask.getExceptionalResult$kotlinx_coroutines_core(takeState$kotlinx_coroutines_core);
         if (exceptionalResult$kotlinx_coroutines_core == null) {
@@ -69,15 +69,15 @@ public final class DispatchedTaskKt {
         }
         if (exceptionalResult$kotlinx_coroutines_core != null) {
             Result.Companion companion = Result.Companion;
-            m1636constructorimpl = Result.m1636constructorimpl(ResultKt.createFailure(exceptionalResult$kotlinx_coroutines_core));
+            m698constructorimpl = Result.m698constructorimpl(ResultKt.createFailure(exceptionalResult$kotlinx_coroutines_core));
         } else {
             Result.Companion companion2 = Result.Companion;
-            m1636constructorimpl = Result.m1636constructorimpl(takeState$kotlinx_coroutines_core);
+            m698constructorimpl = Result.m698constructorimpl(takeState$kotlinx_coroutines_core);
         }
         if (i == 0) {
-            continuation.resumeWith(m1636constructorimpl);
+            continuation.resumeWith(m698constructorimpl);
         } else if (i == 1) {
-            DispatchedContinuationKt.resumeCancellableWith(continuation, m1636constructorimpl);
+            DispatchedContinuationKt.resumeCancellableWith(continuation, m698constructorimpl);
         } else if (i != 2) {
             throw new IllegalStateException(("Invalid mode " + i).toString());
         } else if (continuation != null) {
@@ -85,7 +85,7 @@ public final class DispatchedTaskKt {
             CoroutineContext context = dispatchedContinuation.getContext();
             Object updateThreadContext = ThreadContextKt.updateThreadContext(context, dispatchedContinuation.countOrElement);
             try {
-                dispatchedContinuation.continuation.resumeWith(m1636constructorimpl);
+                dispatchedContinuation.continuation.resumeWith(m698constructorimpl);
                 Unit unit = Unit.INSTANCE;
             } finally {
                 ThreadContextKt.restoreThreadContext(context, updateThreadContext);
@@ -118,7 +118,7 @@ public final class DispatchedTaskKt {
         if (DebugKt.getRECOVER_STACK_TRACES() && (continuation instanceof CoroutineStackFrame)) {
             th = StackTraceRecoveryKt.recoverFromStackFrame(th, (CoroutineStackFrame) continuation);
         }
-        continuation.resumeWith(Result.m1636constructorimpl(ResultKt.createFailure(th)));
+        continuation.resumeWith(Result.m698constructorimpl(ResultKt.createFailure(th)));
     }
 
     public static final void runUnconfinedEventLoop(DispatchedTask<?> dispatchedTask, EventLoop eventLoop, Function0<Unit> function0) {

@@ -1,6 +1,8 @@
 package com.repackage;
 
 import android.graphics.Canvas;
+import android.graphics.Path;
+import android.graphics.RectF;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -8,9 +10,10 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONArray;
 /* loaded from: classes6.dex */
-public class gu1 extends nt1 {
+public class gu1 extends ot1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public RectF a;
 
     public gu1() {
         Interceptable interceptable = $ic;
@@ -26,23 +29,31 @@ public class gu1 extends nt1 {
         }
     }
 
-    @Override // com.repackage.nt1
-    public void a(ot1 ot1Var, Canvas canvas) {
+    @Override // com.repackage.ot1
+    public void a(pt1 pt1Var, Canvas canvas) {
+        RectF rectF;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, ot1Var, canvas) == null) {
-            ot1Var.e();
-            try {
-                canvas.restore();
-            } catch (IllegalStateException e) {
-                hx1.d("Canvas", "Underflow in restore - more restores than saves, please check", e);
-            }
+        if (!(interceptable == null || interceptable.invokeLL(1048576, this, pt1Var, canvas) == null) || (rectF = this.a) == null) {
+            return;
         }
+        pt1Var.f.addRect(rectF, Path.Direction.CW);
     }
 
-    @Override // com.repackage.nt1
+    @Override // com.repackage.ot1
     public void b(JSONArray jSONArray) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) {
+            try {
+                if (jSONArray.length() == 4) {
+                    int g = zd3.g((float) jSONArray.optDouble(0));
+                    int g2 = zd3.g((float) jSONArray.optDouble(1));
+                    this.a = new RectF(g, g2, g + zd3.g((float) jSONArray.optDouble(2)), g2 + zd3.g((float) jSONArray.optDouble(3)));
+                }
+            } catch (Exception e) {
+                if (sg1.a) {
+                    e.printStackTrace();
+                }
+            }
         }
     }
 }

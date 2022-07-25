@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 /* loaded from: classes5.dex */
-public class dq7 implements ow4 {
+public class dq7 implements pw4 {
     public static /* synthetic */ Interceptable $ic;
     public static dq7 a;
     public transient /* synthetic */ FieldHolder $fh;
@@ -48,7 +48,7 @@ public class dq7 implements ow4 {
         return (dq7) invokeV.objValue;
     }
 
-    @Override // com.repackage.ow4
+    @Override // com.repackage.pw4
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -60,7 +60,7 @@ public class dq7 implements ow4 {
         }
     }
 
-    @Override // com.repackage.ow4
+    @Override // com.repackage.pw4
     public void b(AccountData accountData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, accountData) == null) {
@@ -77,7 +77,7 @@ public class dq7 implements ow4 {
         }
     }
 
-    @Override // com.repackage.ow4
+    @Override // com.repackage.pw4
     public void c(AccountData accountData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, accountData) == null) {

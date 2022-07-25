@@ -1,11 +1,11 @@
 package com.repackage;
+
+import android.content.Intent;
 /* loaded from: classes7.dex */
 public interface qb5<T> {
-    void a(int i, byte[] bArr) throws Exception;
+    void a(Intent intent);
 
-    int getErrorCode();
+    T b(boolean z);
 
-    String getErrorMsg();
-
-    kb5 getPageInfo();
+    kb5 c();
 }

@@ -1,40 +1,25 @@
 package com.repackage;
 
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.crius.constants.CriusAttrConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class tm2 extends xv1 {
+public class tm2 extends um2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public an2 j;
-    public double k;
-    public List<bn2> l;
-    public List<dn2> m;
-    public List<ym2> n;
-    public List<zm2> o;
-    public List<an2> p;
-    public List<cn2> q;
-    public boolean r;
-    public boolean s;
-    public boolean t;
-    public boolean u;
-    public boolean v;
-    public boolean w;
-    public boolean x;
-    public String y;
+    public int[] A;
+    public ArrayList<bn2> z;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public tm2() {
-        super("map", "mapId");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -42,85 +27,51 @@ public class tm2 extends xv1 {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr = newInitContext.callArgs;
-                super((String) objArr[0], (String) objArr[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.k = 16.0d;
-        this.r = true;
-        this.y = "";
+        this.A = new int[]{0, 0, 0, 0};
     }
 
-    @Override // com.repackage.xv1, com.repackage.gq2
+    @Override // com.repackage.um2, com.repackage.yv1, com.repackage.hq2
     public void a(JSONObject jSONObject) throws JSONException {
+        JSONArray jSONArray;
+        JSONArray jSONArray2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
-            String str = "markers";
-            if (jSONObject == null) {
-                return;
-            }
-            super.a(jSONObject);
-            if (jSONObject.has("longitude") && jSONObject.has("latitude")) {
-                an2 an2Var = new an2();
-                this.j = an2Var;
-                an2Var.a(jSONObject);
-            }
-            if (jSONObject.has("scale")) {
-                this.k = jSONObject.optDouble("scale", 16.0d);
-            }
-            jSONObject.optString("subkey", "");
-            jSONObject.optString("layerStyle", "");
-            this.y = jSONObject.optString("cb");
-            this.r = jSONObject.optBoolean("showLocation", true);
-            this.s = jSONObject.optBoolean("enableZoom", true);
-            this.t = jSONObject.optBoolean("enableScroll", true);
-            this.u = jSONObject.optBoolean("enableRotate", false);
-            this.v = jSONObject.optBoolean("showCompass", false);
-            this.w = jSONObject.optBoolean("enableOverlooking", false);
-            this.x = jSONObject.optBoolean("enable3D", false);
-            try {
-                if (!jSONObject.has("markers")) {
-                    str = "covers";
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
+            return;
+        }
+        super.a(jSONObject);
+        if (jSONObject.has("points") && (jSONArray2 = jSONObject.getJSONArray("points")) != null && jSONArray2.length() > 0) {
+            int length = jSONArray2.length();
+            this.z = new ArrayList<>(length);
+            for (int i = 0; i < length; i++) {
+                JSONObject jSONObject2 = jSONArray2.getJSONObject(i);
+                if (jSONObject2 != null) {
+                    bn2 bn2Var = new bn2();
+                    bn2Var.a(jSONObject2);
+                    if (bn2Var.isValid()) {
+                        this.z.add(bn2Var);
+                    }
                 }
-                this.l = h(jSONObject, str, bn2.class);
-                this.n = h(jSONObject, "circles", ym2.class);
-                this.m = h(jSONObject, "polyline", dn2.class);
-                this.o = h(jSONObject, "controls", zm2.class);
-                this.p = h(jSONObject, "includePoints", an2.class);
-                this.q = h(jSONObject, "polygons", cn2.class);
-            } catch (Exception e) {
-                e.printStackTrace();
             }
+        }
+        if (!jSONObject.has(CriusAttrConstants.PADDING) || (jSONArray = jSONObject.getJSONArray(CriusAttrConstants.PADDING)) == null || jSONArray.length() <= 0) {
+            return;
+        }
+        int min = Math.min(jSONArray.length(), 4);
+        for (int i2 = 0; i2 < min; i2++) {
+            this.A[i2] = zd3.g(jSONArray.optInt(i2));
         }
     }
 
-    public final <T extends gq2> List<T> h(JSONObject jSONObject, String str, Class<T> cls) throws IllegalAccessException, InstantiationException, JSONException {
-        InterceptResult invokeLLL;
+    @Override // com.repackage.yv1, com.repackage.hq2
+    public boolean isValid() {
+        InterceptResult invokeV;
+        ArrayList<bn2> arrayList;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject, str, cls)) == null) {
-            if (jSONObject.has(str)) {
-                JSONArray optJSONArray = jSONObject.optJSONArray(str);
-                int length = optJSONArray == null ? 0 : optJSONArray.length();
-                if (length > 0) {
-                    ArrayList arrayList = new ArrayList(length);
-                    for (int i = 0; i < length; i++) {
-                        JSONObject optJSONObject = optJSONArray.optJSONObject(i);
-                        if (optJSONObject != null) {
-                            T newInstance = cls.newInstance();
-                            newInstance.a(optJSONObject);
-                            if (newInstance.isValid()) {
-                                arrayList.add(newInstance);
-                            }
-                        }
-                    }
-                    return arrayList;
-                }
-            }
-            return null;
-        }
-        return (List) invokeLLL.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? (TextUtils.isEmpty(this.c) || TextUtils.isEmpty(this.b) || (arrayList = this.z) == null || arrayList.size() <= 0) ? false : true : invokeV.booleanValue;
     }
 }

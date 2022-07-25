@@ -41,7 +41,7 @@ public class ak5 {
         zj5 zj5Var = new zj5();
         this.c = zj5Var;
         this.b = new xj5(zj5Var, this.a);
-        g(xt4.k().l("key_abtest_channel", 0));
+        g(yt4.k().l("key_abtest_channel", 0));
     }
 
     public static ak5 c() {

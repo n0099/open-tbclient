@@ -56,7 +56,7 @@ public class ItemInfoView extends LinearLayout {
             setOrientation(1);
             LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d02a4, (ViewGroup) this, true);
             setVisibility(8);
-            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f090ec6);
+            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f090ebf);
         }
     }
 
@@ -104,7 +104,7 @@ public class ItemInfoView extends LinearLayout {
             if ((recommendForumInfo != null && (list = recommendForumInfo.content) != null && list.size() > 0) || (recommendForumInfo != null && !oi.isEmpty(recommendForumInfo.slogan))) {
                 this.a.setText(c(recommendForumInfo.content, recommendForumInfo.slogan));
             } else {
-                this.a.setText(getResources().getString(R.string.obfuscated_res_0x7f0f0660));
+                this.a.setText(getResources().getString(R.string.obfuscated_res_0x7f0f065c));
             }
             setVisibility(0);
         }

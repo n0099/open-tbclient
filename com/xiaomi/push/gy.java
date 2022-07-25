@@ -13,7 +13,7 @@ public class gy {
     public static Random a;
 
     /* renamed from: a  reason: collision with other field name */
-    public static final char[] f1169a;
+    public static final char[] f449a;
     public static final char[] b;
     public static final char[] c;
     public static final char[] d;
@@ -34,7 +34,7 @@ public class gy {
                 return;
             }
         }
-        f1169a = "&quot;".toCharArray();
+        f449a = "&quot;".toCharArray();
         b = "&apos;".toCharArray();
         c = "&amp;".toCharArray();
         d = "&lt;".toCharArray();
@@ -100,7 +100,7 @@ public class gy {
                             sb.append(charArray, i2, i - i2);
                         }
                         i2 = i + 1;
-                        sb.append(f1169a);
+                        sb.append(f449a);
                     } else if (c2 == '\'') {
                         if (i > i2) {
                             sb.append(charArray, i2, i - i2);

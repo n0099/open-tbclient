@@ -37,11 +37,11 @@ public class ej6 {
             }
         }
         this.a = view2;
-        this.b = (BarImageView) view2.findViewById(R.id.obfuscated_res_0x7f090ac5);
-        this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090ac8);
-        this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090ac6);
-        this.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090ac7);
-        this.f = (EntelechyUserLikeButton) view2.findViewById(R.id.obfuscated_res_0x7f090ac3);
-        this.g = view2.findViewById(R.id.obfuscated_res_0x7f090ac4);
+        this.b = (BarImageView) view2.findViewById(R.id.obfuscated_res_0x7f090abe);
+        this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090ac1);
+        this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090abf);
+        this.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090ac0);
+        this.f = (EntelechyUserLikeButton) view2.findViewById(R.id.obfuscated_res_0x7f090abc);
+        this.g = view2.findViewById(R.id.obfuscated_res_0x7f090abd);
     }
 }

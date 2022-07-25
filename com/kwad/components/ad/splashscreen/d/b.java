@@ -17,7 +17,6 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.components.ad.splashscreen.e;
 import com.kwad.components.ad.splashscreen.f;
 import com.kwad.components.core.webview.KsAdWebView;
-import com.kwad.sdk.core.response.a.d;
 import com.kwad.sdk.core.response.model.AdInfo;
 import com.kwad.sdk.core.response.model.AdTemplate;
 /* loaded from: classes5.dex */
@@ -25,29 +24,29 @@ public final class b implements com.kwad.sdk.widget.c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     @NonNull
-    public ViewGroup a;
-    public ViewStub b;
-    public KsAdWebView c;
-    public ViewGroup d;
-    public View e;
+    public ViewGroup es;
     @Nullable
-    public AdTemplate f;
+    public AdInfo mAdInfo;
     @Nullable
-    public AdInfo g;
-    public TextView h;
-    public boolean i;
+    public AdTemplate mAdTemplate;
+    public com.kwad.components.core.c.a.c mApkDownloadHelper;
+    public a yM;
+    public ViewStub zM;
+    public KsAdWebView zN;
+    public ViewGroup zO;
+    public View zP;
+    public TextView zQ;
+    public boolean zR;
     @Nullable
-    public f j;
-    public com.kwad.sdk.widget.f k;
-    public com.kwad.components.core.c.a.b l;
-    public a m;
+    public f zS;
+    public com.kwad.sdk.widget.f zT;
 
-    public b(@NonNull ViewGroup viewGroup, ViewStub viewStub, KsAdWebView ksAdWebView, boolean z, com.kwad.components.core.c.a.b bVar) {
+    public b(@NonNull ViewGroup viewGroup, ViewStub viewStub, KsAdWebView ksAdWebView, boolean z, com.kwad.components.core.c.a.c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {viewGroup, viewStub, ksAdWebView, Boolean.valueOf(z), bVar};
+            Object[] objArr = {viewGroup, viewStub, ksAdWebView, Boolean.valueOf(z), cVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -57,90 +56,63 @@ public final class b implements com.kwad.sdk.widget.c {
                 return;
             }
         }
-        this.a = viewGroup;
-        this.b = viewStub;
-        this.c = ksAdWebView;
-        this.l = bVar;
-        this.i = z;
-    }
-
-    private void a(ViewGroup viewGroup) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65537, this, viewGroup) == null) || viewGroup == null) {
-            return;
-        }
-        this.e = viewGroup.findViewById(R.id.obfuscated_res_0x7f09119f);
-        this.h = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f0911a2);
-        this.k = new com.kwad.sdk.widget.f(this.e.getContext(), this.e, this);
-        this.e.getContext();
-        a(e.a(this.f, this.g, this.l, 4));
+        this.es = viewGroup;
+        this.zM = viewStub;
+        this.zN = ksAdWebView;
+        this.mApkDownloadHelper = cVar;
+        this.zR = z;
     }
 
     private void a(e eVar) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65539, this, eVar) == null) || eVar == null) {
+        if (!(interceptable == null || interceptable.invokeL(65538, this, eVar) == null) || eVar == null) {
             return;
         }
-        a(eVar.a());
+        ab(eVar.jw());
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void a(String str) {
+    public void ab(String str) {
         TextView textView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, str) == null) || (textView = this.h) == null || str == null) {
+        if (!(interceptable == null || interceptable.invokeL(65539, this, str) == null) || (textView = this.zQ) == null || str == null) {
             return;
         }
         textView.setText(str);
     }
 
-    private void a(boolean z, boolean z2) {
-        f fVar;
+    private void g(ViewGroup viewGroup) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65541, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) || (fVar = this.j) == null) {
+        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, viewGroup) == null) || viewGroup == null) {
             return;
         }
-        fVar.a(z, z2);
+        this.zP = viewGroup.findViewById(R.id.obfuscated_res_0x7f09117a);
+        this.zQ = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f09117d);
+        this.zT = new com.kwad.sdk.widget.f(this.zP.getContext(), this.zP, this);
+        this.zP.getContext();
+        a(e.a(this.mAdTemplate, this.mAdInfo, this.mApkDownloadHelper, 4));
     }
 
-    public final void a() {
+    private void g(boolean z, boolean z2) {
+        f fVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            com.kwad.sdk.core.d.b.a("SplashActionBarNativeHelper", "rollBackToNative mRootViewStub: " + this.b + ", mSplashWebView: " + this.c);
-            if (this.c == null) {
-                return;
-            }
-            if (this.d == null) {
-                ViewStub viewStub = this.b;
-                this.d = (ViewGroup) ((viewStub == null || viewStub.getParent() == null) ? this.a.findViewById(R.id.obfuscated_res_0x7f0911a0) : this.b.inflate());
-                a(this.d);
-            }
-            ViewGroup viewGroup = this.d;
-            if (viewGroup != null) {
-                viewGroup.setVisibility(0);
-                this.c.setVisibility(8);
-            }
+        if (!(interceptable == null || interceptable.invokeCommon(65541, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) || (fVar = this.zS) == null) {
+            return;
         }
+        fVar.f(z, z2);
     }
 
-    public final void a(@Nullable f fVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, fVar) == null) {
-            this.j = fVar;
-        }
-    }
-
-    public final void a(AdTemplate adTemplate) {
+    public final void E(AdTemplate adTemplate) {
         a aVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, adTemplate) == null) {
-            this.f = adTemplate;
-            a aVar2 = this.m;
+        if (interceptable == null || interceptable.invokeL(1048576, this, adTemplate) == null) {
+            this.mAdTemplate = adTemplate;
+            a aVar2 = this.yM;
             if (aVar2 == null) {
-                this.m = new a(this, this.b.getContext(), this.f) { // from class: com.kwad.components.ad.splashscreen.d.b.1
+                this.yM = new a(this, this.es.getContext(), this.mAdTemplate) { // from class: com.kwad.components.ad.splashscreen.d.b.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
-                    public final /* synthetic */ b a;
+                    public final /* synthetic */ b zU;
 
                     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                     {
@@ -161,54 +133,81 @@ public final class b implements com.kwad.sdk.widget.c {
                                 return;
                             }
                         }
-                        this.a = this;
+                        this.zU = this;
                     }
 
                     @Override // com.kwad.components.ad.splashscreen.d.a
-                    public final void a(String str) {
+                    public final void Z(String str) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, str) == null) {
-                            this.a.a(str);
+                            this.zU.ab(str);
                         }
                     }
                 };
             } else {
-                aVar2.a(adTemplate);
+                aVar2.setAdTemplate(adTemplate);
             }
             if (adTemplate != null) {
-                this.g = d.i(adTemplate);
+                this.mAdInfo = com.kwad.sdk.core.response.a.d.bQ(adTemplate);
             }
-            com.kwad.components.core.c.a.b bVar = this.l;
-            if (bVar == null || (aVar = this.m) == null) {
+            com.kwad.components.core.c.a.c cVar = this.mApkDownloadHelper;
+            if (cVar == null || (aVar = this.yM) == null) {
                 return;
             }
-            bVar.a(aVar);
+            cVar.b(aVar);
+        }
+    }
+
+    public final void a(@Nullable f fVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, fVar) == null) {
+            this.zS = fVar;
         }
     }
 
     @Override // com.kwad.sdk.widget.c
-    public final void a_(View view2) {
+    public final void f(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, view2) == null) {
-            a(true, view2.equals(this.e));
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2) == null) {
+            g(true, view2.equals(this.zP));
         }
     }
 
-    public final void b() {
-        com.kwad.components.core.c.a.b bVar;
+    @Override // com.kwad.sdk.widget.c
+    public final void g(View view2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048579, this, view2) == null) && this.zR) {
+            g(false, view2.equals(this.zP));
+        }
+    }
+
+    public final void kv() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            com.kwad.sdk.core.e.b.d("SplashActionBarNativeHelper", "rollBackToNative mRootViewStub: " + this.zM + ", mSplashWebView: " + this.zN);
+            if (this.zN == null) {
+                return;
+            }
+            if (this.zO == null) {
+                ViewStub viewStub = this.zM;
+                this.zO = (ViewGroup) ((viewStub == null || viewStub.getParent() == null) ? this.es.findViewById(R.id.obfuscated_res_0x7f09117b) : this.zM.inflate());
+                g(this.zO);
+            }
+            ViewGroup viewGroup = this.zO;
+            if (viewGroup != null) {
+                viewGroup.setVisibility(0);
+                this.zN.setVisibility(8);
+            }
+        }
+    }
+
+    public final void onUnbind() {
+        com.kwad.components.core.c.a.c cVar;
         a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (bVar = this.l) == null || (aVar = this.m) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (cVar = this.mApkDownloadHelper) == null || (aVar = this.yM) == null) {
             return;
         }
-        bVar.b(aVar);
-    }
-
-    @Override // com.kwad.sdk.widget.c
-    public final void b(View view2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048581, this, view2) == null) && this.i) {
-            a(false, view2.equals(this.e));
-        }
+        cVar.c(aVar);
     }
 }

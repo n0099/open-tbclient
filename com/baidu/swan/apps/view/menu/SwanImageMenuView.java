@@ -23,21 +23,21 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.drawee.view.SimpleDraweeView;
-import com.repackage.oj2;
-import com.repackage.rz2;
+import com.repackage.pj2;
 import com.repackage.sz2;
-import com.repackage.uf3;
-import com.repackage.uz2;
+import com.repackage.tz2;
+import com.repackage.vf3;
+import com.repackage.vz2;
 import java.util.List;
 /* loaded from: classes2.dex */
-public class SwanImageMenuView extends FrameLayout implements rz2.g {
+public class SwanImageMenuView extends FrameLayout implements sz2.g {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean a;
     public c b;
     public Context c;
     public SwanAppRoundCornerListView d;
-    public uf3 e;
+    public vf3 e;
     public View f;
     public int g;
 
@@ -112,10 +112,10 @@ public class SwanImageMenuView extends FrameLayout implements rz2.g {
     public static class c extends BaseAdapter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public List<sz2> a;
+        public List<tz2> a;
         public Context b;
 
-        public c(Context context, List<sz2> list) {
+        public c(Context context, List<tz2> list) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -137,34 +137,34 @@ public class SwanImageMenuView extends FrameLayout implements rz2.g {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.widget.Adapter
         /* renamed from: a */
-        public sz2 getItem(int i) {
+        public tz2 getItem(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) ? this.a.get(i) : (sz2) invokeI.objValue;
+            return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) ? this.a.get(i) : (tz2) invokeI.objValue;
         }
 
         public void b(int i) {
-            sz2 sz2Var;
-            sz2.a d;
+            tz2 tz2Var;
+            tz2.a d;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) || (d = (sz2Var = this.a.get(i)).d()) == null) {
+            if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) || (d = (tz2Var = this.a.get(i)).d()) == null) {
                 return;
             }
-            d.a(sz2Var);
+            d.a(tz2Var);
         }
 
         public final void c(@NonNull View view2, int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, view2, i) == null) {
                 if (i == 0) {
-                    view2.setBackground(this.b.getResources().getDrawable(R.drawable.obfuscated_res_0x7f0810d1));
+                    view2.setBackground(this.b.getResources().getDrawable(R.drawable.obfuscated_res_0x7f0810d5));
                 } else {
-                    view2.setBackground(this.b.getResources().getDrawable(R.drawable.obfuscated_res_0x7f0810d0));
+                    view2.setBackground(this.b.getResources().getDrawable(R.drawable.obfuscated_res_0x7f0810d4));
                 }
             }
         }
 
-        public void d(List<sz2> list) {
+        public void d(List<tz2> list) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, list) == null) {
                 this.a = list;
@@ -192,17 +192,17 @@ public class SwanImageMenuView extends FrameLayout implements rz2.g {
             View inflate;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeILL = interceptable.invokeILL(1048583, this, i, view2, viewGroup)) == null) {
-                sz2 item = getItem(i);
-                if (item instanceof uz2) {
-                    inflate = View.inflate(this.b, R.layout.obfuscated_res_0x7f0d07c1, null);
-                    String i2 = ((uz2) item).i();
+                tz2 item = getItem(i);
+                if (item instanceof vz2) {
+                    inflate = View.inflate(this.b, R.layout.obfuscated_res_0x7f0d07cb, null);
+                    String i2 = ((vz2) item).i();
                     if (!TextUtils.isEmpty(i2)) {
-                        ((SimpleDraweeView) inflate.findViewById(R.id.obfuscated_res_0x7f090dc2)).setImageURI(i2);
+                        ((SimpleDraweeView) inflate.findViewById(R.id.obfuscated_res_0x7f090dbb)).setImageURI(i2);
                     }
-                    ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09155e)).setText(item.e());
+                    ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091539)).setText(item.e());
                 } else {
                     inflate = View.inflate(this.b, R.layout.obfuscated_res_0x7f0d00cb, null);
-                    TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091fa9);
+                    TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091fae);
                     textView.setTextColor(this.b.getResources().getColor(R.color.obfuscated_res_0x7f060382));
                     textView.setText(item.e());
                 }
@@ -241,24 +241,24 @@ public class SwanImageMenuView extends FrameLayout implements rz2.g {
     public final void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(this.c).inflate(R.layout.obfuscated_res_0x7f0d07c0, (ViewGroup) null);
-            SwanAppRoundCornerListView swanAppRoundCornerListView = (SwanAppRoundCornerListView) linearLayout.findViewById(R.id.obfuscated_res_0x7f0912d2);
+            LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(this.c).inflate(R.layout.obfuscated_res_0x7f0d07ca, (ViewGroup) null);
+            SwanAppRoundCornerListView swanAppRoundCornerListView = (SwanAppRoundCornerListView) linearLayout.findViewById(R.id.obfuscated_res_0x7f0912ae);
             this.d = swanAppRoundCornerListView;
             swanAppRoundCornerListView.setOnItemClickListener(new a(this));
             this.d.setSelector(new ColorDrawable(0));
-            ((TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f0915a8)).setOnClickListener(new b(this));
+            ((TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f091583)).setOnClickListener(new b(this));
             addView(linearLayout);
-            if (oj2.M().a()) {
+            if (pj2.M().a()) {
                 View view2 = new View(this.c);
                 this.f = view2;
-                view2.setBackgroundResource(R.drawable.obfuscated_res_0x7f0810d2);
+                view2.setBackgroundResource(R.drawable.obfuscated_res_0x7f0810d6);
                 this.f.setVisibility(8);
                 addView(this.f);
             }
         }
     }
 
-    public void d(List<sz2> list) {
+    public void d(List<tz2> list) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) || this.a) {
             return;
@@ -290,10 +290,10 @@ public class SwanImageMenuView extends FrameLayout implements rz2.g {
         }
     }
 
-    public void setMenu(uf3 uf3Var) {
+    public void setMenu(vf3 vf3Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, uf3Var) == null) {
-            this.e = uf3Var;
+        if (interceptable == null || interceptable.invokeL(1048579, this, vf3Var) == null) {
+            this.e = vf3Var;
         }
     }
 

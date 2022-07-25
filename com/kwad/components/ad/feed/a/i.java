@@ -24,10 +24,10 @@ import java.util.List;
 public final class i extends a implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TextView a;
-    public ImageView b;
-    public ImageView c;
-    public KsLogoView d;
+    public KsLogoView bq;
+    public TextView de;
+    public ImageView df;
+    public ImageView dg;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public i(@NonNull Context context) {
@@ -50,35 +50,35 @@ public final class i extends a implements View.OnClickListener {
     }
 
     @Override // com.kwad.components.core.widget.b
-    public final void a(@NonNull AdTemplate adTemplate) {
+    public final void bg() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, adTemplate) == null) {
-            super.a((i) adTemplate);
-            this.a.setText(com.kwad.sdk.core.response.a.a.z(this.k));
-            List<String> V = com.kwad.sdk.core.response.a.a.V(this.k);
-            this.d.a(adTemplate);
-            if (V.size() > 0) {
-                KSImageLoader.loadFeeImage(this.b, V.get(0), this.j);
-            } else {
-                com.kwad.sdk.core.d.b.e("FeedTextImmerseImageView", "getImageUrlList size less than one");
-            }
-            com.kwad.sdk.b.kwai.a.a(this, this.a, this.b, this.c);
-            setOnClickListener(this);
-            if (com.kwad.sdk.core.response.a.a.I(this.k)) {
-                a((View.OnClickListener) this);
-            }
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            ((RatioFrameLayout) findViewById(R.id.obfuscated_res_0x7f091012)).setRatio(0.56f);
+            this.de = (TextView) findViewById(R.id.obfuscated_res_0x7f090fd1);
+            this.df = (ImageView) findViewById(R.id.obfuscated_res_0x7f090fd7);
+            this.dg = (ImageView) findViewById(R.id.obfuscated_res_0x7f090fd3);
+            this.bq = (KsLogoView) findViewById(R.id.obfuscated_res_0x7f09103e);
         }
     }
 
     @Override // com.kwad.components.core.widget.b
-    public final void c() {
+    public final void c(@NonNull AdTemplate adTemplate) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            ((RatioFrameLayout) findViewById(R.id.obfuscated_res_0x7f09101b)).setRatio(0.56f);
-            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f090fda);
-            this.b = (ImageView) findViewById(R.id.obfuscated_res_0x7f090fe0);
-            this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f090fdc);
-            this.d = (KsLogoView) findViewById(R.id.obfuscated_res_0x7f091047);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, adTemplate) == null) {
+            super.c((i) adTemplate);
+            this.de.setText(com.kwad.components.ad.feed.f.d(this.mAdTemplate));
+            List<String> aA = com.kwad.sdk.core.response.a.a.aA(this.mAdInfo);
+            this.bq.T(adTemplate);
+            if (aA.size() > 0) {
+                KSImageLoader.loadFeeImage(this.df, aA.get(0), this.mAdTemplate);
+            } else {
+                com.kwad.sdk.core.e.b.e("FeedTextImmerseImageView", "getImageUrlList size less than one");
+            }
+            com.kwad.sdk.b.kwai.a.a(this, this.de, this.df, this.dg);
+            setOnClickListener(this);
+            if (com.kwad.sdk.core.response.a.a.am(this.mAdInfo)) {
+                bf();
+            }
         }
     }
 
@@ -93,26 +93,26 @@ public final class i extends a implements View.OnClickListener {
     public final void onClick(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, view2) == null) {
-            if (view2 == this.c) {
-                h();
+            if (view2 == this.dg) {
+                pX();
                 return;
             }
             int i = 35;
-            if (view2 == this.a) {
+            if (view2 == this.de) {
                 i = 25;
-            } else if (view2 == this.b) {
+            } else if (view2 == this.df) {
                 i = 100;
             }
-            if (com.kwad.components.core.c.a.c.a(new a.C0507a(getContext()).a(this.j), 1) == 1) {
-                a(i);
+            if (com.kwad.components.core.c.a.d.a(new a.C0352a(getContext()).L(this.mAdTemplate), 1) == 1) {
+                aq(i);
                 return;
             }
-            boolean I = com.kwad.sdk.core.response.a.a.I(this.k);
-            a(i);
-            if (I) {
-                FeedDownloadActivityProxy.launch(this.m, this.j, this.l);
+            boolean am = com.kwad.sdk.core.response.a.a.am(this.mAdInfo);
+            aq(i);
+            if (am) {
+                FeedDownloadActivityProxy.launch(this.mContext, this.mAdTemplate, this.lp);
             } else {
-                AdWebViewActivityProxy.launch(getContext(), this.j);
+                AdWebViewActivityProxy.launch(getContext(), this.mAdTemplate);
             }
         }
     }

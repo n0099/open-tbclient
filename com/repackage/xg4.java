@@ -1,24 +1,20 @@
 package com.repackage;
 
 import android.annotation.SuppressLint;
+import android.annotation.TargetApi;
 import android.content.Context;
 import android.os.Build;
-import android.text.TextUtils;
+import android.system.Os;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.sofire.sharedpreferences.SharedPreferenceManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.lang.reflect.Method;
-import java.nio.charset.StandardCharsets;
-import java.util.UUID;
+import java.io.File;
+import java.io.FileOutputStream;
 /* loaded from: classes7.dex */
-public class xg4 implements tg4<String> {
+public class xg4 implements ug4<String> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
@@ -41,148 +37,70 @@ public class xg4 implements tg4<String> {
         this.a = context.getApplicationContext();
     }
 
-    public static byte[] g(byte[]... bArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, bArr)) == null) {
-            int i = 0;
-            for (byte[] bArr2 : bArr) {
-                i += bArr2.length;
-            }
-            byte[] bArr3 = new byte[i];
-            int i2 = 0;
-            for (byte[] bArr4 : bArr) {
-                System.arraycopy(bArr4, 0, bArr3, i2, bArr4.length);
-                i2 += bArr4.length;
-            }
-            return bArr3;
-        }
-        return (byte[]) invokeL.objValue;
-    }
-
-    @Override // com.repackage.tg4
+    @Override // com.repackage.ug4
     public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final String b() {
-        InterceptResult invokeV;
-        byte[] g;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            byte[] bytes = d().getBytes(StandardCharsets.UTF_8);
-            byte[] bytes2 = "com.baidu.swan".getBytes(StandardCharsets.UTF_8);
-            if (Build.VERSION.SDK_INT < 23) {
-                g = g(bytes2, UUID.randomUUID().toString().getBytes(StandardCharsets.UTF_8), String.valueOf(System.nanoTime()).getBytes(StandardCharsets.UTF_8), bytes);
-            } else {
-                g = g(bytes2, bytes);
-            }
-            return ah4.b(g, true);
-        }
-        return (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? !new File(this.a.getFilesDir(), "libuuid.so").exists() : invokeV.booleanValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.tg4
-    /* renamed from: c */
+    @Override // com.repackage.ug4
+    /* renamed from: b */
     public String get() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? b() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? d() : (String) invokeV.objValue;
     }
 
-    @SuppressLint({"HardwareIds"})
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.ug4
+    /* renamed from: c */
+    public void put(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+            e(str);
+        }
+    }
+
     public final String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            String a = ll3.b.a(this.a);
-            if (TextUtils.isEmpty(a)) {
-                a = e();
+            File file = new File(this.a.getFilesDir(), "libuuid.so");
+            if (file.exists()) {
+                return ah4.c(file);
             }
-            if (TextUtils.isEmpty(a)) {
-                a = UUID.randomUUID().toString();
-            }
-            return a == null ? "" : a;
+            return null;
         }
         return (String) invokeV.objValue;
     }
 
-    @SuppressLint({"DiscouragedPrivateApi"})
-    public final String e() {
-        InterceptResult invokeV;
-        String str;
+    @SuppressLint({"WorldReadableFiles"})
+    @TargetApi(21)
+    public final void e(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            try {
-                str = (String) Build.class.getField("SERIAL").get(null);
-                try {
-                    if (TextUtils.isEmpty(str) || TextUtils.equals(str, "unknown")) {
-                        Method declaredMethod = Build.class.getDeclaredMethod(SharedPreferenceManager.OPERATION_GET_STRING, String.class);
-                        declaredMethod.setAccessible(true);
-                        str = (String) declaredMethod.invoke(null, "ro.serialno");
-                    }
-                    if (TextUtils.isEmpty(str) || TextUtils.equals(str, "unknown")) {
-                        str = f("ro.serialno");
-                    }
-                } catch (Exception unused) {
-                }
-            } catch (Exception unused2) {
-                str = null;
-            }
-            if (TextUtils.isEmpty(str) || TextUtils.equals(str, "unknown")) {
-                return null;
-            }
-            return str;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public final String f(String str) {
-        InterceptResult invokeL;
-        BufferedReader bufferedReader;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
-            BufferedReader bufferedReader2 = null;
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+            File file = new File(this.a.getFilesDir(), "libuuid.so");
+            int i = Build.VERSION.SDK_INT >= 24 ? 1 : 0;
+            FileOutputStream fileOutputStream = null;
             try {
                 try {
-                    Runtime runtime = Runtime.getRuntime();
-                    bufferedReader = new BufferedReader(new InputStreamReader(runtime.exec("getprop " + str).getInputStream()), 256);
-                } catch (Throwable th) {
-                    th = th;
+                    fileOutputStream = this.a.openFileOutput("libuuid.so", i ^ 1);
+                    fileOutputStream.write(str.getBytes());
+                    fileOutputStream.flush();
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
-            } catch (IOException unused) {
+                if (i != 0) {
+                    try {
+                        Os.chmod(file.getAbsolutePath(), 436);
+                    } catch (Exception unused) {
+                    }
+                }
+            } finally {
+                ah4.a(fileOutputStream);
             }
-            try {
-                String readLine = bufferedReader.readLine();
-                zg4.a(bufferedReader);
-                return readLine == null ? "" : readLine;
-            } catch (IOException unused2) {
-                bufferedReader2 = bufferedReader;
-                zg4.a(bufferedReader2);
-                zg4.a(bufferedReader2);
-                return "";
-            } catch (Throwable th2) {
-                th = th2;
-                bufferedReader2 = bufferedReader;
-                zg4.a(bufferedReader2);
-                throw th;
-            }
-        }
-        return (String) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.tg4
-    /* renamed from: h */
-    public void put(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
         }
     }
 }

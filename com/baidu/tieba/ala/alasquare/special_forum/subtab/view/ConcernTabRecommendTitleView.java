@@ -49,8 +49,8 @@ public class ConcernTabRecommendTitleView extends jx5<or5> {
                 }
             }
             this.a = view2;
-            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0920bc);
-            this.c = this.a.findViewById(R.id.obfuscated_res_0x7f0907b7);
+            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0920be);
+            this.c = this.a.findViewById(R.id.obfuscated_res_0x7f0907b5);
         }
     }
 
@@ -81,7 +81,7 @@ public class ConcernTabRecommendTitleView extends jx5<or5> {
     public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d0789 : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d0793 : invokeV.intValue;
     }
 
     @Override // com.repackage.jx5

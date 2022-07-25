@@ -41,7 +41,7 @@ import java.util.Iterator;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class Tencent {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int REQUEST_LOGIN = 10001;

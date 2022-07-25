@@ -26,7 +26,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.k55;
+import com.repackage.l55;
 import com.repackage.ni;
 import com.repackage.nt8;
 import com.repackage.qt8;
@@ -270,7 +270,7 @@ public final class VideoLoadingFragment extends BaseFragment implements qt8 {
                 this.a = obj2 instanceof VideoItemModel ? (VideoItemModel) obj2 : null;
                 this.d = arguments.getInt(VideoPlayActivityConfig.CURRENT_TYPE);
             }
-            this.c = inflater.inflate(R.layout.obfuscated_res_0x7f0d0880, viewGroup, false);
+            this.c = inflater.inflate(R.layout.obfuscated_res_0x7f0d088a, viewGroup, false);
             registerListener(this.e);
             final GestureDetectorCompat gestureDetectorCompat = new GestureDetectorCompat(getContext(), new c(this));
             View view2 = this.c;
@@ -335,8 +335,8 @@ public final class VideoLoadingFragment extends BaseFragment implements qt8 {
             View view2 = this.c;
             if (view2 != null) {
                 FrameLayout frameLayout = (FrameLayout) view2;
-                k55 k55Var = this.mRefreshView;
-                frameLayout.removeView(k55Var == null ? null : k55Var.b());
+                l55 l55Var = this.mRefreshView;
+                frameLayout.removeView(l55Var == null ? null : l55Var.b());
                 return;
             }
             throw new NullPointerException("null cannot be cast to non-null type android.widget.FrameLayout");
@@ -346,7 +346,7 @@ public final class VideoLoadingFragment extends BaseFragment implements qt8 {
     public final void y1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            k55 k55Var = new k55(getContext(), new View.OnClickListener() { // from class: com.repackage.pt8
+            l55 l55Var = new l55(getContext(), new View.OnClickListener() { // from class: com.repackage.pt8
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -358,10 +358,10 @@ public final class VideoLoadingFragment extends BaseFragment implements qt8 {
                     }
                 }
             });
-            this.mRefreshView = k55Var;
-            k55Var.p();
+            this.mRefreshView = l55Var;
+            l55Var.p();
             this.mRefreshView.m(null);
-            String string = getResources().getString(R.string.obfuscated_res_0x7f0f0f9b);
+            String string = getResources().getString(R.string.obfuscated_res_0x7f0f0f84);
             Intrinsics.checkNotNullExpressionValue(string, "resources.getString(R.st….refresh_view_title_text)");
             this.mRefreshView.n(string);
             this.mRefreshView.i(R.drawable.new_pic_emotion_08);

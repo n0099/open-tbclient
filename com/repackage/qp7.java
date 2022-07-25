@@ -26,7 +26,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.an4;
+import com.repackage.bn4;
 /* loaded from: classes7.dex */
 public abstract class qp7 {
     public static /* synthetic */ Interceptable $ic;
@@ -38,7 +38,7 @@ public abstract class qp7 {
     public sp7 e;
     public String f;
     public View.OnClickListener g;
-    public final an4.a h;
+    public final bn4.a h;
 
     /* loaded from: classes7.dex */
     public class a implements View.OnClickListener {
@@ -114,7 +114,7 @@ public abstract class qp7 {
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, webAuthResult) == null) {
                 this.b.b.closeLoadingDialog();
                 BaseActivity baseActivity = this.b.b;
-                baseActivity.showToast(String.format(baseActivity.getString(R.string.obfuscated_res_0x7f0f13d1), Integer.valueOf(webAuthResult.getResultCode()), webAuthResult.getResultMsg()));
+                baseActivity.showToast(String.format(baseActivity.getString(R.string.obfuscated_res_0x7f0f1380), Integer.valueOf(webAuthResult.getResultCode()), webAuthResult.getResultMsg()));
             }
         }
 
@@ -130,7 +130,7 @@ public abstract class qp7 {
     }
 
     /* loaded from: classes7.dex */
-    public class c implements an4.a {
+    public class c implements bn4.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ qp7 a;
@@ -153,7 +153,7 @@ public abstract class qp7 {
             this.a = qp7Var;
         }
 
-        @Override // com.repackage.an4.a
+        @Override // com.repackage.bn4.a
         public void a(String str, int i, String str2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLIL(1048576, this, str, i, str2) == null) {
@@ -162,7 +162,7 @@ public abstract class qp7 {
             }
         }
 
-        @Override // com.repackage.an4.a
+        @Override // com.repackage.bn4.a
         public void b(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
@@ -170,7 +170,7 @@ public abstract class qp7 {
             }
         }
 
-        @Override // com.repackage.an4.a
+        @Override // com.repackage.bn4.a
         public void c(AccountData accountData) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, accountData) == null) {
@@ -208,8 +208,8 @@ public abstract class qp7 {
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                cn4.g(this.a);
-                mt4.a(DI.ACCOUNT, -1L, 0, "login_activity_save_account_to_db", 0, "", new Object[0]);
+                dn4.g(this.a);
+                nt4.a(DI.ACCOUNT, -1L, 0, "login_activity_save_account_to_db", 0, "", new Object[0]);
             }
         }
     }
@@ -259,7 +259,7 @@ public abstract class qp7 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, accountData) == null) {
             h(accountData);
-            mt4.a(DI.ACCOUNT, -1L, 0, "login_pass_cslogin_goMainTab", 0, "", new Object[0]);
+            nt4.a(DI.ACCOUNT, -1L, 0, "login_pass_cslogin_goMainTab", 0, "", new Object[0]);
             TbadkCoreApplication.getInst().onUserChanged(this.b.getIntent());
             c(-1);
         }
@@ -275,7 +275,7 @@ public abstract class qp7 {
                 if (bdAsyncTask != null) {
                     bdAsyncTask.cancel();
                 }
-                this.d = an4.b().a(session.username, session.bduss, "", null, this.h);
+                this.d = bn4.b().a(session.username, session.bduss, "", null, this.h);
                 return;
             }
             this.b.closeLoadingDialog();
@@ -294,9 +294,9 @@ public abstract class qp7 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, accountData) == null) {
             tg.a().c(new d(this, accountData));
-            mt4.a(DI.ACCOUNT, -1L, 0, "login_activity_save_account_to_application", 0, "", new Object[0]);
+            nt4.a(DI.ACCOUNT, -1L, 0, "login_activity_save_account_to_application", 0, "", new Object[0]);
             TbadkCoreApplication.setCurrentAccount(accountData, this.a.getPageActivity());
-            rl4.g(TbadkCoreApplication.getInst());
+            sl4.g(TbadkCoreApplication.getInst());
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921024, Boolean.TRUE));
         }
     }
@@ -321,7 +321,7 @@ public abstract class qp7 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             if (this.b.getLoadingDialog() == null || !this.b.getLoadingDialog().c()) {
-                this.b.showLoadingDialog(this.a.getString(R.string.obfuscated_res_0x7f0f1029));
+                this.b.showLoadingDialog(this.a.getString(R.string.obfuscated_res_0x7f0f1012));
                 if (this.b.getLoadingDialog() != null) {
                     this.b.getLoadingDialog().f(false);
                     this.b.getLoadingDialog().g(false);
@@ -344,7 +344,7 @@ public abstract class qp7 {
                 this.b.finish();
             } else if (view2.getId() == R.id.obfuscated_res_0x7f090433) {
                 this.b.finish();
-            } else if (view2.getId() == R.id.obfuscated_res_0x7f091a2d) {
+            } else if (view2.getId() == R.id.obfuscated_res_0x7f091a07) {
                 g();
             } else if (view2.getId() == R.id.obfuscated_res_0x7f0924dd) {
                 o();
@@ -352,7 +352,7 @@ public abstract class qp7 {
                 p();
             } else if (view2.getId() == R.id.obfuscated_res_0x7f092563) {
                 q();
-            } else if (view2.getId() == R.id.obfuscated_res_0x7f0914b5) {
+            } else if (view2.getId() == R.id.obfuscated_res_0x7f091490) {
                 d();
             }
         }

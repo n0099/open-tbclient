@@ -31,11 +31,11 @@ import com.repackage.cl5;
 import com.repackage.de5;
 import com.repackage.dl5;
 import com.repackage.el5;
-import com.repackage.er4;
-import com.repackage.fu4;
+import com.repackage.fr4;
+import com.repackage.gu4;
 import com.repackage.he5;
-import com.repackage.j85;
-import com.repackage.jd5;
+import com.repackage.k85;
+import com.repackage.kd5;
 import com.repackage.n57;
 import java.util.List;
 /* loaded from: classes3.dex */
@@ -44,11 +44,11 @@ public class NewFriendsActivity extends BaseActivity<NewFriendsActivity> {
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
     public el5 b;
-    public er4 c;
+    public fr4 c;
     public cl5.c d;
     public final CustomMessageListener e;
     public final bb f;
-    public final fu4.g g;
+    public final gu4.g g;
     public final RecommendFriendModel h;
 
     /* loaded from: classes3.dex */
@@ -88,7 +88,7 @@ public class NewFriendsActivity extends BaseActivity<NewFriendsActivity> {
     }
 
     /* loaded from: classes3.dex */
-    public class b implements jd5<Boolean> {
+    public class b implements kd5<Boolean> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ n57 a;
@@ -114,7 +114,7 @@ public class NewFriendsActivity extends BaseActivity<NewFriendsActivity> {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.jd5
+        @Override // com.repackage.kd5
         /* renamed from: a */
         public void onReturnDataInUI(Boolean bool) {
             Interceptable interceptable = $ic;
@@ -125,7 +125,7 @@ public class NewFriendsActivity extends BaseActivity<NewFriendsActivity> {
     }
 
     /* loaded from: classes3.dex */
-    public class c implements fu4.g {
+    public class c implements gu4.g {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ NewFriendsActivity a;
@@ -148,7 +148,7 @@ public class NewFriendsActivity extends BaseActivity<NewFriendsActivity> {
             this.a = newFriendsActivity;
         }
 
-        @Override // com.repackage.fu4.g
+        @Override // com.repackage.gu4.g
         public void e(boolean z) {
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeZ(1048576, this, z) == null) || z) {
@@ -315,7 +315,7 @@ public class NewFriendsActivity extends BaseActivity<NewFriendsActivity> {
     }
 
     /* loaded from: classes3.dex */
-    public class h implements jd5<List<n57>> {
+    public class h implements kd5<List<n57>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ NewFriendsActivity a;
@@ -339,7 +339,7 @@ public class NewFriendsActivity extends BaseActivity<NewFriendsActivity> {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.jd5
+        @Override // com.repackage.kd5
         /* renamed from: a */
         public void onReturnDataInUI(List<n57> list) {
             Interceptable interceptable = $ic;
@@ -388,10 +388,10 @@ public class NewFriendsActivity extends BaseActivity<NewFriendsActivity> {
                     if (!(socketResponsedMessage instanceof ResponsePassFriendMessage) || (error = (responsePassFriendMessage = (ResponsePassFriendMessage) socketResponsedMessage).getError()) == 0 || error == 3100098) {
                         return;
                     }
-                    this.a.showToast(StringUtils.isNull(responsePassFriendMessage.getErrorString()) ? this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0c2b) : responsePassFriendMessage.getErrorString());
+                    this.a.showToast(StringUtils.isNull(responsePassFriendMessage.getErrorString()) ? this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0c17) : responsePassFriendMessage.getErrorString());
                     return;
                 }
-                this.a.showToast(R.string.obfuscated_res_0x7f0f0c2b);
+                this.a.showToast(R.string.obfuscated_res_0x7f0f0c17);
             }
         }
     }
@@ -435,7 +435,7 @@ public class NewFriendsActivity extends BaseActivity<NewFriendsActivity> {
     }
 
     /* loaded from: classes3.dex */
-    public class k implements jd5<List<n57>> {
+    public class k implements kd5<List<n57>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ NewFriendsActivity a;
@@ -459,7 +459,7 @@ public class NewFriendsActivity extends BaseActivity<NewFriendsActivity> {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.jd5
+        @Override // com.repackage.kd5
         /* renamed from: a */
         public void onReturnDataInUI(List<n57> list) {
             Interceptable interceptable = $ic;
@@ -505,7 +505,7 @@ public class NewFriendsActivity extends BaseActivity<NewFriendsActivity> {
     }
 
     /* loaded from: classes3.dex */
-    public class m implements jd5<List<n57>> {
+    public class m implements kd5<List<n57>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ NewFriendsActivity a;
@@ -529,7 +529,7 @@ public class NewFriendsActivity extends BaseActivity<NewFriendsActivity> {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.jd5
+        @Override // com.repackage.kd5
         /* renamed from: a */
         public void onReturnDataInUI(List<n57> list) {
             Interceptable interceptable = $ic;
@@ -540,7 +540,7 @@ public class NewFriendsActivity extends BaseActivity<NewFriendsActivity> {
     }
 
     /* loaded from: classes3.dex */
-    public class n implements er4.c {
+    public class n implements fr4.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public n57 a;
@@ -565,11 +565,11 @@ public class NewFriendsActivity extends BaseActivity<NewFriendsActivity> {
             this.a = n57Var;
         }
 
-        @Override // com.repackage.er4.c
-        public void a(er4 er4Var, int i, View view2) {
+        @Override // com.repackage.fr4.c
+        public void a(fr4 fr4Var, int i, View view2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLIL(1048576, this, er4Var, i, view2) == null) {
-                er4Var.e();
+            if (interceptable == null || interceptable.invokeLIL(1048576, this, fr4Var, i, view2) == null) {
+                fr4Var.e();
                 n57 n57Var = this.a;
                 if (n57Var != null) {
                     this.b.J1(n57Var);
@@ -614,16 +614,16 @@ public class NewFriendsActivity extends BaseActivity<NewFriendsActivity> {
         }
     }
 
-    public final er4 K1(n nVar) {
+    public final fr4 K1(n nVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, nVar)) == null) {
-            er4 er4Var = new er4(getPageContext().getPageActivity());
-            er4Var.k(R.string.obfuscated_res_0x7f0f0cf1);
-            er4Var.j(new String[]{getPageContext().getString(R.string.obfuscated_res_0x7f0f049f)}, nVar);
-            return er4Var;
+            fr4 fr4Var = new fr4(getPageContext().getPageActivity());
+            fr4Var.k(R.string.obfuscated_res_0x7f0f0cdd);
+            fr4Var.j(new String[]{getPageContext().getString(R.string.obfuscated_res_0x7f0f049e)}, nVar);
+            return fr4Var;
         }
-        return (er4) invokeL.objValue;
+        return (fr4) invokeL.objValue;
     }
 
     public final void L1() {
@@ -643,7 +643,7 @@ public class NewFriendsActivity extends BaseActivity<NewFriendsActivity> {
     public final void N1(n57 n57Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, n57Var) == null) {
-            j85.a(n57Var.b(), AddFriendActivityConfig.TYPE_NEW_FRD);
+            k85.a(n57Var.b(), AddFriendActivityConfig.TYPE_NEW_FRD);
         }
     }
 
@@ -665,7 +665,7 @@ public class NewFriendsActivity extends BaseActivity<NewFriendsActivity> {
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, view2) == null) && view2.getId() == R.id.obfuscated_res_0x7f0915bc) {
+        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, view2) == null) && view2.getId() == R.id.obfuscated_res_0x7f091597) {
             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new SearchFriendActivityConfig(getPageContext().getPageActivity())));
         }
     }
@@ -675,7 +675,7 @@ public class NewFriendsActivity extends BaseActivity<NewFriendsActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d05fa);
+            setContentView(R.layout.obfuscated_res_0x7f0d0604);
             el5 el5Var = new el5(this);
             this.b = el5Var;
             el5Var.m(this.g);
@@ -699,9 +699,9 @@ public class NewFriendsActivity extends BaseActivity<NewFriendsActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
             super.onDestroy();
-            er4 er4Var = this.c;
-            if (er4Var != null) {
-                er4Var.e();
+            fr4 fr4Var = this.c;
+            if (fr4Var != null) {
+                fr4Var.e();
             }
         }
     }
@@ -724,7 +724,7 @@ public class NewFriendsActivity extends BaseActivity<NewFriendsActivity> {
             if (item == null || !(item instanceof n57)) {
                 return true;
             }
-            er4 K1 = K1(new n(this, item));
+            fr4 K1 = K1(new n(this, item));
             this.c = K1;
             K1.c(getPageContext());
             this.c.m();

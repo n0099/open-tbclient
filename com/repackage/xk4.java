@@ -1,7 +1,8 @@
 package com.repackage;
+
+import android.content.Context;
+import android.view.View;
 /* loaded from: classes7.dex */
 public interface xk4 {
-    void a(boolean z);
-
-    void onFail();
+    View a(Context context);
 }

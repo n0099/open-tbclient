@@ -27,7 +27,7 @@ public class ie7 {
     public qd7 c;
     public TextView d;
     public BdBaseViewPagerAdapter e;
-    public bw4 f;
+    public cw4 f;
     public boolean g;
     public boolean h;
     public int i;
@@ -232,13 +232,13 @@ public class ie7 {
         return invokeV.booleanValue;
     }
 
-    public void l(Context context, aw4<?, ?> aw4Var) {
+    public void l(Context context, bw4<?, ?> bw4Var) {
         BdBaseViewPagerAdapter bdBaseViewPagerAdapter;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048579, this, context, aw4Var) == null) || (bdBaseViewPagerAdapter = this.e) == null) {
+        if (!(interceptable == null || interceptable.invokeLL(1048579, this, context, bw4Var) == null) || (bdBaseViewPagerAdapter = this.e) == null) {
             return;
         }
-        bdBaseViewPagerAdapter.g(context, aw4Var);
+        bdBaseViewPagerAdapter.g(context, bw4Var);
     }
 
     public void m(long j) {
@@ -257,9 +257,9 @@ public class ie7 {
             return;
         }
         this.k = list;
-        bw4 bw4Var = new bw4(list, this.g, this.i);
-        this.f = bw4Var;
-        bw4Var.i(2);
+        cw4 cw4Var = new cw4(list, this.g, this.i);
+        this.f = cw4Var;
+        cw4Var.i(2);
         boolean z = true;
         this.f.g(1);
         this.e.h(this.f.e());
@@ -345,9 +345,9 @@ public class ie7 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
             this.i = i;
-            bw4 bw4Var = this.f;
-            if (bw4Var != null) {
-                bw4Var.h(i);
+            cw4 cw4Var = this.f;
+            if (cw4Var != null) {
+                cw4Var.h(i);
             }
         }
     }

@@ -22,7 +22,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.cr4;
+import com.repackage.dr4;
 import java.util.ArrayList;
 /* loaded from: classes7.dex */
 public class v78 {
@@ -34,7 +34,7 @@ public class v78 {
     public BdListView d;
     public ff7 e;
     public View f;
-    public cr4 g;
+    public dr4 g;
     public NoDataView h;
     public boolean i;
 
@@ -146,7 +146,7 @@ public class v78 {
     }
 
     /* loaded from: classes7.dex */
-    public class d implements cr4.e {
+    public class d implements dr4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -166,17 +166,17 @@ public class v78 {
             }
         }
 
-        @Override // com.repackage.cr4.e
-        public void onClick(cr4 cr4Var) {
+        @Override // com.repackage.dr4.e
+        public void onClick(dr4 dr4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, cr4Var) == null) {
-                cr4Var.dismiss();
+            if (interceptable == null || interceptable.invokeL(1048576, this, dr4Var) == null) {
+                dr4Var.dismiss();
             }
         }
     }
 
     /* loaded from: classes7.dex */
-    public class e implements cr4.e {
+    public class e implements dr4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ v78 a;
@@ -199,11 +199,11 @@ public class v78 {
             this.a = v78Var;
         }
 
-        @Override // com.repackage.cr4.e
-        public void onClick(cr4 cr4Var) {
+        @Override // com.repackage.dr4.e
+        public void onClick(dr4 dr4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, cr4Var) == null) {
-                cr4Var.dismiss();
+            if (interceptable == null || interceptable.invokeL(1048576, this, dr4Var) == null) {
+                dr4Var.dismiss();
                 this.a.a.o0().g();
                 this.a.d.setVisibility(8);
                 this.a.n();
@@ -297,8 +297,8 @@ public class v78 {
     public final void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.c = this.a.findViewById(R.id.obfuscated_res_0x7f090d15);
-            this.d = (BdListView) this.b.findViewById(R.id.obfuscated_res_0x7f090d16);
+            this.c = this.a.findViewById(R.id.obfuscated_res_0x7f090d0e);
+            this.d = (BdListView) this.b.findViewById(R.id.obfuscated_res_0x7f090d0f);
             BdListViewHelper.d(this.a.getActivity(), this.d, BdListViewHelper.HeadType.DEFAULT);
             ff7 ff7Var = new ff7(this.a.getPageContext().getPageActivity(), null);
             this.e = ff7Var;
@@ -329,7 +329,7 @@ public class v78 {
     public void j(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
-            ga5.a(this.a.getPageContext(), this.f);
+            ha5.a(this.a.getPageContext(), this.f);
             this.e.notifyDataSetChanged();
             NoDataView noDataView = this.h;
             if (noDataView != null) {
@@ -359,7 +359,7 @@ public class v78 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             if (this.g == null) {
-                this.g = new cr4(this.a.getPageContext().getPageActivity()).setMessage(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f0259)).setPositiveButton(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f03d3), new e(this)).setNegativeButton(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f036a), new d(this)).create(this.a.getPageContext());
+                this.g = new dr4(this.a.getPageContext().getPageActivity()).setMessage(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f0259)).setPositiveButton(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f03d3), new e(this)).setNegativeButton(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f036a), new d(this)).create(this.a.getPageContext());
             }
             this.g.show();
         }
@@ -370,14 +370,14 @@ public class v78 {
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             this.i = true;
             PostSearchActivity postSearchActivity = this.a;
-            postSearchActivity.showLoadingView(this.c, false, postSearchActivity.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702b6));
+            postSearchActivity.showLoadingView(this.c, false, postSearchActivity.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702b2));
         }
     }
 
     public final void n() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            o(R.string.obfuscated_res_0x7f0f0c31);
+            o(R.string.obfuscated_res_0x7f0f0c1d);
         }
     }
 
@@ -385,7 +385,7 @@ public class v78 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
             if (this.h == null) {
-                NoDataView a2 = NoDataViewFactory.a(this.a.getPageContext().getPageActivity(), this.c, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NODATA, pi.f(this.a.getActivity(), R.dimen.obfuscated_res_0x7f0702a0)), NoDataViewFactory.e.a(R.string.obfuscated_res_0x7f0f13c3), null);
+                NoDataView a2 = NoDataViewFactory.a(this.a.getPageContext().getPageActivity(), this.c, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NODATA, pi.f(this.a.getActivity(), R.dimen.obfuscated_res_0x7f07029e)), NoDataViewFactory.e.a(R.string.obfuscated_res_0x7f0f1372), null);
                 this.h = a2;
                 a2.f(this.a.getPageContext(), TbadkCoreApplication.getInst().getSkinType());
                 this.h.setOnTouchListener(new f(this));
@@ -399,7 +399,7 @@ public class v78 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
             this.d.setVisibility(8);
-            o(R.string.obfuscated_res_0x7f0f0c32);
+            o(R.string.obfuscated_res_0x7f0f0c1e);
         }
     }
 }

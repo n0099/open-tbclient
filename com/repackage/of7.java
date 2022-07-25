@@ -126,7 +126,7 @@ public class of7 extends an<tf7, SearchSuggestItemViewHolder> {
     public SearchSuggestItemViewHolder M(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, viewGroup)) == null) ? new SearchSuggestItemViewHolder(LayoutInflater.from(this.i).inflate(R.layout.obfuscated_res_0x7f0d0755, viewGroup, false)) : (SearchSuggestItemViewHolder) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, viewGroup)) == null) ? new SearchSuggestItemViewHolder(LayoutInflater.from(this.i).inflate(R.layout.obfuscated_res_0x7f0d075f, viewGroup, false)) : (SearchSuggestItemViewHolder) invokeL.objValue;
     }
 
     public View d0(int i, View view2, ViewGroup viewGroup, tf7 tf7Var, SearchSuggestItemViewHolder searchSuggestItemViewHolder) {
@@ -169,18 +169,18 @@ public class of7 extends an<tf7, SearchSuggestItemViewHolder> {
     public final void e0(SearchSuggestItemViewHolder searchSuggestItemViewHolder) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, searchSuggestItemViewHolder) == null) {
-            ur4 d = ur4.d(searchSuggestItemViewHolder.c);
+            vr4 d = vr4.d(searchSuggestItemViewHolder.c);
             d.A(R.string.F_X02);
             d.v(R.color.CAM_X0105);
             d.z(R.dimen.T_X06);
-            ur4 d2 = ur4.d(searchSuggestItemViewHolder.d);
+            vr4 d2 = vr4.d(searchSuggestItemViewHolder.d);
             d2.v(R.color.CAM_X0108);
             d2.z(R.dimen.T_X09);
-            ur4 d3 = ur4.d(searchSuggestItemViewHolder.e);
+            vr4 d3 = vr4.d(searchSuggestItemViewHolder.e);
             d3.v(R.color.CAM_X0108);
             d3.z(R.dimen.T_X09);
             SkinManager.setBackgroundResource(searchSuggestItemViewHolder.a, R.drawable.addresslist_item_bg);
-            ur4.d(searchSuggestItemViewHolder.g).f(R.color.CAM_X0203);
+            vr4.d(searchSuggestItemViewHolder.g).f(R.color.CAM_X0203);
         }
     }
 

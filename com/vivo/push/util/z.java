@@ -14,8 +14,6 @@ import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.sapi2.stat.ShareLoginStat;
-import com.baidu.sofire.sharedpreferences.SharedPreferenceManager;
-import com.baidu.sofire.utility.PermissionChecker;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -51,7 +49,7 @@ public final class z {
             }
         }
         a = new String[]{"com.vivo.push.sdk.RegistrationReceiver", "com.vivo.push.sdk.service.PushService", "com.vivo.push.sdk.service.CommonJobService"};
-        b = new String[]{PermissionChecker.INTERNET, PermissionChecker.READ_PHONE_STATE, "android.permission.ACCESS_NETWORK_STATE", "android.permission.WRITE_SETTINGS", "android.permission.VIBRATE", "android.permission.WRITE_EXTERNAL_STORAGE", PermissionChecker.ACCESS_WIFI_STATE, "android.permission.WAKE_LOCK", PermissionChecker.GET_ACCOUNT, "com.bbk.account.permission.READ_ACCOUNTINFO", "android.permission.AUTHENTICATE_ACCOUNTS", "android.permission.MOUNT_UNMOUNT_FILESYSTEMS", PermissionChecker.GET_TASKS};
+        b = new String[]{com.kuaishou.weapon.p0.h.a, com.kuaishou.weapon.p0.h.c, "android.permission.ACCESS_NETWORK_STATE", "android.permission.WRITE_SETTINGS", "android.permission.VIBRATE", "android.permission.WRITE_EXTERNAL_STORAGE", com.kuaishou.weapon.p0.h.d, "android.permission.WAKE_LOCK", com.kuaishou.weapon.p0.h.f, "com.bbk.account.permission.READ_ACCOUNTINFO", "android.permission.AUTHENTICATE_ACCOUNTS", "android.permission.MOUNT_UNMOUNT_FILESYSTEMS", com.kuaishou.weapon.p0.h.e};
         c = new String[]{"com.vivo.push.sdk.service.CommandService", "com.vivo.push.sdk.service.CommonJobService"};
         d = new String[]{"com.vivo.push.sdk.RegistrationReceiver"};
         e = new String[0];
@@ -242,7 +240,7 @@ public final class z {
             boolean c2 = t.c(context, context.getPackageName());
             if (e2) {
                 a = new String[]{"com.vivo.push.sdk.RegistrationReceiver", "com.vivo.push.sdk.service.PushService", "com.vivo.push.sdk.service.CommonJobService"};
-                b = new String[]{PermissionChecker.INTERNET, PermissionChecker.READ_PHONE_STATE, "android.permission.ACCESS_NETWORK_STATE", "android.permission.WRITE_SETTINGS", "android.permission.VIBRATE", "android.permission.WRITE_EXTERNAL_STORAGE", PermissionChecker.ACCESS_WIFI_STATE, "android.permission.WAKE_LOCK", PermissionChecker.GET_ACCOUNT, "com.bbk.account.permission.READ_ACCOUNTINFO", "android.permission.AUTHENTICATE_ACCOUNTS", "android.permission.MOUNT_UNMOUNT_FILESYSTEMS", PermissionChecker.GET_TASKS};
+                b = new String[]{com.kuaishou.weapon.p0.h.a, com.kuaishou.weapon.p0.h.c, "android.permission.ACCESS_NETWORK_STATE", "android.permission.WRITE_SETTINGS", "android.permission.VIBRATE", "android.permission.WRITE_EXTERNAL_STORAGE", com.kuaishou.weapon.p0.h.d, "android.permission.WAKE_LOCK", com.kuaishou.weapon.p0.h.f, "com.bbk.account.permission.READ_ACCOUNTINFO", "android.permission.AUTHENTICATE_ACCOUNTS", "android.permission.MOUNT_UNMOUNT_FILESYSTEMS", com.kuaishou.weapon.p0.h.e};
                 c = new String[]{"com.vivo.push.sdk.service.CommandService", "com.vivo.push.sdk.service.CommonJobService"};
                 d = new String[]{"com.vivo.push.sdk.RegistrationReceiver"};
             } else if (!c2 && !d2) {
@@ -256,9 +254,9 @@ public final class z {
                 d = new String[0];
                 a = new String[0];
                 if (d2) {
-                    b = new String[]{PermissionChecker.INTERNET, "android.permission.WRITE_SETTINGS"};
+                    b = new String[]{com.kuaishou.weapon.p0.h.a, "android.permission.WRITE_SETTINGS"};
                 } else {
-                    b = new String[]{PermissionChecker.INTERNET};
+                    b = new String[]{com.kuaishou.weapon.p0.h.a};
                 }
             }
             try {
@@ -509,7 +507,7 @@ public final class z {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65546, null, str, str2)) == null) {
             try {
-                str3 = (String) Class.forName("android.os.SystemProperties").getMethod(SharedPreferenceManager.OPERATION_GET_PERFIX, String.class).invoke(null, str);
+                str3 = (String) Class.forName("android.os.SystemProperties").getMethod("get", String.class).invoke(null, str);
             } catch (Exception e2) {
                 e2.printStackTrace();
                 str3 = str2;

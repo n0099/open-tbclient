@@ -18,16 +18,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.a95;
 import com.repackage.n56;
-import com.repackage.vm4;
 import com.repackage.w57;
-import com.repackage.w85;
-import com.repackage.y85;
+import com.repackage.wm4;
+import com.repackage.x85;
 import com.repackage.z85;
 import java.util.Map;
 import java.util.Set;
 /* loaded from: classes3.dex */
-public class EnterForumTabFragment extends LazyBaseFragment implements vm4 {
+public class EnterForumTabFragment extends LazyBaseFragment implements wm4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public n56 g;
@@ -166,7 +166,7 @@ public class EnterForumTabFragment extends LazyBaseFragment implements vm4 {
     }
 
     /* loaded from: classes3.dex */
-    public class d extends w85 {
+    public class d extends x85 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ EnterForumTabFragment b;
@@ -189,24 +189,24 @@ public class EnterForumTabFragment extends LazyBaseFragment implements vm4 {
             this.b = enterForumTabFragment;
         }
 
-        @Override // com.repackage.w85
-        public boolean a(y85 y85Var) {
+        @Override // com.repackage.x85
+        public boolean a(z85 z85Var) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, y85Var)) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, z85Var)) == null) {
                 return false;
             }
             return invokeL.booleanValue;
         }
 
-        @Override // com.repackage.w85
+        @Override // com.repackage.x85
         public int b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? z85.b().c() : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? a95.b().c() : invokeV.intValue;
         }
 
-        @Override // com.repackage.w85
+        @Override // com.repackage.x85
         public boolean c() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -247,7 +247,7 @@ public class EnterForumTabFragment extends LazyBaseFragment implements vm4 {
         }
     }
 
-    @Override // com.repackage.vm4
+    @Override // com.repackage.wm4
     public void e1(Intent intent) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, intent) == null) || intent == null || this.g == null) {
@@ -262,7 +262,7 @@ public class EnterForumTabFragment extends LazyBaseFragment implements vm4 {
         }
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragment, com.repackage.v85
+    @Override // com.baidu.tbadk.core.BaseFragment, com.repackage.w85
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -276,11 +276,11 @@ public class EnterForumTabFragment extends LazyBaseFragment implements vm4 {
         return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragment, com.repackage.v85
-    public w85 getPageStayFilter() {
+    @Override // com.baidu.tbadk.core.BaseFragment, com.repackage.w85
+    public x85 getPageStayFilter() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? new d(this) : (w85) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? new d(this) : (x85) invokeV.objValue;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment

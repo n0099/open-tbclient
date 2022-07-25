@@ -1,23 +1,23 @@
 package com.repackage;
 
-import android.widget.EditText;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.pass.face.platform.ConstPath;
-import com.baidu.tbadk.core.atomData.AddFriendActivityConfig;
+import android.content.Context;
+import android.text.TextWatcher;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.apps.component.components.textarea.SwanEditText;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.repackage.qw1;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
 public class vi2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
-    public static qw1.g b;
+    public static volatile vi2 c;
     public transient /* synthetic */ FieldHolder $fh;
+    public TextWatcher a;
+    public SwanEditText b;
 
     static {
         InterceptResult invokeClinit;
@@ -32,74 +32,73 @@ public class vi2 {
                 return;
             }
         }
-        a = rg1.a;
+        boolean z = sg1.a;
     }
 
-    public static void a(qw1.g gVar) {
+    public vi2() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, gVar) == null) {
-            b = gVar;
-        }
-    }
-
-    public static void b(EditText editText, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65538, null, editText, i) == null) {
-            e(editText, ConstPath.KEY_BLUR, i);
-        }
-    }
-
-    public static void c(rw1 rw1Var, EditText editText, int i) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLI(65539, null, rw1Var, editText, i) == null) || editText == null || b == null) {
-            return;
-        }
-        JSONObject jSONObject = new JSONObject();
-        try {
-            jSONObject.put("value", editText.getText());
-            jSONObject.put("eventName", "change");
-            jSONObject.put("cursorOffset", editText.getSelectionStart());
-            jSONObject.put("keyCode", i);
-        } catch (JSONException e) {
-            if (a) {
-                e.printStackTrace();
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        rw1Var.j(editText.getText().toString());
-        rw1Var.l(editText.getSelectionStart(), editText.getSelectionEnd());
-        b.a(String.valueOf(editText.getTag()), jSONObject);
     }
 
-    public static void d(EditText editText, int i) {
+    public static vi2 d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, editText, i) == null) {
-            e(editText, "confirm", i);
-        }
-    }
-
-    public static void e(EditText editText, String str, int i) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLI(65541, null, editText, str, i) == null) || editText == null || b == null) {
-            return;
-        }
-        JSONObject jSONObject = new JSONObject();
-        try {
-            jSONObject.put("value", editText.getText());
-            jSONObject.put("eventName", str);
-            jSONObject.put("cursorOffset", editText.getText().length());
-            jSONObject.put("keyboardHeight", "" + yd3.O(i));
-        } catch (JSONException e) {
-            if (a) {
-                e.printStackTrace();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (c == null) {
+                synchronized (vi2.class) {
+                    if (c == null) {
+                        c = new vi2();
+                    }
+                }
             }
+            return c;
         }
-        b.a(String.valueOf(editText.getTag()), jSONObject);
+        return (vi2) invokeV.objValue;
     }
 
-    public static void f(EditText editText, int i) {
+    public SwanEditText a(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65542, null, editText, i) == null) {
-            e(editText, AddFriendActivityConfig.TYPE_FOCUS, i);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
+            SwanEditText swanEditText = new SwanEditText(context);
+            this.b = swanEditText;
+            return swanEditText;
+        }
+        return (SwanEditText) invokeL.objValue;
+    }
+
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.b = null;
+        }
+    }
+
+    public SwanEditText c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.b : (SwanEditText) invokeV.objValue;
+    }
+
+    public TextWatcher e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a : (TextWatcher) invokeV.objValue;
+    }
+
+    public void f(TextWatcher textWatcher) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, textWatcher) == null) {
+            this.a = textWatcher;
         }
     }
 }

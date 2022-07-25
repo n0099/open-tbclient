@@ -47,42 +47,21 @@ public final class InstalledAppInfoManager {
             try {
                 appPackageInfo.appName = applicationInfo.loadLabel(packageManager).toString();
             } catch (Throwable th) {
-                com.kwad.sdk.core.d.b.b(th);
+                com.kwad.sdk.core.e.b.printStackTraceOnly(th);
             }
         }
         return appPackageInfo;
     }
 
-    @NonNull
-    public static JSONArray a(Context context) {
-        return a(b(context));
-    }
-
-    @NonNull
-    public static JSONArray a(@NonNull Map<String, AppPackageInfo> map) {
-        JSONArray jSONArray = new JSONArray();
-        try {
-            for (String str : map.keySet()) {
-                AppPackageInfo appPackageInfo = map.get(str);
-                if (appPackageInfo != null && !TextUtils.isEmpty(appPackageInfo.packageName)) {
-                    r.a(jSONArray, a(appPackageInfo));
-                }
-            }
-        } catch (Exception e) {
-            com.kwad.sdk.core.d.b.b(e);
-        }
-        return jSONArray;
-    }
-
     public static JSONObject a(AppPackageInfo appPackageInfo) {
         JSONObject jSONObject = new JSONObject();
-        r.a(jSONObject, "pkgName", appPackageInfo.packageName);
-        r.a(jSONObject, "system_app", appPackageInfo.isSystemApp ? 1 : 0);
-        r.a(jSONObject, "appVersion", appPackageInfo.versionName);
-        r.a(jSONObject, "firstInstallTime", appPackageInfo.firstInstallTime);
-        r.a(jSONObject, "lastUpdateTime", appPackageInfo.lastUpdateTime);
-        r.a(jSONObject, "reportMethod", appPackageInfo.reportMethod);
-        r.a(jSONObject, "appName", appPackageInfo.appName);
+        r.putValue(jSONObject, "pkgName", appPackageInfo.packageName);
+        r.putValue(jSONObject, "system_app", appPackageInfo.isSystemApp ? 1 : 0);
+        r.putValue(jSONObject, "appVersion", appPackageInfo.versionName);
+        r.putValue(jSONObject, "firstInstallTime", appPackageInfo.firstInstallTime);
+        r.putValue(jSONObject, "lastUpdateTime", appPackageInfo.lastUpdateTime);
+        r.putValue(jSONObject, "reportMethod", appPackageInfo.reportMethod);
+        r.putValue(jSONObject, "appName", appPackageInfo.appName);
         return jSONObject;
     }
 
@@ -90,11 +69,15 @@ public final class InstalledAppInfoManager {
         return (applicationInfo.flags & 1) != 0;
     }
 
+    public static boolean b(ApplicationInfo applicationInfo) {
+        return (applicationInfo.flags & 128) != 0;
+    }
+
     @NonNull
-    public static JSONArray[] a(Context context, List<String> list) {
+    public static JSONArray[] c(Context context, List<String> list) {
         JSONArray[] jSONArrayArr = new JSONArray[2];
-        com.kwad.sdk.service.kwai.f fVar = (com.kwad.sdk.service.kwai.f) ServiceProvider.a(com.kwad.sdk.service.kwai.f.class);
-        if (context == null || list == null || list.isEmpty() || fVar == null || fVar.a(16L)) {
+        com.kwad.sdk.service.kwai.f fVar = (com.kwad.sdk.service.kwai.f) ServiceProvider.get(com.kwad.sdk.service.kwai.f.class);
+        if (context == null || list == null || list.isEmpty() || fVar == null || fVar.i(16L)) {
             return jSONArrayArr;
         }
         HashMap hashMap = new HashMap();
@@ -117,21 +100,26 @@ public final class InstalledAppInfoManager {
                 hashMap2.put(str, appPackageInfo2);
             }
         }
-        jSONArrayArr[0] = a(hashMap);
-        jSONArrayArr[1] = a(hashMap2);
+        jSONArrayArr[0] = d(hashMap);
+        jSONArrayArr[1] = d(hashMap2);
         return jSONArrayArr;
     }
 
     @NonNull
-    public static Map<String, AppPackageInfo> b(Context context) {
+    public static JSONArray ch(Context context) {
+        return d(ci(context));
+    }
+
+    @NonNull
+    public static Map<String, AppPackageInfo> ci(Context context) {
         HashMap hashMap = new HashMap();
         if (context == null) {
             return hashMap;
         }
         PackageManager packageManager = context.getPackageManager();
-        if (an.m()) {
-            if (an.n() != null) {
-                for (String str : an.n()) {
+        if (aq.Af()) {
+            if (aq.Ag() != null) {
+                for (String str : aq.Ag()) {
                     try {
                         PackageInfo packageInfo = packageManager.getPackageInfo(str, 0);
                         if (packageInfo != null) {
@@ -145,17 +133,17 @@ public final class InstalledAppInfoManager {
             }
             return hashMap;
         }
-        com.kwad.sdk.service.kwai.f fVar = (com.kwad.sdk.service.kwai.f) ServiceProvider.a(com.kwad.sdk.service.kwai.f.class);
-        if (fVar != null && !fVar.a(16L)) {
+        com.kwad.sdk.service.kwai.f fVar = (com.kwad.sdk.service.kwai.f) ServiceProvider.get(com.kwad.sdk.service.kwai.f.class);
+        if (fVar != null && !fVar.i(16L)) {
             try {
-                List<String> o = av.o(context);
+                List<String> dx = az.dx(context);
                 Intent intent = new Intent("android.intent.action.MAIN", (Uri) null);
                 intent.addCategory("android.intent.category.LAUNCHER");
                 for (ResolveInfo resolveInfo : context.getPackageManager().queryIntentActivities(intent, 32)) {
                     if (resolveInfo != null && resolveInfo.activityInfo != null && !TextUtils.isEmpty(resolveInfo.activityInfo.packageName)) {
                         String str2 = resolveInfo.activityInfo.packageName;
-                        if (o != null && !o.isEmpty()) {
-                            o.remove(str2);
+                        if (dx != null && !dx.isEmpty()) {
+                            dx.remove(str2);
                         }
                         PackageInfo packageInfo2 = packageManager.getPackageInfo(str2, 0);
                         if (packageInfo2 != null) {
@@ -165,8 +153,8 @@ public final class InstalledAppInfoManager {
                         }
                     }
                 }
-                if (o != null && !o.isEmpty()) {
-                    for (String str3 : o) {
+                if (dx != null && !dx.isEmpty()) {
+                    for (String str3 : dx) {
                         try {
                             PackageInfo packageInfo3 = packageManager.getPackageInfo(str3, 0);
                             if (packageInfo3 != null) {
@@ -180,13 +168,13 @@ public final class InstalledAppInfoManager {
                 }
             } catch (Exception unused3) {
             }
-            hashMap.putAll(b(context, fVar.g()));
+            hashMap.putAll(d(context, fVar.lD()));
         }
         return hashMap;
     }
 
     @NonNull
-    public static Map<String, AppPackageInfo> b(Context context, List<String> list) {
+    public static Map<String, AppPackageInfo> d(Context context, List<String> list) {
         HashMap hashMap = new HashMap();
         if (context != null && list != null) {
             for (String str : list) {
@@ -204,7 +192,19 @@ public final class InstalledAppInfoManager {
         return hashMap;
     }
 
-    public static boolean b(ApplicationInfo applicationInfo) {
-        return (applicationInfo.flags & 128) != 0;
+    @NonNull
+    public static JSONArray d(@NonNull Map<String, AppPackageInfo> map) {
+        JSONArray jSONArray = new JSONArray();
+        try {
+            for (String str : map.keySet()) {
+                AppPackageInfo appPackageInfo = map.get(str);
+                if (appPackageInfo != null && !TextUtils.isEmpty(appPackageInfo.packageName)) {
+                    r.putValue(jSONArray, a(appPackageInfo));
+                }
+            }
+        } catch (Exception e) {
+            com.kwad.sdk.core.e.b.printStackTraceOnly(e);
+        }
+        return jSONArray;
     }
 }

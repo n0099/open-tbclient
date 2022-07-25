@@ -123,7 +123,7 @@ public class x5 implements h7 {
             StringBuilder sb = new StringBuilder();
             sb.append("Managed shaders/app: { ");
             w7.c<Application> f = u.f();
-            f.d();
+            f.c();
             while (f.hasNext()) {
                 sb.append(u.c(f.next()).b);
                 sb.append(" ");

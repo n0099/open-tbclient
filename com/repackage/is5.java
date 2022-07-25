@@ -27,7 +27,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.fu4;
+import com.repackage.gu4;
 import com.repackage.jf;
 import java.util.ArrayList;
 import java.util.List;
@@ -43,12 +43,12 @@ public class is5 {
     public LinearLayout f;
     public View g;
     public BdTypeListView h;
-    public gu4 i;
+    public hu4 i;
     public NavigationBar j;
     public LinearLayout k;
-    public j55 l;
+    public k55 l;
     public PbListView m;
-    public k55 n;
+    public l55 n;
     public final List<an> o;
     public as5 p;
     public bs5 q;
@@ -170,8 +170,8 @@ public class is5 {
             this.g = false;
             this.i = new a(this);
             this.b = view2;
-            this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091317);
-            TextView textView = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091320);
+            this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0912f3);
+            TextView textView = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0912fc);
             this.d = textView;
             textView.setVisibility(8);
             this.d.setOnClickListener(this);
@@ -196,7 +196,7 @@ public class is5 {
                 SkinManager.setBackgroundResource(this.e, R.drawable.bg_ala_sub_list_sort_panel);
                 this.e.setClipChildren(true);
                 this.e.setOrientation(1);
-                LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(this.j.a.getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f07025f), this.j.a.getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f070308));
+                LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(this.j.a.getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f07025d), this.j.a.getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f070306));
                 for (int i = 0; i < this.f.size(); i++) {
                     this.e.addView(e(this.f.get(i)), layoutParams);
                     if (i != this.f.size() - 1) {
@@ -213,7 +213,7 @@ public class is5 {
                     this.a.setWidth(-2);
                     this.a.setHeight(-2);
                     this.a.setAnimationStyle(16973826);
-                    this.a.setBackgroundDrawable(this.j.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080f2c));
+                    this.a.setBackgroundDrawable(this.j.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080f33));
                     this.a.setOutsideTouchable(true);
                     this.a.setFocusable(true);
                     this.a.setTouchable(true);
@@ -284,7 +284,7 @@ public class is5 {
             if (!(interceptable == null || interceptable.invokeI(1048582, this, i) == null) || this.c == null) {
                 return;
             }
-            this.c.setText(this.j.a.getPageActivity().getResources().getString(R.string.obfuscated_res_0x7f0f11f1, StringHelper.numberUniformFormatExtra(i)));
+            this.c.setText(this.j.a.getPageActivity().getResources().getString(R.string.obfuscated_res_0x7f0f11a0, StringHelper.numberUniformFormatExtra(i)));
             this.b.setVisibility(0);
         }
 
@@ -305,7 +305,7 @@ public class is5 {
                         this.h = str;
                         if (str.contains("距离")) {
                             if (!d()) {
-                                this.j.a.showToast(R.string.obfuscated_res_0x7f0f11ee);
+                                this.j.a.showToast(R.string.obfuscated_res_0x7f0f119d);
                                 return;
                             } else {
                                 jf.n().k(false, this.i);
@@ -342,18 +342,18 @@ public class is5 {
         this.d = BdUniqueId.gen();
         this.o = new ArrayList();
         this.a = tbPageContext;
-        this.e = (LinearLayout) LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0607, (ViewGroup) null);
+        this.e = (LinearLayout) LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0611, (ViewGroup) null);
         this.k = (LinearLayout) LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d010b, (ViewGroup) null);
-        this.f = (LinearLayout) this.e.findViewById(R.id.obfuscated_res_0x7f0912eb);
-        View findViewById = this.e.findViewById(R.id.obfuscated_res_0x7f091e4b);
+        this.f = (LinearLayout) this.e.findViewById(R.id.obfuscated_res_0x7f0912c7);
+        View findViewById = this.e.findViewById(R.id.obfuscated_res_0x7f091e4f);
         this.g = findViewById;
         b bVar = new b(this, findViewById);
         this.r = bVar;
         bVar.g(8);
-        this.h = (BdTypeListView) this.e.findViewById(R.id.obfuscated_res_0x7f0912d4);
-        gu4 gu4Var = new gu4(this.a);
-        this.i = gu4Var;
-        gu4Var.b0(this.d);
+        this.h = (BdTypeListView) this.e.findViewById(R.id.obfuscated_res_0x7f0912b0);
+        hu4 hu4Var = new hu4(this.a);
+        this.i = hu4Var;
+        hu4Var.b0(this.d);
         this.h.setPullRefresh(this.i);
         PbListView pbListView = new PbListView(this.a.getPageActivity());
         this.m = pbListView;
@@ -389,22 +389,22 @@ public class is5 {
     }
 
     public void g() {
-        j55 j55Var;
+        k55 k55Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (j55Var = this.l) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (k55Var = this.l) == null) {
             return;
         }
-        j55Var.dettachView(this.e);
+        k55Var.dettachView(this.e);
         this.l = null;
     }
 
     public void h() {
-        k55 k55Var;
+        l55 l55Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (k55Var = this.n) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (l55Var = this.n) == null) {
             return;
         }
-        k55Var.dettachView(this.e);
+        l55Var.dettachView(this.e);
         this.n = null;
     }
 
@@ -427,9 +427,9 @@ public class is5 {
             if (bVar != null) {
                 bVar.f();
             }
-            j55 j55Var = this.l;
-            if (j55Var != null) {
-                j55Var.onChangeSkinType();
+            k55 k55Var = this.l;
+            if (k55Var != null) {
+                k55Var.onChangeSkinType();
             }
             NavigationBar navigationBar = this.j;
             if (navigationBar != null) {
@@ -439,9 +439,9 @@ public class is5 {
             if (pbListView != null) {
                 pbListView.d(i);
             }
-            k55 k55Var = this.n;
-            if (k55Var != null) {
-                k55Var.onChangeSkinType();
+            l55 l55Var = this.n;
+            if (l55Var != null) {
+                l55Var.onChangeSkinType();
             }
             SkinManager.setBackgroundResource(this.e, R.color.CAM_X0201);
         }
@@ -450,17 +450,17 @@ public class is5 {
     public void k() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            j55 j55Var = this.l;
-            if (j55Var != null) {
-                if (j55Var.j() != null) {
+            k55 k55Var = this.l;
+            if (k55Var != null) {
+                if (k55Var.j() != null) {
                     this.l.dettachView(this.e);
                 }
                 this.l.n();
                 this.l = null;
             }
-            gu4 gu4Var = this.i;
-            if (gu4Var != null) {
-                gu4Var.f(null);
+            hu4 hu4Var = this.i;
+            if (hu4Var != null) {
+                hu4Var.f(null);
                 this.i.g(null);
                 this.i.m(null);
                 this.i.Z();
@@ -524,7 +524,7 @@ public class is5 {
         bdTypeListView.setData(list);
     }
 
-    public void q(fu4.g gVar) {
+    public void q(gu4.g gVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048589, this, gVar) == null) {
             this.i.f(gVar);
@@ -568,11 +568,11 @@ public class is5 {
             return;
         }
         if (this.l == null) {
-            this.l = new j55(tbPageContext.getPageActivity(), this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702ac));
+            this.l = new k55(tbPageContext.getPageActivity(), this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702aa));
         }
-        j55 j55Var = this.l;
-        if (j55Var != null) {
-            j55Var.attachView(this.e, true);
+        k55 k55Var = this.l;
+        if (k55Var != null) {
+            k55Var.attachView(this.e, true);
         }
     }
 
@@ -580,9 +580,9 @@ public class is5 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLZ(1048593, this, str, onClickListener, z) == null) {
             if (this.n == null) {
-                this.n = new k55(this.a.getPageActivity(), onClickListener);
+                this.n = new l55(this.a.getPageActivity(), onClickListener);
             }
-            this.n.k(this.a.getPageActivity().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070263));
+            this.n.k(this.a.getPageActivity().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070260));
             this.n.m(str);
             this.n.attachView(this.e, false);
             if (z) {
@@ -602,7 +602,7 @@ public class is5 {
         if (pbListView.b().getParent() == null) {
             this.h.setNextPage(this.m);
         }
-        this.m.C(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0a09));
+        this.m.C(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f09f5));
         this.m.f();
     }
 }

@@ -1,17 +1,16 @@
 package com.kwad.components.core.webview.b.kwai;
 
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.ksad.json.annotation.KsJson;
-@KsJson
 /* loaded from: classes5.dex */
-public class i extends com.kwad.sdk.core.response.kwai.a {
+public class i extends e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
 
     public i() {
         Interceptable interceptable = $ic;
@@ -25,5 +24,20 @@ public class i extends com.kwad.sdk.core.response.kwai.a {
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
+    }
+
+    public final void c(com.kwad.components.core.webview.b.a.i iVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, iVar) == null) {
+            super.b(iVar);
+        }
+    }
+
+    @Override // com.kwad.sdk.core.webview.kwai.a
+    @NonNull
+    public final String getKey() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "registerMuteStateListener" : (String) invokeV.objValue;
     }
 }

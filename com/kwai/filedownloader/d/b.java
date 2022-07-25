@@ -16,9 +16,9 @@ import java.io.RandomAccessFile;
 public final class b implements com.kwai.filedownloader.d.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final BufferedOutputStream a;
-    public final FileDescriptor b;
-    public final RandomAccessFile c;
+    public final BufferedOutputStream awH;
+    public final RandomAccessFile awI;
+    public final FileDescriptor fd;
 
     /* loaded from: classes5.dex */
     public static class a implements c.e {
@@ -40,7 +40,7 @@ public final class b implements com.kwai.filedownloader.d.a {
         }
 
         @Override // com.kwai.filedownloader.e.c.e
-        public final com.kwai.filedownloader.d.a a(File file) {
+        public final com.kwai.filedownloader.d.a ae(File file) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, file)) == null) ? new b(file) : (com.kwai.filedownloader.d.a) invokeL.objValue;
@@ -63,50 +63,50 @@ public final class b implements com.kwai.filedownloader.d.a {
             }
         }
         RandomAccessFile randomAccessFile = new RandomAccessFile(file, "rw");
-        this.c = randomAccessFile;
-        this.b = randomAccessFile.getFD();
-        this.a = new BufferedOutputStream(new FileOutputStream(this.c.getFD()));
+        this.awI = randomAccessFile;
+        this.fd = randomAccessFile.getFD();
+        this.awH = new BufferedOutputStream(new FileOutputStream(this.awI.getFD()));
     }
 
     @Override // com.kwai.filedownloader.d.a
-    public final void a() {
+    public final void EI() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.a.flush();
-            this.b.sync();
-        }
-    }
-
-    @Override // com.kwai.filedownloader.d.a
-    public final void a(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
-            this.c.seek(j);
-        }
-    }
-
-    @Override // com.kwai.filedownloader.d.a
-    public final void a(byte[] bArr, int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(Constants.METHOD_SEND_USER_MSG, this, bArr, i, i2) == null) {
-            this.a.write(bArr, 0, i2);
-        }
-    }
-
-    @Override // com.kwai.filedownloader.d.a
-    public final void b(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048579, this, j) == null) {
-            this.c.setLength(j);
+            this.awH.flush();
+            this.fd.sync();
         }
     }
 
     @Override // com.kwai.filedownloader.d.a, java.io.Closeable, java.lang.AutoCloseable
     public final void close() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.a.close();
-            this.c.close();
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.awH.close();
+            this.awI.close();
+        }
+    }
+
+    @Override // com.kwai.filedownloader.d.a
+    public final void seek(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) == null) {
+            this.awI.seek(j);
+        }
+    }
+
+    @Override // com.kwai.filedownloader.d.a
+    public final void setLength(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048579, this, j) == null) {
+            this.awI.setLength(j);
+        }
+    }
+
+    @Override // com.kwai.filedownloader.d.a
+    public final void write(byte[] bArr, int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLII(1048580, this, bArr, i, i2) == null) {
+            this.awH.write(bArr, 0, i2);
         }
     }
 }

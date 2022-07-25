@@ -29,7 +29,7 @@ public final class d49 implements b49.a {
     }
 
     @Override // com.repackage.b49.a
-    public final void a() {
+    public final void U() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
         }

@@ -120,27 +120,27 @@ public abstract class u extends NativeAdContainer {
                 int appStatus = nativeUnifiedADData.getAppStatus();
                 if (appStatus == 0) {
                     button = this.c;
-                    i = R.string.obfuscated_res_0x7f0f076d;
+                    i = R.string.obfuscated_res_0x7f0f0769;
                 } else if (appStatus == 1) {
                     button = this.c;
-                    i = R.string.obfuscated_res_0x7f0f0774;
+                    i = R.string.obfuscated_res_0x7f0f0770;
                 } else if (appStatus == 2) {
                     button = this.c;
-                    i = R.string.obfuscated_res_0x7f0f0778;
+                    i = R.string.obfuscated_res_0x7f0f0774;
                 } else if (appStatus == 4) {
                     this.c.setText(String.format("%s/100", Integer.valueOf(nativeUnifiedADData.getProgress())));
                     return;
                 } else if (appStatus == 8) {
                     button = this.c;
-                    i = R.string.obfuscated_res_0x7f0f0770;
+                    i = R.string.obfuscated_res_0x7f0f076c;
                 } else if (appStatus == 16) {
                     button = this.c;
-                    i = R.string.obfuscated_res_0x7f0f0772;
+                    i = R.string.obfuscated_res_0x7f0f076e;
                 }
                 button.setText(i);
             }
             button = this.c;
-            i = R.string.obfuscated_res_0x7f0f0779;
+            i = R.string.obfuscated_res_0x7f0f0775;
             button.setText(i);
         }
     }

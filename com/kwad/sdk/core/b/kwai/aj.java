@@ -1,6 +1,6 @@
 package com.kwad.sdk.core.b.kwai;
 
-import com.kwad.components.core.j.kwai.c;
+import com.kwad.components.core.k.kwai.c;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public final class aj implements com.kwad.sdk.core.d<c.a> {
@@ -9,10 +9,10 @@ public final class aj implements com.kwad.sdk.core.d<c.a> {
         if (jSONObject == null) {
             return;
         }
-        aVar.a = jSONObject.optInt("streamType");
-        aVar.b = jSONObject.optInt("maxVolume");
-        aVar.c = jSONObject.optInt("minVolume");
-        aVar.d = jSONObject.optInt("currentVolume");
+        aVar.streamType = jSONObject.optInt("streamType");
+        aVar.It = jSONObject.optInt("maxVolume");
+        aVar.Iu = jSONObject.optInt("minVolume");
+        aVar.Iv = jSONObject.optInt("currentVolume");
     }
 
     /* renamed from: b  reason: avoid collision after fix types in other method */
@@ -20,10 +20,22 @@ public final class aj implements com.kwad.sdk.core.d<c.a> {
         if (jSONObject == null) {
             jSONObject = new JSONObject();
         }
-        com.kwad.sdk.utils.r.a(jSONObject, "streamType", aVar.a);
-        com.kwad.sdk.utils.r.a(jSONObject, "maxVolume", aVar.b);
-        com.kwad.sdk.utils.r.a(jSONObject, "minVolume", aVar.c);
-        com.kwad.sdk.utils.r.a(jSONObject, "currentVolume", aVar.d);
+        int i = aVar.streamType;
+        if (i != 0) {
+            com.kwad.sdk.utils.r.putValue(jSONObject, "streamType", i);
+        }
+        int i2 = aVar.It;
+        if (i2 != 0) {
+            com.kwad.sdk.utils.r.putValue(jSONObject, "maxVolume", i2);
+        }
+        int i3 = aVar.Iu;
+        if (i3 != 0) {
+            com.kwad.sdk.utils.r.putValue(jSONObject, "minVolume", i3);
+        }
+        int i4 = aVar.Iv;
+        if (i4 != 0) {
+            com.kwad.sdk.utils.r.putValue(jSONObject, "currentVolume", i4);
+        }
         return jSONObject;
     }
 

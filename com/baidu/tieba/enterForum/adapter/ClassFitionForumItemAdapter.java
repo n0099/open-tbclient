@@ -18,7 +18,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.e76;
-import com.repackage.ur4;
+import com.repackage.vr4;
 import com.repackage.w46;
 import java.util.List;
 /* loaded from: classes3.dex */
@@ -90,9 +90,9 @@ public class ClassFitionForumItemAdapter extends RecyclerView.Adapter<RecyclerVi
                     return;
                 }
             }
-            this.c = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091360);
-            this.a = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0918d4);
-            this.b = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f091564);
+            this.c = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f09133c);
+            this.a = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0918af);
+            this.b = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f09153f);
         }
     }
 
@@ -146,7 +146,7 @@ public class ClassFitionForumItemAdapter extends RecyclerView.Adapter<RecyclerVi
         bVar.a.setImageResource(R.drawable.obfuscated_res_0x7f08098e);
         bVar.a.setImageDrawable(WebPManager.getMaskDrawable(this.a.get(i).a(), true));
         bVar.b.setText(this.a.get(i).b());
-        ur4 d = ur4.d(bVar.b);
+        vr4 d = vr4.d(bVar.b);
         d.z(R.dimen.T_X09);
         d.v(R.color.CAM_X0105);
         bVar.c.setOnClickListener(new a(this, i));

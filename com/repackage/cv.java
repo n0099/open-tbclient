@@ -159,7 +159,7 @@ public class cv extends zu {
                 FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
                 layoutParams.gravity = 81;
                 layoutParams.bottomMargin = this.a;
-                cv.k(this.b, viewGroup, this.c, layoutParams, R.anim.obfuscated_res_0x7f01011d);
+                cv.k(this.b, viewGroup, this.c, layoutParams, R.anim.obfuscated_res_0x7f01011b);
             }
         }
     }
@@ -216,12 +216,12 @@ public class cv extends zu {
 
             /* renamed from: com.repackage.cv$e$a$a  reason: collision with other inner class name */
             /* loaded from: classes5.dex */
-            public class RunnableC0610a implements Runnable {
+            public class RunnableC0455a implements Runnable {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ a a;
 
-                public RunnableC0610a(a aVar) {
+                public RunnableC0455a(a aVar) {
                     Interceptable interceptable = $ic;
                     if (interceptable != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
@@ -307,7 +307,7 @@ public class cv extends zu {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, animation) == null) {
                     if (this.a.a.getParent() instanceof ViewGroup) {
-                        this.a.a.post(new RunnableC0610a(this));
+                        this.a.a.post(new RunnableC0455a(this));
                     }
                     View view2 = this.a.b;
                     if (view2 != null) {
@@ -354,7 +354,7 @@ public class cv extends zu {
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                Animation loadAnimation = AnimationUtils.loadAnimation(this.a.getContext(), R.anim.obfuscated_res_0x7f01011e);
+                Animation loadAnimation = AnimationUtils.loadAnimation(this.a.getContext(), R.anim.obfuscated_res_0x7f01011c);
                 loadAnimation.setAnimationListener(new a(this));
                 this.a.startAnimation(loadAnimation);
             }
@@ -411,7 +411,7 @@ public class cv extends zu {
         }
         activity.getResources();
         Context context = d2.getContext();
-        int dimension = (int) context.getResources().getDimension(R.dimen.obfuscated_res_0x7f070653);
+        int dimension = (int) context.getResources().getDimension(R.dimen.obfuscated_res_0x7f070644);
         if (wsVar != null) {
             dimension = wsVar.a();
         }

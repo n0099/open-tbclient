@@ -23,7 +23,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.mq4;
+import com.repackage.nq4;
 import com.repackage.pi;
 /* loaded from: classes3.dex */
 public class PbBusinessPromotionContainer extends RelativeLayout {
@@ -200,21 +200,21 @@ public class PbBusinessPromotionContainer extends RelativeLayout {
         }
     }
 
-    public void f(ThreadData threadData, mq4 mq4Var, boolean z) {
+    public void f(ThreadData threadData, nq4 nq4Var, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLZ(1048576, this, threadData, mq4Var, z) == null) {
-            if (threadData != null && mq4Var != null && !StringUtils.isNull(mq4Var.c())) {
+        if (interceptable == null || interceptable.invokeLLZ(1048576, this, threadData, nq4Var, z) == null) {
+            if (threadData != null && nq4Var != null && !StringUtils.isNull(nq4Var.c())) {
                 this.e = threadData;
                 i(z);
                 this.i = true;
                 setVisibility(0);
-                this.b.J(mq4Var.a(), 10, false);
-                this.c.setText(mq4Var.c());
+                this.b.J(nq4Var.a(), 10, false);
+                this.c.setText(nq4Var.c());
                 if (this.g) {
                     return;
                 }
                 this.g = true;
-                this.h = mq4Var.getIsLike();
+                this.h = nq4Var.getIsLike();
                 j();
                 return;
             }
@@ -268,7 +268,7 @@ public class PbBusinessPromotionContainer extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             if (this.h) {
-                this.d.setText(getResources().getString(R.string.obfuscated_res_0x7f0f063b));
+                this.d.setText(getResources().getString(R.string.obfuscated_res_0x7f0f0637));
                 SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0109);
                 SkinManager.setBackgroundResource(this.d, 17170445);
                 this.d.setOnClickListener(null);
@@ -354,11 +354,11 @@ public class PbBusinessPromotionContainer extends RelativeLayout {
         this.j = new a(this);
         this.k = new b(this, 2001336);
         this.l = new c(this, 2001335);
-        LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d04a7, this);
-        this.a = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f090dea);
-        this.b = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090de8);
-        this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f090de9);
-        this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f090de7);
+        LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d04a5, this);
+        this.a = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f090de3);
+        this.b = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090de1);
+        this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f090de2);
+        this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f090de0);
         this.b.setRadius(pi.f(context, R.dimen.tbds24));
         this.b.setConrers(5);
         this.b.setDefaultResource(17170445);

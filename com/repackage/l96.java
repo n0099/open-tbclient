@@ -24,15 +24,15 @@ import java.util.List;
 public class l96 extends BaseAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<yk4> a;
+    public List<zk4> a;
     public String b;
     public Context c;
-    public o45 d;
+    public p45 d;
     public int e;
     public int f;
 
     /* loaded from: classes6.dex */
-    public class a implements k45 {
+    public class a implements l45 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ViewGroup a;
@@ -55,7 +55,7 @@ public class l96 extends BaseAdapter {
             this.a = viewGroup;
         }
 
-        @Override // com.repackage.k45
+        @Override // com.repackage.l45
         public void a(ym ymVar, String str, boolean z) {
             HeadImageView headImageView;
             Interceptable interceptable = $ic;
@@ -111,28 +111,28 @@ public class l96 extends BaseAdapter {
             }
         }
         this.c = context;
-        this.d = new o45();
-        this.f = (int) this.c.getResources().getDimension(R.dimen.obfuscated_res_0x7f07023e);
+        this.d = new p45();
+        this.f = (int) this.c.getResources().getDimension(R.dimen.obfuscated_res_0x7f07023c);
         this.e = pi.k(this.c) / 2;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
     /* renamed from: a */
-    public yk4 getItem(int i) {
+    public zk4 getItem(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            List<yk4> list = this.a;
+            List<zk4> list = this.a;
             if (list == null || i < 0 || i >= list.size()) {
                 return null;
             }
             return this.a.get(i);
         }
-        return (yk4) invokeI.objValue;
+        return (zk4) invokeI.objValue;
     }
 
-    public void b(List<yk4> list, String str) {
+    public void b(List<zk4> list, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list, str) == null) {
             this.a = list;
@@ -145,7 +145,7 @@ public class l96 extends BaseAdapter {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            List<yk4> list = this.a;
+            List<zk4> list = this.a;
             if (list != null) {
                 return list.size();
             }
@@ -172,9 +172,9 @@ public class l96 extends BaseAdapter {
             } else {
                 view2 = LayoutInflater.from(this.c).inflate(R.layout.obfuscated_res_0x7f0d01dc, viewGroup, false);
                 bVar = new b(this, null);
-                bVar.a = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f090f41);
-                bVar.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090f53);
-                ImageView imageView = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090f2a);
+                bVar.a = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f090f3a);
+                bVar.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090f4c);
+                ImageView imageView = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090f23);
                 bVar.c = imageView;
                 SkinManager.setImageResource(imageView, R.drawable.icon_site_ok);
                 view2.setTag(bVar);
@@ -183,7 +183,7 @@ public class l96 extends BaseAdapter {
             bVar.a.setDefaultResource(R.drawable.pic_image_h_not);
             bVar.a.J(null, 12, false);
             bVar.a.invalidate();
-            yk4 item = getItem(i);
+            zk4 item = getItem(i);
             if (item != null) {
                 if (!TextUtils.isEmpty(item.g())) {
                     item.g();
@@ -202,7 +202,7 @@ public class l96 extends BaseAdapter {
                 if (e != null) {
                     e.clearPageActions();
                     int i2 = this.f;
-                    e.addPageAction(x45.g(i2, i2));
+                    e.addPageAction(y45.g(i2, i2));
                     ym c = this.d.c(e, false);
                     bVar.a.setTag(e.toCachedKey(false));
                     if (c != null) {

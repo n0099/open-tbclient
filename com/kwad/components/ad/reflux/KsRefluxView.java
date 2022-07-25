@@ -26,26 +26,26 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.components.ad.reflux.KsRefluxContentView;
-import com.kwad.components.ad.reward.b.c;
+import com.kwad.components.ad.reward.c.c;
 import com.kwad.components.core.webview.KsAdWebView;
-import com.kwad.sdk.core.d.b;
+import com.kwad.sdk.core.e.b;
 /* loaded from: classes5.dex */
 public class KsRefluxView extends FrameLayout implements View.OnClickListener, KsRefluxContentView.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public KsAdWebView a;
-    public KsRefluxNativeView b;
-    public View c;
-    public ImageView d;
-    public View e;
-    public a f;
-    public volatile boolean g;
+    public KsAdWebView bF;
+    public KsRefluxNativeView kM;
+    public View kN;
+    public ImageView kO;
+    public View kP;
+    public a kQ;
+    public volatile boolean kR;
 
     /* loaded from: classes5.dex */
     public interface a {
-        void c();
+        void dh();
 
-        void d();
+        void eI();
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -66,8 +66,8 @@ public class KsRefluxView extends FrameLayout implements View.OnClickListener, K
                 return;
             }
         }
-        this.g = false;
-        a(context);
+        this.kR = false;
+        L(context);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -89,8 +89,8 @@ public class KsRefluxView extends FrameLayout implements View.OnClickListener, K
                 return;
             }
         }
-        this.g = false;
-        a(context);
+        this.kR = false;
+        L(context);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -112,8 +112,8 @@ public class KsRefluxView extends FrameLayout implements View.OnClickListener, K
                 return;
             }
         }
-        this.g = false;
-        a(context);
+        this.kR = false;
+        L(context);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -136,63 +136,24 @@ public class KsRefluxView extends FrameLayout implements View.OnClickListener, K
                 return;
             }
         }
-        this.g = false;
-        a(context);
+        this.kR = false;
+        L(context);
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public Animator a(View view2) {
-        InterceptResult invokeL;
+    private void L(@NonNull Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, view2)) == null) {
-            int measuredHeight = view2.getMeasuredHeight();
-            if (measuredHeight == 0) {
-                return null;
-            }
-            ValueAnimator ofInt = ValueAnimator.ofInt(measuredHeight, getContext().getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f07039c));
-            ofInt.setDuration(300L);
-            ofInt.setInterpolator(PathInterpolatorCompat.create(0.25f, 0.1f, 0.25f, 1.0f));
-            ofInt.addUpdateListener(new ValueAnimator.AnimatorUpdateListener(this, view2) { // from class: com.kwad.components.ad.reflux.KsRefluxView.3
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ View a;
-                public final /* synthetic */ KsRefluxView b;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this, view2};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.b = this;
-                    this.a = view2;
-                }
-
-                @Override // android.animation.ValueAnimator.AnimatorUpdateListener
-                public final void onAnimationUpdate(ValueAnimator valueAnimator) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, valueAnimator) == null) {
-                        int intValue = ((Integer) valueAnimator.getAnimatedValue()).intValue();
-                        ViewGroup.LayoutParams layoutParams = this.a.getLayoutParams();
-                        if (layoutParams != null) {
-                            layoutParams.height = intValue;
-                            this.a.setLayoutParams(layoutParams);
-                        }
-                    }
-                }
-            });
-            return ofInt;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, context) == null) {
+            FrameLayout.inflate(context, R.layout.obfuscated_res_0x7f0d0444, this);
+            this.kN = findViewById(R.id.obfuscated_res_0x7f0910dc);
+            this.kO = (ImageView) findViewById(R.id.obfuscated_res_0x7f0910cc);
+            this.bF = (KsAdWebView) findViewById(R.id.obfuscated_res_0x7f0910dd);
+            this.kM = (KsRefluxNativeView) findViewById(R.id.obfuscated_res_0x7f0910d8);
+            View findViewById = findViewById(R.id.obfuscated_res_0x7f0910d6);
+            this.kP = findViewById;
+            findViewById.setOnClickListener(this);
+            this.kO.setOnClickListener(this);
+            ((KsRefluxContentView) findViewById(R.id.obfuscated_res_0x7f0910d7)).setContentViewListener(this);
         }
-        return (Animator) invokeL.objValue;
     }
 
     @Nullable
@@ -209,8 +170,8 @@ public class KsRefluxView extends FrameLayout implements View.OnClickListener, K
                 ofInt.addUpdateListener(new ValueAnimator.AnimatorUpdateListener(this, view2) { // from class: com.kwad.components.ad.reflux.KsRefluxView.4
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
-                    public final /* synthetic */ View a;
-                    public final /* synthetic */ KsRefluxView b;
+                    public final /* synthetic */ KsRefluxView kS;
+                    public final /* synthetic */ View kT;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -227,8 +188,8 @@ public class KsRefluxView extends FrameLayout implements View.OnClickListener, K
                                 return;
                             }
                         }
-                        this.b = this;
-                        this.a = view2;
+                        this.kS = this;
+                        this.kT = view2;
                     }
 
                     @Override // android.animation.ValueAnimator.AnimatorUpdateListener
@@ -236,21 +197,21 @@ public class KsRefluxView extends FrameLayout implements View.OnClickListener, K
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, valueAnimator) == null) {
                             int intValue = ((Integer) valueAnimator.getAnimatedValue()).intValue();
-                            ViewGroup.LayoutParams layoutParams = this.a.getLayoutParams();
+                            ViewGroup.LayoutParams layoutParams = this.kT.getLayoutParams();
                             if (layoutParams != null) {
                                 layoutParams.height = intValue;
-                                this.a.setLayoutParams(layoutParams);
+                                this.kT.setLayoutParams(layoutParams);
                             }
                         }
                     }
                 });
-                ValueAnimator ofFloat = ValueAnimator.ofFloat(getResources().getDimension(R.dimen.obfuscated_res_0x7f0703a2), 0.0f);
+                ValueAnimator ofFloat = ValueAnimator.ofFloat(getResources().getDimension(R.dimen.obfuscated_res_0x7f0703a0), 0.0f);
                 ofFloat.addUpdateListener(new ValueAnimator.AnimatorUpdateListener(this, (GradientDrawable) background, view3) { // from class: com.kwad.components.ad.reflux.KsRefluxView.5
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
-                    public final /* synthetic */ GradientDrawable a;
-                    public final /* synthetic */ View b;
-                    public final /* synthetic */ KsRefluxView c;
+                    public final /* synthetic */ KsRefluxView kS;
+                    public final /* synthetic */ GradientDrawable kU;
+                    public final /* synthetic */ View kV;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -267,9 +228,9 @@ public class KsRefluxView extends FrameLayout implements View.OnClickListener, K
                                 return;
                             }
                         }
-                        this.c = this;
-                        this.a = r7;
-                        this.b = view3;
+                        this.kS = this;
+                        this.kU = r7;
+                        this.kV = view3;
                     }
 
                     @Override // android.animation.ValueAnimator.AnimatorUpdateListener
@@ -277,9 +238,9 @@ public class KsRefluxView extends FrameLayout implements View.OnClickListener, K
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, valueAnimator) == null) {
                             float floatValue = ((Float) valueAnimator.getAnimatedValue()).floatValue();
-                            b.a("KsRefluxView", "actionBar radii value: " + floatValue);
-                            this.a.setCornerRadii(new float[]{floatValue, floatValue, floatValue, floatValue, 0.0f, 0.0f, 0.0f, 0.0f});
-                            this.b.setBackground(this.a);
+                            b.d("KsRefluxView", "actionBar radii value: " + floatValue);
+                            this.kU.setCornerRadii(new float[]{floatValue, floatValue, floatValue, floatValue, 0.0f, 0.0f, 0.0f, 0.0f});
+                            this.kV.setBackground(this.kU);
                         }
                     }
                 });
@@ -294,33 +255,17 @@ public class KsRefluxView extends FrameLayout implements View.OnClickListener, K
         return (Animator) invokeLL.objValue;
     }
 
-    private void a(@NonNull Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65544, this, context) == null) {
-            FrameLayout.inflate(context, R.layout.obfuscated_res_0x7f0d0444, this);
-            this.c = findViewById(R.id.obfuscated_res_0x7f0910e5);
-            this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f0910d8);
-            this.a = (KsAdWebView) findViewById(R.id.obfuscated_res_0x7f0910e6);
-            this.b = (KsRefluxNativeView) findViewById(R.id.obfuscated_res_0x7f0910e1);
-            View findViewById = findViewById(R.id.obfuscated_res_0x7f0910df);
-            this.e = findViewById;
-            findViewById.setOnClickListener(this);
-            this.d.setOnClickListener(this);
-            ((KsRefluxContentView) findViewById(R.id.obfuscated_res_0x7f0910e0)).setContentViewListener(this);
-        }
-    }
-
     @MainThread
-    private void d() {
+    private void eG() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65547, this) == null) || e() || this.g) {
+        if (!(interceptable == null || interceptable.invokeV(65546, this) == null) || eH() || this.kR) {
             return;
         }
-        Animator a2 = a(this.d, this.c);
+        Animator a2 = a(this.kO, this.kN);
         a2.addListener(new AnimatorListenerAdapter(this) { // from class: com.kwad.components.ad.reflux.KsRefluxView.2
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ KsRefluxView a;
+            public final /* synthetic */ KsRefluxView kS;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -337,7 +282,7 @@ public class KsRefluxView extends FrameLayout implements View.OnClickListener, K
                         return;
                     }
                 }
-                this.a = this;
+                this.kS = this;
             }
 
             @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
@@ -345,7 +290,7 @@ public class KsRefluxView extends FrameLayout implements View.OnClickListener, K
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(1048576, this, animator) == null) {
                     super.onAnimationEnd(animator);
-                    this.a.g = false;
+                    this.kS.kR = false;
                 }
             }
 
@@ -354,60 +299,148 @@ public class KsRefluxView extends FrameLayout implements View.OnClickListener, K
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) == null) {
                     super.onAnimationStart(animator);
-                    this.a.g = true;
+                    this.kS.kR = true;
                 }
             }
         });
         a2.start();
     }
 
-    private boolean e() {
+    private boolean eH() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65548, this)) == null) {
-            ImageView imageView = this.d;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65547, this)) == null) {
+            ImageView imageView = this.kO;
             return imageView != null && imageView.getMeasuredHeight() == 0;
         }
         return invokeV.booleanValue;
     }
 
-    public final void a(boolean z) {
+    /* JADX INFO: Access modifiers changed from: private */
+    public Animator j(View view2) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-            this.a.setVisibility(z ? 0 : 4);
-            this.b.setVisibility(z ? 8 : 0);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65548, this, view2)) == null) {
+            int measuredHeight = view2.getMeasuredHeight();
+            if (measuredHeight == 0) {
+                return null;
+            }
+            ValueAnimator ofInt = ValueAnimator.ofInt(measuredHeight, getContext().getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f07039a));
+            ofInt.setDuration(300L);
+            ofInt.setInterpolator(PathInterpolatorCompat.create(0.25f, 0.1f, 0.25f, 1.0f));
+            ofInt.addUpdateListener(new ValueAnimator.AnimatorUpdateListener(this, view2) { // from class: com.kwad.components.ad.reflux.KsRefluxView.3
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ View dH;
+                public final /* synthetic */ KsRefluxView kS;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this, view2};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.kS = this;
+                    this.dH = view2;
+                }
+
+                @Override // android.animation.ValueAnimator.AnimatorUpdateListener
+                public final void onAnimationUpdate(ValueAnimator valueAnimator) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, valueAnimator) == null) {
+                        int intValue = ((Integer) valueAnimator.getAnimatedValue()).intValue();
+                        ViewGroup.LayoutParams layoutParams = this.dH.getLayoutParams();
+                        if (layoutParams != null) {
+                            layoutParams.height = intValue;
+                            this.dH.setLayoutParams(layoutParams);
+                        }
+                    }
+                }
+            });
+            return ofInt;
         }
+        return (Animator) invokeL.objValue;
     }
 
     @Override // com.kwad.components.ad.reflux.KsRefluxContentView.a
-    public final boolean a() {
+    public final boolean eC() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? e() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? eH() : invokeV.booleanValue;
     }
 
     @Override // com.kwad.components.ad.reflux.KsRefluxContentView.a
-    public final boolean b() {
+    public final boolean eD() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (e()) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (eH()) {
                 return false;
             }
-            d();
+            eG();
             return true;
         }
         return invokeV.booleanValue;
     }
 
-    public final void c() {
+    public KsRefluxNativeView getNativeView() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.kM : (KsRefluxNativeView) invokeV.objValue;
+    }
+
+    public KsAdWebView getWebView() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.bF : (KsAdWebView) invokeV.objValue;
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view2) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, view2) == null) || this.kQ == null) {
+            return;
+        }
+        if (view2.equals(this.kP)) {
+            this.kQ.dh();
+        } else if (view2.equals(this.kO)) {
+            eG();
+        }
+    }
+
+    public void setInnerAdInteractionListener(c cVar) {
+        KsRefluxNativeView ksRefluxNativeView;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, cVar) == null) || (ksRefluxNativeView = this.kM) == null) {
+            return;
+        }
+        ksRefluxNativeView.setInnerAdInteractionListener(cVar);
+    }
+
+    public void setViewListener(a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, aVar) == null) {
+            this.kQ = aVar;
+        }
+    }
+
+    public final void show() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             setVisibility(0);
-            this.d.post(new Runnable(this) { // from class: com.kwad.components.ad.reflux.KsRefluxView.1
+            this.kO.post(new Runnable(this) { // from class: com.kwad.components.ad.reflux.KsRefluxView.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ KsRefluxView a;
+                public final /* synthetic */ KsRefluxView kS;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -424,20 +457,20 @@ public class KsRefluxView extends FrameLayout implements View.OnClickListener, K
                             return;
                         }
                     }
-                    this.a = this;
+                    this.kS = this;
                 }
 
                 @Override // java.lang.Runnable
                 public final void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        KsRefluxView ksRefluxView = this.a;
-                        Animator a2 = ksRefluxView.a(ksRefluxView.d);
-                        if (a2 != null) {
-                            a2.start();
+                        KsRefluxView ksRefluxView = this.kS;
+                        Animator j = ksRefluxView.j(ksRefluxView.kO);
+                        if (j != null) {
+                            j.start();
                         }
-                        if (this.a.f != null) {
-                            this.a.f.d();
+                        if (this.kS.kQ != null) {
+                            this.kS.kQ.eI();
                         }
                     }
                 }
@@ -445,44 +478,11 @@ public class KsRefluxView extends FrameLayout implements View.OnClickListener, K
         }
     }
 
-    public KsRefluxNativeView getNativeView() {
-        InterceptResult invokeV;
+    public final void z(boolean z) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.b : (KsRefluxNativeView) invokeV.objValue;
-    }
-
-    public KsAdWebView getWebView() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.a : (KsAdWebView) invokeV.objValue;
-    }
-
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view2) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048582, this, view2) == null) || this.f == null) {
-            return;
-        }
-        if (view2.equals(this.e)) {
-            this.f.c();
-        } else if (view2.equals(this.d)) {
-            d();
-        }
-    }
-
-    public void setInnerAdInteractionListener(c cVar) {
-        KsRefluxNativeView ksRefluxNativeView;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048583, this, cVar) == null) || (ksRefluxNativeView = this.b) == null) {
-            return;
-        }
-        ksRefluxNativeView.setInnerAdInteractionListener(cVar);
-    }
-
-    public void setViewListener(a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, aVar) == null) {
-            this.f = aVar;
+        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
+            this.bF.setVisibility(z ? 0 : 4);
+            this.kM.setVisibility(z ? 8 : 0);
         }
     }
 }

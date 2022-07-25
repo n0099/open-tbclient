@@ -218,7 +218,7 @@ public class x58 {
     }
 
     /* loaded from: classes7.dex */
-    public class d implements jv4 {
+    public class d implements kv4 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ x58 a;
@@ -241,14 +241,14 @@ public class x58 {
             this.a = x58Var;
         }
 
-        @Override // com.repackage.jv4
+        @Override // com.repackage.kv4
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             }
         }
 
-        @Override // com.repackage.jv4
+        @Override // com.repackage.kv4
         public void onLoadingStart() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -684,9 +684,9 @@ public class x58 {
             }
             ArrayList arrayList = new ArrayList();
             this.a = arrayList;
-            arrayList.add(x58Var.a.getResources().getString(R.string.obfuscated_res_0x7f0f0e15));
-            this.a.add(x58Var.a.getResources().getString(R.string.obfuscated_res_0x7f0f0e18));
-            this.a.add(x58Var.a.getResources().getString(R.string.obfuscated_res_0x7f0f0e14));
+            arrayList.add(x58Var.a.getResources().getString(R.string.obfuscated_res_0x7f0f0dfe));
+            this.a.add(x58Var.a.getResources().getString(R.string.obfuscated_res_0x7f0f0e01));
+            this.a.add(x58Var.a.getResources().getString(R.string.obfuscated_res_0x7f0f0dfd));
             ArrayList arrayList2 = new ArrayList();
             this.b = arrayList2;
             arrayList2.add(PersonCenterMainTabFragment.y1(x58Var.L, x58Var.j));
@@ -947,23 +947,23 @@ public class x58 {
         if (interceptable == null || interceptable.invokeL(1048582, this, view2) == null) {
             this.c = view2;
             this.p = UtilHelper.getStatusBarHeight();
-            this.q = (LottieSlideLoadingLayout) this.c.findViewById(R.id.obfuscated_res_0x7f091800);
-            TbImageView tbImageView = (TbImageView) this.c.findViewById(R.id.obfuscated_res_0x7f091802);
-            this.r = new PersonHeaderBackgroundController(this.a, tbImageView, this.c.findViewById(R.id.obfuscated_res_0x7f0917fe), this.j);
+            this.q = (LottieSlideLoadingLayout) this.c.findViewById(R.id.obfuscated_res_0x7f0917db);
+            TbImageView tbImageView = (TbImageView) this.c.findViewById(R.id.obfuscated_res_0x7f0917dd);
+            this.r = new PersonHeaderBackgroundController(this.a, tbImageView, this.c.findViewById(R.id.obfuscated_res_0x7f0917d9), this.j);
             this.q.l(tbImageView);
             TbPageContext tbPageContext = this.a;
             View view3 = this.c;
-            this.J = new s58(tbPageContext, view3, view3.findViewById(R.id.obfuscated_res_0x7f091823), this.j);
-            FrameLayout frameLayout = (FrameLayout) this.c.findViewById(R.id.obfuscated_res_0x7f091803);
+            this.J = new s58(tbPageContext, view3, view3.findViewById(R.id.obfuscated_res_0x7f0917fe), this.j);
+            FrameLayout frameLayout = (FrameLayout) this.c.findViewById(R.id.obfuscated_res_0x7f0917de);
             this.E = frameLayout;
             this.F = (FrameLayout.LayoutParams) frameLayout.getLayoutParams();
             this.q.l(this.E);
             this.q.j(new d(this));
-            AppBarLayout appBarLayout = (AppBarLayout) this.c.findViewById(R.id.obfuscated_res_0x7f0917fc);
+            AppBarLayout appBarLayout = (AppBarLayout) this.c.findViewById(R.id.obfuscated_res_0x7f0917d7);
             this.s = appBarLayout;
             appBarLayout.addOnOffsetChangedListener((AppBarLayout.OnOffsetChangedListener) new e(this));
-            this.t = (FrameLayout) this.c.findViewById(R.id.obfuscated_res_0x7f091825);
-            NewPagerSlidingTabBaseStrip newPagerSlidingTabBaseStrip = (NewPagerSlidingTabBaseStrip) this.c.findViewById(R.id.obfuscated_res_0x7f091824);
+            this.t = (FrameLayout) this.c.findViewById(R.id.obfuscated_res_0x7f091800);
+            NewPagerSlidingTabBaseStrip newPagerSlidingTabBaseStrip = (NewPagerSlidingTabBaseStrip) this.c.findViewById(R.id.obfuscated_res_0x7f0917ff);
             this.u = newPagerSlidingTabBaseStrip;
             newPagerSlidingTabBaseStrip.setDefaultSelectorColorResourceId(R.color.CAM_X0105);
             this.u.setRectPaintColor(R.color.CAM_X0302);
@@ -979,10 +979,10 @@ public class x58 {
             gradientDrawable.setColor(SkinManager.getColor(R.color.CAM_X0201));
             this.D.setCornerRadii(this.n);
             this.t.setBackgroundDrawable(this.D);
-            View findViewById = this.c.findViewById(R.id.obfuscated_res_0x7f09181f);
+            View findViewById = this.c.findViewById(R.id.obfuscated_res_0x7f0917fa);
             this.v = findViewById;
             SkinManager.setBackgroundResource(findViewById, R.drawable.personalize_tab_shadow);
-            this.w = (CustomViewPager) this.c.findViewById(R.id.obfuscated_res_0x7f09182c);
+            this.w = (CustomViewPager) this.c.findViewById(R.id.obfuscated_res_0x7f091807);
             m mVar = new m(this, this.m.getActivity().getSupportFragmentManager());
             this.x = mVar;
             this.w.setAdapter(mVar);
@@ -1000,10 +1000,10 @@ public class x58 {
                 Q(this.a);
             }
             P(this.a);
-            this.b = (NoNetworkView) this.c.findViewById(R.id.obfuscated_res_0x7f09181a);
-            this.y = (LinearLayout) this.c.findViewById(R.id.obfuscated_res_0x7f0917f7);
-            this.z = (FrameLayout) this.c.findViewById(R.id.obfuscated_res_0x7f0917f8);
-            this.A = (RelativeLayout) this.c.findViewById(R.id.obfuscated_res_0x7f09181b);
+            this.b = (NoNetworkView) this.c.findViewById(R.id.obfuscated_res_0x7f0917f5);
+            this.y = (LinearLayout) this.c.findViewById(R.id.obfuscated_res_0x7f0917d2);
+            this.z = (FrameLayout) this.c.findViewById(R.id.obfuscated_res_0x7f0917d3);
+            this.A = (RelativeLayout) this.c.findViewById(R.id.obfuscated_res_0x7f0917f6);
         }
     }
 
@@ -1134,7 +1134,7 @@ public class x58 {
         this.x.i(e48Var);
         if (ListUtils.isEmpty(e48Var.f())) {
             this.l.n();
-            pi.O(this.a.getContext(), this.a.getString(R.string.obfuscated_res_0x7f0f047b));
+            pi.O(this.a.getContext(), this.a.getString(R.string.obfuscated_res_0x7f0f047a));
             return;
         }
         PersonRedTipManager.getInstance().syncRedTipState(this.j);

@@ -1,6 +1,5 @@
 package com.repackage;
 
-import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
@@ -10,29 +9,30 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.po1;
-import com.repackage.q53;
-import org.json.JSONException;
+import com.repackage.ej2;
+import com.repackage.rz1;
+import com.tencent.open.miniapp.MiniApp;
+import java.io.File;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class yv2 extends uv2 {
+public class yv2 extends wv2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes7.dex */
-    public class a implements af3<k53<q53.d>> {
+    public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ t12 a;
+        public final /* synthetic */ String a;
         public final /* synthetic */ sv2 b;
-        public final /* synthetic */ t53 c;
+        public final /* synthetic */ rz1 c;
 
-        public a(yv2 yv2Var, t12 t12Var, sv2 sv2Var, t53 t53Var) {
+        public a(yv2 yv2Var, String str, sv2 sv2Var, rz1 rz1Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {yv2Var, t12Var, sv2Var, t53Var};
+                Object[] objArr = {yv2Var, str, sv2Var, rz1Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -42,35 +42,21 @@ public class yv2 extends uv2 {
                     return;
                 }
             }
-            this.a = t12Var;
+            this.a = str;
             this.b = sv2Var;
-            this.c = t53Var;
+            this.c = rz1Var;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.af3
-        /* renamed from: b */
-        public void a(k53<q53.d> k53Var) {
+        @Override // java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, k53Var) == null) {
-                if (k53Var != null && k53Var.c() && !TextUtils.isEmpty(k53Var.a.a)) {
-                    JSONObject jSONObject = this.c.g;
-                    if (jSONObject != null) {
-                        try {
-                            jSONObject.put("code", k53Var.a.a);
-                            this.b.d = true;
-                        } catch (JSONException e) {
-                            if (rg1.a) {
-                                zv2.b(Log.getStackTraceString(e));
-                            }
-                        }
-                        this.b.e = jSONObject.toString();
-                    }
-                    this.a.a(this.b);
-                    return;
-                }
-                zv2.b("login failure, can't get login code");
-                this.a.a(this.b);
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                iq2 iq2Var = new iq2();
+                iq2Var.c = this.a;
+                iq2Var.b = tv2.a(this.b);
+                rz1.b i = this.c.i("navigateTo");
+                i.n(rz1.g, rz1.i);
+                i.k("pluginFunPage", iq2Var).a();
             }
         }
     }
@@ -89,46 +75,193 @@ public class yv2 extends uv2 {
         }
     }
 
-    @Override // com.repackage.vv2
-    public hs1 b(JSONObject jSONObject) {
+    @Override // com.repackage.wv2
+    public is1 b(JSONObject jSONObject) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jSONObject)) == null) {
+            if (jSONObject == null) {
+                return new is1(201, "args params is null");
+            }
+            if (jSONObject.optLong("fee") < 0) {
+                return new is1(201, "fee can't smaller than 0");
+            }
+            if (jSONObject.optJSONObject("paymentArgs") == null) {
+                return new is1(201, "paymentArgs can't be null");
+            }
             return null;
         }
-        return (hs1) invokeL.objValue;
+        return (is1) invokeL.objValue;
     }
 
-    @Override // com.repackage.vv2
+    @Override // com.repackage.wv2
+    public rv2 f(sv2 sv2Var) {
+        InterceptResult invokeL;
+        String[] list;
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sv2Var)) == null) {
+            File file = null;
+            if (sv2Var == null) {
+                return null;
+            }
+            String str = sv2Var.a;
+            String str2 = sv2Var.c;
+            if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
+                return null;
+            }
+            rv2 rv2Var = new rv2();
+            rv2Var.a = str;
+            rv2Var.b = str2;
+            if (zx1.d()) {
+                file = ej2.f.e();
+            } else if (hw2.H()) {
+                file = ej2.b.e();
+            } else if (hw2.D()) {
+                file = px1.d();
+            } else {
+                if (TextUtils.equals(sv2Var.d, MiniApp.MINIAPP_VERSION_DEVELOP)) {
+                    String a2 = ks1.a(str);
+                    File g = ej2.g();
+                    String[] list2 = g.list();
+                    if (list2 == null || g.length() == 0) {
+                        return rv2Var;
+                    }
+                    String str3 = a2 + "_dev";
+                    int i2 = -1;
+                    for (String str4 : list2) {
+                        if (!TextUtils.isEmpty(str4) && str4.startsWith(str3)) {
+                            try {
+                                int parseInt = Integer.parseInt(str4.substring(str3.length()));
+                                if (parseInt > i2) {
+                                    i2 = parseInt;
+                                }
+                            } catch (NumberFormatException e) {
+                                aw2.b(Log.getStackTraceString(e));
+                            }
+                        }
+                    }
+                    if (i2 > -1) {
+                        rv2Var.a = str3 + i2;
+                        rv2Var.e = true;
+                        File file2 = new File(g, rv2Var.a + File.separator + i2);
+                        rv2Var.c = file2.getAbsolutePath();
+                        rv2Var.d = i2;
+                        file = file2;
+                    } else {
+                        rv2Var.e = false;
+                        rv2Var.c = null;
+                    }
+                } else {
+                    File file3 = new File(ej2.g(), str);
+                    if (file3.exists() && (list = file3.list()) != null && list.length != 0) {
+                        String str5 = null;
+                        int i3 = -1;
+                        for (String str6 : list) {
+                            if (!TextUtils.isEmpty(str6)) {
+                                try {
+                                    i = Integer.parseInt(str6);
+                                } catch (NumberFormatException e2) {
+                                    aw2.b(Log.getStackTraceString(e2));
+                                    i = -1;
+                                }
+                                if (i > i3) {
+                                    str5 = str6;
+                                    i3 = i;
+                                }
+                            }
+                        }
+                        if (i3 != -1) {
+                            rv2Var.d = i3;
+                            rv2Var.e = true;
+                            file = new File(file3, str5);
+                            rv2Var.c = file.getAbsolutePath();
+                        }
+                    }
+                    return rv2Var;
+                }
+            }
+            if (file == null) {
+                return rv2Var;
+            }
+            File file4 = new File(file, str2);
+            if (n(file4)) {
+                rv2Var.f = true;
+                rv2Var.c = file4.getAbsolutePath();
+                return rv2Var;
+            }
+            return rv2Var;
+        }
+        return (rv2) invokeL.objValue;
+    }
+
+    @Override // com.repackage.wv2
     public String g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "snsapi_userinfo" : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return null;
+        }
+        return (String) invokeV.objValue;
     }
 
-    @Override // com.repackage.vv2
+    @Override // com.repackage.wv2
     public String h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "SwanPluginUserInfoFunPage" : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return null;
+        }
+        return (String) invokeV.objValue;
     }
 
-    @Override // com.repackage.uv2
-    public void p(SwanAppActivity swanAppActivity, String str, rv2 rv2Var, t53 t53Var, t12<sv2> t12Var) {
+    @Override // com.repackage.wv2
+    public is1 j(String str, sv2 sv2Var) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLLL(1048579, this, swanAppActivity, str, rv2Var, t53Var, t12Var) == null) {
-            sv2 sv2Var = new sv2(rv2Var.f);
-            sv2Var.a = rv2Var.e;
-            if (t53Var != null && t53Var.j.a() == 0) {
-                zv2.b("obtain user info detail, get login code");
-                po1.d dVar = new po1.d(rv2Var.g);
-                Bundle bundle = new Bundle();
-                bundle.putString("__plugin__", rv2Var.a);
-                g03.K().q().e0().r(swanAppActivity, dVar, bundle, new a(this, t12Var, sv2Var, t53Var), "SwanPluginUserInfoFunPage");
-                return;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, str, sv2Var)) == null) {
+            if (sv2Var == null) {
+                return new is1(201, "pay args is null");
             }
-            zv2.b("open data result failure");
-            t12Var.a(sv2Var);
+            SwanAppActivity w = h03.K().w();
+            if (w == null) {
+                return new is1(1001, "runtime exception, try reopen this app");
+            }
+            rz1 X = w.X();
+            if (X == null) {
+                return new is1(1001, "runtime exception, page manager breakdown");
+            }
+            aw2.b("jump to fun page");
+            h03.M().post(new a(this, str, sv2Var, X));
+            return new is1(0);
         }
+        return (is1) invokeLL.objValue;
+    }
+
+    @Override // com.repackage.wv2
+    public boolean k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.repackage.wv2
+    public is1 m(sv2 sv2Var, u12<tv2> u12Var) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, sv2Var, u12Var)) == null) {
+            return null;
+        }
+        return (is1) invokeLL.objValue;
+    }
+
+    public final boolean n(File file) {
+        InterceptResult invokeL;
+        String[] list;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, file)) == null) ? file != null && file.exists() && file.isDirectory() && (list = file.list()) != null && list.length > 0 : invokeL.booleanValue;
     }
 }

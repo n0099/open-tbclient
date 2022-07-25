@@ -74,7 +74,7 @@ public class vs5 extends an<mt5, AlaGameFrsLiveDoubleView.AlaGameFrsLiveDoubleVi
             if (threadData != null) {
                 lo5.b().a(new StatisticItem("c12115").param("obj_id", mt5Var.b.getThreadAlaInfo().live_id).param(TiebaStatic.Params.OBJ_PARAM3, StringUtils.isNull(threadData.getThreadAlaInfo().appId) ? "" : mt5Var.b.getThreadAlaInfo().appId));
             }
-            return alaGameFrsLiveDoubleViewHolder.b();
+            return alaGameFrsLiveDoubleViewHolder.a();
         }
         return (View) invokeCommon.objValue;
     }

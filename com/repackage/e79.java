@@ -16,7 +16,7 @@ import com.sina.weibo.sdk.utils.FileUtils;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 @RequiresApi(api = 16)
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class e79 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -28,7 +28,7 @@ public class e79 {
     public a f;
     public a g;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

@@ -120,32 +120,32 @@ public class bl6 implements NetModel.k {
                     AbsGroupUbsABTest.setCardInfoUbsABTest(threadData);
                     int[] imageWidthAndHeight = threadData.getImageWidthAndHeight();
                     if (threadData.getType() == ThreadData.TYPE_NORMAL && !threadData.isTop()) {
-                        qq4 qq4Var = new qq4();
-                        qq4Var.s = threadData;
-                        qq4Var.position = i;
-                        qq4Var.a = true;
-                        qq4Var.setSupportType(BaseCardInfo.SupportType.CONTENT);
-                        arrayList2.add(qq4Var);
-                        qq4 qq4Var2 = new qq4();
-                        qq4Var2.s = threadData;
-                        qq4Var2.position = i;
+                        rq4 rq4Var = new rq4();
+                        rq4Var.s = threadData;
+                        rq4Var.position = i;
+                        rq4Var.a = true;
+                        rq4Var.setSupportType(BaseCardInfo.SupportType.CONTENT);
+                        arrayList2.add(rq4Var);
+                        rq4 rq4Var2 = new rq4();
+                        rq4Var2.s = threadData;
+                        rq4Var2.position = i;
                         if (threadData.picCount() == 1) {
-                            qq4Var2.d = true;
-                            qq4Var2.t = imageWidthAndHeight[0];
-                            qq4Var2.u = imageWidthAndHeight[1];
+                            rq4Var2.d = true;
+                            rq4Var2.t = imageWidthAndHeight[0];
+                            rq4Var2.u = imageWidthAndHeight[1];
                         } else if (threadData.picCount() >= 2) {
-                            qq4Var2.e = true;
+                            rq4Var2.e = true;
                         } else {
-                            qq4Var2.b = true;
+                            rq4Var2.b = true;
                         }
-                        qq4Var2.setSupportType(BaseCardInfo.SupportType.CONTENT);
-                        arrayList2.add(qq4Var2);
-                        qq4 qq4Var3 = new qq4();
-                        qq4Var3.g = true;
-                        qq4Var3.s = threadData;
-                        qq4Var3.position = i;
-                        qq4Var3.setSupportType(BaseCardInfo.SupportType.CONTENT);
-                        arrayList2.add(qq4Var3);
+                        rq4Var2.setSupportType(BaseCardInfo.SupportType.CONTENT);
+                        arrayList2.add(rq4Var2);
+                        rq4 rq4Var3 = new rq4();
+                        rq4Var3.g = true;
+                        rq4Var3.s = threadData;
+                        rq4Var3.position = i;
+                        rq4Var3.setSupportType(BaseCardInfo.SupportType.CONTENT);
+                        arrayList2.add(rq4Var3);
                         i++;
                     }
                     threadData.setSupportType(BaseCardInfo.SupportType.CONTENT);

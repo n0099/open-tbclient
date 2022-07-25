@@ -1,179 +1,143 @@
 package com.kwad.components.core.l;
 
-import android.content.Context;
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.kwad.sdk.utils.h;
-import java.lang.ref.WeakReference;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
+import java.io.InputStream;
+import java.util.Collections;
+import java.util.Set;
+import java.util.WeakHashMap;
 /* loaded from: classes5.dex */
 public class b {
-    public static /* synthetic */ Interceptable $ic;
-    public static volatile b e;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static volatile boolean IA = false;
+    public static volatile Set<c> IB = null;
+    public static volatile b Ix = null;
+    public static volatile int Iy = 204800;
+    public static volatile boolean Iz = true;
     public transient /* synthetic */ FieldHolder $fh;
-    public com.kwad.sdk.utils.h a;
-    public List<WeakReference<h.a>> b;
-    public boolean c;
-    public boolean d;
 
-    public b(@NonNull Context context) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1273811193, "Lcom/kwad/components/core/l/b;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1273811193, "Lcom/kwad/components/core/l/b;");
+                return;
+            }
+        }
+        IB = Collections.synchronizedSet(Collections.newSetFromMap(new WeakHashMap()));
+    }
+
+    public b() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        this.b = new ArrayList();
-        this.c = false;
-        this.d = false;
-        b(context);
     }
 
-    public static b a(@NonNull Context context) {
+    public static synchronized void a(c cVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65538, null, cVar) == null) {
+            synchronized (b.class) {
+                if (IB.contains(cVar)) {
+                    IB.remove(cVar);
+                }
+            }
+        }
+    }
+
+    public static void e(boolean z, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{Boolean.valueOf(z), Integer.valueOf(i)}) == null) {
+            if (i > 0) {
+                Iy = i * 1024;
+            }
+            Iz = z;
+        }
+    }
+
+    public static boolean ln() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? Iz : invokeV.booleanValue;
+    }
+
+    public static int lo() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? Iy / 1024 : invokeV.intValue;
+    }
+
+    public static b or() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            if (Ix == null) {
+                synchronized (b.class) {
+                    if (Ix == null) {
+                        Ix = new b();
+                    }
+                }
+            }
+            return Ix;
+        }
+        return (b) invokeV.objValue;
+    }
+
+    public static synchronized InputStream wrap(@NonNull InputStream inputStream) {
+        InterceptResult invokeL;
+        c cVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, inputStream)) == null) {
+            synchronized (b.class) {
+                cVar = new c(inputStream, Iy / (IB.size() + 1));
+                IB.add(cVar);
+            }
+            return cVar;
+        }
+        return (InputStream) invokeL.objValue;
+    }
+
+    public static InputStream wrapInputStream(InputStream inputStream) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            if (e == null) {
-                synchronized (b.class) {
-                    if (e == null) {
-                        e = new b(context.getApplicationContext());
-                    }
-                }
-            }
-            return e;
-        }
-        return (b) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65544, null, inputStream)) == null) ? wrap(inputStream) : (InputStream) invokeL.objValue;
     }
 
-    private void b(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, context) == null) {
-            this.c = false;
-            com.kwad.sdk.utils.h hVar = new com.kwad.sdk.utils.h(context);
-            this.a = hVar;
-            hVar.a(new h.a(this) { // from class: com.kwad.components.core.l.b.1
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ b a;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.a = this;
-                }
-
-                @Override // com.kwad.sdk.utils.h.a
-                public final void a() {
-                    h.a aVar;
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        Iterator it = this.a.b.iterator();
-                        while (it.hasNext()) {
-                            WeakReference weakReference = (WeakReference) it.next();
-                            if (weakReference == null || (aVar = (h.a) weakReference.get()) == null) {
-                                it.remove();
-                            } else {
-                                aVar.a();
-                            }
-                        }
-                        this.a.d = true;
-                    }
-                }
-
-                @Override // com.kwad.sdk.utils.h.a
-                public final void b() {
-                    h.a aVar;
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                        Iterator it = this.a.b.iterator();
-                        while (it.hasNext()) {
-                            WeakReference weakReference = (WeakReference) it.next();
-                            if (weakReference == null || (aVar = (h.a) weakReference.get()) == null) {
-                                it.remove();
-                            } else {
-                                aVar.b();
-                            }
-                        }
-                    }
-                }
-            });
-        }
-    }
-
-    public final void a(h.a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-            this.b.add(new WeakReference<>(aVar));
-        }
-    }
-
-    public final boolean a() {
+    public final synchronized int lp() {
         InterceptResult invokeV;
+        int i;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.d : invokeV.booleanValue;
-    }
-
-    public final boolean a(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z)) == null) {
-            if (this.a == null) {
-                return false;
-            }
-            if (z || !this.c) {
-                this.c = true;
-                this.d = false;
-                return this.a.a();
-            }
-            return false;
-        }
-        return invokeZ.booleanValue;
-    }
-
-    public final void b(h.a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) {
-            Iterator<WeakReference<h.a>> it = this.b.iterator();
-            while (it.hasNext()) {
-                WeakReference<h.a> next = it.next();
-                if (next == null || next.get() == aVar) {
-                    it.remove();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            synchronized (this) {
+                i = 0;
+                try {
+                    for (c cVar : IB) {
+                        i += (int) cVar.os();
+                    }
+                } catch (Exception unused) {
                 }
             }
+            return i;
         }
-    }
-
-    public final boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.c : invokeV.booleanValue;
+        return invokeV.intValue;
     }
 }

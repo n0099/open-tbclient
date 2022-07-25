@@ -534,7 +534,7 @@ public class FrsCommonImageLayout extends LinearLayout implements AbsListView.Re
         if (!(interceptable == null || interceptable.invokeLLI(1048589, this, tbImageView, mediaData, i) == null) || tbImageView == null) {
             return;
         }
-        tbImageView.setDefaultResource(R.drawable.obfuscated_res_0x7f0811a4);
+        tbImageView.setDefaultResource(R.drawable.obfuscated_res_0x7f0811a8);
         String picUrl = mediaData.getPicUrl();
         if (mediaData.getType() == 5) {
             picUrl = null;
@@ -572,7 +572,7 @@ public class FrsCommonImageLayout extends LinearLayout implements AbsListView.Re
             this.l = i;
             this.u = d9Var;
             Resources resources = getResources();
-            this.y = resources.getString(R.string.obfuscated_res_0x7f0f0705) + this.l + resources.getString(R.string.obfuscated_res_0x7f0f0706);
+            this.y = resources.getString(R.string.obfuscated_res_0x7f0f0701) + this.l + resources.getString(R.string.obfuscated_res_0x7f0f0702);
             if (this.r == null && (d9Var.getOrignalPage() instanceof e)) {
                 this.r = ((e) d9Var.getOrignalPage()).S();
             }
@@ -595,7 +595,7 @@ public class FrsCommonImageLayout extends LinearLayout implements AbsListView.Re
                     while (i5 < i4) {
                         TbImageView b2 = this.r.b();
                         StringBuilder sb = new StringBuilder();
-                        sb.append(d9Var.getString(R.string.obfuscated_res_0x7f0f052d));
+                        sb.append(d9Var.getString(R.string.obfuscated_res_0x7f0f0529));
                         i5++;
                         sb.append(i5);
                         b2.setContentDescription(sb.toString());
@@ -729,7 +729,7 @@ public class FrsCommonImageLayout extends LinearLayout implements AbsListView.Re
         paint.setDither(true);
         this.x.setFilterBitmap(true);
         Resources resources = getResources();
-        String str = resources.getString(R.string.obfuscated_res_0x7f0f0705) + this.l + resources.getString(R.string.obfuscated_res_0x7f0f0706);
+        String str = resources.getString(R.string.obfuscated_res_0x7f0f0701) + this.l + resources.getString(R.string.obfuscated_res_0x7f0f0702);
         this.y = str;
         this.z = ((str.length() + 2) * pi.d(this.e, 10.0f)) / 2;
         this.A = pi.d(this.e, 10.0f);

@@ -120,7 +120,7 @@ public class zq8 extends b9 {
     public final void n() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.b = (HorizontalListView) this.a.findViewById(R.id.obfuscated_res_0x7f090827);
+            this.b = (HorizontalListView) this.a.findViewById(R.id.obfuscated_res_0x7f090825);
             this.d = new hq8();
             t(jq8.c(this.a.getContext()));
             this.b.setOnItemClickListener(new a(this));

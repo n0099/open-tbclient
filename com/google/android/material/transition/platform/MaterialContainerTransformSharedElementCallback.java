@@ -309,7 +309,7 @@ public class MaterialContainerTransformSharedElementCallback extends SharedEleme
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, context, parcelable)) == null) {
             View onCreateSnapshotView = super.onCreateSnapshotView(context, parcelable);
             if (onCreateSnapshotView != null && (weakReference = capturedSharedElement) != null && this.shapeProvider != null && (view2 = weakReference.get()) != null && (provideShape = this.shapeProvider.provideShape(view2)) != null) {
-                onCreateSnapshotView.setTag(R.id.obfuscated_res_0x7f0914da, provideShape);
+                onCreateSnapshotView.setTag(R.id.obfuscated_res_0x7f0914b5, provideShape);
             }
             return onCreateSnapshotView;
         }
@@ -336,8 +336,8 @@ public class MaterialContainerTransformSharedElementCallback extends SharedEleme
     public void onSharedElementEnd(@NonNull List<String> list, @NonNull List<View> list2, @NonNull List<View> list3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048582, this, list, list2, list3) == null) {
-            if (!list2.isEmpty() && (list2.get(0).getTag(R.id.obfuscated_res_0x7f0914da) instanceof View)) {
-                list2.get(0).setTag(R.id.obfuscated_res_0x7f0914da, null);
+            if (!list2.isEmpty() && (list2.get(0).getTag(R.id.obfuscated_res_0x7f0914b5) instanceof View)) {
+                list2.get(0).setTag(R.id.obfuscated_res_0x7f0914b5, null);
             }
             if (!this.entering && !list2.isEmpty()) {
                 this.returnEndBounds = TransitionUtils.getRelativeBoundsRect(list2.get(0));
@@ -351,7 +351,7 @@ public class MaterialContainerTransformSharedElementCallback extends SharedEleme
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048583, this, list, list2, list3) == null) {
             if (!list2.isEmpty() && !list3.isEmpty()) {
-                list2.get(0).setTag(R.id.obfuscated_res_0x7f0914da, list3.get(0));
+                list2.get(0).setTag(R.id.obfuscated_res_0x7f0914b5, list3.get(0));
             }
             if (this.entering || list2.isEmpty() || this.returnEndBounds == null) {
                 return;

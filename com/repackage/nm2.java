@@ -1,7 +1,6 @@
 package com.repackage;
 
 import android.annotation.SuppressLint;
-import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
@@ -12,30 +11,25 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.Collections;
+import java.util.List;
 /* loaded from: classes6.dex */
 public final class nm2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean f;
-    public static final Set<String> g;
+    public static final boolean e;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
-    public final int b;
-    public final int c;
-    public final String d;
-    public final Object e;
+    public final pm2 a;
+    public final List<om2> b;
+    public Boolean c;
+    public om2 d;
 
     /* loaded from: classes6.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-        public int b;
-        public int c;
-        public String d;
-        public Object e;
-        public RuntimeException f;
+        public pm2 a;
+        public List<om2> b;
+        public RuntimeException c;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -51,127 +45,84 @@ public final class nm2 {
             }
         }
 
+        @SuppressLint({"BDThrowableCheck"})
+        public a a(@NonNull List<om2> list) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, list)) == null) {
+                if (list.contains(null)) {
+                    this.c = new IllegalArgumentException("branches contains null value");
+                    if (!nm2.e) {
+                        this.b = null;
+                        return this;
+                    }
+                    throw this.c;
+                }
+                for (om2 om2Var : list) {
+                    if (om2Var.c() + 0 > 100) {
+                        this.c = new IllegalArgumentException("The sum of all flow in the branch must be in [0,100]");
+                        if (!nm2.e) {
+                            this.b = null;
+                            return this;
+                        }
+                        throw this.c;
+                    }
+                }
+                this.b = Collections.unmodifiableList(list);
+                return this;
+            }
+            return (a) invokeL.objValue;
+        }
+
         @Nullable
         @SuppressLint({"BDThrowableCheck"})
-        public nm2 a() {
+        public nm2 b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                if (this.f != null) {
-                    if (nm2.f) {
-                        throw this.f;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                if (this.c != null) {
+                    if (nm2.e) {
+                        throw this.c;
                     }
                     return null;
                 } else if (this.a == null) {
-                    this.f = new IllegalStateException("sid == null");
-                    if (nm2.f) {
-                        throw this.f;
+                    this.c = new IllegalStateException("testSwitch == null");
+                    if (nm2.e) {
+                        throw this.c;
                     }
                     return null;
                 } else {
-                    synchronized (a.class) {
-                        if (nm2.g.contains(this.a)) {
-                            this.f = new IllegalStateException("sid has been occupied");
-                            if (nm2.f) {
-                                throw this.f;
-                            }
-                            return null;
-                        } else if (this.e != null) {
-                            nm2.g.add(this.a);
-                            return new nm2(this);
-                        } else {
-                            this.f = new IllegalStateException("switchValue == null");
-                            if (nm2.f) {
-                                throw this.f;
+                    List<om2> list = this.b;
+                    if (list == null) {
+                        this.c = new IllegalStateException("branches == null");
+                        if (nm2.e) {
+                            throw this.c;
+                        }
+                        return null;
+                    }
+                    for (om2 om2Var : list) {
+                        if (!pm2.c(this.a.f(), om2Var.e)) {
+                            this.c = new IllegalStateException("branch valueType error");
+                            if (nm2.e) {
+                                throw this.c;
                             }
                             return null;
                         }
                     }
+                    return new nm2(this);
                 }
             }
             return (nm2) invokeV.objValue;
         }
 
-        public a b(@NonNull String str) {
+        public a c(@NonNull pm2 pm2Var) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-                this.d = str;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, pm2Var)) == null) {
+                this.a = pm2Var;
                 return this;
             }
             return (a) invokeL.objValue;
-        }
-
-        @SuppressLint({"BDThrowableCheck"})
-        public a c(int i) {
-            InterceptResult invokeI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
-                if (i >= 0 && i <= 100) {
-                    this.c = i;
-                    return this;
-                }
-                this.f = new IllegalArgumentException("flow must in [0, 100]");
-                if (!nm2.f) {
-                    this.c = 0;
-                    return this;
-                }
-                throw this.f;
-            }
-            return (a) invokeI.objValue;
-        }
-
-        public Exception d() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f : (Exception) invokeV.objValue;
-        }
-
-        @SuppressLint({"BDThrowableCheck"})
-        public a e(@NonNull String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-                if (TextUtils.isEmpty(str)) {
-                    this.f = new IllegalArgumentException("sid must not be empty");
-                    if (!nm2.f) {
-                        this.a = null;
-                        return this;
-                    }
-                    throw this.f;
-                } else if (str.contains("-")) {
-                    this.f = new IllegalArgumentException("sid must not contain '-'");
-                    if (!nm2.f) {
-                        this.a = null;
-                        return this;
-                    }
-                    throw this.f;
-                } else {
-                    this.a = str;
-                    return this;
-                }
-            }
-            return (a) invokeL.objValue;
-        }
-
-        public a f(@NonNull Object obj) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, obj)) == null) {
-                this.e = obj;
-                return this;
-            }
-            return (a) invokeL.objValue;
-        }
-
-        public a g(int i) {
-            InterceptResult invokeI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) {
-                this.b = i;
-                return this;
-            }
-            return (a) invokeI.objValue;
         }
     }
 
@@ -188,8 +139,7 @@ public final class nm2 {
                 return;
             }
         }
-        f = rg1.a;
-        g = new HashSet();
+        e = sg1.a;
     }
 
     public nm2(a aVar) {
@@ -207,42 +157,40 @@ public final class nm2 {
                 return;
             }
         }
+        this.c = Boolean.FALSE;
         this.a = aVar.a;
         this.b = aVar.b;
-        this.c = aVar.c;
-        this.d = aVar.d;
-        this.e = aVar.e;
     }
 
-    public int c() {
+    @Nullable
+    public synchronized om2 b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.c : invokeV.intValue;
-    }
-
-    public String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (String) invokeV.objValue;
-    }
-
-    @NonNull
-    public Object e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.e : invokeV.objValue;
-    }
-
-    @NonNull
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (f) {
-                return "SwanLocalABTestBranch{mGroupType=" + this.b + ", mFlow=" + this.c + ", mBranchDescription='" + this.d + "', mSwitchValue=" + this.e + '}';
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            synchronized (this) {
+                if (this.c.booleanValue()) {
+                    return this.d;
+                }
+                int currentTimeMillis = (int) (System.currentTimeMillis() % 100);
+                this.c = Boolean.TRUE;
+                for (int i = 0; i < this.b.size(); i++) {
+                    om2 om2Var = this.b.get(i);
+                    currentTimeMillis -= om2Var.c();
+                    if (currentTimeMillis < 0) {
+                        this.d = om2Var;
+                        return om2Var;
+                    }
+                }
+                return null;
             }
-            return super.toString();
         }
-        return (String) invokeV.objValue;
+        return (om2) invokeV.objValue;
+    }
+
+    @NonNull
+    public pm2 c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (pm2) invokeV.objValue;
     }
 }

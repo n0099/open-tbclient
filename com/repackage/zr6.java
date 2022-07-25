@@ -70,10 +70,10 @@ public class zr6 extends BaseAdapter {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 if (ni.z()) {
-                    this.a.c.sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(TbadkApplication.getInst().getContext(), String.valueOf((Long) view2.getTag(R.id.obfuscated_res_0x7f091ef7)), (String) view2.getTag(R.id.obfuscated_res_0x7f091f2c))));
+                    this.a.c.sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(TbadkApplication.getInst().getContext(), String.valueOf((Long) view2.getTag(R.id.obfuscated_res_0x7f091efb)), (String) view2.getTag(R.id.obfuscated_res_0x7f091f30))));
                     return;
                 }
-                this.a.c.showToast(R.string.obfuscated_res_0x7f0f0c2b);
+                this.a.c.showToast(R.string.obfuscated_res_0x7f0f0c17);
             }
         }
     }
@@ -148,13 +148,13 @@ public class zr6 extends BaseAdapter {
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             NoDataViewFactory.c cVar = null;
             View inflate = LayoutInflater.from(this.c.getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0169, (ViewGroup) null);
-            NoDataViewFactory.c a2 = NoDataViewFactory.c.a(new NoDataViewFactory.b(this.c.getResources().getString(R.string.obfuscated_res_0x7f0f1110), this.c.H1()));
+            NoDataViewFactory.c a2 = NoDataViewFactory.c.a(new NoDataViewFactory.b(this.c.getResources().getString(R.string.obfuscated_res_0x7f0f10cc), this.c.H1()));
             this.c.getResources().getDimension(R.dimen.tbds200);
-            this.c.getResources().getDimension(R.dimen.obfuscated_res_0x7f070249);
+            this.c.getResources().getDimension(R.dimen.obfuscated_res_0x7f070247);
             String I1 = this.c.I1();
-            this.c.getPageContext().getString(R.string.obfuscated_res_0x7f0f0c53);
-            String string = this.c.getPageContext().getString(R.string.obfuscated_res_0x7f0f03f8);
-            String format = String.format(this.c.getPageContext().getString(R.string.obfuscated_res_0x7f0f1113), I1);
+            this.c.getPageContext().getString(R.string.obfuscated_res_0x7f0f0c3f);
+            String string = this.c.getPageContext().getString(R.string.obfuscated_res_0x7f0f03f7);
+            String format = String.format(this.c.getPageContext().getString(R.string.obfuscated_res_0x7f0f10cf), I1);
             Activity pageActivity = this.c.getPageContext().getPageActivity();
             NoDataViewFactory.d a3 = NoDataViewFactory.d.a(NoDataViewFactory.ImgType.NODATA);
             if (!this.f) {
@@ -242,27 +242,27 @@ public class zr6 extends BaseAdapter {
             if (this.d) {
                 return c();
             }
-            if (view2 != null && view2.getTag(R.id.obfuscated_res_0x7f091ef7) != null) {
-                bVar = (b) view2.getTag(R.id.obfuscated_res_0x7f091ef7);
+            if (view2 != null && view2.getTag(R.id.obfuscated_res_0x7f091efb) != null) {
+                bVar = (b) view2.getTag(R.id.obfuscated_res_0x7f091efb);
             } else {
-                view2 = LayoutInflater.from(this.c.getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0593, viewGroup, false);
+                view2 = LayoutInflater.from(this.c.getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d059d, viewGroup, false);
                 bVar = new b(null);
-                TbImageView tbImageView = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090f57);
+                TbImageView tbImageView = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090f50);
                 bVar.a = tbImageView;
                 tbImageView.setRadius(pi.d(this.c.getBaseContext(), 25.0f));
-                bVar.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090f59);
-                HeadImageView headImageView = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f090f56);
+                bVar.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090f52);
+                HeadImageView headImageView = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f090f4f);
                 bVar.c = headImageView;
                 headImageView.setRadius(pi.d(this.c.getBaseContext(), 50.0f));
                 bVar.c.setOnClickListener(this.h);
                 bVar.c.setPlaceHolder(1);
-                bVar.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09232d);
-                bVar.h = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090c62);
-                bVar.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090c70);
-                bVar.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090c61);
-                bVar.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09208f);
-                bVar.i = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0916b7);
-                view2.setTag(R.id.obfuscated_res_0x7f091ef7, bVar);
+                bVar.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09232f);
+                bVar.h = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090c5b);
+                bVar.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090c69);
+                bVar.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090c5a);
+                bVar.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092093);
+                bVar.i = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091692);
+                view2.setTag(R.id.obfuscated_res_0x7f091efb, bVar);
             }
             if (!this.f) {
                 bVar.e.setVisibility(8);
@@ -300,16 +300,16 @@ public class zr6 extends BaseAdapter {
                 }
                 bVar.c.setDrawBorder(false);
                 bVar.d.setText(TextUtils.isEmpty(item.i) ? item.b : item.i);
-                bVar.c.setTag(R.id.obfuscated_res_0x7f091ef7, Long.valueOf(item.a));
-                bVar.c.setTag(R.id.obfuscated_res_0x7f091f2c, item.b);
-                bVar.f.setText(this.c.getPageContext().getString(R.string.obfuscated_res_0x7f0f111b));
+                bVar.c.setTag(R.id.obfuscated_res_0x7f091efb, Long.valueOf(item.a));
+                bVar.c.setTag(R.id.obfuscated_res_0x7f091f30, item.b);
+                bVar.f.setText(this.c.getPageContext().getString(R.string.obfuscated_res_0x7f0f10d7));
                 TextView textView2 = bVar.g;
-                textView2.setText(this.c.getPageContext().getString(R.string.obfuscated_res_0x7f0f07bc) + item.g);
+                textView2.setText(this.c.getPageContext().getString(R.string.obfuscated_res_0x7f0f07b8) + item.g);
                 if (item.f < 1) {
                     bVar.h.setVisibility(8);
                 } else {
                     TextView textView3 = bVar.h;
-                    textView3.setText(this.c.getPageContext().getString(R.string.obfuscated_res_0x7f0f0b25) + item.f);
+                    textView3.setText(this.c.getPageContext().getString(R.string.obfuscated_res_0x7f0f0b11) + item.f);
                     bVar.h.setVisibility(0);
                 }
                 String formatTime = StringHelper.getFormatTime(item.e * 1000);

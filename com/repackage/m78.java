@@ -21,7 +21,7 @@ public class m78 {
     public View b;
     public BdTypeListView c;
     public NoDataView d;
-    public k55 e;
+    public l55 e;
     public NavigationBarShadowView f;
     public i78 g;
     public View.OnClickListener h;
@@ -128,8 +128,8 @@ public class m78 {
         this.i = new b(this);
         this.a = context;
         this.b = view2;
-        this.c = (BdTypeListView) view2.findViewById(R.id.obfuscated_res_0x7f0912d2);
-        this.f = (NavigationBarShadowView) view2.findViewById(R.id.obfuscated_res_0x7f09157e);
+        this.c = (BdTypeListView) view2.findViewById(R.id.obfuscated_res_0x7f0912ae);
+        this.f = (NavigationBarShadowView) view2.findViewById(R.id.obfuscated_res_0x7f091559);
         this.c.setOnScrollListener(this.i);
     }
 

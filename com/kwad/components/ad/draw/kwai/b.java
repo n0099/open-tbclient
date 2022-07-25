@@ -6,6 +6,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.kwad.components.core.c.a.c;
 import com.kwad.sdk.api.KsDrawAd;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.core.view.AdBaseFrameLayout;
@@ -14,19 +15,19 @@ public final class b extends com.kwad.sdk.mvp.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     @Nullable
-    public KsDrawAd.AdInteractionListener a;
+    public KsDrawAd.AdInteractionListener aJ;
     @NonNull
-    public AdBaseFrameLayout b;
+    public com.kwad.components.ad.draw.b.a aL;
     @NonNull
-    public AdTemplate c;
+    public com.kwad.components.ad.draw.a.a.a ba;
     @Nullable
-    public com.kwad.components.core.c.a.b d;
+    public com.kwad.components.ad.i.b bb;
     @NonNull
-    public com.kwad.components.ad.draw.b.a e;
-    @NonNull
-    public com.kwad.components.ad.draw.a.a.a f;
+    public AdTemplate mAdTemplate;
     @Nullable
-    public com.kwad.components.ad.h.b g;
+    public c mApkDownloadHelper;
+    @NonNull
+    public AdBaseFrameLayout mRootContainer;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -43,14 +44,14 @@ public final class b extends com.kwad.sdk.mvp.a {
     }
 
     @Override // com.kwad.sdk.mvp.a
-    public final void a() {
+    public final void release() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            com.kwad.components.core.c.a.b bVar = this.d;
-            if (bVar != null) {
-                bVar.i();
+            c cVar = this.mApkDownloadHelper;
+            if (cVar != null) {
+                cVar.clear();
             }
-            this.e.e();
+            this.aL.release();
         }
     }
 }

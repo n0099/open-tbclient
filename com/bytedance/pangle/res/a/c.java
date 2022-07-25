@@ -3,7 +3,6 @@ package com.bytedance.pangle.res.a;
 import android.text.TextUtils;
 import androidx.appcompat.widget.ActivityChooserModel;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.sofire.utility.CommonMethods;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -243,9 +242,9 @@ public final class c {
                                 try {
                                     byte[] bArr2 = a.b;
                                     if (!TextUtils.isEmpty(str) && hVar.a(str)) {
-                                        if (str.equals(CommonMethods.ANDROID_MANIFEST_FILENAME)) {
+                                        if (str.equals("AndroidManifest.xml")) {
                                             k.a(bArr2, hVar);
-                                        } else if ((str.endsWith(ActivityChooserModel.HISTORY_FILE_EXTENSION) && str.startsWith("res/")) || TextUtils.equals(str, CommonMethods.ANDROID_MANIFEST_FILENAME)) {
+                                        } else if ((str.endsWith(ActivityChooserModel.HISTORY_FILE_EXTENSION) && str.startsWith("res/")) || TextUtils.equals(str, "AndroidManifest.xml")) {
                                             k.a(bArr2, hVar);
                                         } else if (str.equals("resources.arsc")) {
                                             new a(bArr2, hVar).a();

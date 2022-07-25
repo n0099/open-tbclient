@@ -1,47 +1,29 @@
 package com.repackage;
 
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashSet;
+import java.util.Set;
+import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class jc4 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile jc4 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public a a;
+    public final String a;
+    public final Set<String> b;
 
-    /* loaded from: classes6.dex */
-    public static class a extends pg4 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a() {
-            super("swan_preload_package");
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((String) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-        }
-    }
-
-    public jc4() {
+    public jc4(String str, Set<String> set) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, set};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -51,45 +33,42 @@ public class jc4 {
                 return;
             }
         }
-        this.a = new a();
+        this.a = str;
+        this.b = set;
     }
 
-    public static jc4 a() {
-        InterceptResult invokeV;
+    public static jc4 a(JSONObject jSONObject) {
+        InterceptResult invokeL;
+        JSONObject optJSONObject;
+        JSONArray optJSONArray;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (b == null) {
-                synchronized (jc4.class) {
-                    if (b == null) {
-                        b = new jc4();
-                    }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
+            if (jSONObject == null || (optJSONObject = jSONObject.optJSONObject("data")) == null || (optJSONArray = optJSONObject.optJSONArray("appkeys")) == null) {
+                return null;
+            }
+            String optString = jSONObject.optString("version");
+            HashSet hashSet = new HashSet();
+            int length = optJSONArray.length();
+            for (int i = 0; i < length; i++) {
+                String optString2 = optJSONArray.optString(i);
+                if (!TextUtils.isEmpty(optString2)) {
+                    hashSet.add(optString2);
                 }
             }
-            return b;
+            return new jc4(optString, hashSet);
         }
-        return (jc4) invokeV.objValue;
+        return (jc4) invokeL.objValue;
     }
 
-    public String b() {
+    public Set<String> b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a.getString("version", "0") : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (Set) invokeV.objValue;
     }
 
-    public void c(ic4 ic4Var) {
+    public String c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ic4Var) == null) || ic4Var == null) {
-            return;
-        }
-        this.a.edit().putString("version", ic4Var.c()).apply();
-    }
-
-    public void d(JSONObject jSONObject) {
-        ic4 a2;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) || jSONObject == null || (a2 = ic4.a(jSONObject)) == null) {
-            return;
-        }
-        q74.b().H(a2);
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (String) invokeV.objValue;
     }
 }

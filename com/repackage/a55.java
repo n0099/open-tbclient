@@ -2,8 +2,6 @@ package com.repackage;
 
 import android.graphics.Bitmap;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.minivideo.plugin.capture.bean.FaceItem;
-import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.BitmapHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -11,10 +9,10 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class a55 extends v45 {
+public class a55 extends w45 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
+    public float a;
 
     public a55() {
         Interceptable interceptable = $ic;
@@ -26,20 +24,18 @@ public class a55 extends v45 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = "";
     }
 
-    @Override // com.repackage.v45
+    @Override // com.repackage.w45
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? FaceItem.DIR_STICKER : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "round_corner" : (String) invokeV.objValue;
     }
 
-    @Override // com.repackage.v45
+    @Override // com.repackage.w45
     public Bitmap b(Bitmap bitmap, boolean z) throws Exception {
         InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
@@ -47,30 +43,21 @@ public class a55 extends v45 {
             if (bitmap == null) {
                 return null;
             }
-            l45.k().i(BitmapHelper.getBitmapSize(bitmap) * 2);
-            return BitmapHelper.loadResizedBitmap(this.a, pi.k(TbadkCoreApplication.getInst()), pi.i(TbadkCoreApplication.getInst()));
+            if (this.a <= 0.0f) {
+                return bitmap;
+            }
+            m45.k().i(BitmapHelper.getBitmapSize(bitmap) * 2);
+            return BitmapHelper.getRoundedCornerBitmap(bitmap, this.a, z);
         }
         return (Bitmap) invokeLZ.objValue;
     }
 
-    @Override // com.repackage.v45
-    public Bitmap c(String str) throws Exception {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) ? b(BitmapHelper.loadResizedBitmap(str, pi.k(TbadkCoreApplication.getInst()), pi.i(TbadkCoreApplication.getInst())), true) : (Bitmap) invokeL.objValue;
-    }
-
-    @Override // com.repackage.v45
+    @Override // com.repackage.w45
     public void d(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) || str == null) {
+            return;
         }
-    }
-
-    public void e(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            this.a = str;
-        }
+        this.a = ng.d(str, 0.0f);
     }
 }

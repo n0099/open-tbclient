@@ -73,7 +73,7 @@ public class hs5 extends jx5<qo5> {
                     this.a.l.a(this.a.n, this.a.o, this.a.m);
                     return;
                 }
-                pi.L(this.a.j.getPageActivity(), this.a.j.getPageActivity().getString(R.string.obfuscated_res_0x7f0f0c64));
+                pi.L(this.a.j.getPageActivity(), this.a.j.getPageActivity().getString(R.string.obfuscated_res_0x7f0f0c50));
             }
         }
     }
@@ -143,14 +143,14 @@ public class hs5 extends jx5<qo5> {
                 }
             }
             this.a = view2;
-            this.b = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090e5e);
-            this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0921ed);
-            this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0921ec);
-            this.e = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f091b46);
-            this.f = (ClickableHeaderImageView) view2.findViewById(R.id.obfuscated_res_0x7f090e5f);
-            this.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0921f9);
-            this.h = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0921f6);
-            this.i = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0921f3);
+            this.b = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090e57);
+            this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0921ef);
+            this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0921ee);
+            this.e = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f091b20);
+            this.f = (ClickableHeaderImageView) view2.findViewById(R.id.obfuscated_res_0x7f090e58);
+            this.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0921fb);
+            this.h = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0921f8);
+            this.i = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0921f5);
             view2.setOnClickListener(hs5Var.q);
             this.b.setDefaultBgResource(R.drawable.pic_bg_video_frs);
             this.b.setDrawerType(0);
@@ -237,7 +237,7 @@ public class hs5 extends jx5<qo5> {
                 this.n = qo5Var.a;
                 this.o = !TextUtils.isEmpty(qo5Var.c) ? qo5Var.c : qo5Var.b;
                 this.k.b.J(this.m.getThreadAlaInfo().cover, 10, false);
-                this.k.d.setText(this.j.getPageActivity().getResources().getString(R.string.obfuscated_res_0x7f0f11f0, StringHelper.numberUniformFormatExtra(this.m.getThreadAlaInfo().audience_count)));
+                this.k.d.setText(this.j.getPageActivity().getResources().getString(R.string.obfuscated_res_0x7f0f119f, StringHelper.numberUniformFormatExtra(this.m.getThreadAlaInfo().audience_count)));
                 this.k.f.setData(this.m, false);
                 this.k.h.setText(this.m.getTitle());
                 if (this.m.getAuthor() != null) {
@@ -255,7 +255,7 @@ public class hs5 extends jx5<qo5> {
                     this.k.c.setVisibility(8);
                 }
                 if (qo5Var.e) {
-                    this.k.i.setText(this.j.getPageActivity().getResources().getString(R.string.obfuscated_res_0x7f0f11ef, StringHelper.numberUniformFormatExtra((long) (this.m.getThreadAlaInfo().distance / 1000.0d))));
+                    this.k.i.setText(this.j.getPageActivity().getResources().getString(R.string.obfuscated_res_0x7f0f119e, StringHelper.numberUniformFormatExtra((long) (this.m.getThreadAlaInfo().distance / 1000.0d))));
                     this.k.i.setVisibility(0);
                 } else {
                     this.k.i.setVisibility(8);

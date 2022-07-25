@@ -61,7 +61,7 @@ public class jj5 {
                 if (ni.A()) {
                     jj5.e(jSONArray, this.b.a(), this.b.b(), this.c);
                 } else {
-                    pi.N(this.a.getContext(), R.string.obfuscated_res_0x7f0f0c2b);
+                    pi.N(this.a.getContext(), R.string.obfuscated_res_0x7f0f0c17);
                 }
             }
         }
@@ -102,7 +102,7 @@ public class jj5 {
                 if (ni.A()) {
                     jj5.e(jSONArray, this.b.a(), this.b.b(), this.c);
                 } else {
-                    pi.N(this.a.getContext(), R.string.obfuscated_res_0x7f0f0c2b);
+                    pi.N(this.a.getContext(), R.string.obfuscated_res_0x7f0f0c17);
                 }
             }
         }
@@ -143,16 +143,16 @@ public class jj5 {
                 }
             }
         }
-        kp4 kp4Var = new kp4();
-        kp4Var.j(sparseArray);
+        lp4 lp4Var = new lp4();
+        lp4Var.j(sparseArray);
         if (mj5Var != null) {
-            kp4Var.i(mj5Var.getType());
+            lp4Var.i(mj5Var.getType());
         }
-        kp4Var.p(jSONArray);
-        kp4Var.m(jSONArray2);
-        kp4Var.l(tc6.f().d());
-        lj5Var.x(kp4Var);
-        lj5Var.y(new String[]{TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f04b3), TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f04b4), TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f04b5), TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f04b6), TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f04b7)});
+        lp4Var.p(jSONArray);
+        lp4Var.m(jSONArray2);
+        lp4Var.l(tc6.f().d());
+        lj5Var.x(lp4Var);
+        lj5Var.y(new String[]{TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f04b2), TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f04b3), TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f04b4), TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f04b5), TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f04b6)});
         lj5Var.A("1");
         lj5Var.z(new b(tbPageContext, mj5Var, z));
     }
@@ -192,16 +192,16 @@ public class jj5 {
                 }
             }
         }
-        kp4 kp4Var = new kp4();
-        kp4Var.j(sparseArray);
+        lp4 lp4Var = new lp4();
+        lp4Var.j(sparseArray);
         if (mj5Var != null) {
-            kp4Var.i(mj5Var.getType());
+            lp4Var.i(mj5Var.getType());
         }
-        kp4Var.p(jSONArray);
-        kp4Var.m(jSONArray2);
-        kp4Var.l(tc6.f().d());
-        oj5Var.D(kp4Var);
-        oj5Var.E(new String[]{TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f04ae), TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f04af), TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f04b0), TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f04b1), TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f04b2)});
+        lp4Var.p(jSONArray);
+        lp4Var.m(jSONArray2);
+        lp4Var.l(tc6.f().d());
+        oj5Var.D(lp4Var);
+        oj5Var.E(new String[]{TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f04ad), TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f04ae), TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f04af), TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f04b0), TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f04b1)});
         oj5Var.G("1");
         oj5Var.F(new a(tbPageContext, mj5Var, z));
     }

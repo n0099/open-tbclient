@@ -65,10 +65,10 @@ public class ey5 extends jx5<ThreadData> implements bk5 {
         View h = h();
         h.setOnClickListener(this);
         this.j = tbPageContext;
-        HeadImageView headImageView = (HeadImageView) h.findViewById(R.id.obfuscated_res_0x7f092175);
+        HeadImageView headImageView = (HeadImageView) h.findViewById(R.id.obfuscated_res_0x7f092177);
         this.k = headImageView;
         headImageView.setIsRound(true);
-        this.k.setDefaultResource(R.drawable.obfuscated_res_0x7f080ebc);
+        this.k.setDefaultResource(R.drawable.obfuscated_res_0x7f080ec3);
         this.l = (TextView) h.findViewById(R.id.obfuscated_res_0x7f090567);
         this.n = (TextView) h.findViewById(R.id.obfuscated_res_0x7f090556);
         this.m = (TextView) h.findViewById(R.id.obfuscated_res_0x7f090551);
@@ -174,7 +174,7 @@ public class ey5 extends jx5<ThreadData> implements bk5 {
             spannableStringBuilder.setSpan(new ForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0304)), 0, str.length(), 33);
             this.n.setText(spannableStringBuilder);
             ArrayList<MediaData> medias = threadData.getMedias();
-            if (zm4.c().g() && ListUtils.getCount(medias) != 0) {
+            if (an4.c().g() && ListUtils.getCount(medias) != 0) {
                 ArrayList arrayList = new ArrayList();
                 for (int i = 0; i < medias.size(); i++) {
                     MediaData mediaData = (MediaData) ListUtils.getItem(medias, i);

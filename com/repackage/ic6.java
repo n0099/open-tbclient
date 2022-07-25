@@ -53,15 +53,15 @@ public class ic6 {
         this.a = tbPageContext;
         View inflate = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d02c1, (ViewGroup) null);
         this.b = inflate;
-        this.c = (RelativeLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091c9b);
-        this.h = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f091c9e);
-        this.d = (EditText) this.b.findViewById(R.id.obfuscated_res_0x7f090d2f);
-        this.e = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f090d1f);
-        this.d.setHint(R.string.obfuscated_res_0x7f0f10c1);
-        TextView textView = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090d1e);
+        this.c = (RelativeLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091ca1);
+        this.h = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f091ca4);
+        this.d = (EditText) this.b.findViewById(R.id.obfuscated_res_0x7f090d28);
+        this.e = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f090d18);
+        this.d.setHint(R.string.obfuscated_res_0x7f0f107d);
+        TextView textView = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090d17);
         this.f = textView;
         textView.setText(tbPageContext.getString(R.string.obfuscated_res_0x7f0f036a));
-        this.g = (BdTypeListView) this.b.findViewById(R.id.obfuscated_res_0x7f091c9f);
+        this.g = (BdTypeListView) this.b.findViewById(R.id.obfuscated_res_0x7f091ca5);
         a();
         b(TbadkCoreApplication.getInst().getSkinType());
     }
@@ -70,8 +70,8 @@ public class ic6 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.c.getLayoutParams();
-            layoutParams.height = pi.f(this.a.getPageActivity(), R.dimen.obfuscated_res_0x7f070308);
-            int f = pi.f(this.a.getPageActivity(), R.dimen.obfuscated_res_0x7f070304);
+            layoutParams.height = pi.f(this.a.getPageActivity(), R.dimen.obfuscated_res_0x7f070306);
+            int f = pi.f(this.a.getPageActivity(), R.dimen.obfuscated_res_0x7f070302);
             layoutParams.rightMargin = f;
             layoutParams.leftMargin = f;
             int immersiveStickyBarHeight = UtilHelper.getImmersiveStickyBarHeight();

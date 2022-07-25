@@ -23,7 +23,7 @@ import com.repackage.j66;
 import com.repackage.ni;
 import com.repackage.pi;
 import com.repackage.y66;
-import com.repackage.y85;
+import com.repackage.z85;
 /* loaded from: classes3.dex */
 public class EnterForumTabFeedFragment extends BaseFragment implements j66 {
     public static /* synthetic */ Interceptable $ic;
@@ -49,7 +49,7 @@ public class EnterForumTabFeedFragment extends BaseFragment implements j66 {
         }
     }
 
-    @Override // com.repackage.fu4.g
+    @Override // com.repackage.gu4.g
     public void e(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
@@ -66,11 +66,11 @@ public class EnterForumTabFeedFragment extends BaseFragment implements j66 {
                 if (!StringUtils.isNull(errorData.error_msg)) {
                     showToast(errorData.error_msg);
                 } else {
-                    showToast(R.string.obfuscated_res_0x7f0f08bb);
+                    showToast(R.string.obfuscated_res_0x7f0f08a6);
                 }
             }
             if (!this.c.c()) {
-                showNetRefreshView(this.e, errorData != null ? getPageContext().getResources().getString(R.string.obfuscated_res_0x7f0f0c2a, errorData.error_msg, Integer.valueOf(errorData.error_code)) : null, true);
+                showNetRefreshView(this.e, errorData != null ? getPageContext().getResources().getString(R.string.obfuscated_res_0x7f0f0c16, errorData.error_msg, Integer.valueOf(errorData.error_code)) : null, true);
             }
             a76 a76Var = this.d;
             if (a76Var != null) {
@@ -79,7 +79,7 @@ public class EnterForumTabFeedFragment extends BaseFragment implements j66 {
         }
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragment, com.repackage.v85
+    @Override // com.baidu.tbadk.core.BaseFragment, com.repackage.w85
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -87,17 +87,17 @@ public class EnterForumTabFeedFragment extends BaseFragment implements j66 {
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
-    public y85 getPageStayDurationItem() {
+    public z85 getPageStayDurationItem() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            y85 pageStayDurationItem = super.getPageStayDurationItem();
+            z85 pageStayDurationItem = super.getPageStayDurationItem();
             if (pageStayDurationItem != null) {
                 pageStayDurationItem.s = this.a;
             }
             return pageStayDurationItem;
         }
-        return (y85) invokeV.objValue;
+        return (z85) invokeV.objValue;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
@@ -313,8 +313,8 @@ public class EnterForumTabFeedFragment extends BaseFragment implements j66 {
             if (a76Var != null) {
                 a76Var.r(false);
             }
-            super.showNetRefreshView(view2, getString(R.string.obfuscated_res_0x7f0f0f9b), str, null, z, getNetRefreshListener());
-            setNetRefreshViewTopMargin(pi.f(TbadkCoreApplication.getInst(), R.dimen.obfuscated_res_0x7f0702ad));
+            super.showNetRefreshView(view2, getString(R.string.obfuscated_res_0x7f0f0f84), str, null, z, getNetRefreshListener());
+            setNetRefreshViewTopMargin(pi.f(TbadkCoreApplication.getInst(), R.dimen.obfuscated_res_0x7f0702ab));
         }
     }
 
@@ -327,7 +327,7 @@ public class EnterForumTabFeedFragment extends BaseFragment implements j66 {
                 a76Var.r(false);
             }
             super.showNoDataRefreshView(view2, z);
-            setNetRefreshViewTopMargin(pi.f(TbadkCoreApplication.getInst(), R.dimen.obfuscated_res_0x7f0702ad));
+            setNetRefreshViewTopMargin(pi.f(TbadkCoreApplication.getInst(), R.dimen.obfuscated_res_0x7f0702ab));
         }
     }
 

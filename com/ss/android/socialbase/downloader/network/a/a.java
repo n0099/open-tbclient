@@ -13,7 +13,7 @@ public class a {
 
     /* renamed from: com.ss.android.socialbase.downloader.network.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public static final class C0837a {
+    public static final class C0686a {
         public static final a a = new a();
     }
 
@@ -97,6 +97,6 @@ public class a {
     }
 
     public static a a() {
-        return C0837a.a;
+        return C0686a.a;
     }
 }

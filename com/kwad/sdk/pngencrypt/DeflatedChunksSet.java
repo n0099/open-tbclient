@@ -4,20 +4,20 @@ import java.util.zip.DataFormatException;
 import java.util.zip.Inflater;
 /* loaded from: classes5.dex */
 public class DeflatedChunksSet {
-    public byte[] a;
-    public State b;
-    public final boolean c;
-    public final String f;
-    public int g;
-    public int h;
-    public int i;
-    public Inflater j;
-    public final boolean k;
-    public d l;
-    public long m = 0;
-    public long n = 0;
-    public int d = -1;
-    public int e = -1;
+    public final boolean ajQ;
+    public byte[] akg;
+    public int akh;
+    public int aki;
+    public int akj;
+    public State akk;
+    public final boolean akl;
+    public d akm;
+    public long akn = 0;
+    public long ako = 0;
+    public int akp = -1;
+    public int akq = -1;
+    public final String akr;
+    public Inflater inf;
 
     /* loaded from: classes5.dex */
     public enum State {
@@ -37,28 +37,28 @@ public class DeflatedChunksSet {
 
     public DeflatedChunksSet(String str, boolean z, int i, int i2, Inflater inflater, byte[] bArr) {
         boolean z2;
-        this.b = State.WAITING_FOR_INPUT;
-        this.f = str;
-        this.c = z;
-        this.h = i;
+        this.akk = State.WAITING_FOR_INPUT;
+        this.akr = str;
+        this.ajQ = z;
+        this.aki = i;
         if (i <= 0 || i2 < i) {
             throw new PngjException("bad inital row len " + i);
         }
         if (inflater != null) {
-            this.j = inflater;
+            this.inf = inflater;
             z2 = false;
         } else {
-            this.j = new Inflater();
+            this.inf = new Inflater();
             z2 = true;
         }
-        this.k = z2;
-        this.a = (bArr == null || bArr.length < i) ? new byte[i2] : bArr;
-        this.i = -1;
-        this.b = State.WAITING_FOR_INPUT;
+        this.akl = z2;
+        this.akg = (bArr == null || bArr.length < i) ? new byte[i2] : bArr;
+        this.akj = -1;
+        this.akk = State.WAITING_FOR_INPUT;
         try {
-            a(i);
+            bh(i);
         } catch (RuntimeException e) {
-            e();
+            close();
             throw e;
         }
     }
@@ -68,160 +68,160 @@ public class DeflatedChunksSet {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private boolean h() {
+    private boolean yg() {
         State state;
         int i;
         try {
-            if (this.b == State.ROW_READY) {
-                com.kwad.sdk.core.d.b.a(new PngjException("invalid state"));
+            if (this.akk == State.ROW_READY) {
+                com.kwad.sdk.core.e.b.printStackTrace(new PngjException("invalid state"));
             }
-            if (this.b.isDone()) {
+            if (this.akk.isDone()) {
                 return false;
             }
-            if (this.a == null || this.a.length < this.h) {
-                this.a = new byte[this.h];
+            if (this.akg == null || this.akg.length < this.aki) {
+                this.akg = new byte[this.aki];
             }
-            if (this.g < this.h && !this.j.finished()) {
+            if (this.akh < this.aki && !this.inf.finished()) {
                 try {
-                    i = this.j.inflate(this.a, this.g, this.h - this.g);
+                    i = this.inf.inflate(this.akg, this.akh, this.aki - this.akh);
                 } catch (DataFormatException e) {
-                    com.kwad.sdk.core.d.b.a(new PngjException("error decompressing zlib stream ", e));
+                    com.kwad.sdk.core.e.b.printStackTrace(new PngjException("error decompressing zlib stream ", e));
                     i = 0;
                 }
-                this.g += i;
-                this.n += i;
+                this.akh += i;
+                this.ako += i;
             }
-            if (this.g != this.h) {
-                if (!this.j.finished()) {
+            if (this.akh != this.aki) {
+                if (!this.inf.finished()) {
                     state = State.WAITING_FOR_INPUT;
-                } else if (this.g <= 0) {
+                } else if (this.akh <= 0) {
                     state = State.DONE;
                 }
-                this.b = state;
+                this.akk = state;
                 if (state != State.ROW_READY) {
-                    a();
+                    yh();
                     return true;
                 }
                 return false;
             }
             state = State.ROW_READY;
-            this.b = state;
+            this.akk = state;
             if (state != State.ROW_READY) {
             }
         } catch (RuntimeException e2) {
-            e();
+            close();
             throw e2;
         }
     }
 
-    public void a() {
-    }
-
-    public final void a(int i) {
-        this.g = 0;
-        this.i++;
-        if (i <= 0 || this.j.finished()) {
-            this.h = 0;
-            f();
-            return;
-        }
-        this.b = State.WAITING_FOR_INPUT;
-        this.h = i;
-        if (this.c) {
-            return;
-        }
-        h();
-    }
-
     public final void a(d dVar) {
-        if (!this.f.equals(dVar.a().c)) {
-            com.kwad.sdk.core.d.b.a(new PngjException("Bad chunk inside IdatSet, id:" + dVar.a().c + ", expected:" + this.f));
+        if (!this.akr.equals(dVar.xT().alB)) {
+            com.kwad.sdk.core.e.b.printStackTrace(new PngjException("Bad chunk inside IdatSet, id:" + dVar.xT().alB + ", expected:" + this.akr));
         }
-        this.l = dVar;
-        int i = this.d + 1;
-        this.d = i;
-        int i2 = this.e;
+        this.akm = dVar;
+        int i = this.akp + 1;
+        this.akp = i;
+        int i2 = this.akq;
         if (i2 >= 0) {
-            dVar.a(i + i2);
+            dVar.bg(i + i2);
         }
     }
 
-    public final void a(byte[] bArr, int i, int i2) {
-        this.m += i2;
-        if (i2 <= 0 || this.b.isDone()) {
+    public final void bh(int i) {
+        this.akh = 0;
+        this.akj++;
+        if (i <= 0 || this.inf.finished()) {
+            this.aki = 0;
+            yj();
             return;
         }
-        if (this.b == State.ROW_READY) {
-            com.kwad.sdk.core.d.b.a(new PngjException("this should only be called if waitingForMoreInput"));
+        this.akk = State.WAITING_FOR_INPUT;
+        this.aki = i;
+        if (this.ajQ) {
+            return;
         }
-        if (this.j.needsDictionary() || !this.j.needsInput()) {
+        yg();
+    }
+
+    public final void c(byte[] bArr, int i, int i2) {
+        this.akn += i2;
+        if (i2 <= 0 || this.akk.isDone()) {
+            return;
+        }
+        if (this.akk == State.ROW_READY) {
+            com.kwad.sdk.core.e.b.printStackTrace(new PngjException("this should only be called if waitingForMoreInput"));
+        }
+        if (this.inf.needsDictionary() || !this.inf.needsInput()) {
             throw new RuntimeException("should not happen");
         }
-        this.j.setInput(bArr, i, i2);
-        if (!this.c) {
-            h();
+        this.inf.setInput(bArr, i, i2);
+        if (!this.ajQ) {
+            yg();
             return;
         }
-        while (h()) {
-            a(b());
-            c();
+        while (yg()) {
+            bh(yi());
+            isDone();
         }
     }
 
-    public final boolean a(String str) {
-        if (this.b.isClosed()) {
-            return false;
-        }
-        if (str.equals(this.f)) {
-            return true;
-        }
-        if (this.b.isDone()) {
-            if (!this.b.isClosed()) {
-                e();
-            }
-            return false;
-        }
-        throw new PngjException("Unexpected chunk " + str + " while " + this.f + " set is not done");
-    }
-
-    public int b() {
-        throw new PngjException("not implemented");
-    }
-
-    public final boolean c() {
-        return this.b.isDone();
-    }
-
-    public final boolean d() {
-        return this.b.isClosed();
-    }
-
-    public void e() {
+    public void close() {
         try {
-            if (!this.b.isClosed()) {
-                this.b = State.CLOSED;
+            if (!this.akk.isClosed()) {
+                this.akk = State.CLOSED;
             }
-            if (!this.k || this.j == null) {
+            if (!this.akl || this.inf == null) {
                 return;
             }
-            this.j.end();
-            this.j = null;
+            this.inf.end();
+            this.inf = null;
         } catch (Exception unused) {
         }
     }
 
-    public final void f() {
-        if (c()) {
-            return;
+    public final boolean dp(String str) {
+        if (this.akk.isClosed()) {
+            return false;
         }
-        this.b = State.DONE;
+        if (str.equals(this.akr)) {
+            return true;
+        }
+        if (this.akk.isDone()) {
+            if (!this.akk.isClosed()) {
+                close();
+            }
+            return false;
+        }
+        throw new PngjException("Unexpected chunk " + str + " while " + this.akr + " set is not done");
     }
 
-    public final int g() {
-        return this.i;
+    public final boolean isClosed() {
+        return this.akk.isClosed();
+    }
+
+    public final boolean isDone() {
+        return this.akk.isDone();
     }
 
     public String toString() {
-        return new StringBuilder("idatSet : " + this.l.a().c + " state=" + this.b + " rows=" + this.i + " bytes=" + this.m + "/" + this.n).toString();
+        return new StringBuilder("idatSet : " + this.akm.xT().alB + " state=" + this.akk + " rows=" + this.akj + " bytes=" + this.akn + "/" + this.ako).toString();
+    }
+
+    public void yh() {
+    }
+
+    public int yi() {
+        throw new PngjException("not implemented");
+    }
+
+    public final void yj() {
+        if (isDone()) {
+            return;
+        }
+        this.akk = State.DONE;
+    }
+
+    public final int yk() {
+        return this.akj;
     }
 }

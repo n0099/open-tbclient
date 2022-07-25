@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.n10;
 import com.repackage.x30;
-import com.repackage.xt4;
+import com.repackage.yt4;
 import java.io.UnsupportedEncodingException;
 /* loaded from: classes2.dex */
 public class MainTabLoadFinishTask extends LaunchTask {
@@ -68,16 +68,16 @@ public class MainTabLoadFinishTask extends LaunchTask {
             }
             Loki.startTrack();
             try {
-                xt4.k().y("key_default_useragent", WebSettings.getDefaultUserAgent(TbadkCoreApplication.getInst()));
+                yt4.k().y("key_default_useragent", WebSettings.getDefaultUserAgent(TbadkCoreApplication.getInst()));
             } catch (Exception e) {
                 e.printStackTrace();
             }
             try {
                 String f = n10.e(TbadkCoreApplication.getInst().getContext()).f();
-                String q = xt4.k().q("key_last_cached_oid", "");
+                String q = yt4.k().q("key_last_cached_oid", "");
                 if (StringUtils.isNull(q) || !q.equals(f)) {
-                    xt4.k().y("key_last_cached_oid", f);
-                    xt4.k().y("key_last_cached_real_oid", getRealOaid(f));
+                    yt4.k().y("key_last_cached_oid", f);
+                    yt4.k().y("key_last_cached_real_oid", getRealOaid(f));
                 }
             } catch (Exception e2) {
                 e2.printStackTrace();

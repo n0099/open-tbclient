@@ -92,9 +92,9 @@ public class FrsGameStrategyMainFragment extends BaseFragment implements Activit
                     return;
                 }
                 FrsGameStrategyMainFragment frsGameStrategyMainFragment2 = this.a;
-                frsGameStrategyMainFragment2.showNetRefreshView(frsGameStrategyMainFragment2.d.f(), this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0c45), false);
+                frsGameStrategyMainFragment2.showNetRefreshView(frsGameStrategyMainFragment2.d.f(), this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0c31), false);
                 FrsGameStrategyMainFragment frsGameStrategyMainFragment3 = this.a;
-                frsGameStrategyMainFragment3.setNetRefreshViewTopMargin(frsGameStrategyMainFragment3.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070285));
+                frsGameStrategyMainFragment3.setNetRefreshViewTopMargin(frsGameStrategyMainFragment3.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070283));
             }
         }
 
@@ -115,7 +115,7 @@ public class FrsGameStrategyMainFragment extends BaseFragment implements Activit
                 FrsGameStrategyMainFragment frsGameStrategyMainFragment2 = this.a;
                 frsGameStrategyMainFragment2.showNetRefreshView(frsGameStrategyMainFragment2.d.f(), str, false);
                 FrsGameStrategyMainFragment frsGameStrategyMainFragment3 = this.a;
-                frsGameStrategyMainFragment3.setNetRefreshViewTopMargin(frsGameStrategyMainFragment3.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070285));
+                frsGameStrategyMainFragment3.setNetRefreshViewTopMargin(frsGameStrategyMainFragment3.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070283));
             }
         }
     }
@@ -444,13 +444,13 @@ public class FrsGameStrategyMainFragment extends BaseFragment implements Activit
             if (PermissionUtil.checkCamera(getActivity().getApplicationContext())) {
                 SelectImageHelper.takePhoto(getPageContext());
             } else {
-                showToast(R.string.obfuscated_res_0x7f0f1353);
+                showToast(R.string.obfuscated_res_0x7f0f1302);
             }
             ArrayMap<String, Boolean> transformPermissionResult = PermissionUtil.transformPermissionResult(strArr, iArr);
             if (!transformPermissionResult.containsKey("android.permission.WRITE_EXTERNAL_STORAGE") || transformPermissionResult.get("android.permission.WRITE_EXTERNAL_STORAGE").booleanValue()) {
                 return;
             }
-            showToast(R.string.obfuscated_res_0x7f0f10a7);
+            showToast(R.string.obfuscated_res_0x7f0f1063);
         }
     }
 

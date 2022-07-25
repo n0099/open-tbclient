@@ -79,7 +79,7 @@ public class gq7 extends b9<PaymentConfirmActivity> {
         this.a = paymentConfirmActivity;
         this.w = z;
         this.x = i;
-        paymentConfirmActivity.setContentView(R.layout.obfuscated_res_0x7f0d0670);
+        paymentConfirmActivity.setContentView(R.layout.obfuscated_res_0x7f0d067a);
         w(paymentConfirmActivity);
         v(paymentConfirmActivity);
     }
@@ -116,13 +116,13 @@ public class gq7 extends b9<PaymentConfirmActivity> {
             this.f.J(goods_info.getGoods_pic(), 10, false);
             this.g.setText(goods_info.getGoods_name());
             String numFormatOver10000 = StringHelper.numFormatOver10000(goods_info.getGoods_num());
-            this.h.setText(y(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0d7e, numFormatOver10000) + goods_info.getGoods_unit(), numFormatOver10000, SkinManager.getColor(R.color.CAM_X0305)));
+            this.h.setText(y(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0d67, numFormatOver10000) + goods_info.getGoods_unit(), numFormatOver10000, SkinManager.getColor(R.color.CAM_X0305)));
             int goods_duration = goods_info.getGoods_duration();
             if (goods_duration > 0) {
                 String numFormatOver100002 = StringHelper.numFormatOver10000(goods_duration);
-                this.i.setText(y(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0d83, numFormatOver100002), numFormatOver100002, SkinManager.getColor(R.color.CAM_X0305)));
+                this.i.setText(y(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0d6c, numFormatOver100002), numFormatOver100002, SkinManager.getColor(R.color.CAM_X0305)));
             } else {
-                this.i.setText(a(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0d84), 3, 5, SkinManager.getColor(R.color.CAM_X0305)));
+                this.i.setText(a(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0d6d), 3, 5, SkinManager.getColor(R.color.CAM_X0305)));
             }
             this.j.setCompoundDrawablesWithIntrinsicBounds(CurrencySwitchUtil.getMoneyIcon(goods_info.getCurrency()), (Drawable) null, (Drawable) null, (Drawable) null);
             if (CurrencySwitchUtil.isYyIsConvert(goods_info.getCurrency())) {
@@ -130,16 +130,16 @@ public class gq7 extends b9<PaymentConfirmActivity> {
             } else {
                 this.j.setText(StringHelper.numFormatOver10000wan(goods_info.getTdou_num()));
             }
-            this.k.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0d7d, goods_info.getGoods_name()));
+            this.k.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0d66, goods_info.getGoods_name()));
             if (z) {
                 SkinManager.setViewTextColor(this.l, R.color.CAM_X0105, 1);
                 this.l.setText(m(goods_info.getTdou_num(), goods_info.getCurrency()));
             } else {
                 SkinManager.setViewTextColor(this.l, R.color.CAM_X0301, 1);
                 if (CurrencySwitchUtil.isYyIsConvert(goods_info.getCurrency())) {
-                    this.l.setText(R.string.obfuscated_res_0x7f0f0d95);
+                    this.l.setText(R.string.obfuscated_res_0x7f0f0d7e);
                 } else {
-                    this.l.setText(R.string.obfuscated_res_0x7f0f0d82);
+                    this.l.setText(R.string.obfuscated_res_0x7f0f0d6b);
                 }
             }
         }
@@ -160,7 +160,7 @@ public class gq7 extends b9<PaymentConfirmActivity> {
             if (cpath.getTip_exist() == 1) {
                 this.m.setButtonDrawable(SkinManager.getDrawable(R.drawable.payment_confirm_price_tip_check_button));
                 this.m.setVisibility(0);
-                this.m.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0d85, Integer.valueOf(cpath.getTip_days())));
+                this.m.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0d6e, Integer.valueOf(cpath.getTip_days())));
             } else {
                 this.m.setVisibility(8);
             }
@@ -169,12 +169,12 @@ public class gq7 extends b9<PaymentConfirmActivity> {
             if (this.w) {
                 this.q.setText(R.string.obfuscated_res_0x7f0f0352);
             } else {
-                this.q.setText(R.string.obfuscated_res_0x7f0f07df);
+                this.q.setText(R.string.obfuscated_res_0x7f0f07db);
             }
         } else if (CurrencySwitchUtil.isYyIsConvert(this.x)) {
-            this.q.setText(R.string.obfuscated_res_0x7f0f07aa);
+            this.q.setText(R.string.obfuscated_res_0x7f0f07a6);
         } else {
-            this.q.setText(R.string.obfuscated_res_0x7f0f07a7);
+            this.q.setText(R.string.obfuscated_res_0x7f0f07a3);
         }
     }
 
@@ -237,7 +237,7 @@ public class gq7 extends b9<PaymentConfirmActivity> {
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
-            ga5.a(this.a.getPageContext(), this.b);
+            ha5.a(this.a.getPageContext(), this.b);
             this.c.onChangeSkinType(this.a.getPageContext(), i);
         }
     }
@@ -266,11 +266,11 @@ public class gq7 extends b9<PaymentConfirmActivity> {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
             if (this.r == null) {
                 this.r = (ViewGroup) LayoutInflater.from(this.a.getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d03db, (ViewGroup) null, false);
-                ga5.a(this.a.getPageContext(), this.r);
-                this.s = (EditText) this.r.findViewById(R.id.obfuscated_res_0x7f090784);
-                this.t = (ViewGroup) this.r.findViewById(R.id.obfuscated_res_0x7f0916d9);
-                this.u = (TextView) this.r.findViewById(R.id.obfuscated_res_0x7f0916d8);
-                this.v = (TextView) this.r.findViewById(R.id.obfuscated_res_0x7f0916db);
+                ha5.a(this.a.getPageContext(), this.r);
+                this.s = (EditText) this.r.findViewById(R.id.obfuscated_res_0x7f090783);
+                this.t = (ViewGroup) this.r.findViewById(R.id.obfuscated_res_0x7f0916b4);
+                this.u = (TextView) this.r.findViewById(R.id.obfuscated_res_0x7f0916b3);
+                this.v = (TextView) this.r.findViewById(R.id.obfuscated_res_0x7f0916b6);
             }
             return this.r;
         }
@@ -286,46 +286,46 @@ public class gq7 extends b9<PaymentConfirmActivity> {
     public final String u(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, str)) == null) ? this.w ? this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0d80, str) : this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0d81, str) : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, str)) == null) ? this.w ? this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0d69, str) : this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0d6a, str) : (String) invokeL.objValue;
     }
 
     public final void v(PaymentConfirmActivity paymentConfirmActivity) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048591, this, paymentConfirmActivity) == null) {
-            this.d = (ViewGroup) paymentConfirmActivity.findViewById(R.id.obfuscated_res_0x7f0916f0);
-            this.e = (ViewGroup) paymentConfirmActivity.findViewById(R.id.obfuscated_res_0x7f0916f1);
-            this.f = (TbImageView) paymentConfirmActivity.findViewById(R.id.obfuscated_res_0x7f0916e4);
-            this.g = (TextView) paymentConfirmActivity.findViewById(R.id.obfuscated_res_0x7f0916e1);
-            this.h = (TextView) paymentConfirmActivity.findViewById(R.id.obfuscated_res_0x7f0916e3);
-            this.i = (TextView) paymentConfirmActivity.findViewById(R.id.obfuscated_res_0x7f0916e8);
-            this.j = (TextView) paymentConfirmActivity.findViewById(R.id.obfuscated_res_0x7f0916e5);
-            this.k = (TextView) paymentConfirmActivity.findViewById(R.id.obfuscated_res_0x7f0916e2);
-            this.l = (TextView) paymentConfirmActivity.findViewById(R.id.obfuscated_res_0x7f0916e7);
-            this.m = (CheckBox) paymentConfirmActivity.findViewById(R.id.obfuscated_res_0x7f0916ed);
-            this.n = (ViewGroup) paymentConfirmActivity.findViewById(R.id.obfuscated_res_0x7f0916eb);
-            this.o = (TbImageView) paymentConfirmActivity.findViewById(R.id.obfuscated_res_0x7f0916ea);
-            this.p = (TextView) paymentConfirmActivity.findViewById(R.id.obfuscated_res_0x7f0916e9);
-            this.q = (TextView) paymentConfirmActivity.findViewById(R.id.obfuscated_res_0x7f0916ee);
+            this.d = (ViewGroup) paymentConfirmActivity.findViewById(R.id.obfuscated_res_0x7f0916cb);
+            this.e = (ViewGroup) paymentConfirmActivity.findViewById(R.id.obfuscated_res_0x7f0916cc);
+            this.f = (TbImageView) paymentConfirmActivity.findViewById(R.id.obfuscated_res_0x7f0916bf);
+            this.g = (TextView) paymentConfirmActivity.findViewById(R.id.obfuscated_res_0x7f0916bc);
+            this.h = (TextView) paymentConfirmActivity.findViewById(R.id.obfuscated_res_0x7f0916be);
+            this.i = (TextView) paymentConfirmActivity.findViewById(R.id.obfuscated_res_0x7f0916c3);
+            this.j = (TextView) paymentConfirmActivity.findViewById(R.id.obfuscated_res_0x7f0916c0);
+            this.k = (TextView) paymentConfirmActivity.findViewById(R.id.obfuscated_res_0x7f0916bd);
+            this.l = (TextView) paymentConfirmActivity.findViewById(R.id.obfuscated_res_0x7f0916c2);
+            this.m = (CheckBox) paymentConfirmActivity.findViewById(R.id.obfuscated_res_0x7f0916c8);
+            this.n = (ViewGroup) paymentConfirmActivity.findViewById(R.id.obfuscated_res_0x7f0916c6);
+            this.o = (TbImageView) paymentConfirmActivity.findViewById(R.id.obfuscated_res_0x7f0916c5);
+            this.p = (TextView) paymentConfirmActivity.findViewById(R.id.obfuscated_res_0x7f0916c4);
+            this.q = (TextView) paymentConfirmActivity.findViewById(R.id.obfuscated_res_0x7f0916c9);
         }
     }
 
     public final void w(PaymentConfirmActivity paymentConfirmActivity) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048592, this, paymentConfirmActivity) == null) {
-            this.b = (ViewGroup) this.a.findViewById(R.id.obfuscated_res_0x7f0916ef);
-            NavigationBar navigationBar = (NavigationBar) this.a.findViewById(R.id.obfuscated_res_0x7f0916ec);
+            this.b = (ViewGroup) this.a.findViewById(R.id.obfuscated_res_0x7f0916ca);
+            NavigationBar navigationBar = (NavigationBar) this.a.findViewById(R.id.obfuscated_res_0x7f0916c7);
             this.c = navigationBar;
             navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
             if (CurrencySwitchUtil.isYyIsConvert(this.x)) {
                 if (this.w) {
-                    this.c.setTitleText(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f0d94));
+                    this.c.setTitleText(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f0d7d));
                 } else {
-                    this.c.setTitleText(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f0d96));
+                    this.c.setTitleText(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f0d7f));
                 }
             } else if (this.w) {
-                this.c.setTitleText(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f0d7c));
+                this.c.setTitleText(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f0d65));
             } else {
-                this.c.setTitleText(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f0d87));
+                this.c.setTitleText(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f0d70));
             }
         }
     }
@@ -361,15 +361,15 @@ public class gq7 extends b9<PaymentConfirmActivity> {
         if (i == 5) {
             viewGroup.setVisibility(0);
             this.u.setText("");
-            this.v.setText(R.string.obfuscated_res_0x7f0f0d8f);
+            this.v.setText(R.string.obfuscated_res_0x7f0f0d78);
         } else if (i > 0) {
             viewGroup.setVisibility(0);
-            this.u.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0d91, Integer.valueOf(i)));
-            this.v.setText(R.string.obfuscated_res_0x7f0f0d8f);
+            this.u.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0d7a, Integer.valueOf(i)));
+            this.v.setText(R.string.obfuscated_res_0x7f0f0d78);
         } else {
             viewGroup.setVisibility(0);
-            this.u.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0d90));
-            this.v.setText(R.string.obfuscated_res_0x7f0f1028);
+            this.u.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0d79));
+            this.v.setText(R.string.obfuscated_res_0x7f0f1011);
         }
     }
 }

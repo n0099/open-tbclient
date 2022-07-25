@@ -73,8 +73,8 @@ public class w08 {
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.b.getPageActivity().setContentView(R.layout.obfuscated_res_0x7f0d06b2);
-            this.a.c(this.b.getPageActivity().findViewById(R.id.obfuscated_res_0x7f091896));
+            this.b.getPageActivity().setContentView(R.layout.obfuscated_res_0x7f0d06bc);
+            this.a.c(this.b.getPageActivity().findViewById(R.id.obfuscated_res_0x7f091871));
             a();
             this.a.e(this.c);
         }

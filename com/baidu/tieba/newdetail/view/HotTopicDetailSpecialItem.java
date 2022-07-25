@@ -26,7 +26,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bumptech.glide.load.engine.GlideException;
 import com.repackage.hn7;
-import com.repackage.jm4;
+import com.repackage.km4;
 import com.repackage.pi;
 /* loaded from: classes3.dex */
 public class HotTopicDetailSpecialItem extends RelativeLayout implements View.OnClickListener {
@@ -42,7 +42,7 @@ public class HotTopicDetailSpecialItem extends RelativeLayout implements View.On
     public TextView h;
     public TextView i;
     public hn7 j;
-    public jm4<hn7> k;
+    public km4<hn7> k;
     public String l;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -79,13 +79,13 @@ public class HotTopicDetailSpecialItem extends RelativeLayout implements View.On
             this.e.setVisibility(8);
             RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.i.getLayoutParams();
             layoutParams.addRule(8, 0);
-            layoutParams.addRule(3, R.id.obfuscated_res_0x7f090757);
+            layoutParams.addRule(3, R.id.obfuscated_res_0x7f090756);
             this.i.setLayoutParams(layoutParams);
         } else {
             this.c.J(hn7Var.d, 10, false);
             this.c.setVisibility(0);
             RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.i.getLayoutParams();
-            layoutParams2.addRule(8, R.id.obfuscated_res_0x7f0906e0);
+            layoutParams2.addRule(8, R.id.obfuscated_res_0x7f0906df);
             layoutParams2.addRule(3, 0);
             this.i.setLayoutParams(layoutParams2);
             if (hn7Var.e > 0) {
@@ -99,12 +99,12 @@ public class HotTopicDetailSpecialItem extends RelativeLayout implements View.On
         }
         this.h.setText(hn7Var.a);
         String numberUniformFormatExtra = StringHelper.numberUniformFormatExtra(hn7Var.b);
-        String str = "" + this.i.getContext().getResources().getString(R.string.obfuscated_res_0x7f0f0894, numberUniformFormatExtra);
+        String str = "" + this.i.getContext().getResources().getString(R.string.obfuscated_res_0x7f0f087f, numberUniformFormatExtra);
         String numberUniformFormatExtra2 = StringHelper.numberUniformFormatExtra(hn7Var.c);
         if (str.length() > 0) {
             str = str + GlideException.IndentedAppendable.INDENT;
         }
-        this.i.setText(str + this.i.getContext().getResources().getString(R.string.obfuscated_res_0x7f0f0893, numberUniformFormatExtra2));
+        this.i.setText(str + this.i.getContext().getResources().getString(R.string.obfuscated_res_0x7f0f087e, numberUniformFormatExtra2));
         setPadding(0, 0, 0, hn7Var.g ? pi.f(TbadkCoreApplication.getInst(), R.dimen.tbds40) : 0);
     }
 
@@ -112,16 +112,16 @@ public class HotTopicDetailSpecialItem extends RelativeLayout implements View.On
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d039f, (ViewGroup) this, true);
-            ViewGroup viewGroup = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f091b5d);
+            ViewGroup viewGroup = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f091b37);
             this.b = viewGroup;
             viewGroup.setOnClickListener(this);
-            this.c = (TbImageView) findViewById(R.id.obfuscated_res_0x7f0906e0);
-            this.d = findViewById(R.id.obfuscated_res_0x7f0906df);
-            this.e = findViewById(R.id.obfuscated_res_0x7f09236c);
-            this.f = (ImageView) findViewById(R.id.obfuscated_res_0x7f09236a);
-            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f09236b);
-            this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f090757);
-            this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f091ee4);
+            this.c = (TbImageView) findViewById(R.id.obfuscated_res_0x7f0906df);
+            this.d = findViewById(R.id.obfuscated_res_0x7f0906de);
+            this.e = findViewById(R.id.obfuscated_res_0x7f09236e);
+            this.f = (ImageView) findViewById(R.id.obfuscated_res_0x7f09236c);
+            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f09236d);
+            this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f090756);
+            this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f091ee8);
             this.c.setPlaceHolder(2);
             this.c.setRadius(pi.f(getContext(), R.dimen.tbds10));
             this.c.setConrers(15);
@@ -148,9 +148,9 @@ public class HotTopicDetailSpecialItem extends RelativeLayout implements View.On
         if (!(interceptable == null || interceptable.invokeL(1048579, this, view2) == null) || (hn7Var = this.j) == null || hn7Var.h == null) {
             return;
         }
-        jm4<hn7> jm4Var = this.k;
-        if (jm4Var != null) {
-            jm4Var.c(view2, hn7Var, 0, 0L);
+        km4<hn7> km4Var = this.k;
+        if (km4Var != null) {
+            km4Var.c(view2, hn7Var, 0, 0L);
         }
         ThreadCardUtils.jumpToPB(this.j.h, view2.getContext(), 17, false, this.l, "1");
     }
@@ -162,10 +162,10 @@ public class HotTopicDetailSpecialItem extends RelativeLayout implements View.On
         }
     }
 
-    public void setOnItemCoverListener(jm4<hn7> jm4Var) {
+    public void setOnItemCoverListener(km4<hn7> km4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, jm4Var) == null) {
-            this.k = jm4Var;
+        if (interceptable == null || interceptable.invokeL(1048581, this, km4Var) == null) {
+            this.k = km4Var;
         }
     }
 

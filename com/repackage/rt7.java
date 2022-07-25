@@ -29,7 +29,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes7.dex */
-public class rt7 implements d65 {
+public class rt7 implements e65 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     @NonNull
@@ -91,7 +91,7 @@ public class rt7 implements d65 {
             }
             ForumManageModel.g gVar = (ForumManageModel.g) obj;
             if (TextUtils.isEmpty(gVar.b)) {
-                gVar.b = this.a.a.getString(gVar.a ? R.string.obfuscated_res_0x7f0f0cf3 : R.string.obfuscated_res_0x7f0f0cf2);
+                gVar.b = this.a.a.getString(gVar.a ? R.string.obfuscated_res_0x7f0f0cdf : R.string.obfuscated_res_0x7f0f0cde);
             }
             BarManageResultListener.l(this.a.b.R(this.a.b.getLoadDataMode(), gVar));
         }
@@ -240,7 +240,7 @@ public class rt7 implements d65 {
         forumManageModel.setLoadDataCallBack(this.c);
     }
 
-    @Override // com.repackage.d65
+    @Override // com.repackage.e65
     public void a(@NonNull String str, @NonNull String str2, @NonNull String str3, boolean z) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{str, str2, str3, Boolean.valueOf(z)}) == null) || this.b.T()) {
@@ -252,7 +252,7 @@ public class rt7 implements d65 {
         this.b.X(str, str2, str3, z ? 3 : 6, null);
     }
 
-    @Override // com.repackage.d65
+    @Override // com.repackage.e65
     public void b(@NonNull String str, @NonNull String str2, @NonNull String str3, boolean z) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, str2, str3, Boolean.valueOf(z)}) == null) || this.b.T()) {
@@ -277,7 +277,7 @@ public class rt7 implements d65 {
         return (CustomBlueCheckRadioButton) invokeLL.objValue;
     }
 
-    public final void m(ArrayList<ap4> arrayList) {
+    public final void m(ArrayList<bp4> arrayList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, arrayList) == null) {
             if (this.f == null) {
@@ -288,31 +288,31 @@ public class rt7 implements d65 {
                 this.e = dialog;
                 dialog.setCanceledOnTouchOutside(true);
                 this.e.setCancelable(true);
-                this.l = (ScrollView) this.f.findViewById(R.id.obfuscated_res_0x7f090c89);
+                this.l = (ScrollView) this.f.findViewById(R.id.obfuscated_res_0x7f090c82);
                 this.e.setContentView(this.f);
                 WindowManager.LayoutParams attributes = this.e.getWindow().getAttributes();
-                attributes.width = pi.f(TbadkCoreApplication.getInst(), R.dimen.obfuscated_res_0x7f0702dd);
+                attributes.width = pi.f(TbadkCoreApplication.getInst(), R.dimen.obfuscated_res_0x7f0702db);
                 this.e.getWindow().setAttributes(attributes);
                 this.h = new b(this);
-                this.g = (LinearLayout) this.f.findViewById(R.id.obfuscated_res_0x7f090c88);
-                TextView textView = (TextView) this.f.findViewById(R.id.obfuscated_res_0x7f090775);
+                this.g = (LinearLayout) this.f.findViewById(R.id.obfuscated_res_0x7f090c81);
+                TextView textView = (TextView) this.f.findViewById(R.id.obfuscated_res_0x7f090774);
                 this.j = textView;
                 textView.setOnClickListener(new c(this));
-                TextView textView2 = (TextView) this.f.findViewById(R.id.obfuscated_res_0x7f090776);
+                TextView textView2 = (TextView) this.f.findViewById(R.id.obfuscated_res_0x7f090775);
                 this.i = textView2;
                 textView2.setOnClickListener(new d(this));
             }
             this.g.removeAllViews();
             this.d = new ArrayList();
-            CustomBlueCheckRadioButton l = l("0", this.a.getString(R.string.obfuscated_res_0x7f0f13dc));
+            CustomBlueCheckRadioButton l = l("0", this.a.getString(R.string.obfuscated_res_0x7f0f138b));
             this.d.add(l);
             l.setChecked(true);
             this.g.addView(l);
             if (arrayList != null) {
                 for (int i = 0; i < arrayList.size(); i++) {
-                    ap4 ap4Var = arrayList.get(i);
-                    if (ap4Var != null && !TextUtils.isEmpty(ap4Var.b()) && ap4Var.a() > 0) {
-                        CustomBlueCheckRadioButton l2 = l(String.valueOf(ap4Var.a()), ap4Var.b());
+                    bp4 bp4Var = arrayList.get(i);
+                    if (bp4Var != null && !TextUtils.isEmpty(bp4Var.b()) && bp4Var.a() > 0) {
+                        CustomBlueCheckRadioButton l2 = l(String.valueOf(bp4Var.a()), bp4Var.b());
                         this.d.add(l2);
                         View view2 = new View(this.a.getPageActivity());
                         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, pi.f(TbadkCoreApplication.getInst(), R.dimen.obfuscated_res_0x7f070198));

@@ -18,8 +18,8 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.ar5;
 import com.repackage.br5;
-import com.repackage.fu4;
-import com.repackage.k55;
+import com.repackage.gu4;
+import com.repackage.l55;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class AlaRecentHistoryFragment extends BaseFragment {
@@ -28,13 +28,13 @@ public class AlaRecentHistoryFragment extends BaseFragment {
     public AlaRecentHistoryModel a;
     public br5 b;
     public int c;
-    public k55 d;
-    public fu4.g e;
+    public l55 d;
+    public gu4.g e;
     public BdListView.p f;
     public AlaRecentHistoryModel.b g;
 
     /* loaded from: classes3.dex */
-    public class a implements fu4.g {
+    public class a implements gu4.g {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ AlaRecentHistoryFragment a;
@@ -57,7 +57,7 @@ public class AlaRecentHistoryFragment extends BaseFragment {
             this.a = alaRecentHistoryFragment;
         }
 
-        @Override // com.repackage.fu4.g
+        @Override // com.repackage.gu4.g
         public void e(boolean z) {
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeZ(1048576, this, z) == null) || this.a.a == null) {
@@ -137,7 +137,7 @@ public class AlaRecentHistoryFragment extends BaseFragment {
                     this.a.A1(false, null, null);
                     return;
                 }
-                String string = this.a.c == 0 ? this.a.getPageContext().getPageActivity().getResources().getString(R.string.obfuscated_res_0x7f0f11dd) : this.a.getPageContext().getPageActivity().getResources().getString(R.string.obfuscated_res_0x7f0f11de);
+                String string = this.a.c == 0 ? this.a.getPageContext().getPageActivity().getResources().getString(R.string.obfuscated_res_0x7f0f118c) : this.a.getPageContext().getPageActivity().getResources().getString(R.string.obfuscated_res_0x7f0f118d);
                 AlaRecentHistoryFragment alaRecentHistoryFragment2 = this.a;
                 alaRecentHistoryFragment2.A1(true, alaRecentHistoryFragment2.b.g(), string);
             }
@@ -149,7 +149,7 @@ public class AlaRecentHistoryFragment extends BaseFragment {
             if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), str, Boolean.valueOf(z)}) == null) {
                 this.a.b.e();
                 if (z) {
-                    this.a.showToast(R.string.obfuscated_res_0x7f0f11e7);
+                    this.a.showToast(R.string.obfuscated_res_0x7f0f1196);
                 } else {
                     AlaRecentHistoryFragment alaRecentHistoryFragment = this.a;
                     alaRecentHistoryFragment.showNetRefreshView(alaRecentHistoryFragment.b.g(), str, false);
@@ -194,7 +194,7 @@ public class AlaRecentHistoryFragment extends BaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), viewGroup, str}) == null) {
             if (this.d == null) {
-                this.d = new k55(getPageContext().getPageActivity(), null);
+                this.d = new l55(getPageContext().getPageActivity(), null);
             }
             if (z) {
                 this.d.attachView(viewGroup);

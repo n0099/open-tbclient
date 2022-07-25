@@ -121,7 +121,7 @@ public class w57 {
 
         /* renamed from: com.repackage.w57$b$b  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public class RunnableC0753b implements Runnable {
+        public class RunnableC0600b implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ int a;
@@ -129,7 +129,7 @@ public class w57 {
             public final /* synthetic */ int c;
             public final /* synthetic */ b d;
 
-            public RunnableC0753b(b bVar, int i, String str, int i2) {
+            public RunnableC0600b(b bVar, int i, String str, int i2) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -273,7 +273,7 @@ public class w57 {
         public final void h(int i, String str, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), str, Integer.valueOf(i2)}) == null) {
-                qg.a().post(new RunnableC0753b(this, i, str, i2));
+                qg.a().post(new RunnableC0600b(this, i, str, i2));
             }
         }
 
@@ -710,18 +710,18 @@ public class w57 {
         return invokeV.booleanValue;
     }
 
-    public fr4 p(Context context) {
+    public gr4 p(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, context)) == null) {
-            fr4 fr4Var = new fr4(context);
-            fr4Var.a(context.getString(R.string.obfuscated_res_0x7f0f04a6));
-            fr4Var.setCanceledOnTouchOutside(false);
-            fr4Var.setCancelable(true);
-            fr4Var.setOnCancelListener(this.b);
-            return fr4Var;
+            gr4 gr4Var = new gr4(context);
+            gr4Var.a(context.getString(R.string.obfuscated_res_0x7f0f04a5));
+            gr4Var.setCanceledOnTouchOutside(false);
+            gr4Var.setCancelable(true);
+            gr4Var.setOnCancelListener(this.b);
+            return gr4Var;
         }
-        return (fr4) invokeL.objValue;
+        return (gr4) invokeL.objValue;
     }
 
     public void q(String str, int i) {
@@ -731,13 +731,13 @@ public class w57 {
             return;
         }
         if (i == 2) {
-            ny4.f0().r(str);
+            oy4.f0().r(str);
         } else if (i == 4) {
-            ny4.f0().q(ng.e(str, 0));
+            oy4.f0().q(ng.e(str, 0));
         } else if (i == -4) {
-            ny4.f0().f(1);
+            oy4.f0().f(1);
         } else {
-            ny4.f0().d(str);
+            oy4.f0().d(str);
         }
         i2.setIs_hidden(1);
         i2.setUnread_count(0);

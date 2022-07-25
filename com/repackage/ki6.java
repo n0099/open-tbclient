@@ -93,10 +93,10 @@ public class ki6 extends ji6 {
             }
         }
         View h = h();
-        this.K = (RelativeLayout) h.findViewById(R.id.obfuscated_res_0x7f0913aa);
-        this.L = (TextView) h.findViewById(R.id.obfuscated_res_0x7f0913af);
-        this.M = (TextView) h.findViewById(R.id.obfuscated_res_0x7f0913ab);
-        this.N = (TextView) h.findViewById(R.id.obfuscated_res_0x7f0913a1);
+        this.K = (RelativeLayout) h.findViewById(R.id.obfuscated_res_0x7f091386);
+        this.L = (TextView) h.findViewById(R.id.obfuscated_res_0x7f09138b);
+        this.M = (TextView) h.findViewById(R.id.obfuscated_res_0x7f091387);
+        this.N = (TextView) h.findViewById(R.id.obfuscated_res_0x7f09137d);
     }
 
     public boolean O() {
@@ -157,12 +157,12 @@ public class ki6 extends ji6 {
         }
         super.i(threadData);
         this.z.setImageClickListener(new a(this));
-        on4 on4Var = (on4) ListUtils.getItem(threadData.getActDatas(), 0);
-        if (on4Var != null) {
+        pn4 pn4Var = (pn4) ListUtils.getItem(threadData.getActDatas(), 0);
+        if (pn4Var != null) {
             SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy.MM.dd");
-            this.L.setText(StringUtils.string(getContext().getResources().getString(R.string.obfuscated_res_0x7f0f0a68), GlideException.IndentedAppendable.INDENT, simpleDateFormat.format(new Date(TimeUnit.SECONDS.toMillis(on4Var.b()))), "-", simpleDateFormat.format(new Date(TimeUnit.SECONDS.toMillis(on4Var.c())))));
-            this.M.setText(String.format(getContext().getResources().getString(R.string.obfuscated_res_0x7f0f0a63), String.valueOf(on4Var.f())));
-            this.N.setText(R.string.obfuscated_res_0x7f0f0a62);
+            this.L.setText(StringUtils.string(getContext().getResources().getString(R.string.obfuscated_res_0x7f0f0a54), GlideException.IndentedAppendable.INDENT, simpleDateFormat.format(new Date(TimeUnit.SECONDS.toMillis(pn4Var.b()))), "-", simpleDateFormat.format(new Date(TimeUnit.SECONDS.toMillis(pn4Var.c())))));
+            this.M.setText(String.format(getContext().getResources().getString(R.string.obfuscated_res_0x7f0f0a4f), String.valueOf(pn4Var.f())));
+            this.N.setText(R.string.obfuscated_res_0x7f0f0a4e);
             this.k.setCommentNumEnable(false);
         }
     }

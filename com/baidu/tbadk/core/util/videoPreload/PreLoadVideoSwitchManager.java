@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.ni;
-import com.repackage.xt4;
+import com.repackage.yt4;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
@@ -42,7 +42,7 @@ public class PreLoadVideoSwitchManager {
         this.mSize = 0;
         VideoPreLoadLog.log("PreLoadVideoSwitchManager init ");
         try {
-            parseJson(xt4.k().q("video_sync_switch_json", ""));
+            parseJson(yt4.k().q("video_sync_switch_json", ""));
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -117,7 +117,7 @@ public class PreLoadVideoSwitchManager {
             }
             try {
                 parseJson(str);
-                xt4.k().y("video_sync_switch_json", str);
+                yt4.k().y("video_sync_switch_json", str);
             } catch (JSONException e) {
                 e.printStackTrace();
             }

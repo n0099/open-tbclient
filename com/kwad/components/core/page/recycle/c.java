@@ -11,8 +11,8 @@ import com.kwad.sdk.mvp.Presenter;
 public final class c extends RecyclerView.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Presenter a;
-    public final e b;
+    public final e Fz;
+    public final Presenter mPresenter;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public c(View view2, Presenter presenter, e eVar) {
@@ -32,8 +32,8 @@ public final class c extends RecyclerView.ViewHolder {
                 return;
             }
         }
-        this.b = eVar;
-        this.a = presenter;
-        presenter.c(view2);
+        this.Fz = eVar;
+        this.mPresenter = presenter;
+        presenter.B(view2);
     }
 }

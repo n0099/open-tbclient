@@ -46,16 +46,16 @@ public class jd8 extends kd8 {
     public LinearLayout X;
     public TbImageView Y;
     public TextView Z;
-    public View g0;
-    public ImageView h0;
-    public TextView i0;
-    public TextView j0;
-    public TbImageView k0;
-    public View l0;
-    public TextView m0;
-    public TextView n0;
-    public LinearLayout o0;
-    public PlayVoiceBntNew p0;
+    public View a0;
+    public ImageView b0;
+    public TextView c0;
+    public TextView d0;
+    public TbImageView e0;
+    public View f0;
+    public TextView g0;
+    public TextView h0;
+    public LinearLayout i0;
+    public PlayVoiceBntNew j0;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public jd8(Context context, boolean z, int i, ur7 ur7Var) {
@@ -77,30 +77,30 @@ public class jd8 extends kd8 {
             }
         }
         this.R = ur7Var;
-        this.S = this.b.findViewById(R.id.obfuscated_res_0x7f091792);
-        this.T = this.b.findViewById(R.id.obfuscated_res_0x7f091790);
-        this.U = this.b.findViewById(R.id.obfuscated_res_0x7f09178f);
-        this.V = this.b.findViewById(R.id.obfuscated_res_0x7f091791);
-        this.W = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f091793);
-        this.X = (LinearLayout) this.b.findViewById(R.id.obfuscated_res_0x7f09179a);
-        TbImageView tbImageView = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f091799);
+        this.S = this.b.findViewById(R.id.obfuscated_res_0x7f09176d);
+        this.T = this.b.findViewById(R.id.obfuscated_res_0x7f09176b);
+        this.U = this.b.findViewById(R.id.obfuscated_res_0x7f09176a);
+        this.V = this.b.findViewById(R.id.obfuscated_res_0x7f09176c);
+        this.W = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f09176e);
+        this.X = (LinearLayout) this.b.findViewById(R.id.obfuscated_res_0x7f091775);
+        TbImageView tbImageView = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f091774);
         this.Y = tbImageView;
         tbImageView.setPlaceHolder(2);
         this.Y.setConrers(15);
         this.Y.setRadius(pi.f(TbadkCoreApplication.getInst(), R.dimen.tbds10));
         this.Y.setGifIconSupport(false);
         this.Y.setLongIconSupport(false);
-        this.Z = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091680);
-        this.g0 = this.b.findViewById(R.id.obfuscated_res_0x7f091798);
-        this.h0 = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f091794);
-        this.i0 = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091965);
-        this.j0 = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091962);
-        this.k0 = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f091961);
-        this.l0 = this.b.findViewById(R.id.obfuscated_res_0x7f091964);
-        this.m0 = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091963);
-        this.n0 = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f09195f);
-        this.o0 = (LinearLayout) this.b.findViewById(R.id.obfuscated_res_0x7f09195e);
-        this.p0 = (PlayVoiceBntNew) this.b.findViewById(R.id.obfuscated_res_0x7f091960);
+        this.Z = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f09165b);
+        this.a0 = this.b.findViewById(R.id.obfuscated_res_0x7f091773);
+        this.b0 = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f09176f);
+        this.c0 = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091940);
+        this.d0 = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f09193d);
+        this.e0 = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f09193c);
+        this.f0 = this.b.findViewById(R.id.obfuscated_res_0x7f09193f);
+        this.g0 = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f09193e);
+        this.h0 = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f09193a);
+        this.i0 = (LinearLayout) this.b.findViewById(R.id.obfuscated_res_0x7f091939);
+        this.j0 = (PlayVoiceBntNew) this.b.findViewById(R.id.obfuscated_res_0x7f09193b);
         y0(context, ur7Var.c().Q());
         D0();
         g0(2);
@@ -110,7 +110,7 @@ public class jd8 extends kd8 {
     public View A() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? LayoutInflater.from(TbadkCoreApplication.getInst().getContext()).inflate(R.layout.obfuscated_res_0x7f0d0697, (ViewGroup) null) : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? LayoutInflater.from(TbadkCoreApplication.getInst().getContext()).inflate(R.layout.obfuscated_res_0x7f0d06a1, (ViewGroup) null) : (View) invokeV.objValue;
     }
 
     public final TbImageView A0(Context context, String str, TbRichTextImageInfo tbRichTextImageInfo, boolean z, boolean z2) {
@@ -221,17 +221,17 @@ public class jd8 extends kd8 {
         SkinManager.setViewTextColor(this.Z, (int) R.color.CAM_X0107);
         this.Z.setText(this.R.b());
         z0();
-        SkinManager.setBackgroundColor(this.l0, R.color.CAM_X0109);
+        SkinManager.setBackgroundColor(this.f0, R.color.CAM_X0109);
         String name_show = this.R.c().s().getName_show();
         if (name_show.length() > 10) {
             name_show = name_show.substring(0, 10) + StringHelper.STRING_MORE;
         }
-        this.m0.setText(name_show);
-        SkinManager.setViewTextColor(this.m0, (int) R.color.CAM_X0109);
-        SkinManager.setViewTextColor(this.i0, (int) R.color.CAM_X0304);
-        SkinManager.setViewTextColor(this.j0, (int) R.color.CAM_X0105);
-        this.k0.setImageBitmap(this.R.d());
-        SkinManager.setImageResource(this.W, R.drawable.obfuscated_res_0x7f080ee1);
+        this.g0.setText(name_show);
+        SkinManager.setViewTextColor(this.g0, (int) R.color.CAM_X0109);
+        SkinManager.setViewTextColor(this.c0, (int) R.color.CAM_X0304);
+        SkinManager.setViewTextColor(this.d0, (int) R.color.CAM_X0105);
+        this.e0.setImageBitmap(this.R.d());
+        SkinManager.setImageResource(this.W, R.drawable.obfuscated_res_0x7f080ee8);
         i0(false);
         super.l0();
     }
@@ -241,7 +241,7 @@ public class jd8 extends kd8 {
         if (interceptable == null || interceptable.invokeLL(1048585, this, context, list) == null) {
             int i = 0;
             while (i < list.size() && i != 9) {
-                this.o0.addView(A0(context, B0(list.get(i), this.R.a()), list.get(i), i == 0, this.R.a().s));
+                this.i0.addView(A0(context, B0(list.get(i), this.R.a()), list.get(i), i == 0, this.R.a().s));
                 i++;
             }
         }
@@ -259,34 +259,34 @@ public class jd8 extends kd8 {
                 int type = next.getType();
                 if (type != 1) {
                     if (type == 512) {
-                        this.p0.setVoiceModel((VoiceData.VoiceModel) next.Q().C());
-                        if (this.n0.getVisibility() == 0 || this.o0.getVisibility() == 0) {
-                            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.p0.getLayoutParams();
-                            if (this.n0.getVisibility() == 0 && this.o0.getVisibility() == 8) {
+                        this.j0.setVoiceModel((VoiceData.VoiceModel) next.Q().C());
+                        if (this.h0.getVisibility() == 0 || this.i0.getVisibility() == 0) {
+                            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.j0.getLayoutParams();
+                            if (this.h0.getVisibility() == 0 && this.i0.getVisibility() == 8) {
                                 layoutParams.topMargin = pi.f(context, R.dimen.tbds39);
                             } else {
                                 layoutParams.topMargin = pi.f(context, R.dimen.tbds42);
                             }
-                            this.p0.setLayoutParams(layoutParams);
+                            this.j0.setLayoutParams(layoutParams);
                         }
-                        this.p0.setVisibility(0);
+                        this.j0.setVisibility(0);
                     }
-                } else if (this.n0.getVisibility() == 8) {
-                    SkinManager.setViewTextColor(this.n0, (int) R.color.CAM_X0105);
-                    this.n0.setText(next.K());
-                    this.n0.setVisibility(0);
+                } else if (this.h0.getVisibility() == 8) {
+                    SkinManager.setViewTextColor(this.h0, (int) R.color.CAM_X0105);
+                    this.h0.setText(next.K());
+                    this.h0.setVisibility(0);
                 }
             }
         }
         if (tbRichText.E().isEmpty()) {
             return;
         }
-        if (this.n0.getVisibility() == 0) {
-            LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.o0.getLayoutParams();
+        if (this.h0.getVisibility() == 0) {
+            LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.i0.getLayoutParams();
             layoutParams2.topMargin = pi.f(context, R.dimen.tbds37);
-            this.o0.setLayoutParams(layoutParams2);
+            this.i0.setLayoutParams(layoutParams2);
         }
-        this.o0.setVisibility(0);
+        this.i0.setVisibility(0);
         x0(context, tbRichText.E());
     }
 
@@ -306,10 +306,10 @@ public class jd8 extends kd8 {
                 this.Y.setScaleType(ImageView.ScaleType.FIT_CENTER);
             } else if (f != 40) {
             } else {
-                this.g0.setVisibility(0);
-                this.h0.setVisibility(0);
-                this.h0.setImageDrawable(TbadkCoreApplication.getInst().getResources().getDrawable(R.drawable.obfuscated_res_0x7f080892));
-                TBSelector.makeDrawableSelector().setShape(0).gradientLinear(R.color.CAM_X0601, R.color.CAM_X0604).cornerRadius(pi.f(TbadkCoreApplication.getInst(), R.dimen.tbds10)).into(this.g0);
+                this.a0.setVisibility(0);
+                this.b0.setVisibility(0);
+                this.b0.setImageDrawable(TbadkCoreApplication.getInst().getResources().getDrawable(R.drawable.obfuscated_res_0x7f080892));
+                TBSelector.makeDrawableSelector().setShape(0).gradientLinear(R.color.CAM_X0601, R.color.CAM_X0604).cornerRadius(pi.f(TbadkCoreApplication.getInst(), R.dimen.tbds10)).into(this.a0);
                 this.Y.J(this.R.e(), 10, false);
             }
         }

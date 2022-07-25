@@ -1,12 +1,7 @@
 package com.repackage;
 
-import android.app.Activity;
-import android.content.Context;
-import android.graphics.Rect;
-import android.util.Log;
+import android.annotation.SuppressLint;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.LinearLayout;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -16,14 +11,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class by2 {
+public class by2 implements ky2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean e;
+    public static final boolean d;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public final View b;
-    public jy2 c;
-    public Context d;
+    public final View a;
+    public boolean b;
+    public boolean c;
 
     static {
         InterceptResult invokeClinit;
@@ -38,7 +32,7 @@ public class by2 {
                 return;
             }
         }
-        e = rg1.a;
+        d = sg1.a;
     }
 
     public by2(View view2) {
@@ -56,117 +50,75 @@ public class by2 {
                 return;
             }
         }
-        this.a = -1;
-        this.b = view2;
-        this.d = view2.getContext();
+        this.b = false;
+        this.c = false;
+        this.a = view2;
     }
 
-    public final jy2 a(View view2) {
-        InterceptResult invokeL;
+    public boolean a(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view2)) == null) {
-            jy2 jy2Var = this.c;
-            if (jy2Var != null) {
-                return jy2Var;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            if (i == 0) {
+                this.b = false;
             }
-            if (view2 instanceof jy2) {
-                jy2 jy2Var2 = (jy2) view2;
-                this.c = jy2Var2;
-                return jy2Var2;
-            } else if (view2 instanceof ViewGroup) {
-                ViewGroup viewGroup = (ViewGroup) view2;
-                for (int i = 0; i < viewGroup.getChildCount(); i++) {
-                    jy2 a = a(viewGroup.getChildAt(i));
-                    if (a != null) {
-                        this.c = a;
-                        return a;
-                    }
-                }
-                return null;
-            } else {
-                return null;
+            if (i == this.a.getVisibility()) {
+                return true;
             }
+            return b() && i == 0;
         }
-        return (jy2) invokeL.objValue;
+        return invokeI.booleanValue;
     }
 
-    public void b(int i, int i2) {
+    public boolean b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2) == null) {
-            Context context = this.d;
-            if (context instanceof Activity) {
-                Activity activity = (Activity) context;
-                if (iy2.f(activity) && this.b.getFitsSystemWindows()) {
-                    Rect rect = new Rect();
-                    this.b.getWindowVisibleDisplayFrame(rect);
-                    i2 = rect.bottom - rect.top;
-                    if (e) {
-                        Log.d("SPSwitchRootLayout", "TranslucentStatus && FitsSystemWindows = true, height: " + i2);
-                    }
-                }
-                if (iy2.e(activity) && this.b.getFitsSystemWindows()) {
-                    Rect rect2 = new Rect();
-                    this.b.getWindowVisibleDisplayFrame(rect2);
-                    i2 = rect2.bottom - rect2.top;
-                    if (e) {
-                        Log.d("SPSwitchRootLayout", "systemUILayoutFullScreen && FitsSystemWindows = true, height: " + i2);
-                    }
-                }
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.c : invokeV.booleanValue;
+    }
+
+    public int[] c(int i, int i2) {
+        InterceptResult invokeII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeII = interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i, i2)) == null) {
+            if (this.b) {
+                this.a.setVisibility(8);
+                int makeMeasureSpec = View.MeasureSpec.makeMeasureSpec(0, 1073741824);
+                i2 = View.MeasureSpec.makeMeasureSpec(0, 1073741824);
+                i = makeMeasureSpec;
             }
-            if (e) {
-                Log.d("SPSwitchRootLayout", "onMeasure, width: " + i + " height: " + i2);
-            }
-            if (i2 < 0) {
-                return;
-            }
-            int i3 = this.a;
-            if (i3 < 0) {
-                if (e) {
-                    Log.d("SPSwitchRootLayout", "onMeasure, oldHeight < 0, oldHeight: " + this.a);
-                }
-                this.a = i2;
-                return;
-            }
-            int i4 = i3 - i2;
-            if (i4 == 0) {
-                if (e) {
-                    Log.d("SPSwitchRootLayout", "offset == 0, break;");
-                    return;
-                }
-                return;
-            }
-            this.a = i2;
-            jy2 a = a(this.b);
-            if (a == null) {
-                if (e) {
-                    Log.d("SPSwitchRootLayout", "cannot find the valid panel layout, give up!");
-                    return;
-                }
-                return;
-            }
-            int visibility = ((LinearLayout) a).getVisibility();
-            if (e) {
-                Log.d("SPSwitchRootLayout", "panel visibility: " + visibility);
-            }
-            if (Math.abs(i4) < gy2.g(this.b.getContext())) {
-                if (e) {
-                    Log.d("SPSwitchRootLayout", "layout change min, not caused by softinput/panel switch!");
-                }
-            } else if (Math.abs(i4) > gy2.e(this.b.getContext())) {
-                if (e) {
-                    Log.d("SPSwitchRootLayout", "layout change max , but not caused by softinput/panel switch!");
-                }
-            } else if (i4 > 0) {
-                if (e) {
-                    Log.d("SPSwitchRootLayout", "offset > 0, offset : " + i4 + ", panel->handleHide...");
-                }
-                a.handleHide();
-            } else {
-                if (e) {
-                    Log.d("SPSwitchRootLayout", "offset < 0, offset : " + i4 + ", panel->handleShow...");
-                }
-                a.handleShow();
-            }
+            return new int[]{i, i2};
+        }
+        return (int[]) invokeII.objValue;
+    }
+
+    public void d(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            jy2.g(this.a, i);
+        }
+    }
+
+    public void e(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
+            this.c = z;
+        }
+    }
+
+    @Override // com.repackage.ky2
+    public void handleHide() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            this.b = true;
+        }
+    }
+
+    @Override // com.repackage.ky2
+    @SuppressLint({"BDThrowableCheck"})
+    public void handleShow() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && d) {
+            throw new IllegalAccessError("You can't invoke handle show in handler, please instead of handling in the panel layout, maybe just need invoke super.setVisibility(View.VISIBLE)");
         }
     }
 }

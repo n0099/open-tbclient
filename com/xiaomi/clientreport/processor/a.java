@@ -41,7 +41,7 @@ public class a implements IEventProcessor {
     public Context a;
 
     /* renamed from: a  reason: collision with other field name */
-    public HashMap<String, ArrayList<com.xiaomi.clientreport.data.a>> f750a;
+    public HashMap<String, ArrayList<com.xiaomi.clientreport.data.a>> f30a;
 
     public a(Context context) {
         Interceptable interceptable = $ic;
@@ -232,7 +232,7 @@ public class a implements IEventProcessor {
             }
             try {
                 File file = new File(b + ".lock");
-                ab.m1099a(file);
+                ab.m161a(file);
                 randomAccessFile = new RandomAccessFile(file, "rw");
                 try {
                     isEmpty = randomAccessFile.getChannel().lock();
@@ -244,7 +244,7 @@ public class a implements IEventProcessor {
                                 if (aVar != null) {
                                     byte[] stringToBytes = stringToBytes(aVar.toJsonString());
                                     if (stringToBytes != null && stringToBytes.length >= 1 && stringToBytes.length <= 4096) {
-                                        if (!bt.m1147a(this.a, b)) {
+                                        if (!bt.m209a(this.a, b)) {
                                             int length = aVarArr.length - i;
                                             com.xiaomi.clientreport.data.a[] aVarArr2 = new com.xiaomi.clientreport.data.a[length];
                                             System.arraycopy(aVarArr, i, aVarArr2, 0, length);
@@ -316,7 +316,7 @@ public class a implements IEventProcessor {
             String str = externalFilesDir.getAbsolutePath() + File.separator + a;
             for (int i = 0; i < 100; i++) {
                 String str2 = str + i;
-                if (bt.m1147a(this.a, str2)) {
+                if (bt.m209a(this.a, str2)) {
                     return str2;
                 }
             }
@@ -332,16 +332,16 @@ public class a implements IEventProcessor {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             bt.a(this.a, "event", "eventUploading");
-            File[] m1148a = bt.m1148a(this.a, "eventUploading");
-            if (m1148a == null || m1148a.length <= 0) {
+            File[] m210a = bt.m210a(this.a, "eventUploading");
+            if (m210a == null || m210a.length <= 0) {
                 return;
             }
-            int length = m1148a.length;
+            int length = m210a.length;
             FileLock fileLock = null;
             RandomAccessFile randomAccessFile2 = null;
             File file = null;
             while (i < length) {
-                File file2 = m1148a[i];
+                File file2 = m210a[i];
                 if (file2 == null) {
                     if (fileLock != null && fileLock.isValid()) {
                         try {
@@ -381,7 +381,7 @@ public class a implements IEventProcessor {
                         String absolutePath = file2.getAbsolutePath();
                         File file3 = new File(absolutePath + ".lock");
                         try {
-                            ab.m1099a(file3);
+                            ab.m161a(file3);
                             randomAccessFile = new RandomAccessFile(file3, "rw");
                         } catch (Exception e4) {
                             e = e4;
@@ -451,17 +451,17 @@ public class a implements IEventProcessor {
 
     @Override // com.xiaomi.clientreport.processor.d
     /* renamed from: a  reason: collision with other method in class */
-    public void mo1035a(com.xiaomi.clientreport.data.a aVar) {
+    public void mo97a(com.xiaomi.clientreport.data.a aVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) && (aVar instanceof EventClientReport) && this.f750a != null) {
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) && (aVar instanceof EventClientReport) && this.f30a != null) {
             EventClientReport eventClientReport = (EventClientReport) aVar;
             String a = a((com.xiaomi.clientreport.data.a) eventClientReport);
-            ArrayList<com.xiaomi.clientreport.data.a> arrayList = this.f750a.get(a);
+            ArrayList<com.xiaomi.clientreport.data.a> arrayList = this.f30a.get(a);
             if (arrayList == null) {
                 arrayList = new ArrayList<>();
             }
             arrayList.add(eventClientReport);
-            this.f750a.put(a, arrayList);
+            this.f30a.put(a, arrayList);
         }
     }
 
@@ -473,11 +473,11 @@ public class a implements IEventProcessor {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m1036a(com.xiaomi.clientreport.data.a[] aVarArr) {
+    public void m98a(com.xiaomi.clientreport.data.a[] aVarArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, aVarArr) == null) {
             if (aVarArr == null || aVarArr.length == 0 || aVarArr[0] == null) {
-                com.xiaomi.channel.commonutils.logger.b.m1027a("event data write to cache file failed because data null");
+                com.xiaomi.channel.commonutils.logger.b.m89a("event data write to cache file failed because data null");
                 return;
             }
             do {
@@ -493,20 +493,20 @@ public class a implements IEventProcessor {
     public void b() {
         HashMap<String, ArrayList<com.xiaomi.clientreport.data.a>> hashMap;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (hashMap = this.f750a) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (hashMap = this.f30a) == null) {
             return;
         }
         if (hashMap.size() > 0) {
-            for (String str : this.f750a.keySet()) {
-                ArrayList<com.xiaomi.clientreport.data.a> arrayList = this.f750a.get(str);
+            for (String str : this.f30a.keySet()) {
+                ArrayList<com.xiaomi.clientreport.data.a> arrayList = this.f30a.get(str);
                 if (arrayList != null && arrayList.size() > 0) {
                     com.xiaomi.clientreport.data.a[] aVarArr = new com.xiaomi.clientreport.data.a[arrayList.size()];
                     arrayList.toArray(aVarArr);
-                    m1036a(aVarArr);
+                    m98a(aVarArr);
                 }
             }
         }
-        this.f750a.clear();
+        this.f30a.clear();
     }
 
     @Override // com.xiaomi.clientreport.processor.IEventProcessor
@@ -516,7 +516,7 @@ public class a implements IEventProcessor {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, bArr)) == null) {
             if (bArr != null && bArr.length >= 1) {
-                if (!com.xiaomi.clientreport.manager.a.a(this.a).m1032a().isEventEncrypted()) {
+                if (!com.xiaomi.clientreport.manager.a.a(this.a).m94a().isEventEncrypted()) {
                     return bp.b(bArr);
                 }
                 String a2 = bt.a(this.a);
@@ -537,7 +537,7 @@ public class a implements IEventProcessor {
     public void setEventMap(HashMap<String, ArrayList<com.xiaomi.clientreport.data.a>> hashMap) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, hashMap) == null) {
-            this.f750a = hashMap;
+            this.f30a = hashMap;
         }
     }
 
@@ -550,13 +550,13 @@ public class a implements IEventProcessor {
             if (TextUtils.isEmpty(str)) {
                 return null;
             }
-            if (com.xiaomi.clientreport.manager.a.a(this.a).m1032a().isEventEncrypted()) {
+            if (com.xiaomi.clientreport.manager.a.a(this.a).m94a().isEventEncrypted()) {
                 String a2 = bt.a(this.a);
-                byte[] m1143a = bp.m1143a(str);
-                if (!TextUtils.isEmpty(a2) && m1143a != null && m1143a.length > 1 && (a = bt.a(a2)) != null) {
+                byte[] m205a = bp.m205a(str);
+                if (!TextUtils.isEmpty(a2) && m205a != null && m205a.length > 1 && (a = bt.a(a2)) != null) {
                     try {
                         if (a.length > 1) {
-                            return i.b(a, Base64.encode(m1143a, 2));
+                            return i.b(a, Base64.encode(m205a, 2));
                         }
                     } catch (Exception e) {
                         com.xiaomi.channel.commonutils.logger.b.a(e);
@@ -564,7 +564,7 @@ public class a implements IEventProcessor {
                 }
                 return null;
             }
-            return bp.m1143a(str);
+            return bp.m205a(str);
         }
         return (byte[]) invokeL.objValue;
     }

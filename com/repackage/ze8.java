@@ -29,7 +29,7 @@ public class ze8 implements qe8 {
     public transient /* synthetic */ FieldHolder $fh;
     public final re8 a;
     public final se8 b;
-    public ql4 c;
+    public rl4 c;
     public ViewGroup d;
     public boolean e;
     public long f;
@@ -152,9 +152,9 @@ public class ze8 implements qe8 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             m();
-            ql4 ql4Var = this.c;
-            if (ql4Var != null) {
-                ql4Var.f(null);
+            rl4 rl4Var = this.c;
+            if (rl4Var != null) {
+                rl4Var.f(null);
                 this.c.e(null);
             }
         }
@@ -227,13 +227,13 @@ public class ze8 implements qe8 {
 
     @Override // com.repackage.qe8
     public void onConfigurationChanged(Configuration configuration) {
-        ql4 ql4Var;
-        ol4 ol4Var;
+        rl4 rl4Var;
+        pl4 pl4Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048585, this, configuration) == null) || (ql4Var = this.c) == null || (ol4Var = ql4Var.c) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048585, this, configuration) == null) || (rl4Var = this.c) == null || (pl4Var = rl4Var.c) == null) {
             return;
         }
-        ol4Var.a();
+        pl4Var.a();
     }
 
     public final void p() {
@@ -242,7 +242,7 @@ public class ze8 implements qe8 {
             this.h = false;
             long currentTimeMillis = System.currentTimeMillis();
             this.g = System.currentTimeMillis();
-            this.c = new ql4(this.a.i(), this.a.j());
+            this.c = new rl4(this.a.i(), this.a.j());
             this.d = new RelativeLayout(this.a.getActivity());
             this.d.setLayoutParams(new RelativeLayout.LayoutParams(-1, -1));
             this.a.getRootView().addView(this.d);
@@ -252,10 +252,10 @@ public class ze8 implements qe8 {
             if (this.h) {
                 return;
             }
-            s95.b().j(System.currentTimeMillis() - currentTimeMillis);
+            t95.b().j(System.currentTimeMillis() - currentTimeMillis);
             long longValue = runTask != null ? ((Long) runTask.getData()).longValue() : 1000L;
             if (UbsABTestHelper.newSplashStrategy()) {
-                qg.a().postDelayed(this.j, vc5.l() + 500);
+                qg.a().postDelayed(this.j, wc5.l() + 500);
             } else {
                 qg.a().postDelayed(this.i, longValue);
             }

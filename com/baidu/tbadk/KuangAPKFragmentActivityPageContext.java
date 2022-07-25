@@ -19,7 +19,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.rm4;
+import com.repackage.sm4;
 import com.repackage.za;
 /* loaded from: classes2.dex */
 public class KuangAPKFragmentActivityPageContext implements TbPageContext<BaseFragmentActivity> {
@@ -53,10 +53,10 @@ public class KuangAPKFragmentActivityPageContext implements TbPageContext<BaseFr
     }
 
     @Override // com.baidu.tbadk.TbPageContext
-    public rm4 getLayoutMode() {
+    public sm4 getLayoutMode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.orginal.getLayoutMode() : (rm4) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.orginal.getLayoutMode() : (sm4) invokeV.objValue;
     }
 
     @Override // com.baidu.tbadk.TbPageContext, com.repackage.d9

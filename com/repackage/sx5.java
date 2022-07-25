@@ -323,7 +323,7 @@ public class sx5 extends ix5<uy5> implements bk5 {
         T t;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            if (zm4.c().g() && (t = this.k) != 0 && ((uy5) t).getThreadData() != null && ((uy5) this.k).getThreadData().getThreadAlaInfo() != null) {
+            if (an4.c().g() && (t = this.k) != 0 && ((uy5) t).getThreadData() != null && ((uy5) this.k).getThreadData().getThreadAlaInfo() != null) {
                 this.A.setPlaceHolder(3);
                 this.A.J(((uy5) this.k).getThreadData().getThreadAlaInfo().cover, 10, false);
                 this.z.setVisibility(0);
@@ -370,8 +370,8 @@ public class sx5 extends ix5<uy5> implements bk5 {
     public final void R(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, view2) == null) {
-            this.v = (FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f091251);
-            LinearLayout linearLayout = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f0906b9);
+            this.v = (FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f09122d);
+            LinearLayout linearLayout = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f0906b8);
             this.w = linearLayout;
             FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) linearLayout.getLayoutParams();
             layoutParams.topMargin = UtilHelper.getDimenPixelSize(R.dimen.M_H_X002);
@@ -380,9 +380,9 @@ public class sx5 extends ix5<uy5> implements bk5 {
             this.x = cardUserInfoLayout;
             cardUserInfoLayout.setPageContext(this.i);
             this.x.setPageUniqueId(this.j);
-            this.y = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091fe1);
-            this.z = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f090a85);
-            TbImageView tbImageView = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090e4d);
+            this.y = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091fe5);
+            this.z = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f090a7e);
+            TbImageView tbImageView = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090e46);
             this.A = tbImageView;
             tbImageView.setDrawCorner(true);
             this.A.setPlaceHolder(3);
@@ -401,7 +401,7 @@ public class sx5 extends ix5<uy5> implements bk5 {
             this.H.addOnAttachStateChangeListener(new a(this));
             this.I = view2.findViewById(R.id.obfuscated_res_0x7f0901e7);
             this.J = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0901ef);
-            this.K = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091900);
+            this.K = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0918db);
             this.E = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f0901e4);
             TBLottieAnimationView tBLottieAnimationView2 = (TBLottieAnimationView) view2.findViewById(R.id.obfuscated_res_0x7f0901e3);
             this.C = tBLottieAnimationView2;
@@ -412,9 +412,9 @@ public class sx5 extends ix5<uy5> implements bk5 {
             this.Q = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0901e9);
             this.R = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0901ec);
             this.S = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0901eb);
-            this.T = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f091312);
-            this.D = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0918fe);
-            this.F = view2.findViewById(R.id.obfuscated_res_0x7f0918ff);
+            this.T = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f0912ee);
+            this.D = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0918d9);
+            this.F = view2.findViewById(R.id.obfuscated_res_0x7f0918da);
             this.B = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0901ed);
             this.q = (ForumEnterLayout) view2.findViewById(R.id.obfuscated_res_0x7f0904dc);
             this.l = (ThreadCommentAndPraiseInfoLayout) view2.findViewById(R.id.obfuscated_res_0x7f0904ab);
@@ -426,13 +426,13 @@ public class sx5 extends ix5<uy5> implements bk5 {
             t(this.l);
             t(this.m);
             this.w.setOnClickListener(this);
-            this.L = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090a1f);
-            this.M = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092239);
-            this.N = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090e3b);
-            this.O = (TbLiveContainer) view2.findViewById(R.id.obfuscated_res_0x7f091f86);
+            this.L = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090a18);
+            this.M = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09223b);
+            this.N = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090e34);
+            this.O = (TbLiveContainer) view2.findViewById(R.id.obfuscated_res_0x7f091f8a);
             this.L.setOnClickListener(this);
             this.u = view2.findViewById(R.id.obfuscated_res_0x7f0904aa);
-            HomeGroupUbsUIHelper.handleImgMask(view2.findViewById(R.id.obfuscated_res_0x7f090e34), R.color.transparent);
+            HomeGroupUbsUIHelper.handleImgMask(view2.findViewById(R.id.obfuscated_res_0x7f090e2d), R.color.transparent);
         }
     }
 
@@ -717,7 +717,7 @@ public class sx5 extends ix5<uy5> implements bk5 {
             return;
         }
         w(tbPageContext, i);
-        ur4 d2 = ur4.d(this.w);
+        vr4 d2 = vr4.d(this.w);
         d2.n(R.string.J_X06);
         d2.i(R.color.CAM_X0205, R.color.CAM_X0206);
         float f = pi.f(getContext(), R.dimen.tbds31);
@@ -731,24 +731,24 @@ public class sx5 extends ix5<uy5> implements bk5 {
         this.O.d(i);
         this.A.setPlaceHolder(3);
         TBSelector.makeDrawableSelector().setShape(1).defaultColor(R.color.CAM_X0310).into(this.I);
-        ur4 d3 = ur4.d(this.G);
+        vr4 d3 = vr4.d(this.G);
         d3.n(R.string.J_X01);
         d3.f(R.color.CAM_X0605);
-        ur4 d4 = ur4.d(this.J);
+        vr4 d4 = vr4.d(this.J);
         d4.v(R.color.CAM_X0101);
         d4.z(R.dimen.T_X09);
-        ur4 d5 = ur4.d(this.K);
+        vr4 d5 = vr4.d(this.K);
         d5.z(R.dimen.T_X09);
         d5.v(R.color.CAM_X0101);
         SkinManager.setBackgroundEndColorToAutoColor(this.E, R.color.CAM_X0310, GradientDrawable.Orientation.LEFT_RIGHT, fArr);
         SkinManager.setBackgroundColor(this.F, R.color.CAM_X0101);
         SkinManager.setViewTextColor(this.D, (int) R.color.CAM_X0101);
-        ur4 d6 = ur4.d(this.P);
+        vr4 d6 = vr4.d(this.P);
         d6.n(R.string.J_X01);
         d6.f(R.color.CAM_X0605);
         this.Q.setImageDrawable(WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f0807aa, WebPManager.ResourceStateType.NORMAL_DISABLE));
-        ur4.d(this.R).v(R.color.CAM_X0314);
-        ur4.d(this.S).v(R.color.CAM_X0101);
+        vr4.d(this.R).v(R.color.CAM_X0314);
+        vr4.d(this.S).v(R.color.CAM_X0101);
         this.a = i;
     }
 

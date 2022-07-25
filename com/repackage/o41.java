@@ -196,12 +196,12 @@ public class o41 extends l41 {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
-            View inflate = LayoutInflater.from(this.e).inflate(R.layout.obfuscated_res_0x7f0d05e1, viewGroup, false);
+            View inflate = LayoutInflater.from(this.e).inflate(R.layout.obfuscated_res_0x7f0d05eb, viewGroup, false);
             this.i = inflate;
-            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091b90);
+            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091b6a);
             this.j = textView;
             textView.setTextColor(getContext().getResources().getColor(R.color.obfuscated_res_0x7f06083d));
-            SelectorTextView selectorTextView = (SelectorTextView) this.i.findViewById(R.id.obfuscated_res_0x7f091b91);
+            SelectorTextView selectorTextView = (SelectorTextView) this.i.findViewById(R.id.obfuscated_res_0x7f091b6b);
             this.k = selectorTextView;
             selectorTextView.setTextColor(getContext().getResources().getColor(R.color.obfuscated_res_0x7f06083c));
             o();

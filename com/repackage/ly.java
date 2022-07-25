@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class ly extends qw<nn4> {
+public class ly extends qw<on4> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public vx5 f;
@@ -55,10 +55,10 @@ public class ly extends qw<nn4> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.repackage.gx
     /* renamed from: p */
-    public void a(nn4 nn4Var) {
+    public void a(on4 on4Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, nn4Var) == null) && (nn4Var instanceof xy5)) {
-            this.f.a((xy5) nn4Var);
+        if ((interceptable == null || interceptable.invokeL(1048579, this, on4Var) == null) && (on4Var instanceof xy5)) {
+            this.f.a((xy5) on4Var);
         }
     }
 }

@@ -13,6 +13,7 @@ import com.baidu.sapi2.utils.enums.Language;
 import com.baidu.sapi2.utils.enums.SocialType;
 import com.baidu.searchbox.crius.constants.CriusAttrConstants;
 import com.baidu.swan.game.guide.GameGuideConfigInfo;
+import com.baidu.tbadk.core.util.httpNet.HttpRequest;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -108,11 +109,33 @@ public class ParamsUtil implements NoProguard {
         return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, sapiConfiguration)) == null) ? buildH5CommonParams(sapiConfiguration, true) : (String) invokeL.objValue;
     }
 
-    public static List<HttpCookie> buildNaCookie(String str, SapiConfiguration sapiConfiguration) {
+    public static List<HttpCookie> buildLoginStatusCookie(String str, SapiConfiguration sapiConfiguration) {
         InterceptResult invokeLL;
         String wapDomain;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, str, sapiConfiguration)) == null) {
+            ArrayList arrayList = new ArrayList();
+            if (str.contains(sapiConfiguration.environment.getURL())) {
+                wapDomain = sapiConfiguration.environment.getUrlDomain();
+            } else {
+                if (str.contains(sapiConfiguration.environment.getWap())) {
+                    wapDomain = sapiConfiguration.environment.getWapDomain();
+                }
+                return arrayList;
+            }
+            arrayList.add(buidCookie(HttpRequest.BDUSS, SapiUtils.getCookie(sapiConfiguration.environment.getWap(), HttpRequest.BDUSS), wapDomain));
+            arrayList.add(buidCookie("PTOKEN", SapiUtils.getCookie(sapiConfiguration.environment.getWap(), "PTOKEN"), wapDomain));
+            arrayList.add(buidCookie("STOKEN", SapiUtils.getCookie(sapiConfiguration.environment.getWap(), "STOKEN"), wapDomain));
+            return arrayList;
+        }
+        return (List) invokeLL.objValue;
+    }
+
+    public static List<HttpCookie> buildNaCookie(String str, SapiConfiguration sapiConfiguration) {
+        InterceptResult invokeLL;
+        String wapDomain;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, str, sapiConfiguration)) == null) {
             ArrayList arrayList = new ArrayList();
             if (str.contains(sapiConfiguration.environment.getURL())) {
                 wapDomain = sapiConfiguration.environment.getUrlDomain();
@@ -138,7 +161,7 @@ public class ParamsUtil implements NoProguard {
     public static boolean checkDiUpload(JSONArray jSONArray, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65542, null, jSONArray, i)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65543, null, jSONArray, i)) == null) {
             for (int i2 = 0; i2 < jSONArray.length(); i2++) {
                 String optString = jSONArray.optString(i2);
                 if (!TextUtils.isEmpty(optString) && optString.equals(String.valueOf(i))) {
@@ -154,19 +177,19 @@ public class ParamsUtil implements NoProguard {
     public static String getAdapterParamValue(boolean z, boolean z2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65543, null, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) ? z ? "3" : z2 ? "8" : "" : (String) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65544, null, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) ? z ? "3" : z2 ? "8" : "" : (String) invokeCommon.objValue;
     }
 
     public static String getBindInfoType(BindInfoAction bindInfoAction) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65544, null, bindInfoAction)) == null) ? (bindInfoAction != null && AnonymousClass1.$SwitchMap$com$baidu$sapi2$utils$enums$BindInfoAction[bindInfoAction.ordinal()] == 1) ? "&type=email" : "" : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65545, null, bindInfoAction)) == null) ? (bindInfoAction != null && AnonymousClass1.$SwitchMap$com$baidu$sapi2$utils$enums$BindInfoAction[bindInfoAction.ordinal()] == 1) ? "&type=email" : "" : (String) invokeL.objValue;
     }
 
     public static JSONArray getGrayControlParams() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) {
             JSONArray jSONArray = new JSONArray();
             ISAccountManager isAccountManager = ServiceManager.getInstance().getIsAccountManager();
             if (isAccountManager == null) {
@@ -218,7 +241,7 @@ public class ParamsUtil implements NoProguard {
     public static String getUrlBind(SapiConfiguration sapiConfiguration, SocialType socialType, String str, String str2, String str3) {
         InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(65546, null, sapiConfiguration, socialType, str, str2, str3)) == null) {
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(65547, null, sapiConfiguration, socialType, str, str2, str3)) == null) {
             HashMap hashMap = new HashMap();
             hashMap.put(CriusAttrConstants.DISPLAY, "native");
             hashMap.put("type", socialType.getType() + "");
@@ -235,10 +258,28 @@ public class ParamsUtil implements NoProguard {
         return (String) invokeLLLLL.objValue;
     }
 
+    public static String getUrlBindHonor(SapiConfiguration sapiConfiguration, SocialType socialType, String str, String str2, String str3) {
+        InterceptResult invokeLLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(65548, null, sapiConfiguration, socialType, str, str2, str3)) == null) {
+            HashMap hashMap = new HashMap();
+            hashMap.put(CriusAttrConstants.DISPLAY, "native");
+            hashMap.put("type", socialType.getType() + "");
+            hashMap.put("act", sapiConfiguration.socialBindType.getName());
+            hashMap.put("redirect_uri", str3);
+            if (!TextUtils.isEmpty(str2)) {
+                hashMap.put("appid", str2);
+            }
+            hashMap.put("code", str);
+            return sapiConfiguration.environment.getURL() + "/phoenix/account/ssologin?" + buildH5CommonParams(sapiConfiguration) + "&" + SapiUtils.mapToUrlParams(hashMap, true);
+        }
+        return (String) invokeLLLLL.objValue;
+    }
+
     public static String getUrlCFOLogin(SapiConfiguration sapiConfiguration, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65547, null, sapiConfiguration, str)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65549, null, sapiConfiguration, str)) == null) {
             HashMap hashMap = new HashMap();
             hashMap.put("type", SocialType.CFO.getType() + "");
             hashMap.put("appid", sapiConfiguration.cfoAppKey);
@@ -251,7 +292,7 @@ public class ParamsUtil implements NoProguard {
     public static String getUrlQQBind(SapiConfiguration sapiConfiguration, String str, String str2, String str3) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65548, null, sapiConfiguration, str, str2, str3)) == null) {
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65550, null, sapiConfiguration, str, str2, str3)) == null) {
             HashMap hashMap = new HashMap();
             hashMap.put("type", SocialType.QQ_SSO.getType() + "");
             hashMap.put("appid", sapiConfiguration.qqAppID);
@@ -269,7 +310,7 @@ public class ParamsUtil implements NoProguard {
     public static String getUrlTwitterLogin(SapiConfiguration sapiConfiguration) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65549, null, sapiConfiguration)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65551, null, sapiConfiguration)) == null) {
             String str = sapiConfiguration.environment.getURL() + SapiEnv.SOCIAL_START_URI;
             HashMap hashMap = new HashMap();
             hashMap.put("type", String.valueOf(SocialType.TWITTER.getType()));
@@ -294,7 +335,7 @@ public class ParamsUtil implements NoProguard {
     public static String getUrlWeixinBind(SapiConfiguration sapiConfiguration, String str, String str2, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65550, null, new Object[]{sapiConfiguration, str, str2, Boolean.valueOf(z)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65552, null, new Object[]{sapiConfiguration, str, str2, Boolean.valueOf(z)})) == null) {
             HashMap hashMap = new HashMap();
             hashMap.put("type", SocialType.WEIXIN.getType() + "");
             hashMap.put("mkey", str2);
@@ -316,7 +357,7 @@ public class ParamsUtil implements NoProguard {
     public static String getUrlYYLogin(String str, SapiConfiguration sapiConfiguration) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65551, null, str, sapiConfiguration)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65553, null, str, sapiConfiguration)) == null) {
             HashMap hashMap = new HashMap();
             hashMap.put("type", SocialType.YY.getType() + "");
             hashMap.put("appid", sapiConfiguration.yyAppId);

@@ -1,102 +1,20 @@
 package com.repackage;
 
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-import org.json.JSONArray;
-import org.json.JSONObject;
+import tbclient.SeniorLottery;
 /* loaded from: classes6.dex */
-public class lq4 implements ig8 {
+public class lq4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public List<a> b;
-
-    /* loaded from: classes6.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-        public int b;
-        public String c;
-        public String d;
-        public int e;
-        public boolean f;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        public int a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : invokeV.intValue;
-        }
-
-        public String b() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (String) invokeV.objValue;
-        }
-
-        public String c() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.d : (String) invokeV.objValue;
-        }
-
-        public String d() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.c : (String) invokeV.objValue;
-        }
-
-        public int e() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.e : invokeV.intValue;
-        }
-
-        public boolean f() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f : invokeV.booleanValue;
-        }
-
-        public void g(JSONObject jSONObject) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048582, this, jSONObject) == null) || jSONObject == null) {
-                return;
-            }
-            this.a = jSONObject.optString("icon_name");
-            this.b = jSONObject.optInt("icon_level");
-            this.c = jSONObject.optString("icon_small_pic");
-            this.d = jSONObject.optString("icon_pic");
-            this.e = jSONObject.optInt("light_up");
-        }
-
-        public void h(boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
-                this.f = z;
-            }
-        }
-    }
+    public jp4 a;
+    public List<yn4> b;
+    public List<zn4> c;
+    public List<ip4> d;
 
     public lq4() {
         Interceptable interceptable = $ic;
@@ -112,34 +30,36 @@ public class lq4 implements ig8 {
         }
     }
 
-    public List<a> a() {
-        InterceptResult invokeV;
+    public void a(SeniorLottery seniorLottery) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (List) invokeV.objValue;
-    }
-
-    public int b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : invokeV.intValue;
-    }
-
-    public void c(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) || jSONObject == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, seniorLottery) == null) || seniorLottery == null) {
             return;
         }
-        this.a = jSONObject.optInt("levelup");
-        JSONArray optJSONArray = jSONObject.optJSONArray("icon_info");
-        if (optJSONArray != null) {
-            this.b = new ArrayList();
-            for (int i = 0; i < optJSONArray.length(); i++) {
-                if (optJSONArray.optJSONObject(i) != null) {
-                    a aVar = new a();
-                    aVar.g(optJSONArray.optJSONObject(i));
-                    this.b.add(aVar);
-                }
-            }
+        jp4 jp4Var = new jp4();
+        this.a = jp4Var;
+        jp4Var.a(seniorLottery.theme);
+        this.b = new ArrayList();
+        int size = seniorLottery.award_info.size();
+        for (int i = 0; i < size; i++) {
+            yn4 yn4Var = new yn4();
+            yn4Var.a(seniorLottery.award_info.get(i));
+            this.b.add(yn4Var);
+        }
+        String str = seniorLottery.myaward;
+        this.c = new ArrayList();
+        int size2 = seniorLottery.luck_users.size();
+        for (int i2 = 0; i2 < size2; i2++) {
+            zn4 zn4Var = new zn4();
+            zn4Var.a(seniorLottery.luck_users.get(i2));
+            this.c.add(zn4Var);
+        }
+        String str2 = seniorLottery.act_desc;
+        this.d = new ArrayList();
+        int size3 = seniorLottery.act_regular.size();
+        for (int i3 = 0; i3 < size3; i3++) {
+            ip4 ip4Var = new ip4();
+            ip4Var.a(seniorLottery.act_regular.get(i3));
+            this.d.add(ip4Var);
         }
     }
 }

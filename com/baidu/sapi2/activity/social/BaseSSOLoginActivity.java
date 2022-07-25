@@ -27,7 +27,6 @@ import com.baidu.sapi2.dto.WebRegDTO;
 import com.baidu.sapi2.dto.WebSocialLoginDTO;
 import com.baidu.sapi2.httpwrap.HttpClientWrap;
 import com.baidu.sapi2.httpwrap.HttpHandlerWrap;
-import com.baidu.sapi2.service.AbstractThirdPartyService;
 import com.baidu.sapi2.shell.listener.AuthorizationListener;
 import com.baidu.sapi2.shell.listener.WebAuthListener;
 import com.baidu.sapi2.shell.response.SocialResponse;
@@ -111,7 +110,7 @@ public class BaseSSOLoginActivity extends SocialLoginBase {
                 if (this.a.g == 2001) {
                     Intent intent = new Intent();
                     intent.putExtra("result_code", i);
-                    intent.putExtra(AbstractThirdPartyService.EXTRA_RESULT_MSG, str);
+                    intent.putExtra("result_msg", str);
                     this.a.a(1002, intent);
                 } else if (CoreViewRouter.getInstance().getWebAuthListener() != null) {
                     this.a.h.setResultCode(i);
@@ -701,7 +700,7 @@ public class BaseSSOLoginActivity extends SocialLoginBase {
             if (i == 2001) {
                 Intent intent = new Intent();
                 intent.putExtra("result_code", i2);
-                intent.putExtra(AbstractThirdPartyService.EXTRA_RESULT_MSG, str);
+                intent.putExtra("result_msg", str);
                 a(1002, intent);
             } else if (CoreViewRouter.getInstance().getWebAuthListener() != null) {
                 this.b = true;

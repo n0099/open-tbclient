@@ -5,22 +5,14 @@ import android.text.TextUtils;
 import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
 /* loaded from: classes5.dex */
 public final class g {
-    public static String a = "newversion";
-    public static String b = "curversion";
-    public static String c = "apiversion";
-    public static String d = "autoRevert";
-    public static String e = "_enable";
+    public static String a = "autoRevert";
 
     public static String a(Context context) {
-        return r.b(context, c, "");
+        return t.d(context, "curversion", "");
     }
 
-    public static String a(Context context, String str) {
-        return r.b(context, str, "");
-    }
-
-    public static void a(Context context, String str, String str2) {
-        r.a(context, str, str2);
+    public static void a(Context context, String str) {
+        t.c(context, "curversion", str);
     }
 
     public static boolean a(String str, String str2) {
@@ -51,7 +43,19 @@ public final class g {
         return true;
     }
 
+    public static String b(Context context) {
+        return t.d(context, "newversion", "");
+    }
+
     public static void b(Context context, String str) {
-        r.a(context, c, str);
+        t.c(context, "newversion", str);
+    }
+
+    public static String c(Context context) {
+        return t.d(context, "apiversion", "");
+    }
+
+    public static void c(Context context, String str) {
+        t.c(context, "apiversion", str);
     }
 }

@@ -23,7 +23,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class kh6 extends cd6<qq4, FrsCardVideoViewHolder<ii6>> implements hy5, go6 {
+public class kh6 extends cd6<rq4, FrsCardVideoViewHolder<ii6>> implements hy5, go6 {
     public static /* synthetic */ Interceptable $ic = null;
     public static int x = 5;
     public static int y = 10;
@@ -66,24 +66,24 @@ public class kh6 extends cd6<qq4, FrsCardVideoViewHolder<ii6>> implements hy5, g
             if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, threadData) == null) || view2 == null || threadData == null) {
                 return;
             }
-            if (view2.getId() == R.id.obfuscated_res_0x7f090a85) {
+            if (view2.getId() == R.id.obfuscated_res_0x7f090a7e) {
                 this.b.A0(threadData, "c11718");
-            } else if (view2.getId() == R.id.obfuscated_res_0x7f091251) {
+            } else if (view2.getId() == R.id.obfuscated_res_0x7f09122d) {
                 this.b.A0(threadData, TbadkCoreStatisticKey.FRS_PHOTO_LIVE_VIEW_PAGER_ITEM);
-            } else if (view2.getId() == R.id.obfuscated_res_0x7f090e4c || view2.getId() == R.id.obfuscated_res_0x7f0917de) {
+            } else if (view2.getId() == R.id.obfuscated_res_0x7f090e45 || view2.getId() == R.id.obfuscated_res_0x7f0917b9) {
                 this.b.A0(threadData, "c10241");
             } else if (view2.getId() == R.id.obfuscated_res_0x7f0904d8) {
                 pp6.a(this.b.v, threadData.getRecomReason());
             }
             if (view2.getId() != R.id.obfuscated_res_0x7f090524 && !(view2 instanceof HeadImageView) && !(view2 instanceof HeadPendantView)) {
-                if (view2.getId() == R.id.obfuscated_res_0x7f090a85) {
+                if (view2.getId() == R.id.obfuscated_res_0x7f090a7e) {
                     do6.e(threadData, 4, this.b.e, this.b.v, this.b.a0());
                     if (this.b.j == null || this.b.j.getForum() == null) {
                         return;
                     }
                     do6.c(threadData, this.b.j.getForum().getId());
                     return;
-                } else if (view2.getId() == R.id.obfuscated_res_0x7f09203e) {
+                } else if (view2.getId() == R.id.obfuscated_res_0x7f092042) {
                     do6.e(threadData, 5, this.b.e, this.b.v, this.b.a0());
                     if (this.b.j == null || this.b.j.getForum() == null) {
                         return;
@@ -200,23 +200,23 @@ public class kh6 extends cd6<qq4, FrsCardVideoViewHolder<ii6>> implements hy5, g
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.repackage.cd6, com.repackage.an
     /* renamed from: E0 */
-    public View S(int i, View view2, ViewGroup viewGroup, qq4 qq4Var, FrsCardVideoViewHolder frsCardVideoViewHolder) {
+    public View S(int i, View view2, ViewGroup viewGroup, rq4 rq4Var, FrsCardVideoViewHolder frsCardVideoViewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view2, viewGroup, qq4Var, frsCardVideoViewHolder})) == null) {
-            if (frsCardVideoViewHolder == null || frsCardVideoViewHolder.c() == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view2, viewGroup, rq4Var, frsCardVideoViewHolder})) == null) {
+            if (frsCardVideoViewHolder == null || frsCardVideoViewHolder.b() == null) {
                 return null;
             }
-            frsCardVideoViewHolder.c().a0(C0(qq4Var.s));
-            frsCardVideoViewHolder.c().i(qq4Var.s);
-            frsCardVideoViewHolder.c().n(this.w);
-            do6.o(qq4Var.s, this.e, this.v, a0());
+            frsCardVideoViewHolder.b().a0(C0(rq4Var.s));
+            frsCardVideoViewHolder.b().i(rq4Var.s);
+            frsCardVideoViewHolder.b().n(this.w);
+            do6.o(rq4Var.s, this.e, this.v, a0());
             FrsViewData frsViewData = this.j;
             if (frsViewData != null && frsViewData.getForum() != null) {
-                do6.m(qq4Var.s, a0());
-                do6.n(qq4Var.s, this.j.getForum().getId());
+                do6.m(rq4Var.s, a0());
+                do6.n(rq4Var.s, this.j.getForum().getId());
             }
-            return frsCardVideoViewHolder.b();
+            return frsCardVideoViewHolder.a();
         }
         return (View) invokeCommon.objValue;
     }

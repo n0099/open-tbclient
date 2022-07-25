@@ -7,7 +7,6 @@ import android.text.TextUtils;
 import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.sofire.sharedpreferences.SharedPreferenceManager;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -109,7 +108,7 @@ public class ox0 {
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) {
             try {
                 Class<?> loadClass = context.getClassLoader().loadClass("android.os.SystemProperties");
-                return ((Integer) loadClass.getMethod(SharedPreferenceManager.OPERATION_GET_INT, String.class, Integer.TYPE).invoke(loadClass, "ro.miui.notch", 0)).intValue() == 1;
+                return ((Integer) loadClass.getMethod("getInt", String.class, Integer.TYPE).invoke(loadClass, "ro.miui.notch", 0)).intValue() == 1;
             } catch (Exception e) {
                 if (a) {
                     e.printStackTrace();

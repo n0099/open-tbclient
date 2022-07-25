@@ -60,7 +60,7 @@ public class eh6 extends cd6<md6, ReadProgressViewHolder> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, md6Var, readProgressViewHolder})) == null) {
             if (md6Var != null && readProgressViewHolder != null) {
-                readProgressViewHolder.d(md6Var);
+                readProgressViewHolder.c(md6Var);
             }
             return view2;
         }

@@ -1,13 +1,14 @@
 package com.repackage;
 
-import android.content.Context;
+import android.media.MediaCodec;
+import android.media.MediaCodecInfo;
+import android.media.MediaCodecList;
+import android.media.MediaCrypto;
+import android.media.MediaFormat;
 import android.text.TextUtils;
 import android.util.Log;
-import android.widget.FrameLayout;
-import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
+import android.view.Surface;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -15,221 +16,26 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.nk2;
+import com.yy.mobile.framework.revenuesdk.payservice.revenueservice.RevenueServerConst;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.nio.BufferOverflowException;
+import java.nio.BufferUnderflowException;
+import java.nio.ByteBuffer;
 /* loaded from: classes7.dex */
-public class zo2 implements fn2 {
+public class zo2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean h;
+    public static final boolean j;
     public transient /* synthetic */ FieldHolder $fh;
-    public nk2 a;
-    public String b;
-    public bp2 c;
-    public boolean d;
-    public Context e;
-    public boolean f;
-    public ap2 g;
-
-    /* loaded from: classes7.dex */
-    public class a implements nk2.a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ zo2 a;
-
-        public a(zo2 zo2Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {zo2Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = zo2Var;
-        }
-
-        @Override // com.repackage.nk2.a
-        public void b(nk2 nk2Var) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, nk2Var) == null) || this.a.g == null) {
-                return;
-            }
-            this.a.g.b(nk2Var);
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class b implements nk2.b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ zo2 a;
-
-        public b(zo2 zo2Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {zo2Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = zo2Var;
-        }
-
-        @Override // com.repackage.nk2.b
-        public boolean f(nk2 nk2Var, int i, int i2) {
-            InterceptResult invokeLII;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLII = interceptable.invokeLII(1048576, this, nk2Var, i, i2)) == null) ? this.a.g != null && this.a.g.f(nk2Var, i, i2) : invokeLII.booleanValue;
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class c implements nk2.d {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ zo2 a;
-
-        public c(zo2 zo2Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {zo2Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = zo2Var;
-        }
-
-        @Override // com.repackage.nk2.d
-        public void e(nk2 nk2Var) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, nk2Var) == null) || this.a.g == null) {
-                return;
-            }
-            this.a.g.e(nk2Var);
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class d implements nk2.e {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ zo2 a;
-
-        public d(zo2 zo2Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {zo2Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = zo2Var;
-        }
-
-        @Override // com.repackage.nk2.e
-        public void a(nk2 nk2Var) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, nk2Var) == null) || this.a.g == null) {
-                return;
-            }
-            this.a.g.a(nk2Var);
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class e implements nk2.f {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ zo2 a;
-
-        public e(zo2 zo2Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {zo2Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = zo2Var;
-        }
-
-        @Override // com.repackage.nk2.f
-        public void d(nk2 nk2Var) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, nk2Var) == null) || this.a.g == null) {
-                return;
-            }
-            this.a.g.d(nk2Var);
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class f implements nk2.c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ zo2 a;
-
-        public f(zo2 zo2Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {zo2Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = zo2Var;
-        }
-
-        @Override // com.repackage.nk2.c
-        public void c(nk2 nk2Var) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, nk2Var) == null) || this.a.g == null) {
-                return;
-            }
-            this.a.g.c(nk2Var);
-        }
-    }
+    public MediaCodec a;
+    public ByteBuffer[] b;
+    public ByteBuffer[] c;
+    public MediaCodec.BufferInfo d;
+    public ByteArrayOutputStream e;
+    public long f;
+    public int g;
+    public int h;
+    public String i;
 
     static {
         InterceptResult invokeClinit;
@@ -244,315 +50,293 @@ public class zo2 implements fn2 {
                 return;
             }
         }
-        h = rg1.a;
+        j = sg1.a;
     }
 
-    public zo2(Context context, @NonNull bp2 bp2Var) {
+    /* JADX WARN: Removed duplicated region for block: B:26:0x0063  */
+    /* JADX WARN: Removed duplicated region for block: B:27:0x0064 A[Catch: IOException -> 0x00b6, TryCatch #0 {IOException -> 0x00b6, blocks: (B:8:0x002c, B:27:0x0064, B:29:0x0068, B:30:0x006f, B:32:0x008b, B:15:0x0045, B:18:0x004f, B:21:0x0059), top: B:41:0x002c }] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public zo2(String str, int i, int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, bp2Var};
+            Object[] objArr = {str, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i4 = newInitContext.flag;
+            if ((i4 & 1) != 0) {
+                int i5 = i4 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.f = true;
-        this.e = context;
-        this.c = bp2Var;
-        this.b = bp2Var.j;
-        h();
-        d();
-    }
-
-    public void A(bp2 bp2Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, bp2Var) == null) {
-            if (h) {
-                Log.e("SwanAppVideoPlayer", "update 接口");
-            }
-            nk2 nk2Var = this.a;
-            if (nk2Var != null) {
-                nk2Var.h(bp2Var, true);
-            }
-            this.c = bp2Var;
+        this.f = 0L;
+        char c = 0;
+        this.g = 0;
+        this.h = 0;
+        this.i = "aac";
+        this.g = i2;
+        this.h = i;
+        this.e = new ByteArrayOutputStream();
+        if (TextUtils.isEmpty(str)) {
+            this.i = "aac";
+        } else {
+            this.i = str;
         }
-    }
-
-    public final boolean B() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            bp2 bp2Var = this.c;
-            return (bp2Var == null || TextUtils.isEmpty(bp2Var.y) || TextUtils.isEmpty(this.b) || TextUtils.isEmpty(this.c.b)) ? false : true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.repackage.fn2
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.c.c : (String) invokeV.objValue;
-    }
-
-    @Override // com.repackage.fn2
-    public String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.b : (String) invokeV.objValue;
-    }
-
-    public final void d() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || TextUtils.isEmpty(this.b)) {
-            return;
-        }
-        gn2.a(this);
-    }
-
-    public int e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? h().getCurrentPosition() : invokeV.intValue;
-    }
-
-    @Override // com.repackage.fn2
-    public String f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            bp2 bp2Var = this.c;
-            return bp2Var != null ? bp2Var.z : "";
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public bp2 g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.c : (bp2) invokeV.objValue;
-    }
-
-    public nk2 h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            if (this.a == null) {
-                hx1.i("video", "create player");
-                nk2 C0 = oj2.C0();
-                C0.e(this.e, this.c);
-                this.a = C0;
-                C0.g(new a(this));
-                this.a.p(new b(this));
-                this.a.m(new c(this));
-                this.a.j(new d(this));
-                this.a.k(new e(this));
-                this.a.r(new f(this));
-            }
-            return this.a;
-        }
-        return (nk2) invokeV.objValue;
-    }
-
-    @Override // com.repackage.fn2
-    public Object i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this : invokeV.objValue;
-    }
-
-    @Override // com.repackage.fn2
-    public void j(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
-        }
-    }
-
-    @Override // com.repackage.fn2
-    public void k(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
-            this.f = z;
-            if (z) {
-                if (this.d) {
-                    h().resume();
+        try {
+            String str2 = this.i;
+            int hashCode = str2.hashCode();
+            if (hashCode == 96323) {
+                if (str2.equals("aac")) {
+                    if (c == 0) {
+                    }
                 }
-                h().b();
-            } else if (this.a != null) {
-                this.d = h().isPlaying();
-                h().pause();
-                h().c();
+                c = 65535;
+                if (c == 0) {
+                }
+            } else if (hashCode != 108272) {
+                if (hashCode == 110810 && str2.equals("pcm")) {
+                    c = 2;
+                    if (c == 0) {
+                        return;
+                    }
+                    if (j) {
+                        Log.d("AudioRecorderManager", "aac format init");
+                    }
+                    MediaCodecInfo d = d("audio/mp4a-latm");
+                    MediaFormat createAudioFormat = MediaFormat.createAudioFormat("audio/mp4a-latm", i2, i);
+                    createAudioFormat.setInteger("bitrate", i3);
+                    createAudioFormat.setInteger("aac-profile", 2);
+                    createAudioFormat.setInteger("max-input-size", 102400);
+                    if (d != null) {
+                        MediaCodec createByCodecName = MediaCodec.createByCodecName(d.getName());
+                        this.a = createByCodecName;
+                        createByCodecName.configure(createAudioFormat, (Surface) null, (MediaCrypto) null, 1);
+                        this.a.start();
+                        this.b = this.a.getInputBuffers();
+                        this.c = this.a.getOutputBuffers();
+                        this.d = new MediaCodec.BufferInfo();
+                        return;
+                    }
+                    return;
+                }
+                c = 65535;
+                if (c == 0) {
+                }
+            } else {
+                if (str2.equals("mp3")) {
+                    c = 1;
+                    if (c == 0) {
+                    }
+                }
+                c = 65535;
+                if (c == 0) {
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        e.printStackTrace();
+    }
+
+    public final int a(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            switch (i) {
+                case 7350:
+                    return 12;
+                case 11025:
+                    return 10;
+                case 12000:
+                    return 9;
+                case 16000:
+                    return 8;
+                case 22050:
+                    return 7;
+                case 24000:
+                    return 6;
+                case 32000:
+                    return 5;
+                case 44100:
+                    return 4;
+                case 48000:
+                    return 3;
+                case 64000:
+                    return 2;
+                case 88200:
+                    return 1;
+                case 96000:
+                    return 0;
+                default:
+                    return 11;
             }
         }
+        return invokeI.intValue;
     }
 
-    public void l() {
-        nk2 nk2Var;
+    public final long b(long j2) {
+        InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048588, this) == null) || (nk2Var = this.a) == null) {
-            return;
-        }
-        nk2Var.f();
-    }
-
-    public boolean m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            nk2 nk2Var = this.a;
-            return nk2Var != null && nk2Var.isEnd();
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean n() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            nk2 nk2Var = this.a;
-            return nk2Var != null && nk2Var.isPlaying();
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void o(bp2 bp2Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, bp2Var) == null) {
-            hx1.i("video", "Open Player " + bp2Var.j);
-            nk2 nk2Var = this.a;
-            if (nk2Var != null) {
-                nk2Var.o(bp2Var);
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2)) == null) {
+            int i = this.g;
+            if (i == 0) {
+                return 0L;
             }
-            this.c = bp2Var;
+            return (((j2 * 1000) * 90) * 1024) / i;
         }
+        return invokeJ.longValue;
     }
 
-    @Override // com.repackage.fn2
-    public boolean onBackPressed() {
-        InterceptResult invokeV;
+    public final byte[] c(int i, int i2, int i3, int i4) {
+        InterceptResult invokeIIII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
-            hx1.i("video", "onBackPressed");
-            nk2 nk2Var = this.a;
-            return nk2Var != null && nk2Var.onBackPressed();
+        if (interceptable == null || (invokeIIII = interceptable.invokeIIII(Constants.METHOD_SEND_USER_MSG, this, i, i2, i3, i4)) == null) {
+            int i5 = i + 7;
+            byte[] bArr = new byte[i5];
+            int a = a(i3);
+            bArr[0] = -1;
+            bArr[1] = -15;
+            bArr[2] = (byte) (((i2 - 1) << 6) + (a << 2) + (i4 >> 2));
+            bArr[3] = (byte) (((i4 & 3) << 6) + (i5 >> 11));
+            bArr[4] = (byte) ((i5 & RevenueServerConst.GetUserCouponStoreResponse) >> 3);
+            bArr[5] = (byte) (((i5 & 7) << 5) + 31);
+            bArr[6] = -4;
+            return bArr;
         }
-        return invokeV.booleanValue;
+        return (byte[]) invokeIIII.objValue;
     }
 
-    @Override // com.repackage.fn2
-    public void onDestroy() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
-            hx1.i("video", MissionEvent.MESSAGE_DESTROY);
-            nk2 nk2Var = this.a;
-            if (nk2Var != null) {
-                nk2Var.stop();
-                this.a = null;
-            }
-            gn2.k(this);
-        }
-    }
-
-    public void p() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048594, this) == null) && B()) {
-            h().pause();
-        }
-    }
-
-    public int q(String str) {
+    public final MediaCodecInfo d(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048595, this, str)) == null) {
-            nk2 nk2Var = this.a;
-            if (nk2Var != null) {
-                return nk2Var.q(str);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            int codecCount = MediaCodecList.getCodecCount();
+            for (int i = 0; i < codecCount; i++) {
+                MediaCodecInfo codecInfoAt = MediaCodecList.getCodecInfoAt(i);
+                if (codecInfoAt.isEncoder()) {
+                    for (String str2 : codecInfoAt.getSupportedTypes()) {
+                        if (str2.equalsIgnoreCase(str)) {
+                            return codecInfoAt;
+                        }
+                    }
+                    continue;
+                }
             }
-            return 1001;
+            return null;
         }
-        return invokeL.intValue;
+        return (MediaCodecInfo) invokeL.objValue;
     }
 
-    public void r(String str) {
-        nk2 nk2Var;
+    public final byte[] e(byte[] bArr) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048596, this, str) == null) || (nk2Var = this.a) == null) {
-            return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, bArr)) == null) {
+            if (this.a != null && bArr != null) {
+                if (j) {
+                    Log.d("AudioRecorderManager", "start AAC encode");
+                }
+                int dequeueInputBuffer = this.a.dequeueInputBuffer(-1L);
+                if (dequeueInputBuffer >= 0) {
+                    ByteBuffer byteBuffer = this.b[dequeueInputBuffer];
+                    byteBuffer.clear();
+                    try {
+                        byteBuffer.put(bArr);
+                        byteBuffer.limit(bArr.length);
+                        this.a.queueInputBuffer(dequeueInputBuffer, 0, bArr.length, b(this.f), 0);
+                        this.f++;
+                    } catch (IllegalArgumentException | BufferOverflowException e) {
+                        if (j) {
+                            e.printStackTrace();
+                        }
+                        return bArr;
+                    }
+                }
+                int dequeueOutputBuffer = this.a.dequeueOutputBuffer(this.d, 0L);
+                while (dequeueOutputBuffer >= 0) {
+                    MediaCodec.BufferInfo bufferInfo = this.d;
+                    int i = bufferInfo.size;
+                    ByteBuffer byteBuffer2 = this.c[dequeueOutputBuffer];
+                    try {
+                        byteBuffer2.position(bufferInfo.offset);
+                        byteBuffer2.limit(this.d.offset + i);
+                        byte[] c = c(i, 2, this.g, this.h);
+                        try {
+                            byteBuffer2.get(c, 7, i);
+                            byteBuffer2.position(this.d.offset);
+                            this.e.write(c);
+                            this.a.releaseOutputBuffer(dequeueOutputBuffer, false);
+                            dequeueOutputBuffer = this.a.dequeueOutputBuffer(this.d, 0L);
+                        } catch (IOException | IllegalArgumentException | BufferUnderflowException e2) {
+                            if (j) {
+                                e2.printStackTrace();
+                            }
+                            return bArr;
+                        }
+                    } catch (IllegalArgumentException e3) {
+                        if (j) {
+                            e3.printStackTrace();
+                        }
+                        return bArr;
+                    }
+                }
+                bArr = this.e.toByteArray();
+                try {
+                    this.e.flush();
+                } catch (IOException e4) {
+                    if (j) {
+                        e4.printStackTrace();
+                    }
+                }
+                this.e.reset();
+            }
+            return bArr;
         }
-        nk2Var.i(str);
+        return (byte[]) invokeL.objValue;
     }
 
-    public void s() {
-        nk2 nk2Var;
+    public byte[] f(byte[] bArr) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048597, this) == null) && B() && !n() && this.f && (nk2Var = this.a) != null) {
-            nk2Var.resume();
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, bArr)) == null) {
+            if (this.a != null && bArr != null) {
+                String str = this.i;
+                char c = 65535;
+                int hashCode = str.hashCode();
+                if (hashCode != 96323) {
+                    if (hashCode != 108272) {
+                        if (hashCode == 110810 && str.equals("pcm")) {
+                            c = 2;
+                        }
+                    } else if (str.equals("mp3")) {
+                        c = 1;
+                    }
+                } else if (str.equals("aac")) {
+                    c = 0;
+                }
+                if (c != 0) {
+                    if (c != 1) {
+                        return bArr;
+                    }
+                    g(bArr);
+                    return bArr;
+                }
+                return e(bArr);
+            }
+            if (j) {
+                Log.d("AudioRecorderManager", "wrong input or mediaCodec");
+            }
+            return bArr;
         }
+        return (byte[]) invokeL.objValue;
     }
 
-    public void t(int i) {
-        nk2 nk2Var;
+    public final byte[] g(byte[] bArr) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048598, this, i) == null) && B() && (nk2Var = this.a) != null) {
-            nk2Var.seekTo(i);
-        }
-    }
-
-    public void u(boolean z, int i) {
-        nk2 nk2Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048599, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i)}) == null) || (nk2Var = this.a) == null) {
-            return;
-        }
-        nk2Var.l(z, i);
-    }
-
-    public void v(ap2 ap2Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048600, this, ap2Var) == null) {
-            this.g = ap2Var;
-        }
-    }
-
-    public void w(boolean z) {
-        nk2 nk2Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048601, this, z) == null) || (nk2Var = this.a) == null) {
-            return;
-        }
-        nk2Var.d(z);
-    }
-
-    public void x(FrameLayout frameLayout) {
-        nk2 nk2Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048602, this, frameLayout) == null) || (nk2Var = this.a) == null) {
-            return;
-        }
-        nk2Var.a(frameLayout);
-    }
-
-    public void y() {
-        nk2 nk2Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048603, this) == null) && B() && (nk2Var = this.a) != null) {
-            nk2Var.seekTo(0);
-            this.a.pause();
-        }
-    }
-
-    public void z(bp2 bp2Var) {
-        nk2 nk2Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048604, this, bp2Var) == null) || (nk2Var = this.a) == null) {
-            return;
-        }
-        nk2Var.n(bp2Var);
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, bArr)) == null) ? bArr : (byte[]) invokeL.objValue;
     }
 }

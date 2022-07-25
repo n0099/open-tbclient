@@ -130,13 +130,13 @@ public class kv8 {
 
         /* renamed from: com.repackage.kv8$b$b  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class RunnableC0668b implements Runnable {
+        public class RunnableC0514b implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ sv8 a;
             public final /* synthetic */ b b;
 
-            public RunnableC0668b(b bVar, sv8 sv8Var) {
+            public RunnableC0514b(b bVar, sv8 sv8Var) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -465,7 +465,7 @@ public class kv8 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, sv8Var) == null) {
                 this.d = false;
-                o99.a().post(new RunnableC0668b(this, sv8Var));
+                o99.a().post(new RunnableC0514b(this, sv8Var));
             }
         }
 

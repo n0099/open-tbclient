@@ -24,7 +24,7 @@ import com.repackage.l46;
 import com.repackage.m46;
 import com.repackage.p46;
 import com.repackage.q46;
-import com.repackage.y15;
+import com.repackage.z15;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class EmotionIntefaceStatic {
@@ -133,10 +133,10 @@ public class EmotionIntefaceStatic {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
                 if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof List)) {
-                    List<y15> list = (List) customResponsedMessage.getData();
+                    List<z15> list = (List) customResponsedMessage.getData();
                     list.add(p46.e());
-                    for (y15 y15Var : list) {
-                        q46.k().u(y15Var);
+                    for (z15 z15Var : list) {
+                        q46.k().u(z15Var);
                     }
                 }
                 q46.k().v();

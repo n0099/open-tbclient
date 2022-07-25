@@ -84,17 +84,17 @@ public class TailFrameBarAppPortraitHorizontal extends a {
     }
 
     @Override // com.kwad.components.ad.widget.tailframe.appbar.a
-    public final void a(@NonNull AdTemplate adTemplate) {
+    public final void c(@NonNull AdTemplate adTemplate) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, adTemplate) == null) {
-            if (d.q(adTemplate)) {
-                this.a.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.obfuscated_res_0x7f060765));
-                this.c.setTextColor(Color.parseColor("#FFFFFF"));
-                this.f.setTextColor(Color.parseColor("#FFFFFF"));
+            if (d.p(adTemplate)) {
+                this.BA.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.obfuscated_res_0x7f060765));
+                this.hG.setTextColor(Color.parseColor("#FFFFFF"));
+                this.CI.setTextColor(Color.parseColor("#FFFFFF"));
             } else {
-                this.a.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                this.BA.setBackgroundColor(Color.parseColor("#FFFFFF"));
             }
-            super.a(adTemplate);
+            super.c(adTemplate);
         }
     }
 
@@ -102,6 +102,6 @@ public class TailFrameBarAppPortraitHorizontal extends a {
     public int getLayoutId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? R.layout.obfuscated_res_0x7f0d0476 : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? R.layout.obfuscated_res_0x7f0d0475 : invokeV.intValue;
     }
 }

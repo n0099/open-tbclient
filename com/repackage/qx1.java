@@ -1,8 +1,11 @@
 package com.repackage;
 
+import android.net.Uri;
 import android.text.TextUtils;
 import android.util.Log;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.sapi2.activity.BaseActivity;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,188 +13,22 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Timer;
-import java.util.TimerTask;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public abstract class qx1 {
+public class qx1 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
-    public static volatile qx1 b;
-    public static n63 c;
-    public static Timer d;
+    public static final boolean i;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* loaded from: classes7.dex */
-    public class a extends TimerTask {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ qx1 a;
-
-        public a(qx1 qx1Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {qx1Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = qx1Var;
-        }
-
-        @Override // java.util.TimerTask, java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (qx1.a) {
-                    Log.d("LocalDebugStatistic", "timer: send local debug ubc flow");
-                }
-                this.a.c();
-                this.a.h();
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public static class b extends qx1 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b() {
-            super(null);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((a) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-        }
-
-        @Override // com.repackage.qx1
-        public void f(String str) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || TextUtils.isEmpty(str)) {
-                return;
-            }
-            if (qx1.a) {
-                Log.d("LocalDebugStatistic", "local-debug statistic event name is : " + str);
-            }
-            char c = 65535;
-            int hashCode = str.hashCode();
-            if (hashCode != 50335962) {
-                if (hashCode != 1109597094) {
-                    if (hashCode == 1158237819 && str.equals("downloadsuccess")) {
-                        c = 1;
-                    }
-                } else if (str.equals("downloadfail")) {
-                    c = 2;
-                }
-            } else if (str.equals("downloadstart")) {
-                c = 0;
-            }
-            if (c == 0) {
-                i();
-                o63.d(qx1.c, str, d());
-            } else if (c == 1) {
-                if (qx1.c != null) {
-                    o63.d(qx1.c, "downloadsuccess", d());
-                }
-                c();
-                h();
-            } else if (c != 2) {
-                if (qx1.c != null) {
-                    o63.d(qx1.c, str, d());
-                }
-            } else {
-                if (qx1.c != null) {
-                    o63.d(qx1.c, "downloadfail", d());
-                }
-                c();
-                h();
-            }
-        }
-
-        public /* synthetic */ b(a aVar) {
-            this();
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public static class c extends qx1 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public c() {
-            super(null);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((a) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-        }
-
-        @Override // com.repackage.qx1
-        public void f(String str) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || TextUtils.isEmpty(str) || sx1.k().m()) {
-                return;
-            }
-            if (qx1.a) {
-                Log.d("LocalDebugStatistic", "local-debug statistic event name is : " + str);
-            }
-            char c = 65535;
-            int hashCode = str.hashCode();
-            if (hashCode != 900970612) {
-                if (hashCode == 1415552890 && str.equals("unzipstart")) {
-                    c = 0;
-                }
-            } else if (str.equals("pageready")) {
-                c = 1;
-            }
-            if (c == 0) {
-                i();
-                o63.d(qx1.c, str, d());
-            } else if (c != 1) {
-                if (qx1.c != null) {
-                    o63.d(qx1.c, str, d());
-                }
-            } else if (qx1.c != null) {
-                o63.d(qx1.c, str, d());
-                c();
-                h();
-            }
-        }
-
-        public /* synthetic */ c(a aVar) {
-            this();
-        }
-    }
+    public String a;
+    public String b;
+    public JSONArray c;
+    public String d;
+    public String e;
+    public String f;
+    public String g;
+    public long h;
 
     static {
         InterceptResult invokeClinit;
@@ -206,116 +43,7 @@ public abstract class qx1 {
                 return;
             }
         }
-        a = rg1.a;
-    }
-
-    public /* synthetic */ qx1(a aVar) {
-        this();
-    }
-
-    public static qx1 e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            if (b == null) {
-                synchronized (ul2.class) {
-                    if (b == null) {
-                        if (sb1.g()) {
-                            b = new b(null);
-                        } else {
-                            b = new c(null);
-                        }
-                    }
-                }
-            }
-            return b;
-        }
-        return (qx1) invokeV.objValue;
-    }
-
-    public static void g(JSONArray jSONArray) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65542, null, jSONArray) == null) || jSONArray == null || jSONArray.length() <= 0) {
-            return;
-        }
-        JSONObject optJSONObject = jSONArray.optJSONObject(0);
-        String optString = optJSONObject != null ? optJSONObject.optString("actionId") : "";
-        if (TextUtils.isEmpty(optString) || b == null) {
-            return;
-        }
-        b.f(optString);
-    }
-
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || c == null) {
-            return;
-        }
-        JSONObject jSONObject = new JSONObject();
-        JSONObject jSONObject2 = new JSONObject();
-        try {
-            h03 b0 = h03.b0();
-            jSONObject2.putOpt("appid", b0 == null ? "" : b0.getAppId());
-            jSONObject2.putOpt("from", "local-debug");
-            z63.a(jSONObject2);
-            jSONObject.putOpt("from", "swan");
-            jSONObject.putOpt("ext", jSONObject2);
-        } catch (JSONException unused) {
-            if (a) {
-                Log.d("LocalDebugStatistic", "page ready statistic value is invalid ");
-            }
-        }
-        o63.f(c, jSONObject.toString());
-        o63.c(c);
-    }
-
-    public String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.putOpt("timestamp", Long.valueOf(System.currentTimeMillis()));
-            } catch (JSONException e) {
-                if (a) {
-                    Log.d("LocalDebugStatistic", "add event content fail", e);
-                }
-            }
-            return jSONObject.toString();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public abstract void f(String str);
-
-    public void h() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            Timer timer = d;
-            if (timer != null) {
-                timer.cancel();
-                d = null;
-            }
-            b = null;
-            c = null;
-        }
-    }
-
-    public void i() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && c == null) {
-            c = a73.c("1153");
-            a aVar = new a(this);
-            Timer timer = new Timer();
-            d = timer;
-            try {
-                timer.schedule(aVar, 40000L);
-            } catch (Exception e) {
-                if (a) {
-                    e.printStackTrace();
-                }
-            }
-        }
+        i = sg1.a;
     }
 
     public qx1() {
@@ -323,12 +51,59 @@ public abstract class qx1 {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
         }
+    }
+
+    @NonNull
+    public static qx1 c(JSONObject jSONObject) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, jSONObject)) == null) {
+            qx1 qx1Var = new qx1();
+            try {
+                qx1Var.c = jSONObject.getJSONArray("host");
+                qx1Var.b = jSONObject.getString("appKey");
+                qx1Var.a = jSONObject.getString(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID);
+                qx1Var.d = jSONObject.getString("serverPort");
+                qx1Var.f = jSONObject.getString("wsServerPort");
+                Uri.decode(jSONObject.optString("url"));
+                qx1Var.g = jSONObject.optString("notInHistory", "1");
+                qx1Var.h = jSONObject.optLong("coreVersion");
+            } catch (JSONException unused) {
+                if (i) {
+                    Log.e("RemoteDebugModel", "DebuggerLaunchAction params: JSONException");
+                }
+            }
+            return qx1Var;
+        }
+        return (qx1) invokeL.objValue;
+    }
+
+    public String a(int i2) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
+            JSONArray jSONArray = this.c;
+            return jSONArray == null ? "" : jSONArray.optString(i2);
+        }
+        return (String) invokeI.objValue;
+    }
+
+    public String b(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return "";
+            }
+            return "http://" + str + ":" + this.d + "/app.zip";
+        }
+        return (String) invokeL.objValue;
     }
 }

@@ -1,87 +1,77 @@
 package com.repackage;
 
-import android.content.Context;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.swan.apps.alliance.login.SwanAppAllianceLoginHelper;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.text.TextUtils;
+import android.util.Pair;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.sdk.CookieManager;
-import java.util.Map;
-import kotlin.jvm.internal.Intrinsics;
-import kotlin.text.StringsKt__StringsJVMKt;
+import com.repackage.n53;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public final class yn1 extends e23 {
+public class yn1 extends no1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes7.dex */
-    public static final class a implements Runnable {
+    public class a implements bf3<l53<n53.e>> {
         public static /* synthetic */ Interceptable $ic;
-        public static final a a;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ yn1 b;
 
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(163624408, "Lcom/repackage/yn1$a;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(163624408, "Lcom/repackage/yn1$a;");
-                    return;
-                }
-            }
-            a = new a();
-        }
-
-        public a() {
+        public a(yn1 yn1Var, String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65537, newInitContext);
+                newInitContext.initArgs = r2;
+                Object[] objArr = {yn1Var, str};
+                interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
+            this.b = yn1Var;
+            this.a = str;
         }
 
-        @Override // java.lang.Runnable
-        public final void run() {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.repackage.bf3
+        /* renamed from: b */
+        public void a(l53<n53.e> l53Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                vz1.Y2();
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, l53Var) == null) {
+                if (g53.h(l53Var)) {
+                    this.b.z(this.a);
+                    return;
+                }
+                int b = l53Var.b();
+                g53.f(b);
+                this.b.d(this.a, new is1(b, g53.f(b)));
             }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public yn1(e13 e13Var) {
-        super(e13Var, "/swanAPI/setTplBdussSync");
+    public yn1(@NonNull jo1 jo1Var) {
+        super(jo1Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {e13Var};
+            Object[] objArr = {jo1Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
+                super((jo1) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -89,63 +79,43 @@ public final class yn1 extends e23 {
         }
     }
 
-    @Override // com.repackage.e23
-    public boolean d(Context context, UnitedSchemeEntity entity, CallbackHandler callbackHandler, h03 h03Var) {
-        InterceptResult invokeLLLL;
+    @Override // com.repackage.lo1
+    public String j() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, entity, callbackHandler, h03Var)) == null) {
-            Intrinsics.checkNotNullParameter(entity, "entity");
-            JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(entity);
-            SwanAppAllianceLoginHelper.d.l(true);
-            if (optParamsAsJo == null) {
-                tg1 d = SwanAppAllianceLoginHelper.d.d();
-                if (d != null) {
-                    d.onResult(-1);
-                }
-                entity.result = UnitedSchemeUtility.wrapCallbackParams(201, "empty joParams");
-                SwanAppAllianceLoginHelper.d.a(un1.d(), un1.a());
-                return false;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "AllianceAccountApi" : (String) invokeV.objValue;
+    }
+
+    public is1 y(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            q("#getUnionBDUSS", false);
+            i03 b0 = i03.b0();
+            if (b0 == null) {
+                return new is1(1001, "swan app is null");
             }
-            int optInt = optParamsAsJo.optInt("errno");
-            JSONObject optJSONObject = optParamsAsJo.optJSONObject("data");
-            be3.a0(a.a);
-            if (optInt != 0) {
-                tg1 d2 = SwanAppAllianceLoginHelper.d.d();
-                if (d2 != null) {
-                    d2.onResult(-1);
+            Pair<is1, JSONObject> s = s(str);
+            is1 is1Var = (is1) s.first;
+            if (is1Var.isSuccess()) {
+                String optString = ((JSONObject) s.second).optString("cb");
+                if (TextUtils.isEmpty(optString)) {
+                    return new is1(201, "cb is empty");
                 }
-                entity.result = UnitedSchemeUtility.wrapCallbackParams(201, "error number is " + optInt);
-                SwanAppAllianceLoginHelper.d.a(un1.d(), un1.a());
-                return false;
-            } else if (optJSONObject != null) {
-                Map<String, String> c = og4.c(CookieManager.getInstance().getCookie(".baidu.com"));
-                Intrinsics.checkNotNullExpressionValue(c, "SwanAppUrlUtils.parseCookie(cookieString)");
-                String str = c.get("OPENBDUSS");
-                if (!(str == null || StringsKt__StringsJVMKt.isBlank(str))) {
-                    vn1.b.c(optInt, optJSONObject);
-                    pn1.b(context, str);
-                    SwanAppAllianceLoginHelper.d.j(true);
-                    tg1 d3 = SwanAppAllianceLoginHelper.d.d();
-                    if (d3 != null) {
-                        d3.onResult(0);
-                    }
-                    UnitedSchemeUtility.callCallback(callbackHandler, entity, 0);
-                    SwanAppAllianceLoginHelper.d.a(un1.f(), un1.c());
-                    return true;
-                }
-                tg1 d4 = SwanAppAllianceLoginHelper.d.d();
-                if (d4 != null) {
-                    d4.onResult(-1);
-                }
-                entity.result = UnitedSchemeUtility.wrapCallbackParams(201, "bduss is null");
-                SwanAppAllianceLoginHelper.d.a(un1.d(), un1.a());
-                return false;
-            } else {
-                entity.result = UnitedSchemeUtility.wrapCallbackParams(201, "json data is null");
-                SwanAppAllianceLoginHelper.d.a(un1.d(), un1.a());
-                return false;
+                b0.e0().g(h03.K(), "account_get_union_bduss", new a(this, optString));
+                return is1.f();
             }
+            return is1Var;
         }
-        return invokeLLLL.booleanValue;
+        return (is1) invokeL.objValue;
+    }
+
+    public final void z(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+            JSONObject jSONObject = new JSONObject();
+            id3.f(jSONObject, "bduss", tn1.a.a());
+            d(str, new is1(0, jSONObject));
+        }
     }
 }

@@ -257,7 +257,7 @@ public class dm6 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             this.f++;
-            xt4.k().w("FRS_HOT_LIVE_TIP_CLOSE_NUM" + p(), this.f);
+            yt4.k().w("FRS_HOT_LIVE_TIP_CLOSE_NUM" + p(), this.f);
         }
     }
 
@@ -274,7 +274,7 @@ public class dm6 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             this.f = 0;
-            xt4 k = xt4.k();
+            yt4 k = yt4.k();
             k.w("FRS_HOT_LIVE_TIP_CLOSE_NUM" + p(), this.f);
         }
     }
@@ -283,7 +283,7 @@ public class dm6 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            xt4 k = xt4.k();
+            yt4 k = yt4.k();
             return k.l("FRS_HOT_LIVE_TIP_CLOSE_NUM" + p(), 0);
         }
         return invokeV.intValue;
@@ -293,7 +293,7 @@ public class dm6 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            xt4 k = xt4.k();
+            yt4 k = yt4.k();
             return k.m("FRS_HOT_LIVE_TIP_LAST_SHOWTIME" + p(), 0L);
         }
         return invokeV.longValue;
@@ -319,8 +319,8 @@ public class dm6 {
             FrameLayout frameLayout = (FrameLayout) LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d031c, (ViewGroup) null);
             this.a = frameLayout;
             frameLayout.setOnClickListener(new c(this));
-            this.b = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f090b0f);
-            ImageView imageView = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090b0e);
+            this.b = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f090b08);
+            ImageView imageView = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090b07);
             this.c = imageView;
             imageView.setOnClickListener(new d(this));
             s();
@@ -431,7 +431,7 @@ public class dm6 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
             long currentTimeMillis = System.currentTimeMillis();
-            xt4 k = xt4.k();
+            yt4 k = yt4.k();
             k.x("FRS_HOT_LIVE_TIP_LAST_SHOWTIME" + p(), currentTimeMillis);
         }
     }
@@ -461,7 +461,7 @@ public class dm6 {
         if (!(interceptable == null || interceptable.invokeV(1048591, this) == null) || (frsFragment = this.g) == null || (l1 = frsFragment.l1()) == null || l1.d0() == null || (frameLayout = (FrameLayout) l1.W()) == null) {
             return;
         }
-        FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, pi.f(TbadkCoreApplication.getInst(), R.dimen.obfuscated_res_0x7f0702df));
+        FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, pi.f(TbadkCoreApplication.getInst(), R.dimen.obfuscated_res_0x7f0702dd));
         if (this.d == null) {
             this.d = new we6();
         }

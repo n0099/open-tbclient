@@ -32,7 +32,7 @@ public class gi5 {
     public transient /* synthetic */ FieldHolder $fh;
     public long a;
     public boolean b;
-    public pl4 c;
+    public ql4 c;
     public CustomMessageListener d;
     public CustomMessageListener e;
     public CustomMessageListener f;
@@ -299,9 +299,9 @@ public class gi5 {
         boolean g = g();
         long currentTimeMillis = System.currentTimeMillis() / 1000;
         if (currentTimeMillis - this.a > 5) {
-            new StatisticItem(TbadkCoreStatisticKey.HOT_SPLASH_APP_START).param("obj_param1", g ? 1 : 0).param(TiebaStatic.Params.OBJ_PARAM2, currentTimeMillis - this.a).param(TiebaStatic.Params.OBJ_PARAM3, is4.b ? 1 : 0).eventStat();
-            if (is4.b) {
-                is4.b = false;
+            new StatisticItem(TbadkCoreStatisticKey.HOT_SPLASH_APP_START).param("obj_param1", g ? 1 : 0).param(TiebaStatic.Params.OBJ_PARAM2, currentTimeMillis - this.a).param(TiebaStatic.Params.OBJ_PARAM3, js4.b ? 1 : 0).eventStat();
+            if (js4.b) {
+                js4.b = false;
             }
         }
         if (g) {
@@ -360,17 +360,17 @@ public class gi5 {
         CustomResponsedMessage runTask;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (vc5.a()) {
+            if (wc5.a()) {
                 return 3;
             }
-            if (this.c == null && (runTask = MessageManager.getInstance().runTask(2921564, pl4.class)) != null) {
-                this.c = (pl4) runTask.getData();
+            if (this.c == null && (runTask = MessageManager.getInstance().runTask(2921564, ql4.class)) != null) {
+                this.c = (ql4) runTask.getData();
             }
-            pl4 pl4Var = this.c;
-            if (pl4Var != null) {
-                return (int) (pl4Var.a() * 60.0f);
+            ql4 ql4Var = this.c;
+            if (ql4Var != null) {
+                return (int) (ql4Var.a() * 60.0f);
             }
-            sw4 adAdSense = TbadkCoreApplication.getInst().getAdAdSense();
+            tw4 adAdSense = TbadkCoreApplication.getInst().getAdAdSense();
             if (adAdSense != null) {
                 int b2 = adAdSense.b();
                 if (b2 <= 0) {
@@ -388,15 +388,15 @@ public class gi5 {
         CustomResponsedMessage runTask;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (vc5.a()) {
+            if (wc5.a()) {
                 return 1000000;
             }
-            if (this.c == null && (runTask = MessageManager.getInstance().runTask(2921564, pl4.class)) != null) {
-                this.c = (pl4) runTask.getData();
+            if (this.c == null && (runTask = MessageManager.getInstance().runTask(2921564, ql4.class)) != null) {
+                this.c = (ql4) runTask.getData();
             }
-            pl4 pl4Var = this.c;
-            if (pl4Var != null) {
-                return pl4Var.b();
+            ql4 ql4Var = this.c;
+            if (ql4Var != null) {
+                return ql4Var.b();
             }
             return 3;
         }

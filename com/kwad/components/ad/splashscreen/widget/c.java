@@ -25,32 +25,32 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public final class c extends AnimationDrawable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Bitmap a;
-    public Bitmap b;
-    public Bitmap c;
-    public Bitmap d;
-    public Bitmap e;
-    public Bitmap f;
-    public int g;
-    public RectF h;
-    public Paint i;
-    public Paint j;
-    public PorterDuffXfermode k;
-    public final int l;
-    public final int m;
-    public float n;
-    public float o;
-    public RectF p;
-    public Paint q;
-    public int r;
-    public int s;
-    public ValueAnimator t;
-    public final float u;
-    public final float v;
-    public float w;
-    public float x;
-    public Context y;
-    public int z;
+    public Bitmap AE;
+    public Bitmap AF;
+    public Bitmap AG;
+    public Bitmap AH;
+    public Bitmap AI;
+    public Bitmap AJ;
+    public int AK;
+    public RectF AL;
+    public Paint AM;
+    public Paint AN;
+    public PorterDuffXfermode AO;
+    public final int AP;
+    public final int AQ;
+    public float AR;
+    public float AS;
+    public RectF AT;
+    public Paint AU;
+    public int AV;
+    public int AW;
+    public ValueAnimator AX;
+    public final float AY;
+    public final float AZ;
+    public float Ba;
+    public float Bb;
+    public int Bc;
+    public Context mContext;
 
     public c(Context context, int i) {
         Interceptable interceptable = $ic;
@@ -67,29 +67,60 @@ public final class c extends AnimationDrawable {
                 return;
             }
         }
-        this.u = 6.0f;
-        this.v = 11.0f;
-        this.y = context;
-        this.l = com.kwad.sdk.b.kwai.a.a(context, 51.0f);
-        this.m = com.kwad.sdk.b.kwai.a.a(context, 61.0f);
-        this.z = i;
-        a();
+        this.AY = 6.0f;
+        this.AZ = 11.0f;
+        this.mContext = context;
+        this.AP = com.kwad.sdk.b.kwai.a.a(context, 51.0f);
+        this.AQ = com.kwad.sdk.b.kwai.a.a(context, 61.0f);
+        this.Bc = i;
+        init();
     }
 
-    private void a() {
+    /* JADX INFO: Access modifiers changed from: private */
+    public void c(float f) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeF(InputDeviceCompat.SOURCE_TRACKBALL, this, f) == null) || f > 6.0f) {
+            return;
+        }
+        float f2 = f / 6.0f;
+        int i = this.Bc;
+        if (i == 0) {
+            RectF rectF = this.AT;
+            float f3 = this.AW * (1.0f - f2);
+            rectF.top = f3;
+            this.AL.offsetTo(rectF.left + this.AS, f3 + this.AR);
+            this.Bb = (f2 * 30.0f) + 290.0f;
+        } else if (i == 1) {
+            RectF rectF2 = this.AT;
+            float f4 = 1.0f - f2;
+            float f5 = this.AV * f4;
+            rectF2.left = f5;
+            this.AL.offsetTo(f5 + this.AS, rectF2.top + this.AR);
+            this.Bb = f4 * 30.0f;
+        } else if (i != 2) {
+        } else {
+            RectF rectF3 = this.AT;
+            float f6 = this.AV * f2;
+            rectF3.right = f6;
+            this.AL.offsetTo(f6 + this.AS, rectF3.top + this.AR);
+            this.Bb = (f2 * 30.0f) + 330.0f;
+        }
+    }
+
+    private void init() {
         float f;
         float f2;
         Matrix matrix;
         float f3;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65539, this) == null) {
-            this.a = BitmapFactory.decodeResource(this.y.getResources(), R.drawable.obfuscated_res_0x7f080c38);
-            this.b = BitmapFactory.decodeResource(this.y.getResources(), R.drawable.obfuscated_res_0x7f080c3a);
-            this.c = BitmapFactory.decodeResource(this.y.getResources(), R.drawable.obfuscated_res_0x7f080c39);
-            this.d = BitmapFactory.decodeResource(this.y.getResources(), R.drawable.obfuscated_res_0x7f080c3c);
-            this.e = BitmapFactory.decodeResource(this.y.getResources(), R.drawable.obfuscated_res_0x7f080c3b);
-            Bitmap decodeResource = BitmapFactory.decodeResource(this.y.getResources(), R.drawable.obfuscated_res_0x7f080c41);
-            int i = this.z;
+        if (interceptable == null || interceptable.invokeV(65541, this) == null) {
+            this.AE = BitmapFactory.decodeResource(this.mContext.getResources(), R.drawable.obfuscated_res_0x7f080c38);
+            this.AF = BitmapFactory.decodeResource(this.mContext.getResources(), R.drawable.obfuscated_res_0x7f080c3a);
+            this.AG = BitmapFactory.decodeResource(this.mContext.getResources(), R.drawable.obfuscated_res_0x7f080c39);
+            this.AH = BitmapFactory.decodeResource(this.mContext.getResources(), R.drawable.obfuscated_res_0x7f080c3c);
+            this.AI = BitmapFactory.decodeResource(this.mContext.getResources(), R.drawable.obfuscated_res_0x7f080c3b);
+            Bitmap decodeResource = BitmapFactory.decodeResource(this.mContext.getResources(), R.drawable.obfuscated_res_0x7f080c41);
+            int i = this.Bc;
             if (i != 0) {
                 if (i == 1) {
                     matrix = new Matrix();
@@ -99,43 +130,43 @@ public final class c extends AnimationDrawable {
                     f3 = 90.0f;
                 }
                 matrix.postRotate(f3);
-                this.f = Bitmap.createBitmap(decodeResource, 0, 0, decodeResource.getWidth(), decodeResource.getHeight(), matrix, true);
+                this.AJ = Bitmap.createBitmap(decodeResource, 0, 0, decodeResource.getWidth(), decodeResource.getHeight(), matrix, true);
             } else {
-                this.f = decodeResource;
+                this.AJ = decodeResource;
             }
-            this.g = com.kwad.sdk.b.kwai.a.a(this.y, 10.0f);
-            this.q = new Paint(1);
-            int i2 = this.z;
+            this.AK = com.kwad.sdk.b.kwai.a.a(this.mContext, 10.0f);
+            this.AU = new Paint(1);
+            int i2 = this.Bc;
             if (i2 == 0) {
-                this.s = (int) this.y.getResources().getDimension(R.dimen.obfuscated_res_0x7f0703fc);
-                int dimension = (int) this.y.getResources().getDimension(R.dimen.obfuscated_res_0x7f0703fd);
-                this.r = dimension;
-                this.n = (-this.m) * 0.22f;
+                this.AW = (int) this.mContext.getResources().getDimension(R.dimen.obfuscated_res_0x7f0703fa);
+                int dimension = (int) this.mContext.getResources().getDimension(R.dimen.obfuscated_res_0x7f0703fb);
+                this.AV = dimension;
+                this.AR = (-this.AQ) * 0.22f;
                 f = dimension;
                 f2 = 0.08f;
             } else if (i2 != 1) {
                 if (i2 == 2) {
-                    this.s = (int) this.y.getResources().getDimension(R.dimen.obfuscated_res_0x7f0703fd);
-                    this.r = (int) this.y.getResources().getDimension(R.dimen.obfuscated_res_0x7f0703fc);
-                    this.n = this.s * 0.09f;
-                    f = -this.l;
+                    this.AW = (int) this.mContext.getResources().getDimension(R.dimen.obfuscated_res_0x7f0703fb);
+                    this.AV = (int) this.mContext.getResources().getDimension(R.dimen.obfuscated_res_0x7f0703fa);
+                    this.AR = this.AW * 0.09f;
+                    f = -this.AP;
                     f2 = 0.5f;
                 }
-                this.p = new RectF(0.0f, 0.0f, this.r, this.s);
-                this.i = new Paint(3);
+                this.AT = new RectF(0.0f, 0.0f, this.AV, this.AW);
+                this.AM = new Paint(3);
                 Paint paint = new Paint(3);
-                this.j = paint;
+                this.AN = paint;
                 paint.setDither(true);
-                float f4 = this.p.right;
-                this.h = new RectF(f4 - this.l, 0.0f, f4, this.m);
-                this.k = new PorterDuffXfermode(PorterDuff.Mode.DST_OUT);
+                float f4 = this.AT.right;
+                this.AL = new RectF(f4 - this.AP, 0.0f, f4, this.AQ);
+                this.AO = new PorterDuffXfermode(PorterDuff.Mode.DST_OUT);
                 ValueAnimator ofFloat = ValueAnimator.ofFloat(0.0f, 6.0f, 11.0f);
-                this.t = ofFloat;
+                this.AX = ofFloat;
                 ofFloat.setDuration(1100L);
-                this.t.addUpdateListener(new ValueAnimator.AnimatorUpdateListener(this) { // from class: com.kwad.components.ad.splashscreen.widget.c.1
+                this.AX.addUpdateListener(new ValueAnimator.AnimatorUpdateListener(this) { // from class: com.kwad.components.ad.splashscreen.widget.c.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
-                    public final /* synthetic */ c a;
+                    public final /* synthetic */ c Bd;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -152,44 +183,44 @@ public final class c extends AnimationDrawable {
                                 return;
                             }
                         }
-                        this.a = this;
+                        this.Bd = this;
                     }
 
                     @Override // android.animation.ValueAnimator.AnimatorUpdateListener
                     public final void onAnimationUpdate(ValueAnimator valueAnimator) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, valueAnimator) == null) {
-                            this.a.w = ((Float) valueAnimator.getAnimatedValue()).floatValue();
-                            c cVar = this.a;
-                            cVar.a(cVar.w);
-                            this.a.invalidateSelf();
+                            this.Bd.Ba = ((Float) valueAnimator.getAnimatedValue()).floatValue();
+                            c cVar = this.Bd;
+                            cVar.c(cVar.Ba);
+                            this.Bd.invalidateSelf();
                         }
                     }
                 });
-                this.t.setRepeatCount(-1);
+                this.AX.setRepeatCount(-1);
             } else {
-                this.s = (int) this.y.getResources().getDimension(R.dimen.obfuscated_res_0x7f0703fd);
-                this.r = (int) this.y.getResources().getDimension(R.dimen.obfuscated_res_0x7f0703fc);
-                this.n = this.s * 0.09f;
-                f = -this.l;
+                this.AW = (int) this.mContext.getResources().getDimension(R.dimen.obfuscated_res_0x7f0703fb);
+                this.AV = (int) this.mContext.getResources().getDimension(R.dimen.obfuscated_res_0x7f0703fa);
+                this.AR = this.AW * 0.09f;
+                f = -this.AP;
                 f2 = 0.2f;
             }
-            this.o = f * f2;
-            this.p = new RectF(0.0f, 0.0f, this.r, this.s);
-            this.i = new Paint(3);
+            this.AS = f * f2;
+            this.AT = new RectF(0.0f, 0.0f, this.AV, this.AW);
+            this.AM = new Paint(3);
             Paint paint2 = new Paint(3);
-            this.j = paint2;
+            this.AN = paint2;
             paint2.setDither(true);
-            float f42 = this.p.right;
-            this.h = new RectF(f42 - this.l, 0.0f, f42, this.m);
-            this.k = new PorterDuffXfermode(PorterDuff.Mode.DST_OUT);
+            float f42 = this.AT.right;
+            this.AL = new RectF(f42 - this.AP, 0.0f, f42, this.AQ);
+            this.AO = new PorterDuffXfermode(PorterDuff.Mode.DST_OUT);
             ValueAnimator ofFloat2 = ValueAnimator.ofFloat(0.0f, 6.0f, 11.0f);
-            this.t = ofFloat2;
+            this.AX = ofFloat2;
             ofFloat2.setDuration(1100L);
-            this.t.addUpdateListener(new ValueAnimator.AnimatorUpdateListener(this) { // from class: com.kwad.components.ad.splashscreen.widget.c.1
+            this.AX.addUpdateListener(new ValueAnimator.AnimatorUpdateListener(this) { // from class: com.kwad.components.ad.splashscreen.widget.c.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ c a;
+                public final /* synthetic */ c Bd;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -206,52 +237,21 @@ public final class c extends AnimationDrawable {
                             return;
                         }
                     }
-                    this.a = this;
+                    this.Bd = this;
                 }
 
                 @Override // android.animation.ValueAnimator.AnimatorUpdateListener
                 public final void onAnimationUpdate(ValueAnimator valueAnimator) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, valueAnimator) == null) {
-                        this.a.w = ((Float) valueAnimator.getAnimatedValue()).floatValue();
-                        c cVar = this.a;
-                        cVar.a(cVar.w);
-                        this.a.invalidateSelf();
+                        this.Bd.Ba = ((Float) valueAnimator.getAnimatedValue()).floatValue();
+                        c cVar = this.Bd;
+                        cVar.c(cVar.Ba);
+                        this.Bd.invalidateSelf();
                     }
                 }
             });
-            this.t.setRepeatCount(-1);
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void a(float f) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeF(InputDeviceCompat.SOURCE_TRACKBALL, this, f) == null) || f > 6.0f) {
-            return;
-        }
-        float f2 = f / 6.0f;
-        int i = this.z;
-        if (i == 0) {
-            RectF rectF = this.p;
-            float f3 = this.s * (1.0f - f2);
-            rectF.top = f3;
-            this.h.offsetTo(rectF.left + this.o, f3 + this.n);
-            this.x = (f2 * 30.0f) + 290.0f;
-        } else if (i == 1) {
-            RectF rectF2 = this.p;
-            float f4 = 1.0f - f2;
-            float f5 = this.r * f4;
-            rectF2.left = f5;
-            this.h.offsetTo(f5 + this.o, rectF2.top + this.n);
-            this.x = f4 * 30.0f;
-        } else if (i != 2) {
-        } else {
-            RectF rectF3 = this.p;
-            float f6 = this.r * f2;
-            rectF3.right = f6;
-            this.h.offsetTo(f6 + this.o, rectF3.top + this.n);
-            this.x = (f2 * 30.0f) + 330.0f;
+            this.AX.setRepeatCount(-1);
         }
     }
 
@@ -259,45 +259,45 @@ public final class c extends AnimationDrawable {
     public final void draw(@NonNull Canvas canvas) {
         Bitmap bitmap;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, canvas) == null) || this.p == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, canvas) == null) || this.AT == null) {
             return;
         }
         canvas.save();
-        canvas.translate((getIntrinsicWidth() - this.r) / 2, (getIntrinsicHeight() - this.s) / 2);
-        float f = this.w;
+        canvas.translate((getIntrinsicWidth() - this.AV) / 2, (getIntrinsicHeight() - this.AW) / 2);
+        float f = this.Ba;
         if (f <= 6.0f) {
-            this.q.setAlpha((int) ((f * 255.0f) / 6.0f));
-            this.j.setAlpha(255);
+            this.AU.setAlpha((int) ((f * 255.0f) / 6.0f));
+            this.AN.setAlpha(255);
         } else {
             int i = (int) ((1.0f - ((f - 6.0f) / 5.0f)) * 255.0f);
-            this.q.setAlpha(i);
-            this.j.setAlpha(i);
+            this.AU.setAlpha(i);
+            this.AN.setAlpha(i);
         }
         int save = canvas.save();
-        int saveLayer = canvas.saveLayer(this.p, this.q, 31);
-        canvas.drawBitmap(this.f, (Rect) null, this.p, this.q);
-        canvas.rotate(this.x, this.h.centerX(), this.h.centerY());
-        this.i.setXfermode(this.k);
-        int i2 = this.z;
+        int saveLayer = canvas.saveLayer(this.AT, this.AU, 31);
+        canvas.drawBitmap(this.AJ, (Rect) null, this.AT, this.AU);
+        canvas.rotate(this.Bb, this.AL.centerX(), this.AL.centerY());
+        this.AM.setXfermode(this.AO);
+        int i2 = this.Bc;
         if (i2 != 0) {
             if (i2 == 1) {
-                canvas.drawBitmap(this.b, (Rect) null, this.h, this.i);
-                bitmap = this.c;
+                canvas.drawBitmap(this.AF, (Rect) null, this.AL, this.AM);
+                bitmap = this.AG;
             }
-            canvas.drawBitmap(this.a, (Rect) null, this.h, this.i);
+            canvas.drawBitmap(this.AE, (Rect) null, this.AL, this.AM);
             canvas.restoreToCount(saveLayer);
-            canvas.rotate(this.x, this.h.centerX(), this.h.centerY());
-            canvas.drawBitmap(this.a, (Rect) null, this.h, this.j);
+            canvas.rotate(this.Bb, this.AL.centerX(), this.AL.centerY());
+            canvas.drawBitmap(this.AE, (Rect) null, this.AL, this.AN);
             canvas.restoreToCount(save);
             canvas.restore();
         }
-        canvas.drawBitmap(this.d, (Rect) null, this.h, this.i);
-        bitmap = this.e;
-        canvas.drawBitmap(bitmap, (Rect) null, this.h, this.i);
-        canvas.drawBitmap(this.a, (Rect) null, this.h, this.i);
+        canvas.drawBitmap(this.AH, (Rect) null, this.AL, this.AM);
+        bitmap = this.AI;
+        canvas.drawBitmap(bitmap, (Rect) null, this.AL, this.AM);
+        canvas.drawBitmap(this.AE, (Rect) null, this.AL, this.AM);
         canvas.restoreToCount(saveLayer);
-        canvas.rotate(this.x, this.h.centerX(), this.h.centerY());
-        canvas.drawBitmap(this.a, (Rect) null, this.h, this.j);
+        canvas.rotate(this.Bb, this.AL.centerX(), this.AL.centerY());
+        canvas.drawBitmap(this.AE, (Rect) null, this.AL, this.AN);
         canvas.restoreToCount(save);
         canvas.restore();
     }
@@ -306,14 +306,14 @@ public final class c extends AnimationDrawable {
     public final int getIntrinsicHeight() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.s + this.m + this.g : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.AW + this.AQ + this.AK : invokeV.intValue;
     }
 
     @Override // android.graphics.drawable.DrawableContainer, android.graphics.drawable.Drawable
     public final int getIntrinsicWidth() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.r + this.l : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.AV + this.AP : invokeV.intValue;
     }
 
     @Override // android.graphics.drawable.DrawableContainer, android.graphics.drawable.Drawable
@@ -331,7 +331,7 @@ public final class c extends AnimationDrawable {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            ValueAnimator valueAnimator = this.t;
+            ValueAnimator valueAnimator = this.AX;
             if (valueAnimator != null) {
                 return valueAnimator.isRunning();
             }
@@ -344,7 +344,7 @@ public final class c extends AnimationDrawable {
     public final void start() {
         ValueAnimator valueAnimator;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (valueAnimator = this.t) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (valueAnimator = this.AX) == null) {
             return;
         }
         valueAnimator.start();
@@ -354,7 +354,7 @@ public final class c extends AnimationDrawable {
     public final void stop() {
         ValueAnimator valueAnimator;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (valueAnimator = this.t) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (valueAnimator = this.AX) == null) {
             return;
         }
         valueAnimator.cancel();

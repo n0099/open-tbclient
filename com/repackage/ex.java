@@ -25,7 +25,7 @@ public class ex extends xw {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ThreadGodReplyLayout h;
-    public nn4 i;
+    public on4 i;
     public StatisticItem j;
 
     /* loaded from: classes6.dex */
@@ -204,16 +204,16 @@ public class ex extends xw {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.repackage.gx
     /* renamed from: w */
-    public void a(nn4 nn4Var) {
+    public void a(on4 on4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, nn4Var) == null) {
-            this.i = nn4Var;
-            PostData topAgreePost = nn4Var.getThreadData().getTopAgreePost();
+        if (interceptable == null || interceptable.invokeL(1048581, this, on4Var) == null) {
+            this.i = on4Var;
+            PostData topAgreePost = on4Var.getThreadData().getTopAgreePost();
             if (this.j != null && topAgreePost != null && topAgreePost.s() != null && topAgreePost.s().getUserId() != null) {
-                this.j.param("tid", nn4Var.getThreadData().tid).param("post_id", topAgreePost.J()).param("uid", topAgreePost.s().getUserId());
+                this.j.param("tid", on4Var.getThreadData().tid).param("post_id", topAgreePost.J()).param("uid", topAgreePost.s().getUserId());
                 cy5.b().a(this.j);
             }
-            this.h.setData(nn4Var.getThreadData());
+            this.h.setData(on4Var.getThreadData());
         }
     }
 

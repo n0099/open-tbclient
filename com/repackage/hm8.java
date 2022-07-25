@@ -49,7 +49,7 @@ public class hm8 extends CustomMessageListener {
     }
 
     /* loaded from: classes6.dex */
-    public class b implements jd5<Boolean> {
+    public class b implements kd5<Boolean> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ hm8 a;
@@ -73,7 +73,7 @@ public class hm8 extends CustomMessageListener {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.jd5
+        @Override // com.repackage.kd5
         /* renamed from: a */
         public void onReturnDataInUI(Boolean bool) {
             Interceptable interceptable = $ic;

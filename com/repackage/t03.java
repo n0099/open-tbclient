@@ -1,6 +1,9 @@
 package com.repackage;
 
-import com.baidu.swan.apps.runtime.config.SwanAppConfigData;
+import android.util.Log;
+import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -8,159 +11,192 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class t03 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static int a = -1;
+public final class t03 {
+    public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes7.dex */
-    public static class a implements Runnable {
+    public static class a {
         public static /* synthetic */ Interceptable $ic;
+        public static final w03<a> e;
+        public static final v03<a> f;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ SwanAppConfigData a;
-        public final /* synthetic */ File b;
+        public int a;
+        public int b;
+        public int c;
+        public int d;
 
-        public a(SwanAppConfigData swanAppConfigData, File file, String str) {
+        /* renamed from: com.repackage.t03$a$a  reason: collision with other inner class name */
+        /* loaded from: classes7.dex */
+        public static class C0581a extends w03<a> {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            public C0581a() {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                    }
+                }
+            }
+
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.repackage.w03
+            /* renamed from: b */
+            public void a(@NonNull a aVar, @NonNull oj2 oj2Var) throws Exception {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar, oj2Var) == null) {
+                    oj2Var.writeInt(aVar.a);
+                    oj2Var.writeInt(aVar.b);
+                    oj2Var.writeInt(aVar.c);
+                    oj2Var.writeInt(aVar.d);
+                }
+            }
+        }
+
+        /* loaded from: classes7.dex */
+        public static class b extends v03<a> {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            public b() {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                    }
+                }
+            }
+
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.repackage.v03
+            /* renamed from: b */
+            public a a(@NonNull nj2 nj2Var) throws Exception {
+                InterceptResult invokeL;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, nj2Var)) == null) {
+                    a aVar = new a();
+                    aVar.a = nj2Var.readInt();
+                    aVar.b = nj2Var.readInt();
+                    aVar.c = nj2Var.readInt();
+                    aVar.d = nj2Var.readInt();
+                    return aVar;
+                }
+                return (a) invokeL.objValue;
+            }
+        }
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-36720067, "Lcom/repackage/t03$a;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-36720067, "Lcom/repackage/t03$a;");
+                    return;
+                }
+            }
+            e = new C0581a();
+            f = new b();
+        }
+
+        public a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {swanAppConfigData, file, str};
-                interceptable.invokeUnInit(65536, newInitContext);
+                interceptable.invokeUnInit(65537, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+                    interceptable.invokeInitBody(65537, newInitContext);
                 }
             }
-            this.a = swanAppConfigData;
-            this.b = file;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
-            FileOutputStream fileOutputStream;
-            Throwable th;
+        public static a a(JSONObject jSONObject) {
+            InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.a == null) {
-                return;
-            }
-            FileOutputStream fileOutputStream2 = null;
-            try {
-                fileOutputStream = new FileOutputStream(this.b);
-                try {
-                    fileOutputStream.write(SwanAppConfigData.w.call2((v03<SwanAppConfigData>) this.a));
-                    jg4.d(fileOutputStream);
-                } catch (Exception unused) {
-                    fileOutputStream2 = fileOutputStream;
-                    jg4.d(fileOutputStream2);
-                } catch (Throwable th2) {
-                    th = th2;
-                    jg4.d(fileOutputStream);
-                    throw th;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, jSONObject)) == null) {
+                if (jSONObject == null) {
+                    return b();
                 }
-            } catch (Exception unused2) {
-            } catch (Throwable th3) {
-                fileOutputStream = null;
-                th = th3;
+                JSONObject optJSONObject = jSONObject.optJSONObject("networkTimeout");
+                if (optJSONObject == null) {
+                    return b();
+                }
+                a aVar = new a();
+                if (optJSONObject.optInt("request") > 0 && optJSONObject.optInt("request") <= 60000) {
+                    aVar.a = optJSONObject.optInt("request", 10000);
+                } else {
+                    aVar.a = 10000;
+                }
+                aVar.b = optJSONObject.optInt("connectSocket", 60000);
+                aVar.c = optJSONObject.optInt("uploadFile");
+                aVar.d = optJSONObject.optInt("downloadFile");
+                return aVar;
             }
+            return (a) invokeL.objValue;
+        }
+
+        public static a b() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                if (t03.a) {
+                    Log.w("SwanAppCommonConfigData", "NetworkConfig createNullObject()");
+                }
+                a aVar = new a();
+                aVar.a = 10000;
+                aVar.b = 60000;
+                return aVar;
+            }
+            return (a) invokeV.objValue;
+        }
+
+        public static int c(a aVar) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, aVar)) == null) {
+                if (aVar != null && aVar.a > 0) {
+                    return aVar.a;
+                }
+                return 10000;
+            }
+            return invokeL.intValue;
         }
     }
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755344614, "Lcom/repackage/t03;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(-755344614, "Lcom/repackage/t03;");
-        }
-    }
-
-    public static boolean a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (a == -1) {
-                oj2.g0().getSwitch("swan_app_json_serialize", 0);
-                a = 0;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755344614, "Lcom/repackage/t03;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            return a == 1;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static SwanAppConfigData b(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? c(str, false) : (SwanAppConfigData) invokeL.objValue;
-    }
-
-    /* JADX WARN: Removed duplicated region for block: B:30:0x006f  */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static SwanAppConfigData c(String str, boolean z) {
-        InterceptResult invokeLZ;
-        FileInputStream fileInputStream;
-        SwanAppConfigData call;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65539, null, str, z)) == null) {
-            System.currentTimeMillis();
-            File file = new File(str, "app.json");
-            FileInputStream fileInputStream2 = null;
-            if (file.exists()) {
-                String E = jg4.E(file);
-                File file2 = new File(str, "app_json_serialize6.kv");
-                if (a() && !z && file2.exists()) {
-                    try {
-                        fileInputStream = new FileInputStream(file2);
-                    } catch (Exception unused) {
-                    } catch (Throwable th) {
-                        th = th;
-                    }
-                    try {
-                        int available = fileInputStream.available();
-                        byte[] bArr = new byte[available];
-                        if (available == fileInputStream.read(bArr) && (call = SwanAppConfigData.x.call(bArr)) != null) {
-                            call.n = E;
-                            jg4.d(fileInputStream);
-                            return call;
-                        }
-                        jg4.d(fileInputStream);
-                    } catch (Exception unused2) {
-                        fileInputStream2 = fileInputStream;
-                        jg4.d(fileInputStream2);
-                        SwanAppConfigData c = SwanAppConfigData.c(E, file.getParentFile());
-                        if (a()) {
-                        }
-                        return c;
-                    } catch (Throwable th2) {
-                        th = th2;
-                        fileInputStream2 = fileInputStream;
-                        jg4.d(fileInputStream2);
-                        throw th;
-                    }
-                }
-                SwanAppConfigData c2 = SwanAppConfigData.c(E, file.getParentFile());
-                if (a()) {
-                    bd3.k(new a(c2, file2, str), "SwanAppConfigDataReader");
-                }
-                return c2;
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755344614, "Lcom/repackage/t03;");
+                return;
             }
-            return null;
         }
-        return (SwanAppConfigData) invokeLZ.objValue;
+        a = sg1.a;
     }
 }

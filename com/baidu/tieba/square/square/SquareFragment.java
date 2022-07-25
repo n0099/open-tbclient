@@ -21,7 +21,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.fu4;
+import com.repackage.gu4;
 import com.repackage.ni;
 import com.repackage.uf8;
 import com.repackage.wf8;
@@ -40,7 +40,7 @@ public class SquareFragment extends BaseFragment {
     public final SquareModel.a h;
     public final NoNetworkView.b i;
     public final View.OnKeyListener j;
-    public final fu4.g k;
+    public final gu4.g k;
 
     /* loaded from: classes4.dex */
     public class a implements SquareModel.a {
@@ -95,9 +95,9 @@ public class SquareFragment extends BaseFragment {
                     }
                     if (!this.a.c) {
                         if (ni.z()) {
-                            this.a.a.r(R.string.obfuscated_res_0x7f0f0c45);
+                            this.a.a.r(R.string.obfuscated_res_0x7f0f0c31);
                         } else {
-                            this.a.a.r(R.string.obfuscated_res_0x7f0f0792);
+                            this.a.a.r(R.string.obfuscated_res_0x7f0f078e);
                         }
                     }
                 }
@@ -199,7 +199,7 @@ public class SquareFragment extends BaseFragment {
     }
 
     /* loaded from: classes4.dex */
-    public class d implements fu4.g {
+    public class d implements gu4.g {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ SquareFragment a;
@@ -222,7 +222,7 @@ public class SquareFragment extends BaseFragment {
             this.a = squareFragment;
         }
 
-        @Override // com.repackage.fu4.g
+        @Override // com.repackage.gu4.g
         public void e(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
@@ -368,7 +368,7 @@ public class SquareFragment extends BaseFragment {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, layoutInflater, viewGroup, bundle)) == null) {
-            View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d07a1, (ViewGroup) null);
+            View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d07ab, (ViewGroup) null);
             this.g = inflate;
             return inflate;
         }

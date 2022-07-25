@@ -3,7 +3,7 @@ package com.repackage;
 public interface bc2 {
     void a();
 
-    void b();
+    void b(boolean z);
 
-    void c(boolean z);
+    void c();
 }

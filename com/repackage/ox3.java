@@ -1,9 +1,7 @@
 package com.repackage;
+
+import com.repackage.rt3;
 /* loaded from: classes6.dex */
 public interface ox3 {
-    boolean a(Object obj);
-
-    void b(Object obj);
-
-    void c(Object obj);
+    void b(rt3.d dVar);
 }

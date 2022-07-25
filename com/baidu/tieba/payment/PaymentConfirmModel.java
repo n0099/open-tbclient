@@ -4,6 +4,7 @@ import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.sapi2.views.logindialog.view.a;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.atomData.MemberPayActivityConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
@@ -55,7 +56,7 @@ public class PaymentConfirmModel<T> extends BdBaseModel<T> {
         httpMessage.addParam(HttpRequest.TBS, payRequestData.getTbs());
         httpMessage.addParam("captcha_vcode_str", payRequestData.getCaptchaVcodeStr());
         httpMessage.addParam("captcha_input_str", payRequestData.getCaptchaInputStr());
-        httpMessage.addParam("password", payRequestData.getPassword());
+        httpMessage.addParam(a.m, payRequestData.getPassword());
         httpMessage.addParam("bindid", payRequestData.getBindId());
         httpMessage.addParam("mobile_check", payRequestData.getMobileCheck());
         this.a.sendMessage(httpMessage);

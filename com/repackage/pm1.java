@@ -1,45 +1,31 @@
 package com.repackage;
 
-import android.app.Activity;
-import androidx.annotation.UiThread;
-import com.baidu.searchbox.unitedscheme.TypedCallbackHandler;
-import com.baidu.swan.apps.core.SwanAppWebViewManager;
-import com.repackage.om1;
+import android.view.View;
+import android.webkit.ValueCallback;
 /* loaded from: classes6.dex */
-public interface pm1<T extends om1> extends TypedCallbackHandler {
-    SwanAppWebViewManager.d I();
+public interface pm1 extends gz1 {
+    boolean canGoBack();
 
-    @UiThread
-    void P();
-
-    void W(u12 u12Var);
-
-    String b();
-
-    void c(vy1 vy1Var);
-
-    String d0();
+    View covertToView();
 
     void destroy();
 
-    void e(Activity activity);
+    @Override // com.repackage.gz1
+    void evaluateJavascript(String str, ValueCallback<String> valueCallback);
 
-    void g0();
+    int getContentHeight();
 
-    String getUserAgent();
+    View getCurrentWebView();
 
-    void loadUrl(String str);
+    float getScale();
 
-    void onJSLoaded();
+    int getWebViewScrollX();
 
-    void onPause();
+    int getWebViewScrollY();
 
-    void onResume();
+    void goBack();
 
-    @UiThread
-    void r();
+    void setDefaultViewSize(int i, int i2, String str);
 
-    T t();
-
-    void u(u12 u12Var);
+    void webViewScrollTo(int i, int i2);
 }

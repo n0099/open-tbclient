@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.n75;
+import com.repackage.o75;
 import com.repackage.oi;
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -27,7 +27,7 @@ import tbclient.ReplyMe.ReplyList;
 import tbclient.User;
 import tbclient.Zan;
 /* loaded from: classes3.dex */
-public class FeedData implements Serializable, n75 {
+public class FeedData implements Serializable, o75 {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TYPE_DECLARE = "declare";
     public static final String TYPE_GRAFFITI = "graffiti";

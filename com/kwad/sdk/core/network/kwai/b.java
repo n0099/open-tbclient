@@ -6,7 +6,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.baidubce.AbstractBceClient;
 import com.kwad.sdk.core.network.f;
-import com.kwad.sdk.core.network.n;
+import com.kwad.sdk.core.network.o;
 import java.io.BufferedReader;
 import java.io.Closeable;
 import java.io.IOException;
@@ -33,84 +33,28 @@ import okhttp3.Response;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public final class b {
-    public static final Pattern c = Pattern.compile("Unexpected response code for CONNECT: ([0-9]+)", 2);
-    public static String a = "UTF-8";
-    public static OkHttpClient d = null;
-    public static OkHttpClient b = b();
-
-    public static com.kwad.sdk.core.network.c a(String str, @Nullable Map<String, String> map) {
-        return a(str, map, true);
-    }
-
-    public static com.kwad.sdk.core.network.c a(String str, Map<String, String> map, Map<String, String> map2) {
-        com.kwad.sdk.core.network.c cVar = new com.kwad.sdk.core.network.c();
-        try {
-            Request.Builder url = new Request.Builder().url(str);
-            url.addHeader("User-Agent", n.c());
-            url.addHeader("BrowserUa", n.d());
-            url.addHeader("SystemUa", n.a());
-            a(url, map);
-            b(url, map2);
-            Response execute = a().newCall(url.build()).execute();
-            int code = execute.code();
-            cVar.a = code;
-            cVar.b = code;
-            cVar.d = a(execute);
-        } catch (Exception e) {
-            a(cVar, e);
-        }
-        return cVar;
-    }
-
-    public static com.kwad.sdk.core.network.c a(String str, Map<String, String> map, JSONObject jSONObject) {
-        com.kwad.sdk.core.network.c cVar = new com.kwad.sdk.core.network.c();
-        try {
-            Request.Builder url = new Request.Builder().url(str);
-            url.addHeader("User-Agent", n.c());
-            url.addHeader("BrowserUa", n.d());
-            url.addHeader("SystemUa", n.a());
-            a(url, map);
-            a(url, jSONObject);
-            Response execute = a().newCall(url.build()).execute();
-            int code = execute.code();
-            cVar.a = code;
-            cVar.b = code;
-            cVar.d = a(execute);
-        } catch (Exception e) {
-            a(cVar, e);
-        }
-        return cVar;
-    }
+    public static final Pattern YW = Pattern.compile("Unexpected response code for CONNECT: ([0-9]+)", 2);
+    public static String YX = "UTF-8";
+    public static OkHttpClient YY = null;
+    public static OkHttpClient YZ = tG();
 
     public static com.kwad.sdk.core.network.c a(String str, @Nullable Map<String, String> map, boolean z) {
         com.kwad.sdk.core.network.c cVar = new com.kwad.sdk.core.network.c();
         try {
             Request.Builder url = new Request.Builder().url(str);
-            url.addHeader("User-Agent", n.c());
-            url.addHeader("BrowserUa", n.d());
-            url.addHeader("SystemUa", n.a());
+            url.addHeader("User-Agent", o.getUserAgent());
+            url.addHeader("BrowserUa", o.tD());
+            url.addHeader("SystemUa", o.tC());
             a(url, map);
-            Response execute = a().newCall(url.build()).execute();
+            Response execute = tF().newCall(url.build()).execute();
             int code = execute.code();
-            cVar.a = code;
-            cVar.b = code;
-            cVar.d = z ? a(execute) : "";
+            cVar.code = code;
+            cVar.XT = code;
+            cVar.XV = z ? a(execute) : "";
         } catch (Exception e) {
             a(cVar, e);
         }
         return cVar;
-    }
-
-    public static String a(String str) {
-        if (TextUtils.isEmpty(str)) {
-            return "";
-        }
-        try {
-            return URLEncoder.encode(str, "UTF-8");
-        } catch (UnsupportedEncodingException e) {
-            com.kwad.sdk.core.d.b.a(e);
-            return "";
-        }
     }
 
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:26:0x0068 */
@@ -155,27 +99,27 @@ public final class b {
                 inputStream3 = inputStream;
             }
             try {
-                r4 = new InputStreamReader(inputStream3, a);
+                r4 = new InputStreamReader(inputStream3, YX);
                 try {
                     BufferedReader bufferedReader2 = new BufferedReader(r4, 8);
                     while (true) {
                         try {
                             String readLine = bufferedReader2.readLine();
                             if (readLine == null) {
-                                com.kwad.sdk.crash.utils.b.a(bufferedReader2);
-                                com.kwad.sdk.crash.utils.b.a((Closeable) r4);
-                                com.kwad.sdk.crash.utils.b.a(inputStream2);
-                                com.kwad.sdk.crash.utils.b.a(inputStream);
+                                com.kwad.sdk.crash.utils.b.closeQuietly(bufferedReader2);
+                                com.kwad.sdk.crash.utils.b.closeQuietly((Closeable) r4);
+                                com.kwad.sdk.crash.utils.b.closeQuietly(inputStream2);
+                                com.kwad.sdk.crash.utils.b.closeQuietly(inputStream);
                                 return sb.toString();
                             }
                             sb.append(readLine);
                         } catch (Throwable th2) {
                             bufferedReader = bufferedReader2;
                             th = th2;
-                            com.kwad.sdk.crash.utils.b.a(bufferedReader);
-                            com.kwad.sdk.crash.utils.b.a((Closeable) r4);
-                            com.kwad.sdk.crash.utils.b.a(inputStream2);
-                            com.kwad.sdk.crash.utils.b.a(inputStream);
+                            com.kwad.sdk.crash.utils.b.closeQuietly(bufferedReader);
+                            com.kwad.sdk.crash.utils.b.closeQuietly((Closeable) r4);
+                            com.kwad.sdk.crash.utils.b.closeQuietly(inputStream2);
+                            com.kwad.sdk.crash.utils.b.closeQuietly(inputStream);
                             throw th;
                         }
                     }
@@ -190,49 +134,39 @@ public final class b {
             th = th5;
             inputStream2 = null;
             r4 = inputStream2;
-            com.kwad.sdk.crash.utils.b.a(bufferedReader);
-            com.kwad.sdk.crash.utils.b.a((Closeable) r4);
-            com.kwad.sdk.crash.utils.b.a(inputStream2);
-            com.kwad.sdk.crash.utils.b.a(inputStream);
+            com.kwad.sdk.crash.utils.b.closeQuietly(bufferedReader);
+            com.kwad.sdk.crash.utils.b.closeQuietly((Closeable) r4);
+            com.kwad.sdk.crash.utils.b.closeQuietly(inputStream2);
+            com.kwad.sdk.crash.utils.b.closeQuietly(inputStream);
             throw th;
         }
     }
 
-    public static OkHttpClient a() {
-        if (com.kwad.b.kwai.a.b.booleanValue()) {
-            if (d == null) {
-                d = b.newBuilder().build();
-            }
-            return d;
-        }
-        return b;
-    }
-
     public static void a(@NonNull com.kwad.sdk.core.network.c cVar, Exception exc) {
         String message;
-        cVar.c = exc;
-        if (cVar.b == -1 && (exc instanceof IOException) && (message = exc.getMessage()) != null) {
-            Matcher matcher = c.matcher(message);
+        cVar.XU = exc;
+        if (cVar.XT == -1 && (exc instanceof IOException) && (message = exc.getMessage()) != null) {
+            Matcher matcher = YW.matcher(message);
             if (matcher.find()) {
                 try {
-                    cVar.b = Integer.parseInt(matcher.group(1));
+                    cVar.XT = Integer.parseInt(matcher.group(1));
                 } catch (Exception unused) {
                 }
             }
         }
         if (exc instanceof SocketTimeoutException) {
-            f fVar = f.a;
-            cVar.a = fVar.p;
-            cVar.d = fVar.q;
+            f fVar = f.XY;
+            cVar.code = fVar.errorCode;
+            cVar.XV = fVar.Qd;
         } else {
-            cVar.a = f.b.p;
+            cVar.code = f.XZ.errorCode;
             try {
-                cVar.d = f.b.q + "/n" + Log.getStackTraceString(exc);
+                cVar.XV = f.XZ.Qd + "/n" + Log.getStackTraceString(exc);
             } catch (Exception unused2) {
             }
         }
-        if (com.kwad.b.kwai.a.b.booleanValue()) {
-            com.kwad.sdk.core.d.b.b(exc);
+        if (com.kwad.b.kwai.a.aw.booleanValue()) {
+            com.kwad.sdk.core.e.b.printStackTraceOnly(exc);
         }
     }
 
@@ -255,19 +189,6 @@ public final class b {
         builder.post(RequestBody.create(MediaType.parse(AbstractBceClient.DEFAULT_CONTENT_TYPE), jSONObject.toString()));
     }
 
-    public static OkHttpClient b() {
-        if (b == null) {
-            OkHttpClient.Builder connectionSpecs = new OkHttpClient.Builder().connectTimeout(3000L, TimeUnit.MILLISECONDS).readTimeout(6000L, TimeUnit.MILLISECONDS).connectionSpecs(Collections.singletonList(ConnectionSpec.MODERN_TLS));
-            try {
-                connectionSpecs.dns(new c());
-            } catch (Throwable th) {
-                com.kwad.sdk.core.d.b.a(th);
-            }
-            b = connectionSpecs.build();
-        }
-        return b;
-    }
-
     public static void b(Request.Builder builder, Map<String, String> map) {
         FormBody formBody;
         if (map == null || map.isEmpty()) {
@@ -277,7 +198,7 @@ public final class b {
             for (Map.Entry<String, String> entry : map.entrySet()) {
                 if (entry != null) {
                     try {
-                        builder2.addEncoded(entry.getKey(), a(entry.getValue()));
+                        builder2.addEncoded(entry.getKey(), encode(entry.getValue()));
                     } catch (Exception unused) {
                     }
                 }
@@ -288,5 +209,84 @@ public final class b {
             return;
         }
         builder.post(formBody);
+    }
+
+    public static com.kwad.sdk.core.network.c doGet(String str, @Nullable Map<String, String> map) {
+        return a(str, map, true);
+    }
+
+    public static com.kwad.sdk.core.network.c doPost(String str, Map<String, String> map, Map<String, String> map2) {
+        com.kwad.sdk.core.network.c cVar = new com.kwad.sdk.core.network.c();
+        try {
+            Request.Builder url = new Request.Builder().url(str);
+            url.addHeader("User-Agent", o.getUserAgent());
+            url.addHeader("BrowserUa", o.tD());
+            url.addHeader("SystemUa", o.tC());
+            a(url, map);
+            b(url, map2);
+            Response execute = tF().newCall(url.build()).execute();
+            int code = execute.code();
+            cVar.code = code;
+            cVar.XT = code;
+            cVar.XV = a(execute);
+        } catch (Exception e) {
+            a(cVar, e);
+        }
+        return cVar;
+    }
+
+    public static com.kwad.sdk.core.network.c doPost(String str, Map<String, String> map, JSONObject jSONObject) {
+        com.kwad.sdk.core.network.c cVar = new com.kwad.sdk.core.network.c();
+        try {
+            Request.Builder url = new Request.Builder().url(str);
+            url.addHeader("User-Agent", o.getUserAgent());
+            url.addHeader("BrowserUa", o.tD());
+            url.addHeader("SystemUa", o.tC());
+            a(url, map);
+            a(url, jSONObject);
+            Response execute = tF().newCall(url.build()).execute();
+            int code = execute.code();
+            cVar.code = code;
+            cVar.XT = code;
+            cVar.XV = a(execute);
+        } catch (Exception e) {
+            a(cVar, e);
+        }
+        return cVar;
+    }
+
+    public static String encode(String str) {
+        if (TextUtils.isEmpty(str)) {
+            return "";
+        }
+        try {
+            return URLEncoder.encode(str, "UTF-8");
+        } catch (UnsupportedEncodingException e) {
+            com.kwad.sdk.core.e.b.printStackTrace(e);
+            return "";
+        }
+    }
+
+    public static OkHttpClient tF() {
+        if (com.kwad.b.kwai.a.aw.booleanValue()) {
+            if (YY == null) {
+                YY = YZ.newBuilder().build();
+            }
+            return YY;
+        }
+        return YZ;
+    }
+
+    public static OkHttpClient tG() {
+        if (YZ == null) {
+            OkHttpClient.Builder connectionSpecs = new OkHttpClient.Builder().connectTimeout(3000L, TimeUnit.MILLISECONDS).readTimeout(6000L, TimeUnit.MILLISECONDS).connectionSpecs(Collections.singletonList(ConnectionSpec.MODERN_TLS));
+            try {
+                connectionSpecs.dns(new c());
+            } catch (Throwable th) {
+                com.kwad.sdk.core.e.b.printStackTrace(th);
+            }
+            YZ = connectionSpecs.build();
+        }
+        return YZ;
     }
 }

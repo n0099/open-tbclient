@@ -1,35 +1,29 @@
 package com.repackage;
 
-import android.content.Context;
+import androidx.annotation.NonNull;
 /* loaded from: classes6.dex */
 public interface ik2 {
-    boolean a(Context context, xm2 xm2Var, qm2 qm2Var, h03 h03Var);
 
-    boolean b(Context context, sm2 sm2Var, qm2 qm2Var, h03 h03Var);
+    /* loaded from: classes6.dex */
+    public interface a {
+        void a(h33 h33Var);
 
-    boolean c(Context context, tm2 tm2Var, qm2 qm2Var, h03 h03Var);
+        void onFailed(int i);
+    }
 
-    void d(nm1 nm1Var);
+    void a();
 
-    boolean e(Context context, rm2 rm2Var, qm2 qm2Var, h03 h03Var);
+    void b(String str, boolean z, boolean z2, a aVar);
 
-    void f(nm1 nm1Var);
+    void c();
 
-    boolean g(Context context, tm2 tm2Var, qm2 qm2Var, h03 h03Var);
+    void d();
 
-    boolean h(Context context, vm2 vm2Var, qm2 qm2Var, h03 h03Var);
+    void e();
 
-    void i(nm1 nm1Var);
+    void f(a aVar);
 
-    boolean j(Context context, wm2 wm2Var, qm2 qm2Var, h03 h03Var);
+    double[] g(@NonNull h33 h33Var, @NonNull String str);
 
-    boolean k(Context context, tm2 tm2Var, qm2 qm2Var, h03 h03Var);
-
-    boolean l(Context context, tm2 tm2Var, qm2 qm2Var, h03 h03Var);
-
-    boolean m(Context context, tm2 tm2Var, qm2 qm2Var, h03 h03Var);
-
-    boolean n(Context context, tm2 tm2Var, qm2 qm2Var, h03 h03Var);
-
-    boolean update(Context context, tm2 tm2Var, qm2 qm2Var, h03 h03Var);
+    h33 h();
 }

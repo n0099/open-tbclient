@@ -54,7 +54,7 @@ public class a7<T> implements Iterable<T> {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.lang.Iterable
-        /* renamed from: b */
+        /* renamed from: a */
         public b<T> iterator() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -131,7 +131,7 @@ public class a7<T> implements Iterable<T> {
             this.b = z;
         }
 
-        public b<T> b() {
+        public b<T> a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this : (b) invokeV.objValue;
@@ -152,7 +152,7 @@ public class a7<T> implements Iterable<T> {
 
         @Override // java.lang.Iterable
         public /* bridge */ /* synthetic */ Iterator iterator() {
-            b();
+            a();
             return this;
         }
 

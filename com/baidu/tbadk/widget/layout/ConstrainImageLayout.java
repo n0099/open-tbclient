@@ -35,10 +35,10 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.cg5;
 import com.repackage.eg;
 import com.repackage.jg;
-import com.repackage.l45;
-import com.repackage.sr4;
-import com.repackage.vr4;
+import com.repackage.m45;
+import com.repackage.tr4;
 import com.repackage.wm;
+import com.repackage.wr4;
 import com.repackage.ym;
 import java.util.List;
 /* loaded from: classes3.dex */
@@ -157,7 +157,7 @@ public class ConstrainImageLayout extends ViewGroup {
             if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbImageView, canvas) == null) || tbImageView == null || tbImageView.getImageMatrix() == null) {
                 return;
             }
-            ym m = l45.k().m(jg.h().g(tbImageView.getUrl(), this.a.e ? 13 : 14));
+            ym m = m45.k().m(jg.h().g(tbImageView.getUrl(), this.a.e ? 13 : 14));
             int i2 = 0;
             if (m != null) {
                 i2 = m.r();
@@ -361,14 +361,14 @@ public class ConstrainImageLayout extends ViewGroup {
                 i2 = Integer.MIN_VALUE;
             }
             this.i.setShader(new LinearGradient(0.0f, 0.0f, 0.0f, f, i, i2, Shader.TileMode.CLAMP));
-            canvas2.drawPath(vr4.a(rectF2, fArr), this.i);
+            canvas2.drawPath(wr4.a(rectF2, fArr), this.i);
         }
         canvas.drawBitmap(this.o, rectF.left, rectF.top, this.h);
         int dimenPixelSize = UtilHelper.getDimenPixelSize(R.dimen.M_H_X004);
         int dimenPixelSize2 = UtilHelper.getDimenPixelSize(R.dimen.M_W_X006);
         int i5 = ((int) rectF.bottom) - dimenPixelSize;
         int measureText = (((int) rectF.right) - dimenPixelSize2) - ((int) this.j.measureText(this.g));
-        float[] B = sr4.B(R.array.S_O_X001);
+        float[] B = tr4.B(R.array.S_O_X001);
         this.j.setShadowLayer(B[1], B[2], B[3], (int) B[0]);
         canvas.drawText(this.g, measureText, i5, this.j);
     }
@@ -399,7 +399,7 @@ public class ConstrainImageLayout extends ViewGroup {
             if (e == null) {
                 return;
             }
-            d(canvas, e, sr4.y(R.string.J_X11));
+            d(canvas, e, tr4.y(R.string.J_X11));
         }
     }
 
@@ -494,7 +494,7 @@ public class ConstrainImageLayout extends ViewGroup {
                 int abs = Math.abs(childCount);
                 for (int i2 = 0; i2 < abs; i2++) {
                     TbImageView b2 = this.b.b();
-                    b2.setContentDescription(getResources().getString(R.string.obfuscated_res_0x7f0f052d));
+                    b2.setContentDescription(getResources().getString(R.string.obfuscated_res_0x7f0f0529));
                     b2.setScaleType(ImageView.ScaleType.CENTER_CROP);
                     b2.setDefaultBg(SkinManager.getDrawable(R.color.common_color_10220));
                     b2.setPageId(this.a);

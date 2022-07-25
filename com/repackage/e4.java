@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Comparator;
 import java.util.Iterator;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class e4 implements Iterable<d4>, Comparator<d4>, Comparable<e4> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -34,11 +34,11 @@ public class e4 implements Iterable<d4>, Comparator<d4>, Comparable<e4> {
         this.c = true;
     }
 
-    public int b() {
+    public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            j();
+            i();
             int i = this.b.b;
             long j = this.a + 71;
             int i2 = 1;
@@ -53,7 +53,7 @@ public class e4 implements Iterable<d4>, Comparator<d4>, Comparable<e4> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // java.util.Comparator
-    /* renamed from: c */
+    /* renamed from: b */
     public final int compare(d4 d4Var, d4 d4Var2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
@@ -62,11 +62,11 @@ public class e4 implements Iterable<d4>, Comparator<d4>, Comparable<e4> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // java.lang.Comparable
-    /* renamed from: d */
+    /* renamed from: c */
     public int compareTo(e4 e4Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeL = interceptable.invokeL(1048580, this, e4Var)) != null) {
+        if (interceptable != null && (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, e4Var)) != null) {
             return invokeL.intValue;
         }
         if (e4Var == this) {
@@ -77,8 +77,8 @@ public class e4 implements Iterable<d4>, Comparator<d4>, Comparable<e4> {
         if (j != j2) {
             return j < j2 ? -1 : 1;
         }
-        j();
-        e4Var.j();
+        i();
+        e4Var.i();
         int i = 0;
         while (true) {
             a7<d4> a7Var = this.b;
@@ -96,42 +96,42 @@ public class e4 implements Iterable<d4>, Comparator<d4>, Comparable<e4> {
         }
     }
 
-    public final void e(long j) {
+    public final void d(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048581, this, j) == null) {
             this.a = j | this.a;
         }
     }
 
+    public final boolean e(long j) {
+        InterceptResult invokeJ;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048582, this, j)) == null) ? j != 0 && (this.a & j) == j : invokeJ.booleanValue;
+    }
+
     @Override // java.util.Comparator
     public boolean equals(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, obj)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, obj)) == null) {
             if (obj instanceof e4) {
                 if (obj == this) {
                     return true;
                 }
-                return h((e4) obj, true);
+                return g((e4) obj, true);
             }
             return false;
         }
         return invokeL.booleanValue;
     }
 
-    public final boolean f(long j) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048583, this, j)) == null) ? j != 0 && (this.a & j) == j : invokeJ.booleanValue;
-    }
-
-    public int g(long j) {
+    public int f(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
         if (interceptable != null && (invokeJ = interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j)) != null) {
             return invokeJ.intValue;
         }
-        if (!f(j)) {
+        if (!e(j)) {
             return -1;
         }
         int i = 0;
@@ -147,7 +147,7 @@ public class e4 implements Iterable<d4>, Comparator<d4>, Comparable<e4> {
         }
     }
 
-    public final boolean h(e4 e4Var, boolean z) {
+    public final boolean g(e4 e4Var, boolean z) {
         InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
         if (interceptable != null && (invokeLZ = interceptable.invokeLZ(1048585, this, e4Var, z)) != null) {
@@ -162,8 +162,8 @@ public class e4 implements Iterable<d4>, Comparator<d4>, Comparable<e4> {
         if (!z) {
             return true;
         }
-        j();
-        e4Var.j();
+        i();
+        e4Var.i();
         int i = 0;
         while (true) {
             a7<d4> a7Var = this.b;
@@ -177,40 +177,40 @@ public class e4 implements Iterable<d4>, Comparator<d4>, Comparable<e4> {
         }
     }
 
-    public int hashCode() {
-        InterceptResult invokeV;
+    public final void h(d4 d4Var) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? b() : invokeV.intValue;
-    }
-
-    public final void i(d4 d4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, d4Var) == null) {
-            int g = g(d4Var.a);
-            if (g < 0) {
-                e(d4Var.a);
+        if (interceptable == null || interceptable.invokeL(1048586, this, d4Var) == null) {
+            int f = f(d4Var.a);
+            if (f < 0) {
+                d(d4Var.a);
                 this.b.a(d4Var);
                 this.c = false;
             } else {
-                this.b.l(g, d4Var);
+                this.b.l(f, d4Var);
             }
-            j();
+            i();
         }
+    }
+
+    public int hashCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? a() : invokeV.intValue;
+    }
+
+    public final void i() {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048588, this) == null) || this.c) {
+            return;
+        }
+        this.b.sort(this);
+        this.c = true;
     }
 
     @Override // java.lang.Iterable
     public final Iterator<d4> iterator() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.b.iterator() : (Iterator) invokeV.objValue;
-    }
-
-    public final void j() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048589, this) == null) || this.c) {
-            return;
-        }
-        this.b.sort(this);
-        this.c = true;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.b.iterator() : (Iterator) invokeV.objValue;
     }
 }

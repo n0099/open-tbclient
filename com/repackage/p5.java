@@ -48,23 +48,16 @@ public class p5 implements TextureData {
     public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f : invokeV.booleanValue;
-    }
-
-    @Override // com.badlogic.gdx.graphics.TextureData
-    public boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return true;
         }
         return invokeV.booleanValue;
     }
 
     @Override // com.badlogic.gdx.graphics.TextureData
-    public void c(int i) {
+    public void b(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
             if (this.f) {
                 if (!e1.b.a("GL_OES_compressed_ETC1_RGB8_texture")) {
                     Pixmap a = ETC1.a(this.b, Pixmap.Format.RGB565);
@@ -82,7 +75,7 @@ public class p5 implements TextureData {
                     int capacity = this.b.c.capacity();
                     ETC1.a aVar = this.b;
                     m3Var.h(i, 0, i2, i3, i4, 0, capacity - aVar.d, aVar.c);
-                    if (g()) {
+                    if (f()) {
                         e1.f.F(3553);
                     }
                 }
@@ -96,27 +89,37 @@ public class p5 implements TextureData {
     }
 
     @Override // com.badlogic.gdx.graphics.TextureData
-    public Pixmap d() {
+    public Pixmap c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             throw new GdxRuntimeException("This TextureData implementation does not return a Pixmap");
         }
         return (Pixmap) invokeV.objValue;
     }
 
     @Override // com.badlogic.gdx.graphics.TextureData
-    public Pixmap.Format e() {
+    public Pixmap.Format d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? Pixmap.Format.RGB565 : (Pixmap.Format) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? Pixmap.Format.RGB565 : (Pixmap.Format) invokeV.objValue;
+    }
+
+    @Override // com.badlogic.gdx.graphics.TextureData
+    public boolean f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.c : invokeV.booleanValue;
     }
 
     @Override // com.badlogic.gdx.graphics.TextureData
     public boolean g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.c : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            throw new GdxRuntimeException("This TextureData implementation does not return a Pixmap");
+        }
+        return invokeV.booleanValue;
     }
 
     @Override // com.badlogic.gdx.graphics.TextureData
@@ -141,13 +144,10 @@ public class p5 implements TextureData {
     }
 
     @Override // com.badlogic.gdx.graphics.TextureData
-    public boolean h() {
+    public boolean isPrepared() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            throw new GdxRuntimeException("This TextureData implementation does not return a Pixmap");
-        }
-        return invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f : invokeV.booleanValue;
     }
 
     @Override // com.badlogic.gdx.graphics.TextureData

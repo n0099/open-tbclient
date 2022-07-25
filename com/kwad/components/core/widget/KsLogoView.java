@@ -8,7 +8,6 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -26,11 +25,11 @@ import com.kwad.sdk.core.response.model.AdTemplate;
 public class KsLogoView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TextView a;
-    public ImageView b;
-    public boolean c;
-    public SimpleImageLoadingListener d;
-    public a e;
+    public SimpleImageLoadingListener PA;
+    public a PB;
+    public boolean Px;
+    public TextView Py;
+    public ImageView Pz;
 
     /* loaded from: classes5.dex */
     public interface a {
@@ -54,10 +53,10 @@ public class KsLogoView extends LinearLayout {
                 return;
             }
         }
-        this.d = new SimpleImageLoadingListener(this) { // from class: com.kwad.components.core.widget.KsLogoView.1
+        this.PA = new SimpleImageLoadingListener(this) { // from class: com.kwad.components.core.widget.KsLogoView.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ KsLogoView a;
+            public final /* synthetic */ KsLogoView PC;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -74,30 +73,30 @@ public class KsLogoView extends LinearLayout {
                         return;
                     }
                 }
-                this.a = this;
+                this.PC = this;
             }
 
             @Override // com.kwad.sdk.core.imageloader.core.listener.SimpleImageLoadingListener, com.kwad.sdk.core.imageloader.core.listener.ImageLoadingListener
             public final void onLoadingComplete(String str, View view2, DecodedResult decodedResult) {
                 Interceptable interceptable2 = $ic;
-                if (!(interceptable2 == null || interceptable2.invokeLLL(1048576, this, str, view2, decodedResult) == null) || this.a.e == null) {
+                if (!(interceptable2 == null || interceptable2.invokeLLL(1048576, this, str, view2, decodedResult) == null) || this.PC.PB == null) {
                     return;
                 }
-                a unused = this.a.e;
+                a unused = this.PC.PB;
             }
 
             @Override // com.kwad.sdk.core.imageloader.core.listener.SimpleImageLoadingListener, com.kwad.sdk.core.imageloader.core.listener.ImageLoadingListener
             public final void onLoadingFailed(String str, View view2, FailReason failReason) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, view2, failReason) == null) {
-                    this.a.a();
-                    if (this.a.e != null) {
-                        a unused = this.a.e;
+                    this.PC.qg();
+                    if (this.PC.PB != null) {
+                        a unused = this.PC.PB;
                     }
                 }
             }
         };
-        a(context);
+        init(context);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -119,10 +118,10 @@ public class KsLogoView extends LinearLayout {
                 return;
             }
         }
-        this.d = new SimpleImageLoadingListener(this) { // from class: com.kwad.components.core.widget.KsLogoView.1
+        this.PA = new SimpleImageLoadingListener(this) { // from class: com.kwad.components.core.widget.KsLogoView.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ KsLogoView a;
+            public final /* synthetic */ KsLogoView PC;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -139,30 +138,30 @@ public class KsLogoView extends LinearLayout {
                         return;
                     }
                 }
-                this.a = this;
+                this.PC = this;
             }
 
             @Override // com.kwad.sdk.core.imageloader.core.listener.SimpleImageLoadingListener, com.kwad.sdk.core.imageloader.core.listener.ImageLoadingListener
             public final void onLoadingComplete(String str, View view2, DecodedResult decodedResult) {
                 Interceptable interceptable2 = $ic;
-                if (!(interceptable2 == null || interceptable2.invokeLLL(1048576, this, str, view2, decodedResult) == null) || this.a.e == null) {
+                if (!(interceptable2 == null || interceptable2.invokeLLL(1048576, this, str, view2, decodedResult) == null) || this.PC.PB == null) {
                     return;
                 }
-                a unused = this.a.e;
+                a unused = this.PC.PB;
             }
 
             @Override // com.kwad.sdk.core.imageloader.core.listener.SimpleImageLoadingListener, com.kwad.sdk.core.imageloader.core.listener.ImageLoadingListener
             public final void onLoadingFailed(String str, View view2, FailReason failReason) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, view2, failReason) == null) {
-                    this.a.a();
-                    if (this.a.e != null) {
-                        a unused = this.a.e;
+                    this.PC.qg();
+                    if (this.PC.PB != null) {
+                        a unused = this.PC.PB;
                     }
                 }
             }
         };
-        a(context);
+        init(context);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -184,10 +183,10 @@ public class KsLogoView extends LinearLayout {
                 return;
             }
         }
-        this.d = new SimpleImageLoadingListener(this) { // from class: com.kwad.components.core.widget.KsLogoView.1
+        this.PA = new SimpleImageLoadingListener(this) { // from class: com.kwad.components.core.widget.KsLogoView.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ KsLogoView a;
+            public final /* synthetic */ KsLogoView PC;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -204,30 +203,30 @@ public class KsLogoView extends LinearLayout {
                         return;
                     }
                 }
-                this.a = this;
+                this.PC = this;
             }
 
             @Override // com.kwad.sdk.core.imageloader.core.listener.SimpleImageLoadingListener, com.kwad.sdk.core.imageloader.core.listener.ImageLoadingListener
             public final void onLoadingComplete(String str, View view2, DecodedResult decodedResult) {
                 Interceptable interceptable2 = $ic;
-                if (!(interceptable2 == null || interceptable2.invokeLLL(1048576, this, str, view2, decodedResult) == null) || this.a.e == null) {
+                if (!(interceptable2 == null || interceptable2.invokeLLL(1048576, this, str, view2, decodedResult) == null) || this.PC.PB == null) {
                     return;
                 }
-                a unused = this.a.e;
+                a unused = this.PC.PB;
             }
 
             @Override // com.kwad.sdk.core.imageloader.core.listener.SimpleImageLoadingListener, com.kwad.sdk.core.imageloader.core.listener.ImageLoadingListener
             public final void onLoadingFailed(String str, View view2, FailReason failReason) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, view2, failReason) == null) {
-                    this.a.a();
-                    if (this.a.e != null) {
-                        a unused = this.a.e;
+                    this.PC.qg();
+                    if (this.PC.PB != null) {
+                        a unused = this.PC.PB;
                     }
                 }
             }
         };
-        a(context);
+        init(context);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -248,10 +247,10 @@ public class KsLogoView extends LinearLayout {
                 return;
             }
         }
-        this.d = new SimpleImageLoadingListener(this) { // from class: com.kwad.components.core.widget.KsLogoView.1
+        this.PA = new SimpleImageLoadingListener(this) { // from class: com.kwad.components.core.widget.KsLogoView.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ KsLogoView a;
+            public final /* synthetic */ KsLogoView PC;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -268,25 +267,25 @@ public class KsLogoView extends LinearLayout {
                         return;
                     }
                 }
-                this.a = this;
+                this.PC = this;
             }
 
             @Override // com.kwad.sdk.core.imageloader.core.listener.SimpleImageLoadingListener, com.kwad.sdk.core.imageloader.core.listener.ImageLoadingListener
             public final void onLoadingComplete(String str, View view2, DecodedResult decodedResult) {
                 Interceptable interceptable2 = $ic;
-                if (!(interceptable2 == null || interceptable2.invokeLLL(1048576, this, str, view2, decodedResult) == null) || this.a.e == null) {
+                if (!(interceptable2 == null || interceptable2.invokeLLL(1048576, this, str, view2, decodedResult) == null) || this.PC.PB == null) {
                     return;
                 }
-                a unused = this.a.e;
+                a unused = this.PC.PB;
             }
 
             @Override // com.kwad.sdk.core.imageloader.core.listener.SimpleImageLoadingListener, com.kwad.sdk.core.imageloader.core.listener.ImageLoadingListener
             public final void onLoadingFailed(String str, View view2, FailReason failReason) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, view2, failReason) == null) {
-                    this.a.a();
-                    if (this.a.e != null) {
-                        a unused = this.a.e;
+                    this.PC.qg();
+                    if (this.PC.PB != null) {
+                        a unused = this.PC.PB;
                     }
                 }
             }
@@ -294,66 +293,66 @@ public class KsLogoView extends LinearLayout {
         if (z) {
             setBackgroundResource(R.drawable.obfuscated_res_0x7f080c3e);
         }
-        a(context);
+        init(context);
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
-            this.b.setImageDrawable(getContext().getResources().getDrawable(this.c ? R.drawable.obfuscated_res_0x7f080bf5 : R.drawable.obfuscated_res_0x7f080bf6));
-        }
-    }
-
-    private void a(Context context) {
+    private void init(Context context) {
         TextView textView;
         int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65541, this, context) == null) {
+        if (interceptable == null || interceptable.invokeL(65542, this, context) == null) {
             LinearLayout.inflate(context, R.layout.obfuscated_res_0x7f0d0438, this);
-            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f091092);
-            this.b = (ImageView) findViewById(R.id.obfuscated_res_0x7f091091);
+            this.Py = (TextView) findViewById(R.id.obfuscated_res_0x7f091089);
+            this.Pz = (ImageView) findViewById(R.id.obfuscated_res_0x7f091088);
             boolean z = getBackground() == null;
-            this.c = z;
+            this.Px = z;
             if (z) {
-                this.b.setImageDrawable(context.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080bf5));
-                textView = this.a;
+                this.Pz.setImageDrawable(context.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080bf5));
+                textView = this.Py;
                 i = -6513508;
             } else {
-                this.b.setImageDrawable(context.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080bf6));
-                textView = this.a;
+                this.Pz.setImageDrawable(context.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080bf6));
+                textView = this.Py;
                 i = -1711276033;
             }
             textView.setTextColor(i);
         }
     }
 
-    public final void a(AdTemplate adTemplate) {
+    /* JADX INFO: Access modifiers changed from: private */
+    public void qg() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65543, this) == null) {
+            this.Pz.setImageDrawable(getContext().getResources().getDrawable(this.Px ? R.drawable.obfuscated_res_0x7f080bf5 : R.drawable.obfuscated_res_0x7f080bf6));
+        }
+    }
+
+    public final void T(AdTemplate adTemplate) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, adTemplate) == null) {
-            View findViewById = findViewById(R.id.obfuscated_res_0x7f091090);
-            AdInfo i = com.kwad.sdk.core.response.a.d.i(adTemplate);
-            String str = this.c ? i.adBaseInfo.adGrayMarkIcon : i.adBaseInfo.adMarkIcon;
-            if (TextUtils.isEmpty(str) && TextUtils.isEmpty(i.adBaseInfo.adSourceDescription)) {
-                this.a.setVisibility(0);
-                this.a.setText(com.kwad.sdk.core.response.a.a.G(i));
-                this.b.setVisibility(0);
-                a();
-                a aVar = this.e;
+            View findViewById = findViewById(R.id.obfuscated_res_0x7f091087);
+            AdInfo bQ = com.kwad.sdk.core.response.a.d.bQ(adTemplate);
+            String str = this.Px ? bQ.adBaseInfo.adGrayMarkIcon : bQ.adBaseInfo.adMarkIcon;
+            if (TextUtils.isEmpty(str) && TextUtils.isEmpty(bQ.adBaseInfo.adSourceDescription)) {
+                this.Py.setVisibility(0);
+                this.Py.setText(com.kwad.sdk.core.response.a.a.ak(bQ));
+                this.Pz.setVisibility(0);
+                qg();
+                a aVar = this.PB;
             } else {
-                if (TextUtils.isEmpty(i.adBaseInfo.adSourceDescription)) {
-                    this.a.setVisibility(8);
-                    this.a.setText("");
+                if (TextUtils.isEmpty(bQ.adBaseInfo.adSourceDescription)) {
+                    this.Py.setVisibility(8);
+                    this.Py.setText("");
                 } else {
-                    this.a.setText(com.kwad.sdk.core.response.a.a.G(i));
-                    this.a.setVisibility(0);
+                    this.Py.setText(com.kwad.sdk.core.response.a.a.ak(bQ));
+                    this.Py.setVisibility(0);
                 }
                 if (TextUtils.isEmpty(str)) {
-                    this.b.setVisibility(8);
-                    this.b.setImageDrawable(null);
+                    this.Pz.setVisibility(8);
+                    this.Pz.setImageDrawable(null);
                 } else {
-                    KSImageLoader.loadFeeImage(this.b, str, adTemplate, this.d);
-                    this.b.setVisibility(0);
+                    KSImageLoader.loadFeeImage(this.Pz, str, adTemplate, this.PA);
+                    this.Pz.setVisibility(0);
                 }
             }
             findViewById.setVisibility(0);
@@ -363,19 +362,19 @@ public class KsLogoView extends LinearLayout {
     public ImageView getIcon() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : (ImageView) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.Pz : (ImageView) invokeV.objValue;
     }
 
     public TextView getTextView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : (TextView) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.Py : (TextView) invokeV.objValue;
     }
 
     public void setLogoLoadFinishListener(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) {
-            this.e = aVar;
+            this.PB = aVar;
         }
     }
 }

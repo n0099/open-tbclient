@@ -128,13 +128,13 @@ public class r37 extends BaseAdapter {
             } else {
                 view2 = this.c.inflate(R.layout.obfuscated_res_0x7f0d039a, (ViewGroup) null);
                 bVar = new b(this, null);
-                bVar.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09155e);
-                bVar.c = view2.findViewById(R.id.obfuscated_res_0x7f0907d5);
-                bVar.d = view2.findViewById(R.id.obfuscated_res_0x7f0907cf);
+                bVar.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091539);
+                bVar.c = view2.findViewById(R.id.obfuscated_res_0x7f0907d3);
+                bVar.d = view2.findViewById(R.id.obfuscated_res_0x7f0907cd);
                 view2.setTag(bVar);
             }
             bVar.c.setVisibility(i == 0 ? 0 : 8);
-            bVar.b.setText(StringHelper.highLightText(id5.a(StringHelper.cutStringWithEllipsisNew(item.b(), 18)), this.a, R.color.CAM_X0302));
+            bVar.b.setText(StringHelper.highLightText(jd5.a(StringHelper.cutStringWithEllipsisNew(item.b(), 18)), this.a, R.color.CAM_X0302));
             a(bVar, view2, TbadkCoreApplication.getInst().getSkinType());
             return view2;
         }

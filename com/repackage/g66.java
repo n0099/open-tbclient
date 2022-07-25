@@ -88,7 +88,7 @@ public class g66 {
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj) == null) {
                 this.b.c = false;
                 if (this.b.a.getErrorCode() == 22) {
-                    pi.O(this.b.f.getPageActivity(), this.b.f.getString(R.string.obfuscated_res_0x7f0f0819));
+                    pi.O(this.b.f.getPageActivity(), this.b.f.getString(R.string.obfuscated_res_0x7f0f0815));
                 } else if (obj == null) {
                 } else {
                     if (this.b.a.getErrorCode() != 0) {
@@ -132,7 +132,7 @@ public class g66 {
             if (pi.D()) {
                 return ViewHelper.checkUpIsLogin(tbPageContext.getPageActivity());
             }
-            UtilHelper.showToast(tbPageContext.getPageActivity(), tbPageContext.getString(R.string.obfuscated_res_0x7f0f0c2b));
+            UtilHelper.showToast(tbPageContext.getPageActivity(), tbPageContext.getString(R.string.obfuscated_res_0x7f0f0c17));
             return false;
         }
         return invokeL.booleanValue;

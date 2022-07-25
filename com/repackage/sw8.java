@@ -33,7 +33,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.cr4;
+import com.baidu.webkit.sdk.PermissionRequest;
+import com.repackage.dr4;
 import tbclient.ItemInfo;
 /* loaded from: classes7.dex */
 public class sw8 {
@@ -55,7 +56,7 @@ public class sw8 {
     public String n;
 
     /* loaded from: classes7.dex */
-    public class a implements cr4.e {
+    public class a implements dr4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -75,11 +76,11 @@ public class sw8 {
             }
         }
 
-        @Override // com.repackage.cr4.e
-        public void onClick(cr4 cr4Var) {
+        @Override // com.repackage.dr4.e
+        public void onClick(dr4 dr4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, cr4Var) == null) {
-                cr4Var.dismiss();
+            if (interceptable == null || interceptable.invokeL(1048576, this, dr4Var) == null) {
+                dr4Var.dismiss();
             }
         }
     }
@@ -274,14 +275,14 @@ public class sw8 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, forumWriteData, dVar) == null) {
             if (Build.VERSION.SDK_INT < 21) {
-                cr4 cr4Var = new cr4(this.a.getPageActivity());
-                cr4Var.setAutoNight(false);
-                cr4Var.setTitle(R.string.obfuscated_res_0x7f0f0f14);
-                cr4Var.setMessage(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f04e9));
-                cr4Var.setTitleShowCenter(true);
-                cr4Var.setMessageShowCenter(true);
-                cr4Var.setPositiveButton(R.string.obfuscated_res_0x7f0f099e, new a(this));
-                cr4Var.create(this.a).show();
+                dr4 dr4Var = new dr4(this.a.getPageActivity());
+                dr4Var.setAutoNight(false);
+                dr4Var.setTitle(R.string.obfuscated_res_0x7f0f0efd);
+                dr4Var.setMessage(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f04e5));
+                dr4Var.setTitleShowCenter(true);
+                dr4Var.setMessageShowCenter(true);
+                dr4Var.setPositiveButton(R.string.obfuscated_res_0x7f0f0989, new a(this));
+                dr4Var.create(this.a).show();
                 return;
             }
             r(this.a, dVar, forumWriteData);
@@ -428,7 +429,7 @@ public class sw8 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048588, this, str, str2) == null) {
             new BjhMasterActivityConfig(TbadkCoreApplication.getInst(), str, str2).start();
-            ((a65) ServiceManager.getService(a65.a.a())).c(Long.valueOf(ng.g(str, 0L)), str2);
+            ((b65) ServiceManager.getService(b65.a.a())).c(Long.valueOf(ng.g(str, 0L)), str2);
         }
     }
 
@@ -483,8 +484,8 @@ public class sw8 {
         PermissionJudgePolicy permissionJudgePolicy = new PermissionJudgePolicy();
         permissionJudgePolicy.clearRequestPermissionList();
         permissionJudgePolicy.appendRequestPermission(tbPageContext.getPageActivity(), "android.permission.WRITE_EXTERNAL_STORAGE");
-        permissionJudgePolicy.appendRequestPermission(tbPageContext.getPageActivity(), "android.permission.CAMERA");
-        permissionJudgePolicy.appendRequestPermission(tbPageContext.getPageActivity(), "android.permission.RECORD_AUDIO");
+        permissionJudgePolicy.appendRequestPermission(tbPageContext.getPageActivity(), PermissionRequest.RESOURCE_VIDEO_CAPTURE);
+        permissionJudgePolicy.appendRequestPermission(tbPageContext.getPageActivity(), PermissionRequest.RESOURCE_AUDIO_CAPTURE);
         permissionJudgePolicy.setOnPermissionsGrantedListener(new b(this, forumWriteData, dVar));
         permissionJudgePolicy.startRequestPermission(tbPageContext.getPageActivity());
         e();

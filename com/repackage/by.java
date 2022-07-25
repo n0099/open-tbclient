@@ -79,7 +79,7 @@ public class by extends sw implements gx<ThreadData> {
         this.g = true;
         this.e = tbPageContext;
         h(-1);
-        RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(pi.f(tbPageContext.getPageActivity(), R.dimen.obfuscated_res_0x7f070263), pi.f(tbPageContext.getPageActivity(), R.dimen.obfuscated_res_0x7f0702d4));
+        RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(pi.f(tbPageContext.getPageActivity(), R.dimen.obfuscated_res_0x7f070260), pi.f(tbPageContext.getPageActivity(), R.dimen.obfuscated_res_0x7f0702d2));
         layoutParams.addRule(11);
         layoutParams.topMargin = pi.f(tbPageContext.getPageActivity(), R.dimen.tbds30);
         layoutParams.rightMargin = pi.f(tbPageContext.getPageActivity(), R.dimen.tbds30);

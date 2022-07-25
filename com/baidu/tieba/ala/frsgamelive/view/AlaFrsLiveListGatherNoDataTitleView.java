@@ -71,8 +71,8 @@ public class AlaFrsLiveListGatherNoDataTitleView extends jx5<ys5> {
         this.l = 3;
         this.k = tbPageContext;
         View h = h();
-        this.i = (TextView) h.findViewById(R.id.obfuscated_res_0x7f090ad9);
-        this.j = (TextView) h.findViewById(R.id.obfuscated_res_0x7f090ada);
+        this.i = (TextView) h.findViewById(R.id.obfuscated_res_0x7f090ad2);
+        this.j = (TextView) h.findViewById(R.id.obfuscated_res_0x7f090ad3);
         j(tbPageContext, TbadkCoreApplication.getInst().getSkinType());
     }
 

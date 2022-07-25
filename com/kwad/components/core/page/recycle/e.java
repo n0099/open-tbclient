@@ -10,16 +10,16 @@ import com.kwad.sdk.core.response.model.AdTemplate;
 public final class e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public com.kwad.components.core.c.a.b a;
-    public RecyclerView b;
-    public AdTemplate c;
+    public com.kwad.components.core.c.a.c DV;
+    public RecyclerView GU;
+    public AdTemplate adTemplate;
 
-    public e(AdTemplate adTemplate, com.kwad.components.core.c.a.b bVar, RecyclerView recyclerView) {
+    public e(AdTemplate adTemplate, com.kwad.components.core.c.a.c cVar, RecyclerView recyclerView) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {adTemplate, bVar, recyclerView};
+            Object[] objArr = {adTemplate, cVar, recyclerView};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -29,8 +29,8 @@ public final class e {
                 return;
             }
         }
-        this.c = adTemplate;
-        this.a = bVar;
-        this.b = recyclerView;
+        this.adTemplate = adTemplate;
+        this.DV = cVar;
+        this.GU = recyclerView;
     }
 }

@@ -22,7 +22,7 @@ public abstract class lv6<T, V extends TypeAdapter.ViewHolder> extends an<T, V> 
     public boolean i;
     public TbPageContext<?> j;
     public tn k;
-    public jm4 l;
+    public km4 l;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public lv6(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
@@ -63,13 +63,13 @@ public abstract class lv6<T, V extends TypeAdapter.ViewHolder> extends an<T, V> 
     }
 
     public void Z(View view2, ThreadData threadData) {
-        jm4 jm4Var;
+        km4 km4Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, view2, threadData) == null) || (jm4Var = this.l) == null) {
+        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, view2, threadData) == null) || (km4Var = this.l) == null) {
             return;
         }
         int i = threadData.position;
-        jm4Var.c(view2, threadData, i, i);
+        km4Var.c(view2, threadData, i, i);
     }
 
     public boolean a0() {
@@ -78,10 +78,10 @@ public abstract class lv6<T, V extends TypeAdapter.ViewHolder> extends an<T, V> 
         return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.i : invokeV.booleanValue;
     }
 
-    public void b0(jm4 jm4Var) {
+    public void b0(km4 km4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, jm4Var) == null) {
-            this.l = jm4Var;
+        if (interceptable == null || interceptable.invokeL(1048580, this, km4Var) == null) {
+            this.l = km4Var;
         }
     }
 
@@ -93,12 +93,12 @@ public abstract class lv6<T, V extends TypeAdapter.ViewHolder> extends an<T, V> 
     }
 
     public void d0(View view2, ThreadData threadData, int i, long j) {
-        jm4 jm4Var;
+        km4 km4Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{view2, threadData, Integer.valueOf(i), Long.valueOf(j)}) == null) || (jm4Var = this.l) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{view2, threadData, Integer.valueOf(i), Long.valueOf(j)}) == null) || (km4Var = this.l) == null) {
             return;
         }
-        jm4Var.d(view2, threadData, i, j);
+        km4Var.d(view2, threadData, i, j);
     }
 
     public void n(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {

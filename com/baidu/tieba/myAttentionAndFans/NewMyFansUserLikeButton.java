@@ -15,9 +15,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.d9;
-import com.repackage.jr4;
-import com.repackage.lr4;
-import com.repackage.nr4;
+import com.repackage.kr4;
+import com.repackage.mr4;
+import com.repackage.or4;
 import com.repackage.sg;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
@@ -27,7 +27,7 @@ public class NewMyFansUserLikeButton extends FollowUserButton {
     public String r;
     public String s;
     public d9 t;
-    public lr4 u;
+    public mr4 u;
     public String v;
     public int w;
     public boolean x;
@@ -42,13 +42,13 @@ public class NewMyFansUserLikeButton extends FollowUserButton {
 
         /* renamed from: com.baidu.tieba.myAttentionAndFans.NewMyFansUserLikeButton$a$a  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        public class C0216a implements nr4.d {
+        public class C0230a implements or4.d {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ View a;
             public final /* synthetic */ a b;
 
-            public C0216a(a aVar, View view2) {
+            public C0230a(a aVar, View view2) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -67,7 +67,7 @@ public class NewMyFansUserLikeButton extends FollowUserButton {
                 this.a = view2;
             }
 
-            @Override // com.repackage.nr4.d
+            @Override // com.repackage.or4.d
             public void onClick() {
                 View.OnClickListener onClickListener;
                 Interceptable interceptable = $ic;
@@ -87,7 +87,7 @@ public class NewMyFansUserLikeButton extends FollowUserButton {
         }
 
         /* loaded from: classes3.dex */
-        public class b implements nr4.c {
+        public class b implements or4.c {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
@@ -110,7 +110,7 @@ public class NewMyFansUserLikeButton extends FollowUserButton {
                 this.a = aVar;
             }
 
-            @Override // com.repackage.nr4.c
+            @Override // com.repackage.or4.c
             public void onClick() {
                 Interceptable interceptable = $ic;
                 if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.a.b.u == null) {
@@ -153,15 +153,15 @@ public class NewMyFansUserLikeButton extends FollowUserButton {
                 if (this.b.x) {
                     if (this.b.t != null) {
                         if (this.b.u == null) {
-                            nr4 nr4Var = new nr4(this.b.t.getContext());
-                            nr4Var.q(this.b.t.getString(R.string.obfuscated_res_0x7f0f0431));
+                            or4 or4Var = new or4(this.b.t.getContext());
+                            or4Var.q(this.b.t.getString(R.string.obfuscated_res_0x7f0f0430));
                             ArrayList arrayList = new ArrayList();
-                            jr4 jr4Var = new jr4(this.b.t.getString(R.string.obfuscated_res_0x7f0f0427), nr4Var);
-                            jr4Var.m(new C0216a(this, view2));
-                            arrayList.add(jr4Var);
-                            nr4Var.m(new b(this));
-                            nr4Var.j(arrayList);
-                            this.b.u = new lr4(this.b.t, nr4Var);
+                            kr4 kr4Var = new kr4(this.b.t.getString(R.string.obfuscated_res_0x7f0f0426), or4Var);
+                            kr4Var.m(new C0230a(this, view2));
+                            arrayList.add(kr4Var);
+                            or4Var.m(new b(this));
+                            or4Var.j(arrayList);
+                            this.b.u = new mr4(this.b.t, or4Var);
                             this.b.u.l(0.7f);
                         }
                         sg.j(this.b.u, this.b.t);
@@ -199,13 +199,13 @@ public class NewMyFansUserLikeButton extends FollowUserButton {
                 return;
             }
         }
-        this.r = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0f9e);
+        this.r = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0f87);
         this.s = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02a7);
         this.w = 1;
         this.x = false;
     }
 
-    @Override // com.baidu.tbadk.core.view.FollowUserButton, com.repackage.xv4
+    @Override // com.baidu.tbadk.core.view.FollowUserButton, com.repackage.yv4
     public void b(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, onClickListener) == null) {
@@ -213,7 +213,7 @@ public class NewMyFansUserLikeButton extends FollowUserButton {
         }
     }
 
-    @Override // com.baidu.tbadk.core.view.FollowUserButton, com.repackage.xv4
+    @Override // com.baidu.tbadk.core.view.FollowUserButton, com.repackage.yv4
     public void e(boolean z, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i)}) == null) {
@@ -226,7 +226,7 @@ public class NewMyFansUserLikeButton extends FollowUserButton {
             } else if (i != 2) {
                 setText(this.r);
             } else {
-                setText(this.t.getString(R.string.obfuscated_res_0x7f0f0518));
+                setText(this.t.getString(R.string.obfuscated_res_0x7f0f0514));
             }
             r(TbadkCoreApplication.getInst().getSkinType());
         }
@@ -273,7 +273,7 @@ public class NewMyFansUserLikeButton extends FollowUserButton {
                 return;
             }
         }
-        this.r = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0f9e);
+        this.r = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0f87);
         this.s = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02a7);
         this.w = 1;
         this.x = false;
@@ -298,7 +298,7 @@ public class NewMyFansUserLikeButton extends FollowUserButton {
                 return;
             }
         }
-        this.r = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0f9e);
+        this.r = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0f87);
         this.s = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02a7);
         this.w = 1;
         this.x = false;

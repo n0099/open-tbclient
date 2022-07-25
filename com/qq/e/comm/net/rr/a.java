@@ -31,12 +31,12 @@ public class a {
 
     /* renamed from: com.qq.e.comm.net.rr.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public static class C0582a extends Exception {
+    public static class C0430a extends Exception {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public C0582a(String str, Throwable th) {
+        public C0430a(String str, Throwable th) {
             super(str, th);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -102,7 +102,7 @@ public class a {
         e = Base64.decode("4M3PpUC4Vu1uMp+Y0Mxd+vfc6v4ggJAINfgTlH74pis=", 0);
     }
 
-    public static byte[] a(byte[] bArr) throws C0582a {
+    public static byte[] a(byte[] bArr) throws C0430a {
         InterceptResult invokeL;
         Cipher cipher;
         Interceptable interceptable = $ic;
@@ -115,20 +115,20 @@ public class a {
                         cipher.init(2, new SecretKeySpec(e, "AES"));
                         c = cipher;
                     } catch (Exception e2) {
-                        throw new C0582a("Fail To Init Cipher", e2);
+                        throw new C0430a("Fail To Init Cipher", e2);
                     }
                 }
             }
             try {
                 return cipher.doFinal(bArr);
             } catch (Exception e3) {
-                throw new C0582a("Exception While dencrypt byte array", e3);
+                throw new C0430a("Exception While dencrypt byte array", e3);
             }
         }
         return (byte[]) invokeL.objValue;
     }
 
-    public static byte[] b(byte[] bArr) throws C0582a {
+    public static byte[] b(byte[] bArr) throws C0430a {
         InterceptResult invokeL;
         Cipher cipher;
         Interceptable interceptable = $ic;
@@ -141,14 +141,14 @@ public class a {
                         cipher.init(1, new SecretKeySpec(e, "AES"));
                         b = cipher;
                     } catch (Exception e2) {
-                        throw new C0582a("Fail To Init Cipher", e2);
+                        throw new C0430a("Fail To Init Cipher", e2);
                     }
                 }
             }
             try {
                 return cipher.doFinal(bArr);
             } catch (Exception e3) {
-                throw new C0582a("Exception While encrypt byte array", e3);
+                throw new C0430a("Exception While encrypt byte array", e3);
             }
         }
         return (byte[]) invokeL.objValue;

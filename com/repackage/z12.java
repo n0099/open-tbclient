@@ -1,11 +1,9 @@
 package com.repackage;
 
+import android.text.TextUtils;
 import android.util.Log;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.v8engine.V8EngineConfiguration;
-import com.baidu.swan.apps.jsbridge.SwanAppJsBridge;
+import android.webkit.JavascriptInterface;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,87 +11,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.w72;
 /* loaded from: classes7.dex */
 public class z12 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean c;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-    public p72 a;
-    public z72 b;
-
-    /* loaded from: classes7.dex */
-    public class a extends l82 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-        public String b;
-        public final /* synthetic */ z12 c;
-
-        public a(@NonNull z12 z12Var, @NonNull String str, String str2) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {z12Var, str, str2};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.c = z12Var;
-            this.a = str;
-            this.b = str2;
-            if (z12.c) {
-                Log.d("SwanAppV8Daemon", "basePath: " + str + ", jsFile: " + str2);
-            }
-        }
-
-        @Override // com.repackage.m82
-        public String a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (String) invokeV.objValue;
-        }
-
-        @Override // com.repackage.l82, com.repackage.m82
-        @Nullable
-        public V8EngineConfiguration.CodeCacheSetting b() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? super.b() : (V8EngineConfiguration.CodeCacheSetting) invokeV.objValue;
-        }
-
-        @Override // com.repackage.l82, com.repackage.m82
-        public void c(p72 p72Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, p72Var) == null) {
-                if (this.c.b != null) {
-                    this.c.b.a(p72Var);
-                }
-                p72Var.z0();
-            }
-        }
-
-        @Override // com.repackage.l82, com.repackage.m82
-        public void d(p72 p72Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, p72Var) == null) {
-                super.d(p72Var);
-            }
-        }
-
-        @Override // com.repackage.m82
-        public String getInitBasePath() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.a : (String) invokeV.objValue;
-        }
-    }
 
     static {
         InterceptResult invokeClinit;
@@ -108,62 +30,41 @@ public class z12 {
                 return;
             }
         }
-        c = rg1.a;
+        a = sg1.a;
     }
 
-    public z12(@NonNull String str, @NonNull String str2) {
+    public z12(gz1 gz1Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2};
+            Object[] objArr = {gz1Var};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
-                return;
             }
         }
-        this.a = v72.b(c(), new a(this, str, str2), null);
-        this.a.addJavascriptInterface(new y12(this.a), SwanAppJsBridge.JAVASCRIPT_INTERFACE_NAME);
     }
 
-    public final w72 c() {
-        InterceptResult invokeV;
+    @JavascriptInterface
+    public String setData(String str, String str2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            w72.b bVar = new w72.b();
-            bVar.c(3);
-            bVar.b(x12.b());
-            return bVar.a();
-        }
-        return (w72) invokeV.objValue;
-    }
-
-    public p72 d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (p72) invokeV.objValue;
-    }
-
-    public void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            p72 p72Var = this.a;
-            if (p72Var != null) {
-                p72Var.U();
-                this.a = null;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
+            if (a) {
+                Log.d("DaemonJsBridge", "slave id: " + str + " data: " + str2);
             }
-            this.b = null;
+            int i = 0;
+            if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
+                i = 202;
+            } else {
+                vl2.U().y(new la2(str, str2), false);
+            }
+            return UnitedSchemeUtility.wrapCallbackParams(i).toString();
         }
-    }
-
-    public void f(z72 z72Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, z72Var) == null) {
-            this.b = z72Var;
-        }
+        return (String) invokeLL.objValue;
     }
 }

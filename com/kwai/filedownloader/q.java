@@ -15,12 +15,12 @@ import java.util.concurrent.ThreadPoolExecutor;
 public final class q {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final b a;
+    public final b aty;
 
     /* loaded from: classes5.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
-        public static final q a;
+        public static final q atz;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -36,8 +36,8 @@ public final class q {
                     return;
                 }
             }
-            a = new q();
-            com.kwai.filedownloader.message.e.a().a(new aa());
+            atz = new q();
+            com.kwai.filedownloader.message.e.Eg().a(new aa());
         }
     }
 
@@ -45,8 +45,8 @@ public final class q {
     public static class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public ThreadPoolExecutor a;
-        public LinkedBlockingQueue<Runnable> b;
+        public ThreadPoolExecutor atA;
+        public LinkedBlockingQueue<Runnable> atB;
 
         public b() {
             Interceptable interceptable = $ic;
@@ -61,29 +61,29 @@ public final class q {
                     return;
                 }
             }
-            a();
+            init();
         }
 
-        private void a() {
+        private void init() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(65537, this) == null) {
                 LinkedBlockingQueue<Runnable> linkedBlockingQueue = new LinkedBlockingQueue<>();
-                this.b = linkedBlockingQueue;
-                this.a = com.kwai.filedownloader.e.b.a(3, linkedBlockingQueue, "LauncherTask");
-            }
-        }
-
-        public final void a(x.b bVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
-                this.a.execute(new c(bVar));
+                this.atB = linkedBlockingQueue;
+                this.atA = com.kwai.filedownloader.e.b.a(3, linkedBlockingQueue, "LauncherTask");
             }
         }
 
         public final void b(x.b bVar) {
             Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
+                this.atB.remove(bVar);
+            }
+        }
+
+        public final void c(x.b bVar) {
+            Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) {
-                this.b.remove(bVar);
+                this.atA.execute(new c(bVar));
             }
         }
     }
@@ -92,8 +92,8 @@ public final class q {
     public static class c implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final x.b a;
-        public boolean b;
+        public final x.b atC;
+        public boolean atD;
 
         public c(x.b bVar) {
             Interceptable interceptable = $ic;
@@ -110,23 +110,23 @@ public final class q {
                     return;
                 }
             }
-            this.a = bVar;
-            this.b = false;
+            this.atC = bVar;
+            this.atD = false;
         }
 
         public final boolean equals(Object obj) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) ? super.equals(obj) || obj == this.a : invokeL.booleanValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) ? super.equals(obj) || obj == this.atC : invokeL.booleanValue;
         }
 
         @Override // java.lang.Runnable
         public final void run() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.b) {
+            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.atD) {
                 return;
             }
-            this.a.o();
+            this.atC.start();
         }
     }
 
@@ -143,20 +143,20 @@ public final class q {
                 return;
             }
         }
-        this.a = new b();
+        this.aty = new b();
     }
 
-    public static q a() {
+    public static q CX() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? a.a : (q) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? a.atz : (q) invokeV.objValue;
     }
 
     public final synchronized void a(x.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
             synchronized (this) {
-                this.a.a(bVar);
+                this.aty.c(bVar);
             }
         }
     }
@@ -165,7 +165,7 @@ public final class q {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) {
             synchronized (this) {
-                this.a.b(bVar);
+                this.aty.b(bVar);
             }
         }
     }

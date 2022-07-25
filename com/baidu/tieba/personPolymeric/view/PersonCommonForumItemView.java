@@ -96,7 +96,7 @@ public class PersonCommonForumItemView extends RelativeLayout {
         }
         this.f = 3;
         this.g = context;
-        LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d06c6, (ViewGroup) this, true);
+        LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d06d0, (ViewGroup) this, true);
         c();
         d();
     }
@@ -104,11 +104,11 @@ public class PersonCommonForumItemView extends RelativeLayout {
     public final void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.a = (BarImageView) findViewById(R.id.obfuscated_res_0x7f0909fc);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f090a3f);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f090a44);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f090a68);
-            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f090a69);
+            this.a = (BarImageView) findViewById(R.id.obfuscated_res_0x7f0909f5);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f090a38);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f090a3d);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f090a61);
+            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f090a62);
         }
     }
 
@@ -139,9 +139,9 @@ public class PersonCommonForumItemView extends RelativeLayout {
             this.h = j48Var;
             this.a.J(j48Var.c, 10, false);
             TextView textView = this.b;
-            textView.setText(StringHelper.cutForumNameWithSuffix(j48Var.b, 7, StringHelper.STRING_MORE) + this.g.getString(R.string.obfuscated_res_0x7f0f0650));
+            textView.setText(StringHelper.cutForumNameWithSuffix(j48Var.b, 7, StringHelper.STRING_MORE) + this.g.getString(R.string.obfuscated_res_0x7f0f064c));
             this.d.setText(StringHelper.numberUniformFormat((long) j48Var.d));
-            this.c.setText(String.format(this.g.getString(R.string.obfuscated_res_0x7f0f0e36), StringHelper.getUserDescByGender(j48Var.e)));
+            this.c.setText(String.format(this.g.getString(R.string.obfuscated_res_0x7f0f0e1f), StringHelper.getUserDescByGender(j48Var.e)));
             if (getRootView() != null) {
                 getRootView().setOnClickListener(this.i);
             }

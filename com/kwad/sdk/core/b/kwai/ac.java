@@ -26,8 +26,11 @@ public final class ac implements com.kwad.sdk.core.d<AdInfo.AdTrackInfo> {
         if (jSONObject == null) {
             jSONObject = new JSONObject();
         }
-        com.kwad.sdk.utils.r.a(jSONObject, "type", adTrackInfo.type);
-        com.kwad.sdk.utils.r.a(jSONObject, "url", adTrackInfo.urls);
+        int i = adTrackInfo.type;
+        if (i != 0) {
+            com.kwad.sdk.utils.r.putValue(jSONObject, "type", i);
+        }
+        com.kwad.sdk.utils.r.putValue(jSONObject, "url", adTrackInfo.urls);
         return jSONObject;
     }
 

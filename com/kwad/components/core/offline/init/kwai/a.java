@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.components.offline.api.core.api.IAsync;
-import com.kwad.sdk.utils.az;
+import com.kwad.sdk.utils.bd;
 import java.util.concurrent.TimeUnit;
 /* loaded from: classes5.dex */
 public final class a implements IAsync {
@@ -31,7 +31,7 @@ public final class a implements IAsync {
     public final void execute(Runnable runnable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, runnable) == null) {
-            com.kwad.sdk.utils.g.b(runnable);
+            com.kwad.sdk.utils.g.execute(runnable);
         }
     }
 
@@ -39,7 +39,7 @@ public final class a implements IAsync {
     public final void runOnDefaultExecutor(Runnable runnable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, runnable) == null) {
-            com.kwad.sdk.utils.g.a(runnable);
+            com.kwad.sdk.utils.g.runOnDefaultExecutor(runnable);
         }
     }
 
@@ -47,7 +47,7 @@ public final class a implements IAsync {
     public final void runOnUiThread(Runnable runnable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, runnable) == null) {
-            az.a(runnable);
+            bd.runOnUiThread(runnable);
         }
     }
 
@@ -55,7 +55,7 @@ public final class a implements IAsync {
     public final void runOnUiThreadDelay(Runnable runnable, long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLJ(1048579, this, runnable, j) == null) {
-            az.a(runnable, j);
+            bd.runOnUiThreadDelay(runnable, j);
         }
     }
 
@@ -63,7 +63,7 @@ public final class a implements IAsync {
     public final void schedule(Runnable runnable, long j, TimeUnit timeUnit) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{runnable, Long.valueOf(j), timeUnit}) == null) {
-            com.kwad.sdk.utils.g.a(runnable, j, timeUnit);
+            com.kwad.sdk.utils.g.schedule(runnable, j, timeUnit);
         }
     }
 }

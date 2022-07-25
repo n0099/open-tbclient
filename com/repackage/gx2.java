@@ -1,26 +1,17 @@
 package com.repackage;
 
-import android.app.Application;
-import android.content.ComponentName;
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
-import android.content.ServiceConnection;
 import android.os.Bundle;
-import android.os.IBinder;
-import android.os.Message;
-import android.os.Messenger;
-import android.os.Parcelable;
-import android.os.Process;
-import android.os.RemoteException;
 import android.text.TextUtils;
 import android.util.Log;
-import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
+import android.webkit.WebView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
-import com.baidu.swan.apps.extcore.cores.SwanAppCores;
-import com.baidu.swan.apps.process.SwanAppProcessInfo;
-import com.baidu.swan.apps.process.messaging.client.SwanAppLocalService;
+import com.baidu.searchbox.process.ipc.util.ProcessUtils;
+import com.baidu.swan.apps.env.launch.SwanLauncher;
+import com.baidu.swan.apps.process.messaging.service.SwanAppMessengerService;
+import com.baidu.swan.apps.swancore.model.SwanCoreVersion;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -28,56 +19,31 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.l03;
-import java.text.SimpleDateFormat;
-import java.util.ArrayDeque;
-import java.util.Collection;
-import java.util.Date;
-import java.util.Deque;
-import java.util.HashSet;
-import java.util.Locale;
-import java.util.Set;
+import com.repackage.nt2;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public final class gx2 extends yw2 implements Object {
+public final class gx2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean n;
+    public static final boolean a;
+    public static String b;
+    public static boolean c;
     public transient /* synthetic */ FieldHolder $fh;
-    public final SwanAppProcessInfo b;
-    public String c;
-    public Messenger d;
-    public SwanAppCores e;
-    public PrefetchEvent f;
-    public boolean g;
-    public long h;
-    public boolean i;
-    public c j;
-    public final Deque<Message> k;
-    public b l;
-    public final Set<String> m;
 
     /* loaded from: classes6.dex */
-    public static /* synthetic */ class a {
+    public static class a implements k62 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-    }
+        public final /* synthetic */ Context a;
+        public final /* synthetic */ hx2 b;
+        public final /* synthetic */ Bundle c;
 
-    /* loaded from: classes6.dex */
-    public interface b {
-        void a(gx2 gx2Var);
-    }
-
-    /* loaded from: classes6.dex */
-    public class c implements ServiceConnection {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ gx2 a;
-
-        public c(gx2 gx2Var) {
+        public a(Context context, hx2 hx2Var, Bundle bundle) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {gx2Var};
+                Object[] objArr = {context, hx2Var, bundle};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -87,35 +53,105 @@ public final class gx2 extends yw2 implements Object {
                     return;
                 }
             }
-            this.a = gx2Var;
+            this.a = context;
+            this.b = hx2Var;
+            this.c = bundle;
         }
 
-        @Override // android.content.ServiceConnection
-        public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
+        @Override // com.repackage.k62
+        public void onFail() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048576, this, componentName, iBinder) == null) {
-                synchronized (this.a.b) {
-                    this.a.d = new Messenger(iBinder);
-                    ix2 k = ix2.k();
-                    k.m().a("event_puppet_online", this.a);
-                    if (gx2.n) {
-                        k.u("on main bind to swan: " + this.a.b);
-                    }
-                    this.a.L();
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && gx2.a) {
+                Log.d("SwanAppPreloadHelper", "SwanSailor：updateFail");
+            }
+        }
+
+        @Override // com.repackage.k62
+        public void onSuccess() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                if (gx2.a) {
+                    Log.d("SwanAppPreloadHelper", "SwanSailor updateSuccess");
+                }
+                gx2.i(this.a, this.b, this.c);
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public static class b implements kz1 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Context a;
+        public final /* synthetic */ hx2 b;
+        public final /* synthetic */ Bundle c;
+
+        public b(Context context, hx2 hx2Var, Bundle bundle) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {context, hx2Var, bundle};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
+            this.a = context;
+            this.b = hx2Var;
+            this.c = bundle;
         }
 
-        @Override // android.content.ServiceConnection
-        public void onServiceDisconnected(ComponentName componentName) {
+        @Override // com.repackage.kz1
+        public void a() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, componentName) == null) {
-                this.a.a0();
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                boolean unused = gx2.c = true;
+                gx2.h(this.a, this.b, this.c);
             }
         }
+    }
 
-        public /* synthetic */ c(gx2 gx2Var, a aVar) {
-            this(gx2Var);
+    /* loaded from: classes6.dex */
+    public static class c implements bf3<Exception> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Context a;
+        public final /* synthetic */ hx2 b;
+        public final /* synthetic */ Bundle c;
+
+        public c(Context context, hx2 hx2Var, Bundle bundle) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {context, hx2Var, bundle};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = context;
+            this.b = hx2Var;
+            this.c = bundle;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.repackage.bf3
+        /* renamed from: b */
+        public void a(Exception exc) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, exc) == null) {
+                gx2.g(this.a, this.b, this.c);
+            }
         }
     }
 
@@ -132,515 +168,193 @@ public final class gx2 extends yw2 implements Object {
                 return;
             }
         }
-        n = xw2.b;
+        a = sg1.a;
+        c = false;
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public gx2(SwanAppProcessInfo swanAppProcessInfo) {
-        super(g03.K());
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {swanAppProcessInfo};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((k03) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.c = "";
-        this.d = null;
-        this.g = true;
-        this.h = 0L;
-        this.i = false;
-        this.k = new ArrayDeque();
-        this.m = le3.a(new String[0]);
-        this.b = swanAppProcessInfo;
-        e03 e03Var = new e03();
-        e03Var.f(this, "event_messenger_call");
-        u(e03Var);
-    }
-
-    private gx2 update(Bundle bundle) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, bundle)) == null) {
-            Parcelable parcelable = bundle.getParcelable("app_core");
-            p0(parcelable instanceof SwanAppCores ? (SwanAppCores) parcelable : null);
-            String string = bundle.getString("app_id");
-            if (!TextUtils.isEmpty(string)) {
-                U(string);
-                ix2.k().g(string, this);
-                xw2.e().d(string);
-                e0();
-            }
-            l0();
-            return this;
-        }
-        return (gx2) invokeL.objValue;
-    }
-
-    @Override // com.repackage.p03, com.repackage.k03
-    public boolean E() {
+    @SuppressLint({"BDThrowableCheck"})
+    public static String f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? !TextUtils.isEmpty(this.c) : invokeV.booleanValue;
-    }
-
-    public final void K() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            synchronized (this.m) {
-                this.m.clear();
-                if (n) {
-                    Log.d("SwanClientPuppet", "clear all prefetch ids");
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("master", c72.U().k0());
+                jSONObject.put("slave", c72.U().n0());
+            } catch (JSONException e) {
+                if (a) {
+                    throw new RuntimeException(e);
                 }
             }
-        }
-    }
-
-    public gx2 L() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            V("flushCachedMsgs");
-            synchronized (this.b) {
-                while (this.d != null && !this.k.isEmpty()) {
-                    Message peek = this.k.peek();
-                    if (peek.replyTo == null) {
-                        peek.replyTo = ix2.k().d;
-                    }
-                    if (!h0(peek)) {
-                        break;
-                    }
-                    this.k.poll();
-                }
+            String jSONObject2 = jSONObject.toString();
+            if (a) {
+                Log.d("SwanAppPreloadHelper", "createPreloadStatus -- preloadStatus : " + jSONObject2);
             }
-            return this;
-        }
-        return (gx2) invokeV.objValue;
-    }
-
-    public Set<String> M() {
-        InterceptResult invokeV;
-        HashSet hashSet;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            synchronized (this.m) {
-                hashSet = new HashSet(this.m);
-                if (this.f != null && !TextUtils.isEmpty(this.f.appId)) {
-                    hashSet.add(this.f.appId);
-                }
-            }
-            return hashSet;
-        }
-        return (Set) invokeV.objValue;
-    }
-
-    public String N() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            PrefetchEvent prefetchEvent = this.f;
-            return prefetchEvent != null ? prefetchEvent.appId : "";
+            return TextUtils.isEmpty(jSONObject2) ? "" : jSONObject2;
         }
         return (String) invokeV.objValue;
     }
 
-    public SwanAppProcessInfo O() {
-        InterceptResult invokeV;
+    public static void g(Context context, hx2 hx2Var, Bundle bundle) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.b : (SwanAppProcessInfo) invokeV.objValue;
-    }
-
-    public boolean P() {
-        InterceptResult invokeV;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            synchronized (this.b) {
-                z = this.d != null;
-            }
-            return z;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean Q() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f != null : invokeV.booleanValue;
-    }
-
-    public boolean R() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.g : invokeV.booleanValue;
-    }
-
-    public boolean S() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.i : invokeV.booleanValue;
-    }
-
-    public boolean T() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? P() : invokeV.booleanValue;
-    }
-
-    public gx2 U(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, str)) == null) {
-            if (!TextUtils.equals(str, this.c)) {
-                if (TextUtils.isEmpty(str)) {
-                    str = "swan_id_unknown";
-                }
-                this.c = str;
-                ix2.k().m().a("event_puppet_load_app", this);
-                this.g = true;
-            } else {
-                this.g = false;
-            }
-            return this;
-        }
-        return (gx2) invokeL.objValue;
-    }
-
-    public final void V(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048588, this, str) == null) && n) {
-            Log.i("SwanClientPuppet", str);
-        }
-    }
-
-    public gx2 W(Bundle bundle) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, bundle)) == null) ? update(bundle) : (gx2) invokeL.objValue;
-    }
-
-    public gx2 X(Bundle bundle) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, bundle)) == null) {
-            j0(null);
-            K();
-            return update(bundle);
-        }
-        return (gx2) invokeL.objValue;
-    }
-
-    public gx2 Y() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
-            d0();
-            ix2.k().m().a("event_puppet_unload_app", this);
-            return this;
-        }
-        return (gx2) invokeV.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* renamed from: Z */
-    public void a(l03.a aVar) {
-        String[] p;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048592, this, aVar) == null) && tw2.J(aVar.D(), "swan_multi_preload_on_server") && aVar.i("swan_multi_preload_app_process_index") == this.b.index && (p = aVar.p("swan_multi_preload_app_ids")) != null) {
-            synchronized (this.m) {
-                this.m.clear();
-                for (String str : p) {
-                    if (!TextUtils.isEmpty(str)) {
-                        this.m.add(str);
-                    }
-                }
-                if (n) {
-                    Log.d("SwanClientPuppet", "get all in prefetch ids - " + this.m);
-                }
-            }
-        }
-    }
-
-    public final void a0() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
-            synchronized (this.b) {
-                this.d = null;
-                this.j = null;
-                c0();
-                ix2 k = ix2.k();
-                k.m().a("event_puppet_offline", this);
-                if (n) {
-                    k.u("onSwanClientConnDown => " + this);
-                }
-                k.w();
-            }
-        }
-    }
-
-    public gx2 b0() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
-            this.i = true;
-            this.h = 0L;
-            b bVar = this.l;
-            if (bVar != null) {
-                bVar.a(this);
-            }
-            return this;
-        }
-        return (gx2) invokeV.objValue;
-    }
-
-    public gx2 c0() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
-            synchronized (this.b) {
-                d0();
-                this.d = null;
-                this.e = null;
-                j0(null);
-                K();
-                e0();
-            }
-            return this;
-        }
-        return (gx2) invokeV.objValue;
-    }
-
-    public gx2 d0() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
-            this.c = "";
-            j0(null);
-            K();
-            return this;
-        }
-        return (gx2) invokeV.objValue;
-    }
-
-    public gx2 e0() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
-            this.i = false;
-            this.h = 0L;
-            j0(null);
-            K();
-            return this;
-        }
-        return (gx2) invokeV.objValue;
-    }
-
-    public void f0(@NonNull Message message) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048599, this, message) == null) {
-            try {
-                Application c2 = oj2.c();
-                Intent intent = new Intent(c2, this.b.service);
-                intent.setAction(SwanAppLocalService.ACTION_RECEIVER_MSG);
-                intent.putExtra("data", message);
-                c2.startService(intent);
-            } catch (Throwable th) {
-                hx1.d("SwanClientPuppet", "sendMessageToClientService fail", th);
-            }
-        }
-    }
-
-    public boolean g0(Message message) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048600, this, message)) == null) {
-            this.k.offer(message);
-            L();
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // com.repackage.p03, com.repackage.k03
-    public String getAppId() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) ? this.c : (String) invokeV.objValue;
-    }
-
-    /* JADX WARN: Removed duplicated region for block: B:18:0x0021 A[Catch: all -> 0x0027, TryCatch #1 {, blocks: (B:7:0x0009, B:9:0x000f, B:11:0x0015, B:16:0x001a, B:18:0x0021, B:19:0x0024), top: B:29:0x0009 }] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public final boolean h0(Message message) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048602, this, message)) == null) {
-            synchronized (this.b) {
-                if (message != null) {
-                    if (T()) {
-                        try {
-                            this.d.send(message);
-                            return true;
-                        } catch (RemoteException e) {
-                            e = e;
-                            a0();
-                            if (n) {
-                                e.printStackTrace();
-                            }
-                            return false;
-                        } catch (RuntimeException e2) {
-                            e = e2;
-                            a0();
-                            if (n) {
-                            }
-                            return false;
+        if (interceptable == null || interceptable.invokeLLL(65543, null, context, hx2Var, bundle) == null) {
+            boolean u = pj2.g0() != null ? pj2.g0().u() : false;
+            boolean isMainProcess = ProcessUtils.isMainProcess();
+            String str = isMainProcess ? "main" : "aiapp";
+            long currentTimeMillis = System.currentTimeMillis();
+            if (u) {
+                if (isMainProcess && TextUtils.isEmpty(b)) {
+                    try {
+                        b = new WebView(context).getSettings().getUserAgentString();
+                    } catch (Exception e) {
+                        b = "exception::" + e.toString();
+                        if (a) {
+                            e.printStackTrace();
                         }
                     }
                 }
-                return false;
+                JSONObject jSONObject = new JSONObject();
+                try {
+                    jSONObject.put("time", currentTimeMillis);
+                    jSONObject.put("process", hx2Var.b.index);
+                    jSONObject.put("ua", b);
+                } catch (JSONException e2) {
+                    if (a) {
+                        e2.printStackTrace();
+                    }
+                }
+                nt2.d dVar = new nt2.d("812");
+                dVar.g("swan");
+                dVar.i("launch");
+                dVar.h(str);
+                dVar.e(jSONObject);
+                nt2.onEvent(dVar);
+            }
+            long currentTimeMillis2 = System.currentTimeMillis();
+            if (u) {
+                JSONObject jSONObject2 = new JSONObject();
+                try {
+                    jSONObject2.put("time", currentTimeMillis2);
+                    jSONObject2.put("process", hx2Var.b.index);
+                    jSONObject2.put("cost", currentTimeMillis2 - currentTimeMillis);
+                } catch (JSONException e3) {
+                    if (a) {
+                        e3.printStackTrace();
+                    }
+                }
+                nt2.d dVar2 = new nt2.d("812");
+                dVar2.g("swan");
+                dVar2.i("swan_updated");
+                dVar2.h(str);
+                dVar2.e(jSONObject2);
+                nt2.onEvent(dVar2);
+            }
+            if (bundle == null) {
+                bundle = new Bundle();
+            }
+            if (n93.j()) {
+                p93.e();
+            }
+            bundle.putParcelable("bundle_key_swan_core", n93.e(0));
+            bundle.putParcelable("bundle_key_extension_core", ra2.c(0));
+            bundle.putInt("bundle_key_preload_switch", pj2.g().a());
+            bundle.putLong("bundle_key_preload_launch_time", currentTimeMillis);
+            bundle.putBoolean("bundle_key_v8_ab", pj2.g0().y());
+            bundle.putLong("bundle_key_preload_swan_updated_time", currentTimeMillis2);
+            bundle.putString("bundle_key_preload_src", str);
+            bundle.putInt("bundle_key_process", hx2Var.b.index);
+            bundle.setClassLoader(SwanCoreVersion.class.getClassLoader());
+            hx2Var.n0(context, bundle);
+        }
+    }
+
+    public static void h(Context context, hx2 hx2Var, Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65544, null, context, hx2Var, bundle) == null) {
+            SwanLauncher.j().l(new c(context, hx2Var, bundle));
+        }
+    }
+
+    public static void i(Context context, hx2 hx2Var, Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65545, null, context, hx2Var, bundle) == null) {
+            if (m62.a()) {
+                h(context, hx2Var, bundle);
+            } else if (c) {
+                h(context, hx2Var, bundle);
+            } else {
+                ym1.a().b().a().b(new b(context, hx2Var, bundle));
             }
         }
-        return invokeL.booleanValue;
     }
 
-    public boolean i0(Collection<Message> collection) {
-        InterceptResult invokeL;
+    public static void j(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048603, this, collection)) == null) {
-            for (Message message : collection) {
-                this.k.offer(message);
-            }
-            L();
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public void j0(PrefetchEvent prefetchEvent) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048604, this, prefetchEvent) == null) {
-            this.f = prefetchEvent;
+        if (interceptable == null || interceptable.invokeL(65546, null, bundle) == null) {
+            bundle.putBoolean("bundle_key_v8_ab", pj2.g0().y());
         }
     }
 
-    public void k0(b bVar) {
+    public static void k(Context context, Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048605, this, bVar) == null) {
-            this.l = bVar;
-        }
-    }
-
-    public gx2 l0() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) {
-            m0(false, null, null);
-            return this;
-        }
-        return (gx2) invokeV.objValue;
-    }
-
-    @Override // com.repackage.p03, com.repackage.k03
-    public SwanAppCores m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048607, this)) == null) ? this.e : (SwanAppCores) invokeV.objValue;
-    }
-
-    public gx2 m0(boolean z, Context context, Bundle bundle) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048608, this, new Object[]{Boolean.valueOf(z), context, bundle})) == null) {
-            if (n) {
-                ix2 k = ix2.k();
-                k.u("b4 tryPreBind: " + this.b + " trace=" + Log.getStackTraceString(new Throwable()));
-            }
-            Application c2 = oj2.c();
-            Intent intent = new Intent(c2, this.b.service);
+        if (interceptable == null || interceptable.invokeLL(65547, null, context, bundle) == null) {
+            Intent intent = new Intent(context, SwanAppMessengerService.class);
+            intent.setAction(SwanAppMessengerService.ACTION_PRELOAD_NEXT);
             if (bundle != null) {
                 intent.putExtras(bundle);
             }
-            this.h = System.currentTimeMillis();
-            intent.putExtra("call_preload_time", System.currentTimeMillis());
-            intent.putExtra("bundle_key_main_pid", Process.myPid());
-            intent.setAction(SwanAppLocalService.ACTION_PERLOAD);
-            intent.addCategory("android.intent.category.DEFAULT");
-            synchronized (this.b) {
-                try {
-                    if (this.j == null) {
-                        c cVar = new c(this, null);
-                        this.j = cVar;
-                        c2.bindService(intent, cVar, 1);
-                    } else if (z) {
-                        c2.startService(intent);
-                    }
-                } catch (Exception e) {
-                    if (n) {
-                        e.printStackTrace();
-                    }
-                }
-                if (this.d != null) {
-                    L();
+            try {
+                context.startService(intent);
+            } catch (Exception e) {
+                if (a) {
+                    e.printStackTrace();
                 }
             }
-            return this;
         }
-        return (gx2) invokeCommon.objValue;
     }
 
-    public gx2 n0(Context context, Bundle bundle) {
-        InterceptResult invokeLL;
+    public static void l(Context context, Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048609, this, context, bundle)) == null) {
-            if (n) {
-                ix2 k = ix2.k();
-                k.u("b4 preload: " + this.b);
+        if (interceptable == null || interceptable.invokeLL(65548, null, context, bundle) == null) {
+            m(context, jx2.k().f(), bundle);
+        }
+    }
+
+    public static void m(Context context, hx2 hx2Var, Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65549, null, context, hx2Var, bundle) == null) {
+            if (a) {
+                jx2 k = jx2.k();
+                k.u("b4 tryPreload client=" + hx2Var);
             }
-            m0(true, context, bundle);
-            return this;
-        }
-        return (gx2) invokeLL.objValue;
-    }
-
-    public gx2 o0(long j) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048610, this, j)) == null) {
-            if (j > 0) {
-                ix2.k().m().a("event_puppet_fmp_launch_finish", this);
+            if (!ProcessUtils.isMainProcess() || hx2Var == null || !hx2Var.b.isSwanAppProcess() || hx2Var.E()) {
+                return;
             }
-            return this;
-        }
-        return (gx2) invokeJ.objValue;
-    }
-
-    public gx2 p0(SwanAppCores swanAppCores) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048611, this, swanAppCores)) == null) {
-            if (swanAppCores != null) {
-                this.e = swanAppCores;
+            String string = bundle == null ? "" : bundle.getString("bundle_key_preload_preload_scene");
+            if (TextUtils.isEmpty(string)) {
+                string = "0";
             }
-            return this;
+            if (a) {
+                Log.d("SwanAppPreloadHelper", "SwanSailor：preloadScene:" + string);
+            }
+            if (pj2.w0().c()) {
+                i(context, hx2Var, bundle);
+                return;
+            }
+            m62 m62Var = new m62();
+            m62Var.a = TextUtils.equals(string, "0") ? "by_host_launch" : "by_preload";
+            pj2.w0().b(m62Var, new a(context, hx2Var, bundle));
         }
-        return (gx2) invokeL.objValue;
     }
 
-    public String toString() {
-        InterceptResult invokeV;
+    public static void n(Context context, Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048612, this)) == null) {
-            return String.format(Locale.getDefault(), "%s: Connected=%d Preloaded=%d TryPreload=%s Loaded=%s", this.b.toString(), Integer.valueOf(T() ? 1 : 0), Integer.valueOf(this.i ? 1 : 0), SimpleDateFormat.getTimeInstance(2).format(new Date(this.h)), this.c);
+        if (interceptable == null || interceptable.invokeLL(65550, null, context, bundle) == null) {
+            ek1 g0 = pj2.g0();
+            if (!hw2.Y()) {
+                g0.getSwitch("swan_preload_keep_alive", true);
+            }
+            l(context, bundle);
         }
-        return (String) invokeV.objValue;
     }
 }

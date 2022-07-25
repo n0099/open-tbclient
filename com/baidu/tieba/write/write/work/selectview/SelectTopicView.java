@@ -27,7 +27,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ur4;
+import com.repackage.vr4;
 import java.util.ArrayList;
 import kotlin.Metadata;
 import kotlin.jvm.internal.Intrinsics;
@@ -79,7 +79,7 @@ public class SelectTopicView extends LinearLayout {
                 label.setCompoundDrawablePadding(UtilHelper.getDimenPixelSize(R.dimen.M_W_X002));
                 label.setCompoundDrawables(pureDrawable, null, null, null);
                 String cutData = StringHelper.cutChineseAndEnglishWithEmoji(data, 16, StringHelper.STRING_MORE);
-                ur4 d = ur4.d(label);
+                vr4 d = vr4.d(label);
                 d.n(R.string.J_X01);
                 d.f(R.color.CAM_X0204);
                 Intrinsics.checkNotNullExpressionValue(cutData, "cutData");
@@ -151,11 +151,11 @@ public class SelectTopicView extends LinearLayout {
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d089f, (ViewGroup) this, true);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d08a9, (ViewGroup) this, true);
             View findViewById = findViewById(R.id.obfuscated_res_0x7f092518);
             Intrinsics.checkNotNullExpressionValue(findViewById, "findViewById(R.id.work_publish_topic_sign)");
             setMTopicTitleSign((ImageView) findViewById);
-            View findViewById2 = findViewById(R.id.obfuscated_res_0x7f091284);
+            View findViewById2 = findViewById(R.id.obfuscated_res_0x7f091260);
             Intrinsics.checkNotNullExpressionValue(findViewById2, "findViewById(R.id.left_title)");
             setMLeftTitle((TextView) findViewById2);
             View findViewById3 = findViewById(R.id.obfuscated_res_0x7f0905b1);
@@ -164,7 +164,7 @@ public class SelectTopicView extends LinearLayout {
             View findViewById4 = findViewById(R.id.obfuscated_res_0x7f0905af);
             Intrinsics.checkNotNullExpressionValue(findViewById4, "findViewById(R.id.center_content)");
             setMCenterContent((AutoChangeLineView) findViewById4);
-            View findViewById5 = findViewById(R.id.obfuscated_res_0x7f091b28);
+            View findViewById5 = findViewById(R.id.obfuscated_res_0x7f091b02);
             Intrinsics.checkNotNullExpressionValue(findViewById5, "findViewById(R.id.right_arrow)");
             setMRightArrow((ImageView) findViewById5);
             View findViewById6 = findViewById(R.id.obfuscated_res_0x7f0903ca);

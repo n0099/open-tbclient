@@ -92,8 +92,8 @@ public class uu7 extends du7<rr7, PbLoadPreReplyViewHolder> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d068f, viewGroup, false);
-            inflate.findViewById(R.id.obfuscated_res_0x7f09224d).setOnClickListener(new a(this, inflate));
+            View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0699, viewGroup, false);
+            inflate.findViewById(R.id.obfuscated_res_0x7f09224f).setOnClickListener(new a(this, inflate));
             return new PbLoadPreReplyViewHolder(this.a, inflate);
         }
         return (PbLoadPreReplyViewHolder) invokeL.objValue;
@@ -106,8 +106,8 @@ public class uu7 extends du7<rr7, PbLoadPreReplyViewHolder> {
             super.S(i, view2, viewGroup, rr7Var, pbLoadPreReplyViewHolder);
             if (pbLoadPreReplyViewHolder != null && rr7Var != null) {
                 this.p = pbLoadPreReplyViewHolder;
-                pbLoadPreReplyViewHolder.e(rr7Var.a());
-                pbLoadPreReplyViewHolder.c();
+                pbLoadPreReplyViewHolder.d(rr7Var.a());
+                pbLoadPreReplyViewHolder.b();
             }
             return view2;
         }
@@ -127,6 +127,6 @@ public class uu7 extends du7<rr7, PbLoadPreReplyViewHolder> {
         if (!(interceptable == null || interceptable.invokeI(1048581, this, i) == null) || (pbLoadPreReplyViewHolder = this.p) == null) {
             return;
         }
-        pbLoadPreReplyViewHolder.d(i);
+        pbLoadPreReplyViewHolder.c(i);
     }
 }

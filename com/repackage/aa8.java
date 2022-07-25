@@ -65,12 +65,12 @@ public class aa8 extends an<ni8, PbAppLegoViewHolder> implements o98, j98 {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && this.a.g != null && this.a.k) {
-                int e = ((PbAppLegoViewHolder) this.a.g).e();
-                if (((PbAppLegoViewHolder) this.a.g).d()) {
-                    if (e == -1) {
-                        ((PbAppLegoViewHolder) this.a.g).c((int) TimeUnit.SECONDS.toSeconds(1L));
+                int d = ((PbAppLegoViewHolder) this.a.g).d();
+                if (((PbAppLegoViewHolder) this.a.g).c()) {
+                    if (d == -1) {
+                        ((PbAppLegoViewHolder) this.a.g).b((int) TimeUnit.SECONDS.toSeconds(1L));
                     }
-                } else if (e != -1) {
+                } else if (d != -1) {
                     ((PbAppLegoViewHolder) this.a.g).stopPlay();
                 }
             }
@@ -245,14 +245,14 @@ public class aa8 extends an<ni8, PbAppLegoViewHolder> implements o98, j98 {
                 PbAppLegoViewHolder N = N(viewGroup, ni8Var);
                 this.g = N;
                 if (N != null) {
-                    view2 = N.b();
+                    view2 = N.a();
                 }
             }
             View view3 = view2;
             if (view3 != null) {
                 view3 = S(i, view3, viewGroup, ni8Var, (PbAppLegoViewHolder) view3.getTag());
                 if (m98.class.isAssignableFrom(view3.getClass())) {
-                    ((PbAppLegoViewHolder) this.g).g(((m98) view3).getVideoOrVrView());
+                    ((PbAppLegoViewHolder) this.g).f(((m98) view3).getVideoOrVrView());
                 }
             }
             return view3;
@@ -269,7 +269,7 @@ public class aa8 extends an<ni8, PbAppLegoViewHolder> implements o98, j98 {
                 return true;
             }
             AdvertAppInfo.ILegoAdvert T0 = ni8Var.T0();
-            Object tag = view2.getTag(R.id.obfuscated_res_0x7f091ef7);
+            Object tag = view2.getTag(R.id.obfuscated_res_0x7f091efb);
             if (tag instanceof AdvertAppInfo.ILegoAdvert) {
                 return !T0.isReusable((AdvertAppInfo.ILegoAdvert) tag);
             }
@@ -328,17 +328,17 @@ public class aa8 extends an<ni8, PbAppLegoViewHolder> implements o98, j98 {
             }
             pbAppLegoViewHolder.setIsRecyclable(false);
             AdvertAppInfo.ILegoAdvert T0 = ni8Var.T0();
-            view2.setTag(R.id.obfuscated_res_0x7f091ef7, T0);
+            view2.setTag(R.id.obfuscated_res_0x7f091efb, T0);
             this.i.getLayoutMode().k(TbadkCoreApplication.getInst().getSkinType() == 1);
             this.i.getLayoutMode().j(view2);
-            sn4.f(ni8Var);
+            tn4.f(ni8Var);
             AdvertAppInfo advertAppInfo = ni8Var.getAdvertAppInfo();
             if (advertAppInfo.i == null) {
-                advertAppInfo.i = new sn4();
+                advertAppInfo.i = new tn4();
             }
-            sn4 sn4Var = advertAppInfo.i;
-            sn4Var.b = ni8Var.O0;
-            sn4Var.a = ni8Var.S0();
+            tn4 tn4Var = advertAppInfo.i;
+            tn4Var.b = ni8Var.O0;
+            tn4Var.a = ni8Var.S0();
             advertAppInfo.position = ni8Var.Q0;
             pd7 pd7Var = (pd7) view2;
             T0.setAdvertAppInfo(advertAppInfo);
@@ -367,7 +367,7 @@ public class aa8 extends an<ni8, PbAppLegoViewHolder> implements o98, j98 {
             WeakReference<PbAppLegoViewHolder> weakReference = this.o;
             PbAppLegoViewHolder pbAppLegoViewHolder = weakReference != null ? weakReference.get() : null;
             if (pbAppLegoViewHolder != null) {
-                pbAppLegoViewHolder.h();
+                pbAppLegoViewHolder.g();
             }
         }
     }
@@ -379,7 +379,7 @@ public class aa8 extends an<ni8, PbAppLegoViewHolder> implements o98, j98 {
         if (!(interceptable == null || interceptable.invokeV(1048587, this) == null) || (v = this.g) == 0) {
             return;
         }
-        ((PbAppLegoViewHolder) v).f();
+        ((PbAppLegoViewHolder) v).e();
     }
 
     @Override // com.repackage.j98
@@ -398,9 +398,9 @@ public class aa8 extends an<ni8, PbAppLegoViewHolder> implements o98, j98 {
     public void onResume() {
         V v;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048589, this) == null) && (v = this.g) != 0 && ((PbAppLegoViewHolder) v).d()) {
-            if (((PbAppLegoViewHolder) this.g).e() == -1) {
-                ((PbAppLegoViewHolder) this.g).c((int) TimeUnit.SECONDS.toSeconds(1L));
+        if ((interceptable == null || interceptable.invokeV(1048589, this) == null) && (v = this.g) != 0 && ((PbAppLegoViewHolder) v).c()) {
+            if (((PbAppLegoViewHolder) this.g).d() == -1) {
+                ((PbAppLegoViewHolder) this.g).b((int) TimeUnit.SECONDS.toSeconds(1L));
             }
             this.k = true;
         }

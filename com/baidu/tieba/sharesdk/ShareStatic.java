@@ -39,12 +39,12 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.tun2tornadolite.Tun2tornado;
-import com.repackage.dz4;
+import com.repackage.ez4;
 import com.repackage.hd8;
-import com.repackage.hn4;
 import com.repackage.hx8;
-import com.repackage.hz4;
 import com.repackage.id8;
+import com.repackage.in4;
+import com.repackage.iz4;
 import com.repackage.jd8;
 import com.repackage.kd8;
 import com.repackage.ld8;
@@ -98,26 +98,26 @@ public class ShareStatic {
             }
             CommandShareHttpResMsg commandShareHttpResMsg = (CommandShareHttpResMsg) httpResponsedMessage;
             Object extra = commandShareHttpResMsg.getOrginalMessage().getExtra();
-            if (!(extra instanceof hn4) || TextUtils.isEmpty(commandShareHttpResMsg.token)) {
+            if (!(extra instanceof in4) || TextUtils.isEmpty(commandShareHttpResMsg.token)) {
                 return;
             }
-            hn4 hn4Var = (hn4) extra;
-            String replace = hn4Var.a.z0.replace(Tun2tornado.ENV_TOKEN, commandShareHttpResMsg.token);
-            ShareItem shareItem = hn4Var.a;
+            in4 in4Var = (in4) extra;
+            String replace = in4Var.a.z0.replace(Tun2tornado.ENV_TOKEN, commandShareHttpResMsg.token);
+            ShareItem shareItem = in4Var.a;
             shareItem.z0 = replace;
-            int i = hn4Var.c;
+            int i = in4Var.c;
             if (i == 0) {
-                ShareDialogConfig shareDialogConfig = new ShareDialogConfig(hn4Var.b, hn4Var.a, false);
-                shareDialogConfig.onCancelListener = hn4Var.d;
+                ShareDialogConfig shareDialogConfig = new ShareDialogConfig(in4Var.b, in4Var.a, false);
+                shareDialogConfig.onCancelListener = in4Var.d;
                 MessageManager.getInstance().sendMessage(new CustomMessage(2001276, shareDialogConfig));
                 return;
             }
-            dz4.e(shareItem, hn4Var.b, i, hn4Var.d);
+            ez4.e(shareItem, in4Var.b, i, in4Var.d);
         }
     }
 
     /* loaded from: classes4.dex */
-    public static class b implements CustomMessageTask.CustomRunnable<hz4> {
+    public static class b implements CustomMessageTask.CustomRunnable<iz4> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -137,7 +137,7 @@ public class ShareStatic {
 
         /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.CustomMessage] */
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage<hz4> run(CustomMessage<hz4> customMessage) {
+        public CustomResponsedMessage<iz4> run(CustomMessage<iz4> customMessage) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) ? new CustomResponsedMessage<>(2001445, new wc8()) : (CustomResponsedMessage) invokeL.objValue;

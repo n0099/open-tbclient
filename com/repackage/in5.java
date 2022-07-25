@@ -3,7 +3,6 @@ package com.repackage;
 import android.app.Activity;
 import android.os.Bundle;
 import android.util.Log;
-import com.baidu.sapi2.service.AbstractThirdPartyService;
 import com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
@@ -49,7 +48,7 @@ public class in5 extends ActivityDelegation {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
                 this.a.mResult.putInt("status_code", bundle.getInt("result_code"));
-                this.a.mResult.putString("params", bundle.getString(AbstractThirdPartyService.EXTRA_RESULT_MSG));
+                this.a.mResult.putString("params", bundle.getString("result_msg"));
                 this.a.finish();
             }
         }
@@ -68,7 +67,7 @@ public class in5 extends ActivityDelegation {
                 return;
             }
         }
-        a = rg1.a;
+        a = sg1.a;
     }
 
     public in5() {
@@ -111,8 +110,8 @@ public class in5 extends ActivityDelegation {
                 Log.d("BaiFuBaoPayDelegation", "PAYMENT onExec");
             }
             Log.d("BaiFuBaoPayDelegation", "PAYMENT onExec");
-            if (!e95.c().d()) {
-                pi.N(TbadkCoreApplication.getInst(), R.string.obfuscated_res_0x7f0f0e9a);
+            if (!f95.c().d()) {
+                pi.N(TbadkCoreApplication.getInst(), R.string.obfuscated_res_0x7f0f0e83);
                 return false;
             } else if (getAgent() instanceof Activity) {
                 en5 en5Var = new en5();

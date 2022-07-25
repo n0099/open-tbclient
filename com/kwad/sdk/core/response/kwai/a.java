@@ -2,7 +2,7 @@ package com.kwad.sdk.core.response.kwai;
 
 import androidx.annotation.Nullable;
 import com.kwad.sdk.core.b;
-import com.kwad.sdk.core.b.kwai.cz;
+import com.kwad.sdk.core.b.kwai.dd;
 import com.kwad.sdk.core.d;
 import java.util.ArrayList;
 import java.util.List;
@@ -22,7 +22,7 @@ public class a implements b {
         if (a.class.equals(cls) || WHITE_LIST.contains(cls.getName())) {
             return null;
         }
-        return cz.a(cls);
+        return dd.getHolder(cls);
     }
 
     private List<d<a>> getHolders() {
@@ -37,7 +37,7 @@ public class a implements b {
         }
         List<d<a>> list = this.mHolders;
         if (list == null || list.isEmpty()) {
-            com.kwad.sdk.core.d.b.a(new IllegalStateException("no holders for class: " + getClass()));
+            com.kwad.sdk.core.e.b.printStackTrace(new IllegalStateException("no holders for class: " + getClass()));
         }
         return this.mHolders;
     }
@@ -65,6 +65,9 @@ public class a implements b {
         List<d<a>> holders = getHolders();
         JSONObject jSONObject = new JSONObject();
         beforeToJson(jSONObject);
+        if (holders == null) {
+            return jSONObject;
+        }
         for (int size = holders.size() - 1; size >= 0; size--) {
             d<a> dVar = holders.get(size);
             if (dVar != null) {

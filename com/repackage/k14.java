@@ -1,297 +1,162 @@
 package com.repackage;
 
-import android.annotation.SuppressLint;
-import android.content.SharedPreferences;
-import android.text.TextUtils;
-import android.util.Log;
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.appcompat.widget.ActivityChooserModel;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobstat.Config;
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.pyramid.annotation.Singleton;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.v8engine.JsObject;
+import com.baidu.searchbox.v8engine.JsSerializeValue;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.cc3;
-import com.repackage.ww3;
-import java.io.File;
-import java.util.Set;
-@Singleton
-@Service
 /* loaded from: classes6.dex */
-public class k14 implements wh1 {
+public class k14 extends n14 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean c;
     public transient /* synthetic */ FieldHolder $fh;
-    public SharedPreferences a;
-    public File b;
 
-    /* loaded from: classes6.dex */
-    public class a implements cc3.a<Long> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ k14 a;
-
-        public a(k14 k14Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {k14Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = k14Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        /* JADX WARN: Can't rename method to resolve collision */
-        @Override // com.repackage.cc3.a
-        public Long update() throws IllegalStateException {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? Long.valueOf(this.a.m()) : (Long) invokeV.objValue;
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755611741, "Lcom/repackage/k14;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755611741, "Lcom/repackage/k14;");
-                return;
-            }
-        }
-        c = rg1.a;
-    }
-
-    public k14() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public k14(s72 s72Var) {
+        super(s72Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {s72Var};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((s72) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        String o = o();
-        if (c) {
-            Log.i("SwanGameStorageManager", "preferencesName:" + o);
-        }
-        if (o != null) {
-            this.a = oj2.c().getSharedPreferences(o, 0);
-            File q = q();
-            this.b = new File(q, o + ActivityChooserModel.HISTORY_FILE_EXTENSION);
-        }
-        dc3.h.b(new a(this));
     }
 
-    public static void k(String str) {
+    public final void g(JsObject jsObject, String str, String str2, r14 r14Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, str) == null) {
-            l(String.format("aigame_storage_%s_anonymous", str, ""));
-        }
-    }
-
-    public static void l(String str) {
-        File[] listFiles;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65539, null, str) == null) || str == null || !str.startsWith("aigame_storage_") || (listFiles = q().listFiles()) == null) {
-            return;
-        }
-        for (File file : listFiles) {
-            if (file.getName().startsWith(str)) {
-                jg4.L(file);
+        if (interceptable == null || interceptable.invokeLLLL(1048576, this, jsObject, str, str2, r14Var) == null) {
+            ps1 n = n(jsObject);
+            qu3 qu3Var = new qu3();
+            boolean g = r14Var.g();
+            qu3Var.errMsg = r14Var.c(str, str2);
+            t24.call(n, g, qu3Var);
+            if (g) {
+                return;
             }
+            b14.i(str2, qu3Var.errMsg);
         }
     }
 
-    @NonNull
-    public static File q() {
-        InterceptResult invokeV;
+    public void h(JsObject jsObject) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? new File(AppRuntime.getAppContext().getApplicationInfo().dataDir, "shared_prefs") : (File) invokeV.objValue;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jsObject) == null) {
+            g(jsObject, "clearStorage", "", a());
+        }
     }
 
-    @Override // com.repackage.wh1
-    public String a(String str) {
+    public final JsSerializeValue i(JsObject jsObject) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) ? rc2.Y(str) : (String) invokeL.objValue;
-    }
-
-    @Override // com.repackage.wh1
-    public q82 b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new i14() : (q82) invokeV.objValue;
-    }
-
-    @Override // com.repackage.wh1
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            rc2.c();
-        }
-    }
-
-    @Override // com.repackage.wh1
-    public File[] d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? q().listFiles() : (File[]) invokeV.objValue;
-    }
-
-    @Override // com.repackage.wh1
-    public String e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? rc2.p() : (String) invokeV.objValue;
-    }
-
-    @Override // com.repackage.wh1
-    public void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            String J = jg4.J(ww3.d());
-            String J2 = jg4.J(ww3.d.g());
-            g();
-            c();
-            jg4.k(J);
-            jg4.k(J2);
-        }
-    }
-
-    @Override // com.repackage.wh1
-    public void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            l("aigame_storage_");
-        }
-    }
-
-    @Override // com.repackage.wh1
-    public String h(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) ? rc2.Z(str) : (String) invokeL.objValue;
-    }
-
-    @Override // com.repackage.wh1
-    public void i() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            oc2.c();
-        }
-    }
-
-    @SuppressLint({"ApplySharedPref"})
-    public boolean j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? r() && this.a.edit().clear().commit() : invokeV.booleanValue;
-    }
-
-    public long m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            File file = this.b;
-            if (file != null) {
-                return file.length();
-            }
-            return 0L;
-        }
-        return invokeV.longValue;
-    }
-
-    public String[] n() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            if (r()) {
-                Set<String> keySet = this.a.getAll().keySet();
-                String[] strArr = new String[keySet.size()];
-                keySet.toArray(strArr);
-                return strArr;
-            }
-            return new String[0];
-        }
-        return (String[]) invokeV.objValue;
-    }
-
-    @Nullable
-    public final String o() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            String g0 = h03.g0();
-            if (TextUtils.isEmpty(g0)) {
-                return null;
-            }
-            return String.format("aigame_storage_%s_anonymous", g0);
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String p(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048589, this, str, str2)) == null) {
-            if (r()) {
-                return this.a.getString(str, str2);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jsObject)) == null) {
+            for (int i = 0; i < jsObject.length(); i++) {
+                if ("data".equals(jsObject.getPropertyName(i))) {
+                    return jsObject.toSerializeValue(i);
+                }
             }
             return null;
+        }
+        return (JsSerializeValue) invokeL.objValue;
+    }
+
+    public final r14 j(JsObject jsObject) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, jsObject)) == null) {
+            for (int i = 0; i < jsObject.length(); i++) {
+                if ("key".equals(jsObject.getPropertyName(i))) {
+                    int propertyType = jsObject.getPropertyType(i);
+                    return propertyType == 7 ? r14.i(jsObject.toString(i)) : r14.b(String.format("parameter error: the key must be string instead of %s.", r14.f(propertyType)));
+                }
+            }
+            return r14.b("parameter error: the parameter key is necessary.");
+        }
+        return (r14) invokeL.objValue;
+    }
+
+    public void k(JsObject jsObject) {
+        String m;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, jsObject) == null) || (m = m(jsObject, "getStorage")) == null) {
+            return;
+        }
+        r14 c = c(m);
+        if (c.g()) {
+            p14 p14Var = new p14();
+            p14Var.errMsg = o14.b("getStorage");
+            Object d = c.d();
+            p14Var.data = d;
+            if (d instanceof JsSerializeValue) {
+                ((JsSerializeValue) d).setAutoRelease(false);
+            }
+            t24.call(n(jsObject), true, p14Var);
+            return;
+        }
+        g(jsObject, "getStorage", m, c);
+    }
+
+    public void l(JsObject jsObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, jsObject) == null) {
+            ps1 n = n(jsObject);
+            q14 b = b();
+            b.errMsg = o14.b("getStorageInfo");
+            t24.call(n, true, b);
+        }
+    }
+
+    public final String m(JsObject jsObject, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, jsObject, str)) == null) {
+            r14 j = j(jsObject);
+            if (!j.g()) {
+                g(jsObject, str, "", j);
+                return null;
+            }
+            return (String) j.d();
         }
         return (String) invokeLL.objValue;
     }
 
-    public final boolean r() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.a != null : invokeV.booleanValue;
-    }
-
-    public long s() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? Config.FULL_TRACE_LOG_LIMIT : invokeV.longValue;
-    }
-
-    @SuppressLint({"ApplySharedPref"})
-    public boolean t(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048592, this, str, str2)) == null) ? r() && this.a.edit().putString(str, str2).commit() : invokeLL.booleanValue;
-    }
-
-    @SuppressLint({"ApplySharedPref"})
-    public boolean u(String str) {
+    @NonNull
+    public final ps1 n(JsObject jsObject) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048593, this, str)) == null) ? r() && this.a.edit().remove(str).commit() : invokeL.booleanValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, jsObject)) == null) {
+            ps1 F = ps1.F(jsObject);
+            return F == null ? new ps1() : F;
+        }
+        return (ps1) invokeL.objValue;
+    }
+
+    public void o(JsObject jsObject) {
+        String m;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, jsObject) == null) || (m = m(jsObject, "removeStorage")) == null) {
+            return;
+        }
+        g(jsObject, "removeStorage", m, e(m));
+    }
+
+    public void p(JsObject jsObject) {
+        String m;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048585, this, jsObject) == null) || (m = m(jsObject, "setStorage")) == null) {
+            return;
+        }
+        g(jsObject, "setStorage", m, f(m, i(jsObject)));
     }
 }

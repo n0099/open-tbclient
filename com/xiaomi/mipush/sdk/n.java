@@ -4,7 +4,6 @@ import android.content.ComponentName;
 import android.content.Context;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.sofire.sharedpreferences.SharedPreferenceManager;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -50,7 +49,7 @@ public class n {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
             try {
-                String str = (String) bk.a("android.os.SystemProperties", SharedPreferenceManager.OPERATION_GET_PERFIX, "ro.build.hw_emui_api_level", "");
+                String str = (String) bk.a("android.os.SystemProperties", "get", "ro.build.hw_emui_api_level", "");
                 if (!TextUtils.isEmpty(str)) {
                     if (Integer.parseInt(str) >= 9) {
                         return true;
@@ -65,7 +64,7 @@ public class n {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m1097a(Context context) {
+    public static boolean m159a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {

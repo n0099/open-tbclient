@@ -22,12 +22,12 @@ public class ul8 {
 
         /* renamed from: com.repackage.ul8$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public class RunnableC0740a implements Runnable {
+        public class RunnableC0588a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public RunnableC0740a(a aVar) {
+            public RunnableC0588a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -76,7 +76,7 @@ public class ul8 {
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                qg.a().post(new RunnableC0740a(this));
+                qg.a().post(new RunnableC0588a(this));
             }
         }
     }

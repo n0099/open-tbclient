@@ -170,8 +170,8 @@ public class za7 {
                     this.a.addPostData("obj_type", ImageViewerConfig.FROM_OTHER);
                 }
                 if (TextUtils.isEmpty(this.f.x)) {
-                    if (System.currentTimeMillis() - xt4.k().m("applist_intalled_apk_ids_timestamp", 0L) < 86400000) {
-                        this.f.x = xt4.k().q("applist_intalled_apk_ids", "");
+                    if (System.currentTimeMillis() - yt4.k().m("applist_intalled_apk_ids_timestamp", 0L) < 86400000) {
+                        this.f.x = yt4.k().q("applist_intalled_apk_ids", "");
                     }
                 }
                 this.a.addPostData("applist", this.f.x);
@@ -179,7 +179,7 @@ public class za7 {
                 if (!TextUtils.isEmpty(lastCachedOid)) {
                     this.a.addPostData("oaid", lastCachedOid);
                 }
-                this.a.addPostData("app_transmit_data", yc5.a());
+                this.a.addPostData("app_transmit_data", zc5.a());
                 this.a.addPostData("ad_ext_params", AdExtParam.a.b().a());
                 b();
                 this.a.getNetContext().getRequest().mNeedBackgroundLogin = false;
@@ -380,10 +380,10 @@ public class za7 {
                         } else if (!this.f.C) {
                             str = null;
                             this.f.c.put(str3, imageUrlData2);
-                            if (this.f.w) {
-                                this.f.a.add(i3, str3);
-                            } else {
+                            if (!this.f.w || i3 >= this.f.a.size()) {
                                 this.f.a.add(str3);
+                            } else {
+                                this.f.a.add(i3, str3);
                             }
                             this.f.b.put(imageUrlData2.id, str3);
                         } else {

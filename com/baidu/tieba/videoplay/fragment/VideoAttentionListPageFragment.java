@@ -37,7 +37,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.it8;
 import com.repackage.pi;
 import com.repackage.qt8;
-import com.repackage.ur4;
+import com.repackage.vr4;
 import java.util.List;
 import kotlin.Metadata;
 import kotlin.jvm.internal.Intrinsics;
@@ -307,19 +307,19 @@ public final class VideoAttentionListPageFragment extends BaseFragment implement
                     throw new NullPointerException("null cannot be cast to non-null type kotlin.collections.List<com.baidu.tieba.videoplay.data.VideoAttentionPersonListData>");
                 }
             }
-            View inflate = inflater.inflate(R.layout.obfuscated_res_0x7f0d0871, viewGroup, false);
+            View inflate = inflater.inflate(R.layout.obfuscated_res_0x7f0d087b, viewGroup, false);
             if (inflate != null) {
-                View inflate2 = inflater.inflate(R.layout.obfuscated_res_0x7f0d086f, viewGroup, false);
+                View inflate2 = inflater.inflate(R.layout.obfuscated_res_0x7f0d0879, viewGroup, false);
                 if (inflate2 != null) {
                     this.f = inflate2;
                     if (inflate2 == null) {
                         Intrinsics.throwUninitializedPropertyAccessException("headerView");
                         inflate2 = null;
                     }
-                    ur4 d = ur4.d(inflate2);
+                    vr4 d = vr4.d(inflate2);
                     d.n(R.string.J_X05);
                     d.g(SkinManager.getColor(0, (int) R.color.CAM_X0105));
-                    View inflate3 = inflater.inflate(R.layout.obfuscated_res_0x7f0d0870, viewGroup, false);
+                    View inflate3 = inflater.inflate(R.layout.obfuscated_res_0x7f0d087a, viewGroup, false);
                     if (inflate3 != null) {
                         this.g = inflate3;
                         View view2 = this.f;
@@ -327,10 +327,10 @@ public final class VideoAttentionListPageFragment extends BaseFragment implement
                             Intrinsics.throwUninitializedPropertyAccessException("headerView");
                             view2 = null;
                         }
-                        View findViewById = view2.findViewById(R.id.obfuscated_res_0x7f09238a);
+                        View findViewById = view2.findViewById(R.id.obfuscated_res_0x7f09238c);
                         Intrinsics.checkNotNullExpressionValue(findViewById, "headerView.findViewById(…eo_concern_no_data_title)");
                         this.h = (EMTextView) findViewById;
-                        View findViewById2 = inflate.findViewById(R.id.obfuscated_res_0x7f09240b);
+                        View findViewById2 = inflate.findViewById(R.id.obfuscated_res_0x7f09240d);
                         Intrinsics.checkNotNullExpressionValue(findViewById2, "rooView.findViewById(R.id.viedo_attention_list)");
                         BdRecyclerView bdRecyclerView2 = (BdRecyclerView) findViewById2;
                         this.e = bdRecyclerView2;

@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.cr4;
+import com.repackage.dr4;
 import java.util.Date;
 /* loaded from: classes6.dex */
 public class mi7 {
@@ -20,7 +20,7 @@ public class mi7 {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes6.dex */
-    public static class a implements cr4.e {
+    public static class a implements dr4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ e a;
@@ -45,11 +45,11 @@ public class mi7 {
             this.b = bubbleData;
         }
 
-        @Override // com.repackage.cr4.e
-        public void onClick(cr4 cr4Var) {
+        @Override // com.repackage.dr4.e
+        public void onClick(dr4 dr4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, cr4Var) == null) {
-                cr4Var.dismiss();
+            if (interceptable == null || interceptable.invokeL(1048576, this, dr4Var) == null) {
+                dr4Var.dismiss();
                 e eVar = this.a;
                 if (eVar != null) {
                     eVar.a(this.b.getBcode());
@@ -59,7 +59,7 @@ public class mi7 {
     }
 
     /* loaded from: classes6.dex */
-    public static class b implements cr4.e {
+    public static class b implements dr4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ e a;
@@ -82,11 +82,11 @@ public class mi7 {
             this.a = eVar;
         }
 
-        @Override // com.repackage.cr4.e
-        public void onClick(cr4 cr4Var) {
+        @Override // com.repackage.dr4.e
+        public void onClick(dr4 dr4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, cr4Var) == null) {
-                cr4Var.dismiss();
+            if (interceptable == null || interceptable.invokeL(1048576, this, dr4Var) == null) {
+                dr4Var.dismiss();
                 e eVar = this.a;
                 if (eVar != null) {
                     eVar.b();
@@ -96,7 +96,7 @@ public class mi7 {
     }
 
     /* loaded from: classes6.dex */
-    public static class c implements cr4.e {
+    public static class c implements dr4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ e a;
@@ -121,11 +121,11 @@ public class mi7 {
             this.b = bubbleData;
         }
 
-        @Override // com.repackage.cr4.e
-        public void onClick(cr4 cr4Var) {
+        @Override // com.repackage.dr4.e
+        public void onClick(dr4 dr4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, cr4Var) == null) {
-                cr4Var.dismiss();
+            if (interceptable == null || interceptable.invokeL(1048576, this, dr4Var) == null) {
+                dr4Var.dismiss();
                 e eVar = this.a;
                 if (eVar != null) {
                     eVar.a(this.b.getBcode());
@@ -135,7 +135,7 @@ public class mi7 {
     }
 
     /* loaded from: classes6.dex */
-    public static class d implements cr4.e {
+    public static class d implements dr4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ e a;
@@ -158,11 +158,11 @@ public class mi7 {
             this.a = eVar;
         }
 
-        @Override // com.repackage.cr4.e
-        public void onClick(cr4 cr4Var) {
+        @Override // com.repackage.dr4.e
+        public void onClick(dr4 dr4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, cr4Var) == null) {
-                cr4Var.dismiss();
+            if (interceptable == null || interceptable.invokeL(1048576, this, dr4Var) == null) {
+                dr4Var.dismiss();
                 e eVar = this.a;
                 if (eVar != null) {
                     eVar.b();
@@ -183,25 +183,25 @@ public class mi7 {
         if (!(interceptable == null || interceptable.invokeLLL(65536, null, tbPageContext, bubbleData, eVar) == null) || bubbleData == null) {
             return;
         }
-        cr4 cr4Var = new cr4(tbPageContext.getPageActivity());
-        cr4Var.setCanceledOnTouchOutside(false);
+        dr4 dr4Var = new dr4(tbPageContext.getPageActivity());
+        dr4Var.setCanceledOnTouchOutside(false);
         Date date = new Date();
         Date date2 = new Date(date.getTime() + (bubbleData.getTime_interval() * 1000));
         String dateStringDay = oi.getDateStringDay(date);
         String dateStringDay2 = oi.getDateStringDay(date2);
         String format = String.format(tbPageContext.getResources().getString(R.string.obfuscated_res_0x7f0f034b), bubbleData.getBname(), Integer.valueOf(bubbleData.getTime_interval() / 86400));
         View inflate = LayoutInflater.from(tbPageContext.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0161, (ViewGroup) null);
-        TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092097);
-        TextView textView2 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092098);
+        TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09209b);
+        TextView textView2 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09209c);
         SkinManager.setViewTextColor(textView, R.color.CAM_X0105, 1);
         SkinManager.setViewTextColor(textView2, R.color.CAM_X0108, 1);
         textView.setText(format);
-        textView2.setText(dateStringDay + tbPageContext.getString(R.string.obfuscated_res_0x7f0f1434) + dateStringDay2);
-        cr4Var.setContentView(inflate);
-        cr4Var.setPositiveButton(R.string.obfuscated_res_0x7f0f14e9, new a(eVar, bubbleData));
-        cr4Var.setNegativeButton(R.string.obfuscated_res_0x7f0f036a, new b(eVar));
-        cr4Var.create(tbPageContext);
-        cr4Var.show();
+        textView2.setText(dateStringDay + tbPageContext.getString(R.string.obfuscated_res_0x7f0f13e3) + dateStringDay2);
+        dr4Var.setContentView(inflate);
+        dr4Var.setPositiveButton(R.string.obfuscated_res_0x7f0f1498, new a(eVar, bubbleData));
+        dr4Var.setNegativeButton(R.string.obfuscated_res_0x7f0f036a, new b(eVar));
+        dr4Var.create(tbPageContext);
+        dr4Var.show();
     }
 
     public static void b(TbPageContext<?> tbPageContext, BubbleListData.BubbleData bubbleData, e eVar) {
@@ -209,12 +209,12 @@ public class mi7 {
         if (!(interceptable == null || interceptable.invokeLLL(65537, null, tbPageContext, bubbleData, eVar) == null) || bubbleData == null) {
             return;
         }
-        cr4 cr4Var = new cr4(tbPageContext.getPageActivity());
-        cr4Var.setCanceledOnTouchOutside(false);
-        cr4Var.setMessage(String.format(tbPageContext.getString(R.string.obfuscated_res_0x7f0f034d), bubbleData.getLevel_name()));
-        cr4Var.setPositiveButton(R.string.obfuscated_res_0x7f0f0ce3, new c(eVar, bubbleData));
-        cr4Var.setNegativeButton(R.string.obfuscated_res_0x7f0f036a, new d(eVar));
-        cr4Var.create(tbPageContext);
-        cr4Var.show();
+        dr4 dr4Var = new dr4(tbPageContext.getPageActivity());
+        dr4Var.setCanceledOnTouchOutside(false);
+        dr4Var.setMessage(String.format(tbPageContext.getString(R.string.obfuscated_res_0x7f0f034d), bubbleData.getLevel_name()));
+        dr4Var.setPositiveButton(R.string.obfuscated_res_0x7f0f0ccf, new c(eVar, bubbleData));
+        dr4Var.setNegativeButton(R.string.obfuscated_res_0x7f0f036a, new d(eVar));
+        dr4Var.create(tbPageContext);
+        dr4Var.show();
     }
 }

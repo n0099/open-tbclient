@@ -40,7 +40,7 @@ public class ah8 implements nn {
                 return;
             }
         }
-        h = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0486);
+        h = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0485);
     }
 
     public ah8() {

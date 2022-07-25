@@ -3,9 +3,9 @@ package com.repackage;
 public interface l3 {
     boolean a();
 
-    boolean b();
+    void e();
 
-    void f();
+    boolean isPrepared();
 
     void prepare();
 }

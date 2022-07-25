@@ -22,16 +22,16 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.mk2;
+import com.repackage.nk2;
 import org.json.JSONException;
 import org.json.JSONObject;
 @Singleton
 @Service
 /* loaded from: classes7.dex */
-public class wn5 implements mk2 {
+public class wn5 implements nk2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public mk2.a a;
+    public nk2.a a;
     public CustomMessageListener b;
 
     /* loaded from: classes7.dex */
@@ -79,9 +79,9 @@ public class wn5 implements mk2 {
     public class b implements DelegateListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ mk2.a a;
+        public final /* synthetic */ nk2.a a;
 
-        public b(wn5 wn5Var, mk2.a aVar) {
+        public b(wn5 wn5Var, nk2.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -130,8 +130,8 @@ public class wn5 implements mk2 {
         MessageManager.getInstance().registerListener(this.b);
     }
 
-    @Override // com.repackage.mk2
-    public void a(Context context, JSONObject jSONObject, mk2.a aVar) {
+    @Override // com.repackage.nk2
+    public void a(Context context, JSONObject jSONObject, nk2.a aVar) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLLL(1048576, this, context, jSONObject, aVar) == null) && (context instanceof Activity)) {
             this.a = aVar;
@@ -159,7 +159,7 @@ public class wn5 implements mk2 {
         }
     }
 
-    @Override // com.repackage.mk2
+    @Override // com.repackage.nk2
     public void b(Context context, String str, Uri uri) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str, uri) == null) {

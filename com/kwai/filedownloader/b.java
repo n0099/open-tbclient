@@ -12,12 +12,12 @@ import com.kwai.filedownloader.s;
 public final class b implements s.a, s.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-    public long b;
-    public long c;
-    public long d;
-    public int e;
-    public int f;
+    public long asm;
+    public long asn;
+    public long aso;
+    public int asp;
+    public int asq;
+    public long mStartTime;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -32,69 +32,69 @@ public final class b implements s.a, s.b {
                 return;
             }
         }
-        this.f = 1000;
+        this.asq = 1000;
     }
 
     @Override // com.kwai.filedownloader.s.b
-    public final void a() {
+    public final void U(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.e = 0;
-            this.a = 0L;
-        }
-    }
-
-    @Override // com.kwai.filedownloader.s.b
-    public final void a(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
-            this.d = SystemClock.uptimeMillis();
-            this.c = j;
-        }
-    }
-
-    @Override // com.kwai.filedownloader.s.a
-    public final int b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.e : invokeV.intValue;
-    }
-
-    @Override // com.kwai.filedownloader.s.b
-    public final void b(long j) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeJ(1048579, this, j) == null) || this.d <= 0) {
-            return;
-        }
-        long j2 = j - this.c;
-        this.a = 0L;
-        long uptimeMillis = SystemClock.uptimeMillis() - this.d;
-        if (uptimeMillis > 0) {
-            j2 /= uptimeMillis;
-        }
-        this.e = (int) j2;
-    }
-
-    @Override // com.kwai.filedownloader.s.b
-    public final void c(long j) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeJ(1048580, this, j) == null) || this.f <= 0) {
+        if (!(interceptable == null || interceptable.invokeJ(1048576, this, j) == null) || this.asq <= 0) {
             return;
         }
         boolean z = true;
-        if (this.a != 0) {
-            long uptimeMillis = SystemClock.uptimeMillis() - this.a;
-            if (uptimeMillis >= this.f || (this.e == 0 && uptimeMillis > 0)) {
-                int i = (int) ((j - this.b) / uptimeMillis);
-                this.e = i;
-                this.e = Math.max(0, i);
+        if (this.asm != 0) {
+            long uptimeMillis = SystemClock.uptimeMillis() - this.asm;
+            if (uptimeMillis >= this.asq || (this.asp == 0 && uptimeMillis > 0)) {
+                int i = (int) ((j - this.asn) / uptimeMillis);
+                this.asp = i;
+                this.asp = Math.max(0, i);
             } else {
                 z = false;
             }
         }
         if (z) {
-            this.b = j;
-            this.a = SystemClock.uptimeMillis();
+            this.asn = j;
+            this.asm = SystemClock.uptimeMillis();
+        }
+    }
+
+    @Override // com.kwai.filedownloader.s.b
+    public final void end(long j) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) || this.mStartTime <= 0) {
+            return;
+        }
+        long j2 = j - this.aso;
+        this.asm = 0L;
+        long uptimeMillis = SystemClock.uptimeMillis() - this.mStartTime;
+        if (uptimeMillis > 0) {
+            j2 /= uptimeMillis;
+        }
+        this.asp = (int) j2;
+    }
+
+    @Override // com.kwai.filedownloader.s.a
+    public final int getSpeed() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.asp : invokeV.intValue;
+    }
+
+    @Override // com.kwai.filedownloader.s.b
+    public final void reset() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.asp = 0;
+            this.asm = 0L;
+        }
+    }
+
+    @Override // com.kwai.filedownloader.s.b
+    public final void start(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048580, this, j) == null) {
+            this.mStartTime = SystemClock.uptimeMillis();
+            this.aso = j;
         }
     }
 }

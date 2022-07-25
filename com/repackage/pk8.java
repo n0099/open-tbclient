@@ -31,10 +31,10 @@ public class pk8 {
     public ArrayList<String> l;
     public CustomDialogData m;
     public ContriInfo n;
-    public iq4 o;
+    public jq4 o;
     public VideoEasterEggData p;
     public IconStampData q;
-    public d05 r;
+    public e05 r;
 
     public pk8(int i, String str, AntiData antiData) {
         Interceptable interceptable = $ic;
@@ -122,10 +122,10 @@ public class pk8 {
         }
     }
 
-    public void J(iq4 iq4Var) {
+    public void J(jq4 jq4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, iq4Var) == null) {
-            this.o = iq4Var;
+        if (interceptable == null || interceptable.invokeL(1048585, this, jq4Var) == null) {
+            this.o = jq4Var;
         }
     }
 
@@ -163,10 +163,10 @@ public class pk8 {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.m : (CustomDialogData) invokeV.objValue;
     }
 
-    public d05 b() {
+    public e05 b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.r : (d05) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.r : (e05) invokeV.objValue;
     }
 
     public AntiData c() {
@@ -235,10 +235,10 @@ public class pk8 {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) ? this.c : (String) invokeV.objValue;
     }
 
-    public iq4 n() {
+    public jq4 n() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) ? this.o : (iq4) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) ? this.o : (jq4) invokeV.objValue;
     }
 
     public ArrayList<String> o() {
@@ -312,10 +312,10 @@ public class pk8 {
         }
     }
 
-    public void z(d05 d05Var) {
+    public void z(e05 e05Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048615, this, d05Var) == null) {
-            this.r = d05Var;
+        if (interceptable == null || interceptable.invokeL(1048615, this, e05Var) == null) {
+            this.r = e05Var;
         }
     }
 }

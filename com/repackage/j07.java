@@ -62,11 +62,11 @@ public class j07 extends an<u07, AdapterViewHolder<HotTopicRankLayout>> implemen
             if (u07Var == null || adapterViewHolder == null) {
                 return null;
             }
-            HotTopicRankLayout c = adapterViewHolder.c();
-            c.setTabCode(this.j);
-            c.a(u07Var);
-            c.onChangeSkinType(this.i, TbadkCoreApplication.getInst().getSkinType());
-            return adapterViewHolder.b();
+            HotTopicRankLayout b = adapterViewHolder.b();
+            b.setTabCode(this.j);
+            b.a(u07Var);
+            b.onChangeSkinType(this.i, TbadkCoreApplication.getInst().getSkinType());
+            return adapterViewHolder.a();
         }
         return (View) invokeCommon.objValue;
     }

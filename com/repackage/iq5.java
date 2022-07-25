@@ -49,10 +49,10 @@ public class iq5 extends jx5<zp5> {
             }
         }
         this.m = h();
-        this.o = (RelativeLayout) h().findViewById(R.id.obfuscated_res_0x7f090e00);
-        this.i = (TextView) h().findViewById(R.id.obfuscated_res_0x7f090dfe);
-        this.j = (TextView) h().findViewById(R.id.obfuscated_res_0x7f090dfd);
-        HeadImageView headImageView = (HeadImageView) h().findViewById(R.id.obfuscated_res_0x7f090dfc);
+        this.o = (RelativeLayout) h().findViewById(R.id.obfuscated_res_0x7f090df9);
+        this.i = (TextView) h().findViewById(R.id.obfuscated_res_0x7f090df7);
+        this.j = (TextView) h().findViewById(R.id.obfuscated_res_0x7f090df6);
+        HeadImageView headImageView = (HeadImageView) h().findViewById(R.id.obfuscated_res_0x7f090df5);
         this.k = headImageView;
         headImageView.setAutoChangeStyle(true);
         this.k.setIsRound(true);
@@ -60,7 +60,7 @@ public class iq5 extends jx5<zp5> {
         this.k.setPlaceHolder(1);
         this.k.setBorderWidth(pi.f(tbPageContext.getPageActivity(), R.dimen.tbds1));
         this.k.setDefaultScaleType(ImageView.ScaleType.CENTER_CROP);
-        this.l = (TextView) h().findViewById(R.id.obfuscated_res_0x7f090dff);
+        this.l = (TextView) h().findViewById(R.id.obfuscated_res_0x7f090df8);
         this.o.setOnClickListener(this);
         j(tbPageContext, TbadkCoreApplication.getInst().getSkinType());
     }
@@ -69,7 +69,7 @@ public class iq5 extends jx5<zp5> {
     public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d0800 : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d080a : invokeV.intValue;
     }
 
     @Override // com.repackage.jx5

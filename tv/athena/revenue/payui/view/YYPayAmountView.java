@@ -819,14 +819,14 @@ public class YYPayAmountView extends LinearLayout implements IYYPayAmountView {
                 this.d.setVisibility(0);
                 if (str != null) {
                     if (i2 == 4) {
-                        this.d.setText(String.format(this.a.getString(R.string.obfuscated_res_0x7f0f0d6a), a2, str));
+                        this.d.setText(String.format(this.a.getString(R.string.obfuscated_res_0x7f0f0d53), a2, str));
                     } else {
-                        this.d.setText(String.format(this.a.getString(R.string.obfuscated_res_0x7f0f0d6b), a2, str));
+                        this.d.setText(String.format(this.a.getString(R.string.obfuscated_res_0x7f0f0d54), a2, str));
                     }
                 } else if (i2 == 4) {
-                    this.d.setText(String.format(this.a.getString(R.string.obfuscated_res_0x7f0f0d69), a2));
+                    this.d.setText(String.format(this.a.getString(R.string.obfuscated_res_0x7f0f0d52), a2));
                 } else {
-                    this.d.setText(String.format(this.a.getString(R.string.obfuscated_res_0x7f0f0d6c), a2));
+                    this.d.setText(String.format(this.a.getString(R.string.obfuscated_res_0x7f0f0d55), a2));
                 }
             } else {
                 RLog.warn("YYPayAmountView", "updateMyBalanceUI: ignore");
@@ -850,7 +850,7 @@ public class YYPayAmountView extends LinearLayout implements IYYPayAmountView {
             return;
         }
         textView.setVisibility(0);
-        this.e.setText(String.format(this.a.getString(R.string.obfuscated_res_0x7f0f0d79), Long.valueOf(this.q)));
+        this.e.setText(String.format(this.a.getString(R.string.obfuscated_res_0x7f0f0d62), Long.valueOf(this.q)));
         this.e.setOnLongClickListener(new f(this));
     }
 
@@ -916,13 +916,13 @@ public class YYPayAmountView extends LinearLayout implements IYYPayAmountView {
     public final void y(Activity activity) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048600, this, activity) == null) {
-            LayoutInflater.from(new ContextThemeWrapper(activity, nz9.a.a(this.m))).inflate(R.layout.obfuscated_res_0x7f0d0666, (ViewGroup) this, true);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f0921fe);
-            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f0922b5);
+            LayoutInflater.from(new ContextThemeWrapper(activity, nz9.a.a(this.m))).inflate(R.layout.obfuscated_res_0x7f0d0670, (ViewGroup) this, true);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f092200);
+            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f0922b7);
             PayAmountAdapter payAmountAdapter = new PayAmountAdapter(this.a, this.B, this.n, this.m);
             this.l = payAmountAdapter;
             payAmountAdapter.j(this.v);
-            this.j = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f090c9e);
+            this.j = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f090c97);
             this.l.k(new a(this));
             TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f09040b);
             this.b = textView;
@@ -934,10 +934,10 @@ public class YYPayAmountView extends LinearLayout implements IYYPayAmountView {
             if (payUIKitConfig != null) {
                 pluginCenterTopBanner.setImageLoaderSupplier(payUIKitConfig.imageLoaderSupplier);
             }
-            this.g = findViewById(R.id.obfuscated_res_0x7f091b6b);
-            this.h = (ImageView) findViewById(R.id.obfuscated_res_0x7f090faa);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f092241);
-            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f0921f2);
+            this.g = findViewById(R.id.obfuscated_res_0x7f091b45);
+            this.h = (ImageView) findViewById(R.id.obfuscated_res_0x7f090fa3);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f092243);
+            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f0921f4);
             yy9.d(this.z, this.A, "1", "", "", "");
         }
     }

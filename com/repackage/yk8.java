@@ -67,10 +67,10 @@ public class yk8 {
             }
             FragmentTabWidget fragmentTabWidget = this.a.c.getFragmentTabWidget();
             int k = pi.k(this.a.a.getActivity());
-            int f = pi.f(this.a.a.getActivity(), R.dimen.obfuscated_res_0x7f070293);
+            int f = pi.f(this.a.a.getActivity(), R.dimen.obfuscated_res_0x7f070291);
             this.a.b.getContentView().measure(0, 0);
-            sg.l(this.a.b, fragmentTabWidget, (k - pi.f(this.a.a.getActivity(), R.dimen.obfuscated_res_0x7f0702c3)) / 2, -f);
-            xt4.k().x("home_tip", this.a.e);
+            sg.l(this.a.b, fragmentTabWidget, (k - pi.f(this.a.a.getActivity(), R.dimen.obfuscated_res_0x7f0702c1)) / 2, -f);
+            yt4.k().x("home_tip", this.a.e);
             qg.a().postDelayed(this.a.j, 5000L);
             TiebaStatic.log(new StatisticItem("c13016").param("obj_locate", 1));
         }
@@ -166,7 +166,7 @@ public class yk8 {
         this.j = new b(this);
         this.k = new c(this);
         this.a = mainTabActivity;
-        this.c = (FragmentTabHost) mainTabActivity.findViewById(R.id.obfuscated_res_0x7f091ec6);
+        this.c = (FragmentTabHost) mainTabActivity.findViewById(R.id.obfuscated_res_0x7f091eca);
     }
 
     public void g() {
@@ -194,20 +194,20 @@ public class yk8 {
 
     public void j(String str, String str2, long j) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{str, str2, Long.valueOf(j)}) == null) || xt4.k().m("home_tip", 0L) == j || StringUtils.isNull(str) || StringUtils.isNull(str2)) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{str, str2, Long.valueOf(j)}) == null) || yt4.k().m("home_tip", 0L) == j || StringUtils.isNull(str) || StringUtils.isNull(str2)) {
             return;
         }
         this.d = str2;
         this.e = j;
         if (this.f == null) {
-            View inflate = LayoutInflater.from(this.a.getActivity()).inflate(R.layout.obfuscated_res_0x7f0d0841, (ViewGroup) null);
+            View inflate = LayoutInflater.from(this.a.getActivity()).inflate(R.layout.obfuscated_res_0x7f0d084b, (ViewGroup) null);
             this.f = inflate;
-            this.g = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0920b7);
-            this.h = (TextView) this.f.findViewById(R.id.obfuscated_res_0x7f0920b9);
+            this.g = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0920bb);
+            this.h = (TextView) this.f.findViewById(R.id.obfuscated_res_0x7f0920bc);
             this.f.setOnClickListener(this.k);
         }
         this.g.setText(StringHelper.cutHotTopicShow(str, 24, StringHelper.STRING_MORE));
-        this.h.setText(R.string.obfuscated_res_0x7f0f144d);
+        this.h.setText(R.string.obfuscated_res_0x7f0f13fc);
         if (this.b == null) {
             this.b = new PopupWindow(this.f, -2, -2);
         } else {

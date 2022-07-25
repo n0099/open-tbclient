@@ -125,28 +125,28 @@ public class rw7 {
                     str4 = tid;
                     str2 = str5;
                 } else {
-                    if (view2.getTag(R.id.obfuscated_res_0x7f091f3d) instanceof String) {
-                        str = (String) view2.getTag(R.id.obfuscated_res_0x7f091f3d);
+                    if (view2.getTag(R.id.obfuscated_res_0x7f091f41) instanceof String) {
+                        str = (String) view2.getTag(R.id.obfuscated_res_0x7f091f41);
                     } else {
                         str = view2.getTag() instanceof String ? (String) view2.getTag() : null;
                     }
-                    String str6 = view2.getTag(R.id.obfuscated_res_0x7f091f45) instanceof String ? (String) view2.getTag(R.id.obfuscated_res_0x7f091f45) : null;
-                    str2 = ((view2.getTag() instanceof SparseArray) && (((SparseArray) view2.getTag()).get(R.id.obfuscated_res_0x7f091f3d) instanceof String)) ? (String) ((SparseArray) view2.getTag()).get(R.id.obfuscated_res_0x7f091f3d) : str;
+                    String str6 = view2.getTag(R.id.obfuscated_res_0x7f091f49) instanceof String ? (String) view2.getTag(R.id.obfuscated_res_0x7f091f49) : null;
+                    str2 = ((view2.getTag() instanceof SparseArray) && (((SparseArray) view2.getTag()).get(R.id.obfuscated_res_0x7f091f41) instanceof String)) ? (String) ((SparseArray) view2.getTag()).get(R.id.obfuscated_res_0x7f091f41) : str;
                     str3 = str6;
                     alaInfoData = null;
                     str4 = null;
                 }
-                if (view2.getTag(R.id.obfuscated_res_0x7f091f33) instanceof StatisticItem) {
-                    TiebaStatic.log((StatisticItem) view2.getTag(R.id.obfuscated_res_0x7f091f33));
+                if (view2.getTag(R.id.obfuscated_res_0x7f091f37) instanceof StatisticItem) {
+                    TiebaStatic.log((StatisticItem) view2.getTag(R.id.obfuscated_res_0x7f091f37));
                 }
-                if (view2.getTag(R.id.obfuscated_res_0x7f091f14) != null && (view2.getTag(R.id.obfuscated_res_0x7f091f14) instanceof String)) {
-                    String str7 = (String) view2.getTag(R.id.obfuscated_res_0x7f091f14);
+                if (view2.getTag(R.id.obfuscated_res_0x7f091f18) != null && (view2.getTag(R.id.obfuscated_res_0x7f091f18) instanceof String)) {
+                    String str7 = (String) view2.getTag(R.id.obfuscated_res_0x7f091f18);
                     if (!TextUtils.isEmpty(str7) && ViewHelper.checkUpIsLogin(TbadkCoreApplication.getInst())) {
                         MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new TbWebViewActivityConfig(this.a.a.getPageContext().getPageActivity(), null, str7, true)));
                         return;
                     }
                 }
-                String str8 = view2.getTag(R.id.obfuscated_res_0x7f091f47) instanceof String ? (String) view2.getTag(R.id.obfuscated_res_0x7f091f47) : null;
+                String str8 = view2.getTag(R.id.obfuscated_res_0x7f091f4b) instanceof String ? (String) view2.getTag(R.id.obfuscated_res_0x7f091f4b) : null;
                 if (str8 != null) {
                     if (!ViewHelper.checkUpIsLogin(TbadkCoreApplication.getInst())) {
                         return;
@@ -206,8 +206,8 @@ public class rw7 {
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && (view2.getTag(R.id.obfuscated_res_0x7f091f3d) instanceof String)) {
-                rl4.s(TbadkCoreApplication.getInst(), TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f14ed), rw7.g + "?user_id=" + ((String) view2.getTag(R.id.obfuscated_res_0x7f091f3d)) + "&opacity=0", true, true, true);
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && (view2.getTag(R.id.obfuscated_res_0x7f091f41) instanceof String)) {
+                sl4.s(TbadkCoreApplication.getInst(), TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f149c), rw7.g + "?user_id=" + ((String) view2.getTag(R.id.obfuscated_res_0x7f091f41)) + "&opacity=0", true, true, true);
                 TiebaStatic.log(new StatisticItem(CommonStatisticKey.USER_ICON_VISIT).param("obj_type", 2));
             }
         }
@@ -326,9 +326,9 @@ public class rw7 {
         String str;
         boolean z = view2 instanceof HeadCustomImageView;
         String str2 = null;
-        if ((z || (view2 instanceof VirtualImageStatusTip)) && (view2.getTag(R.id.obfuscated_res_0x7f091f45) instanceof String) && (view2.getTag(R.id.obfuscated_res_0x7f091f3d) instanceof String)) {
-            str2 = (String) view2.getTag(R.id.obfuscated_res_0x7f091f3d);
-            str = (String) view2.getTag(R.id.obfuscated_res_0x7f091f45);
+        if ((z || (view2 instanceof VirtualImageStatusTip)) && (view2.getTag(R.id.obfuscated_res_0x7f091f49) instanceof String) && (view2.getTag(R.id.obfuscated_res_0x7f091f41) instanceof String)) {
+            str2 = (String) view2.getTag(R.id.obfuscated_res_0x7f091f41);
+            str = (String) view2.getTag(R.id.obfuscated_res_0x7f091f49);
         } else {
             str = null;
         }

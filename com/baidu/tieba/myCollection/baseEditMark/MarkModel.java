@@ -18,8 +18,8 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.cm7;
 import com.repackage.d9;
 import com.repackage.em7;
-import com.repackage.jl4;
-import com.repackage.mt4;
+import com.repackage.kl4;
+import com.repackage.nt4;
 /* loaded from: classes3.dex */
 public class MarkModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
@@ -27,7 +27,7 @@ public class MarkModel extends BdBaseModel {
     public boolean a;
     public MarkData b;
     public a c;
-    public jl4.a d;
+    public kl4.a d;
 
     /* loaded from: classes3.dex */
     public class a extends BdAsyncTask<Boolean, Integer, Boolean> {
@@ -117,7 +117,7 @@ public class MarkModel extends BdBaseModel {
             if (interceptable == null || interceptable.invokeL(1048579, this, bool) == null) {
                 try {
                     if (this.c != null) {
-                        mt4.a("collection", 0L, 0, "add_collection_thread", this.c.a(), this.c.b(), new Object[0]);
+                        nt4.a("collection", 0L, 0, "add_collection_thread", this.c.a(), this.c.b(), new Object[0]);
                     }
                     if (bool.booleanValue()) {
                         if (this.d.d != null) {
@@ -230,7 +230,7 @@ public class MarkModel extends BdBaseModel {
         }
     }
 
-    public void K(jl4.a aVar) {
+    public void K(kl4.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, aVar) == null) {
             this.d = aVar;

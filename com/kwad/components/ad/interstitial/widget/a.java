@@ -21,18 +21,18 @@ import java.util.List;
 public final class a extends PagerAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final List<AdTemplate> a;
-    public final Dialog b;
-    public final KsAdVideoPlayConfig c;
-    public final KsInterstitialAd.AdInteractionListener d;
-    public final boolean e;
-    public b f;
-    public InterfaceC0473a g;
+    public final KsAdVideoPlayConfig cN;
+    public final KsInterstitialAd.AdInteractionListener fo;
+    public final Dialog gi;
+    public final boolean ia;
+    public b ib;
+    public InterfaceC0320a ic;
+    public final List<AdTemplate> mAdTemplateList;
 
     /* renamed from: com.kwad.components.ad.interstitial.widget.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public interface InterfaceC0473a {
-        void a();
+    public interface InterfaceC0320a {
+        void dL();
     }
 
     /* loaded from: classes5.dex */
@@ -55,40 +55,31 @@ public final class a extends PagerAdapter {
                 return;
             }
         }
-        this.a = new ArrayList();
-        this.b = dialog;
-        this.c = ksAdVideoPlayConfig;
-        this.d = adInteractionListener;
-        this.e = com.kwad.sdk.core.response.a.a.aL(com.kwad.sdk.core.response.a.d.i(adTemplate)) == 1;
+        this.mAdTemplateList = new ArrayList();
+        this.gi = dialog;
+        this.cN = ksAdVideoPlayConfig;
+        this.fo = adInteractionListener;
+        this.ia = com.kwad.sdk.core.response.a.a.bu(com.kwad.sdk.core.response.a.d.bQ(adTemplate)) == 1;
     }
 
-    public final void a(InterfaceC0473a interfaceC0473a) {
+    public final void a(InterfaceC0320a interfaceC0320a) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, interfaceC0473a) == null) {
-            this.g = interfaceC0473a;
+        if (interceptable == null || interceptable.invokeL(1048576, this, interfaceC0320a) == null) {
+            this.ic = interfaceC0320a;
         }
     }
 
     public final void a(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) {
-            this.f = bVar;
+            this.ib = bVar;
         }
-    }
-
-    public final void a(List<AdTemplate> list) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) || list == null || list.size() <= 0) {
-            return;
-        }
-        this.a.clear();
-        this.a.addAll(list);
     }
 
     @Override // androidx.viewpager.widget.PagerAdapter
     public final void destroyItem(@NonNull ViewGroup viewGroup, int i, Object obj) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLIL(1048579, this, viewGroup, i, obj) == null) && (obj instanceof View)) {
+        if ((interceptable == null || interceptable.invokeLIL(Constants.METHOD_SEND_USER_MSG, this, viewGroup, i, obj) == null) && (obj instanceof View)) {
             viewGroup.removeView((View) obj);
         }
     }
@@ -97,7 +88,7 @@ public final class a extends PagerAdapter {
     public final int getCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.a.size() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mAdTemplateList.size() : invokeV.intValue;
     }
 
     @Override // androidx.viewpager.widget.PagerAdapter
@@ -105,7 +96,7 @@ public final class a extends PagerAdapter {
     public final Object instantiateItem(@NonNull ViewGroup viewGroup, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048581, this, viewGroup, i)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, viewGroup, i)) == null) {
             e eVar = new e(viewGroup.getContext());
             viewGroup.addView(eVar);
             eVar.setAggregateAdView(i > 0);
@@ -113,7 +104,7 @@ public final class a extends PagerAdapter {
                 eVar.setAdConvertListener(new c.a(this) { // from class: com.kwad.components.ad.interstitial.widget.a.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
-                    public final /* synthetic */ a a;
+                    public final /* synthetic */ a ie;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -130,28 +121,28 @@ public final class a extends PagerAdapter {
                                 return;
                             }
                         }
-                        this.a = this;
+                        this.ie = this;
                     }
 
                     @Override // com.kwad.components.ad.interstitial.b.c.a
-                    public final void a() {
+                    public final void cy() {
                         Interceptable interceptable2 = $ic;
-                        if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.a.g == null) {
+                        if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.ie.ic == null) {
                             return;
                         }
-                        this.a.g.a();
+                        this.ie.ic.dL();
                     }
                 });
             }
             if (i > 0) {
                 int i2 = 7;
-                if (i == 1 && this.e) {
+                if (i == 1 && this.ia) {
                     i2 = 8;
                 }
                 eVar.setAggregateShowTriggerType(i2);
             }
-            eVar.a(this.a.get(i), this.b, this.c, this.d);
-            b bVar = this.f;
+            eVar.a(this.mAdTemplateList.get(i), this.gi, this.cN, this.fo);
+            b bVar = this.ib;
             if (bVar != null) {
                 bVar.a(eVar, i);
             }
@@ -164,6 +155,15 @@ public final class a extends PagerAdapter {
     public final boolean isViewFromObject(@NonNull View view2, @NonNull Object obj) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, view2, obj)) == null) ? view2 == obj : invokeLL.booleanValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, view2, obj)) == null) ? view2 == obj : invokeLL.booleanValue;
+    }
+
+    public final void setAdTemplateList(List<AdTemplate> list) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048582, this, list) == null) || list == null || list.size() <= 0) {
+            return;
+        }
+        this.mAdTemplateList.clear();
+        this.mAdTemplateList.addAll(list);
     }
 }

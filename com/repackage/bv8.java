@@ -4,9 +4,9 @@ public interface bv8 {
 
     /* loaded from: classes5.dex */
     public interface a {
-        float a();
+        void a(float f);
 
-        void b(float f);
+        float getSpeed();
 
         void onFinish();
 

@@ -25,10 +25,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.cr4;
+import com.repackage.dr4;
 import com.repackage.e88;
 import com.repackage.wh8;
-import com.repackage.xt4;
+import com.repackage.yt4;
 import com.squareup.wire.Wire;
 /* loaded from: classes3.dex */
 public class PushDialogStatic {
@@ -73,7 +73,7 @@ public class PushDialogStatic {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* loaded from: classes3.dex */
-        public class a implements cr4.e {
+        public class a implements dr4.e {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ TbPageContextSupport a;
@@ -96,11 +96,11 @@ public class PushDialogStatic {
                 this.a = tbPageContextSupport;
             }
 
-            @Override // com.repackage.cr4.e
-            public void onClick(cr4 cr4Var) {
+            @Override // com.repackage.dr4.e
+            public void onClick(dr4 dr4Var) {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(1048576, this, cr4Var) == null) {
-                    cr4Var.dismiss();
+                if (interceptable == null || interceptable.invokeL(1048576, this, dr4Var) == null) {
+                    dr4Var.dismiss();
                     Intent intent = new Intent();
                     intent.setAction("miui.intent.action.APP_PERM_EDITOR_PRIVATE");
                     intent.putExtra("extra_pkgname", this.a.getPageContext().getPageActivity().getPackageName());
@@ -115,12 +115,12 @@ public class PushDialogStatic {
 
         /* renamed from: com.baidu.tieba.pushdialog.PushDialogStatic$b$b  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        public class C0240b implements cr4.e {
+        public class C0254b implements dr4.e {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ TbPageContextSupport a;
 
-            public C0240b(b bVar, TbPageContextSupport tbPageContextSupport) {
+            public C0254b(b bVar, TbPageContextSupport tbPageContextSupport) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -138,11 +138,11 @@ public class PushDialogStatic {
                 this.a = tbPageContextSupport;
             }
 
-            @Override // com.repackage.cr4.e
-            public void onClick(cr4 cr4Var) {
+            @Override // com.repackage.dr4.e
+            public void onClick(dr4 dr4Var) {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(1048576, this, cr4Var) == null) {
-                    cr4Var.dismiss();
+                if (interceptable == null || interceptable.invokeL(1048576, this, dr4Var) == null) {
+                    dr4Var.dismiss();
                     Intent intent = new Intent();
                     intent.setAction("com.iqoo.secure.PERMISSION_MANAGER");
                     intent.setFlags(LaunchTaskConstants.OTHER_PROCESS);
@@ -155,7 +155,7 @@ public class PushDialogStatic {
         }
 
         /* loaded from: classes3.dex */
-        public class c implements cr4.e {
+        public class c implements dr4.e {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -175,11 +175,11 @@ public class PushDialogStatic {
                 }
             }
 
-            @Override // com.repackage.cr4.e
-            public void onClick(cr4 cr4Var) {
+            @Override // com.repackage.dr4.e
+            public void onClick(dr4 dr4Var) {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(1048576, this, cr4Var) == null) {
-                    cr4Var.dismiss();
+                if (interceptable == null || interceptable.invokeL(1048576, this, dr4Var) == null) {
+                    dr4Var.dismiss();
                 }
             }
         }
@@ -201,37 +201,37 @@ public class PushDialogStatic {
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
         public CustomResponsedMessage<?> run(CustomMessage customMessage) {
             InterceptResult invokeL;
-            cr4.e eVar;
+            dr4.e eVar;
             int i;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
                 if (customMessage != null && (customMessage.getData() instanceof TbPageContextSupport)) {
-                    int l = xt4.k().l("lock_permission_guide_set", 0);
+                    int l = yt4.k().l("lock_permission_guide_set", 0);
                     if (!(l >= 2) && TbSingleton.getInstance().canShowPermDialog()) {
                         TbPageContextSupport tbPageContextSupport = (TbPageContextSupport) customMessage.getData();
                         if (tbPageContextSupport.getPageContext() != null && tbPageContextSupport.getPageContext().getPageActivity() != null) {
                             if (e88.a()) {
                                 eVar = new a(this, tbPageContextSupport);
-                                i = R.string.obfuscated_res_0x7f0f0f32;
+                                i = R.string.obfuscated_res_0x7f0f0f1b;
                             } else if (e88.b()) {
-                                eVar = new C0240b(this, tbPageContextSupport);
-                                i = R.string.obfuscated_res_0x7f0f0f33;
+                                eVar = new C0254b(this, tbPageContextSupport);
+                                i = R.string.obfuscated_res_0x7f0f0f1c;
                             } else {
                                 eVar = null;
                                 i = 0;
                             }
                             if (eVar != null) {
-                                cr4 cr4Var = new cr4(tbPageContextSupport.getPageContext().getPageActivity());
-                                cr4Var.setTitle(R.string.obfuscated_res_0x7f0f0f34);
-                                cr4Var.setMessageId(i);
-                                cr4Var.setPositiveButton(R.string.obfuscated_res_0x7f0f07c3, eVar);
-                                cr4Var.setNegativeButton(R.string.obfuscated_res_0x7f0f0827, new c(this));
-                                cr4Var.create(tbPageContextSupport.getPageContext());
-                                cr4Var.show();
+                                dr4 dr4Var = new dr4(tbPageContextSupport.getPageContext().getPageActivity());
+                                dr4Var.setTitle(R.string.obfuscated_res_0x7f0f0f1d);
+                                dr4Var.setMessageId(i);
+                                dr4Var.setPositiveButton(R.string.obfuscated_res_0x7f0f07bf, eVar);
+                                dr4Var.setNegativeButton(R.string.obfuscated_res_0x7f0f0823, new c(this));
+                                dr4Var.create(tbPageContextSupport.getPageContext());
+                                dr4Var.show();
                                 TbSingleton.getInstance().setHasShowPermDlg(true);
                                 TbSingleton.getInstance().setExceptInsertAdDiaShow(true);
                             }
-                            xt4.k().w("lock_permission_guide_set", l + 1);
+                            yt4.k().w("lock_permission_guide_set", l + 1);
                         }
                     }
                 }

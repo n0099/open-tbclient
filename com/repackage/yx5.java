@@ -74,12 +74,12 @@ public class yx5 implements View.OnClickListener {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) {
             View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d01a1, (ViewGroup) null);
             this.b = inflate;
-            View findViewById = inflate.findViewById(R.id.obfuscated_res_0x7f091b72);
+            View findViewById = inflate.findViewById(R.id.obfuscated_res_0x7f091b4c);
             this.c = findViewById;
             findViewById.setOnClickListener(this);
-            this.d = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f090eab);
-            this.e = this.b.findViewById(R.id.obfuscated_res_0x7f09243e);
-            this.f = (EMTextView) this.b.findViewById(R.id.obfuscated_res_0x7f0920cd);
+            this.d = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f090ea4);
+            this.e = this.b.findViewById(R.id.obfuscated_res_0x7f092440);
+            this.f = (EMTextView) this.b.findViewById(R.id.obfuscated_res_0x7f0920cf);
             ImageView imageView = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f090627);
             this.g = imageView;
             imageView.setClickable(true);
@@ -99,20 +99,20 @@ public class yx5 implements View.OnClickListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
             if (this.h != i) {
-                ur4 d = ur4.d(this.c);
+                vr4 d = vr4.d(this.c);
                 d.n(R.string.J_X06);
                 d.f(R.color.CAM_X0201);
-                ur4 d2 = ur4.d(this.e);
+                vr4 d2 = vr4.d(this.e);
                 d2.n(R.string.J_X03);
                 d2.f(R.color.CAM_X0110);
-                ur4.d(this.f).v(R.color.CAM_X0108);
+                vr4.d(this.f).v(R.color.CAM_X0108);
                 this.g.setImageDrawable(WebPManager.getPureDrawable(R.drawable.icon_pure_card_close22, SkinManager.getColor(R.color.CAM_X0111), WebPManager.ResourceStateType.NORMAL_PRESS));
                 if (i == 4) {
-                    WebPManager.setMaskDrawable(this.d, R.drawable.obfuscated_res_0x7f080efe, WebPManager.ResourceStateType.NORMAL);
+                    WebPManager.setMaskDrawable(this.d, R.drawable.obfuscated_res_0x7f080f05, WebPManager.ResourceStateType.NORMAL);
                 } else if (i == 1) {
-                    WebPManager.setMaskDrawable(this.d, R.drawable.obfuscated_res_0x7f080efd, WebPManager.ResourceStateType.NORMAL);
+                    WebPManager.setMaskDrawable(this.d, R.drawable.obfuscated_res_0x7f080f04, WebPManager.ResourceStateType.NORMAL);
                 } else {
-                    WebPManager.setMaskDrawable(this.d, R.drawable.obfuscated_res_0x7f080efc, WebPManager.ResourceStateType.NORMAL);
+                    WebPManager.setMaskDrawable(this.d, R.drawable.obfuscated_res_0x7f080f03, WebPManager.ResourceStateType.NORMAL);
                 }
             }
             this.h = i;

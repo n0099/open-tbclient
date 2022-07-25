@@ -76,10 +76,10 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.WebChromeClient;
 import com.repackage.ai5;
 import com.repackage.is8;
-import com.repackage.j65;
 import com.repackage.jt8;
+import com.repackage.k65;
 import com.repackage.kt8;
-import com.repackage.li4;
+import com.repackage.mi4;
 import com.repackage.ms8;
 import com.repackage.ng;
 import com.repackage.ni;
@@ -1369,7 +1369,7 @@ public final class VideoVerticalPageFragment extends BaseFragment implements jt8
             if (!z || !this$0.c2() || this$0.getPageContext() == null || this$0.getPageContext().getPageActivity() == null || this$0.W1() || this$0.O1() || this$0.N1() || this$0.Y1() || this$0.T1() || this$0.Q1() || this$0.Z1() || this$0.V1() || this$0.U1() || this$0.P1() || this$0.S1() || this$0.R1()) {
                 return;
             }
-            pi.O(this$0.getPageContext().getPageActivity(), this$0.getPageContext().getPageActivity().getString(R.string.obfuscated_res_0x7f0f0c5f));
+            pi.O(this$0.getPageContext().getPageActivity(), this$0.getPageContext().getPageActivity().getString(R.string.obfuscated_res_0x7f0f0c4b));
         }
     }
 
@@ -1433,7 +1433,7 @@ public final class VideoVerticalPageFragment extends BaseFragment implements jt8
         if (interceptable == null || interceptable.invokeL(65560, null, this$0) == null) {
             Intrinsics.checkNotNullParameter(this$0, "this$0");
             if (this$0.c2() && this$0.getPageContext() != null && this$0.getPageContext().getPageActivity() != null && !this$0.W1() && !this$0.O1() && !this$0.N1() && !this$0.Y1() && !this$0.T1() && !this$0.Q1() && !this$0.Z1() && !this$0.V1() && !this$0.U1() && !this$0.P1() && !this$0.S1() && !this$0.R1()) {
-                pi.O(this$0.getPageContext().getPageActivity(), this$0.getPageContext().getPageActivity().getString(R.string.obfuscated_res_0x7f0f0c5f));
+                pi.O(this$0.getPageContext().getPageActivity(), this$0.getPageContext().getPageActivity().getString(R.string.obfuscated_res_0x7f0f0c4b));
             }
             if (this$0.a2()) {
                 VideoPlayView videoPlayView = this$0.f;
@@ -1444,7 +1444,7 @@ public final class VideoVerticalPageFragment extends BaseFragment implements jt8
                 if (!z || this$0.getPageContext() == null || this$0.getPageContext().getPageActivity() == null || this$0.R1()) {
                     return;
                 }
-                pi.O(this$0.getPageContext().getPageActivity(), this$0.getPageContext().getPageActivity().getString(R.string.obfuscated_res_0x7f0f0c61));
+                pi.O(this$0.getPageContext().getPageActivity(), this$0.getPageContext().getPageActivity().getString(R.string.obfuscated_res_0x7f0f0c4d));
             }
         }
     }
@@ -1677,7 +1677,7 @@ public final class VideoVerticalPageFragment extends BaseFragment implements jt8
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragment, com.repackage.v85
+    @Override // com.baidu.tbadk.core.BaseFragment, com.repackage.w85
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -2076,7 +2076,7 @@ public final class VideoVerticalPageFragment extends BaseFragment implements jt8
             registerListener(this.N);
             registerListener(this.S);
             registerListener(this.R);
-            this.e = inflater.inflate(R.layout.obfuscated_res_0x7f0d088d, viewGroup, false);
+            this.e = inflater.inflate(R.layout.obfuscated_res_0x7f0d0897, viewGroup, false);
             if (UbsABTestHelper.isFeedVideoImmersionTransition() && !(getActivity() instanceof VideoRecommentPlayActivity) && (view2 = this.e) != null) {
                 view2.setBackgroundColor(0);
             }
@@ -2165,8 +2165,8 @@ public final class VideoVerticalPageFragment extends BaseFragment implements jt8
                 is8.c(1);
             }
             if (isPrimary()) {
-                j65.b().c();
-                j65.b().l(true);
+                k65.b().c();
+                k65.b().l(true);
             }
             this.t = Long.valueOf(G0());
             VideoPlayView videoPlayView = this.f;
@@ -2410,7 +2410,7 @@ public final class VideoVerticalPageFragment extends BaseFragment implements jt8
         this.h = new ms8();
         this.n = true;
         this.D = 1;
-        this.E = li4.w().C();
+        this.E = mi4.w().C();
         this.F = new VideoPlayFragment.GoPbCommentFloatListener(new SimpleMessageListener.b() { // from class: com.repackage.ys8
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;

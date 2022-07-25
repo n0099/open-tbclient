@@ -64,9 +64,9 @@ public class p31 extends Dialog {
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.b = findViewById(R.id.obfuscated_res_0x7f091b64);
-            this.c = (LoadingProgressBar) findViewById(R.id.obfuscated_res_0x7f091370);
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f091468);
+            this.b = findViewById(R.id.obfuscated_res_0x7f091b3e);
+            this.c = (LoadingProgressBar) findViewById(R.id.obfuscated_res_0x7f09134c);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f091444);
             this.d = textView;
             textView.setText(this.e);
             setCancelable(this.g);
@@ -131,7 +131,7 @@ public class p31 extends Dialog {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d05a2);
+            setContentView(R.layout.obfuscated_res_0x7f0d05ac);
             b();
         }
     }

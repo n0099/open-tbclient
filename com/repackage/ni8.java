@@ -127,7 +127,7 @@ public class ni8 extends PostData {
         AdvertAppInfo.ILegoAdvert iLegoAdvert;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            if (!zm4.c().g() && (advertAppInfo = this.I0) != null && (iLegoAdvert = advertAppInfo.h) != null && !iLegoAdvert.isNoPicAd()) {
+            if (!an4.c().g() && (advertAppInfo = this.I0) != null && (iLegoAdvert = advertAppInfo.h) != null && !iLegoAdvert.isNoPicAd()) {
                 return AdvertAppInfo.u;
             }
             if (UbsABTestHelper.isPbPageBannerFunAdSdkTest() && this.J0) {

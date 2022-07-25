@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.a97;
-import com.repackage.cp4;
+import com.repackage.dp4;
 import com.repackage.ng;
 import com.repackage.oi;
 import java.io.Serializable;
@@ -34,7 +34,7 @@ public class ImMessageCenterPojo implements Serializable {
     public String group_head;
     public String group_name;
     public int group_type;
-    public cp4 imUserExtraData;
+    public dp4 imUserExtraData;
     public int isFriend;
     public boolean isSelf;
     public int is_delete;
@@ -202,10 +202,10 @@ public class ImMessageCenterPojo implements Serializable {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.group_type : invokeV.intValue;
     }
 
-    public cp4 getImUserExtraData() {
+    public dp4 getImUserExtraData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.imUserExtraData : (cp4) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.imUserExtraData : (dp4) invokeV.objValue;
     }
 
     public int getIsFriend() {
@@ -416,10 +416,10 @@ public class ImMessageCenterPojo implements Serializable {
         }
     }
 
-    public void setImUserExtraData(cp4 cp4Var) {
+    public void setImUserExtraData(dp4 dp4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048618, this, cp4Var) == null) {
-            this.imUserExtraData = cp4Var;
+        if (interceptable == null || interceptable.invokeL(1048618, this, dp4Var) == null) {
+            this.imUserExtraData = dp4Var;
         }
     }
 

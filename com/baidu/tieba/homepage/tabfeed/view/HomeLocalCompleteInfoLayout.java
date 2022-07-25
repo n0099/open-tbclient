@@ -20,8 +20,8 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.hx;
 import com.repackage.pi;
-import com.repackage.ur4;
 import com.repackage.uz6;
+import com.repackage.vr4;
 /* loaded from: classes3.dex */
 public class HomeLocalCompleteInfoLayout extends LinearLayout implements hx {
     public static /* synthetic */ Interceptable $ic;
@@ -100,13 +100,13 @@ public class HomeLocalCompleteInfoLayout extends LinearLayout implements hx {
             setPadding(f, 0, f, 0);
             TextView textView = new TextView(getContext());
             this.a = textView;
-            textView.setText(getContext().getString(R.string.obfuscated_res_0x7f0f085b));
+            textView.setText(getContext().getString(R.string.obfuscated_res_0x7f0f0848));
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(0, -2);
             layoutParams.weight = 1.0f;
             addView(this.a, layoutParams);
             EMTextView eMTextView = new EMTextView(getContext());
             this.b = eMTextView;
-            eMTextView.setText(getContext().getString(R.string.obfuscated_res_0x7f0f085c));
+            eMTextView.setText(getContext().getString(R.string.obfuscated_res_0x7f0f0849));
             LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(-2, pi.f(getContext(), R.dimen.tbds75));
             int f2 = pi.f(getContext(), R.dimen.M_W_X004);
             layoutParams2.setMargins(f2, pi.f(getContext(), R.dimen.M_H_X005), f2, pi.f(getContext(), R.dimen.tbds38));
@@ -127,14 +127,14 @@ public class HomeLocalCompleteInfoLayout extends LinearLayout implements hx {
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext, i) == null) {
             TextView textView = this.a;
             if (textView != null) {
-                ur4 d = ur4.d(textView);
+                vr4 d = vr4.d(textView);
                 d.v(R.color.CAM_X0105);
                 d.z(R.dimen.T_X06);
                 d.A(R.string.F_X01);
             }
             EMTextView eMTextView = this.b;
             if (eMTextView != null) {
-                ur4 d2 = ur4.d(eMTextView);
+                vr4 d2 = vr4.d(eMTextView);
                 d2.v(R.color.CAM_X0302);
                 d2.z(R.dimen.T_X08);
                 d2.A(R.string.F_X01);
@@ -146,7 +146,7 @@ public class HomeLocalCompleteInfoLayout extends LinearLayout implements hx {
             if (imageView != null) {
                 WebPManager.setPureDrawable(imageView, R.drawable.icon_pure_card_close22, R.color.CAM_X0111, null);
             }
-            ur4 d3 = ur4.d(this);
+            vr4 d3 = vr4.d(this);
             d3.n(R.string.J_X06);
             d3.f(R.color.CAM_X0205);
         }

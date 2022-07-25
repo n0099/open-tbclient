@@ -186,18 +186,18 @@ public class fy7 {
         return invokeL.intValue;
     }
 
-    public static void m(nn4 nn4Var, int i, TbPageContext tbPageContext) {
+    public static void m(on4 on4Var, int i, TbPageContext tbPageContext) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLIL(65548, null, nn4Var, i, tbPageContext) == null) || nn4Var == null || nn4Var.getThreadData() == null) {
+        if (!(interceptable == null || interceptable.invokeLIL(65548, null, on4Var, i, tbPageContext) == null) || on4Var == null || on4Var.getThreadData() == null) {
             return;
         }
         StatisticItem statisticItem = new StatisticItem("common_click");
-        if (nn4Var.getThreadData().getForumData() != null) {
-            statisticItem.param("obj_type", j(nn4Var.getThreadData().getForumData().j));
+        if (on4Var.getThreadData().getForumData() != null) {
+            statisticItem.param("obj_type", j(on4Var.getThreadData().getForumData().j));
         }
-        statisticItem.param("obj_locate", nn4Var.getThreadData().floorNum);
-        statisticItem.param("tid", nn4Var.getThreadData().getTid());
-        statisticItem.param("fid", nn4Var.getThreadData().getFid());
+        statisticItem.param("obj_locate", on4Var.getThreadData().floorNum);
+        statisticItem.param("tid", on4Var.getThreadData().getTid());
+        statisticItem.param("fid", on4Var.getThreadData().getFid());
         statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
         statisticItem.param("obj_source", i);
         statisticItem.param("page_type", "a005");
@@ -207,23 +207,23 @@ public class fy7 {
         TiebaStatic.log(statisticItem);
     }
 
-    public static void n(nn4 nn4Var, TbPageContext tbPageContext) {
+    public static void n(on4 on4Var, TbPageContext tbPageContext) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65549, null, nn4Var, tbPageContext) == null) || nn4Var == null || nn4Var.getThreadData() == null) {
+        if (!(interceptable == null || interceptable.invokeLL(65549, null, on4Var, tbPageContext) == null) || on4Var == null || on4Var.getThreadData() == null) {
             return;
         }
         StatisticItem statisticItem = new StatisticItem("common_exp");
-        if (nn4Var.getThreadData().getForumData() != null) {
-            statisticItem.param("obj_type", j(nn4Var.getThreadData().getForumData().j));
+        if (on4Var.getThreadData().getForumData() != null) {
+            statisticItem.param("obj_type", j(on4Var.getThreadData().getForumData().j));
         }
-        statisticItem.param("tid", nn4Var.getThreadData().getTid());
-        statisticItem.param("fid", nn4Var.getThreadData().getFid());
+        statisticItem.param("tid", on4Var.getThreadData().getTid());
+        statisticItem.param("fid", on4Var.getThreadData().getFid());
         statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
         statisticItem.param("page_type", "a005");
         statisticItem.param(TiebaStatic.Params.IS_REC, "1");
         statisticItem.param(TiebaStatic.Params.FROM_SOURCE, k(tbPageContext));
         statisticItem.param(TiebaStatic.Params.REC_TYPE, l(tbPageContext));
-        statisticItem.param(TiebaStatic.Params.OBJ_FLOOR, nn4Var.position + 1);
+        statisticItem.param(TiebaStatic.Params.OBJ_FLOOR, on4Var.position + 1);
         TiebaStatic.log(statisticItem);
     }
 }

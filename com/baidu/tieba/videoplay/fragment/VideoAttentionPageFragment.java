@@ -48,8 +48,8 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.is8;
-import com.repackage.j65;
 import com.repackage.jt8;
+import com.repackage.k65;
 import com.repackage.ms8;
 import com.repackage.ng;
 import com.repackage.ns8;
@@ -465,7 +465,7 @@ public final class VideoAttentionPageFragment extends BaseFragment implements jt
                 z = true;
             }
             if (z) {
-                pi.O(this$0.getPageContext().getPageActivity(), this$0.getPageContext().getPageActivity().getString(R.string.obfuscated_res_0x7f0f0c5f));
+                pi.O(this$0.getPageContext().getPageActivity(), this$0.getPageContext().getPageActivity().getString(R.string.obfuscated_res_0x7f0f0c4b));
             }
         }
     }
@@ -651,7 +651,7 @@ public final class VideoAttentionPageFragment extends BaseFragment implements jt
         videoPlayView.u(i, i2, intent);
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragment, com.repackage.v85
+    @Override // com.baidu.tbadk.core.BaseFragment, com.repackage.w85
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -789,7 +789,7 @@ public final class VideoAttentionPageFragment extends BaseFragment implements jt
             registerListener(this.p);
             registerListener(this.s);
             registerListener(this.r);
-            this.e = inflater.inflate(R.layout.obfuscated_res_0x7f0d088d, viewGroup, false);
+            this.e = inflater.inflate(R.layout.obfuscated_res_0x7f0d0897, viewGroup, false);
             if (UbsABTestHelper.isFeedVideoImmersionTransition() && !(getActivity() instanceof VideoRecommentPlayActivity) && (view2 = this.e) != null) {
                 view2.setBackgroundColor(0);
             }
@@ -854,8 +854,8 @@ public final class VideoAttentionPageFragment extends BaseFragment implements jt
                 TiebaStatic.log(statisticItem);
             }
             if (isPrimary()) {
-                j65.b().c();
-                j65.b().l(true);
+                k65.b().c();
+                k65.b().l(true);
             }
             VideoPlayView videoPlayView = this.f;
             if (videoPlayView != null) {

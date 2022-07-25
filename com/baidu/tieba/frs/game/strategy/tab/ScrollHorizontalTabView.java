@@ -198,7 +198,7 @@ public class ScrollHorizontalTabView extends MyHorizontalScrollView {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 ScrollHorizontalTabView scrollHorizontalTabView = this.a;
-                scrollHorizontalTabView.scrollBy(scrollHorizontalTabView.getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070255), 0);
+                scrollHorizontalTabView.scrollBy(scrollHorizontalTabView.getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070252), 0);
             }
         }
     }
@@ -520,7 +520,7 @@ public class ScrollHorizontalTabView extends MyHorizontalScrollView {
                 int[] iArr = new int[2];
                 ((View) ListUtils.getItem(this.b, i)).getLocationOnScreen(iArr);
                 int k = pi.k(getContext()) - iArr[0];
-                int dimensionPixelSize = getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070255);
+                int dimensionPixelSize = getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070252);
                 if (iArr[0] < 0) {
                     post(new c(this, dimensionPixelSize));
                 } else if (k < dimensionPixelSize) {

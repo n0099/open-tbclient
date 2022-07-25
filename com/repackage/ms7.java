@@ -145,7 +145,7 @@ public abstract class ms7<V extends ss7, D extends IBaseDialogData> implements r
                 this.f = 17;
             }
             window.setGravity(this.f);
-            window.setBackgroundDrawableResource(R.drawable.obfuscated_res_0x7f0811a4);
+            window.setBackgroundDrawableResource(R.drawable.obfuscated_res_0x7f0811a8);
             WindowManager.LayoutParams attributes = window.getAttributes();
             attributes.dimAmount = 0.7f;
             attributes.width = -1;

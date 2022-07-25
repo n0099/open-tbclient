@@ -13,7 +13,7 @@ import com.repackage.lo8;
 import com.repackage.no8;
 import com.repackage.oo8;
 import com.repackage.po8;
-import com.repackage.y85;
+import com.repackage.z85;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class DressupCenterActivity extends BaseActivity<DressupCenterActivity> {
@@ -79,7 +79,7 @@ public class DressupCenterActivity extends BaseActivity<DressupCenterActivity> {
         this.c = new a(this);
     }
 
-    @Override // com.baidu.tbadk.BaseActivity, com.repackage.v85
+    @Override // com.baidu.tbadk.BaseActivity, com.repackage.w85
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -87,17 +87,17 @@ public class DressupCenterActivity extends BaseActivity<DressupCenterActivity> {
     }
 
     @Override // com.baidu.tbadk.BaseActivity
-    public y85 getPageStayDurationItem() {
+    public z85 getPageStayDurationItem() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            y85 pageStayDurationItem = super.getPageStayDurationItem();
+            z85 pageStayDurationItem = super.getPageStayDurationItem();
             if (pageStayDurationItem != null) {
                 pageStayDurationItem.a = true;
             }
             return pageStayDurationItem;
         }
-        return (y85) invokeV.objValue;
+        return (z85) invokeV.objValue;
     }
 
     @Override // com.baidu.tbadk.BaseActivity

@@ -60,7 +60,7 @@ public class r98 {
     public PopupWindow d;
     public LinearLayout e;
     public TBSpecificationBtn f;
-    public uu4 g;
+    public vu4 g;
     public TextView h;
     public RelativeLayout i;
     public EMTextView j;
@@ -112,7 +112,7 @@ public class r98 {
                 int k = this.a.k();
                 if (k > 0) {
                     r98 r98Var = this.a;
-                    r98Var.f.setText(r98Var.b.getResources().getString(R.string.obfuscated_res_0x7f0f0427));
+                    r98Var.f.setText(r98Var.b.getResources().getString(R.string.obfuscated_res_0x7f0f0426));
                     SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
                     spannableStringBuilder.append((CharSequence) this.a.b.getString(R.string.obfuscated_res_0x7f0f00a6));
                     int color = SkinManager.getColor(R.color.CAM_X0105);
@@ -362,13 +362,13 @@ public class r98 {
             String str2 = adCloseInfo.title;
             this.q = str2;
             if (TextUtils.isEmpty(str2)) {
-                this.q = this.b.getString(R.string.obfuscated_res_0x7f0f13c1);
+                this.q = this.b.getString(R.string.obfuscated_res_0x7f0f1370);
             }
             this.r = adCloseInfo.confirm_title;
         }
-        this.s = pi.f(this.b, R.dimen.obfuscated_res_0x7f070293);
+        this.s = pi.f(this.b, R.dimen.obfuscated_res_0x7f070291);
         this.t = pi.k(this.b) - (this.w * 2);
-        this.v = pi.f(this.b, R.dimen.obfuscated_res_0x7f07023e);
+        this.v = pi.f(this.b, R.dimen.obfuscated_res_0x7f07023c);
     }
 
     public final void h() {
@@ -483,18 +483,18 @@ public class r98 {
                 return null;
             }
             View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0065, (ViewGroup) null);
-            this.h = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090cdd);
-            this.i = (RelativeLayout) inflate.findViewById(R.id.obfuscated_res_0x7f09212e);
+            this.h = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090cd6);
+            this.i = (RelativeLayout) inflate.findViewById(R.id.obfuscated_res_0x7f092130);
             View findViewById = inflate.findViewById(R.id.obfuscated_res_0x7f0900df);
             this.j = (EMTextView) inflate.findViewById(R.id.obfuscated_res_0x7f0900de);
             this.k = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f0902a7);
             if (!TextUtils.isEmpty(this.q)) {
                 this.h.setText(this.q);
             }
-            this.f = (TBSpecificationBtn) inflate.findViewById(R.id.obfuscated_res_0x7f0909f1);
-            uu4 uu4Var = new uu4();
-            this.g = uu4Var;
-            uu4Var.r(R.color.CAM_X0304);
+            this.f = (TBSpecificationBtn) inflate.findViewById(R.id.obfuscated_res_0x7f0909ea);
+            vu4 vu4Var = new vu4();
+            this.g = vu4Var;
+            vu4Var.r(R.color.CAM_X0304);
             this.f.setConfig(this.g);
             if (!TextUtils.isEmpty(this.r)) {
                 this.f.setText(this.r);
@@ -510,7 +510,7 @@ public class r98 {
             SkinManager.setViewTextColor(this.h, R.color.CAM_X0105, 1);
             SkinManager.setViewTextColor(this.j, R.color.CAM_X0107, 1);
             this.k.setImageDrawable(SkinManager.getDrawable(R.drawable.icon_ad_dislike_arrow20_right_n));
-            this.e = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091a65);
+            this.e = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091a3f);
             this.m = new ArrayList();
             TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09046f);
             this.l = textView;
@@ -600,7 +600,7 @@ public class r98 {
             MessageManager.getInstance().registerListener(this.E);
             this.z = true;
         }
-        PopupWindow popupWindow2 = new PopupWindow(LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d0897, (ViewGroup) null), -1, -1);
+        PopupWindow popupWindow2 = new PopupWindow(LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d08a1, (ViewGroup) null), -1, -1);
         this.d = popupWindow2;
         popupWindow2.setFocusable(false);
         this.d.setTouchable(false);

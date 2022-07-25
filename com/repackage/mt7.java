@@ -145,7 +145,7 @@ public class mt7 {
                 return;
             }
         }
-        m = pi.f(TbadkCoreApplication.getInst(), R.dimen.obfuscated_res_0x7f070255);
+        m = pi.f(TbadkCoreApplication.getInst(), R.dimen.obfuscated_res_0x7f070252);
     }
 
     public mt7(PbFragment pbFragment, ViewStub viewStub) {
@@ -264,11 +264,11 @@ public class mt7 {
         if (!(interceptable == null || interceptable.invokeV(1048586, this) == null) || (view2 = this.f) == null) {
             return;
         }
-        this.i = (PbLandscapeListView) view2.findViewById(R.id.obfuscated_res_0x7f0914ad);
-        this.g = this.f.findViewById(R.id.obfuscated_res_0x7f0914ae);
+        this.i = (PbLandscapeListView) view2.findViewById(R.id.obfuscated_res_0x7f091488);
+        this.g = this.f.findViewById(R.id.obfuscated_res_0x7f091489);
         l();
-        this.l = this.f.findViewById(R.id.obfuscated_res_0x7f0914ac);
-        this.d = (NoNetworkView) this.f.findViewById(R.id.obfuscated_res_0x7f0914b1);
+        this.l = this.f.findViewById(R.id.obfuscated_res_0x7f091487);
+        this.d = (NoNetworkView) this.f.findViewById(R.id.obfuscated_res_0x7f09148c);
         kt7 kt7Var = new kt7(this.c.getPageContext());
         this.k = kt7Var;
         this.i.setNextPage(kt7Var);
@@ -277,7 +277,7 @@ public class mt7 {
     public final void l() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            NavigationBar navigationBar = (NavigationBar) this.f.findViewById(R.id.obfuscated_res_0x7f0914af);
+            NavigationBar navigationBar = (NavigationBar) this.f.findViewById(R.id.obfuscated_res_0x7f09148a);
             this.j = navigationBar;
             this.h = navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
             ImageView backImageView = this.j.getBackImageView();

@@ -21,7 +21,7 @@ import com.kwad.components.offline.api.tk.TkLoggerReporter;
 import com.kwad.components.offline.api.tk.model.report.TKDownloadMsg;
 import com.kwad.sdk.core.config.d;
 import com.kwad.sdk.utils.AbiUtil;
-import com.kwad.sdk.utils.w;
+import com.kwad.sdk.utils.y;
 import com.kwai.sodler.lib.a.f;
 import com.kwai.sodler.lib.b.c;
 import com.kwai.sodler.lib.c.b;
@@ -33,16 +33,16 @@ import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes5.dex */
 public final class a {
     public static /* synthetic */ Interceptable $ic;
-    public static final AtomicBoolean a;
-    public static final String b;
-    public static final String c;
-    public static final String d;
-    public static final String e;
-    public static final String f;
-    public static final String g;
-    public static final String h;
-    public static long i;
-    public static Boolean j;
+    public static Boolean QA;
+    public static final AtomicBoolean Qr;
+    public static final String Qs;
+    public static final String Qt;
+    public static final String Qu;
+    public static final String Qv;
+    public static final String Qw;
+    public static final String Qx;
+    public static final String Qy;
+    public static long Qz;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -58,19 +58,19 @@ public final class a {
                 return;
             }
         }
-        a = new AtomicBoolean(false);
-        b = w.a("lib%s.so", "tk_runtime_v0_0_8");
-        c = w.a("lib%s.so", "tk_runtime_lite_v0_0_8");
-        d = w.a("lib%s.so", "kwai-v8");
-        e = w.a("lib%s.so", "kwai-v8-lite");
-        f = w.a("lib%s.so", "kwad-fb");
-        g = w.a("lib%s.so", "kwad-yoga");
-        h = w.a("lib%s.so", SwanKV.LIB_CPP_SHARED);
-        j = null;
+        Qr = new AtomicBoolean(false);
+        Qs = y.format("lib%s.so", "tk_runtime_v0_0_8");
+        Qt = y.format("lib%s.so", "tk_runtime_lite_v0_0_8");
+        Qu = y.format("lib%s.so", "kwai-v8");
+        Qv = y.format("lib%s.so", "kwai-v8-lite");
+        Qw = y.format("lib%s.so", "kwad-fb");
+        Qx = y.format("lib%s.so", "kwad-yoga");
+        Qy = y.format("lib%s.so", SwanKV.LIB_CPP_SHARED);
+        QA = null;
     }
 
     public static void a(Context context, @NonNull SoLoadListener soLoadListener) {
-        String j2;
+        String rK;
         String str;
         String str2;
         String str3;
@@ -80,176 +80,176 @@ public final class a {
         String str7;
         String str8;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65538, null, context, soLoadListener) == null) || a.get()) {
+        if (!(interceptable == null || interceptable.invokeLL(65537, null, context, soLoadListener) == null) || Qr.get()) {
             return;
         }
-        a.set(true);
+        Qr.set(true);
         HashMap<String, String> hashMap = new HashMap<>();
-        boolean a2 = a();
-        if (AbiUtil.b(context)) {
-            j2 = d.k();
-            if (TextUtils.isEmpty(j2)) {
-                j2 = a2 ? "https://static.yximgs.com/udata/pkg/KS-Android-KSAdSDk/tachikoma/3.3.24.2/ks_so-tachikomaLiteArm64v8aRelease-3.3.24.2.apk" : "https://static.yximgs.com/udata/pkg/KS-Android-KSAdSDk/tachikoma/3.3.24.2/ks_so-tachikomaArm64v8aRelease-3.3.24.2.apk";
+        boolean useTkLite = useTkLite();
+        if (AbiUtil.isArm64(context)) {
+            rK = d.rL();
+            if (TextUtils.isEmpty(rK)) {
+                rK = useTkLite ? "https://static.yximgs.com/udata/pkg/KS-Android-KSAdSDk/tachikoma/3.3.24.2/ks_so-tachikomaLiteArm64v8aRelease-3.3.24.2.apk" : "https://static.yximgs.com/udata/pkg/KS-Android-KSAdSDk/tachikoma/3.3.24.2/ks_so-tachikomaArm64v8aRelease-3.3.24.2.apk";
             }
-            str = a2 ? "sotk-v8a-lite" : "sotk-v8a";
-            str2 = a2 ? "db892c7b72a9636667bfc8ea7e9df0bc" : "40f3b3b81340519f51bfc19cb9ea2284";
-            if (a2) {
-                hashMap.put(c, "2711ba35c7345099edcc3f4526e0b59d");
-                str7 = e;
+            str = useTkLite ? "sotk-v8a-lite" : "sotk-v8a";
+            str2 = useTkLite ? "db892c7b72a9636667bfc8ea7e9df0bc" : "40f3b3b81340519f51bfc19cb9ea2284";
+            if (useTkLite) {
+                hashMap.put(Qt, "2711ba35c7345099edcc3f4526e0b59d");
+                str7 = Qv;
                 str8 = "005c29f4f5c26b21923dce9b72a0fc8d";
             } else {
-                hashMap.put(b, "09a2c11101651aa5e866979ad43f3df0");
-                str7 = d;
+                hashMap.put(Qs, "09a2c11101651aa5e866979ad43f3df0");
+                str7 = Qu;
                 str8 = "cbed106d3241121e1ccb6a8bc152d53e";
             }
             hashMap.put(str7, str8);
-            hashMap.put(f, "31f065607e6da6b741330d1df0b35460");
-            hashMap.put(g, "76308532f64b68fd5a930c42cceec22b");
-            str5 = h;
+            hashMap.put(Qw, "31f065607e6da6b741330d1df0b35460");
+            hashMap.put(Qx, "76308532f64b68fd5a930c42cceec22b");
+            str5 = Qy;
             str6 = "6ca7958ee0b0192a7c52c16faffaa8ba";
         } else {
-            j2 = d.j();
-            if (TextUtils.isEmpty(j2)) {
-                j2 = a2 ? "https://static.yximgs.com/udata/pkg/KS-Android-KSAdSDk/tachikoma/3.3.24.2/ks_so-tachikomaLiteArmeabiv7aRelease-3.3.24.2.apk" : "https://static.yximgs.com/udata/pkg/KS-Android-KSAdSDk/tachikoma/3.3.24.2/ks_so-tachikomaArmeabiv7aRelease-3.3.24.2.apk";
+            rK = d.rK();
+            if (TextUtils.isEmpty(rK)) {
+                rK = useTkLite ? "https://static.yximgs.com/udata/pkg/KS-Android-KSAdSDk/tachikoma/3.3.24.2/ks_so-tachikomaLiteArmeabiv7aRelease-3.3.24.2.apk" : "https://static.yximgs.com/udata/pkg/KS-Android-KSAdSDk/tachikoma/3.3.24.2/ks_so-tachikomaArmeabiv7aRelease-3.3.24.2.apk";
             }
-            str = a2 ? "sotk-v7a-lite" : "sotk-v7a";
-            str2 = a2 ? "55ecca97822a39bc4b276d645ad35c09" : "9f22c0987957bb7abb016726b088ad78";
-            if (a2) {
-                hashMap.put(c, "d278819f65940c10a8b7313bf606bfff");
-                str3 = e;
+            str = useTkLite ? "sotk-v7a-lite" : "sotk-v7a";
+            str2 = useTkLite ? "55ecca97822a39bc4b276d645ad35c09" : "9f22c0987957bb7abb016726b088ad78";
+            if (useTkLite) {
+                hashMap.put(Qt, "d278819f65940c10a8b7313bf606bfff");
+                str3 = Qv;
                 str4 = "9798330679c11734503264cdfb118e76";
             } else {
-                hashMap.put(b, "b48f51dc240ddd4ffb5d8c75a5c5c820");
-                str3 = d;
+                hashMap.put(Qs, "b48f51dc240ddd4ffb5d8c75a5c5c820");
+                str3 = Qu;
                 str4 = "8674972563d49769d5d9a64744ac5749";
             }
             hashMap.put(str3, str4);
-            hashMap.put(f, "eff11bebb8a3c872fa30b0484b460d12");
-            hashMap.put(g, "2c6f402c6a565d2e6912b0013fa59380");
-            str5 = h;
+            hashMap.put(Qw, "eff11bebb8a3c872fa30b0484b460d12");
+            hashMap.put(Qx, "2c6f402c6a565d2e6912b0013fa59380");
+            str5 = Qy;
             str6 = "7cb16c2840085bbdf4be628e6604bac1";
         }
         hashMap.put(str5, str6);
         b bVar = new b();
-        bVar.c = com.kwad.sdk.core.network.idc.a.a().a(j2);
-        bVar.e = true;
-        bVar.a = str;
-        bVar.b = a2 ? "3.3.24.2-lite" : "3.3.24.2";
-        bVar.g = false;
-        bVar.f = str2;
-        bVar.i = hashMap;
-        com.kwai.sodler.lib.a.a a3 = i.a().b().d().a(ITkOfflineCompo.PACKAGE_NAME);
-        com.kwad.sdk.core.d.b.a("TkSoLoadHelper", "tkOfflineCompoPlugin: " + a3);
-        if (a3 instanceof com.kwai.sodler.lib.kwai.a) {
-            bVar.l = ((com.kwai.sodler.lib.kwai.a) a3).a();
+        bVar.ayA = com.kwad.sdk.core.network.idc.a.tH().bZ(rK);
+        bVar.Dv = true;
+        bVar.ayz = str;
+        bVar.version = useTkLite ? "3.3.24.2-lite" : "3.3.24.2";
+        bVar.ayD = false;
+        bVar.ayC = str2;
+        bVar.ayF = hashMap;
+        com.kwai.sodler.lib.a.a eQ = i.EU().EW().EY().eQ(ITkOfflineCompo.PACKAGE_NAME);
+        com.kwad.sdk.core.e.b.d("TkSoLoadHelper", "tkOfflineCompoPlugin: " + eQ);
+        if (eQ instanceof com.kwai.sodler.lib.kwai.a) {
+            bVar.ayI = ((com.kwai.sodler.lib.kwai.a) eQ).Ff();
         }
-        com.kwai.sodler.kwai.a.a(context, bVar, new b.c(a3, soLoadListener) { // from class: com.kwad.components.offline.tk.a.a.1
+        com.kwai.sodler.kwai.a.a(context, bVar, new b.c(eQ, soLoadListener) { // from class: com.kwad.components.offline.tk.a.a.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ com.kwai.sodler.lib.a.a a;
-            public final /* synthetic */ SoLoadListener b;
+            public final /* synthetic */ com.kwai.sodler.lib.a.a QB;
+            public final /* synthetic */ SoLoadListener QC;
 
             {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {a3, soLoadListener};
+                    Object[] objArr = {eQ, soLoadListener};
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                         return;
                     }
                 }
-                this.a = a3;
-                this.b = soLoadListener;
-            }
-
-            private void a() {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeV(65537, this) == null) {
-                    this.b.onLoaded();
-                }
+                this.QB = eQ;
+                this.QC = soLoadListener;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: private */
-            @Override // com.kwai.sodler.lib.ext.b.C0567b, com.kwai.sodler.lib.ext.b
+            @Override // com.kwai.sodler.lib.ext.b.C0415b, com.kwai.sodler.lib.ext.b
             public void a(c cVar) {
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeL(65538, this, cVar) == null) {
+                if (interceptable2 == null || interceptable2.invokeL(65537, this, cVar) == null) {
                     super.a((AnonymousClass1) cVar);
                 }
             }
 
             private void a(PluginError pluginError) {
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeL(65539, this, pluginError) == null) {
-                    this.b.onFailed(pluginError.getCode(), pluginError);
+                if (interceptable2 == null || interceptable2.invokeL(65538, this, pluginError) == null) {
+                    this.QC.onFailed(pluginError.getCode(), pluginError);
                 }
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: private */
-            @Override // com.kwai.sodler.lib.ext.b.C0567b, com.kwai.sodler.lib.ext.b
+            @Override // com.kwai.sodler.lib.ext.b.C0415b, com.kwai.sodler.lib.ext.b
             /* renamed from: b */
             public void c(c cVar) {
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, cVar) == null) {
+                if (interceptable2 == null || interceptable2.invokeL(65539, this, cVar) == null) {
                     super.c((AnonymousClass1) cVar);
-                    long unused = a.i = SystemClock.elapsedRealtime();
-                    TkLoggerReporter.get().reportTKSODownload(ILoggerReporter.Category.APM_LOG, new TKDownloadMsg().setDownloadState(0).setRetryCount(cVar.k()).toJson());
+                    long unused = a.Qz = SystemClock.elapsedRealtime();
+                    TkLoggerReporter.get().reportTKSODownload(ILoggerReporter.Category.APM_LOG, new TKDownloadMsg().setDownloadState(0).setRetryCount(cVar.Fp()).toJson());
                 }
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: private */
-            @Override // com.kwai.sodler.lib.ext.b.C0567b, com.kwai.sodler.lib.ext.b
+            @Override // com.kwai.sodler.lib.ext.b.C0415b, com.kwai.sodler.lib.ext.b
             /* renamed from: c */
             public void b(c cVar) {
                 String str9;
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeL(65541, this, cVar) == null) {
+                if (interceptable2 == null || interceptable2.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, cVar) == null) {
                     super.b((AnonymousClass1) cVar);
-                    if (cVar.c() == 1) {
-                        TkLoggerReporter.get().reportTKSODownload(ILoggerReporter.Category.APM_LOG, new TKDownloadMsg().setRetryCount(cVar.k()).setDownloadTime(SystemClock.elapsedRealtime() - a.i).setDownloadState(1).toJson());
+                    if (cVar.getState() == 1) {
+                        TkLoggerReporter.get().reportTKSODownload(ILoggerReporter.Category.APM_LOG, new TKDownloadMsg().setRetryCount(cVar.Fp()).setDownloadTime(SystemClock.elapsedRealtime() - a.Qz).setDownloadState(1).toJson());
                         return;
                     }
-                    if (cVar.g() != null) {
-                        Throwable g2 = cVar.g();
-                        if (g2 instanceof PluginError) {
-                            str9 = String.valueOf(((PluginError) g2).getCode());
-                            TkLoggerReporter.get().reportTKSODownload(ILoggerReporter.Category.ERROR_LOG, new TKDownloadMsg().setRetryCount(cVar.k()).setErrorReason(str9).setDownloadState(2).toJson());
+                    if (cVar.Fm() != null) {
+                        Throwable Fm = cVar.Fm();
+                        if (Fm instanceof PluginError) {
+                            str9 = String.valueOf(((PluginError) Fm).getCode());
+                            TkLoggerReporter.get().reportTKSODownload(ILoggerReporter.Category.ERROR_LOG, new TKDownloadMsg().setRetryCount(cVar.Fp()).setErrorReason(str9).setDownloadState(2).toJson());
                         }
                     }
                     str9 = ImageViewerConfig.FROM_OTHER;
-                    TkLoggerReporter.get().reportTKSODownload(ILoggerReporter.Category.ERROR_LOG, new TKDownloadMsg().setRetryCount(cVar.k()).setErrorReason(str9).setDownloadState(2).toJson());
+                    TkLoggerReporter.get().reportTKSODownload(ILoggerReporter.Category.ERROR_LOG, new TKDownloadMsg().setRetryCount(cVar.Fp()).setErrorReason(str9).setDownloadState(2).toJson());
                 }
             }
 
-            @Override // com.kwai.sodler.lib.ext.b.C0567b, com.kwai.sodler.lib.ext.b
-            public final /* bridge */ /* synthetic */ void a(f fVar, com.kwai.sodler.lib.a.a aVar) {
-                a();
+            private void qB() {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeV(65541, this) == null) {
+                    this.QC.onLoaded();
+                }
             }
 
-            @Override // com.kwai.sodler.lib.ext.b.C0567b, com.kwai.sodler.lib.ext.b
+            @Override // com.kwai.sodler.lib.ext.b.C0415b, com.kwai.sodler.lib.ext.b
+            public final /* synthetic */ void a(f fVar, com.kwai.sodler.lib.a.a aVar) {
+                qB();
+            }
+
+            @Override // com.kwai.sodler.lib.ext.b.C0415b, com.kwai.sodler.lib.ext.b
             public final /* bridge */ /* synthetic */ void a(f fVar, PluginError pluginError) {
                 a(pluginError);
             }
         });
     }
 
-    public static boolean a() {
+    public static boolean useTkLite() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (j == null) {
-                j = Boolean.valueOf(d.l());
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            if (QA == null) {
+                QA = Boolean.valueOf(d.useTkLite());
             }
-            return j.booleanValue();
+            return QA.booleanValue();
         }
         return invokeV.booleanValue;
     }

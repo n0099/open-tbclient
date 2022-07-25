@@ -8,15 +8,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.n75;
 import com.repackage.nn;
+import com.repackage.o75;
 import com.repackage.x66;
 import com.squareup.wire.Wire;
 import java.util.ArrayList;
 import tbclient.Error;
 import tbclient.Tabfeedlist.TabfeedlistResIdl;
 /* loaded from: classes3.dex */
-public class TabFeedListHttpResponsedMessage extends TbHttpResponsedMessage implements n75 {
+public class TabFeedListHttpResponsedMessage extends TbHttpResponsedMessage implements o75 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public x66 enterForumTabFeedData;

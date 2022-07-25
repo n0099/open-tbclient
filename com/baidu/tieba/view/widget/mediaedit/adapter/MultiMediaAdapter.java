@@ -105,15 +105,15 @@ public class MultiMediaAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
                 }
             }
             this.d = new ArrayList<>();
-            this.a = (SimpleDraweeView) view2.findViewById(R.id.obfuscated_res_0x7f09142e);
-            this.b = (SimpleDraweeView) view2.findViewById(R.id.obfuscated_res_0x7f09142f);
-            this.c = (SimpleDraweeView) view2.findViewById(R.id.obfuscated_res_0x7f091430);
+            this.a = (SimpleDraweeView) view2.findViewById(R.id.obfuscated_res_0x7f09140a);
+            this.b = (SimpleDraweeView) view2.findViewById(R.id.obfuscated_res_0x7f09140b);
+            this.c = (SimpleDraweeView) view2.findViewById(R.id.obfuscated_res_0x7f09140c);
             this.d.add(this.a);
             this.d.add(this.b);
             this.d.add(this.c);
-            this.h = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091431);
-            this.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092211);
-            this.f = view2.findViewById(R.id.obfuscated_res_0x7f09235b);
+            this.h = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f09140d);
+            this.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092213);
+            this.f = view2.findViewById(R.id.obfuscated_res_0x7f09235d);
             view2.setOnClickListener(new a(this, aVar));
         }
 

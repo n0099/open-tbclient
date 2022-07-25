@@ -40,8 +40,8 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.ng;
 import com.repackage.pi;
-import com.repackage.q15;
-import com.repackage.ur4;
+import com.repackage.r15;
+import com.repackage.vr4;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -556,26 +556,26 @@ public class PersonalChatView extends CommonPersonalMsglistView {
             super.initPersonalHeader(talkableActivity, z);
             PersonalChatActivity personalChatActivity = (PersonalChatActivity) talkableActivity;
             this.c = personalChatActivity;
-            String string = personalChatActivity.k2() ? talkableActivity.getPageContext().getString(R.string.obfuscated_res_0x7f0f0427) : talkableActivity.getPageContext().getString(R.string.obfuscated_res_0x7f0f0ad3);
+            String string = personalChatActivity.k2() ? talkableActivity.getPageContext().getString(R.string.obfuscated_res_0x7f0f0426) : talkableActivity.getPageContext().getString(R.string.obfuscated_res_0x7f0f0abf);
             if (this.c.k2()) {
-                View addCustomView = this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.obfuscated_res_0x7f0d06e5, talkableActivity);
+                View addCustomView = this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.obfuscated_res_0x7f0d06ef, talkableActivity);
                 this.mBtnGroupInfo = addCustomView;
-                TextView textView = (TextView) addCustomView.findViewById(R.id.obfuscated_res_0x7f090ca7);
+                TextView textView = (TextView) addCustomView.findViewById(R.id.obfuscated_res_0x7f090ca0);
                 this.a = textView;
                 textView.setText(string);
                 this.a.setVisibility(0);
             } else {
-                View addCustomView2 = this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.obfuscated_res_0x7f0d06e5, talkableActivity);
+                View addCustomView2 = this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.obfuscated_res_0x7f0d06ef, talkableActivity);
                 this.mBtnGroupInfo = addCustomView2;
-                this.b = (ImageView) addCustomView2.findViewById(R.id.obfuscated_res_0x7f090ca6);
-                int f2 = pi.f(TbadkCoreApplication.getInst(), R.dimen.obfuscated_res_0x7f070308);
+                this.b = (ImageView) addCustomView2.findViewById(R.id.obfuscated_res_0x7f090c9f);
+                int f2 = pi.f(TbadkCoreApplication.getInst(), R.dimen.obfuscated_res_0x7f070306);
                 LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(f2, f2);
                 layoutParams.rightMargin = pi.f(TbadkCoreApplication.getInst(), R.dimen.obfuscated_res_0x7f0701b2);
                 this.mBtnGroupInfo.setLayoutParams(layoutParams);
                 SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.b, R.drawable.icon_pure_topbar_more44_svg, R.color.CAM_X0106, SvgManager.SvgResourceStateType.NORMAL_PRESS);
             }
             if (!this.c.b1()) {
-                LinearLayout linearLayout = (LinearLayout) ((ViewStub) talkableActivity.findViewById(R.id.obfuscated_res_0x7f091e40)).inflate();
+                LinearLayout linearLayout = (LinearLayout) ((ViewStub) talkableActivity.findViewById(R.id.obfuscated_res_0x7f091e44)).inflate();
                 this.d = linearLayout;
                 this.e = (LinearLayout) linearLayout.findViewById(R.id.obfuscated_res_0x7f09010d);
                 this.f = (TextView) this.d.findViewById(R.id.obfuscated_res_0x7f09010e);
@@ -598,22 +598,22 @@ public class PersonalChatView extends CommonPersonalMsglistView {
                     }
                     this.mBtnGroupInfo.setEnabled(false);
                 }
-                this.mNavigationBar.setCenterTextTitle(getPageContext().getResources().getString(R.string.obfuscated_res_0x7f0f0ef9));
+                this.mNavigationBar.setCenterTextTitle(getPageContext().getResources().getString(R.string.obfuscated_res_0x7f0f0ee2));
                 if (!this.c.c2()) {
                     KeyboardLayout keyboardLayout = this.mRootView;
                     NoDataViewFactory.d.a aVar = new NoDataViewFactory.d.a();
                     aVar.i(NoDataViewFactory.ImgType.LOCAL);
                     aVar.h(R.drawable.new_pic_emotion_01);
-                    aVar.j(pi.f(TbadkCoreApplication.getInst().getContext(), R.dimen.obfuscated_res_0x7f0702c1));
-                    NoDataView a2 = NoDataViewFactory.a(talkableActivity, keyboardLayout, aVar.f(), NoDataViewFactory.e.d(null, talkableActivity.getString(R.string.obfuscated_res_0x7f0f0c44)), null);
+                    aVar.j(pi.f(TbadkCoreApplication.getInst().getContext(), R.dimen.obfuscated_res_0x7f0702bf));
+                    NoDataView a2 = NoDataViewFactory.a(talkableActivity, keyboardLayout, aVar.f(), NoDataViewFactory.e.d(null, talkableActivity.getString(R.string.obfuscated_res_0x7f0f0c30)), null);
                     this.l = a2;
                     a2.setVisibility(0);
                     this.l.f(talkableActivity.getPageContext(), TbadkCoreApplication.getInst().getSkinType());
                 } else {
-                    LinearLayout linearLayout2 = (LinearLayout) ((ViewStub) talkableActivity.findViewById(R.id.obfuscated_res_0x7f09182e)).inflate();
+                    LinearLayout linearLayout2 = (LinearLayout) ((ViewStub) talkableActivity.findViewById(R.id.obfuscated_res_0x7f091809)).inflate();
                     this.k = linearLayout2;
                     linearLayout2.setVisibility(0);
-                    EMTextView eMTextView = (EMTextView) this.k.findViewById(R.id.obfuscated_res_0x7f091d05);
+                    EMTextView eMTextView = (EMTextView) this.k.findViewById(R.id.obfuscated_res_0x7f091d0b);
                     this.j = eMTextView;
                     eMTextView.setVisibility(0);
                     EMTextView eMTextView2 = this.j;
@@ -660,11 +660,11 @@ public class PersonalChatView extends CommonPersonalMsglistView {
             this.mNavigationBar.onChangeSkinType(getPageContext(), i);
             LinearLayout linearLayout = this.k;
             if (linearLayout != null) {
-                ur4.d(linearLayout).f(R.color.CAM_X0201);
+                vr4.d(linearLayout).f(R.color.CAM_X0201);
             }
             EMTextView eMTextView = this.j;
             if (eMTextView != null) {
-                ur4 d2 = ur4.d(eMTextView);
+                vr4 d2 = vr4.d(eMTextView);
                 d2.v(R.color.CAM_X0107);
                 d2.z(R.dimen.T_X05);
             }
@@ -682,12 +682,12 @@ public class PersonalChatView extends CommonPersonalMsglistView {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.c.n2() : (ArrayList) invokeV.objValue;
     }
 
-    public final void v(q15 q15Var) {
+    public final void v(r15 r15Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048586, this, q15Var) == null) || q15Var == null || q15Var == null || !(q15Var instanceof View)) {
+        if (!(interceptable == null || interceptable.invokeL(1048586, this, r15Var) == null) || r15Var == null || r15Var == null || !(r15Var instanceof View)) {
             return;
         }
-        ((View) q15Var).setOnClickListener(this.n);
+        ((View) r15Var).setOnClickListener(this.n);
     }
 
     public Button w() {

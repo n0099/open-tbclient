@@ -3,8 +3,6 @@ package cn.com.chinatelecom.gateway.lib.c;
 import android.content.Context;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.sapi2.activity.BaseActivity;
-import com.baidu.searchbox.pms.constants.PmsConstant;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,168 +10,116 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.net.InetAddress;
-import java.net.NetworkInterface;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.Enumeration;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
-import java.util.regex.Pattern;
+import java.security.MessageDigest;
+import java.util.UUID;
 /* loaded from: classes.dex */
-public final class g {
-    public static /* synthetic */ Interceptable $ic;
-    public static final Pattern a;
+public class g {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static String a = "";
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1293515266, "Lcn/com/chinatelecom/gateway/lib/c/g;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-1293515266, "Lcn/com/chinatelecom/gateway/lib/c/g;");
-                return;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-1293515266, "Lcn/com/chinatelecom/gateway/lib/c/g;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-1293515266, "Lcn/com/chinatelecom/gateway/lib/c/g;");
+        }
+    }
+
+    public g() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        a = Pattern.compile("^(25[0-5]|2[0-4]\\d|[0-1]?\\d?\\d)(\\.(25[0-5]|2[0-4]\\d|[0-1]?\\d?\\d)){3}$");
     }
 
     public static String a() {
         InterceptResult invokeV;
-        String hostAddress;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            StringBuffer stringBuffer = new StringBuffer();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            String uuid = UUID.randomUUID().toString();
             try {
-                Enumeration<NetworkInterface> networkInterfaces = NetworkInterface.getNetworkInterfaces();
-                while (networkInterfaces.hasMoreElements()) {
-                    NetworkInterface nextElement = networkInterfaces.nextElement();
-                    String name = nextElement.getName();
-                    if (name == null || (!name.contains("wlan") && !name.equals("eth0"))) {
-                        Enumeration<InetAddress> inetAddresses = nextElement.getInetAddresses();
-                        while (inetAddresses.hasMoreElements()) {
-                            InetAddress nextElement2 = inetAddresses.nextElement();
-                            if (!nextElement2.isLoopbackAddress() && !nextElement2.isLinkLocalAddress() && (hostAddress = nextElement2.getHostAddress()) != null && a.matcher(hostAddress).matches()) {
-                                if (stringBuffer.length() > 0) {
-                                    stringBuffer.append(",");
-                                }
-                                stringBuffer.append(hostAddress);
-                            }
-                        }
-                    }
-                }
+                uuid = UUID.nameUUIDFromBytes((uuid + System.currentTimeMillis() + Math.random()).getBytes("utf8")).toString();
             } catch (Throwable th) {
                 th.printStackTrace();
             }
-            return stringBuffer.toString();
+            return !TextUtils.isEmpty(uuid) ? uuid.replace("-", "") : uuid;
         }
         return (String) invokeV.objValue;
     }
 
-    public static String a(Context context, String str, String str2, String str3, String str4) {
-        InterceptResult invokeLLLLL;
+    public static String a(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(65538, null, context, str, str2, str3, str4)) == null) {
-            HashMap hashMap = new HashMap();
-            hashMap.put("pipl", a());
-            hashMap.put(PmsConstant.Statistic.Key.REV_TIMESTAMP, Long.toString(System.currentTimeMillis()));
-            hashMap.put("rl", "00000");
-            hashMap.put("bussinessType", str3);
-            hashMap.put("sdkversion", "SDK-JJ-v3.7.3");
-            hashMap.put("networkType", f.f(context));
-            hashMap.put("onlineType", f.g(context));
-            hashMap.put("aip", context.getPackageName());
-            return a(str, str2, hashMap, str4);
-        }
-        return (String) invokeLLLLL.objValue;
-    }
-
-    public static String a(String str, String str2, Map<String, String> map, String str3) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65539, null, str, str2, map, str3)) == null) {
-            String a2 = cn.com.chinatelecom.gateway.lib.a.d.a(str3, cn.com.chinatelecom.gateway.lib.a.d.a());
-            String a3 = cn.com.chinatelecom.gateway.lib.a.a.a(a(map, "&"), str3);
-            HashMap hashMap = new HashMap();
-            hashMap.put(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID, str);
-            hashMap.put("clientType", "30020");
-            hashMap.put("format", "json");
-            hashMap.put("paramKey", a2);
-            hashMap.put("paramStr", a3);
-            hashMap.put("version", "3.0");
-            hashMap.put("sign", b(hashMap, str2));
-            return a(hashMap, "&");
-        }
-        return (String) invokeLLLL.objValue;
-    }
-
-    public static String a(Map<String, String> map, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, map, str)) == null) {
-            StringBuilder sb = new StringBuilder();
-            if (map != null && !map.isEmpty()) {
-                if (TextUtils.isEmpty(str)) {
-                    str = "&";
-                }
-                for (Map.Entry<String, String> entry : map.entrySet()) {
-                    sb.append(entry.getKey());
-                    sb.append("=");
-                    sb.append(entry.getValue());
-                    sb.append(str);
-                }
-                sb = sb.deleteCharAt(sb.length() - 1);
-            }
-            return sb.toString();
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    public static String b(Map<String, String> map, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, map, str)) == null) {
-            ArrayList arrayList = new ArrayList(map.entrySet());
-            Collections.sort(arrayList, new Comparator<Map.Entry<String, String>>() { // from class: cn.com.chinatelecom.gateway.lib.c.g.1
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                        }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
+            if (TextUtils.isEmpty(a)) {
+                String b = f.b(context, "key_d_i_u", "");
+                a = b;
+                if (TextUtils.isEmpty(b)) {
+                    String b2 = b();
+                    a = b2;
+                    if (!TextUtils.isEmpty(b2) && context != null) {
+                        f.a(context, "key_d_i_u", b2);
                     }
                 }
-
-                /* JADX DEBUG: Method merged with bridge method */
-                @Override // java.util.Comparator
-                /* renamed from: a */
-                public int compare(Map.Entry<String, String> entry, Map.Entry<String, String> entry2) {
-                    InterceptResult invokeLL2;
-                    Interceptable interceptable2 = $ic;
-                    return (interceptable2 == null || (invokeLL2 = interceptable2.invokeLL(1048576, this, entry, entry2)) == null) ? entry.getKey().compareTo(entry2.getKey()) : invokeLL2.intValue;
-                }
-            });
-            Iterator it = arrayList.iterator();
-            String str2 = "";
-            while (it.hasNext()) {
-                str2 = str2 + ((String) ((Map.Entry) it.next()).getValue());
             }
-            return cn.com.chinatelecom.gateway.lib.a.c.b(cn.com.chinatelecom.gateway.lib.a.c.a(str2, str));
+            return a;
         }
-        return (String) invokeLL.objValue;
+        return (String) invokeL.objValue;
+    }
+
+    public static String a(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+            char[] cArr = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
+            try {
+                byte[] bytes = str.getBytes();
+                MessageDigest messageDigest = MessageDigest.getInstance("MD5");
+                messageDigest.update(bytes);
+                byte[] digest = messageDigest.digest();
+                char[] cArr2 = new char[digest.length << 1];
+                int i = 0;
+                for (byte b : digest) {
+                    int i2 = i + 1;
+                    cArr2[i] = cArr[(b >>> 4) & 15];
+                    i = i2 + 1;
+                    cArr2[i2] = cArr[b & 15];
+                }
+                return new String(cArr2);
+            } catch (Exception unused) {
+                return null;
+            }
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            try {
+                String uuid = UUID.randomUUID().toString();
+                return TextUtils.isEmpty(uuid) ? "default" : a(uuid + "default");
+            } catch (Throwable th) {
+                th.printStackTrace();
+                return "default";
+            }
+        }
+        return (String) invokeV.objValue;
     }
 }

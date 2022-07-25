@@ -24,8 +24,8 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.jf;
-import com.repackage.u15;
 import com.repackage.ue7;
+import com.repackage.v15;
 import com.repackage.ve7;
 import com.repackage.xe7;
 import com.repackage.ye7;
@@ -100,7 +100,7 @@ public class LocationProvidersStatic {
         }
 
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage<u15> run(CustomMessage<Context> customMessage) {
+        public CustomResponsedMessage<v15> run(CustomMessage<Context> customMessage) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) ? new CustomResponsedMessage<>(2016556, new ye7(customMessage.getData(), 0)) : (CustomResponsedMessage) invokeL.objValue;

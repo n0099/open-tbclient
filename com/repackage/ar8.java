@@ -436,7 +436,7 @@ public class ar8 extends b9 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 this.a.b.setSelection(this.a.n);
-                this.a.b.v(this.a.m * pi.f(this.a.getPageContext().getContext(), R.dimen.obfuscated_res_0x7f07023f));
+                this.a.b.v(this.a.m * pi.f(this.a.getPageContext().getContext(), R.dimen.obfuscated_res_0x7f07023d));
             }
         }
     }
@@ -472,7 +472,7 @@ public class ar8 extends b9 {
     public final void A() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.b = (HorizontalListView) this.a.findViewById(R.id.obfuscated_res_0x7f090d63);
+            this.b = (HorizontalListView) this.a.findViewById(R.id.obfuscated_res_0x7f090d5c);
             iq8 iq8Var = new iq8(this.mContext);
             this.e = iq8Var;
             this.b.setAdapter((ListAdapter) iq8Var);
@@ -694,11 +694,11 @@ public class ar8 extends b9 {
             this.i = z;
             if (z) {
                 this.g.setSelected(false);
-                this.h.setText(this.c.getString(R.string.obfuscated_res_0x7f0f1546));
+                this.h.setText(this.c.getString(R.string.obfuscated_res_0x7f0f14f5));
                 return;
             }
             this.g.setSelected(true);
-            this.h.setText(this.c.getString(R.string.obfuscated_res_0x7f0f1545));
+            this.h.setText(this.c.getString(R.string.obfuscated_res_0x7f0f14f4));
         }
     }
 
@@ -793,9 +793,9 @@ public class ar8 extends b9 {
     public void z(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048597, this, view2) == null) {
-            this.f = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f092409);
-            this.g = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f092408);
-            this.h = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09240a);
+            this.f = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f09240b);
+            this.g = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f09240a);
+            this.h = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09240c);
             this.f.setVisibility(8);
             this.f.setOnClickListener(new h(this));
             O(this.i);

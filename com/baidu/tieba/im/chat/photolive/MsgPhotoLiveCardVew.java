@@ -140,7 +140,7 @@ public class MsgPhotoLiveCardVew extends g47 {
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public MsgPhotoLiveCardVew(TbPageContext<MsglistActivity<?>> tbPageContext) {
-        super(tbPageContext, R.layout.obfuscated_res_0x7f0d0564);
+        super(tbPageContext, R.layout.obfuscated_res_0x7f0d056e);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -216,14 +216,14 @@ public class MsgPhotoLiveCardVew extends g47 {
     public final void Z() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.F = (LinearLayout) a(R.id.obfuscated_res_0x7f0914ca);
+            this.F = (LinearLayout) a(R.id.obfuscated_res_0x7f0914a5);
             this.G = (ClickableHeaderImageView) a(R.id.obfuscated_res_0x7f0902db);
             this.H = (TextView) a(R.id.obfuscated_res_0x7f0902da);
             this.I = (TextView) a(R.id.obfuscated_res_0x7f090467);
             this.J = (TextView) a(R.id.obfuscated_res_0x7f090464);
             this.K = (TextView) a(R.id.obfuscated_res_0x7f090466);
             this.M = (LinearLayout) a(R.id.obfuscated_res_0x7f0902cf);
-            this.L = (TextView) a(R.id.obfuscated_res_0x7f091ad0);
+            this.L = (TextView) a(R.id.obfuscated_res_0x7f091aaa);
             this.N = (TextView) a(R.id.obfuscated_res_0x7f0904a8);
             this.F.setOnClickListener(new a(this));
         }
@@ -251,10 +251,10 @@ public class MsgPhotoLiveCardVew extends g47 {
         if (i3 == 1 || i3 == 6) {
             if (this.E == 1) {
                 decode = a2.g;
-                i = R.string.obfuscated_res_0x7f0f0a5e;
+                i = R.string.obfuscated_res_0x7f0f0a4a;
             } else {
                 decode = URLDecoder.decode(a2.g);
-                i = R.string.obfuscated_res_0x7f0f0a5d;
+                i = R.string.obfuscated_res_0x7f0f0a49;
                 i4 = 0;
             }
             this.K.setText(decode);
@@ -277,7 +277,7 @@ public class MsgPhotoLiveCardVew extends g47 {
             this.G.setVisibility(8);
             this.L.setVisibility(0);
             this.H.setVisibility(8);
-            this.L.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f05fd));
+            this.L.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f05f9));
             String str = a2.e;
             if (str != null && str.indexOf(String.valueOf(i2)) != -1) {
                 this.J.setText(V(a2.e, i2));
@@ -294,10 +294,10 @@ public class MsgPhotoLiveCardVew extends g47 {
             int i5 = this.E;
             if (i5 == 4) {
                 this.K.setText(a2.g);
-                this.L.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f14dc));
+                this.L.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f148b));
             } else if (i5 == 5) {
                 this.K.setText(a2.g);
-                this.N.setText(R.string.obfuscated_res_0x7f0f0a60);
+                this.N.setText(R.string.obfuscated_res_0x7f0f0a4c);
                 this.L.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0391));
             }
         }

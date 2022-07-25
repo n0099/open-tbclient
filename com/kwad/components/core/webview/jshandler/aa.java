@@ -1,26 +1,26 @@
 package com.kwad.components.core.webview.jshandler;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.ksad.json.annotation.KsJson;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public final class aa implements com.kwad.sdk.core.webview.kwai.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public com.kwad.sdk.core.webview.kwai.c a;
-    public a b;
+    public com.kwad.sdk.core.webview.kwai.c Lb;
 
-    @KsJson
     /* loaded from: classes5.dex */
-    public static final class a extends com.kwad.sdk.core.response.kwai.a implements com.kwad.sdk.core.b {
+    public static final class a implements com.kwad.sdk.core.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public int a;
+        public String MJ;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -35,6 +35,25 @@ public final class aa implements com.kwad.sdk.core.webview.kwai.a {
                 }
             }
         }
+
+        @Override // com.kwad.sdk.core.b
+        public final void parseJson(@Nullable JSONObject jSONObject) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
+            }
+        }
+
+        @Override // com.kwad.sdk.core.b
+        public final JSONObject toJson() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                JSONObject jSONObject = new JSONObject();
+                com.kwad.sdk.utils.r.putValue(jSONObject, "lifeStatus", this.MJ);
+                return jSONObject;
+            }
+            return (JSONObject) invokeV.objValue;
+        }
     }
 
     public aa() {
@@ -47,44 +66,83 @@ public final class aa implements com.kwad.sdk.core.webview.kwai.a {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.b = new a();
     }
 
-    @Override // com.kwad.sdk.core.webview.kwai.a
-    @NonNull
-    public final String a() {
-        InterceptResult invokeV;
+    private void aF(String str) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "registerVideoListener" : (String) invokeV.objValue;
-    }
-
-    public final void a(int i) {
-        com.kwad.sdk.core.webview.kwai.c cVar;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) || (cVar = this.a) == null) {
+        if (!(interceptable == null || interceptable.invokeL(65537, this, str) == null) || this.Lb == null) {
             return;
         }
-        a aVar = this.b;
-        aVar.a = i;
-        cVar.a(aVar);
+        a aVar = new a();
+        aVar.MJ = str;
+        this.Lb.a(aVar);
     }
 
     @Override // com.kwad.sdk.core.webview.kwai.a
     public final void a(String str, @NonNull com.kwad.sdk.core.webview.kwai.c cVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, cVar) == null) {
-            this.a = cVar;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, str, cVar) == null) {
+            this.Lb = cVar;
         }
     }
 
     @Override // com.kwad.sdk.core.webview.kwai.a
-    public final void b() {
+    @NonNull
+    public final String getKey() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "registerLifecycleListener" : (String) invokeV.objValue;
+    }
+
+    @Override // com.kwad.sdk.core.webview.kwai.a
+    public final void onDestroy() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.Lb = null;
+        }
+    }
+
+    public final void pA() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.a = null;
+            aF("hideStart");
+        }
+    }
+
+    public final void pB() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            aF("hideEnd");
+        }
+    }
+
+    public final void pC() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            aF("pageVisiable");
+        }
+    }
+
+    public final void pD() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            aF("pageInvisiable");
+        }
+    }
+
+    public final void py() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            aF("showStart");
+        }
+    }
+
+    public final void pz() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            aF("showEnd");
         }
     }
 }

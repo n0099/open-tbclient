@@ -63,7 +63,7 @@ public class AppBarLayout extends LinearLayout implements CoordinatorLayout.Atta
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: DEF_STYLE_RES */
-    public static final int obfuscated_res_0x7f100323 = 2131755811;
+    public static final int obfuscated_res_0x7f100326 = 2131755814;
     public static final int INVALID_SCROLL_RANGE = -1;
     public static final int PENDING_ACTION_ANIMATE_ENABLED = 4;
     public static final int PENDING_ACTION_COLLAPSED = 2;
@@ -1546,7 +1546,7 @@ public class AppBarLayout extends LinearLayout implements CoordinatorLayout.Atta
     private void startLiftOnScrollElevationOverlayAnimation(@NonNull MaterialShapeDrawable materialShapeDrawable, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(65548, this, materialShapeDrawable, z) == null) {
-            float dimension = getResources().getDimension(R.dimen.obfuscated_res_0x7f0701f3);
+            float dimension = getResources().getDimension(R.dimen.obfuscated_res_0x7f0701f1);
             float f = z ? 0.0f : dimension;
             if (!z) {
                 dimension = 0.0f;
@@ -1883,10 +1883,10 @@ public class AppBarLayout extends LinearLayout implements CoordinatorLayout.Atta
             }
             int[] iArr = this.tmpStatesArray;
             int[] onCreateDrawableState = super.onCreateDrawableState(i + iArr.length);
-            iArr[0] = this.liftable ? R.attr.obfuscated_res_0x7f0405d0 : -2130970064;
-            iArr[1] = (this.liftable && this.lifted) ? R.attr.obfuscated_res_0x7f0405d1 : -2130970065;
-            iArr[2] = this.liftable ? R.attr.obfuscated_res_0x7f0405ce : -2130970062;
-            iArr[3] = (this.liftable && this.lifted) ? R.attr.obfuscated_res_0x7f0405cd : -2130970061;
+            iArr[0] = this.liftable ? R.attr.obfuscated_res_0x7f0405d2 : -2130970066;
+            iArr[1] = (this.liftable && this.lifted) ? R.attr.obfuscated_res_0x7f0405d3 : -2130970067;
+            iArr[2] = this.liftable ? R.attr.obfuscated_res_0x7f0405d0 : -2130970064;
+            iArr[3] = (this.liftable && this.lifted) ? R.attr.obfuscated_res_0x7f0405cf : -2130970063;
             return LinearLayout.mergeDrawableStates(onCreateDrawableState, iArr);
         }
         return (int[]) invokeI.objValue;
@@ -2198,7 +2198,7 @@ public class AppBarLayout extends LinearLayout implements CoordinatorLayout.Atta
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public AppBarLayout(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
-        super(MaterialThemeOverlay.wrap(context, attributeSet, i, obfuscated_res_0x7f100323), attributeSet, i);
+        super(MaterialThemeOverlay.wrap(context, attributeSet, i, obfuscated_res_0x7f100326), attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -2223,9 +2223,9 @@ public class AppBarLayout extends LinearLayout implements CoordinatorLayout.Atta
         setOrientation(1);
         if (Build.VERSION.SDK_INT >= 21) {
             ViewUtilsLollipop.setBoundsViewOutlineProvider(this);
-            ViewUtilsLollipop.setStateListAnimatorFromAttrs(this, attributeSet, i, obfuscated_res_0x7f100323);
+            ViewUtilsLollipop.setStateListAnimatorFromAttrs(this, attributeSet, i, obfuscated_res_0x7f100326);
         }
-        TypedArray obtainStyledAttributes = ThemeEnforcement.obtainStyledAttributes(context2, attributeSet, new int[]{16842964, 16843919, 16844096, R.attr.obfuscated_res_0x7f040215, R.attr.obfuscated_res_0x7f040260, R.attr.obfuscated_res_0x7f0403e9, R.attr.obfuscated_res_0x7f0403ea, R.attr.obfuscated_res_0x7f0405d4}, i, obfuscated_res_0x7f100323, new int[0]);
+        TypedArray obtainStyledAttributes = ThemeEnforcement.obtainStyledAttributes(context2, attributeSet, new int[]{16842964, 16843919, 16844096, R.attr.obfuscated_res_0x7f040215, R.attr.obfuscated_res_0x7f040260, R.attr.obfuscated_res_0x7f0403e9, R.attr.obfuscated_res_0x7f0403ea, R.attr.obfuscated_res_0x7f0405d6}, i, obfuscated_res_0x7f100326, new int[0]);
         ViewCompat.setBackground(this, obtainStyledAttributes.getDrawable(0));
         if (getBackground() instanceof ColorDrawable) {
             MaterialShapeDrawable materialShapeDrawable = new MaterialShapeDrawable();

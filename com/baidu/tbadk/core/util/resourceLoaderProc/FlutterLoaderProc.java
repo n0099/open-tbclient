@@ -22,10 +22,10 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.cg;
 import com.repackage.hg;
-import com.repackage.l45;
+import com.repackage.m45;
 import com.repackage.mg;
-import com.repackage.nd5;
 import com.repackage.ni;
+import com.repackage.od5;
 import com.repackage.pi;
 import com.repackage.ub;
 import com.repackage.yb;
@@ -218,8 +218,8 @@ public class FlutterLoaderProc extends AbstractImageLoaderProc {
             }
             boolean isFromCDN = isFromCDN();
             String urlbyClientServerAddr = isFromCDN ? str : getUrlbyClientServerAddr(str, suggestWidth, suggestHeight);
-            nd5.e(isFromCDN, urlbyClientServerAddr, str);
-            Pair<Boolean, String> d = nd5.d(urlbyClientServerAddr);
+            od5.e(isFromCDN, urlbyClientServerAddr, str);
+            Pair<Boolean, String> d = od5.d(urlbyClientServerAddr);
             if (((Boolean) d.first).booleanValue()) {
                 urlbyClientServerAddr = (String) d.second;
                 z = true;
@@ -309,7 +309,7 @@ public class FlutterLoaderProc extends AbstractImageLoaderProc {
                 ImageLogger.imagePerfNetLog(str, false, urlbyClientServerAddr, Boolean.valueOf(z), webClient.mStat, "bytes<1", currentTimeMillis2, webClient.isMobileProxy(), getProcType());
             }
             byte[] bArr2 = bArr;
-            l45.k().i(TbConfig.getPbImageSize() + bArr2.length);
+            m45.k().i(TbConfig.getPbImageSize() + bArr2.length);
             boolean z5 = webClient.isGif || pi.B(bArr2);
             ym ymVar3 = new ym((Bitmap) null, z5, str, bArr2);
             ymVar3.y(z2);

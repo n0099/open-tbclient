@@ -84,13 +84,13 @@ import com.repackage.de5;
 import com.repackage.he5;
 import com.repackage.j77;
 import com.repackage.j87;
-import com.repackage.jd5;
 import com.repackage.k87;
+import com.repackage.kd5;
 import com.repackage.l87;
-import com.repackage.la5;
 import com.repackage.m87;
 import com.repackage.ma5;
 import com.repackage.n87;
+import com.repackage.na5;
 import com.repackage.ng;
 import com.repackage.o87;
 import com.repackage.p87;
@@ -332,7 +332,7 @@ public class TiebaIMActivityStatic {
         }
 
         /* loaded from: classes3.dex */
-        public class b implements jd5<Void> {
+        public class b implements kd5<Void> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ CustomMessage a;
@@ -356,7 +356,7 @@ public class TiebaIMActivityStatic {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.repackage.jd5
+            @Override // com.repackage.kd5
             /* renamed from: a */
             public void onReturnDataInUI(Void r5) {
                 Interceptable interceptable = $ic;
@@ -866,10 +866,10 @@ public class TiebaIMActivityStatic {
         return invokeV.booleanValue;
     }
 
-    public static la5 g(int i2, Class<? extends CustomMessageTask.CustomRunnable<?>> cls) {
+    public static ma5 g(int i2, Class<? extends CustomMessageTask.CustomRunnable<?>> cls) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeIL = interceptable.invokeIL(65544, null, i2, cls)) == null) ? y37.a(i2, cls) : (la5) invokeIL.objValue;
+        return (interceptable == null || (invokeIL = interceptable.invokeIL(65544, null, i2, cls)) == null) ? y37.a(i2, cls) : (ma5) invokeIL.objValue;
     }
 
     public static void h() {
@@ -886,9 +886,9 @@ public class TiebaIMActivityStatic {
         }
     }
 
-    public static ma5 i(int i2, Class<? extends SocketResponsedMessage> cls, boolean z) {
+    public static na5 i(int i2, Class<? extends SocketResponsedMessage> cls, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65546, null, new Object[]{Integer.valueOf(i2), cls, Boolean.valueOf(z)})) == null) ? y37.b(i2, cls, z) : (ma5) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65546, null, new Object[]{Integer.valueOf(i2), cls, Boolean.valueOf(z)})) == null) ? y37.b(i2, cls, z) : (na5) invokeCommon.objValue;
     }
 }

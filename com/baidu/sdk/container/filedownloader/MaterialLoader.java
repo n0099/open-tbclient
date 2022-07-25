@@ -307,13 +307,13 @@ public class MaterialLoader {
 
         /* renamed from: com.baidu.sdk.container.filedownloader.MaterialLoader$c$c  reason: collision with other inner class name */
         /* loaded from: classes2.dex */
-        public class RunnableC0136c implements Runnable {
+        public class RunnableC0142c implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ Bitmap a;
             public final /* synthetic */ c b;
 
-            public RunnableC0136c(c cVar, Bitmap bitmap) {
+            public RunnableC0142c(c cVar, Bitmap bitmap) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -403,7 +403,7 @@ public class MaterialLoader {
                                         this.f.setVisibility(0);
                                     }
                                 } else {
-                                    new Handler(Looper.getMainLooper()).post(new RunnableC0136c(this, decodeStream));
+                                    new Handler(Looper.getMainLooper()).post(new RunnableC0142c(this, decodeStream));
                                 }
                                 this.h.y(decodeStream, this.b, this.g);
                                 this.e.onLoadingComplete(this.b, this.f, decodeStream);

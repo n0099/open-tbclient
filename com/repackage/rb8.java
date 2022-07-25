@@ -95,12 +95,12 @@ public class rb8 extends BaseAdapter {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2)) == null) {
             b bVar = new b(this, null);
-            bVar.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091a26);
-            bVar.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091a24);
-            TbImageView tbImageView = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f091a25);
+            bVar.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091a00);
+            bVar.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0919fe);
+            TbImageView tbImageView = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f0919ff);
             bVar.c = tbImageView;
             tbImageView.setAutoChangeStyle(false);
-            bVar.d = view2.findViewById(R.id.obfuscated_res_0x7f0912b0);
+            bVar.d = view2.findViewById(R.id.obfuscated_res_0x7f09128c);
             return bVar;
         }
         return (b) invokeL.objValue;
@@ -130,7 +130,7 @@ public class rb8 extends BaseAdapter {
             if (view2 != null && view2.getTag() != null && (view2.getTag() instanceof b)) {
                 b2 = (b) view2.getTag();
             } else {
-                view2 = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0743, viewGroup, false);
+                view2 = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d074d, viewGroup, false);
                 b2 = b(view2);
                 view2.setTag(b2);
             }
@@ -139,7 +139,7 @@ public class rb8 extends BaseAdapter {
             }
             b2.a.setText(sb8Var.d);
             b2.b.setText(sb8Var.e);
-            b2.c.setDefaultResource(R.drawable.obfuscated_res_0x7f081011);
+            b2.c.setDefaultResource(R.drawable.obfuscated_res_0x7f081014);
             b2.c.G(sb8Var.f, 10, 0, 0, false);
             return view2;
         }

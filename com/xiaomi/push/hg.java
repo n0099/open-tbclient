@@ -17,10 +17,10 @@ public class hg {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
-    public final Context f1185a;
+    public final Context f465a;
 
     /* renamed from: a  reason: collision with other field name */
-    public Map<String, hh> f1186a;
+    public Map<String, hh> f466a;
 
     public hg(Context context) {
         Interceptable interceptable = $ic;
@@ -37,8 +37,8 @@ public class hg {
                 return;
             }
         }
-        this.f1186a = new HashMap();
-        this.f1185a = context;
+        this.f466a = new HashMap();
+        this.f465a = context;
     }
 
     public static hg a(Context context) {
@@ -82,11 +82,11 @@ public class hg {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            hh hhVar = this.f1186a.get("UPLOADER_PUSH_CHANNEL");
+            hh hhVar = this.f466a.get("UPLOADER_PUSH_CHANNEL");
             if (hhVar != null) {
                 return hhVar;
             }
-            hh hhVar2 = this.f1186a.get("UPLOADER_HTTP");
+            hh hhVar2 = this.f466a.get("UPLOADER_HTTP");
             if (hhVar2 != null) {
                 return hhVar2;
             }
@@ -96,10 +96,10 @@ public class hg {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public Map<String, hh> m1333a() {
+    public Map<String, hh> m395a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f1186a : (Map) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f466a : (Map) invokeV.objValue;
     }
 
     public void a(hh hhVar, String str) {
@@ -110,7 +110,7 @@ public class hg {
             } else if (TextUtils.isEmpty(str)) {
                 com.xiaomi.channel.commonutils.logger.b.d("[TinyDataManager]: can not add a provider from unkown resource.");
             } else {
-                m1333a().put(str, hhVar);
+                m395a().put(str, hhVar);
             }
         }
     }
@@ -120,7 +120,7 @@ public class hg {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, hnVar, str)) == null) {
             if (TextUtils.isEmpty(str)) {
-                com.xiaomi.channel.commonutils.logger.b.m1027a("pkgName is null or empty, upload ClientUploadDataItem failed.");
+                com.xiaomi.channel.commonutils.logger.b.m89a("pkgName is null or empty, upload ClientUploadDataItem failed.");
                 return false;
             } else if (com.xiaomi.push.service.bz.a(hnVar, false)) {
                 return false;
@@ -129,7 +129,7 @@ public class hg {
                     hnVar.f(com.xiaomi.push.service.bz.a());
                 }
                 hnVar.g(str);
-                com.xiaomi.push.service.ca.a(this.f1185a, hnVar);
+                com.xiaomi.push.service.ca.a(this.f465a, hnVar);
                 return true;
             }
         }
@@ -139,6 +139,6 @@ public class hg {
     public boolean a(String str, String str2, long j, String str3) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{str, str2, Long.valueOf(j), str3})) == null) ? a(this.f1185a.getPackageName(), this.f1185a.getPackageName(), str, str2, j, str3) : invokeCommon.booleanValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{str, str2, Long.valueOf(j), str3})) == null) ? a(this.f465a.getPackageName(), this.f465a.getPackageName(), str, str2, j, str3) : invokeCommon.booleanValue;
     }
 }

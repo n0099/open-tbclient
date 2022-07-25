@@ -45,8 +45,8 @@ public class us6 {
     public FrameLayout h;
     public TBSpecificationBtn i;
     public TBSpecificationBtn j;
-    public vu4 k;
-    public vu4 l;
+    public wu4 k;
+    public wu4 l;
     public boolean m;
     public PopupWindow n;
     public float o;
@@ -457,7 +457,7 @@ public class us6 {
 
     public final void i() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || gd5.a()) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || hd5.a()) {
             return;
         }
         ValueAnimator ofFloat = ValueAnimator.ofFloat(1.0f, 0.0f);
@@ -473,10 +473,10 @@ public class us6 {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             View inflate = LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d038c, (ViewGroup) null);
             this.c = inflate;
-            this.e = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091b6c);
-            this.g = (FrameLayout) this.c.findViewById(R.id.obfuscated_res_0x7f0922d5);
-            this.f = (LinearLayout) this.c.findViewById(R.id.obfuscated_res_0x7f091349);
-            this.d = this.c.findViewById(R.id.obfuscated_res_0x7f09141d);
+            this.e = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091b46);
+            this.g = (FrameLayout) this.c.findViewById(R.id.obfuscated_res_0x7f0922d7);
+            this.f = (LinearLayout) this.c.findViewById(R.id.obfuscated_res_0x7f091325);
+            this.d = this.c.findViewById(R.id.obfuscated_res_0x7f0913f9);
             this.h = (FrameLayout) this.c.findViewById(R.id.obfuscated_res_0x7f0903b8);
             this.i = (TBSpecificationBtn) this.c.findViewById(R.id.obfuscated_res_0x7f090403);
             this.j = (TBSpecificationBtn) this.c.findViewById(R.id.obfuscated_res_0x7f09042c);
@@ -487,13 +487,13 @@ public class us6 {
             this.j.setOnClickListener(this.r);
             this.i.setOnClickListener(this.q);
             this.g.setOnClickListener(this.p);
-            vu4 vu4Var = new vu4();
-            this.k = vu4Var;
-            vu4Var.p(R.color.CAM_X0304);
-            vu4 vu4Var2 = new vu4();
-            this.l = vu4Var2;
-            vu4Var2.r(R.color.CAM_X0108);
-            this.m = xt4.k().l("key_home_concern_all_status", 0) != 1;
+            wu4 wu4Var = new wu4();
+            this.k = wu4Var;
+            wu4Var.p(R.color.CAM_X0304);
+            wu4 wu4Var2 = new wu4();
+            this.l = wu4Var2;
+            wu4Var2.r(R.color.CAM_X0108);
+            this.m = yt4.k().l("key_home_concern_all_status", 0) != 1;
             q();
             k(TbadkCoreApplication.getInst().getSkinType());
         }

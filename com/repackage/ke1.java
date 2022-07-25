@@ -37,7 +37,7 @@ public class ke1 {
             this.a = sharedPreferences;
             this.b = sharedPreferences.edit();
         } catch (Throwable th) {
-            sf1.d(th);
+            tf1.d(th);
         }
     }
 

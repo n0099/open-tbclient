@@ -1,26 +1,22 @@
 package com.repackage;
 
-import android.content.ComponentName;
-import android.content.ServiceConnection;
-import android.os.IBinder;
+import android.content.Context;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.sso.p.a;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class ig1 implements ServiceConnection {
+public class ig1 implements dg1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public gg1 a;
+    public hg1 a;
 
-    public ig1(gg1 gg1Var) {
+    public ig1() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {gg1Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -30,31 +26,23 @@ public class ig1 implements ServiceConnection {
                 return;
             }
         }
-        this.a = gg1Var;
+        this.a = null;
     }
 
-    @Override // android.content.ServiceConnection
-    public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
+    @Override // com.repackage.dg1
+    public String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, componentName, iBinder) == null) {
-            this.a.a = a.AbstractBinderC0157a.a(iBinder);
-            dg1 dg1Var = this.a.e;
-            if (dg1Var != null) {
-                dg1Var.a();
-            }
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a.a("OUID") : (String) invokeV.objValue;
     }
 
-    @Override // android.content.ServiceConnection
-    public void onServiceDisconnected(ComponentName componentName) {
+    @Override // com.repackage.dg1
+    public void a(Context context, eg1 eg1Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, componentName) == null) {
-            gg1 gg1Var = this.a;
-            gg1Var.a = null;
-            dg1 dg1Var = gg1Var.e;
-            if (dg1Var != null) {
-                dg1Var.a();
-            }
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, eg1Var) == null) {
+            hg1 hg1Var = new hg1(context);
+            this.a = hg1Var;
+            hg1Var.b();
         }
     }
 }

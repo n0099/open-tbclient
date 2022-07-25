@@ -23,14 +23,14 @@ public class ed6 {
     public static class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ cr4 a;
+        public final /* synthetic */ dr4 a;
 
-        public a(cr4 cr4Var) {
+        public a(dr4 dr4Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {cr4Var};
+                Object[] objArr = {dr4Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -40,7 +40,7 @@ public class ed6 {
                     return;
                 }
             }
-            this.a = cr4Var;
+            this.a = dr4Var;
         }
 
         @Override // android.view.View.OnClickListener
@@ -59,18 +59,18 @@ public class ed6 {
             return;
         }
         View inflate = LayoutInflater.from(activity).inflate(R.layout.obfuscated_res_0x7f0d0308, (ViewGroup) null);
-        TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090c41);
-        TextView textView2 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090c3e);
-        TextView textView3 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090c3f);
-        TextView textView4 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090c40);
-        TextView textView5 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090c3d);
-        TbImageView tbImageView = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f092140);
-        cr4 cr4Var = new cr4(activity);
-        cr4Var.setContentView(inflate);
-        cr4Var.setContentViewSize(2);
-        cr4Var.setCanceledOnTouchOutside(true);
-        cr4Var.setAutoNight(true);
-        cr4Var.setCancelable(true);
+        TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090c3a);
+        TextView textView2 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090c37);
+        TextView textView3 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090c38);
+        TextView textView4 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090c39);
+        TextView textView5 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090c36);
+        TbImageView tbImageView = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f092142);
+        dr4 dr4Var = new dr4(activity);
+        dr4Var.setContentView(inflate);
+        dr4Var.setContentViewSize(2);
+        dr4Var.setCanceledOnTouchOutside(true);
+        dr4Var.setAutoNight(true);
+        dr4Var.setCancelable(true);
         int f = pi.f(activity, R.dimen.tbds31);
         SkinManager.setBackgroundShapeDrawable(inflate, f, R.color.CAM_X0201, R.color.CAM_X0101);
         tbImageView.setRadius(f);
@@ -93,7 +93,7 @@ public class ed6 {
         SkinManager.setViewTextColor(textView3, (int) R.color.CAM_X0107);
         SkinManager.setViewTextColor(textView4, (int) R.color.CAM_X0107);
         SkinManager.setViewTextColor(textView5, (int) R.color.CAM_X0302);
-        textView5.setOnClickListener(new a(cr4Var));
-        cr4Var.create(tbPageContext).show();
+        textView5.setOnClickListener(new a(dr4Var));
+        dr4Var.create(tbPageContext).show();
     }
 }

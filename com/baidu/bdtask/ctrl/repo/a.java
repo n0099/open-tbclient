@@ -80,7 +80,7 @@ public final class a {
                     DebugTrace.a.c(new TaskRepo$finishReq$5$onFail$1$1(this));
                     mq mqVar = this.a.a;
                     Exception exc = this.b;
-                    mqVar.a((exc == null || (r1 = exc.getMessage()) == null) ? "task complete request failed" : "task complete request failed", 301);
+                    mqVar.c((exc == null || (r1 = exc.getMessage()) == null) ? "task complete request failed" : "task complete request failed", 301);
                 }
             }
         }
@@ -118,10 +118,10 @@ public final class a {
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                     nq nqVar = this.b;
                     if ((nqVar != null ? nqVar.d() : null) == null) {
-                        this.a.a.a("task complete request failed", 301);
+                        this.a.a.c("task complete request failed", 301);
                     } else if (!this.b.a()) {
                         mq mqVar = this.a.a;
-                        mqVar.a("serverErrorNo:" + this.b.b() + " msg:" + this.b.c(), 301);
+                        mqVar.c("serverErrorNo:" + this.b.b() + " msg:" + this.b.c(), 301);
                     } else {
                         this.a.a.a(this.b.d());
                     }
@@ -271,7 +271,7 @@ public final class a {
                 DebugTrace.a.c(new TaskRepo$finishReq$4(objectRef));
                 srVar.j(a(str2, i), (String) objectRef.element, new b(mqVar));
             } catch (Exception e) {
-                mqVar.a("task request serialize failed  : " + e.getMessage(), 202);
+                mqVar.c("task request serialize failed  : " + e.getMessage(), 202);
             }
         }
     }

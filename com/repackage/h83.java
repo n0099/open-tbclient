@@ -1,134 +1,71 @@
 package com.repackage;
 
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.Context;
+import androidx.lifecycle.SavedStateHandle;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.util.concurrent.locks.ReadWriteLock;
-import java.util.concurrent.locks.ReentrantReadWriteLock;
+import java.util.Collection;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public abstract class h83 implements l83 {
+public class h83 extends f23 {
     public static /* synthetic */ Interceptable $ic;
-    public static final ReadWriteLock c;
     public transient /* synthetic */ FieldHolder $fh;
-    public File a;
-    public final long b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755694418, "Lcom/repackage/h83;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755694418, "Lcom/repackage/h83;");
-                return;
-            }
-        }
-        c = new ReentrantReadWriteLock();
-    }
-
-    public h83() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public h83(f13 f13Var) {
+        super(f13Var, "/swanAPI/getStorageInfoSync");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {f13Var};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = d();
-        this.b = getMaxSize();
     }
 
-    @Override // com.repackage.l83
-    public boolean a(long j) {
-        InterceptResult invokeJ;
+    @Override // com.repackage.f23
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, i03 i03Var) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j)) == null) {
-            c.readLock().lock();
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, i03Var)) == null) {
+            if (i03Var == null) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "empty swanApp");
+                return false;
+            }
+            r73 f0 = i03Var.f0();
+            JSONObject jSONObject = new JSONObject();
             try {
-                return e() + j > this.b;
-            } finally {
-                c.readLock().unlock();
-            }
-        }
-        return invokeJ.booleanValue;
-    }
-
-    @Override // com.repackage.l83
-    public void b(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
-            c.writeLock().lock();
-            try {
-                try {
-                    if (this.a == null) {
-                        this.a = d();
-                    }
-                    File file = this.a;
-                    if (!file.exists()) {
-                        file.createNewFile();
-                    }
-                    jg4.O(String.valueOf(e() + j).getBytes(), file);
-                } catch (Exception e) {
-                    if (rg1.a) {
-                        e.printStackTrace();
-                    }
+                jSONObject.put(SavedStateHandle.KEYS, new JSONArray((Collection) f0.g().a()));
+                jSONObject.put("currentSize", f0.e() / 1024);
+                jSONObject.put("limitSize", f0.n() / 1024);
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0);
+                return true;
+            } catch (JSONException e) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "JSONException");
+                if (f23.b) {
+                    e.printStackTrace();
                 }
-            } finally {
-                c.writeLock().unlock();
+                return false;
             }
         }
-    }
-
-    @NonNull
-    public abstract String c();
-
-    public final File d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return new File(c() + File.separator + "record.pro");
-        }
-        return (File) invokeV.objValue;
-    }
-
-    public final long e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (this.a == null) {
-                this.a = d();
-            }
-            File file = this.a;
-            if (file.exists() && file.isFile()) {
-                String E = jg4.E(file);
-                try {
-                    if (!TextUtils.isEmpty(E) && TextUtils.isDigitsOnly(E.trim())) {
-                        return Long.parseLong(E.trim());
-                    }
-                } catch (Exception e) {
-                    if (rg1.a) {
-                        e.printStackTrace();
-                    }
-                }
-            }
-            return 0L;
-        }
-        return invokeV.longValue;
+        return invokeLLLL.booleanValue;
     }
 }

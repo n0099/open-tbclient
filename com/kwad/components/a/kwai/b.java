@@ -10,13 +10,13 @@ import com.ksad.json.annotation.KsJson;
 public class b extends com.kwad.sdk.core.response.kwai.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public String b;
-    public String c;
-    public String d;
-    public a e;
-    public String f;
-    public String g;
+    public String PU;
+    public String PW;
+    public a PX;
+    public String PY;
+    public String PZ;
+    public String contentEncoding;
+    public int status;
 
     public b() {
         Interceptable interceptable = $ic;

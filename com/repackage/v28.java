@@ -140,9 +140,9 @@ public class v28 extends an<g48, CardViewHolder<i58>> {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, g48Var, cardViewHolder})) == null) {
-            cardViewHolder.c().j(this.i, TbadkCoreApplication.getInst().getSkinType());
-            cardViewHolder.c().i(g48Var);
-            return cardViewHolder.b();
+            cardViewHolder.b().j(this.i, TbadkCoreApplication.getInst().getSkinType());
+            cardViewHolder.b().i(g48Var);
+            return cardViewHolder.a();
         }
         return (View) invokeCommon.objValue;
     }

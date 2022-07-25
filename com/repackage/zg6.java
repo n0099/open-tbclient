@@ -64,16 +64,16 @@ public class zg6 extends cd6<qh8, a> implements View.OnClickListener {
                 }
             }
             this.k = new ArrayList();
-            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090acb);
-            this.a = view2.findViewById(R.id.obfuscated_res_0x7f090acd);
-            this.c = view2.findViewById(R.id.obfuscated_res_0x7f090b72);
-            this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090b70);
-            this.e = view2.findViewById(R.id.obfuscated_res_0x7f090b51);
-            this.f = view2.findViewById(R.id.obfuscated_res_0x7f090aa8);
-            this.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090aa9);
-            this.h = view2.findViewById(R.id.obfuscated_res_0x7f091649);
-            this.i = view2.findViewById(R.id.obfuscated_res_0x7f09164a);
-            this.j = view2.findViewById(R.id.obfuscated_res_0x7f091648);
+            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090ac4);
+            this.a = view2.findViewById(R.id.obfuscated_res_0x7f090ac6);
+            this.c = view2.findViewById(R.id.obfuscated_res_0x7f090b6b);
+            this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090b69);
+            this.e = view2.findViewById(R.id.obfuscated_res_0x7f090b4a);
+            this.f = view2.findViewById(R.id.obfuscated_res_0x7f090aa1);
+            this.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090aa2);
+            this.h = view2.findViewById(R.id.obfuscated_res_0x7f091624);
+            this.i = view2.findViewById(R.id.obfuscated_res_0x7f091625);
+            this.j = view2.findViewById(R.id.obfuscated_res_0x7f091623);
             this.k.add(this.h);
             this.k.add(this.i);
             this.k.add(this.j);
@@ -144,7 +144,7 @@ public class zg6 extends cd6<qh8, a> implements View.OnClickListener {
                         Object[] objArr = new Object[1];
                         FrsViewData frsViewData2 = this.j;
                         objArr[0] = frsViewData2 == null ? "" : frsViewData2.getForum().getName();
-                        textView.setText(context.getString(R.string.obfuscated_res_0x7f0f07a2, objArr));
+                        textView.setText(context.getString(R.string.obfuscated_res_0x7f0f079e, objArr));
                     }
                 }
                 aVar.a.setTag(Integer.valueOf(i));

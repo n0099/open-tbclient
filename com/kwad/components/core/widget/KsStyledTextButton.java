@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.kwad.components.core.l.j;
+import com.kwad.components.core.m.j;
 @SuppressLint({"AppCompatCustomView"})
 /* loaded from: classes5.dex */
 public class KsStyledTextButton extends TextView implements e {

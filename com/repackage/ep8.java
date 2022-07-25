@@ -31,9 +31,9 @@ public class ep8 {
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext a;
     public BdUniqueId b;
-    public au4 c;
-    public hr4 d;
-    public ArrayList<pr4> e;
+    public bu4 c;
+    public ir4 d;
+    public ArrayList<qr4> e;
     public long f;
     public UserBlockSetModel g;
     public UserBlockInfoModel h;
@@ -42,7 +42,7 @@ public class ep8 {
     public View.OnClickListener k;
 
     /* loaded from: classes6.dex */
-    public class a implements dm4<String> {
+    public class a implements em4<String> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ep8 a;
@@ -66,7 +66,7 @@ public class ep8 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.dm4
+        @Override // com.repackage.em4
         /* renamed from: b */
         public void onSuccess(String str) {
             Interceptable interceptable = $ic;
@@ -77,7 +77,7 @@ public class ep8 {
             }
         }
 
-        @Override // com.repackage.dm4
+        @Override // com.repackage.em4
         public void onError(int i, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) {
@@ -88,7 +88,7 @@ public class ep8 {
     }
 
     /* loaded from: classes6.dex */
-    public class b implements dm4 {
+    public class b implements em4 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ep8 a;
@@ -111,7 +111,7 @@ public class ep8 {
             this.a = ep8Var;
         }
 
-        @Override // com.repackage.dm4
+        @Override // com.repackage.em4
         public void onError(int i, String str) {
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) || this.a.a == null) {
@@ -120,7 +120,7 @@ public class ep8 {
             this.a.a.showToast(str);
         }
 
-        @Override // com.repackage.dm4
+        @Override // com.repackage.em4
         public void onSuccess(Object obj) {
             int i;
             PermissionList permissionList;
@@ -137,7 +137,7 @@ public class ep8 {
                 if (permissionList != null) {
                     this.a.m(i, permissionList);
                 } else if (this.a.a != null) {
-                    this.a.a.showToast(R.string.obfuscated_res_0x7f0f05aa);
+                    this.a.a.showToast(R.string.obfuscated_res_0x7f0f05a6);
                 }
             }
         }
@@ -171,12 +171,12 @@ public class ep8 {
         public void onItemClick(AdapterView<?> adapterView, View view2, int i, long j) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view2, Integer.valueOf(i), Long.valueOf(j)}) == null) {
-                pr4 pr4Var = (pr4) ListUtils.getItem(this.a.e, i);
-                if (pr4Var != null) {
+                qr4 qr4Var = (qr4) ListUtils.getItem(this.a.e, i);
+                if (qr4Var != null) {
                     this.a.d.r(true);
                 }
                 this.a.d.h(i);
-                dp8.a(pr4Var, i);
+                dp8.a(qr4Var, i);
             }
         }
     }
@@ -251,12 +251,12 @@ public class ep8 {
                 int i2 = 0;
                 int i3 = 0;
                 while (it.hasNext()) {
-                    pr4 pr4Var = (pr4) it.next();
-                    if (pr4Var.d() && "1".equals(pr4Var.b())) {
+                    qr4 qr4Var = (qr4) it.next();
+                    if (qr4Var.d() && "1".equals(qr4Var.b())) {
                         i = 1;
-                    } else if (pr4Var.d() && "2".equals(pr4Var.b())) {
+                    } else if (qr4Var.d() && "2".equals(qr4Var.b())) {
                         i2 = 1;
-                    } else if (pr4Var.d() && "3".equals(pr4Var.b())) {
+                    } else if (qr4Var.d() && "3".equals(qr4Var.b())) {
                         i3 = 1;
                     }
                 }
@@ -334,25 +334,25 @@ public class ep8 {
     }
 
     public final void k() {
-        au4 au4Var;
+        bu4 bu4Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (au4Var = this.c) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (bu4Var = this.c) == null) {
             return;
         }
-        au4Var.h(false);
+        bu4Var.h(false);
     }
 
     public void l() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             this.f = -1L;
-            au4 au4Var = this.c;
-            if (au4Var != null) {
-                au4Var.h(false);
+            bu4 bu4Var = this.c;
+            if (bu4Var != null) {
+                bu4Var.h(false);
             }
-            hr4 hr4Var = this.d;
-            if (hr4Var != null) {
-                hr4Var.d();
+            ir4 ir4Var = this.d;
+            if (ir4Var != null) {
+                ir4Var.d();
             }
             UserBlockInfoModel userBlockInfoModel = this.h;
             if (userBlockInfoModel != null) {
@@ -376,25 +376,25 @@ public class ep8 {
             if (permissionList != null && permissionList.chat.intValue() == 1) {
                 z = true;
             }
-            ArrayList<pr4> arrayList = new ArrayList<>();
+            ArrayList<qr4> arrayList = new ArrayList<>();
             this.e = arrayList;
             if (i == 1) {
-                arrayList.add(new pr4(j(R.string.obfuscated_res_0x7f0f0317), z2, "1"));
-                this.e.add(new pr4(j(R.string.obfuscated_res_0x7f0f0312), z3, "2"));
-                this.e.add(new pr4(j(R.string.obfuscated_res_0x7f0f0318), z, "3"));
+                arrayList.add(new qr4(j(R.string.obfuscated_res_0x7f0f0317), z2, "1"));
+                this.e.add(new qr4(j(R.string.obfuscated_res_0x7f0f0312), z3, "2"));
+                this.e.add(new qr4(j(R.string.obfuscated_res_0x7f0f0318), z, "3"));
             } else {
-                arrayList.add(new pr4(j(R.string.obfuscated_res_0x7f0f0316), z3, "2"));
-                this.e.add(new pr4(j(R.string.obfuscated_res_0x7f0f0318), z, "3"));
+                arrayList.add(new qr4(j(R.string.obfuscated_res_0x7f0f0316), z3, "2"));
+                this.e.add(new qr4(j(R.string.obfuscated_res_0x7f0f0318), z, "3"));
             }
-            hr4 hr4Var = new hr4(this.a);
-            this.d = hr4Var;
-            hr4Var.l(R.string.obfuscated_res_0x7f0f031f);
+            ir4 ir4Var = new ir4(this.a);
+            this.d = ir4Var;
+            ir4Var.l(R.string.obfuscated_res_0x7f0f031f);
             this.d.k(this.e, this.i);
-            this.d.q(R.string.obfuscated_res_0x7f0f04ef, this.k);
+            this.d.q(R.string.obfuscated_res_0x7f0f04eb, this.k);
             this.d.p(R.string.obfuscated_res_0x7f0f036a, this.j);
-            hr4 hr4Var2 = this.d;
-            hr4Var2.c();
-            hr4Var2.n();
+            ir4 ir4Var2 = this.d;
+            ir4Var2.c();
+            ir4Var2.n();
         }
     }
 
@@ -410,9 +410,9 @@ public class ep8 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             if (this.c == null) {
-                au4 au4Var = new au4(this.a);
-                this.c = au4Var;
-                au4Var.e(new f(this));
+                bu4 bu4Var = new bu4(this.a);
+                this.c = bu4Var;
+                bu4Var.e(new f(this));
             }
             this.c.h(true);
         }

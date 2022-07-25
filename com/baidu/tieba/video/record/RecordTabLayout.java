@@ -152,7 +152,7 @@ public class RecordTabLayout extends LinearLayout {
             textView.setOnClickListener(new a(this, i));
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
             if (this.a.getChildCount() != 0) {
-                layoutParams.leftMargin = pi.f(getContext(), R.dimen.obfuscated_res_0x7f0702c5);
+                layoutParams.leftMargin = pi.f(getContext(), R.dimen.obfuscated_res_0x7f0702c3);
             }
             this.a.addView(textView, layoutParams);
         }
@@ -170,8 +170,8 @@ public class RecordTabLayout extends LinearLayout {
             View view2 = new View(getContext());
             this.b = view2;
             view2.setBackgroundColor(getResources().getColor(R.color.CAM_X0101));
-            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(pi.f(getContext(), R.dimen.obfuscated_res_0x7f0702c5), pi.f(getContext(), R.dimen.obfuscated_res_0x7f070224));
-            layoutParams.topMargin = pi.f(getContext(), R.dimen.obfuscated_res_0x7f070262);
+            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(pi.f(getContext(), R.dimen.obfuscated_res_0x7f0702c3), pi.f(getContext(), R.dimen.obfuscated_res_0x7f070224));
+            layoutParams.topMargin = pi.f(getContext(), R.dimen.obfuscated_res_0x7f07025f);
             addView(this.b, layoutParams);
         }
     }

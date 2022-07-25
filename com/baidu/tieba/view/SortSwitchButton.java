@@ -410,7 +410,7 @@ public class SortSwitchButton extends View implements View.OnTouchListener {
     public final void C(Context context, AttributeSet attributeSet) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, attributeSet) == null) {
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f0400b2, R.attr.obfuscated_res_0x7f0400b3, R.attr.obfuscated_res_0x7f0400b4, R.attr.obfuscated_res_0x7f0400b5, R.attr.obfuscated_res_0x7f040584, R.attr.obfuscated_res_0x7f0405a6, R.attr.obfuscated_res_0x7f0405a7, R.attr.obfuscated_res_0x7f0405a8, R.attr.obfuscated_res_0x7f0405a9, R.attr.obfuscated_res_0x7f0405aa, R.attr.obfuscated_res_0x7f040667, R.attr.obfuscated_res_0x7f040669, R.attr.obfuscated_res_0x7f0406b4});
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f0400b2, R.attr.obfuscated_res_0x7f0400b3, R.attr.obfuscated_res_0x7f0400b4, R.attr.obfuscated_res_0x7f0400b5, R.attr.obfuscated_res_0x7f040586, R.attr.obfuscated_res_0x7f0405a8, R.attr.obfuscated_res_0x7f0405a9, R.attr.obfuscated_res_0x7f0405aa, R.attr.obfuscated_res_0x7f0405ab, R.attr.obfuscated_res_0x7f0405ac, R.attr.obfuscated_res_0x7f040669, R.attr.obfuscated_res_0x7f04066b, R.attr.obfuscated_res_0x7f0406b6});
             int resourceId = obtainStyledAttributes.getResourceId(3, R.color.CAM_X0107);
             this.d = resourceId;
             this.e = obtainStyledAttributes.getResourceId(1, resourceId);

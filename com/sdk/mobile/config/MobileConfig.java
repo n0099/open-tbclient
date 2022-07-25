@@ -6,11 +6,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.sdk.base.framework.c.e;
-import com.sdk.base.framework.f.c.a;
 import com.sdk.base.module.config.BaseConfig;
+import com.sdk.f.c;
+import com.sdk.k.a;
 /* loaded from: classes7.dex */
-public class MobileConfig implements e {
+public class MobileConfig implements c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String apk;

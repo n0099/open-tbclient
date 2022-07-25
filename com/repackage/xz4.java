@@ -1,23 +1,35 @@
 package com.repackage;
 
-import android.os.Handler;
-import android.os.Message;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import android.text.TextUtils;
+import android.util.SparseArray;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TiebaIMConfig;
+import com.baidu.tbadk.coreExtra.message.ResponseOnlineMessage;
+import com.baidu.tieba.debugtool.annotation.Modify;
+import com.baidu.tieba.debugtool.annotation.ModifyClass;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.IOException;
-import java.lang.ref.WeakReference;
+import java.util.HashSet;
+@ModifyClass
 /* loaded from: classes7.dex */
-public class xz4 {
+public class xz4 extends bb {
     public static /* synthetic */ Interceptable $ic;
+    public static xz4 g;
     public transient /* synthetic */ FieldHolder $fh;
-    public d a;
-    public c b;
-    public b c;
+    public boolean a;
+    public int b;
+    public long c;
+    public final SparseArray<b> d;
+    public final HashSet<Integer> e;
+    public int f;
 
     /* loaded from: classes7.dex */
     public static /* synthetic */ class a {
@@ -26,197 +38,214 @@ public class xz4 {
     }
 
     /* loaded from: classes7.dex */
-    public class b extends BdAsyncTask<String, Void, Boolean> {
+    public static class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public Process a;
-        public final /* synthetic */ xz4 b;
+        public int a;
+        public boolean b;
+        public long c;
 
-        public b(xz4 xz4Var) {
+        public b() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {xz4Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        public void a(int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+                int i2 = this.a + 1;
+                this.a = i2;
+                if (this.b || i2 < i) {
                     return;
                 }
+                this.b = true;
+                this.c = System.currentTimeMillis();
             }
-            this.b = xz4Var;
-            this.a = null;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: b */
-        public Boolean doInBackground(String... strArr) {
-            InterceptResult invokeL;
+        public void b() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, strArr)) == null) {
-                boolean z = false;
-                if (strArr != null && strArr.length >= 1) {
-                    try {
-                        try {
-                            try {
-                                Process exec = Runtime.getRuntime().exec(strArr[0]);
-                                this.a = exec;
-                                if (exec.waitFor() == 0) {
-                                    z = true;
-                                }
-                            } catch (IOException e) {
-                                e.printStackTrace();
-                            }
-                        } catch (InterruptedException e2) {
-                            e2.printStackTrace();
-                        }
-                    } finally {
-                        this.a.destroy();
-                    }
-                }
-                return Boolean.valueOf(z);
-            }
-            return (Boolean) invokeL.objValue;
-        }
-
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public void onCancelled() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                super.onCancelled();
-                Process process = this.a;
-                if (process != null) {
-                    try {
-                        process.destroy();
-                    } catch (Throwable th) {
-                        th.printStackTrace();
-                    }
-                }
-                if (this.b.b != null) {
-                    this.b.b.a(false);
-                }
-                if (this.b.a != null) {
-                    this.b.a.removeMessages(0);
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                this.a = 0;
+                if (this.b) {
+                    this.b = false;
+                    this.c = 0L;
                 }
             }
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public void onPostExecute(Boolean bool) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, bool) == null) {
-                if (this.b.b != null) {
-                    this.b.b.a(bool == null ? false : bool.booleanValue());
-                }
-                if (this.b.a != null) {
-                    this.b.a.removeMessages(0);
-                }
-            }
-        }
-
-        public /* synthetic */ b(xz4 xz4Var, a aVar) {
-            this(xz4Var);
+        public /* synthetic */ b(a aVar) {
+            this();
         }
     }
 
-    /* loaded from: classes7.dex */
-    public interface c {
-        void a(boolean z);
-    }
-
-    /* loaded from: classes7.dex */
-    public static class d extends Handler {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final WeakReference<xz4> a;
-
-        public d(xz4 xz4Var) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755154305, "Lcom/repackage/xz4;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {xz4Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.a = new WeakReference<>(xz4Var);
-        }
-
-        @Override // android.os.Handler
-        public void handleMessage(Message message) {
-            xz4 xz4Var;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
-                super.handleMessage(message);
-                if (message.what != 0 || (xz4Var = this.a.get()) == null) {
-                    return;
-                }
-                xz4Var.e();
-            }
-        }
-    }
-
-    public xz4(String str, c cVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, cVar};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755154305, "Lcom/repackage/xz4;");
                 return;
             }
         }
-        this.a = null;
-        this.b = null;
-        this.c = null;
-        d dVar = new d(this);
-        this.a = dVar;
-        this.b = cVar;
-        dVar.sendEmptyMessageDelayed(0, 50000L);
-        b bVar = new b(this, null);
-        this.c = bVar;
-        bVar.setSelfExecute(true);
-        b bVar2 = this.c;
-        bVar2.execute(d() + str);
+        g = new xz4();
     }
 
-    public final String d() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public xz4() {
+        super(1001);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.b = 3;
+        this.c = 300000L;
+        this.d = new SparseArray<>();
+        this.e = new HashSet<>();
+        this.f = 0;
+        MessageManager.getInstance().registerListener(0, this);
+    }
+
+    public static xz4 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            int I = ni.I();
-            return I != 1 ? I != 2 ? "ping -c 3 -w 5000 " : "ping -c 3 -w 10000 " : "ping -c 3 -w 3000 ";
-        }
-        return (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? g : (xz4) invokeV.objValue;
     }
 
-    public final void e() {
+    public int b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            b bVar = this.c;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f : invokeV.intValue;
+    }
+
+    @Modify(description = "长连接是否可用", type = 32)
+    public boolean c(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+            this.f = 0;
+            if (this.a) {
+                this.f = 3;
+                return false;
+            } else if (this.e.contains(Integer.valueOf(i))) {
+                this.f = 6;
+                return false;
+            } else if (!MessageManager.getInstance().getSocketClient().u()) {
+                this.f = 1;
+                return false;
+            } else if (System.currentTimeMillis() - MessageManager.getInstance().getSocketClient().p() > zz4.j().i() + 20000) {
+                ea.a("lcapimgr", i, 0, "isAPIAvailableNow", 0, "deepsleep");
+                this.f = 2;
+                return false;
+            } else if (TextUtils.isEmpty(TiebaIMConfig.defaultUrl)) {
+                return false;
+            } else {
+                b bVar = this.d.get(i);
+                if (bVar != null && bVar.b) {
+                    if (Math.abs(System.currentTimeMillis() - bVar.c) > this.c) {
+                        bVar.b();
+                    } else {
+                        this.f = 4;
+                        return false;
+                    }
+                }
+                return true;
+            }
+        }
+        return invokeI.booleanValue;
+    }
+
+    public void d(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            b bVar = this.d.get(i);
+            if (bVar == null) {
+                bVar = new b(null);
+                this.d.append(i, bVar);
+            }
             if (bVar != null) {
-                bVar.cancel(true);
+                bVar.a(this.b);
             }
-            d dVar = this.a;
-            if (dVar != null) {
-                dVar.removeMessages(0);
+            this.f = 5;
+        }
+    }
+
+    public void e(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            this.d.remove(i);
+        }
+    }
+
+    public void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            for (int i = 0; i < this.d.size(); i++) {
+                this.d.valueAt(i).b();
             }
+        }
+    }
+
+    public void g(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
+            this.a = z;
+        }
+    }
+
+    public void h(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+            this.b = i;
+        }
+    }
+
+    public void i(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048583, this, j) == null) {
+            this.c = j;
+        }
+    }
+
+    public void j(int[] iArr) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, iArr) == null) || iArr == null || iArr.length <= 0) {
+            return;
+        }
+        this.e.clear();
+        for (int i : iArr) {
+            this.e.add(Integer.valueOf(i));
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(SocketResponsedMessage socketResponsedMessage) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048586, this, socketResponsedMessage) == null) && (socketResponsedMessage instanceof ResponseOnlineMessage) && ((ResponseOnlineMessage) socketResponsedMessage).getError() == 0) {
+            f();
         }
     }
 }

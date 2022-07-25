@@ -19,7 +19,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.hx;
 import com.repackage.pi;
-import com.repackage.ur4;
+import com.repackage.vr4;
 /* loaded from: classes4.dex */
 public class InterestForumTagView extends LinearLayout implements hx {
     public static /* synthetic */ Interceptable $ic;
@@ -100,7 +100,7 @@ public class InterestForumTagView extends LinearLayout implements hx {
         this.d = selectForumData;
         SymbolEMTextView symbolEMTextView = this.b;
         if (symbolEMTextView != null) {
-            symbolEMTextView.setText(getContext().getString(R.string.obfuscated_res_0x7f0f090b, selectForumData.forumName));
+            symbolEMTextView.setText(getContext().getString(R.string.obfuscated_res_0x7f0f08f6, selectForumData.forumName));
         }
     }
 
@@ -155,7 +155,7 @@ public class InterestForumTagView extends LinearLayout implements hx {
         if (interceptable == null || interceptable.invokeLI(1048580, this, tbPageContext, i) == null) {
             SymbolEMTextView symbolEMTextView = this.b;
             if (symbolEMTextView != null) {
-                ur4 d = ur4.d(symbolEMTextView);
+                vr4 d = vr4.d(symbolEMTextView);
                 d.z(R.dimen.T_X09);
                 d.v(R.color.CAM_X0107);
                 d.w(R.dimen.tbds0);
@@ -165,7 +165,7 @@ public class InterestForumTagView extends LinearLayout implements hx {
             if (imageView != null) {
                 WebPManager.setPureDrawable(imageView, R.drawable.icon_pure_card_close22, R.color.CAM_X0108, WebPManager.ResourceStateType.NORMAL);
             }
-            ur4 d2 = ur4.d(this);
+            vr4 d2 = vr4.d(this);
             d2.n(R.string.J_X01);
             d2.f(R.color.CAM_X0202);
         }

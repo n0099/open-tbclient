@@ -62,14 +62,14 @@ public class GameCompetitionAdapter extends cd6<a36, CardFrsGameCompetitionHolde
                 }
             }
             this.a = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090509);
-            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090c12);
-            this.c = (FlexibleHorizontalScrollView) view2.findViewById(R.id.obfuscated_res_0x7f090c11);
-            CardFrsGameCompetitionLayout cardFrsGameCompetitionLayout = (CardFrsGameCompetitionLayout) view2.findViewById(R.id.obfuscated_res_0x7f090c10);
+            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090c0b);
+            this.c = (FlexibleHorizontalScrollView) view2.findViewById(R.id.obfuscated_res_0x7f090c0a);
+            CardFrsGameCompetitionLayout cardFrsGameCompetitionLayout = (CardFrsGameCompetitionLayout) view2.findViewById(R.id.obfuscated_res_0x7f090c09);
             this.d = cardFrsGameCompetitionLayout;
             cardFrsGameCompetitionLayout.setItemSpace(pi.f(view2.getContext(), R.dimen.tbds20));
             this.d.setItemWidth(((pi.f(view2.getContext(), R.dimen.tbds170) * 2) * 21) / 9);
-            this.e = view2.findViewById(R.id.obfuscated_res_0x7f0907cb);
-            this.f = view2.findViewById(R.id.obfuscated_res_0x7f0907cc);
+            this.e = view2.findViewById(R.id.obfuscated_res_0x7f0907c9);
+            this.f = view2.findViewById(R.id.obfuscated_res_0x7f0907ca);
         }
     }
 
@@ -206,7 +206,7 @@ public class GameCompetitionAdapter extends cd6<a36, CardFrsGameCompetitionHolde
                 SkinManager.setBackgroundResource(cardFrsGameCompetitionHolder.e, R.color.CAM_X0205);
                 SkinManager.setBackgroundResource(cardFrsGameCompetitionHolder.f, R.color.CAM_X0205);
             }
-            return cardFrsGameCompetitionHolder.b();
+            return cardFrsGameCompetitionHolder.a();
         }
         return (View) invokeCommon.objValue;
     }

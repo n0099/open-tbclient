@@ -1,26 +1,16 @@
 package com.repackage;
 
-import android.text.TextUtils;
-import android.util.Log;
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.searchbox.http.callback.ResponseCallback;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.i94;
-import okhttp3.Callback;
-import org.json.JSONObject;
-@Service
 /* loaded from: classes6.dex */
-public class ej3 implements uj1 {
+public class ej3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
+    public static final String a;
+    public static final String b;
+    public static final byte[] c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -36,85 +26,8 @@ public class ej3 implements uj1 {
                 return;
             }
         }
-        a = rg1.a;
-    }
-
-    public ej3() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
-    }
-
-    @Override // com.repackage.uj1
-    public void d(byte[] bArr) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, bArr) == null) {
-            fj3.b().c(bArr);
-        }
-    }
-
-    @Override // com.repackage.uj1
-    public <T> void e(String str, String str2, ResponseCallback<T> responseCallback) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, responseCallback) == null) {
-            new vj3().q(str, str2, responseCallback);
-        }
-    }
-
-    @Override // com.repackage.uj1
-    public void f(String str, String str2, i94.c cVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, str, str2, cVar) == null) {
-            new uj3().k(str, str2, cVar);
-        }
-    }
-
-    @Override // com.repackage.uj1
-    public boolean g(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) ? fj3.b().e(str) : invokeL.booleanValue;
-    }
-
-    @Override // com.repackage.uj1
-    public boolean h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? fj3.b().d() : invokeV.booleanValue;
-    }
-
-    @Override // com.repackage.uj1
-    public boolean i(@NonNull h03 h03Var, @NonNull JSONObject jSONObject, @NonNull String str, @NonNull String str2, Callback callback, af3<String> af3Var) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{h03Var, jSONObject, str, str2, callback, af3Var})) == null) {
-            JSONObject optJSONObject = jSONObject.optJSONObject("ext");
-            if (optJSONObject == null || !optJSONObject.optBoolean("enableBdtls", false)) {
-                return false;
-            }
-            String optString = optJSONObject.optString("serviceId");
-            if (TextUtils.isEmpty(optString)) {
-                if (a) {
-                    Log.d("BdtlsImpl", "onFailure: serviceId is invalid");
-                }
-                if (af3Var != null) {
-                    af3Var.a("serviceId is invalid");
-                    return true;
-                }
-                return true;
-            }
-            a73.D(str, h03Var.Y().G(), null, str2);
-            new xj3(h03Var, jSONObject, str2, callback).o(optString);
-            return true;
-        }
-        return invokeCommon.booleanValue;
+        a = pj2.o().t();
+        b = a + "/bdtls";
+        c = new byte[]{0, -98};
     }
 }

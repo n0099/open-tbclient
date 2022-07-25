@@ -46,7 +46,7 @@ public class ig6 extends BaseCardInfo implements IVideoData {
     public b m;
     public c n;
     public BaijiahaoData o;
-    public mq4 p;
+    public nq4 p;
     public List<oi8> q;
     public WorksInfoData r;
     public boolean s;
@@ -383,9 +383,9 @@ public class ig6 extends BaseCardInfo implements IVideoData {
             }
             JSONObject optJSONObject3 = jSONObject.optJSONObject("forum_info");
             if (optJSONObject3 != null) {
-                mq4 mq4Var = new mq4();
-                this.p = mq4Var;
-                mq4Var.i(optJSONObject3);
+                nq4 nq4Var = new nq4();
+                this.p = nq4Var;
+                nq4Var.i(optJSONObject3);
             }
             jSONObject.optLong("last_time_int");
             JSONArray optJSONArray = jSONObject.optJSONArray("post_list");

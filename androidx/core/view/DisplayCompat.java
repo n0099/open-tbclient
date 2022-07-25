@@ -12,7 +12,6 @@ import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.core.util.Preconditions;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.sofire.sharedpreferences.SharedPreferenceManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -108,7 +107,7 @@ public final class DisplayCompat {
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
             try {
                 Class<?> cls = Class.forName("android.os.SystemProperties");
-                return (String) cls.getMethod(SharedPreferenceManager.OPERATION_GET_PERFIX, String.class).invoke(cls, str);
+                return (String) cls.getMethod("get", String.class).invoke(cls, str);
             } catch (Exception unused) {
                 return null;
             }

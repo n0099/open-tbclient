@@ -4,7 +4,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.ugc.editvideo.record.source.IDataSourceView;
 import com.repackage.z79;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class e89 implements IDataSourceView.IPlayerDataSourceView, z79.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

@@ -32,7 +32,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.fu4;
+import com.repackage.gu4;
 import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes5.dex */
@@ -60,7 +60,7 @@ public class dt5 {
     public View o;
     public String p;
     public boolean q;
-    public gu4 r;
+    public hu4 r;
     public PbListView s;
     public NoNetworkView t;
     public View u;
@@ -375,7 +375,7 @@ public class dt5 {
         if (pbListView.b().getParent() == null) {
             this.j.setNextPage(this.s);
         }
-        this.s.C(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0a29));
+        this.s.C(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0a15));
         this.s.f();
     }
 
@@ -473,11 +473,11 @@ public class dt5 {
             if (this.u == null) {
                 View inflate = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d00ef, (ViewGroup) null);
                 this.u = inflate;
-                this.v = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090ad9);
-                this.w = (TextView) this.u.findViewById(R.id.obfuscated_res_0x7f090ada);
-                this.x = (TextView) this.u.findViewById(R.id.obfuscated_res_0x7f090adb);
-                this.y = this.u.findViewById(R.id.obfuscated_res_0x7f090adc);
-                this.z = this.u.findViewById(R.id.obfuscated_res_0x7f090add);
+                this.v = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090ad2);
+                this.w = (TextView) this.u.findViewById(R.id.obfuscated_res_0x7f090ad3);
+                this.x = (TextView) this.u.findViewById(R.id.obfuscated_res_0x7f090ad4);
+                this.y = this.u.findViewById(R.id.obfuscated_res_0x7f090ad5);
+                this.z = this.u.findViewById(R.id.obfuscated_res_0x7f090ad6);
             }
             p();
         }
@@ -489,9 +489,9 @@ public class dt5 {
             if (this.l == null) {
                 View inflate = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d00f1, (ViewGroup) null);
                 this.l = inflate;
-                this.m = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090ad6);
-                this.n = (TextView) this.l.findViewById(R.id.obfuscated_res_0x7f090ad7);
-                this.o = this.l.findViewById(R.id.obfuscated_res_0x7f090adf);
+                this.m = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090acf);
+                this.n = (TextView) this.l.findViewById(R.id.obfuscated_res_0x7f090ad0);
+                this.o = this.l.findViewById(R.id.obfuscated_res_0x7f090ad8);
                 this.m.setOnClickListener(new d(this));
                 this.n.setOnClickListener(new e(this));
             }
@@ -502,7 +502,7 @@ public class dt5 {
                 this.k.setWidth(-2);
                 this.k.setHeight(-2);
                 this.k.setAnimationStyle(16973826);
-                this.k.setBackgroundDrawable(this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080f2c));
+                this.k.setBackgroundDrawable(this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080f33));
                 this.k.setOutsideTouchable(true);
                 this.k.setFocusable(true);
                 this.k.setTouchable(true);
@@ -517,7 +517,7 @@ public class dt5 {
             View inflate = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d00f6, (ViewGroup) null);
             this.f = inflate;
             if (this.q) {
-                NavigationBar navigationBar = (NavigationBar) inflate.findViewById(R.id.obfuscated_res_0x7f092437);
+                NavigationBar navigationBar = (NavigationBar) inflate.findViewById(R.id.obfuscated_res_0x7f092439);
                 this.D = navigationBar;
                 navigationBar.setVisibility(0);
                 this.D.onChangeSkinType(this.a, TbadkCoreApplication.getInst().getSkinType());
@@ -525,16 +525,16 @@ public class dt5 {
                 this.D.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new a(this));
                 this.D.setmBackImageViewBg(R.drawable.icon_return_bg_s, R.drawable.icon_return_bg);
             }
-            this.g = this.f.findViewById(R.id.obfuscated_res_0x7f090ae0);
-            this.h = (TextView) this.f.findViewById(R.id.obfuscated_res_0x7f090ad8);
-            this.i = (TextView) this.f.findViewById(R.id.obfuscated_res_0x7f090ade);
-            BdTypeMultiColumnListView bdTypeMultiColumnListView = (BdTypeMultiColumnListView) this.f.findViewById(R.id.obfuscated_res_0x7f0912d4);
+            this.g = this.f.findViewById(R.id.obfuscated_res_0x7f090ad9);
+            this.h = (TextView) this.f.findViewById(R.id.obfuscated_res_0x7f090ad1);
+            this.i = (TextView) this.f.findViewById(R.id.obfuscated_res_0x7f090ad7);
+            BdTypeMultiColumnListView bdTypeMultiColumnListView = (BdTypeMultiColumnListView) this.f.findViewById(R.id.obfuscated_res_0x7f0912b0);
             this.j = bdTypeMultiColumnListView;
             bdTypeMultiColumnListView.setColumnDiv((int) this.a.getResources().getDimension(R.dimen.obfuscated_res_0x7f0701be));
-            this.t = (NoNetworkView) this.f.findViewById(R.id.obfuscated_res_0x7f092359);
-            gu4 gu4Var = new gu4(this.a);
-            this.r = gu4Var;
-            gu4Var.b0(this.e);
+            this.t = (NoNetworkView) this.f.findViewById(R.id.obfuscated_res_0x7f09235b);
+            hu4 hu4Var = new hu4(this.a);
+            this.r = hu4Var;
+            hu4Var.b0(this.e);
             this.j.setPullRefresh(this.r);
             PbListView pbListView = new PbListView(this.a.getPageActivity());
             this.s = pbListView;
@@ -605,7 +605,7 @@ public class dt5 {
         if (!(interceptable == null || interceptable.invokeI(1048593, this, i) == null) || this.h == null) {
             return;
         }
-        this.h.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f06e5, StringHelper.numberUniformFormatExtra(i)));
+        this.h.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f06e1, StringHelper.numberUniformFormatExtra(i)));
         if (i <= 1) {
             this.i.setVisibility(8);
         } else {
@@ -620,11 +620,11 @@ public class dt5 {
             if (i == 1) {
                 TextView textView2 = this.i;
                 if (textView2 != null) {
-                    textView2.setText(this.a.getString(R.string.obfuscated_res_0x7f0f06e9));
+                    textView2.setText(this.a.getString(R.string.obfuscated_res_0x7f0f06e5));
                 }
             } else if (i != 2 || (textView = this.i) == null) {
             } else {
-                textView.setText(this.a.getString(R.string.obfuscated_res_0x7f0f06ea));
+                textView.setText(this.a.getString(R.string.obfuscated_res_0x7f0f06e6));
             }
         }
     }
@@ -681,7 +681,7 @@ public class dt5 {
         }
     }
 
-    public void y(fu4.g gVar) {
+    public void y(gu4.g gVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048598, this, gVar) == null) {
             this.r.f(gVar);

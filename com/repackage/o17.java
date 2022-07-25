@@ -22,13 +22,13 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 /* loaded from: classes6.dex */
-public class o17 extends l15 {
+public class o17 extends m15 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean a;
 
     /* loaded from: classes6.dex */
-    public class a implements k15 {
+    public class a implements l15 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ n17 a;
@@ -53,19 +53,19 @@ public class o17 extends l15 {
             this.a = n17Var;
         }
 
-        @Override // com.repackage.k15
-        public void C(j15 j15Var) {
+        @Override // com.repackage.l15
+        public void C(k15 k15Var) {
             int size;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, j15Var) == null) || j15Var == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, k15Var) == null) || k15Var == null) {
                 return;
             }
-            int i = j15Var.a;
+            int i = k15Var.a;
             if (i == 4 || i == 6) {
-                this.a.G((String) j15Var.c);
+                this.a.G((String) k15Var.c);
                 this.b.a = false;
             } else if (i == 7) {
-                this.a.getContext().showToast((int) R.string.obfuscated_res_0x7f0f0d07);
+                this.a.getContext().showToast((int) R.string.obfuscated_res_0x7f0f0cf3);
                 this.b.a = true;
             } else if (i == 8) {
                 if (this.b.g(this.a.getContext(), 11001)) {
@@ -76,14 +76,14 @@ public class o17 extends l15 {
                 if (i != 15) {
                     return;
                 }
-                int intValue = ((Integer) j15Var.c).intValue();
+                int intValue = ((Integer) k15Var.c).intValue();
                 if (this.a.q() != null && this.a.q().getChosedFiles() != null && (size = this.a.q().getChosedFiles().size()) >= 1 && intValue >= 0 && intValue < size) {
                     MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new WriteMulitImageActivityConfig(this.a.getContext().getPageActivity(), 12012, this.a.q(), intValue)));
                 }
             } else {
                 AlbumActivityConfig albumActivityConfig = new AlbumActivityConfig((Context) this.a.getContext().getPageActivity(), this.a.q().toJsonString(), true, true);
                 albumActivityConfig.setRequestCode(TaskResponseData.ERROR_NO_TASK_OFFLINE_03);
-                if (j35.a().b() == 1) {
+                if (k35.a().b() == 1) {
                     albumActivityConfig.setRequestFrom(4);
                     if (this.a.q() != null) {
                         this.a.q().setMaxImagesAllowed(1);
@@ -111,8 +111,8 @@ public class o17 extends l15 {
         }
     }
 
-    @Override // com.repackage.l15
-    public n15 b(Context context) {
+    @Override // com.repackage.m15
+    public o15 b(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
@@ -125,17 +125,17 @@ public class o17 extends l15 {
             editorTools.D(false);
             return new n17(editorTools);
         }
-        return (n15) invokeL.objValue;
+        return (o15) invokeL.objValue;
     }
 
-    @Override // com.repackage.l15
-    public void c(n15 n15Var) {
+    @Override // com.repackage.m15
+    public void c(o15 o15Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, n15Var) == null) || n15Var == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, o15Var) == null) || o15Var == null) {
             return;
         }
-        EditorTools a2 = n15Var.a();
-        a aVar = new a(this, (n17) n15Var);
+        EditorTools a2 = o15Var.a();
+        a aVar = new a(this, (n17) o15Var);
         a2.setActionListener(5, aVar);
         a2.setActionListener(4, aVar);
         a2.setActionListener(6, aVar);
@@ -148,27 +148,27 @@ public class o17 extends l15 {
         a2.setActionListener(45, aVar);
     }
 
-    @Override // com.repackage.l15
-    public void d(n15 n15Var) {
+    @Override // com.repackage.m15
+    public void d(o15 o15Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, n15Var) == null) {
-            EditorTools a2 = n15Var.a();
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, o15Var) == null) {
+            EditorTools a2 = o15Var.a();
             ArrayList arrayList = new ArrayList();
             arrayList.add(5);
             a2.h(arrayList);
-            u15 n = a2.n(5);
+            v15 n = a2.n(5);
             if (n != null) {
                 n.e(false);
                 n.l = 1;
             }
-            a2.d(new g25(a2.getContext(), 3));
+            a2.d(new h25(a2.getContext(), 3));
             p17 p17Var = new p17(a2.getContext());
             if (p17Var.g() != null) {
                 p17Var.g().setFilters(new InputFilter[]{new InputFilter.LengthFilter(14000)});
             }
             a2.d(p17Var);
             a2.f();
-            a2.A(new j15(35, 5, Boolean.FALSE));
+            a2.A(new k15(35, 5, Boolean.FALSE));
             a2.q();
         }
     }

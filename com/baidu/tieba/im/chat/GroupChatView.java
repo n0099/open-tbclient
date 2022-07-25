@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.xt4;
+import com.repackage.yt4;
 /* loaded from: classes3.dex */
 public class GroupChatView extends CommonGroupMsglistView {
     public static /* synthetic */ Interceptable $ic;
@@ -49,13 +49,13 @@ public class GroupChatView extends CommonGroupMsglistView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             this.b.setVisibility(8);
-            xt4.k().u("has_shown_group_btn_dot", true);
+            yt4.k().u("has_shown_group_btn_dot", true);
         }
     }
 
     public void h() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || xt4.k().h("has_shown_group_btn_dot", false)) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || yt4.k().h("has_shown_group_btn_dot", false)) {
             return;
         }
         this.b.setVisibility(0);
@@ -67,15 +67,15 @@ public class GroupChatView extends CommonGroupMsglistView {
         if (interceptable == null || interceptable.invokeLZ(Constants.METHOD_SEND_USER_MSG, this, talkableActivity, z) == null) {
             super.initHeader(talkableActivity, z);
             this.c = (GroupChatActivity) talkableActivity;
-            String string = talkableActivity.getPageContext().getString(R.string.obfuscated_res_0x7f0f0ae6);
+            String string = talkableActivity.getPageContext().getString(R.string.obfuscated_res_0x7f0f0ad2);
             if (string != null) {
                 String stringExtra = talkableActivity.getIntent().getStringExtra(GroupChatActivityConfig.GROUP_AUTHOR_ID);
                 View addCustomView = this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.obfuscated_res_0x7f0d037c, talkableActivity);
                 this.mBtnGroupInfo = addCustomView;
-                TextView textView = (TextView) addCustomView.findViewById(R.id.obfuscated_res_0x7f090ca7);
+                TextView textView = (TextView) addCustomView.findViewById(R.id.obfuscated_res_0x7f090ca0);
                 this.a = textView;
                 textView.setText(string);
-                ImageView imageView = (ImageView) this.mBtnGroupInfo.findViewById(R.id.obfuscated_res_0x7f091abc);
+                ImageView imageView = (ImageView) this.mBtnGroupInfo.findViewById(R.id.obfuscated_res_0x7f091a96);
                 this.b = imageView;
                 imageView.setVisibility(8);
                 if (!StringUtils.isNull(stringExtra) && stringExtra.equals(TbadkCoreApplication.getCurrentAccount())) {

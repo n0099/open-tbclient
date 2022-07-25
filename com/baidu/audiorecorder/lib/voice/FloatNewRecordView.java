@@ -121,11 +121,11 @@ public class FloatNewRecordView extends RelativeLayout implements c47 {
     public final void b(Context context, ViewGroup viewGroup) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, viewGroup) == null) {
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0768, this);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0772, this);
             setLayoutParams(new RelativeLayout.LayoutParams(-1, -1));
             this.a = (TBLottieAnimationView) findViewById(R.id.obfuscated_res_0x7f0902cc);
-            this.b = (ImageView) findViewById(R.id.obfuscated_res_0x7f09162a);
-            this.c = (EMTextView) findViewById(R.id.obfuscated_res_0x7f09162b);
+            this.b = (ImageView) findViewById(R.id.obfuscated_res_0x7f091605);
+            this.c = (EMTextView) findViewById(R.id.obfuscated_res_0x7f091606);
             ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f0903c7);
             this.d = imageView;
             RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) imageView.getLayoutParams();
@@ -141,7 +141,7 @@ public class FloatNewRecordView extends RelativeLayout implements c47 {
             this.a.setAnimation(R.raw.obfuscated_res_0x7f110022);
             this.a.setImageAssetsFolder("lottie_audio_recoding/");
             this.a.setRepeatCount(-1);
-            ((ViewGroup.MarginLayoutParams) ((RelativeLayout) findViewById(R.id.obfuscated_res_0x7f0906ae)).getLayoutParams()).topMargin = (pi.i(TbadkCoreApplication.getInst()) * 36) / 100;
+            ((ViewGroup.MarginLayoutParams) ((RelativeLayout) findViewById(R.id.obfuscated_res_0x7f0906ad)).getLayoutParams()).topMargin = (pi.i(TbadkCoreApplication.getInst()) * 36) / 100;
             a();
         }
     }
@@ -151,7 +151,7 @@ public class FloatNewRecordView extends RelativeLayout implements c47 {
         if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) || cj.b - i > 10000 || this.f) {
             return;
         }
-        this.c.setText(String.format(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0ae9), Integer.valueOf(((cj.b - i) / 1000) + 1)));
+        this.c.setText(String.format(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0ad5), Integer.valueOf(((cj.b - i) / 1000) + 1)));
     }
 
     @Override // com.repackage.c47
@@ -189,7 +189,7 @@ public class FloatNewRecordView extends RelativeLayout implements c47 {
         this.a.cancelAnimation();
         this.a.setVisibility(8);
         this.b.setVisibility(0);
-        this.c.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0aed));
+        this.c.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0ad9));
         SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0310);
         WebPManager.setPureDrawable(this.b, R.drawable.obfuscated_res_0x7f080928, R.color.CAM_X0310, null);
         this.e.setArcColor(SkinManager.getColor(R.color.CAM_X0310));
@@ -204,7 +204,7 @@ public class FloatNewRecordView extends RelativeLayout implements c47 {
             this.a.cancelAnimation();
             this.a.setVisibility(8);
             this.b.setVisibility(0);
-            this.c.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0aee));
+            this.c.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0ada));
             SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0319);
             WebPManager.setPureDrawable(this.b, R.drawable.obfuscated_res_0x7f080929, R.color.CAM_X0319, null);
             this.g = false;
@@ -218,7 +218,7 @@ public class FloatNewRecordView extends RelativeLayout implements c47 {
         }
         this.a.setVisibility(0);
         this.b.setVisibility(8);
-        this.c.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0ae5));
+        this.c.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0ad1));
         SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0108);
         this.a.playAnimation();
         this.e.setArcColor(SkinManager.getColor(R.color.CAM_X0302));

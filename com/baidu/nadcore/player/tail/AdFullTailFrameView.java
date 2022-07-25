@@ -73,7 +73,7 @@ public class AdFullTailFrameView extends AdBaseTailFrameView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             super.e(context);
-            ((ImageView) findViewById(R.id.obfuscated_res_0x7f090ebb)).setOnClickListener(new a(this));
+            ((ImageView) findViewById(R.id.obfuscated_res_0x7f090eb4)).setOnClickListener(new a(this));
         }
     }
 
@@ -81,7 +81,7 @@ public class AdFullTailFrameView extends AdBaseTailFrameView {
     public int f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? R.layout.obfuscated_res_0x7f0d05d7 : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? R.layout.obfuscated_res_0x7f0d05e1 : invokeV.intValue;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */

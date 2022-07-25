@@ -24,7 +24,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.fu4;
+import com.repackage.gu4;
 import java.util.List;
 /* loaded from: classes5.dex */
 public class ct5 {
@@ -46,7 +46,7 @@ public class ct5 {
     public TextView n;
     public TextView o;
     public View p;
-    public gu4 q;
+    public hu4 q;
     public PbListView r;
     public NoNetworkView s;
     public TextView t;
@@ -313,9 +313,9 @@ public class ct5 {
             if (this.m == null) {
                 View inflate = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d00f1, (ViewGroup) null);
                 this.m = inflate;
-                this.n = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090ad6);
-                this.o = (TextView) this.m.findViewById(R.id.obfuscated_res_0x7f090ad7);
-                this.p = this.m.findViewById(R.id.obfuscated_res_0x7f090adf);
+                this.n = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090acf);
+                this.o = (TextView) this.m.findViewById(R.id.obfuscated_res_0x7f090ad0);
+                this.p = this.m.findViewById(R.id.obfuscated_res_0x7f090ad8);
                 this.n.setOnClickListener(new c(this));
                 this.o.setOnClickListener(new d(this));
             }
@@ -326,7 +326,7 @@ public class ct5 {
                 this.l.setWidth(-2);
                 this.l.setHeight(-2);
                 this.l.setAnimationStyle(16973826);
-                this.l.setBackgroundDrawable(this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080f2c));
+                this.l.setBackgroundDrawable(this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080f33));
                 this.l.setOutsideTouchable(true);
                 this.l.setFocusable(true);
                 this.l.setTouchable(true);
@@ -340,14 +340,14 @@ public class ct5 {
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             View inflate = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d00ed, (ViewGroup) null);
             this.g = inflate;
-            this.h = inflate.findViewById(R.id.obfuscated_res_0x7f090ae0);
-            this.i = (TextView) this.g.findViewById(R.id.obfuscated_res_0x7f090ad8);
-            this.j = (TextView) this.g.findViewById(R.id.obfuscated_res_0x7f090ade);
-            this.k = (BdTypeListView) this.g.findViewById(R.id.obfuscated_res_0x7f0912d4);
-            this.s = (NoNetworkView) this.g.findViewById(R.id.obfuscated_res_0x7f092359);
-            gu4 gu4Var = new gu4(this.a);
-            this.q = gu4Var;
-            gu4Var.b0(this.f);
+            this.h = inflate.findViewById(R.id.obfuscated_res_0x7f090ad9);
+            this.i = (TextView) this.g.findViewById(R.id.obfuscated_res_0x7f090ad1);
+            this.j = (TextView) this.g.findViewById(R.id.obfuscated_res_0x7f090ad7);
+            this.k = (BdTypeListView) this.g.findViewById(R.id.obfuscated_res_0x7f0912b0);
+            this.s = (NoNetworkView) this.g.findViewById(R.id.obfuscated_res_0x7f09235b);
+            hu4 hu4Var = new hu4(this.a);
+            this.q = hu4Var;
+            hu4Var.b0(this.f);
             this.k.setPullRefresh(this.q);
             PbListView pbListView = new PbListView(this.a.getPageActivity());
             this.r = pbListView;
@@ -409,7 +409,7 @@ public class ct5 {
         if (!(interceptable == null || interceptable.invokeI(1048586, this, i) == null) || this.i == null) {
             return;
         }
-        this.i.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f06e5, StringHelper.numberUniformFormatExtra(i)));
+        this.i.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f06e1, StringHelper.numberUniformFormatExtra(i)));
         if (i <= 1) {
             this.j.setVisibility(8);
         } else {
@@ -424,11 +424,11 @@ public class ct5 {
             if (i == 1) {
                 TextView textView2 = this.j;
                 if (textView2 != null) {
-                    textView2.setText(this.a.getString(R.string.obfuscated_res_0x7f0f06e9));
+                    textView2.setText(this.a.getString(R.string.obfuscated_res_0x7f0f06e5));
                 }
             } else if (i != 2 || (textView = this.j) == null) {
             } else {
-                textView.setText(this.a.getString(R.string.obfuscated_res_0x7f0f06ea));
+                textView.setText(this.a.getString(R.string.obfuscated_res_0x7f0f06e6));
             }
         }
     }
@@ -447,7 +447,7 @@ public class ct5 {
         }
     }
 
-    public void s(fu4.g gVar) {
+    public void s(gu4.g gVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048590, this, gVar) == null) {
             this.q.f(gVar);
@@ -489,7 +489,7 @@ public class ct5 {
         if (pbListView.b().getParent() == null) {
             this.k.setNextPage(this.r);
         }
-        this.r.C(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0a29));
+        this.r.C(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0a15));
         this.r.f();
     }
 
@@ -515,7 +515,7 @@ public class ct5 {
         if (pbListView.b().getParent() == null) {
             this.k.setNextPage(this.r);
         }
-        this.r.C(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f09e7));
+        this.r.C(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f09d3));
         this.r.f();
     }
 

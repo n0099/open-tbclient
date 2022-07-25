@@ -88,7 +88,7 @@ public class x27 {
         if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || WriteActivityConfig.isAsyncWriting() || this.c == null) {
             return;
         }
-        String format = StringUtils.isNull(this.d) ? null : String.format(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0880), this.d);
+        String format = StringUtils.isNull(this.d) ? null : String.format(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f086b), this.d);
         WriteActivityConfig newInstance = WriteActivityConfig.newInstance(this.a.getPageActivity());
         newInstance.setIntentAction(IntentAction.ActivityForResult);
         newInstance.setRequestCode(25065);

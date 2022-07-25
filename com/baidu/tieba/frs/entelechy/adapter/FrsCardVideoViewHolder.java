@@ -39,8 +39,8 @@ public class FrsCardVideoViewHolder<T extends hi6> extends CardViewHolder<T> imp
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.card.holder.CardViewHolder
-    /* renamed from: d */
-    public T c() {
+    /* renamed from: c */
+    public T b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? (T) this.a : (T) invokeV.objValue;

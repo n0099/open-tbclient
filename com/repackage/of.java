@@ -929,19 +929,19 @@ public class of {
                     yfVar = yfVar2;
                     qfVar = qfVar2;
                     i7 = i11;
-                    i8 = R.string.obfuscated_res_0x7f0f0c2b;
+                    i8 = R.string.obfuscated_res_0x7f0f0c17;
                 } catch (SocketException e9) {
                     e = e9;
                     i4 = i12;
                     yfVar = yfVar2;
                     qfVar = qfVar2;
-                    i6 = R.string.obfuscated_res_0x7f0f0c2b;
+                    i6 = R.string.obfuscated_res_0x7f0f0c17;
                 } catch (SocketTimeoutException e10) {
                     e = e10;
                     i4 = i12;
                     yfVar = yfVar2;
                     qfVar = qfVar2;
-                    i5 = R.string.obfuscated_res_0x7f0f0c2b;
+                    i5 = R.string.obfuscated_res_0x7f0f0c17;
                 }
                 if (this.a.c().b != 200) {
                     qfVar = qfVar2;
@@ -962,7 +962,7 @@ public class of {
                                 yfVar.a();
                             } catch (UnsupportedOperationException e11) {
                                 e = e11;
-                                i8 = R.string.obfuscated_res_0x7f0f0c2b;
+                                i8 = R.string.obfuscated_res_0x7f0f0c17;
                                 z = i7 >= i9;
                                 this.a.c().c = -14;
                                 tf c = this.a.c();
@@ -987,7 +987,7 @@ public class of {
                                     tf c2 = this.a.c();
                                     c2.g = th.getMessage() + Log.getStackTraceString(th);
                                     z = i7 >= i9;
-                                    qfVar.h = BdBaseApplication.getInst().getApp().getApplicationContext().getResources().getString(R.string.obfuscated_res_0x7f0f0c2b);
+                                    qfVar.h = BdBaseApplication.getInst().getApp().getApplicationContext().getResources().getString(R.string.obfuscated_res_0x7f0f0c17);
                                     BdLog.e(th.getMessage());
                                     this.a.e(qfVar);
                                     yfVar.b = -10;
@@ -1012,7 +1012,7 @@ public class of {
                             }
                         } catch (SocketException e12) {
                             e = e12;
-                            i6 = R.string.obfuscated_res_0x7f0f0c2b;
+                            i6 = R.string.obfuscated_res_0x7f0f0c17;
                             this.a.c().c = -12;
                             tf c3 = this.a.c();
                             c3.g = e.getMessage() + Log.getStackTraceString(e);
@@ -1032,7 +1032,7 @@ public class of {
                             i10 = 1;
                         } catch (SocketTimeoutException e13) {
                             e = e13;
-                            i5 = R.string.obfuscated_res_0x7f0f0c2b;
+                            i5 = R.string.obfuscated_res_0x7f0f0c17;
                             this.a.c().c = -13;
                             tf c4 = this.a.c();
                             c4.g = e.getMessage() + Log.getStackTraceString(e);
@@ -1075,7 +1075,7 @@ public class of {
                         return;
                     } catch (UnsupportedOperationException e17) {
                         e = e17;
-                        i8 = R.string.obfuscated_res_0x7f0f0c2b;
+                        i8 = R.string.obfuscated_res_0x7f0f0c17;
                         if (i7 >= i9) {
                         }
                         this.a.c().c = -14;
@@ -1100,7 +1100,7 @@ public class of {
                         c22.g = th.getMessage() + Log.getStackTraceString(th);
                         if (i7 >= i9) {
                         }
-                        qfVar.h = BdBaseApplication.getInst().getApp().getApplicationContext().getResources().getString(R.string.obfuscated_res_0x7f0f0c2b);
+                        qfVar.h = BdBaseApplication.getInst().getApp().getApplicationContext().getResources().getString(R.string.obfuscated_res_0x7f0f0c17);
                         BdLog.e(th.getMessage());
                         this.a.e(qfVar);
                         yfVar.b = -10;
@@ -1237,19 +1237,19 @@ public class of {
                     yfVar = yfVar2;
                     qfVar = qfVar2;
                     i7 = i11;
-                    i8 = R.string.obfuscated_res_0x7f0f0c2b;
+                    i8 = R.string.obfuscated_res_0x7f0f0c17;
                 } catch (SocketException e9) {
                     e = e9;
                     i4 = i12;
                     yfVar = yfVar2;
                     qfVar = qfVar2;
-                    i6 = R.string.obfuscated_res_0x7f0f0c2b;
+                    i6 = R.string.obfuscated_res_0x7f0f0c17;
                 } catch (SocketTimeoutException e10) {
                     e = e10;
                     i4 = i12;
                     yfVar = yfVar2;
                     qfVar = qfVar2;
-                    i5 = R.string.obfuscated_res_0x7f0f0c2b;
+                    i5 = R.string.obfuscated_res_0x7f0f0c17;
                 }
                 if (this.a.c().b != 200) {
                     qfVar = qfVar2;
@@ -1270,7 +1270,7 @@ public class of {
                                 yfVar.a();
                             } catch (UnsupportedOperationException e11) {
                                 e = e11;
-                                i8 = R.string.obfuscated_res_0x7f0f0c2b;
+                                i8 = R.string.obfuscated_res_0x7f0f0c17;
                                 z = i7 >= i9;
                                 this.a.c().c = -14;
                                 tf c = this.a.c();
@@ -1295,7 +1295,7 @@ public class of {
                                     tf c2 = this.a.c();
                                     c2.g = th.getMessage() + Log.getStackTraceString(th);
                                     z = i7 >= i9;
-                                    qfVar.h = BdBaseApplication.getInst().getApp().getApplicationContext().getResources().getString(R.string.obfuscated_res_0x7f0f0c2b);
+                                    qfVar.h = BdBaseApplication.getInst().getApp().getApplicationContext().getResources().getString(R.string.obfuscated_res_0x7f0f0c17);
                                     BdLog.e(th.getMessage());
                                     this.a.e(qfVar);
                                     yfVar.b = -10;
@@ -1320,7 +1320,7 @@ public class of {
                             }
                         } catch (SocketException e12) {
                             e = e12;
-                            i6 = R.string.obfuscated_res_0x7f0f0c2b;
+                            i6 = R.string.obfuscated_res_0x7f0f0c17;
                             this.a.c().c = -12;
                             tf c3 = this.a.c();
                             c3.g = e.getMessage() + Log.getStackTraceString(e);
@@ -1340,7 +1340,7 @@ public class of {
                             i10 = 1;
                         } catch (SocketTimeoutException e13) {
                             e = e13;
-                            i5 = R.string.obfuscated_res_0x7f0f0c2b;
+                            i5 = R.string.obfuscated_res_0x7f0f0c17;
                             this.a.c().c = -13;
                             tf c4 = this.a.c();
                             c4.g = e.getMessage() + Log.getStackTraceString(e);
@@ -1383,7 +1383,7 @@ public class of {
                         return;
                     } catch (UnsupportedOperationException e17) {
                         e = e17;
-                        i8 = R.string.obfuscated_res_0x7f0f0c2b;
+                        i8 = R.string.obfuscated_res_0x7f0f0c17;
                         if (i7 >= i9) {
                         }
                         this.a.c().c = -14;
@@ -1408,7 +1408,7 @@ public class of {
                         c22.g = th.getMessage() + Log.getStackTraceString(th);
                         if (i7 >= i9) {
                         }
-                        qfVar.h = BdBaseApplication.getInst().getApp().getApplicationContext().getResources().getString(R.string.obfuscated_res_0x7f0f0c2b);
+                        qfVar.h = BdBaseApplication.getInst().getApp().getApplicationContext().getResources().getString(R.string.obfuscated_res_0x7f0f0c17);
                         BdLog.e(th.getMessage());
                         this.a.e(qfVar);
                         yfVar.b = -10;

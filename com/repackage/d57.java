@@ -99,14 +99,14 @@ public abstract class d57 {
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016324, Integer.valueOf(optInt5)));
             }
             if (optInt >= 0 && optInt2 >= 0 && optInt3 >= 0 && optInt6 >= 0 && optInt4 >= 0) {
-                int i = py4.d().f() > 0 ? optInt4 : 0;
+                int i = qy4.d().f() > 0 ? optInt4 : 0;
                 if (currentAccount == null || currentAccount.length() <= 0) {
                     return;
                 }
-                int w = ny4.f0().w();
-                int v = ny4.f0().v();
-                ny4.f0().i0(jSONObject);
-                ny4.f0().T(optInt, optInt2, optInt6, w, optInt3, v, i);
+                int w = oy4.f0().w();
+                int v = oy4.f0().v();
+                oy4.f0().i0(jSONObject);
+                oy4.f0().T(optInt, optInt2, optInt6, w, optInt3, v, i);
             }
         } catch (Exception unused) {
         }

@@ -163,22 +163,22 @@ public class PersonHeaderAttentionView extends LinearLayout {
             setOrientation(0);
             setGravity(16);
             LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d03f2, (ViewGroup) this, true);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f091869);
-            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f091866);
-            this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f09186a);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f091861);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f09185e);
-            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f091864);
-            this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f091863);
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f091875);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f091844);
+            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f091841);
+            this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f091845);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f09183c);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f091839);
+            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f09183f);
+            this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f09183e);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f091850);
             this.i = textView;
             textView.setVisibility(8);
-            TextView textView2 = (TextView) findViewById(R.id.obfuscated_res_0x7f091874);
+            TextView textView2 = (TextView) findViewById(R.id.obfuscated_res_0x7f09184f);
             this.j = textView2;
             textView2.setVisibility(8);
-            this.n = findViewById(R.id.obfuscated_res_0x7f0907c8);
-            this.o = findViewById(R.id.obfuscated_res_0x7f0907c6);
-            View findViewById = findViewById(R.id.obfuscated_res_0x7f0907c7);
+            this.n = findViewById(R.id.obfuscated_res_0x7f0907c6);
+            this.o = findViewById(R.id.obfuscated_res_0x7f0907c4);
+            View findViewById = findViewById(R.id.obfuscated_res_0x7f0907c5);
             this.p = findViewById;
             findViewById.setVisibility(8);
         }
@@ -208,7 +208,7 @@ public class PersonHeaderAttentionView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
             Context context = this.a;
-            BdToast b = BdToast.b(context, String.format(context.getString(R.string.obfuscated_res_0x7f0f0e4d), StringHelper.getUserDescByGender(i)));
+            BdToast b = BdToast.b(context, String.format(context.getString(R.string.obfuscated_res_0x7f0f0e36), StringHelper.getUserDescByGender(i)));
             b.f(BdToast.ToastIcon.FAILURE);
             b.h();
         }

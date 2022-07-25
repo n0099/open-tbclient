@@ -10,7 +10,7 @@ import java.util.HashMap;
 import tbclient.ZoneRight.DataReq;
 import tbclient.ZoneRight.ZoneRightReqIdl;
 /* loaded from: classes7.dex */
-public class vm6 implements t75 {
+public class vm6 implements u75 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
@@ -33,13 +33,13 @@ public class vm6 implements t75 {
         }
     }
 
-    @Override // com.repackage.v75
+    @Override // com.repackage.w75
     public Object h(boolean z) {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
             DataReq.Builder builder = new DataReq.Builder();
-            td5.c(builder, true, false, true);
+            ud5.c(builder, true, false, true);
             builder.forum_id = Long.valueOf(ng.g(this.c, 0L));
             builder.thread_id = Long.valueOf(this.b);
             builder.req_type = Integer.valueOf(this.d == 1 ? 2 : 1);
@@ -50,7 +50,7 @@ public class vm6 implements t75 {
         return invokeZ.objValue;
     }
 
-    @Override // com.repackage.s75
+    @Override // com.repackage.t75
     public HashMap<String, Object> w() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -60,7 +60,7 @@ public class vm6 implements t75 {
         return (HashMap) invokeV.objValue;
     }
 
-    @Override // com.repackage.s75
+    @Override // com.repackage.t75
     public HashMap<String, String> y() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

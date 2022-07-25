@@ -4,6 +4,7 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.others.IStringUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.appsearch.update.patchupdate.GDiffPatcher;
+import com.baidu.sapi2.views.logindialog.QuickLoginDialog;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -120,7 +121,7 @@ public final class GeneralAppIdDecoder {
                     case 237:
                         c = '(';
                         break;
-                    case 238:
+                    case QuickLoginDialog.HEIGHT_ONEKEY /* 238 */:
                         c = ')';
                         break;
                     case 239:

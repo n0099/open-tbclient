@@ -29,9 +29,9 @@ import com.repackage.al6;
 import com.repackage.bl6;
 import com.repackage.cl6;
 import com.repackage.cy5;
-import com.repackage.dv4;
 import com.repackage.ev4;
-import com.repackage.f55;
+import com.repackage.fv4;
+import com.repackage.g55;
 import com.repackage.ie6;
 import com.repackage.ke6;
 import com.repackage.ld6;
@@ -50,7 +50,7 @@ public class FrsItemTabFragment extends BaseFragment implements VoiceManager.j, 
     public String e;
     public boolean f;
     public View g;
-    public f55 h;
+    public g55 h;
     public al6 i;
     public bl6 j;
     public String k;
@@ -145,14 +145,14 @@ public class FrsItemTabFragment extends BaseFragment implements VoiceManager.j, 
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof dv4)) {
-                dv4 dv4Var = (dv4) customResponsedMessage.getData();
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof ev4)) {
+                ev4 ev4Var = (ev4) customResponsedMessage.getData();
                 String str = this.a.d;
                 if (str == null) {
                     str = "";
                 }
-                dv4Var.j(str, TbadkCoreApplication.getCurrentAccount() != null ? TbadkCoreApplication.getCurrentAccount() : "", this.a.c);
-                ev4.c(dv4Var);
+                ev4Var.j(str, TbadkCoreApplication.getCurrentAccount() != null ? TbadkCoreApplication.getCurrentAccount() : "", this.a.c);
+                fv4.c(ev4Var);
             }
         }
     }
@@ -186,7 +186,7 @@ public class FrsItemTabFragment extends BaseFragment implements VoiceManager.j, 
             if (this.j.a()) {
                 hideLoadingView(this.g);
             } else {
-                showLoadingView(this.g, false, getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07028a));
+                showLoadingView(this.g, false, getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070288));
             }
             w1();
             return;
@@ -209,11 +209,11 @@ public class FrsItemTabFragment extends BaseFragment implements VoiceManager.j, 
                 if (!StringUtils.isNull(errorData.error_msg)) {
                     showToast(errorData.error_msg);
                 } else {
-                    showToast(R.string.obfuscated_res_0x7f0f08bb);
+                    showToast(R.string.obfuscated_res_0x7f0f08a6);
                 }
             }
             if (!this.j.a()) {
-                showNetRefreshView(this.g, errorData != null ? getPageContext().getResources().getString(R.string.obfuscated_res_0x7f0f0c2a, errorData.error_msg, Integer.valueOf(errorData.error_code)) : null, true);
+                showNetRefreshView(this.g, errorData != null ? getPageContext().getResources().getString(R.string.obfuscated_res_0x7f0f0c16, errorData.error_msg, Integer.valueOf(errorData.error_code)) : null, true);
             }
             y1(false);
         }
@@ -237,9 +237,9 @@ public class FrsItemTabFragment extends BaseFragment implements VoiceManager.j, 
             if (al6Var != null) {
                 al6Var.q(true);
             }
-            f55 f55Var = this.h;
-            if (f55Var != null) {
-                f55Var.dettachView(view2);
+            g55 g55Var = this.h;
+            if (g55Var != null) {
+                g55Var.dettachView(view2);
             }
         }
     }
@@ -299,14 +299,14 @@ public class FrsItemTabFragment extends BaseFragment implements VoiceManager.j, 
             pg8.g().i(getUniqueId());
             this.j = new bl6(this, this.c);
             if (this.n != -1) {
-                dv4 dv4Var = new dv4(5);
+                ev4 ev4Var = new ev4(5);
                 String str = this.d;
                 if (str == null) {
                     str = "";
                 }
-                dv4Var.j(str, TbadkCoreApplication.getCurrentAccount() != null ? TbadkCoreApplication.getCurrentAccount() : "", this.c);
-                dv4Var.n(this.n);
-                ev4.c(dv4Var);
+                ev4Var.j(str, TbadkCoreApplication.getCurrentAccount() != null ? TbadkCoreApplication.getCurrentAccount() : "", this.c);
+                ev4Var.n(this.n);
+                fv4.c(ev4Var);
             }
             registerListener(this.o);
             registerListener(this.p);
@@ -353,7 +353,7 @@ public class FrsItemTabFragment extends BaseFragment implements VoiceManager.j, 
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
             super.onLazyLoad();
             if (ni.z()) {
-                showLoadingView(this.g, false, getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07028a));
+                showLoadingView(this.g, false, getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070288));
                 w1();
                 return;
             }
@@ -366,7 +366,7 @@ public class FrsItemTabFragment extends BaseFragment implements VoiceManager.j, 
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048587, this) == null) && ni.z()) {
             hideNetRefreshView(this.g);
-            showLoadingView(this.g, false, getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07028a));
+            showLoadingView(this.g, false, getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070288));
             w1();
         }
     }
@@ -481,7 +481,7 @@ public class FrsItemTabFragment extends BaseFragment implements VoiceManager.j, 
                 return;
             }
             if (this.h == null) {
-                this.h = new f55(getPageContext().getContext(), getNetRefreshListener());
+                this.h = new g55(getPageContext().getContext(), getNetRefreshListener());
             }
             this.h.e(null);
             this.h.d(str);

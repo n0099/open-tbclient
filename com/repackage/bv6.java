@@ -27,7 +27,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.av6;
 import com.repackage.ev6;
-import com.repackage.fu4;
+import com.repackage.gu4;
 import com.repackage.zu6;
 import java.util.ArrayList;
 import org.json.JSONObject;
@@ -45,7 +45,7 @@ public class bv6 {
     public CustomMessageListener h;
     public NEGFeedBackView.b i;
     public final View.OnClickListener j;
-    public fu4.g k;
+    public gu4.g k;
     public BdListView.p l;
     public ev6.e m;
     public View.OnClickListener n;
@@ -117,9 +117,9 @@ public class bv6 {
         }
 
         @Override // com.baidu.tieba.NEGFeedBack.NEGFeedBackView.b
-        public void a(ArrayList<Integer> arrayList, String str, kp4 kp4Var) {
+        public void a(ArrayList<Integer> arrayList, String str, lp4 lp4Var) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLLL(1048576, this, arrayList, str, kp4Var) == null) || arrayList == null || kp4Var == null) {
+            if (!(interceptable == null || interceptable.invokeLLL(1048576, this, arrayList, str, lp4Var) == null) || arrayList == null || lp4Var == null) {
                 return;
             }
             StringBuilder sb = new StringBuilder();
@@ -132,7 +132,7 @@ public class bv6 {
             if (sb.length() > 0) {
                 sb.deleteCharAt(sb.length() - 1);
             }
-            int i3 = kp4Var.n;
+            int i3 = lp4Var.n;
             if (i3 == 0) {
                 i = 1;
             } else if (i3 == 40) {
@@ -143,24 +143,24 @@ public class bv6 {
             if (this.a.b != null) {
                 this.a.b.P();
             }
-            TiebaStatic.log(new StatisticItem("c13500").param("tid", kp4Var.f()).param("uid", TbadkCoreApplication.getCurrentAccount()).param("fid", kp4Var.c()).param("obj_param1", kp4Var.k).param("obj_source", kp4Var.l).param("obj_id", kp4Var.m).param("obj_type", sb.toString()).param("obj_name", str).param(TiebaStatic.Params.OBJ_PARAM2, i));
+            TiebaStatic.log(new StatisticItem("c13500").param("tid", lp4Var.f()).param("uid", TbadkCoreApplication.getCurrentAccount()).param("fid", lp4Var.c()).param("obj_param1", lp4Var.k).param("obj_source", lp4Var.l).param("obj_id", lp4Var.m).param("obj_type", sb.toString()).param("obj_name", str).param(TiebaStatic.Params.OBJ_PARAM2, i));
         }
 
         @Override // com.baidu.tieba.NEGFeedBack.NEGFeedBackView.b
-        public void b(kp4 kp4Var, CompoundButton compoundButton, boolean z) {
+        public void b(lp4 lp4Var, CompoundButton compoundButton, boolean z) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, kp4Var, compoundButton, z) == null) {
+            if (interceptable == null || interceptable.invokeLLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, lp4Var, compoundButton, z) == null) {
             }
         }
 
         @Override // com.baidu.tieba.NEGFeedBack.NEGFeedBackView.b
-        public void c(kp4 kp4Var) {
+        public void c(lp4 lp4Var) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, kp4Var) == null) || kp4Var == null) {
+            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, lp4Var) == null) || lp4Var == null) {
                 return;
             }
-            TiebaStatic.log(new StatisticItem("c13500").param("obj_locate", "1").param("fid", kp4Var.c()).param("tid", kp4Var.f()).param("uid", TbadkCoreApplication.getCurrentAccount()));
-            TiebaStatic.log(new StatisticItem("c13499").param("fid", kp4Var.c()).param("tid", kp4Var.f()).param("obj_type", this.a.d).param("uid", TbadkCoreApplication.getCurrentAccount()));
+            TiebaStatic.log(new StatisticItem("c13500").param("obj_locate", "1").param("fid", lp4Var.c()).param("tid", lp4Var.f()).param("uid", TbadkCoreApplication.getCurrentAccount()));
+            TiebaStatic.log(new StatisticItem("c13499").param("fid", lp4Var.c()).param("tid", lp4Var.f()).param("obj_type", this.a.d).param("uid", TbadkCoreApplication.getCurrentAccount()));
         }
     }
 
@@ -212,7 +212,7 @@ public class bv6 {
     }
 
     /* loaded from: classes5.dex */
-    public class d implements fu4.g {
+    public class d implements gu4.g {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ bv6 a;
@@ -235,7 +235,7 @@ public class bv6 {
             this.a = bv6Var;
         }
 
-        @Override // com.repackage.fu4.g
+        @Override // com.repackage.gu4.g
         public void e(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
@@ -246,7 +246,7 @@ public class bv6 {
                     return;
                 }
                 this.a.b.p0(null);
-                this.a.a.showToast(R.string.obfuscated_res_0x7f0f08bb);
+                this.a.a.showToast(R.string.obfuscated_res_0x7f0f08a6);
             }
         }
     }
@@ -357,7 +357,7 @@ public class bv6 {
                 if (this.a.o()) {
                     return;
                 }
-                if (!ListUtils.isEmpty(this.a.c.m()) && !StringUtils.isNull(xt4.k().q("key_game_video_tab_has_choosed_sub_class_name", ""))) {
+                if (!ListUtils.isEmpty(this.a.c.m()) && !StringUtils.isNull(yt4.k().q("key_game_video_tab_has_choosed_sub_class_name", ""))) {
                     this.a.b.T(this.a.f.i());
                     this.a.b.g0();
                     this.a.f.l(this.a.c.m());
@@ -388,7 +388,7 @@ public class bv6 {
                     this.a.b.d0(this.a.n);
                 }
                 if (StringUtils.isNull(str)) {
-                    this.a.a.showToast(R.string.obfuscated_res_0x7f0f079f);
+                    this.a.a.showToast(R.string.obfuscated_res_0x7f0f079b);
                 } else {
                     this.a.a.showToast(str);
                 }
@@ -564,7 +564,7 @@ public class bv6 {
         this.e = zu6Var;
         zu6Var.i(this.p);
         this.b.Y(this.j);
-        int l = xt4.k().l("key_game_video_tab_has_choosed_sub_class_id", 0);
+        int l = yt4.k().l("key_game_video_tab_has_choosed_sub_class_id", 0);
         this.d = l;
         this.b.W(l);
     }
@@ -619,8 +619,8 @@ public class bv6 {
             if ((this.c.o() || this.d == 0) && (zu6Var = this.e) != null) {
                 zu6Var.h(this.c.m());
                 this.e.c((ViewGroup) this.b.z());
-                xt4.k().D("key_game_video_tab_has_choosed_sub_class_id");
-                xt4.k().D("key_game_video_tab_has_choosed_sub_class_name");
+                yt4.k().D("key_game_video_tab_has_choosed_sub_class_id");
+                yt4.k().D("key_game_video_tab_has_choosed_sub_class_name");
                 return true;
             }
             return false;
@@ -643,19 +643,19 @@ public class bv6 {
         }
     }
 
-    public final fu4.i q(int i2) {
+    public final gu4.i q(int i2) {
         InterceptResult invokeI;
         String string;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i2)) == null) {
             if (i2 <= 0) {
-                string = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f079d);
+                string = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0799);
             } else {
-                string = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f079e, Integer.valueOf(i2));
+                string = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f079a, Integer.valueOf(i2));
             }
-            return new fu4.i(string, 1000);
+            return new gu4.i(string, 1000);
         }
-        return (fu4.i) invokeI.objValue;
+        return (gu4.i) invokeI.objValue;
     }
 
     public View r() {

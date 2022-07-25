@@ -23,8 +23,8 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.pi;
-import com.repackage.ur4;
 import com.repackage.v37;
+import com.repackage.vr4;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
@@ -300,8 +300,8 @@ public class SelectTopicToolBar extends LinearLayout {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             this.e.d();
             this.a.notifyDataSetChanged();
-            ur4.d(this.f).f(R.color.CAM_X0401);
-            ur4.d(this).f(R.color.CAM_X0201);
+            vr4.d(this.f).f(R.color.CAM_X0401);
+            vr4.d(this).f(R.color.CAM_X0201);
         }
     }
 

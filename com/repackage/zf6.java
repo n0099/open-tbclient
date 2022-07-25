@@ -57,12 +57,12 @@ public class zf6 {
 
         /* renamed from: com.repackage.zf6$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public class RunnableC0787a implements Runnable {
+        public class RunnableC0633a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public RunnableC0787a(a aVar) {
+            public RunnableC0633a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -111,7 +111,7 @@ public class zf6 {
         public void K(int i) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeI(1048576, this, i) == null) && i == 3) {
-                this.a.a.post(new RunnableC0787a(this));
+                this.a.a.post(new RunnableC0633a(this));
                 this.a.p.f();
             }
         }
@@ -700,7 +700,7 @@ public class zf6 {
         this.p = new d(this);
         this.a = view2;
         this.g = tbImageView;
-        this.b = (ScanningView) view2.findViewById(R.id.obfuscated_res_0x7f090bc7);
+        this.b = (ScanningView) view2.findViewById(R.id.obfuscated_res_0x7f090bc0);
         if (!(context instanceof e9)) {
             this.c = null;
             this.e = null;
@@ -776,7 +776,7 @@ public class zf6 {
     public final void t() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            Dialog dialog = new Dialog(this.c, R.style.obfuscated_res_0x7f1001a8);
+            Dialog dialog = new Dialog(this.c, R.style.obfuscated_res_0x7f1001ab);
             this.m = dialog;
             dialog.requestWindowFeature(1);
             this.m.setContentView(this.f);
@@ -799,7 +799,7 @@ public class zf6 {
             }
             this.m.setOnKeyListener(new e(this));
             this.m.show();
-            xt4 k2 = xt4.k();
+            yt4 k2 = yt4.k();
             k2.x("key_frs_video_ad_last_show_time" + this.j, System.currentTimeMillis());
             this.p.e();
         }

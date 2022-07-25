@@ -1,13 +1,15 @@
 package com.repackage;
 
-import com.baidu.tbadk.mutiprocess.backbaidubox.BackBaiduBoxViewEvent;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.mutiprocess.agree.AgreeEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class w65 implements l65<BackBaiduBoxViewEvent> {
+public class w65 implements m65<AgreeEvent> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -26,17 +28,25 @@ public class w65 implements l65<BackBaiduBoxViewEvent> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.l65
+    @Override // com.repackage.m65
     /* renamed from: a */
-    public boolean onEvent(BackBaiduBoxViewEvent backBaiduBoxViewEvent) {
+    public boolean onEvent(AgreeEvent agreeEvent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, backBaiduBoxViewEvent)) == null) {
-            if (backBaiduBoxViewEvent == null) {
-                return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, agreeEvent)) == null) {
+            if (agreeEvent != null && agreeEvent.agreeData != null) {
+                ei8 ei8Var = new ei8();
+                ei8Var.b = agreeEvent.agreeData;
+                String str = agreeEvent.agreeExtra;
+                if (AgreeEvent.IS_THREAD.equals(str)) {
+                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016528, ei8Var));
+                    return true;
+                } else if (AgreeEvent.IS_POST.equals(str)) {
+                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016530, ei8Var));
+                    return true;
+                }
             }
-            zc5.m().u(backBaiduBoxViewEvent.isShow);
-            return true;
+            return false;
         }
         return invokeL.booleanValue;
     }

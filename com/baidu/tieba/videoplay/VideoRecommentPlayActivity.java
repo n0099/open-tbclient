@@ -42,8 +42,8 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.fj5;
-import com.repackage.ki4;
 import com.repackage.li4;
+import com.repackage.mi4;
 import com.repackage.pi;
 import com.repackage.z8;
 import java.util.ArrayList;
@@ -314,7 +314,7 @@ public class VideoRecommentPlayActivity extends BaseFragmentActivity {
                 setIsAddSwipeBackLayout(false);
             }
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d0889);
+            setContentView(R.layout.obfuscated_res_0x7f0d0893);
             this.g = new fj5(getPageContext(), "client_videomiddle");
             t0();
             w0();
@@ -385,7 +385,7 @@ public class VideoRecommentPlayActivity extends BaseFragmentActivity {
                 videoVerticalPageFragment.setPrimary(false);
                 this.e.setUserVisibleHint(false);
             }
-            li4.w().E();
+            mi4.w().E();
         }
     }
 
@@ -398,7 +398,7 @@ public class VideoRecommentPlayActivity extends BaseFragmentActivity {
             if (videoVerticalPageFragment != null) {
                 videoVerticalPageFragment.setPrimary(true);
                 this.e.setUserVisibleHint(true);
-                li4.w().P(ki4.c0, this.e.G0());
+                mi4.w().P(li4.c0, this.e.G0());
             }
         }
     }
@@ -505,7 +505,7 @@ public class VideoRecommentPlayActivity extends BaseFragmentActivity {
                 arrayList.addAll(VideoPlayActivityConfig.bigDataList);
             }
             if (ListUtils.isEmpty(this.d)) {
-                pi.N(this, R.string.obfuscated_res_0x7f0f0c28);
+                pi.N(this, R.string.obfuscated_res_0x7f0f0c14);
                 finish();
                 return;
             }
@@ -513,7 +513,7 @@ public class VideoRecommentPlayActivity extends BaseFragmentActivity {
             this.e = videoVerticalPageFragment;
             videoVerticalPageFragment.setArguments(getIntent().getExtras());
             FragmentTransaction beginTransaction = getSupportFragmentManager().beginTransaction();
-            beginTransaction.add(R.id.obfuscated_res_0x7f092406, this.e);
+            beginTransaction.add(R.id.obfuscated_res_0x7f092408, this.e);
             beginTransaction.commitAllowingStateLoss();
             getSupportFragmentManager().executePendingTransactions();
             ImageView imageView = new ImageView(getPageContext().getPageActivity());

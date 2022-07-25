@@ -42,10 +42,10 @@ public class iv6 {
                     statisticItem3.param("fid", threadData.getFid());
                 }
                 statisticItem3.eventStat();
-            } else if (obj instanceof nn4) {
+            } else if (obj instanceof on4) {
                 d(view2);
                 if (c(view2)) {
-                    ThreadData threadData2 = ((nn4) obj).getThreadData();
+                    ThreadData threadData2 = ((on4) obj).getThreadData();
                     StatisticItem statisticItem4 = new StatisticItem("c13738");
                     statisticItem4.param("obj_type", str);
                     statisticItem4.param("uid", TbadkCoreApplication.getCurrentAccount());
@@ -69,7 +69,7 @@ public class iv6 {
             if (obj instanceof aw6) {
                 threadData = ((aw6) obj).f;
             } else {
-                threadData = obj instanceof nn4 ? ((nn4) obj).getThreadData() : null;
+                threadData = obj instanceof on4 ? ((on4) obj).getThreadData() : null;
             }
             if (threadData != null) {
                 statisticItem.param("tid", threadData.getTid());
@@ -84,7 +84,7 @@ public class iv6 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, view2)) == null) {
             int id = view2.getId();
-            return id == R.id.obfuscated_res_0x7f09202a || id == R.id.obfuscated_res_0x7f09203e;
+            return id == R.id.obfuscated_res_0x7f09202e || id == R.id.obfuscated_res_0x7f092042;
         }
         return invokeL.booleanValue;
     }

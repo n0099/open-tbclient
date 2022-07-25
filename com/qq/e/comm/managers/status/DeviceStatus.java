@@ -13,12 +13,12 @@ import android.util.DisplayMetrics;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobstat.Config;
-import com.baidu.sofire.utility.PermissionChecker;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.kuaishou.weapon.p0.h;
 import com.qq.e.comm.managers.GDTADManager;
 import com.qq.e.comm.managers.setting.GlobalSetting;
 import com.qq.e.comm.util.GDTLogger;
@@ -193,7 +193,7 @@ public class DeviceStatus {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             String operator = getOperator();
             HashMap hashMap = new HashMap();
-            if (GDTADManager.getInstance().getSM().getInteger("cellon", 1) == 1 && this.l.checkCallingOrSelfPermission(PermissionChecker.ACCESS_COARSE_LOCATION) == 0 && !StringUtil.isEmpty(operator) && !com.baidu.android.common.others.lang.StringUtil.NULL_STRING.equalsIgnoreCase(operator)) {
+            if (GDTADManager.getInstance().getSM().getInteger("cellon", 1) == 1 && this.l.checkCallingOrSelfPermission(h.h) == 0 && !StringUtil.isEmpty(operator) && !com.baidu.android.common.others.lang.StringUtil.NULL_STRING.equalsIgnoreCase(operator)) {
                 int i3 = 0;
                 try {
                     if (Integer.parseInt(operator.substring(0, 3)) == 460) {
@@ -363,7 +363,7 @@ public class DeviceStatus {
                 this.k = new AtomicInteger(GDTADManager.getInstance().getSM().getInteger("rpspc", Integer.MAX_VALUE));
             }
             if (this.k.getAndDecrement() > 0) {
-                this.j = this.l.checkSelfPermission(PermissionChecker.READ_PHONE_STATE) == 0;
+                this.j = this.l.checkSelfPermission(h.c) == 0;
             }
             return this.j;
         }

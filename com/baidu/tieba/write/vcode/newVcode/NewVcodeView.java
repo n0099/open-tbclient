@@ -22,8 +22,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.au4;
-import com.repackage.cu4;
+import com.repackage.bu4;
+import com.repackage.du4;
 import com.repackage.qg;
 import com.repackage.xx8;
 /* loaded from: classes4.dex */
@@ -34,9 +34,9 @@ public class NewVcodeView {
     public xx8 b;
     public BaseWebView c;
     public View d;
-    public au4 e;
+    public bu4 e;
     public TextView f;
-    public cu4 g;
+    public du4 g;
     public boolean h;
     public Runnable i;
     public float j;
@@ -109,18 +109,18 @@ public class NewVcodeView {
         if (interceptable == null || (invokeL = interceptable.invokeL(65544, this, newVcodeActivity)) == null) {
             newVcodeActivity.setActivityBgTransparent();
             newVcodeActivity.setSwipeBackEnabled(false);
-            newVcodeActivity.setContentView(R.layout.obfuscated_res_0x7f0d0613);
-            View findViewById = newVcodeActivity.findViewById(R.id.obfuscated_res_0x7f091969);
+            newVcodeActivity.setContentView(R.layout.obfuscated_res_0x7f0d061d);
+            View findViewById = newVcodeActivity.findViewById(R.id.obfuscated_res_0x7f091944);
             this.d = findViewById;
-            TextView textView = (TextView) findViewById.findViewById(R.id.obfuscated_res_0x7f09071c);
+            TextView textView = (TextView) findViewById.findViewById(R.id.obfuscated_res_0x7f09071b);
             this.f = textView;
-            textView.setText(newVcodeActivity.getResources().getString(R.string.obfuscated_res_0x7f0f111c));
-            cu4 cu4Var = new cu4();
-            this.g = cu4Var;
-            cu4Var.a = 1000L;
+            textView.setText(newVcodeActivity.getResources().getString(R.string.obfuscated_res_0x7f0f10d8));
+            du4 du4Var = new du4();
+            this.g = du4Var;
+            du4Var.a = 1000L;
             if (this.c == null) {
                 try {
-                    this.c = (BaseWebView) newVcodeActivity.findViewById(R.id.obfuscated_res_0x7f0915db);
+                    this.c = (BaseWebView) newVcodeActivity.findViewById(R.id.obfuscated_res_0x7f0915b6);
                     UtilHelper.setSupportHeight(newVcodeActivity.getPageContext().getPageActivity(), this.c, 1.2631578f);
                     this.c.setBackgroundColor(newVcodeActivity.getResources().getColor(17170443));
                     this.c.setInitialScale(100);
@@ -167,7 +167,7 @@ public class NewVcodeView {
                             if (interceptable2 == null || interceptable2.invokeLILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, i, str, str2) == null) {
                                 super.onReceivedError(webView, i, str, str2);
                                 this.a.h(false);
-                                this.a.a.showToast(R.string.obfuscated_res_0x7f0f0c2b);
+                                this.a.a.showToast(R.string.obfuscated_res_0x7f0f0c17);
                                 this.a.a.finish();
                             }
                         }
@@ -223,9 +223,9 @@ public class NewVcodeView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
             if (this.e == null) {
-                au4 au4Var = new au4(this.a.getPageContext());
-                this.e = au4Var;
-                au4Var.e(new DialogInterface.OnCancelListener(this) { // from class: com.baidu.tieba.write.vcode.newVcode.NewVcodeView.3
+                bu4 bu4Var = new bu4(this.a.getPageContext());
+                this.e = bu4Var;
+                bu4Var.e(new DialogInterface.OnCancelListener(this) { // from class: com.baidu.tieba.write.vcode.newVcode.NewVcodeView.3
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ NewVcodeView a;

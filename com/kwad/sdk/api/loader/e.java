@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes5.dex */
 public final class e {
-    public static final List<String> a;
+    public static final List<String> Sl;
 
     /* loaded from: classes5.dex */
     public static class a extends DexClassLoader {
@@ -35,12 +35,12 @@ public final class e {
 
     static {
         ArrayList arrayList = new ArrayList();
-        a = arrayList;
+        Sl = arrayList;
         arrayList.add("com.kwad.sdk");
-        a.add("com.ksad");
-        a.add("com.kwai");
-        a.add("kwad.support");
-        a.add("android.support.rastermill");
+        Sl.add("com.ksad");
+        Sl.add("com.kwai");
+        Sl.add("kwad.support");
+        Sl.add("android.support.rastermill");
     }
 
     @NonNull

@@ -123,14 +123,14 @@ public class a07 extends an<uy5, CardViewHolder<sx5>> {
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, uy5Var, cardViewHolder})) == null) {
             uy5Var.I(uy5Var.position + 1);
             uy5Var.a.statFloor = uy5Var.m();
-            sx5 c = cardViewHolder.c();
-            c.b0(i + 1);
-            c.i(uy5Var);
-            c.n(this.n);
-            c.B(this.m);
+            sx5 b = cardViewHolder.b();
+            b.b0(i + 1);
+            b.i(uy5Var);
+            b.n(this.n);
+            b.B(this.m);
             iz6.i(uy5Var.a, this.i, uy5Var.m());
             uz6.t(uy5Var, this.k);
-            return cardViewHolder.b();
+            return cardViewHolder.a();
         }
         return (View) invokeCommon.objValue;
     }

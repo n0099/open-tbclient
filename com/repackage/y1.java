@@ -127,7 +127,7 @@ public class y1 extends o1<l6, a> {
             l6 i = i((b4) m1Var.j(str2, b4.class));
             if (w7Var != null) {
                 w7.a<String, Object> b = w7Var.b();
-                b.d();
+                b.c();
                 while (b.hasNext()) {
                     w7.b next = b.next();
                     i.a((String) next.a, next.b);

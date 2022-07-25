@@ -16,9 +16,9 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.nn4;
+import com.repackage.on4;
 import com.repackage.pi;
-import com.repackage.uu4;
+import com.repackage.vu4;
 /* loaded from: classes.dex */
 public class ExtraLayout extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
@@ -89,25 +89,25 @@ public class ExtraLayout extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0191, (ViewGroup) this, true);
-            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090922);
+            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09091b);
             this.b = textView;
             textView.setCompoundDrawablePadding(pi.f(context, R.dimen.tbds10));
-            this.c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090921);
-            TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) inflate.findViewById(R.id.obfuscated_res_0x7f09091e);
+            this.c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09091a);
+            TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) inflate.findViewById(R.id.obfuscated_res_0x7f090917);
             this.a = tBSpecificationBtn;
             tBSpecificationBtn.setOnClickListener(this.e);
-            uu4 uu4Var = new uu4();
-            uu4Var.r(R.color.CAM_X0302);
-            this.a.setConfig(uu4Var);
-            this.a.setText(getResources().getString(R.string.obfuscated_res_0x7f0f0502));
+            vu4 vu4Var = new vu4();
+            vu4Var.r(R.color.CAM_X0302);
+            this.a.setConfig(vu4Var);
+            this.a.setText(getResources().getString(R.string.obfuscated_res_0x7f0f04fe));
         }
     }
 
-    public void setData(nn4 nn4Var) {
+    public void setData(on4 on4Var) {
         boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, nn4Var) == null) {
-            ThreadData threadData = nn4Var.getThreadData();
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, on4Var) == null) {
+            ThreadData threadData = on4Var.getThreadData();
             boolean z2 = true;
             if (!TextUtils.isEmpty(threadData.extraText)) {
                 this.b.setVisibility(0);

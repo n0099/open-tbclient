@@ -72,7 +72,7 @@ public class tp5 extends an<qp5, LiveTabConcernItemViewLineHolder> {
                 return null;
             }
             gq5Var.i(qp5Var);
-            return liveTabConcernItemViewLineHolder.b();
+            return liveTabConcernItemViewLineHolder.a();
         }
         return (View) invokeCommon.objValue;
     }

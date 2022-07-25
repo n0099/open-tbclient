@@ -173,13 +173,13 @@ public class SchedulerWhen extends xr9 implements bs9 {
 
         /* renamed from: rx.internal.schedulers.SchedulerWhen$a$a  reason: collision with other inner class name */
         /* loaded from: classes8.dex */
-        public class C0864a implements sr9.f {
+        public class C0713a implements sr9.f {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ ScheduledAction a;
             public final /* synthetic */ a b;
 
-            public C0864a(a aVar, ScheduledAction scheduledAction) {
+            public C0713a(a aVar, ScheduledAction scheduledAction) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -232,7 +232,7 @@ public class SchedulerWhen extends xr9 implements bs9 {
         public sr9 call(ScheduledAction scheduledAction) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, scheduledAction)) == null) ? sr9.b(new C0864a(this, scheduledAction)) : (sr9) invokeL.objValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, scheduledAction)) == null) ? sr9.b(new C0713a(this, scheduledAction)) : (sr9) invokeL.objValue;
         }
     }
 

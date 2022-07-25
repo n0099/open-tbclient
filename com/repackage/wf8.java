@@ -19,7 +19,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.fu4;
+import com.repackage.gu4;
 /* loaded from: classes7.dex */
 public class wf8 extends b9<Object> {
     public static /* synthetic */ Interceptable $ic;
@@ -28,7 +28,7 @@ public class wf8 extends b9<Object> {
     public View b;
     public BdListView c;
     public NoNetworkView d;
-    public gu4 e;
+    public hu4 e;
     public tf8 f;
     public NoDataView g;
 
@@ -143,7 +143,7 @@ public class wf8 extends b9<Object> {
         }
     }
 
-    public void q(fu4.g gVar) {
+    public void q(gu4.g gVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, gVar) == null) {
             this.e.f(gVar);
@@ -154,7 +154,7 @@ public class wf8 extends b9<Object> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
             if (this.g == null) {
-                this.g = NoDataViewFactory.a(this.a.getPageActivity(), null, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NODATA, pi.f(TbadkCoreApplication.getInst().getContext(), R.dimen.obfuscated_res_0x7f070285)), NoDataViewFactory.e.a(i), null);
+                this.g = NoDataViewFactory.a(this.a.getPageActivity(), null, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NODATA, pi.f(TbadkCoreApplication.getInst().getContext(), R.dimen.obfuscated_res_0x7f070283)), NoDataViewFactory.e.a(i), null);
             }
             this.g.setTextOption(NoDataViewFactory.e.a(i));
             this.g.f(this.a, TbadkCoreApplication.getInst().getSkinType());
@@ -188,7 +188,7 @@ public class wf8 extends b9<Object> {
         this.f = null;
         this.a = tbPageContext;
         this.b = view2;
-        BdListView bdListView = (BdListView) view2.findViewById(R.id.obfuscated_res_0x7f091e0b);
+        BdListView bdListView = (BdListView) view2.findViewById(R.id.obfuscated_res_0x7f091e11);
         this.c = bdListView;
         bdListView.setOnKeyListener(onKeyListener);
         if (this.a.getOrignalPage() instanceof SquareActivity) {
@@ -197,9 +197,9 @@ public class wf8 extends b9<Object> {
         tf8 tf8Var = new tf8(tbPageContext);
         this.f = tf8Var;
         this.c.setAdapter((ListAdapter) tf8Var);
-        gu4 gu4Var = new gu4(tbPageContext);
-        this.e = gu4Var;
-        this.c.setPullRefresh(gu4Var);
-        this.d = (NoNetworkView) this.b.findViewById(R.id.obfuscated_res_0x7f092439);
+        hu4 hu4Var = new hu4(tbPageContext);
+        this.e = hu4Var;
+        this.c.setPullRefresh(hu4Var);
+        this.d = (NoNetworkView) this.b.findViewById(R.id.obfuscated_res_0x7f09243b);
     }
 }

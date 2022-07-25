@@ -69,7 +69,7 @@ public class SimpleAdInfoView extends FrameLayout {
             }
             int id = view2.getId();
             String str2 = "";
-            if (id == R.id.obfuscated_res_0x7f091510) {
+            if (id == R.id.obfuscated_res_0x7f0914eb) {
                 qn0.b bVar = this.a.e.g;
                 if (bVar != null) {
                     str2 = bVar.b;
@@ -77,16 +77,16 @@ public class SimpleAdInfoView extends FrameLayout {
                 }
                 str = "";
             } else {
-                if (id == R.id.obfuscated_res_0x7f09150f) {
+                if (id == R.id.obfuscated_res_0x7f0914ea) {
                     qn0.a aVar = this.a.e.h;
                     if (aVar != null) {
                         str2 = aVar.b;
                         str = ClogBuilder.Area.APP_PERMISSION.type;
                     }
-                } else if (id == R.id.obfuscated_res_0x7f09153b) {
+                } else if (id == R.id.obfuscated_res_0x7f091516) {
                     Toast.makeText(this.a.getContext(), this.a.e.d, 1).show();
                     return;
-                } else if (id == R.id.obfuscated_res_0x7f091511) {
+                } else if (id == R.id.obfuscated_res_0x7f0914ec) {
                     Toast.makeText(this.a.getContext(), this.a.e.f, 1).show();
                     return;
                 }
@@ -174,7 +174,7 @@ public class SimpleAdInfoView extends FrameLayout {
             }
         }
         this.g = new a(this);
-        this.h = R.layout.obfuscated_res_0x7f0d05c4;
+        this.h = R.layout.obfuscated_res_0x7f0d05ce;
         a(null);
     }
 
@@ -196,10 +196,10 @@ public class SimpleAdInfoView extends FrameLayout {
                 return;
             }
             LayoutInflater.from(getContext()).inflate(getLayoutId(), this);
-            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f091511);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f09153b);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f091510);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f09150f);
+            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f0914ec);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f091516);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f0914eb);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f0914ea);
             TextView textView = this.c;
             if (textView != null) {
                 textView.setOnClickListener(this.g);
@@ -301,7 +301,7 @@ public class SimpleAdInfoView extends FrameLayout {
             }
         }
         this.g = new a(this);
-        this.h = R.layout.obfuscated_res_0x7f0d05c4;
+        this.h = R.layout.obfuscated_res_0x7f0d05ce;
         a(attributeSet);
     }
 
@@ -325,7 +325,7 @@ public class SimpleAdInfoView extends FrameLayout {
             }
         }
         this.g = new a(this);
-        this.h = R.layout.obfuscated_res_0x7f0d05c4;
+        this.h = R.layout.obfuscated_res_0x7f0d05ce;
         a(attributeSet);
     }
 }

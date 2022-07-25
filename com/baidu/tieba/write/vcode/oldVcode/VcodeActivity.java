@@ -52,10 +52,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.au4;
-import com.repackage.fy4;
-import com.repackage.j35;
+import com.repackage.bu4;
+import com.repackage.gy4;
 import com.repackage.jf;
+import com.repackage.k35;
 import com.repackage.kk8;
 import com.repackage.kq7;
 import com.repackage.l86;
@@ -67,7 +67,7 @@ import com.repackage.qk8;
 import com.repackage.ri8;
 import com.repackage.rk8;
 import com.repackage.si8;
-import com.repackage.st4;
+import com.repackage.tt4;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -245,7 +245,7 @@ public class VcodeActivity extends BaseActivity<VcodeActivity> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public volatile NetWork a;
-        public fy4 b;
+        public gy4 b;
         public volatile boolean c;
         public final /* synthetic */ VcodeActivity d;
 
@@ -304,9 +304,9 @@ public class VcodeActivity extends BaseActivity<VcodeActivity> {
                     if (!this.a.getNetContext().getResponse().isRequestSuccess()) {
                         return null;
                     }
-                    fy4 fy4Var = new fy4();
-                    this.b = fy4Var;
-                    fy4Var.e(postNetData);
+                    gy4 gy4Var = new gy4();
+                    this.b = gy4Var;
+                    gy4Var.e(postNetData);
                     str = this.b.c();
                 }
                 if (this.c) {
@@ -649,7 +649,7 @@ public class VcodeActivity extends BaseActivity<VcodeActivity> {
                             } else if (this.a.getType() == 1) {
                                 this.b.addPostData("is_barrage", this.a.isBarrage() ? "1" : "0");
                                 this.b.addPostData("barrage_time", String.valueOf(this.a.getBarrageTime()));
-                                if (j35.a().b() == 1) {
+                                if (k35.a().b() == 1) {
                                     this.b.addPostData("ptype", "4");
                                 }
                                 this.b.addPostData("v_fid", this.a.getVForumId());
@@ -895,7 +895,7 @@ public class VcodeActivity extends BaseActivity<VcodeActivity> {
                             str2 = null;
                         }
                         if (StringUtils.isNull(str)) {
-                            str = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1119);
+                            str = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f10d5);
                         }
                         if (this.a.getType() != 3 && this.a.getType() != 7) {
                             rk8.b(this.e.getActivity(), str, str2, str3);
@@ -904,7 +904,7 @@ public class VcodeActivity extends BaseActivity<VcodeActivity> {
                     } else {
                         if (this.a.isHasImages()) {
                             if (oi.isEmpty(this.a.getContent() + this.a.getImagesCodeForPost())) {
-                                this.e.showToast(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f08df));
+                                this.e.showToast(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f08ca));
                             }
                         }
                         if (this.a.getType() != 3) {
@@ -1013,7 +1013,7 @@ public class VcodeActivity extends BaseActivity<VcodeActivity> {
                 } else {
                     if (this.a.isHasImages()) {
                         if (oi.isEmpty(this.a.getContent() + this.a.getImagesCodeForPost())) {
-                            this.e.showToast(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f08df));
+                            this.e.showToast(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f08ca));
                         }
                     }
                     if (qk8Var.a() != 5 && qk8Var.a() != 6) {
@@ -1056,11 +1056,11 @@ public class VcodeActivity extends BaseActivity<VcodeActivity> {
                             this.e.finish();
                         }
                     } else {
-                        fy4 fy4Var = new fy4();
-                        fy4Var.f(this.d);
-                        if (fy4Var.c() != null && this.e.a != null) {
-                            this.e.a.setVcodeMD5(fy4Var.b());
-                            this.e.a.setVcodeUrl(fy4Var.c());
+                        gy4 gy4Var = new gy4();
+                        gy4Var.f(this.d);
+                        if (gy4Var.c() != null && this.e.a != null) {
+                            this.e.a.setVcodeMD5(gy4Var.b());
+                            this.e.a.setVcodeUrl(gy4Var.c());
                             VcodeActivity vcodeActivity = this.e;
                             vcodeActivity.O1(vcodeActivity.a.getVcodeUrl());
                         }
@@ -1149,21 +1149,21 @@ public class VcodeActivity extends BaseActivity<VcodeActivity> {
     public final void N1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.j = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f0916ba);
-            this.l = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f092437);
-            this.k = (TextView) findViewById(R.id.obfuscated_res_0x7f090ec4);
+            this.j = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091695);
+            this.l = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f092439);
+            this.k = (TextView) findViewById(R.id.obfuscated_res_0x7f090ebd);
             this.l.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, this.n);
-            TextView addTextButton = this.l.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getResources().getString(R.string.obfuscated_res_0x7f0f110b), this.o);
+            TextView addTextButton = this.l.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getResources().getString(R.string.obfuscated_res_0x7f0f10c7), this.o);
             this.b = addTextButton;
             LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) addTextButton.getLayoutParams();
             layoutParams.rightMargin = pi.f(getPageContext().getPageActivity(), R.dimen.obfuscated_res_0x7f0701be);
             this.b.setLayoutParams(layoutParams);
-            this.d = (EditText) findViewById(R.id.obfuscated_res_0x7f090ecd);
-            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f092361);
+            this.d = (EditText) findViewById(R.id.obfuscated_res_0x7f090ec6);
+            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f092363);
             this.c = imageView;
             imageView.setImageDrawable(null);
             this.c.setOnClickListener(new d(this));
-            this.e = (ProgressBar) findViewById(R.id.obfuscated_res_0x7f0919c7);
+            this.e = (ProgressBar) findViewById(R.id.obfuscated_res_0x7f0919a2);
         }
     }
 
@@ -1186,9 +1186,9 @@ public class VcodeActivity extends BaseActivity<VcodeActivity> {
     public final void P1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            au4 au4Var = new au4(getPageContext());
-            this.mWaitingDialog = au4Var;
-            au4Var.i(R.string.obfuscated_res_0x7f0f111c);
+            bu4 bu4Var = new bu4(getPageContext());
+            this.mWaitingDialog = bu4Var;
+            bu4Var.i(R.string.obfuscated_res_0x7f0f10d8);
             this.mWaitingDialog.e(this.i);
             this.mWaitingDialog.d(false);
             this.mWaitingDialog.g(false);
@@ -1246,7 +1246,7 @@ public class VcodeActivity extends BaseActivity<VcodeActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d086b);
+            setContentView(R.layout.obfuscated_res_0x7f0d0875);
             N1();
             M1(bundle);
             WriteData writeData = this.a;
@@ -1306,7 +1306,7 @@ public class VcodeActivity extends BaseActivity<VcodeActivity> {
             if (progressBar != null) {
                 progressBar.setVisibility(8);
             }
-            st4.g(getPageContext().getPageActivity(), 200, false);
+            tt4.g(getPageContext().getPageActivity(), 200, false);
             finish();
         }
     }

@@ -51,8 +51,8 @@ public class vf6 extends jx5<wf6> {
         this.j = (TextView) h.findViewById(R.id.obfuscated_res_0x7f0900f0);
         this.k = (TextView) h.findViewById(R.id.obfuscated_res_0x7f09009a);
         this.n = (ConstrainImageGroup) h.findViewById(R.id.obfuscated_res_0x7f0900ad);
-        this.l = h.findViewById(R.id.obfuscated_res_0x7f090f35);
-        this.m = (RelativeLayout) h.findViewById(R.id.obfuscated_res_0x7f090a96);
+        this.l = h.findViewById(R.id.obfuscated_res_0x7f090f2e);
+        this.m = (RelativeLayout) h.findViewById(R.id.obfuscated_res_0x7f090a8f);
         h.setOnClickListener(this);
     }
 
@@ -98,8 +98,8 @@ public class vf6 extends jx5<wf6> {
         this.i.setDrawBorder(true);
         this.i.setBorderColor(SkinManager.getColor(R.color.black_alpha15));
         this.i.setBorderWidth(pi.f(getContext(), R.dimen.tbds1));
-        this.i.setDefaultResource(R.drawable.obfuscated_res_0x7f0811a4);
-        this.i.setDefaultBgResource(R.drawable.obfuscated_res_0x7f0811a4);
+        this.i.setDefaultResource(R.drawable.obfuscated_res_0x7f0811a8);
+        this.i.setDefaultBgResource(R.drawable.obfuscated_res_0x7f0811a8);
         this.j.setText(wf6Var.d());
         this.k.setText(wf6Var.c());
         SkinManager.setViewTextColor(this.j, (int) R.color.CAM_X0105);

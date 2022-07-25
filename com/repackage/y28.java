@@ -56,11 +56,11 @@ public class y28 extends an<k48, CardViewHolder<m58>> {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, k48Var, cardViewHolder})) == null) {
-            if (cardViewHolder == null || cardViewHolder.c() == null || k48Var == null) {
+            if (cardViewHolder == null || cardViewHolder.b() == null || k48Var == null) {
                 return null;
             }
-            cardViewHolder.c().i(k48Var);
-            return cardViewHolder.c().h();
+            cardViewHolder.b().i(k48Var);
+            return cardViewHolder.b().h();
         }
         return (View) invokeCommon.objValue;
     }

@@ -29,7 +29,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.nr4;
+import com.repackage.or4;
 import java.util.List;
 /* loaded from: classes7.dex */
 public class wq8 extends b9 {
@@ -40,7 +40,7 @@ public class wq8 extends b9 {
     public MaskVideoView c;
     public eq8 d;
     public Resources e;
-    public lr4 f;
+    public mr4 f;
     public yq8 g;
     public ar8 h;
     public zq8 i;
@@ -50,7 +50,7 @@ public class wq8 extends b9 {
     public MediaPlayer m;
     public boolean n;
     public kl7 o;
-    public nr4.e p;
+    public or4.e p;
 
     /* loaded from: classes7.dex */
     public class a implements FragmentTabWidget.b {
@@ -160,12 +160,12 @@ public class wq8 extends b9 {
 
         /* renamed from: com.repackage.wq8$b$b  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public class C0761b implements MediaPlayer.OnInfoListener {
+        public class C0609b implements MediaPlayer.OnInfoListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ b a;
 
-            public C0761b(b bVar) {
+            public C0609b(b bVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -239,7 +239,7 @@ public class wq8 extends b9 {
                     qg.a().postDelayed(new a(this), 200L);
                     if (Build.VERSION.SDK_INT < 17) {
                         this.a.c.start();
-                        mediaPlayer.setOnInfoListener(new C0761b(this));
+                        mediaPlayer.setOnInfoListener(new C0609b(this));
                         return;
                     }
                     this.a.c.seekTo(this.a.g.getCurrentPosition());
@@ -360,7 +360,7 @@ public class wq8 extends b9 {
     }
 
     /* loaded from: classes7.dex */
-    public class f implements nr4.e {
+    public class f implements or4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ wq8 a;
@@ -383,10 +383,10 @@ public class wq8 extends b9 {
             this.a = wq8Var;
         }
 
-        @Override // com.repackage.nr4.e
-        public void N(nr4 nr4Var, int i, View view2) {
+        @Override // com.repackage.or4.e
+        public void N(or4 or4Var, int i, View view2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLIL(1048576, this, nr4Var, i, view2) == null) {
+            if (interceptable == null || interceptable.invokeLIL(1048576, this, or4Var, i, view2) == null) {
                 if (i != 0) {
                     if (i == 1 && this.a.d != null) {
                         this.a.d.g();
@@ -445,9 +445,9 @@ public class wq8 extends b9 {
     public final void B() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.b.setCenterTextTitle(this.e.getString(R.string.obfuscated_res_0x7f0f10f2));
+            this.b.setCenterTextTitle(this.e.getString(R.string.obfuscated_res_0x7f0f10ae));
             this.b.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new d(this));
-            SkinManager.setViewTextColor(this.b.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, this.e.getString(R.string.obfuscated_res_0x7f0f10f3), new e(this)), (int) R.color.CAM_X0106);
+            SkinManager.setViewTextColor(this.b.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, this.e.getString(R.string.obfuscated_res_0x7f0f10af), new e(this)), (int) R.color.CAM_X0106);
         }
     }
 
@@ -459,7 +459,7 @@ public class wq8 extends b9 {
                 FragmentTabIndicator fragmentTabIndicator = new FragmentTabIndicator(this.mContext.getPageActivity());
                 fragmentTabIndicator.setText(stringArray[i]);
                 fragmentTabIndicator.setTextColorResId(R.color.edit_video_tab_title_color);
-                fragmentTabIndicator.setTextSize(0, this.e.getDimension(R.dimen.obfuscated_res_0x7f070331));
+                fragmentTabIndicator.setTextSize(0, this.e.getDimension(R.dimen.obfuscated_res_0x7f07032f));
                 this.k.addView(fragmentTabIndicator, i);
             }
             if (!E() && this.k.getChildAt(1) != null) {
@@ -476,16 +476,16 @@ public class wq8 extends b9 {
     public final void D() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.b = (NavigationBar) this.a.findViewById(R.id.obfuscated_res_0x7f09158d);
-            MaskVideoView maskVideoView = (MaskVideoView) this.a.findViewById(R.id.obfuscated_res_0x7f092407);
+            this.b = (NavigationBar) this.a.findViewById(R.id.obfuscated_res_0x7f091568);
+            MaskVideoView maskVideoView = (MaskVideoView) this.a.findViewById(R.id.obfuscated_res_0x7f092409);
             this.c = maskVideoView;
             maskVideoView.setPreserveEGLContextOnPause(true);
             this.c.setZOrderMediaOverlay(true);
             this.c.setPostMonitorManager(this.o);
-            FrameLayout frameLayout = (FrameLayout) this.a.findViewById(R.id.obfuscated_res_0x7f090821);
+            FrameLayout frameLayout = (FrameLayout) this.a.findViewById(R.id.obfuscated_res_0x7f09081f);
             this.j = frameLayout;
             frameLayout.addView(this.g.n());
-            this.k = (FragmentTabWidget) this.a.findViewById(R.id.obfuscated_res_0x7f091ed4);
+            this.k = (FragmentTabWidget) this.a.findViewById(R.id.obfuscated_res_0x7f091ed8);
             B();
             C();
             this.j.addView(this.h.y());
@@ -739,11 +739,11 @@ public class wq8 extends b9 {
                 return;
             }
             if (this.f == null) {
-                String[] strArr = {getPageContext().getString(R.string.obfuscated_res_0x7f0f108e), getPageContext().getString(R.string.obfuscated_res_0x7f0f0c94)};
-                lr4 lr4Var = new lr4(getPageContext());
-                this.f = lr4Var;
-                lr4Var.setTitle(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f109a));
-                this.f.j(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f109a), strArr, this.p);
+                String[] strArr = {getPageContext().getString(R.string.obfuscated_res_0x7f0f104a), getPageContext().getString(R.string.obfuscated_res_0x7f0f0c80)};
+                mr4 mr4Var = new mr4(getPageContext());
+                this.f = mr4Var;
+                mr4Var.setTitle(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f1056));
+                this.f.j(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f1056), strArr, this.p);
             }
             this.f.m();
         }

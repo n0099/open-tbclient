@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import tbclient.CreationData;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class q18 extends BaseCardInfo implements nn {
     public static /* synthetic */ Interceptable $ic;
     public static final BdUniqueId c;

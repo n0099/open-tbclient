@@ -41,7 +41,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.cr4;
+import com.repackage.dr4;
 import java.text.MessageFormat;
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -92,7 +92,7 @@ public class gx7 {
     }
 
     /* loaded from: classes6.dex */
-    public static class b implements cr4.e {
+    public static class b implements dr4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PbModel a;
@@ -129,10 +129,10 @@ public class gx7 {
             this.h = shareFromPBMsgData;
         }
 
-        @Override // com.repackage.cr4.e
-        public void onClick(cr4 cr4Var) {
+        @Override // com.repackage.dr4.e
+        public void onClick(dr4 dr4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, cr4Var) == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, dr4Var) == null) {
                 PbModel pbModel = this.a;
                 if (pbModel != null && pbModel.R1() != null) {
                     StatisticItem param = new StatisticItem(TbadkCoreStatisticKey.KEY_SHARE_SUCCESS).param("obj_source", 1).param("obj_param1", 3).param("fid", this.a.getForumId()).param("tid", this.a.j2()).param("obj_locate", 1);
@@ -143,13 +143,13 @@ public class gx7 {
                 }
                 this.b.HidenSoftKeyPad((InputMethodManager) this.b.getBaseFragmentActivity().getSystemService("input_method"), this.c.getChatMsgView());
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002005, new PersonalChatActivityConfig(this.b.getBaseFragmentActivity(), this.d, this.e, this.f, this.g, 0, this.c.getLeaveMsg(), this.h.toChatMessageContent())));
-                cr4Var.dismiss();
+                dr4Var.dismiss();
             }
         }
     }
 
     /* loaded from: classes6.dex */
-    public static class c implements cr4.e {
+    public static class c implements dr4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PbFragment a;
@@ -174,18 +174,18 @@ public class gx7 {
             this.b = thread2GroupShareView;
         }
 
-        @Override // com.repackage.cr4.e
-        public void onClick(cr4 cr4Var) {
+        @Override // com.repackage.dr4.e
+        public void onClick(dr4 dr4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, cr4Var) == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, dr4Var) == null) {
                 this.a.HidenSoftKeyPad((InputMethodManager) this.a.getBaseFragmentActivity().getSystemService("input_method"), this.b.getChatMsgView());
-                cr4Var.dismiss();
+                dr4Var.dismiss();
             }
         }
     }
 
     /* loaded from: classes6.dex */
-    public static class d implements cr4.e {
+    public static class d implements dr4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PbFragment a;
@@ -218,19 +218,19 @@ public class gx7 {
             this.f = shareFromPBMsgData;
         }
 
-        @Override // com.repackage.cr4.e
-        public void onClick(cr4 cr4Var) {
+        @Override // com.repackage.dr4.e
+        public void onClick(dr4 dr4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, cr4Var) == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, dr4Var) == null) {
                 this.a.HidenSoftKeyPad((InputMethodManager) this.a.getBaseFragmentActivity().getSystemService("input_method"), this.b.getChatMsgView());
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new GroupChatActivityConfig(this.a.getBaseFragmentActivity(), this.c, this.d, this.e, "from_share", this.b.getLeaveMsg(), this.f.toChatMessageContent())));
-                cr4Var.dismiss();
+                dr4Var.dismiss();
             }
         }
     }
 
     /* loaded from: classes6.dex */
-    public static class e implements cr4.e {
+    public static class e implements dr4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PbFragment a;
@@ -255,12 +255,12 @@ public class gx7 {
             this.b = thread2GroupShareView;
         }
 
-        @Override // com.repackage.cr4.e
-        public void onClick(cr4 cr4Var) {
+        @Override // com.repackage.dr4.e
+        public void onClick(dr4 dr4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, cr4Var) == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, dr4Var) == null) {
                 this.a.HidenSoftKeyPad((InputMethodManager) this.a.getBaseFragmentActivity().getSystemService("input_method"), this.b.getChatMsgView());
-                cr4Var.dismiss();
+                dr4Var.dismiss();
             }
         }
     }
@@ -311,7 +311,7 @@ public class gx7 {
             String f = f(threadData);
             Uri parse = f == null ? null : Uri.parse(f);
             String str2 = threadData.getAbstract();
-            String format = MessageFormat.format(context.getResources().getString(R.string.obfuscated_res_0x7f0f1144), title, str2);
+            String format = MessageFormat.format(context.getResources().getString(R.string.obfuscated_res_0x7f0f10f3), title, str2);
             ShareItem shareItem = new ShareItem();
             shareItem.u = title;
             shareItem.v = format;
@@ -401,13 +401,13 @@ public class gx7 {
             if (i == 1) {
                 TiebaStatic.log(new StatisticItem("c10399").param("fid", R1.m()).param("tid", R1.Q()).param("uid", currentAccount));
             }
-            String string = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f048b);
+            String string = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f048a);
             if (R1.g0() && O.getAuthor() != null) {
                 if (TextUtils.isEmpty(title) || TextUtils.isEmpty(str5)) {
                     if (TextUtils.isEmpty(title) || O.isBJHVideoDynamicThreadType() || O.isBJHVideoThreadType()) {
                         title = M[1];
                     }
-                    str2 = MessageFormat.format(string, O.getAuthor().getName_show(), TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f048c));
+                    str2 = MessageFormat.format(string, O.getAuthor().getName_show(), TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f048b));
                     String cutString = oi.cutString(title, 100);
                     String cutString2 = oi.cutString(str2, 100);
                     shareItem = new ShareItem();
@@ -446,13 +446,13 @@ public class gx7 {
                     bundle.putString("tid", shareItem.N);
                     bundle.putString("uid", shareItem.Q);
                     shareItem.k(bundle);
-                    int k = jz4.k(threadData);
+                    int k = kz4.k(threadData);
                     String forum_name = threadData.getForum_name();
                     originalForumInfo = threadData.mOriginalForumInfo;
                     if (originalForumInfo != null) {
                     }
-                    shareItem.D0 = jz4.j(threadData, k);
-                    shareItem.E0 = jz4.i(threadData, k, forum_name, shareItem.U, "", M[1]);
+                    shareItem.D0 = kz4.j(threadData, k);
+                    shareItem.E0 = kz4.i(threadData, k, forum_name, shareItem.U, "", M[1]);
                     return shareItem;
                 }
                 str2 = str5;
@@ -494,13 +494,13 @@ public class gx7 {
                 bundle2.putString("tid", shareItem.N);
                 bundle2.putString("uid", shareItem.Q);
                 shareItem.k(bundle2);
-                int k2 = jz4.k(threadData);
+                int k2 = kz4.k(threadData);
                 String forum_name2 = threadData.getForum_name();
                 originalForumInfo = threadData.mOriginalForumInfo;
                 if (originalForumInfo != null) {
                 }
-                shareItem.D0 = jz4.j(threadData, k2);
-                shareItem.E0 = jz4.i(threadData, k2, forum_name2, shareItem.U, "", M[1]);
+                shareItem.D0 = kz4.j(threadData, k2);
+                shareItem.E0 = kz4.i(threadData, k2, forum_name2, shareItem.U, "", M[1]);
                 return shareItem;
             }
             if (oi.isEmpty(str5)) {
@@ -544,11 +544,11 @@ public class gx7 {
                 }
                 threadData2 = shareItem.W.threadData;
                 if (threadData2 != null && threadData2.getForumData() == null && R1 != null && R1.l() != null) {
-                    mq4 mq4Var = new mq4();
-                    mq4Var.k(R1.l().getName());
-                    mq4Var.a = R1.l().getId();
-                    mq4Var.c = R1.l().getImage_url();
-                    shareItem.W.threadData.setForumData(mq4Var);
+                    nq4 nq4Var = new nq4();
+                    nq4Var.k(R1.l().getName());
+                    nq4Var.a = R1.l().getId();
+                    nq4Var.c = R1.l().getImage_url();
+                    shareItem.W.threadData.setForumData(nq4Var);
                 }
                 if (threadData != null) {
                     shareItem.p0 = threadData.getShareImageUrl();
@@ -560,14 +560,14 @@ public class gx7 {
                 bundle22.putString("tid", shareItem.N);
                 bundle22.putString("uid", shareItem.Q);
                 shareItem.k(bundle22);
-                int k22 = jz4.k(threadData);
+                int k22 = kz4.k(threadData);
                 String forum_name22 = threadData.getForum_name();
                 originalForumInfo = threadData.mOriginalForumInfo;
                 if (originalForumInfo != null) {
                     forum_name22 = originalForumInfo.ori_fname;
                 }
-                shareItem.D0 = jz4.j(threadData, k22);
-                shareItem.E0 = jz4.i(threadData, k22, forum_name22, shareItem.U, "", M[1]);
+                shareItem.D0 = kz4.j(threadData, k22);
+                shareItem.E0 = kz4.i(threadData, k22, forum_name22, shareItem.U, "", M[1]);
                 return shareItem;
             }
             str2 = str5;
@@ -599,11 +599,11 @@ public class gx7 {
             shareItem.Z = ShareItem.ForwardInfo.generateForwardInfo(threadData, 1, null);
             threadData2 = shareItem.W.threadData;
             if (threadData2 != null) {
-                mq4 mq4Var2 = new mq4();
-                mq4Var2.k(R1.l().getName());
-                mq4Var2.a = R1.l().getId();
-                mq4Var2.c = R1.l().getImage_url();
-                shareItem.W.threadData.setForumData(mq4Var2);
+                nq4 nq4Var2 = new nq4();
+                nq4Var2.k(R1.l().getName());
+                nq4Var2.a = R1.l().getId();
+                nq4Var2.c = R1.l().getImage_url();
+                shareItem.W.threadData.setForumData(nq4Var2);
             }
             if (threadData != null) {
             }
@@ -614,13 +614,13 @@ public class gx7 {
             bundle222.putString("tid", shareItem.N);
             bundle222.putString("uid", shareItem.Q);
             shareItem.k(bundle222);
-            int k222 = jz4.k(threadData);
+            int k222 = kz4.k(threadData);
             String forum_name222 = threadData.getForum_name();
             originalForumInfo = threadData.mOriginalForumInfo;
             if (originalForumInfo != null) {
             }
-            shareItem.D0 = jz4.j(threadData, k222);
-            shareItem.E0 = jz4.i(threadData, k222, forum_name222, shareItem.U, "", M[1]);
+            shareItem.D0 = kz4.j(threadData, k222);
+            shareItem.E0 = kz4.i(threadData, k222, forum_name222, shareItem.U, "", M[1]);
             return shareItem;
         }
         return (ShareItem) invokeIIL.objValue;
@@ -808,15 +808,15 @@ public class gx7 {
         if (F == null || F.R1() == null || F.R1().O() == null) {
             return;
         }
-        cr4 cr4Var = new cr4(pbFragment.getBaseFragmentActivity());
+        dr4 dr4Var = new dr4(pbFragment.getBaseFragmentActivity());
         Thread2GroupShareView thread2GroupShareView = new Thread2GroupShareView(pbFragment.getBaseFragmentActivity());
         thread2GroupShareView.setData(e2);
-        cr4Var.setContentViewSize(1);
-        cr4Var.setContentView(thread2GroupShareView);
-        cr4Var.setPositiveButton(R.string.obfuscated_res_0x7f0f113c, new d(pbFragment, thread2GroupShareView, j, str, j2, e2));
-        cr4Var.setNegativeButton(R.string.obfuscated_res_0x7f0f036a, new e(pbFragment, thread2GroupShareView));
-        cr4Var.setCanceledOnTouchOutside(true);
-        cr4Var.create(pbFragment.getPageContext()).show();
+        dr4Var.setContentViewSize(1);
+        dr4Var.setContentView(thread2GroupShareView);
+        dr4Var.setPositiveButton(R.string.obfuscated_res_0x7f0f10eb, new d(pbFragment, thread2GroupShareView, j, str, j2, e2));
+        dr4Var.setNegativeButton(R.string.obfuscated_res_0x7f0f036a, new e(pbFragment, thread2GroupShareView));
+        dr4Var.setCanceledOnTouchOutside(true);
+        dr4Var.create(pbFragment.getPageContext()).show();
         if (oi.isEmpty(e2.getImageUrl())) {
             return;
         }
@@ -833,15 +833,15 @@ public class gx7 {
         if (F == null || F.R1() == null || F.R1().O() == null) {
             return;
         }
-        cr4 cr4Var = new cr4(pbFragment.getBaseFragmentActivity());
+        dr4 dr4Var = new dr4(pbFragment.getBaseFragmentActivity());
         Thread2GroupShareView thread2GroupShareView = new Thread2GroupShareView(pbFragment.getBaseFragmentActivity());
         thread2GroupShareView.setData(e2);
-        cr4Var.setContentViewSize(1);
-        cr4Var.setContentView(thread2GroupShareView);
-        cr4Var.setPositiveButton(R.string.obfuscated_res_0x7f0f113c, new b(F, pbFragment, thread2GroupShareView, j, str, str2, str3, e2));
-        cr4Var.setNegativeButton(R.string.obfuscated_res_0x7f0f036a, new c(pbFragment, thread2GroupShareView));
-        cr4Var.setCanceledOnTouchOutside(true);
-        cr4Var.create(pbFragment.getPageContext()).show();
+        dr4Var.setContentViewSize(1);
+        dr4Var.setContentView(thread2GroupShareView);
+        dr4Var.setPositiveButton(R.string.obfuscated_res_0x7f0f10eb, new b(F, pbFragment, thread2GroupShareView, j, str, str2, str3, e2));
+        dr4Var.setNegativeButton(R.string.obfuscated_res_0x7f0f036a, new c(pbFragment, thread2GroupShareView));
+        dr4Var.setCanceledOnTouchOutside(true);
+        dr4Var.create(pbFragment.getPageContext()).show();
         if (oi.isEmpty(e2.getImageUrl())) {
             return;
         }

@@ -13,15 +13,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.m53;
+import com.repackage.n53;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class lb2 extends e23 {
+public class lb2 extends f23 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes6.dex */
-    public class a implements af3<k53<m53.e>> {
+    public class a implements bf3<l53<n53.e>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ CallbackHandler a;
@@ -51,36 +51,36 @@ public class lb2 extends e23 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.af3
+        @Override // com.repackage.bf3
         /* renamed from: b */
-        public void a(k53<m53.e> k53Var) {
+        public void a(l53<n53.e> l53Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, k53Var) == null) {
-                if (!f53.h(k53Var)) {
-                    f53.p(k53Var, this.a, this.b);
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, l53Var) == null) {
+                if (!g53.h(l53Var)) {
+                    g53.p(l53Var, this.a, this.b);
                     return;
                 }
-                boolean b = va2.b(this.c.optInt("emitReplaceSwanCore"));
-                if (b && !m93.c()) {
-                    zz2.f(AppRuntime.getAppContext(), R.string.obfuscated_res_0x7f0f013f).G();
-                    this.b.result = UnitedSchemeUtility.wrapCallbackParams(1001, this.d.getResources().getString(R.string.obfuscated_res_0x7f0f013f));
+                boolean b = wa2.b(this.c.optInt("useExtension"));
+                if (b && !za2.b().exists()) {
+                    a03.f(AppRuntime.getAppContext(), R.string.obfuscated_res_0x7f0f013e).G();
+                    this.b.result = UnitedSchemeUtility.wrapCallbackParams(1001, this.d.getResources().getString(R.string.obfuscated_res_0x7f0f013e));
                     return;
                 }
-                gw2.M(b);
+                hw2.V(b);
                 UnitedSchemeUtility.callCallback(this.a, this.b, UnitedSchemeUtility.wrapCallbackParams(0));
-                gw2.Z();
+                hw2.Z();
             }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public lb2(e13 e13Var) {
-        super(e13Var, "/swanAPI/debug/setReplaceSwanCoreConfig");
+    public lb2(f13 f13Var) {
+        super(f13Var, "/swanAPI/debug/setExtensionConfig");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {e13Var};
+            Object[] objArr = {f13Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -94,22 +94,22 @@ public class lb2 extends e23 {
         }
     }
 
-    @Override // com.repackage.e23
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, h03 h03Var) {
+    @Override // com.repackage.f23
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, i03 i03Var) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, h03Var)) == null) {
-            JSONObject a2 = e23.a(unitedSchemeEntity, "params");
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, i03Var)) == null) {
+            JSONObject a2 = f23.a(unitedSchemeEntity, "params");
             if (a2 == null) {
-                hx1.c("setReplaceSwanCoreConfig", "params is null");
+                ix1.c("ExtCore-SetConfig", "params is null");
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
                 return false;
-            } else if (!a2.has("emitReplaceSwanCore")) {
-                hx1.c("setReplaceSwanCoreConfig", "emitReplaceSwanCore is null");
+            } else if (!a2.has("useExtension")) {
+                ix1.c("ExtCore-SetConfig", "useExtension is null");
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
                 return false;
             } else {
-                h03Var.e0().g(context, "mapp_cts_debug", new a(this, callbackHandler, unitedSchemeEntity, a2, context));
+                i03Var.e0().g(context, "mapp_cts_debug", new a(this, callbackHandler, unitedSchemeEntity, a2, context));
                 return true;
             }
         }

@@ -25,8 +25,8 @@ public class wy5 extends ny5 implements IVideoData {
     public static String X;
     public static String Y;
     public static String Z;
-    public static String g0;
-    public static String h0;
+    public static String a0;
+    public static String b0;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean R;
     public boolean S;
@@ -50,7 +50,7 @@ public class wy5 extends ny5 implements IVideoData {
         W = "";
         X = "";
         Y = "";
-        h0 = "";
+        b0 = "";
     }
 
     public wy5(ThreadData threadData) {
@@ -173,7 +173,7 @@ public class wy5 extends ny5 implements IVideoData {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            StatisticItem u = u(h0, true);
+            StatisticItem u = u(b0, true);
             if (u != null && getThreadData() != null) {
                 ThreadData threadData = getThreadData();
                 if (threadData.getBaijiahaoData() != null) {
@@ -259,7 +259,7 @@ public class wy5 extends ny5 implements IVideoData {
         return (StatisticItem) invokeL.objValue;
     }
 
-    @Override // com.repackage.nn4
+    @Override // com.repackage.on4
     public String getRecomReason() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -273,7 +273,7 @@ public class wy5 extends ny5 implements IVideoData {
         return (String) invokeV.objValue;
     }
 
-    @Override // com.repackage.ny5, com.repackage.nn4
+    @Override // com.repackage.ny5, com.repackage.on4
     public ThreadData getThreadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -297,7 +297,7 @@ public class wy5 extends ny5 implements IVideoData {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
             ThreadData threadData = this.a;
             if (threadData == null) {
-                return vy5.o0;
+                return vy5.i0;
             }
             if (this.B) {
                 if (this.n) {

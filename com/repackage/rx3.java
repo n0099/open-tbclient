@@ -1,17 +1,15 @@
 package com.repackage;
 
-import androidx.annotation.NonNull;
+import android.content.Context;
+import android.view.View;
+import com.baidu.swan.games.view.recommend.popview.GameCloseGuidePopView;
 /* loaded from: classes7.dex */
 public interface rx3 {
-    boolean a(@NonNull String str, @NonNull String str2, @NonNull String str3, @NonNull boolean z, @NonNull md2 md2Var);
+    View a(Context context, GameCloseGuidePopView.e eVar);
 
-    void b(String str, String str2, String str3, String str4, String str5);
+    void b(int i);
 
-    void c(@NonNull String str);
+    void c();
 
-    void d(@NonNull String str, @NonNull String str2);
-
-    void e(@NonNull String str);
-
-    void f(@NonNull String str);
+    void release();
 }

@@ -19,9 +19,18 @@ public final class b implements com.kwad.sdk.core.d<AdStyleInfo.PlayDetailInfo.A
         if (jSONObject == null) {
             jSONObject = new JSONObject();
         }
-        com.kwad.sdk.utils.r.a(jSONObject, "translateBtnShowTime", actionBarInfo.translateBtnShowTime);
-        com.kwad.sdk.utils.r.a(jSONObject, "lightBtnShowTime", actionBarInfo.lightBtnShowTime);
-        com.kwad.sdk.utils.r.a(jSONObject, "cardShowTime", actionBarInfo.cardShowTime);
+        long j = actionBarInfo.translateBtnShowTime;
+        if (j != 0) {
+            com.kwad.sdk.utils.r.putValue(jSONObject, "translateBtnShowTime", j);
+        }
+        long j2 = actionBarInfo.lightBtnShowTime;
+        if (j2 != 0) {
+            com.kwad.sdk.utils.r.putValue(jSONObject, "lightBtnShowTime", j2);
+        }
+        long j3 = actionBarInfo.cardShowTime;
+        if (j3 != 0) {
+            com.kwad.sdk.utils.r.putValue(jSONObject, "cardShowTime", j3);
+        }
         return jSONObject;
     }
 

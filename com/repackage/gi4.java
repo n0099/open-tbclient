@@ -1,17 +1,17 @@
 package com.repackage;
 
-import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.webkit.sdk.ZeusWebViewPreloadClass;
-import java.io.File;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.ei4;
 /* loaded from: classes6.dex */
-public class gi4 {
+public final class gi4 extends ei4.c {
     public static /* synthetic */ Interceptable $ic;
-    public static final String a;
+    public static final gi4 b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -27,15 +27,24 @@ public class gi4 {
                 return;
             }
         }
-        a = AppRuntime.getAppContext().getFilesDir().getAbsolutePath() + File.separator + ZeusWebViewPreloadClass.ZEUS_FILE_DIR + File.separator + "libs";
+        b = new gi4();
     }
 
-    public static boolean a() {
-        InterceptResult invokeV;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public gi4() {
+        super(new ei4.b());
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return new File(a + File.separator + "libzeuswebviewchromium.so").exists();
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((ei4.b) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
         }
-        return invokeV.booleanValue;
     }
 }

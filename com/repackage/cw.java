@@ -12,6 +12,7 @@ import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.webkit.sdk.PermissionRequest;
 /* loaded from: classes5.dex */
 public class cw {
     public static /* synthetic */ Interceptable $ic = null;
@@ -41,7 +42,7 @@ public class cw {
                 return false;
             }
             try {
-                return ContextCompat.checkPermissionGranted(context, "android.permission.CAMERA");
+                return ContextCompat.checkPermissionGranted(context, PermissionRequest.RESOURCE_VIDEO_CAPTURE);
             } catch (Throwable th) {
                 BdLog.c(a, th);
                 return !ApiUtil.shouldCheckPermission();
@@ -51,7 +52,7 @@ public class cw {
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:12:0x001d, code lost:
-        if (com.baidu.permissionhelper.context.ContextCompat.checkPermissionGranted(r5, "android.permission.READ_EXTERNAL_STORAGE") != false) goto L17;
+        if (com.baidu.permissionhelper.context.ContextCompat.checkPermissionGranted(r5, com.kuaishou.weapon.p0.h.i) != false) goto L17;
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.

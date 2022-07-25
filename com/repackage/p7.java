@@ -162,12 +162,12 @@ public class p7 implements c7 {
     public final void b(String str, JsonValue jsonValue) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, jsonValue) == null) {
-            jsonValue.Q(str);
+            jsonValue.P(str);
             JsonValue jsonValue2 = this.d;
             if (jsonValue2 == null) {
                 this.d = jsonValue;
                 this.c = jsonValue;
-            } else if (!jsonValue2.v() && !this.d.D()) {
+            } else if (!jsonValue2.u() && !this.d.C()) {
                 this.c = this.d;
             } else {
                 JsonValue jsonValue3 = this.d;
@@ -944,7 +944,7 @@ public class p7 implements c7 {
             }
             JsonValue peek = a7Var3.peek();
             this.a.clear();
-            if (peek != null && peek.D()) {
+            if (peek != null && peek.C()) {
                 throw new SerializationException("Error parsing JSON, unmatched brace.");
             }
             throw new SerializationException("Error parsing JSON, unmatched bracket.");

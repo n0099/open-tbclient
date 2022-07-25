@@ -18,13 +18,13 @@ public class dp8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(pr4 pr4Var, int i) {
+    public static void a(qr4 qr4Var, int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(65536, null, pr4Var, i) == null) || pr4Var == null || i < 0) {
+        if (!(interceptable == null || interceptable.invokeLI(65536, null, qr4Var, i) == null) || qr4Var == null || i < 0) {
             return;
         }
         int i2 = i + 1;
-        boolean d = pr4Var.d();
+        boolean d = qr4Var.d();
         TiebaStatic.log(new StatisticItem("c14633").param("uid", String.valueOf(TbadkCoreApplication.getCurrentAccountId())).param("obj_locate", i2).param("obj_type", d ? 2 : 1));
     }
 

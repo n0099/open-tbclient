@@ -19,7 +19,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.ah5;
-import com.repackage.c65;
+import com.repackage.d65;
 import com.repackage.rg5;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -132,9 +132,9 @@ public class TbRichText extends OrmObject {
     public final void F() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.e = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0e63);
-            this.f = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f1581);
-            this.g = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f1541);
+            this.e = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0e4c);
+            this.f = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f1530);
+            this.g = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f14f0);
         }
     }
 
@@ -277,7 +277,7 @@ public class TbRichText extends OrmObject {
                         if (charSequence == null && type == 18 && (G = next.G()) != null) {
                             PbContent D = G.D();
                             if (threadData != null && D != null) {
-                                c65 f = c65.f(threadData, D);
+                                d65 f = d65.f(threadData, D);
                                 f.c(postData);
                                 f.b(HotTopicStat.Locate.VIDEO_MIDDLE_COMMENT);
                                 charSequence = rg5.o(f);

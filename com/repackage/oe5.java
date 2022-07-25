@@ -35,9 +35,9 @@ public class oe5 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(65538, null, z)) == null) {
             if (z) {
-                return TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f0606);
+                return TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f0602);
             }
-            return TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f0605);
+            return TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f0601);
         }
         return (String) invokeZ.objValue;
     }

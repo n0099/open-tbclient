@@ -40,7 +40,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.dg8;
 import com.repackage.ig8;
 import com.repackage.jf;
-import com.repackage.lq4;
+import com.repackage.mq4;
 import com.repackage.oi;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
@@ -162,8 +162,8 @@ public class SignStatic {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
-                if (customMessage != null && (customMessage.getData() instanceof lq4)) {
-                    new dg8().f((lq4) customMessage.getData());
+                if (customMessage != null && (customMessage.getData() instanceof mq4)) {
+                    new dg8().f((mq4) customMessage.getData());
                 }
                 return null;
             }

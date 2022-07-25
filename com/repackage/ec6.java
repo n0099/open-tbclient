@@ -62,8 +62,8 @@ public class ec6 extends an<mc6, CardViewHolder<rc6>> {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, mc6Var, cardViewHolder})) == null) {
-            cardViewHolder.c().i(mc6Var);
-            return cardViewHolder.b();
+            cardViewHolder.b().i(mc6Var);
+            return cardViewHolder.a();
         }
         return (View) invokeCommon.objValue;
     }

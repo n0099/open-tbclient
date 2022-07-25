@@ -19,12 +19,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.p55;
 import com.repackage.q55;
 import com.repackage.r55;
-import com.repackage.v55;
+import com.repackage.s55;
+import com.repackage.w55;
 /* loaded from: classes4.dex */
-public class WriteThreadDelegateStatic extends p55 {
+public class WriteThreadDelegateStatic extends q55 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -58,7 +58,7 @@ public class WriteThreadDelegateStatic extends p55 {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage.getCmd() == 2007002 && customResponsedMessage.getData() != null) {
-                ((r55) customResponsedMessage.getData()).a(new WriteThreadDelegateStatic());
+                ((s55) customResponsedMessage.getData()).a(new WriteThreadDelegateStatic());
             }
         }
     }
@@ -97,23 +97,23 @@ public class WriteThreadDelegateStatic extends p55 {
         }
     }
 
-    @Override // com.repackage.p55
-    public q55 a() {
+    @Override // com.repackage.q55
+    public r55 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            q55 q55Var = new q55();
-            q55Var.a = new WriteThreadFragment();
-            q55Var.e = 9;
-            q55Var.d = R.drawable.obfuscated_res_0x7f0807d2;
-            q55Var.h = v55.d().c(AlbumActivityConfig.FROM_WRITE);
-            q55Var.i = q55.j;
-            return q55Var;
+            r55 r55Var = new r55();
+            r55Var.a = new WriteThreadFragment();
+            r55Var.e = 9;
+            r55Var.d = R.drawable.obfuscated_res_0x7f0807d2;
+            r55Var.h = w55.d().c(AlbumActivityConfig.FROM_WRITE);
+            r55Var.i = r55.j;
+            return r55Var;
         }
-        return (q55) invokeV.objValue;
+        return (r55) invokeV.objValue;
     }
 
-    @Override // com.repackage.p55
+    @Override // com.repackage.q55
     public TbFragmentTabIndicator c(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -125,7 +125,7 @@ public class WriteThreadDelegateStatic extends p55 {
         return (TbFragmentTabIndicator) invokeL.objValue;
     }
 
-    @Override // com.repackage.p55
+    @Override // com.repackage.q55
     public boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

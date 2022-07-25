@@ -56,11 +56,11 @@ public class rx8 extends BaseAdapter {
             if (view2 == null) {
                 return;
             }
-            this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0921cd);
-            BarImageView barImageView = (BarImageView) view2.findViewById(R.id.obfuscated_res_0x7f0909fc);
+            this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0921cf);
+            BarImageView barImageView = (BarImageView) view2.findViewById(R.id.obfuscated_res_0x7f0909f5);
             this.b = barImageView;
             barImageView.setShowOval(true);
-            this.c = view2.findViewById(R.id.obfuscated_res_0x7f0907ca);
+            this.c = view2.findViewById(R.id.obfuscated_res_0x7f0907c8);
         }
 
         public void a() {
@@ -171,11 +171,11 @@ public class rx8 extends BaseAdapter {
         if (interceptable == null || (invokeILL = interceptable.invokeILL(1048581, this, i, view2, viewGroup)) == null) {
             a aVar = null;
             if (view2 == null) {
-                view2 = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d04e6, (ViewGroup) null);
+                view2 = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d04f0, (ViewGroup) null);
                 aVar = new a(view2);
-                view2.setTag(R.id.obfuscated_res_0x7f090fd1, aVar);
+                view2.setTag(R.id.obfuscated_res_0x7f090fc8, aVar);
             } else {
-                Object tag = view2.getTag(R.id.obfuscated_res_0x7f090fd1);
+                Object tag = view2.getTag(R.id.obfuscated_res_0x7f090fc8);
                 if (tag instanceof a) {
                     aVar = (a) tag;
                 }

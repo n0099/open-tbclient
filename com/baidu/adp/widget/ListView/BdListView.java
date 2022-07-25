@@ -847,7 +847,7 @@ public class BdListView extends ListView implements pn<BdListView> {
                         if (i2 != 2 && this.b) {
                             if (i2 == 0) {
                                 this.e.setSelection(0);
-                                if (((int) ((y - this.c) / k)) < pi.f(this.a.getContext(), R.dimen.obfuscated_res_0x7f0700dd) && y - this.c > 0) {
+                                if (((int) ((y - this.c) / k)) < pi.f(this.a.getContext(), R.dimen.obfuscated_res_0x7f0700db) && y - this.c > 0) {
                                     this.d = 1;
                                     this.a.w(this.f.booleanValue());
                                     this.f = Boolean.FALSE;
@@ -867,7 +867,7 @@ public class BdListView extends ListView implements pn<BdListView> {
                                 }
                             } else if (i2 == 1) {
                                 this.e.setSelection(0);
-                                if (((int) ((y - this.c) / k)) >= pi.f(this.a.getContext(), R.dimen.obfuscated_res_0x7f0700dd)) {
+                                if (((int) ((y - this.c) / k)) >= pi.f(this.a.getContext(), R.dimen.obfuscated_res_0x7f0700db)) {
                                     this.d = 0;
                                     this.f = Boolean.TRUE;
                                     this.a.y();

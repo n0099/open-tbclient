@@ -6,17 +6,15 @@ import android.view.View;
 import android.widget.LinearLayout;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.kwad.components.ad.reward.l;
+import com.kwad.components.ad.reward.k;
 import com.kwad.components.ad.widget.DownloadProgressView;
 import com.kwad.components.core.c.a.a;
-import com.kwad.components.core.c.a.b;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.widget.c;
 import com.kwad.sdk.widget.f;
@@ -24,15 +22,15 @@ import com.kwad.sdk.widget.f;
 public class ActionBarAppPortraitForLive extends LinearLayout implements c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public AdTemplate a;
-    public a b;
-    public DownloadProgressView c;
-    public b d;
-    public l e;
+    public DownloadProgressView dk;
+    public AdTemplate mAdTemplate;
+    public com.kwad.components.core.c.a.c mApkDownloadHelper;
+    public k nM;
+    public a wO;
 
     /* loaded from: classes5.dex */
     public interface a {
-        void a(boolean z);
+        void R(boolean z);
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -96,26 +94,18 @@ public class ActionBarAppPortraitForLive extends LinearLayout implements c {
                 return;
             }
         }
-        a();
-    }
-
-    private void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
-            LinearLayout.inflate(getContext(), R.layout.obfuscated_res_0x7f0d0474, this);
-            this.c = (DownloadProgressView) findViewById(R.id.obfuscated_res_0x7f0910f4);
-        }
+        initView();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void a(View view2, boolean z) {
+    public void b(View view2, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(65541, this, view2, z) == null) {
-            com.kwad.components.core.c.a.a.a(new a.C0507a(view2.getContext()).a(this.a).a(this.d).a(true).a(this.e.j.i()).a(view2 == this.c ? 1 : 2).a(new a.b(this, z) { // from class: com.kwad.components.ad.reward.widget.actionbar.ActionBarAppPortraitForLive.2
+            com.kwad.components.core.c.a.a.a(new a.C0352a(view2.getContext()).L(this.mAdTemplate).b(this.mApkDownloadHelper).aj(true).l(this.nM.eF.getPlayDuration()).ae(view2 == this.dk ? 1 : 2).a(new a.b(this, z) { // from class: com.kwad.components.ad.reward.widget.actionbar.ActionBarAppPortraitForLive.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ boolean a;
-                public final /* synthetic */ ActionBarAppPortraitForLive b;
+                public final /* synthetic */ boolean rl;
+                public final /* synthetic */ ActionBarAppPortraitForLive wP;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -132,39 +122,47 @@ public class ActionBarAppPortraitForLive extends LinearLayout implements c {
                             return;
                         }
                     }
-                    this.b = this;
-                    this.a = z;
+                    this.wP = this;
+                    this.rl = z;
                 }
 
                 @Override // com.kwad.components.core.c.a.a.b
-                public final void a() {
+                public final void onAdClicked() {
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.b.b == null) {
+                    if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.wP.wO == null) {
                         return;
                     }
-                    this.b.b.a(this.a);
+                    this.wP.wO.R(this.rl);
                 }
             }));
         }
     }
 
-    public final void a(@NonNull l lVar, @NonNull AdTemplate adTemplate, @Nullable b bVar, a aVar) {
+    private void initView() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(1048576, this, lVar, adTemplate, bVar, aVar) == null) {
-            this.e = lVar;
-            this.a = adTemplate;
-            this.b = aVar;
-            this.d = bVar;
-            this.c.a(adTemplate);
-            if (this.d != null) {
-                bVar.a(this.c.getAppDownloadListener());
-                bVar.c(this.c.getAppDownloadListener());
+        if (interceptable == null || interceptable.invokeV(65542, this) == null) {
+            LinearLayout.inflate(getContext(), R.layout.obfuscated_res_0x7f0d0473, this);
+            this.dk = (DownloadProgressView) findViewById(R.id.obfuscated_res_0x7f0910eb);
+        }
+    }
+
+    public final void a(@NonNull k kVar, @NonNull AdTemplate adTemplate, @Nullable com.kwad.components.core.c.a.c cVar, a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(1048576, this, kVar, adTemplate, cVar, aVar) == null) {
+            this.nM = kVar;
+            this.mAdTemplate = adTemplate;
+            this.wO = aVar;
+            this.mApkDownloadHelper = cVar;
+            this.dk.F(adTemplate);
+            if (this.mApkDownloadHelper != null) {
+                cVar.b(this.dk.getAppDownloadListener());
+                cVar.d(this.dk.getAppDownloadListener());
             }
             setClickable(true);
-            this.c.setOnClickListener(new View.OnClickListener(this) { // from class: com.kwad.components.ad.reward.widget.actionbar.ActionBarAppPortraitForLive.1
+            this.dk.setOnClickListener(new View.OnClickListener(this) { // from class: com.kwad.components.ad.reward.widget.actionbar.ActionBarAppPortraitForLive.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ ActionBarAppPortraitForLive a;
+                public final /* synthetic */ ActionBarAppPortraitForLive wP;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -181,14 +179,14 @@ public class ActionBarAppPortraitForLive extends LinearLayout implements c {
                             return;
                         }
                     }
-                    this.a = this;
+                    this.wP = this;
                 }
 
                 @Override // android.view.View.OnClickListener
                 public final void onClick(View view2) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
-                        this.a.a(view2, true);
+                        this.wP.b(view2, true);
                     }
                 }
             });
@@ -197,18 +195,18 @@ public class ActionBarAppPortraitForLive extends LinearLayout implements c {
     }
 
     @Override // com.kwad.sdk.widget.c
-    public final void a_(View view2) {
+    public final void f(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) {
-            a(view2, true);
+            b(view2, true);
         }
     }
 
     @Override // com.kwad.sdk.widget.c
-    public final void b(View view2) {
+    public final void g(View view2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2) == null) && com.kwad.sdk.core.response.a.c.d(this.a)) {
-            a(view2, false);
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2) == null) && com.kwad.sdk.core.response.a.c.bF(this.mAdTemplate)) {
+            b(view2, false);
         }
     }
 }

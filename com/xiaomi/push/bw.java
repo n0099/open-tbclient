@@ -15,7 +15,7 @@ public class bw {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
-    public Context f868a;
+    public Context f148a;
 
     public bw(Context context) {
         Interceptable interceptable = $ic;
@@ -32,7 +32,7 @@ public class bw {
                 return;
             }
         }
-        this.f868a = context;
+        this.f148a = context;
     }
 
     public static bw a(Context context) {
@@ -58,7 +58,7 @@ public class bw {
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{str, str2, Long.valueOf(j)})) == null) {
             synchronized (this) {
                 try {
-                    j2 = this.f868a.getSharedPreferences(str, 4).getLong(str2, j);
+                    j2 = this.f148a.getSharedPreferences(str, 4).getLong(str2, j);
                 } catch (Throwable unused) {
                     return j;
                 }
@@ -75,7 +75,7 @@ public class bw {
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, str3)) == null) {
             synchronized (this) {
                 try {
-                    string = this.f868a.getSharedPreferences(str, 4).getString(str2, str3);
+                    string = this.f148a.getSharedPreferences(str, 4).getString(str2, str3);
                 } catch (Throwable unused) {
                     return str3;
                 }
@@ -86,11 +86,11 @@ public class bw {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public synchronized void m1149a(String str, String str2, long j) {
+    public synchronized void m211a(String str, String str2, long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, str2, Long.valueOf(j)}) == null) {
             synchronized (this) {
-                SharedPreferences.Editor edit = this.f868a.getSharedPreferences(str, 4).edit();
+                SharedPreferences.Editor edit = this.f148a.getSharedPreferences(str, 4).edit();
                 edit.putLong(str2, j);
                 edit.commit();
             }
@@ -98,11 +98,11 @@ public class bw {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public synchronized void m1150a(String str, String str2, String str3) {
+    public synchronized void m212a(String str, String str2, String str3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048579, this, str, str2, str3) == null) {
             synchronized (this) {
-                SharedPreferences.Editor edit = this.f868a.getSharedPreferences(str, 4).edit();
+                SharedPreferences.Editor edit = this.f148a.getSharedPreferences(str, 4).edit();
                 edit.putString(str2, str3);
                 edit.commit();
             }

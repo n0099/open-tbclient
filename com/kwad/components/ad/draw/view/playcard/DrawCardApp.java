@@ -12,7 +12,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -23,8 +22,8 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.components.ad.draw.view.DrawDownloadProgressBar;
 import com.kwad.components.ad.widget.AppScoreView;
 import com.kwad.components.core.c.a.a;
-import com.kwad.components.core.c.a.b;
-import com.kwad.components.core.l.n;
+import com.kwad.components.core.c.a.c;
+import com.kwad.components.core.m.n;
 import com.kwad.components.core.widget.KsLogoView;
 import com.kwad.sdk.api.KsAppDownloadListener;
 import com.kwad.sdk.core.imageloader.KSImageLoader;
@@ -35,28 +34,28 @@ import com.kwad.sdk.core.response.model.AdTemplate;
 public class DrawCardApp extends FrameLayout implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public AdTemplate a;
-    public AdInfo b;
-    public b c;
-    public KsAppDownloadListener d;
-    public a e;
-    public int f;
-    public ImageView g;
-    public ImageView h;
-    public TextView i;
-    public ViewGroup j;
-    public AppScoreView k;
-    public TextView l;
-    public TextView m;
-    public KsLogoView n;
-    public DrawDownloadProgressBar o;
-    public ValueAnimator p;
+    public KsAppDownloadListener br;
+    public a cc;
+    public ImageView cd;
+    public ImageView ce;
+    public TextView cf;
+    public ViewGroup cg;
+    public AppScoreView ch;
+    public TextView ci;
+    public TextView cj;
+    public KsLogoView ck;
+    public DrawDownloadProgressBar cl;
+    public ValueAnimator cm;
+    public AdInfo mAdInfo;
+    public AdTemplate mAdTemplate;
+    public c mApkDownloadHelper;
+    public int mHeight;
 
     /* loaded from: classes5.dex */
     public interface a {
-        void a();
+        void aC();
 
-        void b();
+        void aD();
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -77,7 +76,7 @@ public class DrawCardApp extends FrameLayout implements View.OnClickListener {
                 return;
             }
         }
-        a(context);
+        E(context);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -99,7 +98,7 @@ public class DrawCardApp extends FrameLayout implements View.OnClickListener {
                 return;
             }
         }
-        a(context);
+        E(context);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -121,66 +120,68 @@ public class DrawCardApp extends FrameLayout implements View.OnClickListener {
                 return;
             }
         }
-        a(context);
+        E(context);
     }
 
-    private void a(int i, int i2) {
+    private void E(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(InputDeviceCompat.SOURCE_TRACKBALL, this, i, i2) == null) {
-            d();
-            ValueAnimator a2 = n.a(this, i, i2);
-            this.p = a2;
-            a2.setInterpolator(new DecelerateInterpolator(2.0f));
-            this.p.setDuration(300L);
-            this.p.start();
-        }
-    }
-
-    private void a(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65541, this, context) == null) {
+        if (interceptable == null || interceptable.invokeL(65539, this, context) == null) {
             FrameLayout.inflate(context, R.layout.obfuscated_res_0x7f0d0412, this);
-            this.g = (ImageView) findViewById(R.id.obfuscated_res_0x7f091007);
-            this.h = (ImageView) findViewById(R.id.obfuscated_res_0x7f09100c);
-            this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f09100d);
-            this.j = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f09100f);
-            this.k = (AppScoreView) findViewById(R.id.obfuscated_res_0x7f09100e);
-            this.l = (TextView) findViewById(R.id.obfuscated_res_0x7f09100b);
-            this.m = (TextView) findViewById(R.id.obfuscated_res_0x7f091009);
-            this.n = (KsLogoView) findViewById(R.id.obfuscated_res_0x7f091013);
-            DrawDownloadProgressBar drawDownloadProgressBar = (DrawDownloadProgressBar) findViewById(R.id.obfuscated_res_0x7f09100a);
-            this.o = drawDownloadProgressBar;
+            this.cd = (ImageView) findViewById(R.id.obfuscated_res_0x7f090ffe);
+            this.ce = (ImageView) findViewById(R.id.obfuscated_res_0x7f091003);
+            this.cf = (TextView) findViewById(R.id.obfuscated_res_0x7f091004);
+            this.cg = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f091006);
+            this.ch = (AppScoreView) findViewById(R.id.obfuscated_res_0x7f091005);
+            this.ci = (TextView) findViewById(R.id.obfuscated_res_0x7f091002);
+            this.cj = (TextView) findViewById(R.id.obfuscated_res_0x7f091000);
+            this.ck = (KsLogoView) findViewById(R.id.obfuscated_res_0x7f09100a);
+            DrawDownloadProgressBar drawDownloadProgressBar = (DrawDownloadProgressBar) findViewById(R.id.obfuscated_res_0x7f091001);
+            this.cl = drawDownloadProgressBar;
             drawDownloadProgressBar.setTextSize(16);
-            this.f = com.kwad.sdk.b.kwai.a.a(context, 156.0f);
+            this.mHeight = com.kwad.sdk.b.kwai.a.a(context, 156.0f);
         }
     }
 
-    private void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65544, this) == null) {
-            a(this.f, 0);
-        }
-    }
-
-    private void d() {
+    private void aL() {
         ValueAnimator valueAnimator;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65546, this) == null) || (valueAnimator = this.p) == null) {
+        if (!(interceptable == null || interceptable.invokeV(65541, this) == null) || (valueAnimator = this.cm) == null) {
             return;
         }
         valueAnimator.removeAllListeners();
-        this.p.cancel();
+        this.cm.cancel();
+    }
+
+    private void aU() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65542, this) == null) {
+            d(this.mHeight, 0);
+        }
+    }
+
+    private void d(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(65546, this, i, i2) == null) {
+            aL();
+            ValueAnimator b = n.b(this, i, i2);
+            this.cm = b;
+            b.setInterpolator(new DecelerateInterpolator(2.0f));
+            this.cm.setDuration(300L);
+            this.cm.start();
+        }
     }
 
     private KsAppDownloadListener getAppDownloadListener() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65547, this)) == null) {
-            if (this.d == null) {
-                this.d = new com.kwad.sdk.core.download.kwai.a(this) { // from class: com.kwad.components.ad.draw.view.playcard.DrawCardApp.1
+            if (this.br == null) {
+                this.br = new com.kwad.sdk.core.download.kwai.a(this) { // from class: com.kwad.components.ad.draw.view.playcard.DrawCardApp.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
-                    public final /* synthetic */ DrawCardApp a;
+
+                    /* renamed from: cn  reason: collision with root package name */
+                    public final /* synthetic */ DrawCardApp f1074cn;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -197,47 +198,47 @@ public class DrawCardApp extends FrameLayout implements View.OnClickListener {
                                 return;
                             }
                         }
-                        this.a = this;
-                    }
-
-                    @Override // com.kwad.sdk.core.download.kwai.a
-                    public final void a(int i) {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeI(1048576, this, i) == null) {
-                            super.a(i);
-                            this.a.o.a(com.kwad.sdk.core.response.a.a.a(), i);
-                        }
+                        this.f1074cn = this;
                     }
 
                     @Override // com.kwad.sdk.api.KsAppDownloadListener
                     public final void onDownloadFailed() {
                         Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                            this.a.o.a(com.kwad.sdk.core.response.a.a.H(this.a.b), this.a.o.getMax());
+                        if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                            this.f1074cn.cl.f(com.kwad.sdk.core.response.a.a.al(this.f1074cn.mAdInfo), this.f1074cn.cl.getMax());
                         }
                     }
 
                     @Override // com.kwad.sdk.api.KsAppDownloadListener
                     public final void onDownloadFinished() {
                         Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                            this.a.o.a(com.kwad.sdk.core.response.a.a.a(this.a.a), this.a.o.getMax());
+                        if (interceptable2 == null || interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                            this.f1074cn.cl.f(com.kwad.sdk.core.response.a.a.aJ(this.f1074cn.mAdTemplate), this.f1074cn.cl.getMax());
                         }
                     }
 
                     @Override // com.kwad.sdk.api.KsAppDownloadListener
                     public final void onIdle() {
                         Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeV(1048579, this) == null) {
-                            this.a.o.a(com.kwad.sdk.core.response.a.a.H(this.a.b), this.a.o.getMax());
+                        if (interceptable2 == null || interceptable2.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+                            this.f1074cn.cl.f(com.kwad.sdk.core.response.a.a.al(this.f1074cn.mAdInfo), this.f1074cn.cl.getMax());
                         }
                     }
 
                     @Override // com.kwad.sdk.api.KsAppDownloadListener
                     public final void onInstalled() {
                         Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeV(1048580, this) == null) {
-                            this.a.o.a(com.kwad.sdk.core.response.a.a.n(this.a.b), this.a.o.getMax());
+                        if (interceptable2 == null || interceptable2.invokeV(1048579, this) == null) {
+                            this.f1074cn.cl.f(com.kwad.sdk.core.response.a.a.P(this.f1074cn.mAdInfo), this.f1074cn.cl.getMax());
+                        }
+                    }
+
+                    @Override // com.kwad.sdk.core.download.kwai.a
+                    public final void onPaused(int i) {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeI(1048580, this, i) == null) {
+                            super.onPaused(i);
+                            this.f1074cn.cl.f(com.kwad.sdk.core.response.a.a.uU(), i);
                         }
                     }
 
@@ -245,75 +246,69 @@ public class DrawCardApp extends FrameLayout implements View.OnClickListener {
                     public final void onProgressUpdate(int i) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeI(1048581, this, i) == null) {
-                            DrawDownloadProgressBar drawDownloadProgressBar = this.a.o;
-                            drawDownloadProgressBar.a(i + "%", i);
+                            DrawDownloadProgressBar drawDownloadProgressBar = this.f1074cn.cl;
+                            drawDownloadProgressBar.f(i + "%", i);
                         }
                     }
                 };
             }
-            return this.d;
+            return this.br;
         }
         return (KsAppDownloadListener) invokeV.objValue;
     }
 
-    public final void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            d();
-            this.c = null;
-        }
-    }
-
     public final void a(@NonNull AdTemplate adTemplate, a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, adTemplate, aVar) == null) {
-            this.a = adTemplate;
-            this.b = d.i(adTemplate);
-            this.e = aVar;
-            this.c = new b(this.a, getAppDownloadListener());
-            KSImageLoader.loadAppIcon(this.h, com.kwad.sdk.core.response.a.a.aE(this.b), adTemplate, 11);
-            this.i.setText(com.kwad.sdk.core.response.a.a.A(this.b));
-            String D = com.kwad.sdk.core.response.a.a.D(this.b);
-            float E = com.kwad.sdk.core.response.a.a.E(this.b);
-            boolean z = E >= 3.0f;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, adTemplate, aVar) == null) {
+            this.mAdTemplate = adTemplate;
+            this.mAdInfo = d.bQ(adTemplate);
+            this.cc = aVar;
+            this.mApkDownloadHelper = new c(this.mAdTemplate, getAppDownloadListener());
+            KSImageLoader.loadAppIcon(this.ce, com.kwad.sdk.core.response.a.a.bn(this.mAdInfo), adTemplate, 11);
+            this.cf.setText(com.kwad.sdk.core.response.a.a.ae(this.mAdInfo));
+            String ah = com.kwad.sdk.core.response.a.a.ah(this.mAdInfo);
+            float ai = com.kwad.sdk.core.response.a.a.ai(this.mAdInfo);
+            boolean z = ai >= 3.0f;
             if (z) {
-                this.k.setScore(E);
-                this.k.setVisibility(0);
+                this.ch.setScore(ai);
+                this.ch.setVisibility(0);
             }
-            boolean z2 = !TextUtils.isEmpty(D);
+            boolean z2 = !TextUtils.isEmpty(ah);
             if (z2) {
-                this.l.setText(D);
-                this.l.setVisibility(0);
+                this.ci.setText(ah);
+                this.ci.setVisibility(0);
             }
             if (z || z2) {
-                this.j.setVisibility(0);
+                this.cg.setVisibility(0);
             } else {
-                this.j.setVisibility(8);
+                this.cg.setVisibility(8);
             }
-            this.n.a(this.a);
-            this.m.setText(com.kwad.sdk.core.response.a.a.z(this.b));
-            this.g.setOnClickListener(this);
-            this.o.setOnClickListener(this);
+            this.ck.T(this.mAdTemplate);
+            this.cj.setText(com.kwad.sdk.core.response.a.a.ad(this.mAdInfo));
+            this.cd.setOnClickListener(this);
+            this.cl.setOnClickListener(this);
             setOnClickListener(this);
         }
     }
 
-    public final void b() {
+    public final void aT() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            a(0, this.f);
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            d(0, this.mHeight);
         }
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, view2) == null) {
-            if (view2 != this.g) {
-                com.kwad.components.core.c.a.a.a(new a.C0507a(getContext()).a(this.a).a(this.c).a(view2 == this.o).a(view2 == this.o ? 1 : 2).a(new a.b(this) { // from class: com.kwad.components.ad.draw.view.playcard.DrawCardApp.2
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2) == null) {
+            if (view2 != this.cd) {
+                com.kwad.components.core.c.a.a.a(new a.C0352a(getContext()).L(this.mAdTemplate).b(this.mApkDownloadHelper).aj(view2 == this.cl).ae(view2 == this.cl ? 1 : 2).a(new a.b(this) { // from class: com.kwad.components.ad.draw.view.playcard.DrawCardApp.2
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
-                    public final /* synthetic */ DrawCardApp a;
+
+                    /* renamed from: cn  reason: collision with root package name */
+                    public final /* synthetic */ DrawCardApp f1075cn;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -330,25 +325,33 @@ public class DrawCardApp extends FrameLayout implements View.OnClickListener {
                                 return;
                             }
                         }
-                        this.a = this;
+                        this.f1075cn = this;
                     }
 
                     @Override // com.kwad.components.core.c.a.a.b
-                    public final void a() {
+                    public final void onAdClicked() {
                         Interceptable interceptable2 = $ic;
-                        if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.a.e == null) {
+                        if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.f1075cn.cc == null) {
                             return;
                         }
-                        this.a.e.b();
+                        this.f1075cn.cc.aD();
                     }
                 }));
                 return;
             }
-            c();
-            a aVar = this.e;
+            aU();
+            a aVar = this.cc;
             if (aVar != null) {
-                aVar.a();
+                aVar.aC();
             }
+        }
+    }
+
+    public final void release() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            aL();
+            this.mApkDownloadHelper = null;
         }
     }
 }

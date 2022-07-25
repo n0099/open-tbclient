@@ -109,7 +109,7 @@ public class LegoDelegateAdapter extends yc7<LegoDelegateViewHolder> {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i), view2, viewGroup, iCardInfo, legoDelegateViewHolder})) == null) {
-            pd7 pd7Var = (pd7) legoDelegateViewHolder.b();
+            pd7 pd7Var = (pd7) legoDelegateViewHolder.a();
             ICardInfo iCardInfo2 = this.l;
             if (pd7Var != null && iCardInfo2 != null) {
                 pd7Var.setPosition(i);

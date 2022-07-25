@@ -81,7 +81,7 @@ public class uy5 extends vy5 {
         return (StatisticItem) invokeL.objValue;
     }
 
-    @Override // com.repackage.vy5, com.repackage.ny5, com.repackage.nn4
+    @Override // com.repackage.vy5, com.repackage.ny5, com.repackage.on4
     public ThreadData getThreadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

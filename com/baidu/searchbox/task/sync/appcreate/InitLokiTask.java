@@ -25,12 +25,12 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.km;
 import com.repackage.l10;
-import com.repackage.ot4;
 import com.repackage.pt4;
 import com.repackage.qt4;
+import com.repackage.rt4;
 import com.repackage.sb1;
-import com.repackage.tm4;
-import com.repackage.ut4;
+import com.repackage.um4;
+import com.repackage.vt4;
 import java.lang.Thread;
 import java.util.LinkedList;
 import java.util.List;
@@ -57,12 +57,12 @@ public class InitLokiTask extends LaunchTask {
 
     private void initLoki() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65537, this) == null) || tm4.e()) {
+        if (!(interceptable == null || interceptable.invokeV(65537, this) == null) || um4.e()) {
             return;
         }
         if (Loki.isLokiService(sb1.b())) {
             ForwardingDeviceEventSceneHandler forwardingDeviceEventSceneHandler = new ForwardingDeviceEventSceneHandler();
-            forwardingDeviceEventSceneHandler.addEventHandleCallback(new pt4());
+            forwardingDeviceEventSceneHandler.addEventHandleCallback(new qt4());
             LinkedList linkedList = new LinkedList();
             linkedList.add(new LogSystemUploaderStrategy(true, true));
             Loki.initService(new LogSystemProcessor(forwardingDeviceEventSceneHandler, linkedList));
@@ -143,7 +143,7 @@ public class InitLokiTask extends LaunchTask {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
                         LinkedList linkedList = new LinkedList();
-                        linkedList.add(new qt4());
+                        linkedList.add(new rt4());
                         return linkedList;
                     }
                     return (List) invokeV.objValue;
@@ -230,9 +230,9 @@ public class InitLokiTask extends LaunchTask {
                     if (interceptable2 == null || interceptable2.invokeLL(1048576, this, context2, jSONObject) == null) {
                         super.onAttachExtra(context2, jSONObject);
                         if (TbadkCoreApplication.getInst().isMainProcess(false)) {
-                            ut4.q().h();
+                            vt4.q().h();
                         }
-                        ot4.a(jSONObject);
+                        pt4.a(jSONObject);
                     }
                 }
 
@@ -277,7 +277,7 @@ public class InitLokiTask extends LaunchTask {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
                         LinkedList linkedList2 = new LinkedList();
-                        linkedList2.add(new qt4());
+                        linkedList2.add(new rt4());
                         return linkedList2;
                     }
                     return (List) invokeV.objValue;
@@ -315,9 +315,9 @@ public class InitLokiTask extends LaunchTask {
                     if (interceptable2 == null || interceptable2.invokeLL(1048576, this, context2, jSONObject) == null) {
                         super.onAttachExtra(context2, jSONObject);
                         if (TbadkCoreApplication.getInst().isMainProcess(false)) {
-                            ut4.q().h();
+                            vt4.q().h();
                         }
-                        ot4.a(jSONObject);
+                        pt4.a(jSONObject);
                     }
                 }
 

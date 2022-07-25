@@ -4,7 +4,6 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.kwad.sdk.mvp.Presenter;
 /* loaded from: classes5.dex */
 public final class e extends com.kwad.components.ad.reward.presenter.a {
     public static /* synthetic */ Interceptable $ic;
@@ -23,9 +22,9 @@ public final class e extends com.kwad.components.ad.reward.presenter.a {
                 return;
             }
         }
-        a((Presenter) new a());
-        a((Presenter) new c());
-        a((Presenter) new b());
-        a((Presenter) new d());
+        a(new a());
+        a(new c());
+        a(new b());
+        a(new d());
     }
 }

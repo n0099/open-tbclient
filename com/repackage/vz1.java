@@ -1,19 +1,17 @@
 package com.repackage;
 
-import android.content.Context;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.adlanding.SwanAppAdLandingFragment;
-import com.baidu.swan.apps.core.slave.SwanAppWebViewWidget;
-import com.baidu.swan.apps.view.SwanAppActionBar;
+import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
+import com.baidu.swan.apps.view.menu.SwanAppMenuHeaderView;
+import com.baidu.swan.support.v4.app.FragmentActivity;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -22,73 +20,23 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.qz1;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.net.URI;
+import java.util.HashMap;
 /* loaded from: classes7.dex */
-public class vz1 extends nz1 {
+public class vz1 extends wz1 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean L0;
+    public static final boolean O0;
     public transient /* synthetic */ FieldHolder $fh;
-    public qm1 F0;
-    public om1 G0;
-    public String H0;
-    public String I0;
-    public String J0;
-    public boolean K0;
+    public int M0;
+    public FrameLayout N0;
 
     /* loaded from: classes7.dex */
-    public class a extends SwanAppWebViewWidget {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ vz1 h0;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(vz1 vz1Var, Context context) {
-            super(context);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {vz1Var, context};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((Context) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.h0 = vz1Var;
-        }
-
-        @Override // com.baidu.swan.apps.core.slave.SwanAppWebViewWidget
-        public boolean W1() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.h0.K0 : invokeV.booleanValue;
-        }
-
-        @Override // com.baidu.swan.apps.core.slave.SwanAppWebViewWidget
-        public boolean X1() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return false;
-            }
-            return invokeV.booleanValue;
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class b extends s12 {
+    public class a extends t12 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ vz1 c;
 
-        public b(vz1 vz1Var) {
+        public a(vz1 vz1Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -106,118 +54,23 @@ public class vz1 extends nz1 {
             this.c = vz1Var;
         }
 
-        @Override // com.repackage.s12, com.repackage.v12
-        public void d(String str) {
+        @Override // com.repackage.t12, com.repackage.w12
+        public boolean b(String str) {
+            InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                if (this.c.X2(str) && this.c.J0 != null) {
-                    vz1 vz1Var = this.c;
-                    vz1Var.l0.setTitle(vz1Var.J0);
-                    return;
-                }
-                this.c.l0.setTitle(str);
-            }
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) ? super.b(str) : invokeL.booleanValue;
         }
     }
 
     /* loaded from: classes7.dex */
-    public class c implements View.OnClickListener {
+    public static class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ vz1 a;
 
-        public c(vz1 vz1Var) {
+        public static boolean a() {
+            InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {vz1Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = vz1Var;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                if (this.a.G0.canGoBack()) {
-                    this.a.G0.goBack();
-                } else {
-                    this.a.h2();
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public static final class d {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public hq2 a;
-        public JSONObject b;
-
-        public d(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = new JSONObject();
-            this.a = hq2.d(str, str);
-        }
-
-        public d a(boolean z) {
-            InterceptResult invokeZ;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
-                try {
-                    this.b.put("should_check_domain", z);
-                } catch (JSONException e) {
-                    if (vz1.L0) {
-                        e.printStackTrace();
-                    }
-                }
-                return this;
-            }
-            return (d) invokeZ.objValue;
-        }
-
-        public void b() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.a.b = this.b.toString();
-                vz1.d3("default_webview", this.a);
-            }
-        }
-
-        public void c(be4 be4Var) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, be4Var) == null) || be4Var == null) {
-                return;
-            }
-            this.a.b = this.b.toString();
-            vz1 c3 = vz1.c3(this.a, "default_webview");
-            de4 a = be4Var.a();
-            a.a(R.id.obfuscated_res_0x7f090172, c3);
-            a.d(null);
-            a.e();
+            return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? w83.a().getBoolean("SP_SwanAppWebModeFragment_DEBUG", false) : invokeV.booleanValue;
         }
     }
 
@@ -234,7 +87,7 @@ public class vz1 extends nz1 {
                 return;
             }
         }
-        L0 = rg1.a;
+        O0 = sg1.a;
     }
 
     public vz1() {
@@ -250,338 +103,206 @@ public class vz1 extends nz1 {
                 return;
             }
         }
-        this.K0 = true;
+        this.M0 = 20;
     }
 
-    public static boolean Y2() {
-        InterceptResult invokeV;
+    @Override // com.repackage.oz1
+    public void M2() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            qz1 V = ul2.U().V();
-            if (V == null) {
-                hx1.i("SwanAppWebViewFragment", "close page failed");
-                return false;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            if (this.F0 == null) {
+                if (O0) {
+                    Log.e("SwanAppWebModeFragment", Log.getStackTraceString(new Exception("mCurWebViewManager is null.")));
+                    return;
+                }
+                return;
             }
-            hx1.i("SwanAppWebViewFragment", "page closed! ");
-            qz1.b h = V.h();
-            h.n(qz1.i, qz1.h);
-            h.g();
-            h.a();
-            return true;
+            HashMap hashMap = new HashMap();
+            String b2 = this.F0.b();
+            hashMap.put(PrefetchEvent.EVENT_DATA_WEBVIEW_ID, b2);
+            pm1 pm1Var = this.G0;
+            if (pm1Var != null) {
+                hashMap.put("webViewUrl", pm1Var.getUrl());
+            }
+            ja2 ja2Var = new ja2("sharebtn", hashMap);
+            vl2.U().m(b2, ja2Var);
+            ix1.i("SwanAppWebModeFragment", "share msg: " + ja2Var.s().toString());
         }
-        return invokeV.booleanValue;
     }
 
-    public static d b3(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) ? new d(str) : (d) invokeL.objValue;
-    }
-
-    /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
-    public static vz1 c3(hq2 hq2Var, String str) {
-        InterceptResult invokeLL;
-        char c2;
-        vz1 bt2Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, hq2Var, str)) == null) {
-            switch (str.hashCode()) {
-                case -1750679182:
-                    if (str.equals("allianceLogin")) {
-                        c2 = 3;
-                        break;
-                    }
-                    c2 = 65535;
-                    break;
-                case -718660690:
-                    if (str.equals("web_mode")) {
-                        c2 = 6;
-                        break;
-                    }
-                    c2 = 65535;
-                    break;
-                case -130826522:
-                    if (str.equals("allianceChooseAddress")) {
-                        c2 = 4;
-                        break;
-                    }
-                    c2 = 65535;
-                    break;
-                case 113553927:
-                    if (str.equals("wxPay")) {
-                        c2 = 0;
-                        break;
-                    }
-                    c2 = 65535;
-                    break;
-                case 570452084:
-                    if (str.equals("adLanding")) {
-                        c2 = 1;
-                        break;
-                    }
-                    c2 = 65535;
-                    break;
-                case 1221126139:
-                    if (str.equals("default_webview")) {
-                        c2 = 2;
-                        break;
-                    }
-                    c2 = 65535;
-                    break;
-                case 1339472410:
-                    if (str.equals("qrCodePay")) {
-                        c2 = 5;
-                        break;
-                    }
-                    c2 = 65535;
-                    break;
-                default:
-                    c2 = 65535;
-                    break;
-            }
-            switch (c2) {
-                case 0:
-                    bt2Var = new bt2();
-                    break;
-                case 1:
-                    bt2Var = new SwanAppAdLandingFragment();
-                    break;
-                case 2:
-                    bt2Var = new vz1();
-                    break;
-                case 3:
-                    bt2Var = new tn1();
-                    break;
-                case 4:
-                    bt2Var = new bo1();
-                    break;
-                case 5:
-                    bt2Var = new xs2();
-                    break;
-                case 6:
-                    bt2Var = new uz1();
-                    break;
-                default:
-                    if (L0) {
-                        Log.e("SwanAppWebViewFragment", "error type of SwanAppWebViewFragment!");
-                    }
-                    bt2Var = null;
-                    break;
-            }
-            if (bt2Var != null) {
-                bt2Var.f3(hq2Var);
-            }
-            return bt2Var;
-        }
-        return (vz1) invokeLL.objValue;
-    }
-
-    public static boolean d3(String str, hq2 hq2Var) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, str, hq2Var)) == null) {
-            qz1 V = ul2.U().V();
-            if (V == null) {
-                hx1.i("SwanAppWebViewFragment", "open page failed");
-                return false;
-            }
-            hx1.i("SwanAppWebViewFragment", "open page url=" + hq2Var.c);
-            qz1.b h = V.h();
-            h.n(qz1.g, qz1.i);
-            h.k(str, hq2Var).b();
-            return true;
-        }
-        return invokeLL.booleanValue;
-    }
-
-    @Override // com.repackage.nz1
-    public boolean L() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            om1 om1Var = this.G0;
-            if (om1Var == null || !om1Var.canGoBack()) {
-                return false;
-            }
-            this.G0.goBack();
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.repackage.nz1
+    @Override // com.repackage.wz1, com.repackage.oz1
     public void U1(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) {
             super.U1(view2);
-            t2(-1);
-            C2(-16777216);
-            SwanAppActionBar swanAppActionBar = this.l0;
-            String str = this.J0;
-            if (str == null) {
-                str = "";
-            }
-            swanAppActionBar.setTitle(str);
-            this.l0.setRightZoneVisibility(false);
-            x2(true);
-            this.l0.setLeftBackViewClickListener(new c(this));
+            this.f0.setRightMenuStyle();
+            FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.f0.getLayoutParams();
+            layoutParams.topMargin = zd3.t();
+            this.f0.setLayoutParams(layoutParams);
         }
     }
 
-    public void W2(FrameLayout frameLayout) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, frameLayout) == null) {
-        }
-    }
-
-    public final boolean X2(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) ? TextUtils.equals(this.H0, str) || TextUtils.equals(this.H0.replace("http://", "").replace("https://", ""), str) : invokeL.booleanValue;
-    }
-
-    public v12 Z2() {
+    @Override // com.repackage.wz1
+    public w12 Z2() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? new b(this) : (v12) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? new a(this) : (w12) invokeV.objValue;
     }
 
+    @Override // com.repackage.wz1
     public void a3() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            FragmentActivity activity = getActivity();
+            if (this.h0 == null) {
+                this.h0 = new SwanAppMenuHeaderView(getContext());
+            }
+            if (activity == null || this.g0 != null) {
+                return;
+            }
+            this.g0 = new n64(activity, this.f0, i3(), pj2.K(), new rf3());
+            new yp2(this.g0, this, this.h0).z();
         }
     }
 
-    @Override // com.repackage.nz1
-    public boolean c2() {
+    public URI g3() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            try {
+                return new URI(ag3.c().a().e());
+            } catch (Exception e) {
+                if (O0) {
+                    e.printStackTrace();
+                }
+                return null;
+            }
+        }
+        return (URI) invokeV.objValue;
+    }
+
+    @Override // com.repackage.oz1
+    public void h2() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            super.h2();
+            dg3.a().j();
+        }
+    }
+
+    public URI h3() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return false;
+            try {
+                return new URI(ag3.c().e());
+            } catch (Exception e) {
+                if (O0) {
+                    e.printStackTrace();
+                }
+                return null;
+            }
         }
-        return invokeV.booleanValue;
+        return (URI) invokeV.objValue;
     }
 
-    @Override // com.repackage.nz1
-    public boolean e2() {
+    public final int i3() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final void e3() {
-        Bundle p;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || (p = p()) == null) {
-            return;
-        }
-        this.H0 = p.getString("url");
-        String string = p.getString("params");
-        this.I0 = string;
-        if (TextUtils.isEmpty(string)) {
-            return;
-        }
-        try {
-            JSONObject jSONObject = new JSONObject(this.I0);
-            this.J0 = jSONObject.optString("fallback_title", null);
-            this.K0 = jSONObject.optBoolean("should_check_domain", true);
-        } catch (JSONException e) {
-            if (L0) {
-                e.printStackTrace();
+            if (d2()) {
+                return 19;
             }
+            return this.M0;
         }
+        return invokeV.intValue;
     }
 
-    public void f3(hq2 hq2Var) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048585, this, hq2Var) == null) || hq2Var == null) {
-            return;
-        }
-        Bundle bundle = new Bundle();
-        bundle.putString("url", hq2Var.c);
-        bundle.putString("params", hq2Var.b);
-        j1(bundle);
-    }
-
-    @Override // com.repackage.nz1, com.baidu.searchbox.widget.SlideInterceptor
-    public boolean isSlidable(MotionEvent motionEvent) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, motionEvent)) == null) {
-            qm1 qm1Var = this.F0;
-            if (qm1Var != null) {
-                return qm1Var.isSlidable(motionEvent);
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // com.repackage.nz1
+    @Override // com.repackage.wz1, com.repackage.oz1
     public void j2() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            this.F0.V();
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             a3();
-            this.m0.t(oj2.M().a(), H1());
+            SwanAppMenuHeaderView swanAppMenuHeaderView = this.h0;
+            if (swanAppMenuHeaderView != null) {
+                swanAppMenuHeaderView.setAttentionBtnStates(g72.n(h03.K().getAppId()));
+            }
+            this.g0.u(pj2.M().a(), H1(), this.h0, false);
         }
     }
 
-    public qm1 l() {
-        InterceptResult invokeV;
+    public void j3(int i) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? new a(this, getContext()) : (qm1) invokeV.objValue;
+        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
+            this.M0 = i;
+        }
     }
 
-    @Override // com.baidu.swan.support.v4.app.Fragment
-    public void u0(Bundle bundle) {
+    @Override // com.repackage.wz1
+    public rm1 l() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, bundle) == null) {
-            super.u0(bundle);
-            e3();
-            if (L0) {
-                Log.d("SwanAppWebViewFragment", "onCreate() : " + this);
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? c72.U().f0().a(getContext()) : (rm1) invokeV.objValue;
+    }
+
+    @Override // com.repackage.oz1, com.baidu.swan.support.v4.app.Fragment
+    public void onResume() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
+            super.onResume();
+            URI h3 = h3();
+            URI g3 = g3();
+            if (h3 == null || g3 == null) {
+                return;
+            }
+            if (!TextUtils.equals(h3.getPath(), g3.getPath()) && !TextUtils.equals(h3.getQuery(), g3.getQuery())) {
+                this.F0.loadUrl(g3.toString());
+                if (O0) {
+                    Log.i("SwanAppWebModeFragment", "onResume: refresh url " + g3.toString());
+                }
+                ag3.c().m("3");
+                dg3.b("3");
+                dg3.a().m();
+                if (O0) {
+                    Log.i("SwanAppWebModeFragment", "onResume: reset statistic for warm refresh.");
+                    return;
+                }
+                return;
+            }
+            s63.s(h03.K().q().W());
+            if (O0) {
+                Log.i("SwanAppWebModeFragment", "onResume: warm without refresh.");
             }
         }
     }
 
-    /* JADX WARN: Type inference failed for: r6v3, types: [com.repackage.om1] */
-    @Override // com.baidu.swan.support.v4.app.Fragment
+    /* JADX WARN: Type inference failed for: r6v3, types: [com.repackage.pm1] */
+    @Override // com.repackage.wz1, com.baidu.swan.support.v4.app.Fragment
     public View x0(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048590, this, layoutInflater, viewGroup, bundle)) == null) {
-            View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d00db, viewGroup, false);
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048588, this, layoutInflater, viewGroup, bundle)) == null) {
+            View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d00da, viewGroup, false);
             U1(inflate);
-            qm1 l = l();
+            rm1 l = l();
             this.F0 = l;
             l.b0(Z2());
             this.G0 = this.F0.t();
+            dg3.a().i(this.H0);
+            ag3.c().m("0");
             this.F0.loadUrl(this.H0);
             FrameLayout frameLayout = (FrameLayout) inflate.findViewById(R.id.obfuscated_res_0x7f0901a6);
+            this.N0 = frameLayout;
             this.F0.k(frameLayout, this.G0.covertToView());
-            W2(frameLayout);
+            W2(this.N0);
             if (T1()) {
                 inflate = W1(inflate);
+                x1(0, true);
             }
-            return D1(inflate, this);
+            zd3.Q(getActivity());
+            ag3.c().p(this.F0.b());
+            return inflate;
         }
         return (View) invokeLLL.objValue;
-    }
-
-    @Override // com.baidu.swan.support.v4.app.Fragment
-    public void y0() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
-            qm1 qm1Var = this.F0;
-            if (qm1Var != null) {
-                qm1Var.destroy();
-                this.F0 = null;
-            }
-            super.y0();
-        }
     }
 }

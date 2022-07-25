@@ -11,9 +11,9 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public final class a extends e implements com.kwad.sdk.widget.c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public View b;
-    public com.kwad.sdk.widget.f c;
-    public boolean d;
+    public View yu;
+    public com.kwad.sdk.widget.f yv;
+    public boolean yw;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -30,56 +30,56 @@ public final class a extends e implements com.kwad.sdk.widget.c {
     }
 
     @Override // com.kwad.components.ad.splashscreen.b.e, com.kwad.sdk.mvp.Presenter
-    public final void a() {
+    public final void aq() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            super.a();
-            com.kwad.components.ad.splashscreen.h hVar = ((e) this).a;
+            super.aq();
+            com.kwad.components.ad.splashscreen.h hVar = this.yF;
             if (hVar == null) {
                 return;
             }
-            this.d = com.kwad.sdk.core.response.a.c.d(hVar.c);
-            boolean a = m.a(com.kwad.sdk.core.response.a.d.i(((e) this).a.c));
-            this.b.setVisibility(a ? 0 : 8);
-            if (a) {
-                this.c = new com.kwad.sdk.widget.f(this.b.getContext(), this.b, this);
+            this.yw = com.kwad.sdk.core.response.a.c.bF(hVar.mAdTemplate);
+            boolean n = m.n(com.kwad.sdk.core.response.a.d.bQ(this.yF.mAdTemplate));
+            this.yu.setVisibility(n ? 0 : 8);
+            if (n) {
+                this.yv = new com.kwad.sdk.widget.f(this.yu.getContext(), this.yu, this);
             }
         }
     }
 
     @Override // com.kwad.sdk.widget.c
-    public final void a_(View view2) {
+    public final void f(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) {
-            ((e) this).a.a(view2.getContext(), 53, 2);
+            this.yF.c(view2.getContext(), 53, 2);
         }
     }
 
     @Override // com.kwad.sdk.widget.c
-    public final void b(View view2) {
+    public final void g(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2) == null) {
-            com.kwad.sdk.core.d.b.a("FullScreenTouchConvertPresenter", "onSlide: enableSlickClick: " + this.d);
-            if (this.d) {
-                ((e) this).a.a(view2.getContext(), 153, 2);
+            com.kwad.sdk.core.e.b.d("FullScreenTouchConvertPresenter", "onSlide: enableSlickClick: " + this.yw);
+            if (this.yw) {
+                this.yF.c(view2.getContext(), 153, 2);
             }
         }
     }
 
     @Override // com.kwad.sdk.mvp.Presenter
-    public final void i_() {
+    public final void onCreate() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            super.i_();
-            this.b = b(R.id.obfuscated_res_0x7f09119e);
+            super.onCreate();
+            this.yu = findViewById(R.id.obfuscated_res_0x7f091179);
         }
     }
 
     @Override // com.kwad.sdk.mvp.Presenter
-    public final void k_() {
+    public final void onUnbind() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            super.k_();
+            super.onUnbind();
         }
     }
 }

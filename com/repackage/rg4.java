@@ -1,28 +1,24 @@
 package com.repackage;
 
-import android.annotation.SuppressLint;
-import android.content.Context;
-import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 /* loaded from: classes7.dex */
-public class rg4 {
+public class rg4<T> {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile rg4 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public final qg4<String> a;
-    public String b;
+    public List<ug4<T>> a;
 
-    @SuppressLint({"BDThrowableCheck"})
-    public rg4(Context context) {
+    public rg4() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -32,50 +28,78 @@ public class rg4 {
                 return;
             }
         }
-        qg4<String> qg4Var = new qg4<>();
-        this.a = qg4Var;
-        if (context == null) {
+        this.a = new ArrayList(6);
+    }
+
+    public void a(ug4<T> ug4Var) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, ug4Var) == null) || ug4Var == null || this.a.contains(ug4Var)) {
             return;
         }
-        qg4Var.a(new ug4(context));
-        this.a.a(new wg4(context));
-        this.a.a(new vg4(context));
-        this.a.a(new yg4(context));
-        this.a.a(new sg4(context));
-        this.a.a(new xg4(context));
+        this.a.add(ug4Var);
     }
 
-    public static rg4 b(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            if (c == null) {
-                synchronized (rg4.class) {
-                    if (c == null) {
-                        c = new rg4(context);
-                    }
-                }
-            }
-            return c;
-        }
-        return (rg4) invokeL.objValue;
-    }
-
-    public String a() {
+    public T b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (TextUtils.isEmpty(this.b)) {
-                synchronized (this) {
-                    if (TextUtils.isEmpty(this.b)) {
-                        String b = this.a.b();
-                        this.b = b;
-                        this.a.d(b);
-                    }
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            ArrayList<ug4> arrayList = new ArrayList();
+            Iterator<ug4<T>> it = this.a.iterator();
+            T t = null;
+            while (true) {
+                if (!it.hasNext()) {
+                    break;
+                }
+                ug4<T> next = it.next();
+                T t2 = next.get();
+                if (c(t2)) {
+                    t = t2;
+                    break;
+                }
+                arrayList.add(next);
+                t = t2;
+            }
+            if (arrayList.size() > 0) {
+                for (ug4 ug4Var : arrayList) {
+                    ug4Var.put(t);
                 }
             }
-            return this.b;
+            return t;
         }
-        return (String) invokeV.objValue;
+        return (T) invokeV.objValue;
+    }
+
+    public final boolean c(T t) {
+        InterceptResult invokeL;
+        char[] charArray;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t)) == null) {
+            if (t != null && (t instanceof String)) {
+                String str = (String) t;
+                if (str.length() != 32) {
+                    return false;
+                }
+                for (char c : str.toCharArray()) {
+                    if ((c < 'A' || c > 'Z') && (c < '0' || c > '9')) {
+                        return false;
+                    }
+                }
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void d(T t) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, t) == null) || c(t)) {
+            return;
+        }
+        for (ug4<T> ug4Var : this.a) {
+            if (ug4Var.a()) {
+                ug4Var.put(t);
+            }
+        }
     }
 }

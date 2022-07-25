@@ -45,10 +45,10 @@ public class hq5 extends jx5<yp5> {
             }
         }
         this.m = h();
-        this.i = (TextView) h().findViewById(R.id.obfuscated_res_0x7f090dfb);
-        this.j = (TextView) h().findViewById(R.id.obfuscated_res_0x7f090dfa);
-        this.k = (TbImageView) h().findViewById(R.id.obfuscated_res_0x7f090df9);
-        TbImageView tbImageView = (TbImageView) h().findViewById(R.id.obfuscated_res_0x7f090df8);
+        this.i = (TextView) h().findViewById(R.id.obfuscated_res_0x7f090df4);
+        this.j = (TextView) h().findViewById(R.id.obfuscated_res_0x7f090df3);
+        this.k = (TbImageView) h().findViewById(R.id.obfuscated_res_0x7f090df2);
+        TbImageView tbImageView = (TbImageView) h().findViewById(R.id.obfuscated_res_0x7f090df1);
         this.l = tbImageView;
         tbImageView.setAutoChangeStyle(true);
         this.l.setDefaultResource(17170445);
@@ -62,7 +62,7 @@ public class hq5 extends jx5<yp5> {
     public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d0801 : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d080b : invokeV.intValue;
     }
 
     @Override // com.repackage.jx5

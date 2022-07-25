@@ -5,9 +5,9 @@ import com.kwad.sdk.core.report.m;
 import com.kwad.sdk.crash.model.message.ExceptionMessage;
 /* loaded from: classes5.dex */
 public final class a {
-    public static void a(@NonNull ExceptionMessage exceptionMessage) {
+    public static void b(@NonNull ExceptionMessage exceptionMessage) {
         m mVar = new m(10211L);
-        mVar.R = exceptionMessage.getReportMsg();
+        mVar.errorMsg = exceptionMessage.getReportMsg();
         com.kwad.sdk.core.report.e.a2(mVar);
     }
 }

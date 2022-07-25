@@ -54,9 +54,9 @@ import java.util.Comparator;
 /* loaded from: classes3.dex */
 public class VerticalViewPager extends ViewGroup {
     public static /* synthetic */ Interceptable $ic;
-    public static final int[] n0;
-    public static final Comparator<d> o0;
-    public static final Interpolator p0;
+    public static final int[] h0;
+    public static final Comparator<d> i0;
+    public static final Interpolator j0;
     public static final h q0;
     public transient /* synthetic */ FieldHolder $fh;
     public int A;
@@ -83,25 +83,25 @@ public class VerticalViewPager extends ViewGroup {
     public ViewPager.PageTransformer V;
     public Method W;
     public int a;
+    public int a0;
     public boolean b;
+    public ArrayList<View> b0;
     public final ArrayList<d> c;
+    public boolean c0;
     public final d d;
+    public boolean d0;
     public final Rect e;
+    public final Runnable e0;
     public PagerAdapter f;
+    public int f0;
     public int g;
-    public int g0;
+    public ai5 g0;
     public int h;
-    public ArrayList<View> h0;
     public Parcelable i;
-    public boolean i0;
     public ClassLoader j;
-    public boolean j0;
     public Scroller k;
-    public final Runnable k0;
     public g l;
-    public int l0;
     public int m;
-    public ai5 m0;
     public Drawable n;
     public int o;
     public int p;
@@ -553,9 +553,9 @@ public class VerticalViewPager extends ViewGroup {
                 return;
             }
         }
-        n0 = new int[]{16842931};
-        o0 = new a();
-        p0 = new b();
+        h0 = new int[]{16842931};
+        i0 = new a();
+        j0 = new b();
         q0 = new h();
     }
 
@@ -588,10 +588,10 @@ public class VerticalViewPager extends ViewGroup {
         this.w = 1;
         this.G = -1;
         this.P = true;
-        this.i0 = true;
-        this.j0 = true;
-        this.k0 = new c(this);
-        this.l0 = 0;
+        this.c0 = true;
+        this.d0 = true;
+        this.e0 = new c(this);
+        this.f0 = 0;
         u();
     }
 
@@ -604,10 +604,10 @@ public class VerticalViewPager extends ViewGroup {
     /* JADX INFO: Access modifiers changed from: private */
     public void setScrollState(int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(65544, this, i) == null) || this.l0 == i) {
+        if (!(interceptable == null || interceptable.invokeI(65544, this, i) == null) || this.f0 == i) {
             return;
         }
-        this.l0 = i;
+        this.f0 = i;
         if (this.V != null) {
             m(i != 0);
         }
@@ -1072,20 +1072,20 @@ public class VerticalViewPager extends ViewGroup {
 
     public final void M() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048588, this) == null) || this.g0 == 0) {
+        if (!(interceptable == null || interceptable.invokeV(1048588, this) == null) || this.a0 == 0) {
             return;
         }
-        ArrayList<View> arrayList = this.h0;
+        ArrayList<View> arrayList = this.b0;
         if (arrayList == null) {
-            this.h0 = new ArrayList<>();
+            this.b0 = new ArrayList<>();
         } else {
             arrayList.clear();
         }
         int childCount = getChildCount();
         for (int i = 0; i < childCount; i++) {
-            this.h0.add(getChildAt(i));
+            this.b0.add(getChildAt(i));
         }
-        Collections.sort(this.h0, q0);
+        Collections.sort(this.b0, q0);
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -1499,10 +1499,10 @@ public class VerticalViewPager extends ViewGroup {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeII = interceptable.invokeII(1048605, this, i, i2)) == null) {
-            if (this.g0 == 2) {
+            if (this.a0 == 2) {
                 i2 = (i - 1) - i2;
             }
-            return ((LayoutParams) this.h0.get(i2).getLayoutParams()).f;
+            return ((LayoutParams) this.b0.get(i2).getLayoutParams()).f;
         }
         return invokeII.intValue;
     }
@@ -1550,7 +1550,7 @@ public class VerticalViewPager extends ViewGroup {
     public final void i(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048610, this, z) == null) {
-            boolean z2 = this.l0 == 2;
+            boolean z2 = this.f0 == 2;
             if (z2) {
                 setScrollingCacheEnabled(false);
                 this.k.abortAnimation();
@@ -1572,9 +1572,9 @@ public class VerticalViewPager extends ViewGroup {
             }
             if (z2) {
                 if (z) {
-                    ViewCompat.postOnAnimation(this, this.k0);
+                    ViewCompat.postOnAnimation(this, this.e0);
                 } else {
-                    this.k0.run();
+                    this.e0.run();
                 }
             }
         }
@@ -1631,7 +1631,7 @@ public class VerticalViewPager extends ViewGroup {
             if (z2) {
                 this.f.finishUpdate((ViewGroup) this);
             }
-            Collections.sort(this.c, o0);
+            Collections.sort(this.c, i0);
             if (z) {
                 int childCount = getChildCount();
                 for (int i5 = 0; i5 < childCount; i5++) {
@@ -1733,7 +1733,7 @@ public class VerticalViewPager extends ViewGroup {
     public void onDetachedFromWindow() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048619, this) == null) {
-            removeCallbacks(this.k0);
+            removeCallbacks(this.e0);
             super.onDetachedFromWindow();
         }
     }
@@ -1795,7 +1795,7 @@ public class VerticalViewPager extends ViewGroup {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048621, this, motionEvent)) == null) {
-            if (this.i0) {
+            if (this.c0) {
                 int action = motionEvent.getAction() & 255;
                 if (action != 3 && action != 1) {
                     if (action != 0) {
@@ -1816,7 +1816,7 @@ public class VerticalViewPager extends ViewGroup {
                         this.G = MotionEventCompat.getPointerId(motionEvent, 0);
                         this.y = false;
                         this.k.computeScrollOffset();
-                        if (this.l0 == 2 && Math.abs(this.k.getFinalY() - this.k.getCurrY()) > this.L) {
+                        if (this.f0 == 2 && Math.abs(this.k.getFinalY() - this.k.getCurrY()) > this.L) {
                             this.k.abortAnimation();
                             this.v = false;
                             D();
@@ -1843,7 +1843,7 @@ public class VerticalViewPager extends ViewGroup {
                                 this.y = true;
                                 return false;
                             }
-                            float f3 = this.j0 ? 0.5f : 3.0f;
+                            float f3 = this.d0 ? 0.5f : 3.0f;
                             if (abs > this.B && abs * f3 > abs2) {
                                 this.x = true;
                                 H(true);
@@ -2183,11 +2183,11 @@ public class VerticalViewPager extends ViewGroup {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048628, this, motionEvent)) == null) {
             boolean z = false;
-            if (this.i0) {
+            if (this.c0) {
                 if (this.M) {
                     return true;
                 }
-                this.m0.d(motionEvent);
+                this.g0.d(motionEvent);
                 if ((motionEvent.getAction() == 0 && motionEvent.getEdgeFlags() != 0) || (pagerAdapter = this.f) == null || pagerAdapter.getCount() == 0) {
                     return false;
                 }
@@ -2472,7 +2472,7 @@ public class VerticalViewPager extends ViewGroup {
     public void setEventListener(ai5.b bVar) {
         ai5 ai5Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048638, this, bVar) == null) || (ai5Var = this.m0) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048638, this, bVar) == null) || (ai5Var = this.g0) == null) {
             return;
         }
         ai5Var.f(bVar);
@@ -2546,9 +2546,9 @@ public class VerticalViewPager extends ViewGroup {
         this.V = pageTransformer;
         setChildrenDrawingOrderEnabledCompat(z2);
         if (z2) {
-            this.g0 = z ? 2 : 1;
+            this.a0 = z ? 2 : 1;
         } else {
-            this.g0 = 0;
+            this.a0 = 0;
         }
         if (z3) {
             D();
@@ -2558,14 +2558,14 @@ public class VerticalViewPager extends ViewGroup {
     public void setScrollable(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048647, this, z) == null) {
-            this.i0 = z;
+            this.c0 = z;
         }
     }
 
     public void setStrictSlide(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048648, this, z) == null) {
-            this.j0 = z;
+            this.d0 = z;
         }
     }
 
@@ -2591,7 +2591,7 @@ public class VerticalViewPager extends ViewGroup {
             setDescendantFocusability(262144);
             setFocusable(true);
             Context context = getContext();
-            this.k = new Scroller(context, p0);
+            this.k = new Scroller(context, j0);
             ViewConfiguration viewConfiguration = ViewConfiguration.get(context);
             float f2 = context.getResources().getDisplayMetrics().density;
             this.B = ViewConfigurationCompat.getScaledPagingTouchSlop(viewConfiguration);
@@ -2606,7 +2606,7 @@ public class VerticalViewPager extends ViewGroup {
             if (ViewCompat.getImportantForAccessibility(this) == 0) {
                 ViewCompat.setImportantForAccessibility(this, 1);
             }
-            this.m0 = new ai5(this);
+            this.g0 = new ai5(this);
         }
     }
 
@@ -2788,7 +2788,7 @@ public class VerticalViewPager extends ViewGroup {
                 }
             }
             this.c = 0.0f;
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, VerticalViewPager.n0);
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, VerticalViewPager.h0);
             this.b = obtainStyledAttributes.getInteger(0, 48);
             obtainStyledAttributes.recycle();
         }
@@ -2846,10 +2846,10 @@ public class VerticalViewPager extends ViewGroup {
         this.w = 1;
         this.G = -1;
         this.P = true;
-        this.i0 = true;
-        this.j0 = true;
-        this.k0 = new c(this);
-        this.l0 = 0;
+        this.c0 = true;
+        this.d0 = true;
+        this.e0 = new c(this);
+        this.f0 = 0;
         u();
     }
 }

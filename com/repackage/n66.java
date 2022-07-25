@@ -20,7 +20,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.cy;
 import com.repackage.ny;
 /* loaded from: classes6.dex */
-public class n66 extends an<qq4, ThreadCardViewHolder<ThreadData>> {
+public class n66 extends an<rq4, ThreadCardViewHolder<ThreadData>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public BdUniqueId i;
@@ -93,15 +93,15 @@ public class n66 extends an<qq4, ThreadCardViewHolder<ThreadData>> {
         @Override // com.repackage.xn
         public void b(View view2, nn nnVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i, long j) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, nnVar, bdUniqueId, viewGroup, Integer.valueOf(i), Long.valueOf(j)}) == null) && (nnVar instanceof qq4) && (view2.getTag() instanceof ThreadCardViewHolder)) {
+            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, nnVar, bdUniqueId, viewGroup, Integer.valueOf(i), Long.valueOf(j)}) == null) && (nnVar instanceof rq4) && (view2.getTag() instanceof ThreadCardViewHolder)) {
                 ThreadCardViewHolder threadCardViewHolder = (ThreadCardViewHolder) view2.getTag();
-                ThreadData threadData = ((qq4) nnVar).s;
+                ThreadData threadData = ((rq4) nnVar).s;
                 threadData.objType = 1;
                 if (this.a.n != null) {
-                    this.a.n.a(threadCardViewHolder.b(), threadData);
+                    this.a.n.a(threadCardViewHolder.a(), threadData);
                 }
-                ThreadCardUtils.jumpToPB((nn4) threadData, view2.getContext(), 2, false);
-                threadCardViewHolder.c().o(new ny.a(1));
+                ThreadCardUtils.jumpToPB((on4) threadData, view2.getContext(), 2, false);
+                threadCardViewHolder.b().o(new ny.a(1));
             }
         }
     }
@@ -147,7 +147,7 @@ public class n66 extends an<qq4, ThreadCardViewHolder<ThreadData>> {
             cy k = bVar.k(BaseCardInfo.SupportType.CONTENT, viewGroup, this.m);
             k.r(2);
             ThreadCardViewHolder threadCardViewHolder = new ThreadCardViewHolder(k);
-            threadCardViewHolder.k(this.i);
+            threadCardViewHolder.j(this.i);
             V(new b(this));
             return threadCardViewHolder;
         }
@@ -157,28 +157,28 @@ public class n66 extends an<qq4, ThreadCardViewHolder<ThreadData>> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.repackage.an
     /* renamed from: c0 */
-    public View S(int i, View view2, ViewGroup viewGroup, qq4 qq4Var, ThreadCardViewHolder<ThreadData> threadCardViewHolder) {
+    public View S(int i, View view2, ViewGroup viewGroup, rq4 rq4Var, ThreadCardViewHolder<ThreadData> threadCardViewHolder) {
         InterceptResult invokeCommon;
         ThreadData threadData;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, qq4Var, threadCardViewHolder})) == null) {
-            if (qq4Var == null || threadCardViewHolder == null || threadCardViewHolder.b() == null || (threadData = qq4Var.s) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, rq4Var, threadCardViewHolder})) == null) {
+            if (rq4Var == null || threadCardViewHolder == null || threadCardViewHolder.a() == null || (threadData = rq4Var.s) == null) {
                 return null;
             }
             threadData.statFloor = B(i) + 1;
-            threadCardViewHolder.c().q(i);
-            threadCardViewHolder.g(qq4Var.s);
-            threadCardViewHolder.c().onChangeSkinType(this.k, TbadkCoreApplication.getInst().getSkinType());
-            threadCardViewHolder.c().p(this.n);
-            r46.b(qq4Var, this.j);
-            px pxVar = (px) threadCardViewHolder.c().g();
+            threadCardViewHolder.b().q(i);
+            threadCardViewHolder.f(rq4Var.s);
+            threadCardViewHolder.b().onChangeSkinType(this.k, TbadkCoreApplication.getInst().getSkinType());
+            threadCardViewHolder.b().p(this.n);
+            r46.b(rq4Var, this.j);
+            px pxVar = (px) threadCardViewHolder.b().g();
             LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) pxVar.f.d.getLayoutParams();
-            layoutParams.width = qq4Var.t;
-            layoutParams.height = qq4Var.u;
+            layoutParams.width = rq4Var.t;
+            layoutParams.height = rq4Var.u;
             if (pxVar.f.d.getVisibility() != 8) {
                 pxVar.f.d.setLayoutParams(layoutParams);
             }
-            return threadCardViewHolder.b();
+            return threadCardViewHolder.a();
         }
         return (View) invokeCommon.objValue;
     }

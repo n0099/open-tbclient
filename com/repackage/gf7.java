@@ -64,8 +64,8 @@ public class gf7 implements CustomMessageTask.CustomRunnable<Object> {
             if (currentAccount == null) {
                 currentAccount = "";
             }
-            br4.f();
-            List<String> a = a(ui.b(br4.h("tb.searchperson_history", currentAccount)));
+            cr4.f();
+            List<String> a = a(ui.b(cr4.h("tb.searchperson_history", currentAccount)));
             ResponseSearchPersonHistoryReadMessage responseSearchPersonHistoryReadMessage = new ResponseSearchPersonHistoryReadMessage();
             responseSearchPersonHistoryReadMessage.datas.addAll(a);
             return responseSearchPersonHistoryReadMessage;

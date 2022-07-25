@@ -8,16 +8,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.sdk.base.framework.c.e;
-import com.sdk.base.framework.f.c.a;
+import com.sdk.f.c;
+import com.sdk.k.a;
 /* loaded from: classes7.dex */
-public class BaseConfig implements e {
+public class BaseConfig implements c {
     public static /* synthetic */ Interceptable $ic = null;
     public static String apk = "com.cucc.sdk.api_key";
-    public static int c = 36;
+    public static int c = 50;
     public static String cm = "CUCC";
     public static String n = "SDKFactory";
-    public static String v = "安卓3.9.1.3开放版K200113";
+    public static String v = "安卓4.0.3.3专业版Z21022214";
     public transient /* synthetic */ FieldHolder $fh;
     public long r;
 

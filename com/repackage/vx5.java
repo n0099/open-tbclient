@@ -196,8 +196,8 @@ public class vx5 implements gx<xy5>, hx {
             return;
         }
         this.f.setText(xy5Var.c0());
-        this.h.setText(String.format(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f157f), xy5Var.d0()));
-        this.i.setText(String.format(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f157d), xy5Var.Z()));
+        this.h.setText(String.format(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f152e), xy5Var.d0()));
+        this.i.setText(String.format(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f152c), xy5Var.Z()));
         if (!ListUtils.isEmpty(xy5Var.a0())) {
             if (xy5Var.a0().size() > 10) {
                 this.l = xy5Var.a0().subList(0, 10);
@@ -224,21 +224,21 @@ public class vx5 implements gx<xy5>, hx {
                 }
                 gradientDrawable.setCornerRadius(25.0f);
                 f().setBackgroundDrawable(gradientDrawable);
-                ur4 d = ur4.d(this.c);
+                vr4 d = vr4.d(this.c);
                 d.n(R.string.J_X01);
                 d.f(R.color.CAM_X0605);
                 SkinManager.setLottieAnimation(this.d, R.raw.lottie_voice_room_voicing_icon);
-                ur4.d(this.e).v(R.color.CAM_X0101);
-                ur4 d2 = ur4.d(this.i);
+                vr4.d(this.e).v(R.color.CAM_X0101);
+                vr4 d2 = vr4.d(this.i);
                 d2.v(R.color.CAM_X0620);
                 d2.A(R.string.F_X02);
-                ur4 d3 = ur4.d(this.f);
+                vr4 d3 = vr4.d(this.f);
                 d3.A(R.string.F_X02);
                 d3.v(R.color.CAM_X0101);
-                ur4 d4 = ur4.d(this.h);
+                vr4 d4 = vr4.d(this.h);
                 d4.v(R.color.CAM_X0620);
                 d4.A(R.string.F_X02);
-                ur4 d5 = ur4.d(this.j);
+                vr4 d5 = vr4.d(this.j);
                 d5.n(R.string.J_X07);
                 d5.v(R.color.CAM_X0326);
                 d5.f(R.color.CAM_X0621);

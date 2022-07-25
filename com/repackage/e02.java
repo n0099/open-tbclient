@@ -1,9 +1,11 @@
 package com.repackage;
 
-import android.text.TextUtils;
-import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.tbadk.core.diskCache.ImagesInvalidService;
+import android.app.Activity;
+import android.content.Context;
+import android.view.MotionEvent;
+import android.view.View;
+import android.widget.FrameLayout;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,34 +13,29 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Comparator;
-import java.util.Date;
-import java.util.List;
-import java.util.Locale;
-import java.util.Map;
-import java.util.TreeMap;
 /* loaded from: classes5.dex */
 public class e02 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
+    public static final FrameLayout.LayoutParams f;
     public transient /* synthetic */ FieldHolder $fh;
+    public Context a;
+    public View b;
+    public FrameLayout c;
+    public int d;
+    public b e;
 
     /* loaded from: classes5.dex */
-    public static class a implements Runnable {
+    public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ File b;
+        public final /* synthetic */ Activity a;
 
-        public a(String str, File file) {
+        public a(e02 e02Var, Activity activity) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, file};
+                Object[] objArr = {e02Var, activity};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -48,48 +45,57 @@ public class e02 {
                     return;
                 }
             }
-            this.a = str;
-            this.b = file;
+            this.a = activity;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                synchronized (e02.class) {
-                    jg4.S(this.a, this.b, true);
-                }
-                e02.c();
+                ga3.c().e(this.a, -1.0f);
             }
         }
     }
 
     /* loaded from: classes5.dex */
-    public static class b implements Comparator<Long> {
+    public interface b {
+        void onCustomViewHidden();
+    }
+
+    /* loaded from: classes5.dex */
+    public static class c extends FrameLayout {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public b() {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public c(Context context) {
+            super(context);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {context};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
+                    super((Context) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
+            setBackgroundColor(context.getResources().getColor(17170444));
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // java.util.Comparator
-        /* renamed from: a */
-        public int compare(Long l, Long l2) {
-            InterceptResult invokeLL;
+        @Override // android.view.View
+        public boolean onTouchEvent(MotionEvent motionEvent) {
+            InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, l, l2)) == null) ? l2.compareTo(l) : invokeLL.intValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, motionEvent)) == null) {
+                return true;
+            }
+            return invokeL.booleanValue;
         }
     }
 
@@ -106,196 +112,72 @@ public class e02 {
                 return;
             }
         }
-        a = rg1.a;
+        f = new FrameLayout.LayoutParams(-1, -1);
     }
 
-    public e02() {
+    public e02(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        this.a = context;
     }
 
-    public static File b(long j) {
-        InterceptResult invokeJ;
+    public void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65539, null, j)) == null) {
-            String f = f();
-            if (f == null) {
-                return null;
-            }
-            File file = new File(f + File.separator + j);
-            if (file.exists()) {
-                jg4.L(file);
-            }
-            jg4.h(file);
-            return file;
-        }
-        return (File) invokeJ.objValue;
-    }
-
-    public static void c() {
-        h03 b0;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) || (b0 = h03.b0()) == null || TextUtils.isEmpty(b0.getAppId())) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.b == null) {
             return;
         }
-        File file = new File(dj2.g().getPath() + File.separator + "launch_tips");
-        if (file.exists() && file.isDirectory()) {
-            jg4.j(file);
+        Context context = this.a;
+        Activity activity = context instanceof Activity ? (Activity) context : null;
+        if (activity != null) {
+            ce3.a0(new a(this, activity));
+            b(activity, false);
+            ((FrameLayout) activity.getWindow().getDecorView()).removeView(this.c);
+            this.c = null;
+            this.b = null;
+            this.e.onCustomViewHidden();
+            activity.setRequestedOrientation(this.d);
         }
     }
 
-    public static File d(long j) {
-        InterceptResult invokeJ;
+    public void b(Activity activity, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65541, null, j)) == null) {
-            File[] g = g();
-            if (g != null && g.length != 0) {
-                File file = null;
-                for (File file2 : g) {
-                    try {
-                        long parseLong = Long.parseLong(file2.getName());
-                        if (parseLong == j) {
-                            file = file2;
-                        } else if (j - parseLong >= ImagesInvalidService.FILE_VALID_TIME) {
-                            jg4.j(file2);
-                        }
-                    } catch (NumberFormatException unused) {
-                        jg4.j(file2);
-                    }
-                }
-                return file == null ? b(j) : file;
-            }
-            return b(j);
+        if (interceptable == null || interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity, z) == null) {
+            activity.getWindow().setFlags(!z ? 0 : 1024, 1024);
         }
-        return (File) invokeJ.objValue;
     }
 
-    public static String e() {
-        InterceptResult invokeV;
+    public void c(View view2, int i, b bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            File[] g = g();
-            if (g == null) {
-                return null;
-            }
-            TreeMap treeMap = new TreeMap(new b());
-            long i = i(System.currentTimeMillis());
-            for (File file : g) {
-                try {
-                    long parseLong = Long.parseLong(file.getName());
-                    if (i - parseLong >= ImagesInvalidService.FILE_VALID_TIME) {
-                        jg4.j(file);
-                    } else {
-                        List<String> F = jg4.F(file);
-                        if (F != null && F.size() > 0) {
-                            treeMap.put(Long.valueOf(parseLong), F);
-                        }
-                    }
-                } catch (NumberFormatException unused) {
-                    jg4.j(file);
-                }
-            }
-            if (treeMap.size() == 0) {
-                return null;
-            }
-            StringBuilder sb = new StringBuilder("\n（二）历史日志");
-            for (Map.Entry entry : treeMap.entrySet()) {
-                sb.append("\n----------【");
-                sb.append(new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(new Date(((Long) entry.getKey()).longValue())));
-                sb.append("】----------");
-                for (String str : (List) entry.getValue()) {
-                    if (!TextUtils.isEmpty(str)) {
-                        sb.append("\n");
-                        sb.append(str);
-                    }
-                }
-            }
-            sb.append("\n");
-            return sb.toString();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static String f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            h03 b0 = h03.b0();
-            if (b0 == null) {
-                return null;
-            }
-            String appId = b0.getAppId();
-            if (TextUtils.isEmpty(appId)) {
-                return null;
-            }
-            return dj2.g().getPath() + File.separator + "launch_tips_v2" + File.separator + appId;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static File[] g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
-            String f = f();
-            if (f == null) {
-                return null;
-            }
-            File file = new File(f);
-            if (file.exists() && file.isDirectory()) {
-                return file.listFiles();
-            }
-            return null;
-        }
-        return (File[]) invokeV.objValue;
-    }
-
-    public static void h(long j, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJL(65545, null, j, str) == null) {
-            long i = i(j);
-            if (i == -1) {
-                if (a) {
-                    Log.e("LaunchTipsFileHelper", "get timestampByDay failed");
+        if (interceptable == null || interceptable.invokeLIL(Constants.METHOD_SEND_USER_MSG, this, view2, i, bVar) == null) {
+            Context context = this.a;
+            Activity activity = context instanceof Activity ? (Activity) context : null;
+            if (activity != null) {
+                if (this.b != null) {
+                    bVar.onCustomViewHidden();
                     return;
                 }
-                return;
-            }
-            File d = d(i);
-            if (d == null || !d.exists()) {
-                return;
-            }
-            bd3.k(new a(str, d), "saveLaunchTipsLog");
-        }
-    }
-
-    public static long i(long j) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65546, null, j)) == null) {
-            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
-            try {
-                Date parse = simpleDateFormat.parse(simpleDateFormat.format(new Date(j)));
-                if (parse == null) {
-                    return -1L;
-                }
-                return parse.getTime();
-            } catch (ParseException e) {
-                if (rg1.a) {
-                    e.printStackTrace();
-                }
-                return -1L;
+                this.d = activity.getRequestedOrientation();
+                c cVar = new c(activity);
+                this.c = cVar;
+                cVar.addView(view2, f);
+                ((FrameLayout) activity.getWindow().getDecorView()).addView(this.c, f);
+                this.b = view2;
+                b(activity, true);
+                this.e = bVar;
+                activity.setRequestedOrientation(i);
             }
         }
-        return invokeJ.longValue;
     }
 }

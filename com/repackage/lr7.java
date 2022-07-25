@@ -73,12 +73,12 @@ public class lr7 implements nn {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? i : (BdUniqueId) invokeV.objValue;
     }
 
-    public lr7(mq4 mq4Var) {
+    public lr7(nq4 nq4Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {mq4Var};
+            Object[] objArr = {nq4Var};
             interceptable.invokeUnInit(65538, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -89,14 +89,14 @@ public class lr7 implements nn {
             }
         }
         this.e = false;
-        if (mq4Var == null) {
+        if (nq4Var == null) {
             return;
         }
-        this.a = mq4Var.b;
-        this.b = mq4Var.c;
-        this.c = mq4Var.h;
-        this.d = mq4Var.i;
-        this.f = mq4Var.a;
-        this.h = mq4Var.getIsLike();
+        this.a = nq4Var.b;
+        this.b = nq4Var.c;
+        this.c = nq4Var.h;
+        this.d = nq4Var.i;
+        this.f = nq4Var.a;
+        this.h = nq4Var.getIsLike();
     }
 }

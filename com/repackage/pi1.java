@@ -1,11 +1,19 @@
 package com.repackage;
 
+import android.app.Activity;
+import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.u13;
+import java.io.File;
 /* loaded from: classes6.dex */
 public class pi1 implements uk1 {
     public static /* synthetic */ Interceptable $ic;
@@ -26,19 +34,51 @@ public class pi1 implements uk1 {
     }
 
     @Override // com.repackage.uk1
-    public void a() {
+    public boolean a(Activity activity, String str, u13.b bVar) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, activity, str, bVar)) == null) {
+            return false;
         }
+        return invokeLLL.booleanValue;
     }
 
     @Override // com.repackage.uk1
-    public boolean b() {
-        InterceptResult invokeV;
+    public boolean b(Context context, String str) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str)) == null) {
             return true;
         }
-        return invokeV.booleanValue;
+        return invokeLL.booleanValue;
+    }
+
+    @Override // com.repackage.uk1
+    public boolean c(Activity activity, Uri uri, String str) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, activity, uri, str)) == null) {
+            if (activity == null || uri == null || uri.getPath() == null || TextUtils.isEmpty(str)) {
+                return false;
+            }
+            if (pc3.i()) {
+                uri = fe3.a(activity, new File(uri.getPath()));
+            }
+            d(activity, uri, str);
+            return true;
+        }
+        return invokeLLL.booleanValue;
+    }
+
+    public final void d(Activity activity, Uri uri, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048579, this, activity, uri, str) == null) {
+            Intent intent = new Intent("android.intent.action.VIEW");
+            intent.addCategory("android.intent.category.DEFAULT");
+            intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
+            intent.addFlags(1);
+            intent.setDataAndType(uri, str);
+            rc3.f(activity, intent);
+        }
     }
 }

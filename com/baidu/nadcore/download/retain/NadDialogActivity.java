@@ -153,11 +153,11 @@ public abstract class NadDialogActivity extends BaseActivity {
     public final void l1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.v = (TextView) findViewById(R.id.obfuscated_res_0x7f09225c);
-            this.u = (TextView) findViewById(R.id.obfuscated_res_0x7f092279);
+            this.v = (TextView) findViewById(R.id.obfuscated_res_0x7f09225e);
+            this.u = (TextView) findViewById(R.id.obfuscated_res_0x7f09227b);
             this.w = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f09009d);
-            this.x = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091353);
-            this.y = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091352);
+            this.x = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f09132f);
+            this.y = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f09132e);
             LayoutInflater.from(this).inflate(k1(), (ViewGroup) this.x, true);
             this.w.setBackground(hh0.b().getResources().getDrawable(R.drawable.obfuscated_res_0x7f080d3d));
             this.w.setDividerDrawable(hh0.b().getResources().getDrawable(R.drawable.obfuscated_res_0x7f080d3f));

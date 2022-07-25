@@ -19,10 +19,10 @@ public class af {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
-    public Context f768a;
+    public Context f48a;
 
     /* renamed from: a  reason: collision with other field name */
-    public List<x> f769a;
+    public List<x> f49a;
 
     static {
         InterceptResult invokeClinit;
@@ -54,11 +54,11 @@ public class af {
                 return;
             }
         }
-        this.f769a = new ArrayList();
+        this.f49a = new ArrayList();
         Context applicationContext = context.getApplicationContext();
-        this.f768a = applicationContext;
+        this.f48a = applicationContext;
         if (applicationContext == null) {
-            this.f768a = context;
+            this.f48a = context;
         }
     }
 
@@ -82,11 +82,11 @@ public class af {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            synchronized (this.f769a) {
+            synchronized (this.f49a) {
                 x xVar = new x();
-                xVar.f808a = str;
-                if (this.f769a.contains(xVar)) {
-                    for (x xVar2 : this.f769a) {
+                xVar.f88a = str;
+                if (this.f49a.contains(xVar)) {
+                    for (x xVar2 : this.f49a) {
                         if (xVar2.equals(xVar)) {
                             return xVar2.a;
                         }
@@ -104,7 +104,7 @@ public class af {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, auVar)) == null) {
             synchronized (this) {
-                string = this.f768a.getSharedPreferences("mipush_extra", 0).getString(auVar.name(), "");
+                string = this.f48a.getSharedPreferences("mipush_extra", 0).getString(auVar.name(), "");
             }
             return string;
         }
@@ -115,37 +115,37 @@ public class af {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(com.baidu.android.imsdk.internal.Constants.METHOD_SEND_USER_MSG, this, auVar, str) == null) {
             synchronized (this) {
-                SharedPreferences sharedPreferences = this.f768a.getSharedPreferences("mipush_extra", 0);
+                SharedPreferences sharedPreferences = this.f48a.getSharedPreferences("mipush_extra", 0);
                 sharedPreferences.edit().putString(auVar.name(), str).commit();
             }
         }
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m1048a(String str) {
+    public void m110a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            synchronized (this.f769a) {
+            synchronized (this.f49a) {
                 x xVar = new x();
                 xVar.a = 0;
-                xVar.f808a = str;
-                if (this.f769a.contains(xVar)) {
-                    this.f769a.remove(xVar);
+                xVar.f88a = str;
+                if (this.f49a.contains(xVar)) {
+                    this.f49a.remove(xVar);
                 }
-                this.f769a.add(xVar);
+                this.f49a.add(xVar);
             }
         }
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m1049a(String str) {
+    public boolean m111a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            synchronized (this.f769a) {
+            synchronized (this.f49a) {
                 x xVar = new x();
-                xVar.f808a = str;
-                return this.f769a.contains(xVar);
+                xVar.f88a = str;
+                return this.f49a.contains(xVar);
             }
         }
         return invokeL.booleanValue;
@@ -154,11 +154,11 @@ public class af {
     public void b(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            synchronized (this.f769a) {
+            synchronized (this.f49a) {
                 x xVar = new x();
-                xVar.f808a = str;
-                if (this.f769a.contains(xVar)) {
-                    Iterator<x> it = this.f769a.iterator();
+                xVar.f88a = str;
+                if (this.f49a.contains(xVar)) {
+                    Iterator<x> it = this.f49a.iterator();
                     while (true) {
                         if (!it.hasNext()) {
                             break;
@@ -171,8 +171,8 @@ public class af {
                     }
                 }
                 xVar.a++;
-                this.f769a.remove(xVar);
-                this.f769a.add(xVar);
+                this.f49a.remove(xVar);
+                this.f49a.add(xVar);
             }
         }
     }
@@ -180,11 +180,11 @@ public class af {
     public void c(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            synchronized (this.f769a) {
+            synchronized (this.f49a) {
                 x xVar = new x();
-                xVar.f808a = str;
-                if (this.f769a.contains(xVar)) {
-                    this.f769a.remove(xVar);
+                xVar.f88a = str;
+                if (this.f49a.contains(xVar)) {
+                    this.f49a.remove(xVar);
                 }
             }
         }

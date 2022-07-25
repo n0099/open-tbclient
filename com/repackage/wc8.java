@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class wc8 implements hz4 {
+public class wc8 implements iz4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -25,10 +25,10 @@ public class wc8 implements hz4 {
         }
     }
 
-    @Override // com.repackage.hz4
-    public gz4 a(Context context, fz4 fz4Var) {
+    @Override // com.repackage.iz4
+    public hz4 a(Context context, gz4 gz4Var) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, context, fz4Var)) == null) ? new vc8(context, fz4Var) : (gz4) invokeLL.objValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, context, gz4Var)) == null) ? new vc8(context, gz4Var) : (hz4) invokeLL.objValue;
     }
 }

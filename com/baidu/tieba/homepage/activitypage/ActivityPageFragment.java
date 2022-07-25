@@ -12,20 +12,20 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.fc5;
+import com.repackage.gc5;
 import com.repackage.ge6;
-import com.repackage.hq4;
+import com.repackage.iq4;
 import com.repackage.j07;
-import com.repackage.jm4;
-import com.repackage.lo4;
+import com.repackage.km4;
+import com.repackage.mo4;
 import com.repackage.n07;
-import com.repackage.nn4;
-import com.repackage.pa5;
+import com.repackage.on4;
 import com.repackage.ps6;
+import com.repackage.qa5;
 import com.repackage.qs6;
 import com.repackage.uz6;
-import com.repackage.y85;
 import com.repackage.yz6;
+import com.repackage.z85;
 import com.repackage.zz6;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
@@ -35,10 +35,10 @@ public class ActivityPageFragment extends BaseTemplateFragment implements ge6 {
     public int d;
     public String e;
     public String f;
-    public jm4<nn4> g;
+    public km4<on4> g;
 
     /* loaded from: classes3.dex */
-    public class a implements jm4<nn4> {
+    public class a implements km4<on4> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ActivityPageFragment a;
@@ -62,24 +62,24 @@ public class ActivityPageFragment extends BaseTemplateFragment implements ge6 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.jm4
+        @Override // com.repackage.km4
         /* renamed from: a */
-        public void d(View view2, nn4 nn4Var, int i, long j) {
+        public void d(View view2, on4 on4Var, int i, long j) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, nn4Var, Integer.valueOf(i), Long.valueOf(j)}) == null) {
-                uz6.t(nn4Var, this.a.e);
-                fc5.b("----曝光统计----position = " + i);
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, on4Var, Integer.valueOf(i), Long.valueOf(j)}) == null) {
+                uz6.t(on4Var, this.a.e);
+                gc5.b("----曝光统计----position = " + i);
             }
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.jm4
+        @Override // com.repackage.km4
         /* renamed from: b */
-        public void c(View view2, nn4 nn4Var, int i, long j) {
+        public void c(View view2, on4 on4Var, int i, long j) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{view2, nn4Var, Integer.valueOf(i), Long.valueOf(j)}) == null) {
-                uz6.m(view2, nn4Var, this.a.e);
-                fc5.b("----点击统计----position = " + i);
+            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{view2, on4Var, Integer.valueOf(i), Long.valueOf(j)}) == null) {
+                uz6.m(view2, on4Var, this.a.e);
+                gc5.b("----点击统计----position = " + i);
             }
         }
     }
@@ -118,7 +118,7 @@ public class ActivityPageFragment extends BaseTemplateFragment implements ge6 {
         }
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragment, com.repackage.v85
+    @Override // com.baidu.tbadk.core.BaseFragment, com.repackage.w85
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -132,17 +132,17 @@ public class ActivityPageFragment extends BaseTemplateFragment implements ge6 {
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
-    public y85 getPageStayDurationItem() {
+    public z85 getPageStayDurationItem() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            y85 pageStayDurationItem = super.getPageStayDurationItem();
+            z85 pageStayDurationItem = super.getPageStayDurationItem();
             if (pageStayDurationItem != null) {
                 pageStayDurationItem.s = this.e;
             }
             return pageStayDurationItem;
         }
-        return (y85) invokeV.objValue;
+        return (z85) invokeV.objValue;
     }
 
     @Override // com.repackage.ge6
@@ -154,16 +154,16 @@ public class ActivityPageFragment extends BaseTemplateFragment implements ge6 {
     }
 
     @Override // com.baidu.tbadk.template.base.BaseTemplateFragment
-    public pa5 t1(ViewGroup viewGroup) {
+    public qa5 t1(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, viewGroup)) == null) {
             ArrayList arrayList = new ArrayList();
-            arrayList.add(new zz6(getPageContext(), hq4.e));
-            arrayList.add(new yz6(getPageContext(), lo4.b));
+            arrayList.add(new zz6(getPageContext(), iq4.e));
+            arrayList.add(new yz6(getPageContext(), mo4.b));
             arrayList.add(new j07(getPageContext()));
             arrayList.add(new n07(getPageContext()));
-            pa5.c cVar = new pa5.c();
+            qa5.c cVar = new qa5.c();
             cVar.m(309655);
             cVar.i(CmdConfigHttp.CMD_HOME_TAB_ACTIVITY_LIST);
             cVar.j(TbConfig.URL_TAB_ACTIVITY_TAB);
@@ -174,7 +174,7 @@ public class ActivityPageFragment extends BaseTemplateFragment implements ge6 {
             cVar.b(arrayList);
             return cVar.e(viewGroup);
         }
-        return (pa5) invokeL.objValue;
+        return (qa5) invokeL.objValue;
     }
 
     @Override // com.repackage.ge6

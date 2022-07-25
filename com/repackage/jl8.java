@@ -30,12 +30,12 @@ public class jl8 {
     public ClientConfigModel a;
     public d b;
     public boolean c;
-    public final nm4 d;
+    public final om4 d;
     public CustomMessageListener e;
     public CustomMessageListener f;
 
     /* loaded from: classes6.dex */
-    public class a implements nm4 {
+    public class a implements om4 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ jl8 a;
@@ -58,7 +58,7 @@ public class jl8 {
             this.a = jl8Var;
         }
 
-        @Override // com.repackage.nm4
+        @Override // com.repackage.om4
         public void a(Object obj) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
@@ -81,7 +81,7 @@ public class jl8 {
             }
         }
 
-        @Override // com.repackage.nm4
+        @Override // com.repackage.om4
         public void onError(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
@@ -200,7 +200,7 @@ public class jl8 {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || !(customResponsedMessage instanceof BackgroundSwitchMessage) || (data = ((BackgroundSwitchMessage) customResponsedMessage).getData()) == null || data.booleanValue()) {
                 return;
             }
-            xt4.k().x("tieba_last_active_time", System.currentTimeMillis());
+            yt4.k().x("tieba_last_active_time", System.currentTimeMillis());
             if (this.a.f()) {
                 this.a.k(true);
                 this.a.g();
@@ -252,7 +252,7 @@ public class jl8 {
             baseFragmentActivity.registerListener(this.e);
             baseFragmentActivity.registerListener(this.f);
             this.a = new ClientConfigModel(baseFragmentActivity, this.d);
-            xt4.k().x("tieba_last_active_time", System.currentTimeMillis());
+            yt4.k().x("tieba_last_active_time", System.currentTimeMillis());
             if (f()) {
                 k(true);
                 g();

@@ -23,7 +23,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.cr4;
+import com.repackage.dr4;
 import java.text.MessageFormat;
 /* loaded from: classes7.dex */
 public class sq7 {
@@ -96,15 +96,15 @@ public class sq7 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 ShareItem shareItem = this.a;
-                shareItem.w = jz4.v(shareItem.w, shareItem.N, UtilHelper.isVideoThread(shareItem.P));
+                shareItem.w = kz4.v(shareItem.w, shareItem.N, UtilHelper.isVideoThread(shareItem.P));
                 ei.a(this.a.w);
-                pi.O(this.b.a.getPageContext().getPageActivity(), view2.getResources().getString(R.string.obfuscated_res_0x7f0f0446));
+                pi.O(this.b.a.getPageContext().getPageActivity(), view2.getResources().getString(R.string.obfuscated_res_0x7f0f0445));
             }
         }
     }
 
     /* loaded from: classes7.dex */
-    public static class c implements cr4.e {
+    public static class c implements dr4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ vq7 a;
@@ -141,11 +141,11 @@ public class sq7 {
             this.h = str4;
         }
 
-        @Override // com.repackage.cr4.e
-        public void onClick(cr4 cr4Var) {
+        @Override // com.repackage.dr4.e
+        public void onClick(dr4 dr4Var) {
             vq7 vq7Var;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, cr4Var) == null) || (vq7Var = this.a) == null || vq7Var.getThreadInfo() == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, dr4Var) == null) || (vq7Var = this.a) == null || vq7Var.getThreadInfo() == null) {
                 return;
             }
             pi.x(this.b.getPageContext().getPageActivity(), this.c.getChatMsgView());
@@ -157,12 +157,12 @@ public class sq7 {
             String leaveMsg = this.c.getLeaveMsg();
             vq7 vq7Var2 = this.a;
             MessageManager.getInstance().sendMessage(new CustomMessage(2002005, new PersonalChatActivityConfig(pageActivity, j, str, str2, str3, 0, leaveMsg, sq7.c(vq7Var2, vq7Var2.getThreadInfo().excid.longValue(), this.h).toChatMessageContent())));
-            cr4Var.dismiss();
+            dr4Var.dismiss();
         }
     }
 
     /* loaded from: classes7.dex */
-    public static class d implements cr4.e {
+    public static class d implements dr4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PbChosenActivity a;
@@ -187,18 +187,18 @@ public class sq7 {
             this.b = shareThreadView;
         }
 
-        @Override // com.repackage.cr4.e
-        public void onClick(cr4 cr4Var) {
+        @Override // com.repackage.dr4.e
+        public void onClick(dr4 dr4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, cr4Var) == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, dr4Var) == null) {
                 pi.x(this.a.getPageContext().getPageActivity(), this.b.getChatMsgView());
-                cr4Var.dismiss();
+                dr4Var.dismiss();
             }
         }
     }
 
     /* loaded from: classes7.dex */
-    public static class e implements cr4.e {
+    public static class e implements dr4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ vq7 a;
@@ -233,11 +233,11 @@ public class sq7 {
             this.g = str2;
         }
 
-        @Override // com.repackage.cr4.e
-        public void onClick(cr4 cr4Var) {
+        @Override // com.repackage.dr4.e
+        public void onClick(dr4 dr4Var) {
             vq7 vq7Var;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, cr4Var) == null) || (vq7Var = this.a) == null || vq7Var.getThreadInfo() == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, dr4Var) == null) || (vq7Var = this.a) == null || vq7Var.getThreadInfo() == null) {
                 return;
             }
             pi.x(this.b.getPageContext().getPageActivity(), this.c.getChatMsgView());
@@ -248,12 +248,12 @@ public class sq7 {
             String leaveMsg = this.c.getLeaveMsg();
             vq7 vq7Var2 = this.a;
             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new GroupChatActivityConfig(pageActivity, j, str, j2, "from_share", leaveMsg, sq7.c(vq7Var2, vq7Var2.getThreadInfo().excid.longValue(), this.g).toChatMessageContent())));
-            cr4Var.dismiss();
+            dr4Var.dismiss();
         }
     }
 
     /* loaded from: classes7.dex */
-    public static class f implements cr4.e {
+    public static class f implements dr4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PbChosenActivity a;
@@ -278,12 +278,12 @@ public class sq7 {
             this.b = shareThreadView;
         }
 
-        @Override // com.repackage.cr4.e
-        public void onClick(cr4 cr4Var) {
+        @Override // com.repackage.dr4.e
+        public void onClick(dr4 dr4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, cr4Var) == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, dr4Var) == null) {
                 pi.x(this.a.getPageContext().getPageActivity(), this.b.getChatMsgView());
-                cr4Var.dismiss();
+                dr4Var.dismiss();
             }
         }
     }
@@ -331,16 +331,16 @@ public class sq7 {
         if (!(interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{pbChosenActivity, vq7Var, Long.valueOf(j), str, Long.valueOf(j2), str2}) == null) || vq7Var == null || vq7Var.getThreadInfo() == null) {
             return;
         }
-        cr4 cr4Var = new cr4(pbChosenActivity.getPageContext().getPageActivity());
+        dr4 dr4Var = new dr4(pbChosenActivity.getPageContext().getPageActivity());
         ShareThreadView shareThreadView = new ShareThreadView(pbChosenActivity.getPageContext().getPageActivity());
         shareThreadView.c(str2, false);
         shareThreadView.setTitle(vq7Var.getThreadInfo().title);
         shareThreadView.setDesc(vq7Var.getThreadInfo()._abstract);
-        cr4Var.setContentView(shareThreadView);
-        cr4Var.setPositiveButton(R.string.obfuscated_res_0x7f0f113c, new e(vq7Var, pbChosenActivity, shareThreadView, j, str, j2, str2));
-        cr4Var.setNegativeButton(R.string.obfuscated_res_0x7f0f036a, new f(pbChosenActivity, shareThreadView));
-        cr4Var.setCanceledOnTouchOutside(false);
-        cr4Var.create(pbChosenActivity.getPageContext()).show();
+        dr4Var.setContentView(shareThreadView);
+        dr4Var.setPositiveButton(R.string.obfuscated_res_0x7f0f10eb, new e(vq7Var, pbChosenActivity, shareThreadView, j, str, j2, str2));
+        dr4Var.setNegativeButton(R.string.obfuscated_res_0x7f0f036a, new f(pbChosenActivity, shareThreadView));
+        dr4Var.setCanceledOnTouchOutside(false);
+        dr4Var.create(pbChosenActivity.getPageContext()).show();
     }
 
     public static void e(PbChosenActivity pbChosenActivity, vq7 vq7Var, long j, String str, String str2, String str3, String str4) {
@@ -348,16 +348,16 @@ public class sq7 {
         if (!(interceptable == null || interceptable.invokeCommon(65541, null, new Object[]{pbChosenActivity, vq7Var, Long.valueOf(j), str, str2, str3, str4}) == null) || vq7Var == null || vq7Var.getThreadInfo() == null) {
             return;
         }
-        cr4 cr4Var = new cr4(pbChosenActivity.getPageContext().getPageActivity());
+        dr4 dr4Var = new dr4(pbChosenActivity.getPageContext().getPageActivity());
         ShareThreadView shareThreadView = new ShareThreadView(pbChosenActivity.getPageContext().getPageActivity());
         shareThreadView.setTitle(vq7Var.getThreadInfo().title);
         shareThreadView.setDesc(vq7Var.getThreadInfo()._abstract);
         shareThreadView.c(str4, false);
-        cr4Var.setContentView(shareThreadView);
-        cr4Var.setPositiveButton(R.string.obfuscated_res_0x7f0f113c, new c(vq7Var, pbChosenActivity, shareThreadView, j, str, str2, str3, str4));
-        cr4Var.setNegativeButton(R.string.obfuscated_res_0x7f0f036a, new d(pbChosenActivity, shareThreadView));
-        cr4Var.setCanceledOnTouchOutside(false);
-        cr4Var.create(pbChosenActivity.getPageContext()).show();
+        dr4Var.setContentView(shareThreadView);
+        dr4Var.setPositiveButton(R.string.obfuscated_res_0x7f0f10eb, new c(vq7Var, pbChosenActivity, shareThreadView, j, str, str2, str3, str4));
+        dr4Var.setNegativeButton(R.string.obfuscated_res_0x7f0f036a, new d(pbChosenActivity, shareThreadView));
+        dr4Var.setCanceledOnTouchOutside(false);
+        dr4Var.create(pbChosenActivity.getPageContext()).show();
     }
 
     public void f(vq7 vq7Var, String str) {
@@ -369,7 +369,7 @@ public class sq7 {
         String str3 = vq7Var.getThreadInfo().title;
         String str4 = vq7Var.getThreadInfo()._abstract;
         Resources resources = this.a.getPageContext().getPageActivity().getResources();
-        String format = MessageFormat.format(resources.getString(R.string.obfuscated_res_0x7f0f1144), str3, str4);
+        String format = MessageFormat.format(resources.getString(R.string.obfuscated_res_0x7f0f10f3), str3, str4);
         resources.getString(R.string.obfuscated_res_0x7f0f03ce, str3);
         ShareItem shareItem = new ShareItem();
         shareItem.u = str3;
@@ -384,7 +384,7 @@ public class sq7 {
         }
         ShareDialogConfig shareDialogConfig = new ShareDialogConfig(this.a.getPageContext().getPageActivity(), shareItem, true);
         shareDialogConfig.setIsCopyLink(true);
-        shareDialogConfig.addOutsideTextView(R.string.obfuscated_res_0x7f0f066e, R.drawable.icon_share_friends_n, new a(this));
+        shareDialogConfig.addOutsideTextView(R.string.obfuscated_res_0x7f0f066a, R.drawable.icon_share_friends_n, new a(this));
         shareDialogConfig.setCopyLinkListener(new b(this, shareItem));
         this.a.sendMessage(new CustomMessage(2001276, shareDialogConfig));
     }

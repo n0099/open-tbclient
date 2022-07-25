@@ -12,7 +12,6 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.sofire.rp.service.Service;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.message.BackgroundSwitchMessage;
 import com.baidu.tbadk.core.util.LocalViewSize;
@@ -85,7 +84,7 @@ public class z67 {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2008017) {
-                yz4.j().m();
+                zz4.j().m();
                 z67.l().z();
             }
         }
@@ -441,7 +440,7 @@ public class z67 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             synchronized (this) {
-                if (System.currentTimeMillis() - this.g < Service.TRIGGER_INTERVAL) {
+                if (System.currentTimeMillis() - this.g < 180000) {
                     return;
                 }
                 PushCountMessage pushCountMessage = new PushCountMessage();
@@ -582,7 +581,7 @@ public class z67 {
             if (context != null) {
                 MessageManager.getInstance().registerListener(this.o);
                 MessageManager.getInstance().registerListener(this.p);
-                b05.j().p(this.m);
+                c05.j().p(this.m);
                 MessageManager.getInstance().registerListener(1003, this.n);
                 MessageManager.getInstance().registerListener(1001, this.n);
                 MessageManager.getInstance().registerListener(202101, this.n);
@@ -645,7 +644,7 @@ public class z67 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048592, this, new Object[]{longSparseArray, Integer.valueOf(i), Long.valueOf(j)}) == null) {
             if (MessageManager.getInstance().getSocketClient().r() > 10) {
-                q95.b(false, true, false);
+                r95.b(false, true, false);
                 Handler handler = this.j;
                 handler.sendMessageDelayed(handler.obtainMessage(2), 2000L);
                 return;
@@ -669,7 +668,7 @@ public class z67 {
                     k.setNotifyMsgId(j);
                 }
                 MessageManager.getInstance().sendMessage(k);
-                q95.b(true, false, false);
+                r95.b(true, false, false);
                 if (i == 3 || i == 1 || i == 2) {
                     LongSparseArray<Long> longSparseArray3 = this.k;
                     if (longSparseArray3 != null) {
@@ -684,7 +683,7 @@ public class z67 {
                 }
                 return;
             }
-            q95.b(false, false, true);
+            r95.b(false, false, true);
             D(i);
         }
     }

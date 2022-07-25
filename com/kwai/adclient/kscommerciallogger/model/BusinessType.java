@@ -20,6 +20,7 @@ public final class BusinessType {
     public static final BusinessType AD_REWARD;
     public static final BusinessType AD_SDK_INIT;
     public static final BusinessType AD_SPLASH;
+    public static final BusinessType AD_WEBVIEW;
     public static final BusinessType CU_FEED;
     public static final BusinessType CU_FEED_SLIDE;
     public static final BusinessType CU_HORIZONTAL_FEED;
@@ -79,9 +80,10 @@ public final class BusinessType {
         EU_LIVE_REPLAY = new BusinessType("EU_LIVE_REPLAY", 22, "EU_LIVE_REPLAY");
         WEB_CACHE = new BusinessType("WEB_CACHE", 23, "WEB_CACHE");
         AD_SDK_INIT = new BusinessType("AD_SDK_INIT", 24, "AD_SDK_INIT");
-        BusinessType businessType = new BusinessType("OTHER", 25, "OTHER");
+        AD_WEBVIEW = new BusinessType("AD_WEBVIEW", 25, "AD_WEBVIEW");
+        BusinessType businessType = new BusinessType("OTHER", 26, "OTHER");
         OTHER = businessType;
-        $VALUES = new BusinessType[]{TACHIKOMA, AD_SPLASH, AD_INTERSTITIAL, AD_FULLSCREEN, AD_REWARD, AD_FEED, AD_NATIVE, AD_DRAW, CU_SLIDE, CU_PROFILE, CU_PROFILE_SLIDE, CU_FEED, CU_FEED_SLIDE, CU_HOTSPOT_ENTRY, CU_HOTSPOT_SLIDE, CU_HORIZONTAL_FEED, CU_VIDEO_DETAIL, CU_IMAGE_TEXT_FEED, CU_IMAGE_TEXT_DETAIL, CU_WALLPAPER_FEED, CU_WALLPAPER_SLIDE, EU_LIVE_SLIDE, EU_LIVE_REPLAY, WEB_CACHE, AD_SDK_INIT, businessType};
+        $VALUES = new BusinessType[]{TACHIKOMA, AD_SPLASH, AD_INTERSTITIAL, AD_FULLSCREEN, AD_REWARD, AD_FEED, AD_NATIVE, AD_DRAW, CU_SLIDE, CU_PROFILE, CU_PROFILE_SLIDE, CU_FEED, CU_FEED_SLIDE, CU_HOTSPOT_ENTRY, CU_HOTSPOT_SLIDE, CU_HORIZONTAL_FEED, CU_VIDEO_DETAIL, CU_IMAGE_TEXT_FEED, CU_IMAGE_TEXT_DETAIL, CU_WALLPAPER_FEED, CU_WALLPAPER_SLIDE, EU_LIVE_SLIDE, EU_LIVE_REPLAY, WEB_CACHE, AD_SDK_INIT, AD_WEBVIEW, businessType};
     }
 
     public BusinessType(String str, int i, String str2) {

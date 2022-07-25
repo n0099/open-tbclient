@@ -7,8 +7,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ww3;
-import java.io.File;
+import java.net.MalformedURLException;
 @Service
 /* loaded from: classes6.dex */
 public class kx3 implements ph1 {
@@ -30,23 +29,34 @@ public class kx3 implements ph1 {
     }
 
     @Override // com.repackage.ph1
-    public File a(String str, String str2) {
-        InterceptResult invokeLL;
+    public String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) ? ww3.d.h(str, str2) : (File) invokeLL.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? du3.g() : (String) invokeV.objValue;
     }
 
     @Override // com.repackage.ph1
-    public File b() {
+    public boolean b() {
         InterceptResult invokeV;
+        oz1 m;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? ww3.d() : (File) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (i03.M() == null || !i03.M().w0()) {
+                return false;
+            }
+            rz1 V = vl2.U().V();
+            if (V == null || (m = V.m()) == null || !(m instanceof ew3)) {
+                return true;
+            }
+            return ((ew3) m).D3();
+        }
+        return invokeV.booleanValue;
     }
 
     @Override // com.repackage.ph1
-    public String c() {
-        InterceptResult invokeV;
+    public String c(String str) throws MalformedURLException {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? ww3.d.g().getPath() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) ? du3.d(str) : (String) invokeL.objValue;
     }
 }

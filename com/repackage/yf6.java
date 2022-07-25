@@ -123,8 +123,8 @@ public class yf6 {
     public final void e(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, view2) == null) {
-            this.b = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f090a93);
-            BdTypeRecyclerView bdTypeRecyclerView = (BdTypeRecyclerView) view2.findViewById(R.id.obfuscated_res_0x7f090a97);
+            this.b = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f090a8c);
+            BdTypeRecyclerView bdTypeRecyclerView = (BdTypeRecyclerView) view2.findViewById(R.id.obfuscated_res_0x7f090a90);
             this.c = bdTypeRecyclerView;
             bdTypeRecyclerView.setLayoutManager(new LinearLayoutManager(bdTypeRecyclerView.getContext()));
             this.c.setFadingEdgeLength(0);
@@ -141,7 +141,7 @@ public class yf6 {
             this.e.G(R.dimen.tbfontsize33);
             this.e.E(SkinManager.getColor(R.color.CAM_X0107));
             this.e.A(R.color.CAM_X0110);
-            this.d = (FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f090a95);
+            this.d = (FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f090a8e);
             j(false);
         }
     }
@@ -240,7 +240,7 @@ public class yf6 {
             this.c.setNextPage(this.e);
             this.e.L(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
             this.e.f();
-            this.e.C(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f09e7));
+            this.e.C(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f09d3));
         }
     }
 

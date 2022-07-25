@@ -23,19 +23,19 @@ import java.util.concurrent.atomic.AtomicInteger;
 /* loaded from: classes5.dex */
 public final class i extends j {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile i a;
+    public static volatile i axl;
     public transient /* synthetic */ FieldHolder $fh;
-    public volatile boolean b;
-    public j c;
-    public ExecutorService d;
-    public Map<String, a> e;
+    public j axm;
+    public ExecutorService axn;
+    public Map<String, a> axo;
+    public volatile boolean mHasInit;
 
     /* loaded from: classes5.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final com.kwai.sodler.lib.a.f a;
-        public final Future<com.kwai.sodler.lib.a.f> b;
+        public final Future<com.kwai.sodler.lib.a.f> VO;
+        public final com.kwai.sodler.lib.a.f axr;
 
         public a(com.kwai.sodler.lib.a.f fVar, Future<com.kwai.sodler.lib.a.f> future) {
             Interceptable interceptable = $ic;
@@ -52,15 +52,15 @@ public final class i extends j {
                     return;
                 }
             }
-            this.a = fVar;
-            this.b = future;
+            this.axr = fVar;
+            this.VO = future;
         }
 
-        public final void a() {
+        public final void cancel() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.e();
-                this.b.cancel(true);
+                this.axr.cancel();
+                this.VO.cancel(true);
             }
         }
     }
@@ -82,56 +82,79 @@ public final class i extends j {
                 return;
             }
         }
-        this.b = false;
+        this.mHasInit = false;
     }
 
-    @Nullable
-    private synchronized a a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, this, str)) == null) {
-            synchronized (this) {
-                if (this.b) {
-                    Map<String, a> a2 = j.a(this.e);
-                    this.e = a2;
-                    if (str != null) {
-                        return a2.get(str);
-                    }
-                    return null;
-                }
-                throw new RuntimeException("Sodler has not yet been init.");
-            }
-        }
-        return (a) invokeL.objValue;
-    }
-
-    public static i a() {
+    public static i EU() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (a == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (axl == null) {
                 synchronized (i.class) {
-                    if (a == null) {
-                        a = new i();
+                    if (axl == null) {
+                        axl = new i();
                     }
                 }
             }
-            return a;
+            return axl;
         }
         return (i) invokeV.objValue;
     }
 
+    public static ExecutorService EV() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? new ThreadPoolExecutor(0, 1, 60L, TimeUnit.SECONDS, new LinkedBlockingQueue(), new ThreadFactory() { // from class: com.kwai.sodler.lib.i.1
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final AtomicInteger poolNumber;
+
+            {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    interceptable2.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.poolNumber = new AtomicInteger(1);
+            }
+
+            @Override // java.util.concurrent.ThreadFactory
+            public final Thread newThread(Runnable runnable) {
+                InterceptResult invokeL;
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, runnable)) == null) {
+                    return new Thread(runnable, "ksad-Sodler-" + this.poolNumber.getAndIncrement());
+                }
+                return (Thread) invokeL.objValue;
+            }
+        }) : (ExecutorService) invokeV.objValue;
+    }
+
+    private void Fd() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(65539, this) == null) && !this.mHasInit) {
+            throw new RuntimeException("Sodler has not yet been init.");
+        }
+    }
+
     private synchronized void a(String str, a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65539, this, str, aVar) == null) {
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, this, str, aVar) == null) {
             synchronized (this) {
-                if (!this.b) {
+                if (!this.mHasInit) {
                     throw new RuntimeException("Sodler has not yet been init.");
                 }
-                Map<String, a> a2 = j.a(this.e);
-                this.e = a2;
+                Map<String, a> e = j.e(this.axo);
+                this.axo = e;
                 if (str != null) {
-                    a2.put(str, aVar);
+                    e.put(str, aVar);
                 }
             }
         }
@@ -140,19 +163,19 @@ public final class i extends j {
     private a b(@NonNull com.kwai.sodler.lib.a.f fVar, @NonNull j.a aVar) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, this, fVar, aVar)) == null) {
-            if (this.b) {
-                a a2 = a(fVar.i());
-                if (a2 != null) {
-                    a2.a();
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, this, fVar, aVar)) == null) {
+            if (this.mHasInit) {
+                a eR = eR(fVar.getId());
+                if (eR != null) {
+                    eR.cancel();
                 }
                 fVar.a(this);
-                a aVar2 = new a(fVar, this.d.submit(new Callable<com.kwai.sodler.lib.a.f>(this, fVar, aVar) { // from class: com.kwai.sodler.lib.i.2
+                a aVar2 = new a(fVar, this.axn.submit(new Callable<com.kwai.sodler.lib.a.f>(this, fVar, aVar) { // from class: com.kwai.sodler.lib.i.2
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
-                    public final /* synthetic */ com.kwai.sodler.lib.a.f a;
-                    public final /* synthetic */ j.a b;
-                    public final /* synthetic */ i c;
+                    public final /* synthetic */ com.kwai.sodler.lib.a.f axb;
+                    public final /* synthetic */ j.a axp;
+                    public final /* synthetic */ i axq;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -169,22 +192,22 @@ public final class i extends j {
                                 return;
                             }
                         }
-                        this.c = this;
-                        this.a = fVar;
-                        this.b = aVar;
+                        this.axq = this;
+                        this.axb = fVar;
+                        this.axp = aVar;
                     }
 
                     /* JADX DEBUG: Method merged with bridge method */
                     /* JADX INFO: Access modifiers changed from: private */
                     @Override // java.util.concurrent.Callable
-                    /* renamed from: a */
+                    /* renamed from: Fe */
                     public com.kwai.sodler.lib.a.f call() {
                         InterceptResult invokeV;
                         Interceptable interceptable2 = $ic;
-                        return (interceptable2 == null || (invokeV = interceptable2.invokeV(65537, this)) == null) ? this.c.a(this.a, this.b) : (com.kwai.sodler.lib.a.f) invokeV.objValue;
+                        return (interceptable2 == null || (invokeV = interceptable2.invokeV(65537, this)) == null) ? this.axq.a(this.axb, this.axp) : (com.kwai.sodler.lib.a.f) invokeV.objValue;
                     }
                 }));
-                a(fVar.i(), aVar2);
+                a(fVar.getId(), aVar2);
                 return aVar2;
             }
             throw new RuntimeException("Sodler has not yet been init.");
@@ -192,61 +215,128 @@ public final class i extends j {
         return (a) invokeLL.objValue;
     }
 
-    public static ExecutorService i() {
-        InterceptResult invokeV;
+    @Nullable
+    private synchronized a eR(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? new ThreadPoolExecutor(0, 1, 60L, TimeUnit.SECONDS, new LinkedBlockingQueue(), new ThreadFactory() { // from class: com.kwai.sodler.lib.i.1
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final AtomicInteger a;
-
-            {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    interceptable2.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable2.invokeInitBody(65536, newInitContext);
-                        return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, this, str)) == null) {
+            synchronized (this) {
+                if (this.mHasInit) {
+                    Map<String, a> e = j.e(this.axo);
+                    this.axo = e;
+                    if (str != null) {
+                        return e.get(str);
                     }
+                    return null;
                 }
-                this.a = new AtomicInteger(1);
+                throw new RuntimeException("Sodler has not yet been init.");
             }
-
-            @Override // java.util.concurrent.ThreadFactory
-            public final Thread newThread(Runnable runnable) {
-                InterceptResult invokeL;
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, runnable)) == null) {
-                    return new Thread(runnable, "ksad-Sodler-" + this.a.getAndIncrement());
-                }
-                return (Thread) invokeL.objValue;
-            }
-        }) : (ExecutorService) invokeV.objValue;
+        }
+        return (a) invokeL.objValue;
     }
 
-    private void j() {
+    public final com.kwai.sodler.lib.a.e EW() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65542, this) == null) && !this.b) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (this.mHasInit) {
+                return this.axm;
+            }
             throw new RuntimeException("Sodler has not yet been init.");
         }
+        return (com.kwai.sodler.lib.a.e) invokeV.objValue;
+    }
+
+    @Override // com.kwai.sodler.lib.j, com.kwai.sodler.lib.a.e
+    public final com.kwai.sodler.lib.ext.c EX() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (this.mHasInit) {
+                return this.axm.EX();
+            }
+            throw new RuntimeException("Sodler has not yet been init.");
+        }
+        return (com.kwai.sodler.lib.ext.c) invokeV.objValue;
+    }
+
+    @Override // com.kwai.sodler.lib.j, com.kwai.sodler.lib.a.e
+    public final com.kwai.sodler.lib.a.d EY() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (this.mHasInit) {
+                return this.axm.EY();
+            }
+            throw new RuntimeException("Sodler has not yet been init.");
+        }
+        return (com.kwai.sodler.lib.a.d) invokeV.objValue;
+    }
+
+    @Override // com.kwai.sodler.lib.j, com.kwai.sodler.lib.a.e
+    public final com.kwai.sodler.lib.a.g EZ() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if (this.mHasInit) {
+                return this.axm.EZ();
+            }
+            throw new RuntimeException("Sodler has not yet been init.");
+        }
+        return (com.kwai.sodler.lib.a.g) invokeV.objValue;
+    }
+
+    @Override // com.kwai.sodler.lib.j, com.kwai.sodler.lib.a.e
+    public final com.kwai.sodler.lib.a.c Fa() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            if (this.mHasInit) {
+                return this.axm.Fa();
+            }
+            throw new RuntimeException("Sodler has not yet been init.");
+        }
+        return (com.kwai.sodler.lib.a.c) invokeV.objValue;
+    }
+
+    @Override // com.kwai.sodler.lib.j, com.kwai.sodler.lib.a.e
+    public final com.kwai.sodler.lib.a.b Fb() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            if (this.mHasInit) {
+                return this.axm.Fb();
+            }
+            throw new RuntimeException("Sodler has not yet been init.");
+        }
+        return (com.kwai.sodler.lib.a.b) invokeV.objValue;
+    }
+
+    @Override // com.kwai.sodler.lib.j, com.kwai.sodler.lib.a.e
+    public final com.kwai.sodler.lib.ext.a Fc() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            if (this.mHasInit) {
+                return this.axm.Fc();
+            }
+            throw new RuntimeException("Sodler has not yet been init.");
+        }
+        return (com.kwai.sodler.lib.ext.a) invokeV.objValue;
     }
 
     @Override // com.kwai.sodler.lib.j
     public final com.kwai.sodler.lib.a.f a(@NonNull com.kwai.sodler.lib.a.f fVar, @NonNull j.a aVar) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, fVar, aVar)) == null) {
-            if (this.b) {
-                com.kwai.sodler.lib.a.e b = fVar.b();
-                j jVar = this.c;
-                if (b == null) {
-                    b = jVar;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, fVar, aVar)) == null) {
+            if (this.mHasInit) {
+                com.kwai.sodler.lib.a.e Fk = fVar.Fk();
+                j jVar = this.axm;
+                if (Fk == null) {
+                    Fk = jVar;
                 }
-                return jVar.a(fVar.a(b), aVar);
+                return jVar.a(fVar.a(Fk), aVar);
             }
             throw new RuntimeException("Sodler has not yet been init.");
         }
@@ -256,125 +346,35 @@ public final class i extends j {
     public final a a(@NonNull com.kwai.sodler.lib.a.f fVar, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, fVar, i)) == null) ? b(fVar, j.a.a(this, 16)) : (a) invokeLI.objValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, fVar, i)) == null) ? b(fVar, j.a.a(this, 16)) : (a) invokeLI.objValue;
     }
 
     public final synchronized void a(Context context, @NonNull com.kwai.sodler.lib.ext.c cVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, cVar) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048585, this, context, cVar) == null) {
             synchronized (this) {
-                if (!this.b) {
+                if (!this.mHasInit) {
                     d dVar = new d(context);
                     e eVar = new e(context);
                     c cVar2 = new c(context, cVar);
                     b bVar = new b();
-                    this.d = i();
-                    this.c = new j(dVar, eVar, cVar2, bVar, cVar, new com.kwai.sodler.lib.ext.a());
-                    this.b = true;
-                    j();
+                    this.axn = EV();
+                    this.axm = new j(dVar, eVar, cVar2, bVar, cVar, new com.kwai.sodler.lib.ext.a());
+                    this.mHasInit = true;
+                    Fd();
                 }
             }
         }
     }
 
-    public final void a(@NonNull com.kwai.sodler.lib.a.f fVar) {
+    public final void l(@NonNull com.kwai.sodler.lib.a.f fVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, fVar) == null) {
-            a a2 = a(fVar.i());
-            if (a2 != null) {
-                a2.a();
+        if (interceptable == null || interceptable.invokeL(1048586, this, fVar) == null) {
+            a eR = eR(fVar.getId());
+            if (eR != null) {
+                eR.cancel();
             }
-            a(fVar.i(), (a) null);
+            a(fVar.getId(), (a) null);
         }
-    }
-
-    public final com.kwai.sodler.lib.a.e b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (this.b) {
-                return this.c;
-            }
-            throw new RuntimeException("Sodler has not yet been init.");
-        }
-        return (com.kwai.sodler.lib.a.e) invokeV.objValue;
-    }
-
-    @Override // com.kwai.sodler.lib.j, com.kwai.sodler.lib.a.e
-    public final com.kwai.sodler.lib.ext.c c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            if (this.b) {
-                return this.c.c();
-            }
-            throw new RuntimeException("Sodler has not yet been init.");
-        }
-        return (com.kwai.sodler.lib.ext.c) invokeV.objValue;
-    }
-
-    @Override // com.kwai.sodler.lib.j, com.kwai.sodler.lib.a.e
-    public final com.kwai.sodler.lib.a.d d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            if (this.b) {
-                return this.c.d();
-            }
-            throw new RuntimeException("Sodler has not yet been init.");
-        }
-        return (com.kwai.sodler.lib.a.d) invokeV.objValue;
-    }
-
-    @Override // com.kwai.sodler.lib.j, com.kwai.sodler.lib.a.e
-    public final com.kwai.sodler.lib.a.g e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            if (this.b) {
-                return this.c.e();
-            }
-            throw new RuntimeException("Sodler has not yet been init.");
-        }
-        return (com.kwai.sodler.lib.a.g) invokeV.objValue;
-    }
-
-    @Override // com.kwai.sodler.lib.j, com.kwai.sodler.lib.a.e
-    public final com.kwai.sodler.lib.a.c f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            if (this.b) {
-                return this.c.f();
-            }
-            throw new RuntimeException("Sodler has not yet been init.");
-        }
-        return (com.kwai.sodler.lib.a.c) invokeV.objValue;
-    }
-
-    @Override // com.kwai.sodler.lib.j, com.kwai.sodler.lib.a.e
-    public final com.kwai.sodler.lib.a.b g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            if (this.b) {
-                return this.c.g();
-            }
-            throw new RuntimeException("Sodler has not yet been init.");
-        }
-        return (com.kwai.sodler.lib.a.b) invokeV.objValue;
-    }
-
-    @Override // com.kwai.sodler.lib.j, com.kwai.sodler.lib.a.e
-    public final com.kwai.sodler.lib.ext.a h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            if (this.b) {
-                return this.c.h();
-            }
-            throw new RuntimeException("Sodler has not yet been init.");
-        }
-        return (com.kwai.sodler.lib.ext.a) invokeV.objValue;
     }
 }

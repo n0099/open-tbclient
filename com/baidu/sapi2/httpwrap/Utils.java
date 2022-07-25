@@ -42,6 +42,7 @@ public class Utils {
                 String clientId = SapiUtils.getClientId(confignation.context);
                 hashMap.put("cuid", clientId);
                 hashMap.put("clientid", clientId);
+                hashMap.put("clientfrom", "native");
                 hashMap.put("zid", isAccountManager.getCurrentZid(confignation.context));
                 hashMap.put("clientip", confignation.clientIp);
                 hashMap.put("appid", confignation.appId);

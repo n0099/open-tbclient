@@ -62,7 +62,7 @@ public final class rj5 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, widget) == null) {
                 Intrinsics.checkNotNullParameter(widget, "widget");
-                rl4.l(this.a, "https://tieba.baidu.com/tb/mobile/wisemainstatic/secretright.html");
+                sl4.l(this.a, "https://tieba.baidu.com/tb/mobile/wisemainstatic/secretright.html");
             }
         }
     }
@@ -96,76 +96,76 @@ public final class rj5 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, widget) == null) {
                 Intrinsics.checkNotNullParameter(widget, "widget");
-                rl4.l(this.a, "https://gsp0.baidu.com/5aAHeD3nKhI2p27j8IqW0jdnxx1xbK/tb/eula.html");
+                sl4.l(this.a, "https://gsp0.baidu.com/5aAHeD3nKhI2p27j8IqW0jdnxx1xbK/tb/eula.html");
             }
         }
     }
 
-    public static final cr4 a(TbPageContext<?> tbPageContext, View.OnClickListener listener, int i, int i2) {
+    public static final dr4 a(TbPageContext<?> tbPageContext, View.OnClickListener listener, int i, int i2) {
         InterceptResult invokeLLII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLII = interceptable.invokeLLII(65536, null, tbPageContext, listener, i, i2)) == null) {
             Intrinsics.checkNotNullParameter(tbPageContext, "tbPageContext");
             Intrinsics.checkNotNullParameter(listener, "listener");
-            View inflate = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0706, (ViewGroup) null);
+            View inflate = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0710, (ViewGroup) null);
             Intrinsics.checkNotNullExpressionValue(inflate, "from(tbPageContext.pageA…olicy_guide_dialog, null)");
-            EMTextView eMTextView = (EMTextView) inflate.findViewById(R.id.obfuscated_res_0x7f0920bc);
-            eMTextView.setText(R.string.obfuscated_res_0x7f0f10e6);
-            ur4 d = ur4.d(eMTextView);
+            EMTextView eMTextView = (EMTextView) inflate.findViewById(R.id.obfuscated_res_0x7f0920be);
+            eMTextView.setText(R.string.obfuscated_res_0x7f0f10a2);
+            vr4 d = vr4.d(eMTextView);
             d.A(R.string.F_X02);
             d.z(R.dimen.T_X05);
-            EMTextView eMTextView2 = (EMTextView) inflate.findViewById(R.id.obfuscated_res_0x7f0906ae);
+            EMTextView eMTextView2 = (EMTextView) inflate.findViewById(R.id.obfuscated_res_0x7f0906ad);
             eMTextView2.setHighlightColor(0);
             StringCompanionObject stringCompanionObject = StringCompanionObject.INSTANCE;
             String string = tbPageContext.getString(i);
             Intrinsics.checkNotNullExpressionValue(string, "tbPageContext.getString(contentTestResId)");
-            String format = String.format(string, Arrays.copyOf(new Object[]{tbPageContext.getString(R.string.obfuscated_res_0x7f0f0ee9), tbPageContext.getString(R.string.obfuscated_res_0x7f0f14f7)}, 2));
+            String format = String.format(string, Arrays.copyOf(new Object[]{tbPageContext.getString(R.string.obfuscated_res_0x7f0f0ed2), tbPageContext.getString(R.string.obfuscated_res_0x7f0f14a6)}, 2));
             Intrinsics.checkNotNullExpressionValue(format, "java.lang.String.format(format, *args)");
             Activity pageActivity = tbPageContext.getPageActivity();
             Intrinsics.checkNotNullExpressionValue(pageActivity, "tbPageContext.pageActivity");
             SpannableString d2 = d(pageActivity, format);
             eMTextView2.setMovementMethod(LinkMovementMethod.getInstance());
             eMTextView2.setText(d2);
-            ur4.d(eMTextView2).z(R.dimen.T_X07);
+            vr4.d(eMTextView2).z(R.dimen.T_X07);
             EMTextView eMTextView3 = (EMTextView) inflate.findViewById(R.id.obfuscated_res_0x7f0903ea);
             eMTextView3.setText(i2);
-            ur4.d(eMTextView3).z(R.dimen.T_X08);
+            vr4.d(eMTextView3).z(R.dimen.T_X08);
             eMTextView3.setOnClickListener(listener);
             TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) inflate.findViewById(R.id.obfuscated_res_0x7f092548);
-            tBSpecificationBtn.setText(tbPageContext.getString(R.string.obfuscated_res_0x7f0f10da));
+            tBSpecificationBtn.setText(tbPageContext.getString(R.string.obfuscated_res_0x7f0f1096));
             tBSpecificationBtn.setTextSize(R.dimen.T_X07);
-            uu4 uu4Var = new uu4();
-            uu4Var.p(R.color.CAM_X0303, R.color.CAM_X0101);
-            tBSpecificationBtn.setConfig(uu4Var);
+            vu4 vu4Var = new vu4();
+            vu4Var.p(R.color.CAM_X0303, R.color.CAM_X0101);
+            tBSpecificationBtn.setConfig(vu4Var);
             tBSpecificationBtn.setOnClickListener(listener);
-            cr4 cr4Var = new cr4(tbPageContext.getPageActivity());
-            cr4Var.setContentView(inflate);
-            cr4Var.setContentViewSize(8);
-            cr4Var.setAutoNight(false);
-            cr4Var.setCanceledOnTouchOutside(false);
-            cr4Var.setCancelable(false);
-            cr4Var.create(tbPageContext);
-            return cr4Var;
+            dr4 dr4Var = new dr4(tbPageContext.getPageActivity());
+            dr4Var.setContentView(inflate);
+            dr4Var.setContentViewSize(8);
+            dr4Var.setAutoNight(false);
+            dr4Var.setCanceledOnTouchOutside(false);
+            dr4Var.setCancelable(false);
+            dr4Var.create(tbPageContext);
+            return dr4Var;
         }
-        return (cr4) invokeLLII.objValue;
+        return (dr4) invokeLLII.objValue;
     }
 
-    public static final cr4 b(TbPageContext<?> tbPageContext, View.OnClickListener listener) {
+    public static final dr4 b(TbPageContext<?> tbPageContext, View.OnClickListener listener) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, tbPageContext, listener)) == null) {
             Intrinsics.checkNotNullParameter(tbPageContext, "tbPageContext");
             Intrinsics.checkNotNullParameter(listener, "listener");
-            View inflate = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0707, (ViewGroup) null);
+            View inflate = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0711, (ViewGroup) null);
             Intrinsics.checkNotNullExpressionValue(inflate, "from(tbPageContext.pageA…rivate_hint_dialog, null)");
-            ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09199e)).setText(R.string.obfuscated_res_0x7f0f10e6);
-            inflate.findViewById(R.id.obfuscated_res_0x7f0919e2).setVisibility(0);
-            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0919e3);
+            ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091979)).setText(R.string.obfuscated_res_0x7f0f10a2);
+            inflate.findViewById(R.id.obfuscated_res_0x7f0919bc).setVisibility(0);
+            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0919bd);
             textView.setHighlightColor(0);
             StringCompanionObject stringCompanionObject = StringCompanionObject.INSTANCE;
-            String string = tbPageContext.getString(R.string.obfuscated_res_0x7f0f10e5);
+            String string = tbPageContext.getString(R.string.obfuscated_res_0x7f0f10a1);
             Intrinsics.checkNotNullExpressionValue(string, "tbPageContext.getString(…tring.secret_hint_format)");
-            String format = String.format(string, Arrays.copyOf(new Object[]{tbPageContext.getString(R.string.obfuscated_res_0x7f0f10e4), tbPageContext.getString(R.string.obfuscated_res_0x7f0f10e9), tbPageContext.getString(R.string.obfuscated_res_0x7f0f10dd), tbPageContext.getString(R.string.obfuscated_res_0x7f0f10de), tbPageContext.getString(R.string.obfuscated_res_0x7f0f10df), tbPageContext.getString(R.string.obfuscated_res_0x7f0f10e0), tbPageContext.getString(R.string.obfuscated_res_0x7f0f10e1)}, 7));
+            String format = String.format(string, Arrays.copyOf(new Object[]{tbPageContext.getString(R.string.obfuscated_res_0x7f0f10a0), tbPageContext.getString(R.string.obfuscated_res_0x7f0f10a5), tbPageContext.getString(R.string.obfuscated_res_0x7f0f1099), tbPageContext.getString(R.string.obfuscated_res_0x7f0f109a), tbPageContext.getString(R.string.obfuscated_res_0x7f0f109b), tbPageContext.getString(R.string.obfuscated_res_0x7f0f109c), tbPageContext.getString(R.string.obfuscated_res_0x7f0f109d)}, 7));
             Intrinsics.checkNotNullExpressionValue(format, "java.lang.String.format(format, *args)");
             Activity pageActivity = tbPageContext.getPageActivity();
             Intrinsics.checkNotNullExpressionValue(pageActivity, "tbPageContext.pageActivity");
@@ -176,25 +176,25 @@ public final class rj5 {
             }
             textView.setMovementMethod(LinkMovementMethod.getInstance());
             textView.setText(d);
-            TextView textView2 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09199a);
+            TextView textView2 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091975);
             textView2.setOnClickListener(listener);
             SkinManager.setViewTextColorSelector(textView2, R.color.CAM_X0110, R.color.CAM_X0110, 0);
-            TextView textView3 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09199f);
+            TextView textView3 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09197a);
             textView3.setOnClickListener(listener);
-            ur4 d2 = ur4.d(textView3);
+            vr4 d2 = vr4.d(textView3);
             d2.n(R.string.J_X01);
             d2.f(R.color.CAM_X0303);
             SkinManager.setViewTextColorSelector(textView3, R.color.CAM_X0101, R.color.CAM_X0618, 0);
-            cr4 cr4Var = new cr4(tbPageContext.getPageActivity());
-            cr4Var.setContentView(inflate);
-            cr4Var.setContentViewSize(7);
-            cr4Var.setCanceledOnTouchOutside(false);
-            cr4Var.setAutoNight(false);
-            cr4Var.setCancelable(false);
-            cr4Var.create(tbPageContext);
-            return cr4Var;
+            dr4 dr4Var = new dr4(tbPageContext.getPageActivity());
+            dr4Var.setContentView(inflate);
+            dr4Var.setContentViewSize(7);
+            dr4Var.setCanceledOnTouchOutside(false);
+            dr4Var.setAutoNight(false);
+            dr4Var.setCancelable(false);
+            dr4Var.create(tbPageContext);
+            return dr4Var;
         }
-        return (cr4) invokeLL.objValue;
+        return (dr4) invokeLL.objValue;
     }
 
     public static final int[] c(String str, int i) {
@@ -214,11 +214,11 @@ public final class rj5 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, context, str)) == null) {
             SpannableString spannableString = new SpannableString(str);
-            int[] c = c(str, R.string.obfuscated_res_0x7f0f0ee9);
+            int[] c = c(str, R.string.obfuscated_res_0x7f0f0ed2);
             if (c[0] != -1) {
                 spannableString.setSpan(new a(context), c[0], c[1], 18);
             }
-            int[] c2 = c(str, R.string.obfuscated_res_0x7f0f14f7);
+            int[] c2 = c(str, R.string.obfuscated_res_0x7f0f14a6);
             if (c2[0] != -1) {
                 spannableString.setSpan(new b(context), c2[0], c2[1], 18);
             }

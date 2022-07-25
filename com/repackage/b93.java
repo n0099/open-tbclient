@@ -1,9 +1,7 @@
 package com.repackage;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.collection.ArrayMap;
-import com.baidu.searchbox.process.ipc.util.ProcessUtils;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.storage.swankv.AshmemFileDescriptor;
 import com.baidu.storage.swankv.SwanKV;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -11,13 +9,12 @@ import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.Map;
 /* loaded from: classes5.dex */
 public class b93 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
-    public static final Map<String, a93> b;
     public transient /* synthetic */ FieldHolder $fh;
+    public final AshmemFileDescriptor a;
+    public volatile SwanKV b;
 
     static {
         InterceptResult invokeClinit;
@@ -32,57 +29,26 @@ public class b93 {
                 return;
             }
         }
-        a = rg1.a;
-        b = new ArrayMap();
+        z83.f();
     }
 
-    @Nullable
-    public static AshmemFileDescriptor a(@NonNull String str, int i) {
-        InterceptResult invokeLI;
+    public AshmemFileDescriptor a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, str, i)) == null) {
-            try {
-                if (ProcessUtils.isMainProcess()) {
-                    synchronized (b) {
-                        a93 a93Var = b.get(str);
-                        if (a93Var != null && a93Var.a() != null) {
-                            return a93Var.a();
-                        }
-                        int ashmemFD = SwanKV.getAshmemFD(str, i);
-                        if (ashmemFD >= 0) {
-                            AshmemFileDescriptor ashmemFileDescriptor = new AshmemFileDescriptor(str, ashmemFD, i);
-                            x83.e(ashmemFileDescriptor);
-                            return ashmemFileDescriptor;
-                        }
-                        return null;
-                    }
-                }
-                return w83.c(str, i);
-            } catch (Throwable th) {
-                if (a) {
-                    th.printStackTrace();
-                    return null;
-                }
-                return null;
-            }
-        }
-        return (AshmemFileDescriptor) invokeLI.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (AshmemFileDescriptor) invokeV.objValue;
     }
 
-    public static synchronized void b(@NonNull AshmemFileDescriptor ashmemFileDescriptor) {
+    @NonNull
+    public SwanKV b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, ashmemFileDescriptor) == null) {
-            synchronized (b93.class) {
-                if (ProcessUtils.isMainProcess()) {
-                    return;
-                }
-                a93 a93Var = b.get(ashmemFileDescriptor.getName());
-                if (a93Var != null && a93Var.a() != null && a93Var.a().getAshmemFD() != ashmemFileDescriptor.getAshmemFD()) {
-                    SwanKV b2 = a93Var.b();
-                    a93Var.c(new SwanKV(ashmemFileDescriptor));
-                    b2.release();
-                }
-            }
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : (SwanKV) invokeV.objValue;
+    }
+
+    public void c(@NonNull SwanKV swanKV) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, swanKV) == null) {
+            this.b = swanKV;
         }
     }
 }

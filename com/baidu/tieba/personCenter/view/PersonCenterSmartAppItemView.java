@@ -80,7 +80,7 @@ public class PersonCenterSmartAppItemView extends LinearLayout implements View.O
             if (!oi.isEmpty(g)) {
                 this.b.setText(UtilHelper.getFixedText(g, 5));
             } else {
-                this.b.setText(R.string.obfuscated_res_0x7f0f0906);
+                this.b.setText(R.string.obfuscated_res_0x7f0f08f1);
             }
             if (m18Var.getType() == 1) {
                 SkinManager.setImageResource(this.c, R.drawable.icon_personal_recommend);
@@ -91,7 +91,7 @@ public class PersonCenterSmartAppItemView extends LinearLayout implements View.O
             setOnClickListener(this);
         } else if (m18Var instanceof w18) {
             SkinManager.setImageResource(this.a, R.drawable.icon_personal_more);
-            this.b.setText(R.string.obfuscated_res_0x7f0f0ad3);
+            this.b.setText(R.string.obfuscated_res_0x7f0f0abf);
             setOnClickListener(this);
         }
     }
@@ -208,14 +208,14 @@ public class PersonCenterSmartAppItemView extends LinearLayout implements View.O
                 return;
             }
         }
-        LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d06b9, (ViewGroup) this, true);
-        HeadImageView headImageView = (HeadImageView) findViewById(R.id.obfuscated_res_0x7f090fb5);
+        LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d06c3, (ViewGroup) this, true);
+        HeadImageView headImageView = (HeadImageView) findViewById(R.id.obfuscated_res_0x7f090fae);
         this.a = headImageView;
         headImageView.setIsRound(true);
         this.a.setDefaultResource(R.color.CAM_X0204);
         this.a.setPlaceHolder(1);
-        this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f092276);
-        this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f0913c7);
+        this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f092278);
+        this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f0913a3);
         c();
     }
 }

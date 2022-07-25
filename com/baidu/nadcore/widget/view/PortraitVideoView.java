@@ -242,7 +242,7 @@ public class PortraitVideoView extends AdFeedBaseView implements View.OnClickLis
         if (interceptable == null || interceptable.invokeL(1048579, this, adBaseModel) == null) {
             this.j.setVisibility(0);
             this.j.setData(adBaseModel);
-            this.j.setTag(R.id.obfuscated_res_0x7f091544, adBaseModel);
+            this.j.setTag(R.id.obfuscated_res_0x7f09151f, adBaseModel);
         }
     }
 
@@ -288,7 +288,7 @@ public class PortraitVideoView extends AdFeedBaseView implements View.OnClickLis
     public void onClick(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, view2) == null) {
-            if (view2.getId() == R.id.obfuscated_res_0x7f091559 || view2.getId() == R.id.obfuscated_res_0x7f0923c0) {
+            if (view2.getId() == R.id.obfuscated_res_0x7f091534 || view2.getId() == R.id.obfuscated_res_0x7f0923c2) {
                 Log.d("PortraitVideoView", "onclick area： cover");
                 if (this.i.isPlaying()) {
                     this.i.pause();
@@ -339,20 +339,20 @@ public class PortraitVideoView extends AdFeedBaseView implements View.OnClickLis
     public void x(LayoutInflater layoutInflater, pn0 pn0Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048587, this, layoutInflater, pn0Var) == null) {
-            layoutInflater.inflate((pn0Var == null || pn0Var.a(AdBaseModel.STYLE.PORTRAIT_VIDEO) == 0) ? R.layout.obfuscated_res_0x7f0d05c8 : pn0Var.a(AdBaseModel.STYLE.PORTRAIT_VIDEO), this);
+            layoutInflater.inflate((pn0Var == null || pn0Var.a(AdBaseModel.STYLE.PORTRAIT_VIDEO) == 0) ? R.layout.obfuscated_res_0x7f0d05d2 : pn0Var.a(AdBaseModel.STYLE.PORTRAIT_VIDEO), this);
         }
     }
 
     public void y(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, context) == null) {
-            NadVideoAdOverContainer nadVideoAdOverContainer = (NadVideoAdOverContainer) findViewById(R.id.obfuscated_res_0x7f091559);
+            NadVideoAdOverContainer nadVideoAdOverContainer = (NadVideoAdOverContainer) findViewById(R.id.obfuscated_res_0x7f091534);
             this.j = nadVideoAdOverContainer;
             nadVideoAdOverContainer.setOnClickListener(this);
-            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f0923c0);
+            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f0923c2);
             this.k = imageView;
             imageView.setOnClickListener(this);
-            this.l = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f091545);
+            this.l = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f091520);
         }
     }
 

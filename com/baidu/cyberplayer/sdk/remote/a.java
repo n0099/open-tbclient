@@ -17,18 +17,18 @@ public interface a extends IInterface {
 
     /* renamed from: com.baidu.cyberplayer.sdk.remote.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static abstract class AbstractBinderC0090a extends Binder implements a {
+    public static abstract class AbstractBinderC0091a extends Binder implements a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: com.baidu.cyberplayer.sdk.remote.a$a$a  reason: collision with other inner class name */
         /* loaded from: classes.dex */
-        public static class C0091a implements a {
+        public static class C0092a implements a {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public IBinder a;
 
-            public C0091a(IBinder iBinder) {
+            public C0092a(IBinder iBinder) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -134,7 +134,7 @@ public interface a extends IInterface {
             }
         }
 
-        public AbstractBinderC0090a() {
+        public AbstractBinderC0091a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -158,7 +158,7 @@ public interface a extends IInterface {
                     return null;
                 }
                 IInterface queryLocalInterface = iBinder.queryLocalInterface("com.baidu.cyberplayer.sdk.remote.IRemoteExtractor");
-                return (queryLocalInterface == null || !(queryLocalInterface instanceof a)) ? new C0091a(iBinder) : (a) queryLocalInterface;
+                return (queryLocalInterface == null || !(queryLocalInterface instanceof a)) ? new C0092a(iBinder) : (a) queryLocalInterface;
             }
             return (a) invokeL.objValue;
         }

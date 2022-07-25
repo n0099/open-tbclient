@@ -1,46 +1,64 @@
 package com.repackage;
 
-import android.graphics.Canvas;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONArray;
 /* loaded from: classes7.dex */
-public class yu1 extends nt1 {
+public class yu1 implements Cloneable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public int b;
+    public int c;
+    public wt1 d;
 
-    public yu1() {
+    public yu1(JSONArray jSONArray) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {jSONArray};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        b(jSONArray);
     }
 
-    @Override // com.repackage.nt1
-    public void a(ot1 ot1Var, Canvas canvas) {
+    public boolean a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, ot1Var, canvas) == null) {
-            int alpha = ot1Var.c.getAlpha();
-            ot1Var.c(ot1Var.c);
-            canvas.drawPath(ot1Var.f, ot1Var.c);
-            ot1Var.c.setAlpha(alpha);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            wt1 wt1Var = this.d;
+            return wt1Var != null && wt1Var.d();
         }
+        return invokeV.booleanValue;
     }
 
-    @Override // com.repackage.nt1
     public void b(JSONArray jSONArray) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) {
+            try {
+                if (jSONArray.length() > 3) {
+                    this.a = zd3.g((float) jSONArray.optDouble(0));
+                    this.b = zd3.g((float) jSONArray.optDouble(1));
+                    this.c = jSONArray.optInt(2);
+                    this.d = new wt1(jSONArray.optJSONArray(3));
+                }
+            } catch (Exception e) {
+                if (sg1.a) {
+                    e.printStackTrace();
+                }
+            }
         }
     }
 }

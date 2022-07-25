@@ -24,10 +24,10 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.gx;
-import com.repackage.nn4;
+import com.repackage.on4;
 import com.repackage.pi;
 /* loaded from: classes.dex */
-public class SmartAppBottomLayout extends LinearLayout implements gx<nn4> {
+public class SmartAppBottomLayout extends LinearLayout implements gx<on4> {
     public static /* synthetic */ Interceptable $ic;
     public static final int e;
     public transient /* synthetic */ FieldHolder $fh;
@@ -77,7 +77,7 @@ public class SmartAppBottomLayout extends LinearLayout implements gx<nn4> {
     public final void b(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
-            this.a = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0783, (ViewGroup) this, true);
+            this.a = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d078d, (ViewGroup) this, true);
             setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
             this.b = (HeadImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090185);
             this.c = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f090186);
@@ -90,10 +90,10 @@ public class SmartAppBottomLayout extends LinearLayout implements gx<nn4> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.repackage.gx
     /* renamed from: c */
-    public void a(nn4 nn4Var) {
+    public void a(on4 on4Var) {
         ThreadData threadData;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, nn4Var) == null) || (threadData = nn4Var.getThreadData()) == null || threadData.getSmartApp() == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, on4Var) == null) || (threadData = on4Var.getThreadData()) == null || threadData.getSmartApp() == null) {
             return;
         }
         if (!TextUtils.isEmpty(threadData.getSmartApp().avatar)) {

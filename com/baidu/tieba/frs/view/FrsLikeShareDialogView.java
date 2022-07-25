@@ -35,7 +35,7 @@ import com.repackage.lp6;
 import com.repackage.mp6;
 import com.repackage.oh8;
 import com.repackage.pi;
-import com.repackage.ur4;
+import com.repackage.vr4;
 /* loaded from: classes3.dex */
 public class FrsLikeShareDialogView extends ConstraintLayout implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
@@ -143,11 +143,11 @@ public class FrsLikeShareDialogView extends ConstraintLayout implements View.OnC
         this.e.J(currentAccountInfo.getAvatar(), 12, false);
         this.f.setText(StringHelper.cutChineseAndEnglishWithEmoji(currentAccountInfo.getAccountNameShow(), 12, StringHelper.STRING_MORE));
         TextView textView = this.g;
-        textView.setText(StringHelper.cutChineseAndEnglishWithEmoji(this.b.getName() + getContext().getString(R.string.obfuscated_res_0x7f0f044a), 16, StringHelper.STRING_MORE));
-        this.h.setText(getContext().getString(R.string.obfuscated_res_0x7f0f0711, oh8Var.k()));
+        textView.setText(StringHelper.cutChineseAndEnglishWithEmoji(this.b.getName() + getContext().getString(R.string.obfuscated_res_0x7f0f0449), 16, StringHelper.STRING_MORE));
+        this.h.setText(getContext().getString(R.string.obfuscated_res_0x7f0f070d, oh8Var.k()));
         String h = oh8Var.h();
         int length = !TextUtils.isEmpty(h) ? h.length() : 0;
-        SpannableString spannableString = new SpannableString(getContext().getString(R.string.obfuscated_res_0x7f0f0713, h));
+        SpannableString spannableString = new SpannableString(getContext().getString(R.string.obfuscated_res_0x7f0f070f, h));
         int i = length + 2;
         spannableString.setSpan(new ForegroundColorSpan(SkinManager.getColor(0, (int) R.color.CAM_X0304)), 2, i, 17);
         spannableString.setSpan(new StyleSpan(1), 2, i, 17);
@@ -171,25 +171,25 @@ public class FrsLikeShareDialogView extends ConstraintLayout implements View.OnC
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) {
             LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d032b, this);
-            this.c = (ConstraintLayout) findViewById(R.id.obfuscated_res_0x7f090b3a);
-            this.d = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090b4b);
-            this.e = (HeadImageView) findViewById(R.id.obfuscated_res_0x7f090b38);
-            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f090b4c);
-            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f090b40);
-            this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f090b46);
-            this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f090b42);
-            this.j = (ImageView) findViewById(R.id.obfuscated_res_0x7f090b49);
-            this.k = findViewById(R.id.obfuscated_res_0x7f090b39);
-            this.l = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090b4d);
-            this.m = (ImageView) findViewById(R.id.obfuscated_res_0x7f090b4e);
-            this.n = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090b3b);
-            this.o = (ImageView) findViewById(R.id.obfuscated_res_0x7f090b3c);
-            this.p = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090b47);
-            this.q = (ImageView) findViewById(R.id.obfuscated_res_0x7f090b48);
-            this.r = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090b3e);
-            this.s = (ImageView) findViewById(R.id.obfuscated_res_0x7f090b3f);
-            this.t = (ImageView) findViewById(R.id.obfuscated_res_0x7f090b3d);
-            this.u = findViewById(R.id.obfuscated_res_0x7f090b45);
+            this.c = (ConstraintLayout) findViewById(R.id.obfuscated_res_0x7f090b33);
+            this.d = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090b44);
+            this.e = (HeadImageView) findViewById(R.id.obfuscated_res_0x7f090b31);
+            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f090b45);
+            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f090b39);
+            this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f090b3f);
+            this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f090b3b);
+            this.j = (ImageView) findViewById(R.id.obfuscated_res_0x7f090b42);
+            this.k = findViewById(R.id.obfuscated_res_0x7f090b32);
+            this.l = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090b46);
+            this.m = (ImageView) findViewById(R.id.obfuscated_res_0x7f090b47);
+            this.n = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090b34);
+            this.o = (ImageView) findViewById(R.id.obfuscated_res_0x7f090b35);
+            this.p = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090b40);
+            this.q = (ImageView) findViewById(R.id.obfuscated_res_0x7f090b41);
+            this.r = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090b37);
+            this.s = (ImageView) findViewById(R.id.obfuscated_res_0x7f090b38);
+            this.t = (ImageView) findViewById(R.id.obfuscated_res_0x7f090b36);
+            this.u = findViewById(R.id.obfuscated_res_0x7f090b3e);
             f();
             e();
         }
@@ -198,7 +198,7 @@ public class FrsLikeShareDialogView extends ConstraintLayout implements View.OnC
     public final void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            ur4 d = ur4.d(this.k);
+            vr4 d = vr4.d(this.k);
             d.n(R.string.J_X17);
             d.g(SkinManager.getColor(0, (int) R.color.CAM_X0204));
             this.m.setImageDrawable(SvgManager.getInstance().getNormalDrawable(R.drawable.obfuscated_res_0x7f080804, SvgManager.SvgResourceStateType.NORMAL));
@@ -223,7 +223,7 @@ public class FrsLikeShareDialogView extends ConstraintLayout implements View.OnC
             this.d.setConrers(3);
             this.d.setIsBitmapPic(true);
             SkinManager.setImageResource(this.d, R.drawable.obfuscated_res_0x7f080ba1, 0);
-            ur4 d = ur4.d(this.u);
+            vr4 d = vr4.d(this.u);
             d.n(R.string.J_X06);
             d.f(R.color.CAM_X0501);
         }

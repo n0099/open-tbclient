@@ -70,14 +70,14 @@ public class jb8 {
                 viewGroup.removeAllViews();
                 if (TableDefine.DRColumns.COLUMN_JUMP_TO_RECENT.equals(va8Var.a)) {
                     if (this.a == 2) {
-                        return new ib8(LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d087a, this.c, true), TableDefine.DRColumns.COLUMN_JUMP_TO_RECENT);
+                        return new ib8(LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d0884, this.c, true), TableDefine.DRColumns.COLUMN_JUMP_TO_RECENT);
                     }
-                    return new gb8(LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d080a, this.c, true), TableDefine.DRColumns.COLUMN_JUMP_TO_RECENT);
+                    return new gb8(LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d0814, this.c, true), TableDefine.DRColumns.COLUMN_JUMP_TO_RECENT);
                 } else if ("apk_download".equals(va8Var.a)) {
                     if (this.a == 2) {
-                        return new hb8(LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d0879, this.c, true), "apk_download");
+                        return new hb8(LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d0883, this.c, true), "apk_download");
                     }
-                    return new fb8(LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d0809, this.c, true), "apk_download");
+                    return new fb8(LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d0813, this.c, true), "apk_download");
                 } else {
                     return null;
                 }

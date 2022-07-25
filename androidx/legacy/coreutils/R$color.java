@@ -9,8 +9,8 @@ public final class R$color {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int notification_action_color_filter = 2131101821;
     public static final int notification_icon_bg_color = 2131101822;
-    public static final int ripple_material_light = 2131101923;
-    public static final int secondary_text_default_material_light = 2131102220;
+    public static final int ripple_material_light = 2131101921;
+    public static final int secondary_text_default_material_light = 2131102204;
     public transient /* synthetic */ FieldHolder $fh;
 
     public R$color() {

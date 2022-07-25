@@ -6,7 +6,7 @@ import com.baidu.sapi2.activity.BaseActivity;
 import com.kwad.sdk.components.DevelopMangerComponents;
 import com.kwad.sdk.internal.api.SceneImpl;
 import com.kwad.sdk.service.ServiceProvider;
-import com.kwad.sdk.utils.aw;
+import com.kwad.sdk.utils.ba;
 import com.kwad.sdk.utils.r;
 import java.util.HashMap;
 import java.util.List;
@@ -24,11 +24,11 @@ public abstract class b implements g {
         if (encryptDisable()) {
             addHeader("x-ksad-ignore-decrypt", "true");
         }
-        addHeader("cookie", e.a().b());
-        com.kwad.sdk.core.a.d.a(getHeader());
-        addHeader("User-Agent", n.c());
-        addHeader("BrowserUa", n.d());
-        addHeader("SystemUa", n.a());
+        addHeader("cookie", e.ty().tz());
+        com.kwad.sdk.core.a.d.c(getHeader());
+        addHeader("User-Agent", o.getUserAgent());
+        addHeader("BrowserUa", o.tD());
+        addHeader("SystemUa", o.tC());
     }
 
     public void addHeader(String str, String str2) {
@@ -43,7 +43,7 @@ public abstract class b implements g {
     public abstract void buildBaseHeader();
 
     public boolean encryptDisable() {
-        com.kwad.sdk.components.c.a(DevelopMangerComponents.class);
+        com.kwad.sdk.components.c.f(DevelopMangerComponents.class);
         return false;
     }
 
@@ -53,10 +53,10 @@ public abstract class b implements g {
             return this.mBodyParams;
         }
         JSONObject jSONObject = new JSONObject();
-        com.kwad.sdk.service.kwai.d dVar = (com.kwad.sdk.service.kwai.d) ServiceProvider.a(com.kwad.sdk.service.kwai.d.class);
-        r.a(jSONObject, "version", dVar.i());
-        r.a(jSONObject, BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID, !TextUtils.isEmpty(aw.a()) ? aw.a() : dVar.b());
-        r.a(jSONObject, "message", com.kwad.sdk.core.a.d.a(this.mBodyParams.toString()));
+        com.kwad.sdk.service.kwai.d dVar = (com.kwad.sdk.service.kwai.d) ServiceProvider.get(com.kwad.sdk.service.kwai.d.class);
+        r.putValue(jSONObject, "version", dVar.getSDKVersion());
+        r.putValue(jSONObject, BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID, !TextUtils.isEmpty(ba.getAppId()) ? ba.getAppId() : dVar.getAppId());
+        r.putValue(jSONObject, "message", com.kwad.sdk.core.a.d.bM(this.mBodyParams.toString()));
         com.kwad.sdk.core.a.d.a(getUrl(), getHeader(), jSONObject.toString());
         return jSONObject;
     }
@@ -72,9 +72,10 @@ public abstract class b implements g {
     }
 
     public String getRequestHost() {
-        return com.kwad.sdk.b.a();
+        return com.kwad.sdk.b.qJ();
     }
 
+    @Override // com.kwad.sdk.core.network.g
     @Nullable
     public SceneImpl getScene() {
         return null;
@@ -84,23 +85,23 @@ public abstract class b implements g {
     public abstract String getUrl();
 
     public void putBody(String str, byte b) {
-        r.a(this.mBodyParams, str, b);
+        r.putValue(this.mBodyParams, str, b);
     }
 
     public void putBody(String str, double d) {
-        r.a(this.mBodyParams, str, d);
+        r.putValue(this.mBodyParams, str, d);
     }
 
     public void putBody(String str, float f) {
-        r.a(this.mBodyParams, str, f);
+        r.putValue(this.mBodyParams, str, f);
     }
 
     public void putBody(String str, int i) {
-        r.a(this.mBodyParams, str, i);
+        r.putValue(this.mBodyParams, str, i);
     }
 
     public void putBody(String str, long j) {
-        r.a(this.mBodyParams, str, j);
+        r.putValue(this.mBodyParams, str, j);
     }
 
     public void putBody(String str, com.kwad.sdk.core.b bVar) {
@@ -108,22 +109,22 @@ public abstract class b implements g {
     }
 
     public void putBody(String str, String str2) {
-        r.a(this.mBodyParams, str, str2);
+        r.putValue(this.mBodyParams, str, str2);
     }
 
     public void putBody(String str, List<? extends com.kwad.sdk.core.b> list) {
-        r.a(this.mBodyParams, str, list);
+        r.putValue(this.mBodyParams, str, list);
     }
 
     public void putBody(String str, JSONArray jSONArray) {
-        r.a(this.mBodyParams, str, jSONArray);
+        r.putValue(this.mBodyParams, str, jSONArray);
     }
 
     public void putBody(String str, JSONObject jSONObject) {
-        r.a(this.mBodyParams, str, jSONObject);
+        r.putValue(this.mBodyParams, str, jSONObject);
     }
 
     public void putBody(String str, boolean z) {
-        r.a(this.mBodyParams, str, z);
+        r.putValue(this.mBodyParams, str, z);
     }
 }

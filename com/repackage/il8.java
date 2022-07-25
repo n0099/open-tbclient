@@ -110,7 +110,7 @@ public class il8 {
     public static boolean e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? xt4.k().l("sync_local_dialog", 1) == 1 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? yt4.k().l("sync_local_dialog", 1) == 1 : invokeV.booleanValue;
     }
 
     public static boolean f(long j) {

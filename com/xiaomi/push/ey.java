@@ -17,7 +17,7 @@ public final class ey {
     public static final ey a;
 
     /* renamed from: a  reason: collision with other field name */
-    public static final /* synthetic */ ey[] f1052a;
+    public static final /* synthetic */ ey[] f332a;
     public static final ey b;
     public static final ey c;
     public static final ey d;
@@ -30,7 +30,7 @@ public final class ey {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
-    public final String f1053a;
+    public final String f333a;
 
     static {
         InterceptResult invokeClinit;
@@ -56,7 +56,7 @@ public final class ey {
         i = new ey("COMMAND_SET_ACCEPT_TIME", 8, MiPushClient.COMMAND_SET_ACCEPT_TIME);
         ey eyVar = new ey("COMMAND_CHK_VDEVID", 9, "check-vdeviceid");
         j = eyVar;
-        f1052a = new ey[]{a, b, c, d, e, f, g, h, i, eyVar};
+        f332a = new ey[]{a, b, c, d, e, f, g, h, i, eyVar};
     }
 
     public ey(String str, int i2, String str2) {
@@ -77,7 +77,7 @@ public final class ey {
                 return;
             }
         }
-        this.f1053a = str2;
+        this.f333a = str2;
     }
 
     public static int a(String str) {
@@ -90,7 +90,7 @@ public final class ey {
                 return -1;
             }
             for (ey eyVar : values()) {
-                if (eyVar.f1053a.equals(str)) {
+                if (eyVar.f333a.equals(str)) {
                     i2 = en.a(eyVar);
                 }
             }
@@ -108,6 +108,6 @@ public final class ey {
     public static ey[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (ey[]) f1052a.clone() : (ey[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (ey[]) f332a.clone() : (ey[]) invokeV.objValue;
     }
 }

@@ -7,5 +7,5 @@ import org.json.JSONObject;
 public interface e extends com.kwad.sdk.core.b {
     @Nullable
     @WorkerThread
-    JSONObject a();
+    JSONObject rv();
 }

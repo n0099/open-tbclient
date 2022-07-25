@@ -1,31 +1,66 @@
 package com.repackage;
 
 import android.view.View;
-import android.webkit.ValueCallback;
+import android.view.ViewGroup;
+import android.widget.FrameLayout;
+import androidx.annotation.Nullable;
+import com.baidu.swan.apps.core.container.PullToRefreshBaseWebView;
+import com.repackage.pm1;
 /* loaded from: classes6.dex */
-public interface om1 extends fz1 {
-    boolean canGoBack();
+public interface om1<T extends pm1> extends qm1<T>, xl1 {
+    void A(FrameLayout frameLayout, x03 x03Var);
 
-    View covertToView();
+    void D(int i);
 
-    void destroy();
+    boolean L();
 
-    @Override // com.repackage.fz1
-    void evaluateJavascript(String str, ValueCallback<String> valueCallback);
+    boolean M();
 
-    int getContentHeight();
+    void N(z62 z62Var);
 
-    View getCurrentWebView();
+    zm1 O();
 
-    float getScale();
+    void Q(FrameLayout frameLayout, x03 x03Var);
 
-    int getWebViewScrollX();
+    int S();
 
-    int getWebViewScrollY();
+    void T(String str);
 
-    void goBack();
+    void V();
 
-    void setDefaultViewSize(int i, int i2, String str);
+    boolean Y(g43 g43Var);
 
-    void webViewScrollTo(int i, int i2);
+    boolean a0(g43 g43Var);
+
+    void b0(w12 w12Var);
+
+    void c0(x12 x12Var);
+
+    boolean d();
+
+    @Nullable
+    yw1 e0();
+
+    int h0();
+
+    void i(iq2 iq2Var);
+
+    PullToRefreshBaseWebView j0();
+
+    void k(ViewGroup viewGroup, View view2);
+
+    boolean k0();
+
+    rm1 l();
+
+    @Nullable
+    String l0();
+
+    String n();
+
+    boolean s(int i);
+
+    void w(String str);
+
+    boolean x(g43 g43Var);
 }

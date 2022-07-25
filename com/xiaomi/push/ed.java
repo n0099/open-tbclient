@@ -19,19 +19,19 @@ public final class ed {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
-    public int f1022a;
+    public int f302a;
 
     /* renamed from: a  reason: collision with other field name */
-    public Context f1023a;
+    public Context f303a;
 
     /* renamed from: a  reason: collision with other field name */
-    public eh f1024a;
+    public eh f304a;
 
     /* renamed from: a  reason: collision with other field name */
-    public String f1025a;
+    public String f305a;
 
     /* renamed from: a  reason: collision with other field name */
-    public HashMap<ef, eg> f1026a;
+    public HashMap<ef, eg> f306a;
     public String b;
 
     public ed(Context context) {
@@ -50,12 +50,12 @@ public final class ed {
             }
         }
         HashMap<ef, eg> hashMap = new HashMap<>();
-        this.f1026a = hashMap;
-        this.f1023a = context;
+        this.f306a = hashMap;
+        this.f303a = context;
         hashMap.put(ef.b, new ej());
-        this.f1026a.put(ef.c, new ek());
-        this.f1026a.put(ef.a, new eb());
-        this.f1026a.put(ef.d, new ei());
+        this.f306a.put(ef.c, new ek());
+        this.f306a.put(ef.a, new eb());
+        this.f306a.put(ef.d, new ei());
     }
 
     public static ed a(Context context) {
@@ -78,41 +78,41 @@ public final class ed {
     public void a(ef efVar, Context context, ec ecVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65539, this, efVar, context, ecVar) == null) {
-            this.f1026a.get(efVar).a(context, ecVar);
+            this.f306a.get(efVar).a(context, ecVar);
         }
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m1243a(Context context) {
+    public static boolean m305a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) ? com.xiaomi.push.service.al.m1545a(context, context.getPackageName()) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) ? com.xiaomi.push.service.al.m607a(context, context.getPackageName()) : invokeL.booleanValue;
     }
 
     public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f1022a : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f302a : invokeV.intValue;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public eh m1244a() {
+    public eh m306a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f1024a : (eh) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f304a : (eh) invokeV.objValue;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public String m1245a() {
+    public String m307a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f1025a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f305a : (String) invokeV.objValue;
     }
 
     public void a(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            this.f1022a = i;
+            this.f302a = i;
         }
     }
 
@@ -121,7 +121,7 @@ public final class ed {
         if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{context, str, Integer.valueOf(i), str2, str3}) == null) {
             if (context != null && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && !TextUtils.isEmpty(str3)) {
                 a(i);
-                al.a(this.f1023a).a(new ee(this, str, context, str2, str3));
+                al.a(this.f303a).a(new ee(this, str, context, str2, str3));
                 return;
             }
             dz.a(context, "" + str, 1008, "A receive a incorrect message");
@@ -132,7 +132,7 @@ public final class ed {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(1048581, this, efVar, context, intent, str) == null) {
             if (efVar != null) {
-                this.f1026a.get(efVar).a(context, intent, str);
+                this.f306a.get(efVar).a(context, intent, str);
             } else {
                 dz.a(context, StringUtil.NULL_STRING, 1008, "A receive a incorrect message with empty type");
             }
@@ -142,14 +142,14 @@ public final class ed {
     public void a(eh ehVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, ehVar) == null) {
-            this.f1024a = ehVar;
+            this.f304a = ehVar;
         }
     }
 
     public void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
-            this.f1025a = str;
+            this.f305a = str;
         }
     }
 

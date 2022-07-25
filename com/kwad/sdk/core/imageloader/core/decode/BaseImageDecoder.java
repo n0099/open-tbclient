@@ -102,7 +102,7 @@ public class BaseImageDecoder implements ImageDecoder {
                 ImageFileInfo defineImageSizeAndRotation = defineImageSizeAndRotation(imageStream, imageDecodingInfo);
                 imageStream = resetStream(imageStream, imageDecodingInfo);
                 decodedResult.mBitmap = BitmapFactory.decodeStream(imageStream, null, prepareDecodingOptions(defineImageSizeAndRotation.imageSize, imageDecodingInfo));
-                b.a(imageStream);
+                b.closeQuietly(imageStream);
                 if (decodedResult.mBitmap == null && decodedResult.mFrameSequence == null) {
                     L.e(ERROR_CANT_DECODE_IMAGE, imageDecodingInfo.getImageKey());
                 } else {
@@ -114,7 +114,7 @@ public class BaseImageDecoder implements ImageDecoder {
             }
             return decodedResult;
         } finally {
-            b.a(imageStream);
+            b.closeQuietly(imageStream);
         }
     }
 
@@ -212,7 +212,7 @@ public class BaseImageDecoder implements ImageDecoder {
             } catch (IOException unused) {
             }
         }
-        b.a(inputStream);
+        b.closeQuietly(inputStream);
         return getImageStream(imageDecodingInfo);
     }
 }

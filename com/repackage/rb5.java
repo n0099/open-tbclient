@@ -1,16 +1,11 @@
 package com.repackage;
-
-import com.repackage.pb5;
-import com.repackage.qb5;
 /* loaded from: classes7.dex */
-public interface rb5<Q extends pb5, P extends qb5> {
-    int a();
+public interface rb5<T> {
+    void a(int i, byte[] bArr) throws Exception;
 
-    Q b();
+    int getErrorCode();
 
-    String c();
+    String getErrorMsg();
 
-    P d();
-
-    int e();
+    lb5 getPageInfo();
 }

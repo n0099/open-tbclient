@@ -16,7 +16,7 @@ public class jm extends jp {
     public InputStream a;
 
     /* renamed from: a  reason: collision with other field name */
-    public OutputStream f1533a;
+    public OutputStream f813a;
 
     public jm() {
         Interceptable interceptable = $ic;
@@ -32,7 +32,7 @@ public class jm extends jp {
             }
         }
         this.a = null;
-        this.f1533a = null;
+        this.f813a = null;
     }
 
     public jm(OutputStream outputStream) {
@@ -51,8 +51,8 @@ public class jm extends jp {
             }
         }
         this.a = null;
-        this.f1533a = null;
-        this.f1533a = outputStream;
+        this.f813a = null;
+        this.f813a = outputStream;
     }
 
     @Override // com.xiaomi.push.jp
@@ -81,7 +81,7 @@ public class jm extends jp {
     public void a(byte[] bArr, int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bArr, i, i2) == null) {
-            OutputStream outputStream = this.f1533a;
+            OutputStream outputStream = this.f813a;
             if (outputStream == null) {
                 throw new jq(1, "Cannot write to null outputStream");
             }

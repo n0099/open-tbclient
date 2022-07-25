@@ -35,7 +35,7 @@ import com.repackage.d37;
 import com.repackage.d9;
 import com.repackage.h9;
 import com.repackage.pi;
-import com.repackage.ur4;
+import com.repackage.vr4;
 import com.repackage.y27;
 /* loaded from: classes3.dex */
 public class HotTopicDetailHeadView extends RelativeLayout {
@@ -202,7 +202,7 @@ public class HotTopicDetailHeadView extends RelativeLayout {
     public final int e(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) ? i == 1 ? R.string.obfuscated_res_0x7f0f0878 : i == 2 ? R.string.obfuscated_res_0x7f0f0877 : R.string.obfuscated_res_0x7f0f0876 : invokeI.intValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) ? i == 1 ? R.string.obfuscated_res_0x7f0f0863 : i == 2 ? R.string.obfuscated_res_0x7f0f0862 : R.string.obfuscated_res_0x7f0f0861 : invokeI.intValue;
     }
 
     public final void f(int i) {
@@ -245,15 +245,15 @@ public class HotTopicDetailHeadView extends RelativeLayout {
             this.c = (TbImageView) findViewById(R.id.obfuscated_res_0x7f09035e);
             this.e = findViewById(R.id.obfuscated_res_0x7f09035c);
             this.d = findViewById(R.id.obfuscated_res_0x7f090361);
-            this.f = findViewById(R.id.obfuscated_res_0x7f090cf8);
-            this.g = (BarImageView) findViewById(R.id.obfuscated_res_0x7f090dc5);
-            this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f0920c3);
-            this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f0920c1);
-            this.j = (TextView) findViewById(R.id.obfuscated_res_0x7f0920bf);
-            this.k = (TextView) findViewById(R.id.obfuscated_res_0x7f091ee4);
-            this.l = (TextView) findViewById(R.id.obfuscated_res_0x7f090757);
-            this.m = (TextView) findViewById(R.id.obfuscated_res_0x7f090758);
-            this.n = findViewById(R.id.obfuscated_res_0x7f090756);
+            this.f = findViewById(R.id.obfuscated_res_0x7f090cf1);
+            this.g = (BarImageView) findViewById(R.id.obfuscated_res_0x7f090dbe);
+            this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f0920c5);
+            this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f0920c3);
+            this.j = (TextView) findViewById(R.id.obfuscated_res_0x7f0920c1);
+            this.k = (TextView) findViewById(R.id.obfuscated_res_0x7f091ee8);
+            this.l = (TextView) findViewById(R.id.obfuscated_res_0x7f090756);
+            this.m = (TextView) findViewById(R.id.obfuscated_res_0x7f090757);
+            this.n = findViewById(R.id.obfuscated_res_0x7f090755);
             this.o = (TBLottieAnimationView) findViewById(R.id.obfuscated_res_0x7f09038b);
             TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f09038c);
             this.p = textView;
@@ -273,7 +273,7 @@ public class HotTopicDetailHeadView extends RelativeLayout {
         if (!(interceptable == null || interceptable.invokeI(1048580, this, i) == null) || this.a == i) {
             return;
         }
-        ur4 d = ur4.d(this.f);
+        vr4 d = vr4.d(this.f);
         d.m(1);
         d.n(R.string.J_X14);
         d.f(R.color.CAM_X0201);
@@ -369,13 +369,13 @@ public class HotTopicDetailHeadView extends RelativeLayout {
         this.h.setText(d37Var.b);
         if (d37Var.i > 0) {
             TextView textView = this.l;
-            String string = getContext().getString(R.string.obfuscated_res_0x7f0f088f);
+            String string = getContext().getString(R.string.obfuscated_res_0x7f0f087a);
             textView.setText(String.format(string, "" + d37Var.i));
             this.l.setVisibility(0);
         } else {
             this.l.setVisibility(8);
         }
-        this.k.setText(String.format(getContext().getString(R.string.obfuscated_res_0x7f0f088d), StringHelper.numberUniformFormatExtraWithRoundInt(d37Var.d)));
+        this.k.setText(String.format(getContext().getString(R.string.obfuscated_res_0x7f0f0878), StringHelper.numberUniformFormatExtraWithRoundInt(d37Var.d)));
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */

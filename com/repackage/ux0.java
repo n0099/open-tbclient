@@ -11,7 +11,6 @@ import com.baidu.nadcore.model.AdBaseModel;
 import com.baidu.nadcore.net.request.Headers;
 import com.baidu.nadcore.requester.NadRequester;
 import com.baidu.nadcore.requester.RequestParameters;
-import com.baidu.sofire.d.D;
 import com.baidu.tbadk.browser.SearchJsBridge;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.httpNet.HttpRequest;
@@ -291,7 +290,7 @@ public class ux0 implements wx0 {
             }
             uo0Var.k("https://afd.baidu.com/afd/entry");
             c(e2, "pid", requestParameters.a);
-            c(e2, D.COLUMN_PLUGIN_ACTIVITY_INFO_LIST, String.valueOf(requestParameters.b));
+            c(e2, "ac", String.valueOf(requestParameters.b));
             c(e2, "ft", requestParameters.f.value);
             c(e2, "tabid", requestParameters.d);
             c(e2, "tabn", requestParameters.c);

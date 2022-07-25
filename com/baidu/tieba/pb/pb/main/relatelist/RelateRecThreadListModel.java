@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.d9;
-import com.repackage.dm4;
+import com.repackage.em4;
 import com.repackage.wh8;
 import com.repackage.za;
 import tbclient.RelateRecThread.DataRes;
@@ -31,7 +31,7 @@ public class RelateRecThreadListModel extends BdBaseModel {
     public transient /* synthetic */ FieldHolder $fh;
     public boolean a;
     public RelateRecThreadRequestMessage b;
-    public dm4 c;
+    public em4 c;
     public za d;
 
     /* loaded from: classes3.dex */
@@ -87,7 +87,7 @@ public class RelateRecThreadListModel extends BdBaseModel {
                 }
                 Log.e("RecThreadList", "errno=" + error + ",errmsg=" + errorString);
                 if (StringUtils.isNull(errorString)) {
-                    errorString = this.a.E(R.string.obfuscated_res_0x7f0f05aa);
+                    errorString = this.a.E(R.string.obfuscated_res_0x7f0f05a6);
                 }
                 if (this.a.c != null) {
                     this.a.c.onError(error, errorString);
@@ -159,10 +159,10 @@ public class RelateRecThreadListModel extends BdBaseModel {
         return invokeCommon.booleanValue;
     }
 
-    public void H(dm4 dm4Var) {
+    public void H(em4 em4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, dm4Var) == null) {
-            this.c = dm4Var;
+        if (interceptable == null || interceptable.invokeL(1048579, this, em4Var) == null) {
+            this.c = em4Var;
         }
     }
 

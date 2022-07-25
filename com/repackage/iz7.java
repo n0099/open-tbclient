@@ -183,7 +183,7 @@ public class iz7 {
             if (i == 1) {
                 TiebaStatic.log(new StatisticItem("c10399").param("fid", R1.m()).param("tid", R1.Q()).param("uid", currentAccount));
             }
-            String string = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f048b);
+            String string = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f048a);
             if (R1.g0() && O.getAuthor() != null) {
                 if (TextUtils.isEmpty(title) || TextUtils.isEmpty(str4) || O.isBJHVideoDynamicThreadType() || O.isBJHVideoThreadType()) {
                     if (TextUtils.isEmpty(title)) {
@@ -194,7 +194,7 @@ public class iz7 {
                     }
                     Object[] objArr = new Object[2];
                     objArr[0] = O.getAuthor().getName_show();
-                    objArr[c] = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f048c);
+                    objArr[c] = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f048b);
                     str4 = MessageFormat.format(string, objArr);
                 }
             } else if (oi.isEmpty(str4)) {

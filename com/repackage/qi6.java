@@ -113,19 +113,19 @@ public class qi6 extends an<ui6, ForumRuleDetailSelfVH> {
                 forumRuleDetailSelfVH.b.setDefaultResource(R.drawable.obfuscated_res_0x7f080b9b);
                 forumRuleDetailSelfVH.b.J(ui6Var.c().portrait, 12, false);
                 forumRuleDetailSelfVH.c.setText(ui6Var.c().name_show);
-                forumRuleDetailSelfVH.d(ui6Var.c().user_level.intValue());
+                forumRuleDetailSelfVH.c(ui6Var.c().user_level.intValue());
                 forumRuleDetailSelfVH.e.setVisibility(0);
             }
             forumRuleDetailSelfVH.d.setText(R.string.obfuscated_res_0x7f0f02f6);
             forumRuleDetailSelfVH.d.setVisibility(0);
-            forumRuleDetailSelfVH.i("manager");
+            forumRuleDetailSelfVH.h("manager");
             if (ForumRulesShowActivityConfig.FORUM_RULE_EDIT_FROM_SHOW.equals(this.j)) {
-                forumRuleDetailSelfVH.h(String.valueOf(System.currentTimeMillis() / 1000));
+                forumRuleDetailSelfVH.g(String.valueOf(System.currentTimeMillis() / 1000));
             } else {
                 forumRuleDetailSelfVH.g.setText(ui6Var.k());
             }
             d0(forumRuleDetailSelfVH, ui6Var);
-            forumRuleDetailSelfVH.e(ui6Var.i());
+            forumRuleDetailSelfVH.d(ui6Var.i());
         }
     }
 
@@ -150,7 +150,7 @@ public class qi6 extends an<ui6, ForumRuleDetailSelfVH> {
                 this.k = true;
                 this.l = 7 - b;
             } else {
-                forumRuleDetailSelfVH.g(ui6Var.b());
+                forumRuleDetailSelfVH.f(ui6Var.b());
             }
         }
     }
@@ -188,7 +188,7 @@ public class qi6 extends an<ui6, ForumRuleDetailSelfVH> {
         if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (forumRulesShowActivity = this.i) == null) {
             return;
         }
-        String string = forumRulesShowActivity.getString(R.string.obfuscated_res_0x7f0f06a9);
+        String string = forumRulesShowActivity.getString(R.string.obfuscated_res_0x7f0f06a5);
         String format = String.format(string, this.l + "");
         if (this.i.B1() != null) {
             BdTopToast bdTopToast = new BdTopToast(this.i);

@@ -11,6 +11,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.kuaishou.weapon.p0.h;
 import com.yxcorp.kuaishou.addfp.android.b.g;
 import java.io.BufferedReader;
 import java.io.ByteArrayInputStream;
@@ -271,7 +272,7 @@ public class d {
                 }
                 try {
                     String a = com.yxcorp.kuaishou.addfp.c.a.a.a(this.c, "k_w_o_d_out_dtt");
-                    if (TextUtils.isEmpty(a) && g.a(this.c, new String[]{"android.permission.READ_EXTERNAL_STORAGE", "android.permission.WRITE_EXTERNAL_STORAGE"})) {
+                    if (TextUtils.isEmpty(a) && g.a(this.c, new String[]{h.i, "android.permission.WRITE_EXTERNAL_STORAGE"})) {
                         a = a("Lm91a2R0ZnQ=");
                     }
                     if (!TextUtils.isEmpty(a) && (linkedHashMap = b(a)) != null) {
@@ -294,7 +295,7 @@ public class d {
                             Settings.System.putString(this.c.getContentResolver(), "k_w_o_d_out_dtt", a3);
                         } catch (Throwable unused4) {
                         }
-                        if (g.a(this.c, new String[]{"android.permission.READ_EXTERNAL_STORAGE", "android.permission.WRITE_EXTERNAL_STORAGE"})) {
+                        if (g.a(this.c, new String[]{h.i, "android.permission.WRITE_EXTERNAL_STORAGE"})) {
                             a(this.c, a3);
                         }
                     }

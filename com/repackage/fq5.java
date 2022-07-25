@@ -186,7 +186,7 @@ public class fq5 {
                     this.a.m.a(this.a.l);
                     return;
                 }
-                pi.L(this.a.b.getPageActivity(), this.a.b.getPageActivity().getString(R.string.obfuscated_res_0x7f0f0c64));
+                pi.L(this.a.b.getPageActivity(), this.a.b.getPageActivity().getString(R.string.obfuscated_res_0x7f0f0c50));
             }
         }
     }
@@ -234,14 +234,14 @@ public class fq5 {
         BdUniqueId.gen();
         this.s = new c(this);
         this.b = tbPageContext;
-        View inflate = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d07ff, (ViewGroup) null, false);
+        View inflate = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0809, (ViewGroup) null, false);
         this.c = inflate;
-        this.d = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090e5e);
-        this.e = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f0921ec);
-        this.f = (RelativeLayout) this.c.findViewById(R.id.obfuscated_res_0x7f091b46);
-        this.g = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f0921f9);
-        this.h = (LinearLayout) this.c.findViewById(R.id.obfuscated_res_0x7f0921fa);
-        HeadImageView headImageView = (HeadImageView) this.c.findViewById(R.id.obfuscated_res_0x7f090f89);
+        this.d = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090e57);
+        this.e = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f0921ee);
+        this.f = (RelativeLayout) this.c.findViewById(R.id.obfuscated_res_0x7f091b20);
+        this.g = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f0921fb);
+        this.h = (LinearLayout) this.c.findViewById(R.id.obfuscated_res_0x7f0921fc);
+        HeadImageView headImageView = (HeadImageView) this.c.findViewById(R.id.obfuscated_res_0x7f090f82);
         this.i = headImageView;
         headImageView.setIsRound(true);
         this.i.setBorderWidth(pi.f(tbPageContext.getPageActivity(), R.dimen.tbds1));
@@ -319,7 +319,7 @@ public class fq5 {
                 this.d.J(this.k.getThreadAlaInfo().cover, 10, false);
                 this.h.setBackgroundDrawable(gradientDrawable);
                 this.d.setEvent(new b(this));
-                this.e.setText(this.b.getPageActivity().getResources().getString(R.string.obfuscated_res_0x7f0f0a0e, StringHelper.numberUniformFormatExtraWithRound(this.k.getThreadAlaInfo().audience_count)));
+                this.e.setText(this.b.getPageActivity().getResources().getString(R.string.obfuscated_res_0x7f0f09fa, StringHelper.numberUniformFormatExtraWithRound(this.k.getThreadAlaInfo().audience_count)));
                 if (this.k.getAuthor() != null) {
                     String name_show = this.k.getAuthor().getName_show();
                     if (!StringUtils.isNull(name_show)) {

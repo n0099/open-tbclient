@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.g03;
+import com.repackage.h03;
 import kotlin.Metadata;
 import kotlin.jvm.functions.Function0;
 import kotlin.jvm.internal.Intrinsics;
@@ -61,7 +61,7 @@ public final class WebCompatImpl$localAssetDomain$2 extends Lambda implements Fu
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             StringBuilder sb = new StringBuilder();
-            g03 K = g03.K();
+            h03 K = h03.K();
             Intrinsics.checkNotNullExpressionValue(K, "Swan.get()");
             sb.append(K.getPackageName());
             sb.append(".swanhost.smartapps.cn");

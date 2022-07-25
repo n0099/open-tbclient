@@ -34,7 +34,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class a implements com.ss.android.downloadad.api.a, b.c, a.InterfaceC0811a, ag {
+public class a implements com.ss.android.downloadad.api.a, b.c, a.InterfaceC0660a, ag {
     public static String a = "a";
     public static volatile a d;
     public long b;
@@ -43,10 +43,10 @@ public class a implements com.ss.android.downloadad.api.a, b.c, a.InterfaceC0811
     @WorkerThread
     /* renamed from: com.ss.android.downloadlib.a$a  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public class RunnableC0794a implements Runnable {
+    public class RunnableC0643a implements Runnable {
         public final int b;
 
-        public RunnableC0794a(int i) {
+        public RunnableC0643a(int i) {
             this.b = i;
         }
 
@@ -438,13 +438,13 @@ public class a implements com.ss.android.downloadad.api.a, b.c, a.InterfaceC0811
         com.ss.android.downloadlib.d.a.a().b("download_finish", a2, bVar);
     }
 
-    @Override // com.ss.android.socialbase.downloader.a.a.InterfaceC0811a
+    @Override // com.ss.android.socialbase.downloader.a.a.InterfaceC0660a
     public void c() {
         com.ss.android.socialbase.downloader.c.a.b(a, "onAppBackground()");
         a(6);
     }
 
-    @Override // com.ss.android.socialbase.downloader.a.a.InterfaceC0811a
+    @Override // com.ss.android.socialbase.downloader.a.a.InterfaceC0660a
     public void b() {
         com.ss.android.socialbase.downloader.c.a.b(a, "onAppForeground()");
         d();
@@ -721,7 +721,7 @@ public class a implements com.ss.android.downloadad.api.a, b.c, a.InterfaceC0811
         if (currentTimeMillis - this.b < AppConfig.TIMESTAMP_AVAILABLE_DURATION) {
             return;
         }
-        d.a().a(new RunnableC0794a(i), this.b > 0 ? 2000L : 8000L);
+        d.a().a(new RunnableC0643a(i), this.b > 0 ? 2000L : 8000L);
         this.b = currentTimeMillis;
     }
 

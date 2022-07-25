@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes6.dex */
-public class ni5 implements nn, qi5, bp4 {
+public class ni5 implements nn, qi5, cp4 {
     public static /* synthetic */ Interceptable $ic;
     public static SparseArray<BdUniqueId> c;
     public transient /* synthetic */ FieldHolder $fh;
@@ -101,7 +101,7 @@ public class ni5 implements nn, qi5, bp4 {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : invokeV.intValue;
     }
 
-    @Override // com.repackage.bp4
+    @Override // com.repackage.cp4
     public boolean f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -132,25 +132,25 @@ public class ni5 implements nn, qi5, bp4 {
         }
     }
 
-    @Override // com.repackage.bp4
+    @Override // com.repackage.cp4
     public int j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             if (a() instanceof AdvertAppInfo) {
-                return ((bp4) a()).j();
+                return ((cp4) a()).j();
             }
             return -1;
         }
         return invokeV.intValue;
     }
 
-    @Override // com.repackage.bp4
+    @Override // com.repackage.cp4
     public AdvertAppInfo q() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            if (a() instanceof bp4) {
+            if (a() instanceof cp4) {
                 return (AdvertAppInfo) a();
             }
             return null;
@@ -158,11 +158,11 @@ public class ni5 implements nn, qi5, bp4 {
         return (AdvertAppInfo) invokeV.objValue;
     }
 
-    @Override // com.repackage.bp4
+    @Override // com.repackage.cp4
     public void setPosition(int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) && (a() instanceof bp4)) {
-            ((bp4) a()).setPosition(i);
+        if ((interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) && (a() instanceof cp4)) {
+            ((cp4) a()).setPosition(i);
         }
     }
 }

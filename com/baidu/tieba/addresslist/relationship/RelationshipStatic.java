@@ -17,16 +17,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.az4;
 import com.repackage.bb;
+import com.repackage.bz4;
 import com.repackage.hl5;
 import com.repackage.il5;
 import com.repackage.jl5;
 import com.repackage.kl5;
 import com.repackage.ol5;
 import com.repackage.pl5;
-import com.repackage.xt4;
 import com.repackage.y37;
+import com.repackage.yt4;
 /* loaded from: classes3.dex */
 public class RelationshipStatic {
     public static /* synthetic */ Interceptable $ic;
@@ -64,7 +64,7 @@ public class RelationshipStatic {
             if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, socketResponsedMessage) == null) || socketResponsedMessage == null || socketResponsedMessage.getCmd() != 1001 || socketResponsedMessage.hasError() || !(socketResponsedMessage instanceof ResponseOnlineMessage) || TbadkCoreApplication.getCurrentAccount() == null || TbadkCoreApplication.getInst().checkInterrupt()) {
                 return;
             }
-            xt4 k = xt4.k();
+            yt4 k = yt4.k();
             if (k.h("get_addresslist_switch" + TbadkCoreApplication.getCurrentAccount(), true)) {
                 MessageManager.getInstance().sendMessage(new RequestGetAddressListMessage(304001));
             }
@@ -102,7 +102,7 @@ public class RelationshipStatic {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, socketResponsedMessage) == null) && socketResponsedMessage != null && socketResponsedMessage.getCmd() == 304001 && !socketResponsedMessage.hasError() && (socketResponsedMessage instanceof ResponseGetAddressListMessage)) {
                 hl5 addressListData = ((ResponseGetAddressListMessage) socketResponsedMessage).getAddressListData();
-                xt4 k = xt4.k();
+                yt4 k = yt4.k();
                 k.u("get_addresslist_switch" + TbadkCoreApplication.getCurrentAccount(), false);
                 new pl5(addressListData).execute(new Void[0]);
             }
@@ -141,17 +141,17 @@ public class RelationshipStatic {
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2001174 && (customResponsedMessage instanceof ResponseNewFriendUpdateUiMsg)) {
                 ResponseNewFriendUpdateUiMsg responseNewFriendUpdateUiMsg = (ResponseNewFriendUpdateUiMsg) customResponsedMessage;
                 if (responseNewFriendUpdateUiMsg.getAction() == 0) {
-                    az4 az4Var = new az4();
-                    az4Var.j(responseNewFriendUpdateUiMsg.getKey());
-                    az4Var.l(responseNewFriendUpdateUiMsg.getQuanping());
-                    az4Var.m(responseNewFriendUpdateUiMsg.getFriendId());
-                    az4Var.n(responseNewFriendUpdateUiMsg.getName());
-                    az4Var.p(responseNewFriendUpdateUiMsg.getPortrait());
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2001179, az4Var));
+                    bz4 bz4Var = new bz4();
+                    bz4Var.j(responseNewFriendUpdateUiMsg.getKey());
+                    bz4Var.l(responseNewFriendUpdateUiMsg.getQuanping());
+                    bz4Var.m(responseNewFriendUpdateUiMsg.getFriendId());
+                    bz4Var.n(responseNewFriendUpdateUiMsg.getName());
+                    bz4Var.p(responseNewFriendUpdateUiMsg.getPortrait());
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2001179, bz4Var));
                 } else if (responseNewFriendUpdateUiMsg.getAction() == 1) {
-                    az4 az4Var2 = new az4();
-                    az4Var2.m(responseNewFriendUpdateUiMsg.getFriendId());
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2001180, az4Var2));
+                    bz4 bz4Var2 = new bz4();
+                    bz4Var2.m(responseNewFriendUpdateUiMsg.getFriendId());
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2001180, bz4Var2));
                 }
             }
         }

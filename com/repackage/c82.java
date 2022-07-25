@@ -1,179 +1,103 @@
 package com.repackage;
 
 import android.annotation.SuppressLint;
-import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.v8engine.V8Engine;
-import com.baidu.searchbox.v8engine.V8ExceptionInfo;
-import com.baidu.searchbox.v8engine.event.EventTarget;
-import com.baidu.searchbox.v8engine.event.JSEvent;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.hiidostatis.defs.obj.ParamableElem;
-import org.json.JSONException;
-import org.json.JSONObject;
+@SuppressLint({"SwanDebugLog"})
 /* loaded from: classes5.dex */
-public class c82 implements V8Engine.JavaScriptExceptionDelegate {
+public class c82 implements V8Engine.V8EngineConsole {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public p72 a;
-    public String b;
+    public q72 a;
+    public boolean b;
 
-    /* loaded from: classes5.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public static final boolean d;
-        public transient /* synthetic */ FieldHolder $fh;
-        public JSEvent a;
-        public String b;
-        public String c;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-516057257, "Lcom/repackage/c82$a;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-516057257, "Lcom/repackage/c82$a;");
-                    return;
-                }
-            }
-            d = rg1.a;
-        }
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                    return;
-                }
-            }
-            this.a = new JSEvent("error");
-        }
-
-        public JSEvent a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                JSONObject jSONObject = new JSONObject();
-                try {
-                    jSONObject.put("message", this.b);
-                    jSONObject.put("stack", this.c);
-                } catch (JSONException e) {
-                    if (d) {
-                        Log.e("V8Exception", Log.getStackTraceString(e));
-                    }
-                }
-                if (jSONObject.length() > 0) {
-                    this.a.data = jSONObject;
-                }
-                return this.a;
-            }
-            return (JSEvent) invokeV.objValue;
-        }
-
-        public a b(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-                this.b = str;
-                return this;
-            }
-            return (a) invokeL.objValue;
-        }
-
-        public a c(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-                this.c = str;
-                return this;
-            }
-            return (a) invokeL.objValue;
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755843404, "Lcom/repackage/c82;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755843404, "Lcom/repackage/c82;");
-                return;
-            }
-        }
-        boolean z = rg1.a;
-    }
-
-    public c82(p72 p72Var) {
+    public c82(q72 q72Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {p72Var};
-            interceptable.invokeUnInit(65537, newInitContext);
+            Object[] objArr = {q72Var};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = "";
-        this.a = p72Var;
+        this.b = true;
+        this.a = q72Var;
     }
 
-    public final void a(String str, String str2) {
+    @Override // com.baidu.searchbox.v8engine.V8Engine.V8EngineConsole
+    public void onDebugConsole(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) || this.a.o() == null) {
-            return;
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            if (this.b) {
+                Log.d("V8Console", this.a.n0() + str);
+            }
+            qj2.h().e(2, str);
         }
-        EventTarget o = this.a.o();
-        a aVar = new a();
-        aVar.b(str + "\n" + str2);
-        aVar.c("");
-        o.dispatchEvent(aVar.a());
     }
 
-    @Override // com.baidu.searchbox.v8engine.V8Engine.JavaScriptExceptionDelegate
-    @SuppressLint({"SwanDebugLog"})
-    public void onV8ExceptionCallBack(V8ExceptionInfo v8ExceptionInfo) {
+    @Override // com.baidu.searchbox.v8engine.V8Engine.V8EngineConsole
+    public void onErrorConsole(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, v8ExceptionInfo) == null) || v8ExceptionInfo == null) {
-            return;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+            qj2.h().e(4, str);
+            Log.e("V8Console", this.a.n0() + str);
+            hl1 p0 = pj2.p0();
+            p0.e("V8Console", this.a.n0() + str);
         }
-        String str = TextUtils.isEmpty(v8ExceptionInfo.exceptionMsg) ? "" : v8ExceptionInfo.exceptionMsg;
-        String str2 = TextUtils.isEmpty(v8ExceptionInfo.exceptionTrace) ? "" : v8ExceptionInfo.exceptionTrace;
-        Log.e("V8Exception", this.a.n0() + "msg: " + str + " ,stack: " + str2);
-        this.a.z().a(str);
-        if ((TextUtils.isEmpty(str) && TextUtils.isEmpty(str2)) || this.b.equals(str)) {
-            return;
+    }
+
+    @Override // com.baidu.searchbox.v8engine.V8Engine.V8EngineConsole
+    public void onInfoConsole(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+            if (this.b) {
+                Log.i("V8Console", this.a.n0() + str);
+            }
+            qj2.h().e(3, str);
         }
-        this.b = str;
-        a(str, str2);
-        sh1 j = pj2.j();
-        j.e(str + ParamableElem.DIVIDE_PARAM + str2);
-        b73.b(v8ExceptionInfo);
-        pj2.i().r(v8ExceptionInfo);
+    }
+
+    @Override // com.baidu.searchbox.v8engine.V8Engine.V8EngineConsole
+    public void onLogConsole(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+            if (this.b) {
+                Log.v("V8Console", this.a.n0() + str);
+            }
+            qj2.h().e(1, str);
+        }
+    }
+
+    @Override // com.baidu.searchbox.v8engine.V8Engine.V8EngineConsole
+    public void onTraceConsole(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+            if (this.b) {
+                Log.d("V8Console", this.a.n0() + str);
+            }
+            qj2.h().e(6, str);
+        }
+    }
+
+    @Override // com.baidu.searchbox.v8engine.V8Engine.V8EngineConsole
+    public void onWarnConsole(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+            qj2.h().e(5, str);
+            Log.w("V8Console", this.a.n0() + str);
+            hl1 p0 = pj2.p0();
+            p0.w("V8Console", this.a.n0() + str);
+        }
     }
 }

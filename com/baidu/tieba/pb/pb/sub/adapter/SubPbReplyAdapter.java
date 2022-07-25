@@ -51,11 +51,11 @@ public class SubPbReplyAdapter extends sx7<wx7, SubPbReplyViewHolder> {
                 }
             }
             this.c = 3;
-            this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0909c1);
-            this.b = view2.findViewById(R.id.obfuscated_res_0x7f0909c2);
+            this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0909ba);
+            this.b = view2.findViewById(R.id.obfuscated_res_0x7f0909bb);
         }
 
-        public void d() {
+        public void c() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 if (this.c != TbadkApplication.getInst().getSkinType()) {
@@ -67,7 +67,7 @@ public class SubPbReplyAdapter extends sx7<wx7, SubPbReplyViewHolder> {
             }
         }
 
-        public void e(boolean z) {
+        public void d(boolean z) {
             View view2;
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) || (view2 = this.b) == null) {
@@ -105,7 +105,7 @@ public class SubPbReplyAdapter extends sx7<wx7, SubPbReplyViewHolder> {
     public SubPbReplyViewHolder M(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) ? new SubPbReplyViewHolder(LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d07b7, viewGroup, false)) : (SubPbReplyViewHolder) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) ? new SubPbReplyViewHolder(LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d07c1, viewGroup, false)) : (SubPbReplyViewHolder) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -115,11 +115,11 @@ public class SubPbReplyAdapter extends sx7<wx7, SubPbReplyViewHolder> {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, wx7Var, subPbReplyViewHolder})) == null) {
-            String format = String.format(TbadkApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1229), String.valueOf(wx7Var == null ? 0 : wx7Var.a()));
-            subPbReplyViewHolder.e(this.k);
+            String format = String.format(TbadkApplication.getInst().getString(R.string.obfuscated_res_0x7f0f11d8), String.valueOf(wx7Var == null ? 0 : wx7Var.a()));
+            subPbReplyViewHolder.d(this.k);
             ((SubPbReplyViewHolder) this.g).a.setText(format);
-            ((SubPbReplyViewHolder) this.g).d();
-            return subPbReplyViewHolder.b();
+            ((SubPbReplyViewHolder) this.g).c();
+            return subPbReplyViewHolder.a();
         }
         return (View) invokeCommon.objValue;
     }

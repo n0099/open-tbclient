@@ -21,19 +21,19 @@ import com.kwad.sdk.core.response.model.AdInfo;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.widget.KSFrameLayout;
 /* loaded from: classes5.dex */
-public abstract class b<T extends AdTemplate> extends KSFrameLayout implements DialogInterface.OnDismissListener, DialogInterface.OnShowListener, com.kwad.sdk.core.g.b {
+public abstract class b<T extends AdTemplate> extends KSFrameLayout implements DialogInterface.OnDismissListener, DialogInterface.OnShowListener, com.kwad.sdk.core.h.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public com.kwad.components.core.widget.kwai.b a;
+    public com.kwad.components.core.widget.kwai.b aM;
+    public InterfaceC0376b lp;
+    public AdInfo mAdInfo;
     @NonNull
-    public T j;
-    public AdInfo k;
-    public InterfaceC0528b l;
+    public T mAdTemplate;
     @NonNull
-    public Context m;
+    public Context mContext;
 
     /* loaded from: classes5.dex */
-    public static class a implements InterfaceC0528b {
+    public static class a implements InterfaceC0376b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -51,36 +51,36 @@ public abstract class b<T extends AdTemplate> extends KSFrameLayout implements D
             }
         }
 
-        @Override // com.kwad.components.core.widget.b.InterfaceC0528b
-        public void a() {
+        @Override // com.kwad.components.core.widget.b.InterfaceC0376b
+        public void onAdClicked() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             }
         }
 
-        @Override // com.kwad.components.core.widget.b.InterfaceC0528b
-        public void b() {
+        @Override // com.kwad.components.core.widget.b.InterfaceC0376b
+        public void onAdShow() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             }
         }
 
-        @Override // com.kwad.components.core.widget.b.InterfaceC0528b
-        public final void c() {
+        @Override // com.kwad.components.core.widget.b.InterfaceC0376b
+        public final void onDislikeClicked() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             }
         }
 
-        @Override // com.kwad.components.core.widget.b.InterfaceC0528b
-        public final void d() {
+        @Override // com.kwad.components.core.widget.b.InterfaceC0376b
+        public final void onDownloadTipsDialogDismiss() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             }
         }
 
-        @Override // com.kwad.components.core.widget.b.InterfaceC0528b
-        public final void e() {
+        @Override // com.kwad.components.core.widget.b.InterfaceC0376b
+        public final void onDownloadTipsDialogShow() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             }
@@ -89,16 +89,16 @@ public abstract class b<T extends AdTemplate> extends KSFrameLayout implements D
 
     /* renamed from: com.kwad.components.core.widget.b$b  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public interface InterfaceC0528b {
-        void a();
+    public interface InterfaceC0376b {
+        void onAdClicked();
 
-        void b();
+        void onAdShow();
 
-        void c();
+        void onDislikeClicked();
 
-        void d();
+        void onDownloadTipsDialogDismiss();
 
-        void e();
+        void onDownloadTipsDialogShow();
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -162,21 +162,21 @@ public abstract class b<T extends AdTemplate> extends KSFrameLayout implements D
                 return;
             }
         }
-        this.m = context;
-        f();
+        this.mContext = context;
+        initView();
     }
 
     private void a(ViewGroup viewGroup) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, this, viewGroup) == null) {
-            if (!com.kwad.sdk.core.config.d.Y() && com.kwad.sdk.core.config.d.X() >= 0.0f) {
+            if (!com.kwad.sdk.core.config.d.sm() && com.kwad.sdk.core.config.d.sl() >= 0.0f) {
                 c(viewGroup);
                 com.kwad.components.core.widget.a aVar = new com.kwad.components.core.widget.a(viewGroup.getContext(), viewGroup);
                 viewGroup.addView(aVar);
-                aVar.setViewCallback(new a.InterfaceC0527a(this) { // from class: com.kwad.components.core.widget.b.1
+                aVar.setViewCallback(new a.InterfaceC0375a(this) { // from class: com.kwad.components.core.widget.b.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
-                    public final /* synthetic */ b a;
+                    public final /* synthetic */ b OB;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -193,18 +193,18 @@ public abstract class b<T extends AdTemplate> extends KSFrameLayout implements D
                                 return;
                             }
                         }
-                        this.a = this;
+                        this.OB = this;
                     }
 
-                    @Override // com.kwad.components.core.widget.a.InterfaceC0527a
-                    public final void a() {
+                    @Override // com.kwad.components.core.widget.a.InterfaceC0375a
+                    public final void em() {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            this.a.e();
+                            this.OB.br();
                         }
                     }
                 });
-                aVar.c();
+                aVar.pW();
                 return;
             }
             c b = b(viewGroup);
@@ -215,7 +215,7 @@ public abstract class b<T extends AdTemplate> extends KSFrameLayout implements D
             b.setViewCallback(new c.a(this) { // from class: com.kwad.components.core.widget.b.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ b a;
+                public final /* synthetic */ b OB;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -232,14 +232,14 @@ public abstract class b<T extends AdTemplate> extends KSFrameLayout implements D
                             return;
                         }
                     }
-                    this.a = this;
+                    this.OB = this;
                 }
 
                 @Override // com.kwad.components.core.widget.c.a
-                public final void a() {
+                public final void em() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.a.e();
+                        this.OB.br();
                     }
                 }
             });
@@ -274,96 +274,102 @@ public abstract class b<T extends AdTemplate> extends KSFrameLayout implements D
         }
     }
 
-    private void f() {
+    private void initView() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65542, this) == null) {
-            FrameLayout.inflate(this.m, getLayoutId(), this);
+            FrameLayout.inflate(this.mContext, getLayoutId(), this);
             setRatio(getHWRatio());
-            c();
-            this.a = new com.kwad.components.core.widget.kwai.b(this, 70);
-            a((ViewGroup) this);
+            bg();
+            this.aM = new com.kwad.components.core.widget.kwai.b(this, 70);
+            a(this);
         }
     }
 
-    public final void a(int i) {
+    public void aR() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-            com.kwad.sdk.core.report.a.a(this.j, i, getTouchCoords());
-            InterfaceC0528b interfaceC0528b = this.l;
-            if (interfaceC0528b != null) {
-                interfaceC0528b.a();
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+        }
+    }
+
+    @Override // com.kwad.sdk.core.h.b
+    public void aS() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+        }
+    }
+
+    @Override // com.kwad.sdk.widget.KSFrameLayout
+    public void am() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            super.am();
+            this.aM.a(this);
+            this.aM.qi();
+        }
+    }
+
+    @Override // com.kwad.sdk.widget.KSFrameLayout
+    public void an() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            super.an();
+            this.aM.b(this);
+            this.aM.qj();
+            bj();
+        }
+    }
+
+    public final void aq(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+            com.kwad.sdk.core.report.a.a(this.mAdTemplate, i, getTouchCoords());
+            InterfaceC0376b interfaceC0376b = this.lp;
+            if (interfaceC0376b != null) {
+                interfaceC0376b.onAdClicked();
             }
         }
     }
 
-    public void a(@NonNull T t) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t) == null) {
-            this.j = t;
-            this.k = com.kwad.sdk.core.response.a.d.i(t);
-        }
-    }
+    public abstract void bg();
 
-    @Override // com.kwad.sdk.widget.KSFrameLayout
-    public void a_() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            super.a_();
-            this.a.b(this);
-            this.a.c();
-            d();
-        }
-    }
-
-    @Override // com.kwad.sdk.core.g.b
-    public void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-        }
-    }
-
-    @Override // com.kwad.sdk.widget.KSFrameLayout
-    public void b_() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            super.b_();
-            this.a.a(this);
-            this.a.b();
-        }
-    }
-
-    public abstract void c();
-
-    public void d() {
+    public void bj() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
         }
     }
 
-    public void e() {
-        InterfaceC0528b interfaceC0528b;
+    public void br() {
+        InterfaceC0376b interfaceC0376b;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            if (!this.j.mPvReported && (interfaceC0528b = this.l) != null) {
-                interfaceC0528b.b();
+            if (!this.mAdTemplate.mPvReported && (interfaceC0376b = this.lp) != null) {
+                interfaceC0376b.onAdShow();
             }
-            com.kwad.components.core.l.c.a().a(this.j, null, null);
+            com.kwad.components.core.m.c.ox().a(this.mAdTemplate, null, null);
         }
     }
 
-    public final void g() {
-        InterfaceC0528b interfaceC0528b;
+    public void c(@NonNull T t) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || (interfaceC0528b = this.l) == null) {
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, t) == null) {
+            this.mAdTemplate = t;
+            this.mAdInfo = com.kwad.sdk.core.response.a.d.bQ(t);
+        }
+    }
+
+    public final void dx() {
+        InterfaceC0376b interfaceC0376b;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048585, this) == null) || (interfaceC0376b = this.lp) == null) {
             return;
         }
-        interfaceC0528b.a();
+        interfaceC0376b.onAdClicked();
     }
 
     public float getHWRatio() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
             return 0.0f;
         }
         return invokeV.floatValue;
@@ -371,47 +377,41 @@ public abstract class b<T extends AdTemplate> extends KSFrameLayout implements D
 
     public abstract int getLayoutId();
 
-    public final void h() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            com.kwad.sdk.core.report.a.a(this.j);
-            InterfaceC0528b interfaceC0528b = this.l;
-            if (interfaceC0528b != null) {
-                interfaceC0528b.c();
-            }
-        }
-    }
-
-    public void m_() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-        }
-    }
-
     @Override // android.content.DialogInterface.OnDismissListener
     public void onDismiss(DialogInterface dialogInterface) {
-        InterfaceC0528b interfaceC0528b;
+        InterfaceC0376b interfaceC0376b;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048589, this, dialogInterface) == null) || (interfaceC0528b = this.l) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048588, this, dialogInterface) == null) || (interfaceC0376b = this.lp) == null) {
             return;
         }
-        interfaceC0528b.e();
+        interfaceC0376b.onDownloadTipsDialogDismiss();
     }
 
     @Override // android.content.DialogInterface.OnShowListener
     public void onShow(DialogInterface dialogInterface) {
-        InterfaceC0528b interfaceC0528b;
+        InterfaceC0376b interfaceC0376b;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048590, this, dialogInterface) == null) || (interfaceC0528b = this.l) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048589, this, dialogInterface) == null) || (interfaceC0376b = this.lp) == null) {
             return;
         }
-        interfaceC0528b.d();
+        interfaceC0376b.onDownloadTipsDialogShow();
     }
 
-    public void setInnerAdInteractionListener(InterfaceC0528b interfaceC0528b) {
+    public final void pX() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, interfaceC0528b) == null) {
-            this.l = interfaceC0528b;
+        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
+            com.kwad.sdk.core.report.a.ap(this.mAdTemplate);
+            InterfaceC0376b interfaceC0376b = this.lp;
+            if (interfaceC0376b != null) {
+                interfaceC0376b.onDislikeClicked();
+            }
+        }
+    }
+
+    public void setInnerAdInteractionListener(InterfaceC0376b interfaceC0376b) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048591, this, interfaceC0376b) == null) {
+            this.lp = interfaceC0376b;
         }
     }
 

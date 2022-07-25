@@ -79,17 +79,17 @@ public class BubbleView extends RelativeLayout {
             this.b = (ViewGroup) inflate.findViewById(R.id.obfuscated_res_0x7f09044d);
             this.c = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f09044b);
             this.d = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f09044a);
-            this.e = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090a87);
-            this.f = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090743);
+            this.e = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090a80);
+            this.f = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090742);
             this.g = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f09044f);
             this.h = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090453);
             this.i = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090452);
             this.j = inflate.findViewById(R.id.obfuscated_res_0x7f090448);
             this.k = (ViewGroup) inflate.findViewById(R.id.obfuscated_res_0x7f090446);
-            this.l = (ViewGroup) inflate.findViewById(R.id.obfuscated_res_0x7f090cc9);
-            this.m = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090dcb);
+            this.l = (ViewGroup) inflate.findViewById(R.id.obfuscated_res_0x7f090cc2);
+            this.m = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090dc4);
             this.n = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09044e);
-            this.o = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0915fd);
+            this.o = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0915d8);
         }
     }
 

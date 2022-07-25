@@ -101,10 +101,10 @@ public class st6 extends an<vy5, ThreadCardViewHolder<vy5>> implements ck5 {
                 vy5 vy5Var = (vy5) nnVar;
                 vy5Var.f = 1;
                 if (this.a.m != null) {
-                    this.a.m.a(threadCardViewHolder.b(), vy5Var);
+                    this.a.m.a(threadCardViewHolder.a(), vy5Var);
                 }
-                ThreadCardUtils.jumpToPB((nn4) vy5Var, view2.getContext(), 1, false, uw.a((tn) viewGroup, view2, i));
-                threadCardViewHolder.c().o(new ny.a(1));
+                ThreadCardUtils.jumpToPB((on4) vy5Var, view2.getContext(), 1, false, uw.a((tn) viewGroup, view2, i));
+                threadCardViewHolder.b().o(new ny.a(1));
             }
         }
     }
@@ -178,10 +178,10 @@ public class st6 extends an<vy5, ThreadCardViewHolder<vy5>> implements ck5 {
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
             cy.b bVar = new cy.b(this.j.getPageActivity(), false);
             ey eyVar = new ey(this.j.getPageActivity());
-            tn4 tn4Var = new tn4();
-            tn4Var.b = 9;
-            tn4Var.h = 9;
-            eyVar.w(tn4Var);
+            un4 un4Var = new un4();
+            un4Var.b = 9;
+            un4Var.h = 9;
+            eyVar.w(un4Var);
             eyVar.y(4);
             eyVar.E("personalize_page");
             eyVar.D(4);
@@ -192,7 +192,7 @@ public class st6 extends an<vy5, ThreadCardViewHolder<vy5>> implements ck5 {
             cy k = bVar.k(BaseCardInfo.SupportType.BOTTOM, viewGroup, this.l);
             k.r(1);
             ThreadCardViewHolder threadCardViewHolder = new ThreadCardViewHolder(k);
-            threadCardViewHolder.k(this.i);
+            threadCardViewHolder.j(this.i);
             V(new b(this));
             return threadCardViewHolder;
         }
@@ -206,22 +206,22 @@ public class st6 extends an<vy5, ThreadCardViewHolder<vy5>> implements ck5 {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, vy5Var, threadCardViewHolder})) == null) {
-            if (vy5Var == null || threadCardViewHolder == null || threadCardViewHolder.b() == null || vy5Var.a == null) {
+            if (vy5Var == null || threadCardViewHolder == null || threadCardViewHolder.a() == null || vy5Var.a == null) {
                 return null;
             }
             vy5Var.I(vy5Var.position + 1);
-            threadCardViewHolder.c().q(i);
-            if (threadCardViewHolder.c().f() instanceof ey) {
-                ((ey) threadCardViewHolder.c().f()).C(new c(this, viewGroup, view2, i));
+            threadCardViewHolder.b().q(i);
+            if (threadCardViewHolder.b().f() instanceof ey) {
+                ((ey) threadCardViewHolder.b().f()).C(new c(this, viewGroup, view2, i));
             }
-            if (threadCardViewHolder.c() instanceof bk5) {
-                threadCardViewHolder.c().b(this.k);
+            if (threadCardViewHolder.b() instanceof bk5) {
+                threadCardViewHolder.b().b(this.k);
             }
-            threadCardViewHolder.u(false, Align.ALIGN_RIGHT_BOTTOM);
-            threadCardViewHolder.g(vy5Var);
-            threadCardViewHolder.c().onChangeSkinType(this.j, TbadkCoreApplication.getInst().getSkinType());
-            threadCardViewHolder.c().p(this.m);
-            return threadCardViewHolder.b();
+            threadCardViewHolder.t(false, Align.ALIGN_RIGHT_BOTTOM);
+            threadCardViewHolder.f(vy5Var);
+            threadCardViewHolder.b().onChangeSkinType(this.j, TbadkCoreApplication.getInst().getSkinType());
+            threadCardViewHolder.b().p(this.m);
+            return threadCardViewHolder.a();
         }
         return (View) invokeCommon.objValue;
     }
@@ -229,7 +229,7 @@ public class st6 extends an<vy5, ThreadCardViewHolder<vy5>> implements ck5 {
     public final void d0(View view2, vy5 vy5Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048580, this, view2, vy5Var) == null) {
-            if (view2.getId() == R.id.obfuscated_res_0x7f09202a || view2.getId() == R.id.obfuscated_res_0x7f09203e) {
+            if (view2.getId() == R.id.obfuscated_res_0x7f09202e || view2.getId() == R.id.obfuscated_res_0x7f092042) {
                 vs6.b(view2, vy5Var, 2);
             }
         }

@@ -155,7 +155,7 @@ public class vf5 implements uf5 {
                             this.a.s = null;
                         }
                     }
-                    l45.k().d("long_img_mThumb" + System.currentTimeMillis(), new ym(this.a.s, false));
+                    m45.k().d("long_img_mThumb" + System.currentTimeMillis(), new ym(this.a.s, false));
                     vf5 vf5Var = this.a;
                     vf5Var.B(vf5Var.s, vf5Var.f, pow);
                     this.a.f.t(this.a.s);

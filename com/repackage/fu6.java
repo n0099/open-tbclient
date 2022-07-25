@@ -43,8 +43,8 @@ public class fu6 extends BdBaseViewPagerAdapter.a implements View.OnClickListene
     public LikeModel f;
     public yh8 g;
     public b h;
-    public uu4 i;
-    public uu4 j;
+    public vu4 i;
+    public vu4 j;
     public TbPageContext<?> k;
     public byte l;
     public TextView m;
@@ -114,7 +114,7 @@ public class fu6 extends BdBaseViewPagerAdapter.a implements View.OnClickListene
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj) == null) {
                 this.c.e = false;
                 if (this.c.f.getErrorCode() == 22) {
-                    pi.O(this.c.k.getPageActivity(), this.c.k.getString(R.string.obfuscated_res_0x7f0f0819));
+                    pi.O(this.c.k.getPageActivity(), this.c.k.getString(R.string.obfuscated_res_0x7f0f0815));
                 } else if (obj == null) {
                 } else {
                     if (this.c.f.getErrorCode() != 0) {
@@ -159,8 +159,8 @@ public class fu6 extends BdBaseViewPagerAdapter.a implements View.OnClickListene
             }
         }
         this.e = false;
-        this.i = new uu4();
-        this.j = new uu4();
+        this.i = new vu4();
+        this.j = new vu4();
         this.n = new BarImageView[3];
         this.o = new TextView[3];
         this.p = new TextView[3];
@@ -168,7 +168,7 @@ public class fu6 extends BdBaseViewPagerAdapter.a implements View.OnClickListene
         this.r = new TextView[3];
         this.s = new TextView[3];
         this.t = new FollowUserButton[3];
-        this.u = new int[]{R.id.obfuscated_res_0x7f091a8a, R.id.obfuscated_res_0x7f091a8b, R.id.obfuscated_res_0x7f091a8c};
+        this.u = new int[]{R.id.obfuscated_res_0x7f091a64, R.id.obfuscated_res_0x7f091a65, R.id.obfuscated_res_0x7f091a66};
         this.v = new int[]{R.color.CAM_X0301, R.color.CAM_X0305, R.color.CAM_X0312};
         this.k = tbPageContext;
         this.l = b2;
@@ -185,8 +185,8 @@ public class fu6 extends BdBaseViewPagerAdapter.a implements View.OnClickListene
             for (int i = 0; i < 3; i++) {
                 this.n[i].J(this.d.d[i].b(), 10, false);
                 this.p[i].setText(this.d.d[i].c());
-                this.s[i].setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0f76, new Object[]{StringHelper.numberUniformFormatExtraWithRoundInt(this.d.d[i].d())}));
-                this.r[i].setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0f74, new Object[]{StringHelper.numberUniformFormatExtraWithRoundInt(this.d.d[i].a())}));
+                this.s[i].setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0f5f, new Object[]{StringHelper.numberUniformFormatExtraWithRoundInt(this.d.d[i].d())}));
+                this.r[i].setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0f5d, new Object[]{StringHelper.numberUniformFormatExtraWithRoundInt(this.d.d[i].a())}));
                 this.t[i].setTag(Integer.valueOf(i));
                 o(this.t[i], this.d.d[i].l());
                 this.o[i].setVisibility(this.d.b ? 0 : 8);
@@ -196,7 +196,7 @@ public class fu6 extends BdBaseViewPagerAdapter.a implements View.OnClickListene
                 } else if (!StringUtils.isNull(this.d.d[i].h()) && UbsABTestHelper.isRecommendBarHotText()) {
                     this.q[i].setText(this.d.d[i].h());
                 } else {
-                    this.q[i].setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0f75));
+                    this.q[i].setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0f5e));
                 }
             }
         }
@@ -208,7 +208,7 @@ public class fu6 extends BdBaseViewPagerAdapter.a implements View.OnClickListene
             return;
         }
         if (!pi.D()) {
-            UtilHelper.showToast(this.k.getPageActivity(), this.k.getString(R.string.obfuscated_res_0x7f0f0c2b));
+            UtilHelper.showToast(this.k.getPageActivity(), this.k.getString(R.string.obfuscated_res_0x7f0f0c17));
         } else if (aVar == null || StringUtils.isNull(aVar.c()) || aVar.g() <= 0 || !ViewHelper.checkUpIsLogin(this.k.getPageActivity())) {
         } else {
             if (this.h == null) {
@@ -234,7 +234,7 @@ public class fu6 extends BdBaseViewPagerAdapter.a implements View.OnClickListene
             return;
         }
         if (!pi.D()) {
-            UtilHelper.showToast(this.k.getPageActivity(), this.k.getString(R.string.obfuscated_res_0x7f0f0c2b));
+            UtilHelper.showToast(this.k.getPageActivity(), this.k.getString(R.string.obfuscated_res_0x7f0f0c17));
         } else if (aVar == null || StringUtils.isNull(aVar.c()) || aVar.g() <= 0 || !ViewHelper.checkUpIsLogin(this.k.getPageActivity())) {
         } else {
             if (this.h == null) {
@@ -260,7 +260,7 @@ public class fu6 extends BdBaseViewPagerAdapter.a implements View.OnClickListene
     public final void k(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, view2) == null) {
-            this.m = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091a8d);
+            this.m = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091a67);
             this.i.t(R.color.CAM_X0109);
             this.i.i(0, 0, TBSpecificationButtonConfig.IconType.SVG);
             this.j.r(R.color.CAM_X0304);
@@ -271,13 +271,13 @@ public class fu6 extends BdBaseViewPagerAdapter.a implements View.OnClickListene
                 View findViewById = view2.findViewById(this.u[i]);
                 findViewById.setTag(Integer.valueOf(i));
                 findViewById.setOnClickListener(this);
-                this.n[i] = (BarImageView) findViewById.findViewById(R.id.obfuscated_res_0x7f091a89);
-                this.o[i] = (TextView) findViewById.findViewById(R.id.obfuscated_res_0x7f091a93);
-                this.p[i] = (TextView) findViewById.findViewById(R.id.obfuscated_res_0x7f091a8f);
-                this.q[i] = (TextView) findViewById.findViewById(R.id.obfuscated_res_0x7f091a88);
-                this.r[i] = (TextView) findViewById.findViewById(R.id.obfuscated_res_0x7f091a86);
-                this.s[i] = (TextView) findViewById.findViewById(R.id.obfuscated_res_0x7f091a91);
-                this.t[i] = (FollowUserButton) findViewById.findViewById(R.id.obfuscated_res_0x7f091a85);
+                this.n[i] = (BarImageView) findViewById.findViewById(R.id.obfuscated_res_0x7f091a63);
+                this.o[i] = (TextView) findViewById.findViewById(R.id.obfuscated_res_0x7f091a6d);
+                this.p[i] = (TextView) findViewById.findViewById(R.id.obfuscated_res_0x7f091a69);
+                this.q[i] = (TextView) findViewById.findViewById(R.id.obfuscated_res_0x7f091a62);
+                this.r[i] = (TextView) findViewById.findViewById(R.id.obfuscated_res_0x7f091a60);
+                this.s[i] = (TextView) findViewById.findViewById(R.id.obfuscated_res_0x7f091a6b);
+                this.t[i] = (FollowUserButton) findViewById.findViewById(R.id.obfuscated_res_0x7f091a5f);
                 this.t[i].setOnClickListener(this);
                 int i2 = i + 1;
                 this.o[i].setText(String.valueOf(i2));
@@ -341,7 +341,7 @@ public class fu6 extends BdBaseViewPagerAdapter.a implements View.OnClickListene
             return;
         }
         followUserButton.setConfig(z ? this.i : this.j);
-        followUserButton.setText(TbadkCoreApplication.getInst().getString(z ? R.string.obfuscated_res_0x7f0f063b : R.string.obfuscated_res_0x7f0f02a7));
+        followUserButton.setText(TbadkCoreApplication.getInst().getString(z ? R.string.obfuscated_res_0x7f0f0637 : R.string.obfuscated_res_0x7f0f02a7));
         followUserButton.r(TbadkCoreApplication.getInst().getSkinType());
     }
 
@@ -365,7 +365,7 @@ public class fu6 extends BdBaseViewPagerAdapter.a implements View.OnClickListene
                 param = param.param("obj_name", this.d.a);
             }
             TiebaStatic.log(param);
-        } else if (id == R.id.obfuscated_res_0x7f091a8a || id == R.id.obfuscated_res_0x7f091a8b || id == R.id.obfuscated_res_0x7f091a8c) {
+        } else if (id == R.id.obfuscated_res_0x7f091a64 || id == R.id.obfuscated_res_0x7f091a65 || id == R.id.obfuscated_res_0x7f091a66) {
             FrsActivityConfig callFrom = new FrsActivityConfig(this.k.getPageActivity()).createNormalCfg(aVar.c(), FrsActivityConfig.FRS_FROM_RECOMMEND_BAR_CAR).setCallFrom(3);
             if (UbsABTestHelper.isRecommendBarHotText()) {
                 Intent intent = callFrom.getIntent();

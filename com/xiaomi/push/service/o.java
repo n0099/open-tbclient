@@ -32,36 +32,36 @@ public class o {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
-    public int f1701a;
+    public int f981a;
 
     /* renamed from: a  reason: collision with other field name */
-    public long f1702a;
+    public long f982a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final Context f1703a;
+    public final Context f983a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final SharedPreferences f1704a;
+    public final SharedPreferences f984a;
 
     /* renamed from: a  reason: collision with other field name */
-    public String f1705a;
+    public String f985a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final AtomicInteger f1706a;
+    public final AtomicInteger f986a;
 
     /* renamed from: a  reason: collision with other field name */
-    public volatile boolean f1707a;
+    public volatile boolean f987a;
     public String b;
 
     /* renamed from: b  reason: collision with other field name */
-    public final AtomicInteger f1708b;
+    public final AtomicInteger f988b;
 
     /* renamed from: b  reason: collision with other field name */
-    public final boolean f1709b;
+    public final boolean f989b;
     public final AtomicInteger c;
 
     /* renamed from: c  reason: collision with other field name */
-    public final boolean f1710c;
+    public final boolean f990c;
 
     /* loaded from: classes8.dex */
     public static class a {
@@ -156,26 +156,26 @@ public class o {
                 return;
             }
         }
-        this.f1706a = new AtomicInteger(0);
-        this.f1705a = null;
-        this.f1707a = false;
+        this.f986a = new AtomicInteger(0);
+        this.f985a = null;
+        this.f987a = false;
         this.b = null;
-        this.f1708b = new AtomicInteger(0);
+        this.f988b = new AtomicInteger(0);
         this.c = new AtomicInteger(0);
-        this.f1701a = -1;
-        this.f1703a = context;
-        this.f1710c = com.xiaomi.push.m.m1499a(context);
-        this.f1709b = ba.a(this.f1703a).a(ho.bg.a(), true);
-        this.f1704a = this.f1703a.getSharedPreferences("hb_record", 0);
+        this.f981a = -1;
+        this.f983a = context;
+        this.f990c = com.xiaomi.push.m.m561a(context);
+        this.f989b = ba.a(this.f983a).a(ho.bg.a(), true);
+        this.f984a = this.f983a.getSharedPreferences("hb_record", 0);
         long currentTimeMillis = System.currentTimeMillis();
-        if (this.f1704a.getLong(a.c(), -1L) == -1) {
-            this.f1704a.edit().putLong(a.c(), currentTimeMillis).apply();
+        if (this.f984a.getLong(a.c(), -1L) == -1) {
+            this.f984a.edit().putLong(a.c(), currentTimeMillis).apply();
         }
-        long j = this.f1704a.getLong(a.i(), -1L);
-        this.f1702a = j;
+        long j = this.f984a.getLong(a.i(), -1L);
+        this.f982a = j;
         if (j == -1) {
-            this.f1702a = currentTimeMillis;
-            this.f1704a.edit().putLong(a.i(), currentTimeMillis).apply();
+            this.f982a = currentTimeMillis;
+            this.f984a.edit().putLong(a.i(), currentTimeMillis).apply();
         }
     }
 
@@ -183,11 +183,11 @@ public class o {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) {
-            if (TextUtils.isEmpty(this.f1705a)) {
+            if (TextUtils.isEmpty(this.f985a)) {
                 return -1;
             }
             try {
-                return this.f1704a.getInt(a.a(this.f1705a), -1);
+                return this.f984a.getInt(a.a(this.f985a), -1);
             } catch (Throwable unused) {
                 return -1;
             }
@@ -222,59 +222,59 @@ public class o {
             hnVar.b(str2);
             hnVar.a(false);
             hnVar.b(System.currentTimeMillis());
-            hnVar.g(this.f1703a.getPackageName());
+            hnVar.g(this.f983a.getPackageName());
             hnVar.e("com.xiaomi.xmsf");
             if (map == null) {
                 map = new HashMap<>();
             }
             String str3 = null;
-            t m1618a = u.m1618a(this.f1703a);
-            if (m1618a != null && !TextUtils.isEmpty(m1618a.f1724a)) {
-                String[] split = m1618a.f1724a.split("@");
+            t m680a = u.m680a(this.f983a);
+            if (m680a != null && !TextUtils.isEmpty(m680a.f1004a)) {
+                String[] split = m680a.f1004a.split("@");
                 if (split.length > 0) {
                     str3 = split[0];
                 }
             }
             map.put("uuid", str3);
             map.put("model", Build.MODEL);
-            Context context = this.f1703a;
+            Context context = this.f983a;
             map.put("avc", String.valueOf(com.xiaomi.push.h.a(context, context.getPackageName())));
             map.put("pvc", String.valueOf(40090));
             map.put("cvc", String.valueOf(48));
             hnVar.a(map);
-            hg a2 = hg.a(this.f1703a);
+            hg a2 = hg.a(this.f983a);
             if (a2 != null) {
-                a2.a(hnVar, this.f1703a.getPackageName());
+                a2.a(hnVar, this.f983a.getPackageName());
             }
         }
     }
 
     private void a(boolean z) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TRACKBALL, this, z) == null) && m1598c()) {
-            int incrementAndGet = (z ? this.f1708b : this.c).incrementAndGet();
+        if ((interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TRACKBALL, this, z) == null) && m660c()) {
+            int incrementAndGet = (z ? this.f988b : this.c).incrementAndGet();
             Object[] objArr = new Object[2];
             objArr[0] = z ? "short" : "long";
             objArr[1] = Integer.valueOf(incrementAndGet);
             com.xiaomi.channel.commonutils.logger.b.b(String.format("[HB] %s ping interval count: %s", objArr));
             if (incrementAndGet >= 5) {
                 String d = z ? a.d() : a.e();
-                int i = this.f1704a.getInt(d, 0) + incrementAndGet;
-                this.f1704a.edit().putInt(d, i).apply();
+                int i = this.f984a.getInt(d, 0) + incrementAndGet;
+                this.f984a.edit().putInt(d, i).apply();
                 Object[] objArr2 = new Object[2];
                 objArr2[0] = z ? "short" : "long";
                 objArr2[1] = Integer.valueOf(i);
-                com.xiaomi.channel.commonutils.logger.b.m1027a(String.format("[HB] accumulate %s hb count(%s) and write to file. ", objArr2));
-                (z ? this.f1708b : this.c).set(0);
+                com.xiaomi.channel.commonutils.logger.b.m89a(String.format("[HB] accumulate %s hb count(%s) and write to file. ", objArr2));
+                (z ? this.f988b : this.c).set(0);
             }
         }
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    private boolean m1596a() {
+    private boolean m658a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65541, this)) == null) ? this.f1706a.get() >= Math.max(ba.a(this.f1703a).a(ho.bi.a(), 5), 3) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65541, this)) == null) ? this.f986a.get() >= Math.max(ba.a(this.f983a).a(ho.bi.a(), 5), 3) : invokeV.booleanValue;
     }
 
     private boolean a(String str) {
@@ -292,7 +292,7 @@ public class o {
     private long b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65543, this)) == null) ? this.f1704a.getLong(a.j(), -1L) : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65543, this)) == null) ? this.f984a.getLong(a.j(), -1L) : invokeV.longValue;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:15:0x003d  */
@@ -305,70 +305,70 @@ public class o {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65544, this, str) == null) {
             if ("WIFI-ID-UNKNOWN".equals(str)) {
-                String str2 = this.f1705a;
+                String str2 = this.f985a;
                 if (str2 == null || !str2.startsWith("W-")) {
                     str = null;
                 }
-                i = this.f1704a.getInt(a.a(this.f1705a), -1);
-                long j = this.f1704a.getLong(a.b(this.f1705a), -1L);
+                i = this.f984a.getInt(a.a(this.f985a), -1);
+                long j = this.f984a.getLong(a.b(this.f985a), -1L);
                 long currentTimeMillis = System.currentTimeMillis();
                 if (i != -1) {
                     if (j == -1) {
-                        remove = this.f1704a.edit().putLong(a.b(this.f1705a), currentTimeMillis + c());
+                        remove = this.f984a.edit().putLong(a.b(this.f985a), currentTimeMillis + c());
                     } else if (currentTimeMillis > j) {
-                        remove = this.f1704a.edit().remove(a.a(this.f1705a)).remove(a.b(this.f1705a));
+                        remove = this.f984a.edit().remove(a.a(this.f985a)).remove(a.b(this.f985a));
                     }
                     remove.apply();
                 }
-                this.f1706a.getAndSet(0);
-                if (TextUtils.isEmpty(this.f1705a) && a() == -1) {
-                    this.f1707a = true;
+                this.f986a.getAndSet(0);
+                if (TextUtils.isEmpty(this.f985a) && a() == -1) {
+                    this.f987a = true;
                 } else {
-                    this.f1707a = false;
+                    this.f987a = false;
                 }
-                com.xiaomi.channel.commonutils.logger.b.m1027a(String.format("[HB] network changed, netid:%s, %s", this.f1705a, Boolean.valueOf(this.f1707a)));
+                com.xiaomi.channel.commonutils.logger.b.m89a(String.format("[HB] network changed, netid:%s, %s", this.f985a, Boolean.valueOf(this.f987a)));
             }
-            this.f1705a = str;
-            i = this.f1704a.getInt(a.a(this.f1705a), -1);
-            long j2 = this.f1704a.getLong(a.b(this.f1705a), -1L);
+            this.f985a = str;
+            i = this.f984a.getInt(a.a(this.f985a), -1);
+            long j2 = this.f984a.getLong(a.b(this.f985a), -1L);
             long currentTimeMillis2 = System.currentTimeMillis();
             if (i != -1) {
             }
-            this.f1706a.getAndSet(0);
-            if (TextUtils.isEmpty(this.f1705a)) {
+            this.f986a.getAndSet(0);
+            if (TextUtils.isEmpty(this.f985a)) {
             }
-            this.f1707a = false;
-            com.xiaomi.channel.commonutils.logger.b.m1027a(String.format("[HB] network changed, netid:%s, %s", this.f1705a, Boolean.valueOf(this.f1707a)));
+            this.f987a = false;
+            com.xiaomi.channel.commonutils.logger.b.m89a(String.format("[HB] network changed, netid:%s, %s", this.f985a, Boolean.valueOf(this.f987a)));
         }
     }
 
     /* renamed from: b  reason: collision with other method in class */
-    private boolean m1597b() {
+    private boolean m659b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65545, this)) == null) ? (TextUtils.isEmpty(this.f1705a) || !this.f1705a.startsWith("M-") || ba.a(this.f1703a).a(ho.bj.a(), false)) ? false : true : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65545, this)) == null) ? (TextUtils.isEmpty(this.f985a) || !this.f985a.startsWith("M-") || ba.a(this.f983a).a(ho.bj.a(), false)) ? false : true : invokeV.booleanValue;
     }
 
     private long c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65546, this)) == null) ? ba.a(this.f1703a).a(ho.br.a(), 777600000L) : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65546, this)) == null) ? ba.a(this.f983a).a(ho.br.a(), 777600000L) : invokeV.longValue;
     }
 
     private void c(String str) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(65547, this, str) == null) && a(str)) {
-            this.f1704a.edit().putInt(a.a(str), 235000).apply();
-            this.f1704a.edit().putLong(a.b(this.f1705a), System.currentTimeMillis() + c()).apply();
+            this.f984a.edit().putInt(a.a(str), 235000).apply();
+            this.f984a.edit().putLong(a.b(this.f985a), System.currentTimeMillis() + c()).apply();
         }
     }
 
     /* renamed from: c  reason: collision with other method in class */
-    private boolean m1598c() {
+    private boolean m660c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65548, this)) == null) {
-            return d() && ba.a(this.f1703a).a(ho.bh.a(), true) && com.xiaomi.push.q.a.name().equals(com.xiaomi.push.service.a.a(this.f1703a).a());
+            return d() && ba.a(this.f983a).a(ho.bh.a(), true) && com.xiaomi.push.q.a.name().equals(com.xiaomi.push.service.a.a(this.f983a).a());
         }
         return invokeV.booleanValue;
     }
@@ -377,7 +377,7 @@ public class o {
         String str2;
         String str3;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65549, this, str) == null) && m1598c() && !TextUtils.isEmpty(str)) {
+        if ((interceptable == null || interceptable.invokeL(65549, this, str) == null) && m660c() && !TextUtils.isEmpty(str)) {
             if (str.startsWith("W-")) {
                 str2 = "W";
             } else if (!str.startsWith("M-")) {
@@ -395,13 +395,13 @@ public class o {
             sb.append(valueOf);
             sb.append(":::");
             sb.append(valueOf2);
-            String string = this.f1704a.getString(a.f(), null);
+            String string = this.f984a.getString(a.f(), null);
             if (TextUtils.isEmpty(string)) {
                 str3 = sb.toString();
             } else {
                 str3 = string + "###" + sb.toString();
             }
-            this.f1704a.edit().putString(a.f(), str3).apply();
+            this.f984a.edit().putString(a.f(), str3).apply();
         }
     }
 
@@ -409,25 +409,25 @@ public class o {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65550, this)) == null) {
-            return this.f1710c && (this.f1709b || ((b() > System.currentTimeMillis() ? 1 : (b() == System.currentTimeMillis() ? 0 : -1)) >= 0));
+            return this.f990c && (this.f989b || ((b() > System.currentTimeMillis() ? 1 : (b() == System.currentTimeMillis() ? 0 : -1)) >= 0));
         }
         return invokeV.booleanValue;
     }
 
     private void e() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65551, this) == null) || this.f1704a.getBoolean(a.a(), false)) {
+        if (!(interceptable == null || interceptable.invokeV(65551, this) == null) || this.f984a.getBoolean(a.a(), false)) {
             return;
         }
-        this.f1704a.edit().putBoolean(a.a(), true).apply();
+        this.f984a.edit().putBoolean(a.a(), true).apply();
     }
 
     /* renamed from: e  reason: collision with other method in class */
-    private boolean m1599e() {
+    private boolean m661e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65552, this)) == null) {
-            long j = this.f1704a.getLong(a.c(), -1L);
+            long j = this.f984a.getLong(a.c(), -1L);
             if (j == -1) {
                 return false;
             }
@@ -440,29 +440,29 @@ public class o {
     private void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65553, this) == null) {
-            int i = this.f1701a;
+            int i = this.f981a;
             String h = i != 0 ? i != 1 ? null : a.h() : a.g();
             if (TextUtils.isEmpty(h)) {
                 return;
             }
-            if (this.f1704a.getLong(a.i(), -1L) == -1) {
-                this.f1702a = System.currentTimeMillis();
-                this.f1704a.edit().putLong(a.i(), this.f1702a).apply();
+            if (this.f984a.getLong(a.i(), -1L) == -1) {
+                this.f982a = System.currentTimeMillis();
+                this.f984a.edit().putLong(a.i(), this.f982a).apply();
             }
-            this.f1704a.edit().putInt(h, this.f1704a.getInt(h, 0) + 1).apply();
+            this.f984a.edit().putInt(h, this.f984a.getInt(h, 0) + 1).apply();
         }
     }
 
     /* renamed from: f  reason: collision with other method in class */
-    private boolean m1600f() {
+    private boolean m662f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65554, this)) == null) {
-            if (this.f1702a == -1) {
+            if (this.f982a == -1) {
                 return false;
             }
             long currentTimeMillis = System.currentTimeMillis();
-            long j = this.f1702a;
+            long j = this.f982a;
             return j > currentTimeMillis || currentTimeMillis - j >= ImagesInvalidService.FILE_VALID_TIME;
         }
         return invokeV.booleanValue;
@@ -473,8 +473,8 @@ public class o {
         String[] split;
         String[] split2;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65555, this) == null) && m1598c()) {
-            String string = this.f1704a.getString(a.f(), null);
+        if ((interceptable == null || interceptable.invokeV(65555, this) == null) && m660c()) {
+            String string = this.f984a.getString(a.f(), null);
             char c = 1;
             char c2 = 0;
             if (!TextUtils.isEmpty(string) && (split = string.split("###")) != null) {
@@ -493,28 +493,28 @@ public class o {
                         hashMap.put("interval", str3);
                         hashMap.put("timestamp", str4);
                         a("category_hb_change", null, hashMap);
-                        com.xiaomi.channel.commonutils.logger.b.m1027a("[HB] report hb changed events.");
+                        com.xiaomi.channel.commonutils.logger.b.m89a("[HB] report hb changed events.");
                     }
                     i2++;
                     c = 1;
                     c2 = 0;
                 }
-                this.f1704a.edit().remove(a.f()).apply();
+                this.f984a.edit().remove(a.f()).apply();
             }
-            if (this.f1704a.getBoolean(a.a(), false) && !this.f1704a.getBoolean(a.b(), false)) {
+            if (this.f984a.getBoolean(a.a(), false) && !this.f984a.getBoolean(a.b(), false)) {
                 HashMap hashMap2 = new HashMap();
                 hashMap2.put("event", "support");
                 hashMap2.put("model", Build.MODEL);
                 hashMap2.put("timestamp", String.valueOf(System.currentTimeMillis() / 1000));
                 a("category_hb_change", null, hashMap2);
-                com.xiaomi.channel.commonutils.logger.b.m1027a("[HB] report support wifi digest events.");
-                this.f1704a.edit().putBoolean(a.b(), true).apply();
+                com.xiaomi.channel.commonutils.logger.b.m89a("[HB] report support wifi digest events.");
+                this.f984a.edit().putBoolean(a.b(), true).apply();
             }
-            if (m1599e()) {
-                int i3 = this.f1704a.getInt(a.d(), 0);
-                int i4 = this.f1704a.getInt(a.e(), 0);
+            if (m661e()) {
+                int i3 = this.f984a.getInt(a.d(), 0);
+                int i4 = this.f984a.getInt(a.e(), 0);
                 if (i3 > 0 || i4 > 0) {
-                    long j = this.f1704a.getLong(a.c(), -1L);
+                    long j = this.f984a.getLong(a.c(), -1L);
                     String valueOf = String.valueOf(235000);
                     String valueOf2 = String.valueOf(j);
                     String valueOf3 = String.valueOf(System.currentTimeMillis());
@@ -530,16 +530,16 @@ public class o {
                         HashMap hashMap3 = new HashMap();
                         hashMap3.put("event", "long_and_short_hb_count");
                         a("category_hb_count", jSONObject2, hashMap3);
-                        com.xiaomi.channel.commonutils.logger.b.m1027a("[HB] report short/long hb count events.");
+                        com.xiaomi.channel.commonutils.logger.b.m89a("[HB] report short/long hb count events.");
                     } catch (Throwable unused) {
                     }
                 }
-                this.f1704a.edit().putInt(a.d(), 0).putInt(a.e(), 0).putLong(a.c(), System.currentTimeMillis()).apply();
+                this.f984a.edit().putInt(a.d(), 0).putInt(a.e(), 0).putLong(a.c(), System.currentTimeMillis()).apply();
             }
-            if (m1600f()) {
-                String valueOf4 = String.valueOf(this.f1702a);
+            if (m662f()) {
+                String valueOf4 = String.valueOf(this.f982a);
                 String valueOf5 = String.valueOf(System.currentTimeMillis());
-                int i5 = this.f1704a.getInt(a.g(), 0);
+                int i5 = this.f984a.getInt(a.g(), 0);
                 if (i5 > 0) {
                     try {
                         JSONObject jSONObject3 = new JSONObject();
@@ -551,15 +551,15 @@ public class o {
                         HashMap hashMap4 = new HashMap();
                         hashMap4.put("event", "ptc_event");
                         a("category_lc_ptc", jSONObject4, hashMap4);
-                        com.xiaomi.channel.commonutils.logger.b.m1027a("[HB] report ping timeout count events of mobile network.");
-                        this.f1704a.edit().putInt(a.g(), 0).apply();
+                        com.xiaomi.channel.commonutils.logger.b.m89a("[HB] report ping timeout count events of mobile network.");
+                        this.f984a.edit().putInt(a.g(), 0).apply();
                     } catch (Throwable unused2) {
                         i = 0;
-                        this.f1704a.edit().putInt(a.g(), 0).apply();
+                        this.f984a.edit().putInt(a.g(), 0).apply();
                     }
                 }
                 i = 0;
-                int i6 = this.f1704a.getInt(a.h(), i);
+                int i6 = this.f984a.getInt(a.h(), i);
                 if (i6 > 0) {
                     try {
                         JSONObject jSONObject5 = new JSONObject();
@@ -571,38 +571,38 @@ public class o {
                         HashMap hashMap5 = new HashMap();
                         hashMap5.put("event", "ptc_event");
                         a("category_lc_ptc", jSONObject6, hashMap5);
-                        com.xiaomi.channel.commonutils.logger.b.m1027a("[HB] report ping timeout count events of wifi network.");
+                        com.xiaomi.channel.commonutils.logger.b.m89a("[HB] report ping timeout count events of wifi network.");
                     } catch (Throwable unused3) {
                     }
-                    this.f1704a.edit().putInt(a.h(), 0).apply();
+                    this.f984a.edit().putInt(a.h(), 0).apply();
                 }
-                this.f1702a = System.currentTimeMillis();
-                this.f1704a.edit().putLong(a.i(), this.f1702a).apply();
+                this.f982a = System.currentTimeMillis();
+                this.f984a.edit().putLong(a.i(), this.f982a).apply();
             }
         }
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public long m1601a() {
+    public long m663a() {
         InterceptResult invokeV;
         int a2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             long b = gc.b();
-            if (this.f1710c && !m1597b() && ((ba.a(this.f1703a).a(ho.bg.a(), true) || b() >= System.currentTimeMillis()) && (a2 = a()) != -1)) {
+            if (this.f990c && !m659b() && ((ba.a(this.f983a).a(ho.bg.a(), true) || b() >= System.currentTimeMillis()) && (a2 = a()) != -1)) {
                 b = a2;
             }
-            if (!TextUtils.isEmpty(this.f1705a) && !"WIFI-ID-UNKNOWN".equals(this.f1705a) && this.f1701a == 1) {
+            if (!TextUtils.isEmpty(this.f985a) && !"WIFI-ID-UNKNOWN".equals(this.f985a) && this.f981a == 1) {
                 a(b < 300000);
             }
-            com.xiaomi.channel.commonutils.logger.b.m1027a("[HB] ping interval:" + b);
+            com.xiaomi.channel.commonutils.logger.b.m89a("[HB] ping interval:" + b);
             return b;
         }
         return invokeV.longValue;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m1602a() {
+    public void m664a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
         }
@@ -611,7 +611,7 @@ public class o {
     public void a(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            this.f1704a.edit().putLong(a.j(), System.currentTimeMillis() + (i * 1000)).apply();
+            this.f984a.edit().putLong(a.j(), System.currentTimeMillis() + (i * 1000)).apply();
         }
     }
 
@@ -629,22 +629,22 @@ public class o {
                             str = "M-" + subtypeName;
                         }
                         b(str);
-                        this.f1701a = 0;
+                        this.f981a = 0;
                     } else {
                         if (networkInfo.getType() != 1 && networkInfo.getType() != 6) {
                             b(null);
                         }
                         b("WIFI-ID-UNKNOWN");
-                        this.f1701a = 1;
+                        this.f981a = 1;
                     }
-                    this.f1701a = -1;
+                    this.f981a = -1;
                 }
             }
         }
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public synchronized void m1603a(String str) {
+    public synchronized void m665a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
             synchronized (this) {
@@ -659,39 +659,39 @@ public class o {
     }
 
     /* renamed from: b  reason: collision with other method in class */
-    public void m1604b() {
+    public void m666b() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && d()) {
             f();
-            if (this.f1707a && !TextUtils.isEmpty(this.f1705a) && this.f1705a.equals(this.b)) {
-                this.f1706a.getAndIncrement();
-                com.xiaomi.channel.commonutils.logger.b.m1027a("[HB] ping timeout count:" + this.f1706a);
-                if (m1596a()) {
-                    com.xiaomi.channel.commonutils.logger.b.m1027a("[HB] change hb interval for net:" + this.f1705a);
-                    c(this.f1705a);
-                    this.f1707a = false;
-                    this.f1706a.getAndSet(0);
-                    d(this.f1705a);
+            if (this.f987a && !TextUtils.isEmpty(this.f985a) && this.f985a.equals(this.b)) {
+                this.f986a.getAndIncrement();
+                com.xiaomi.channel.commonutils.logger.b.m89a("[HB] ping timeout count:" + this.f986a);
+                if (m658a()) {
+                    com.xiaomi.channel.commonutils.logger.b.m89a("[HB] change hb interval for net:" + this.f985a);
+                    c(this.f985a);
+                    this.f987a = false;
+                    this.f986a.getAndSet(0);
+                    d(this.f985a);
                 }
             }
         }
     }
 
     /* renamed from: c  reason: collision with other method in class */
-    public void m1605c() {
+    public void m667c() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && d()) {
-            this.b = this.f1705a;
+            this.b = this.f985a;
         }
     }
 
     /* renamed from: d  reason: collision with other method in class */
-    public void m1606d() {
+    public void m668d() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && d()) {
             g();
-            if (this.f1707a) {
-                this.f1706a.getAndSet(0);
+            if (this.f987a) {
+                this.f986a.getAndSet(0);
             }
         }
     }

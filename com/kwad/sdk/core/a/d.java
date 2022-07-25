@@ -5,40 +5,40 @@ import com.kwad.sdk.components.DevelopMangerComponents;
 import java.util.Map;
 /* loaded from: classes5.dex */
 public final class d {
-    public static h a;
+    public static h XC;
 
-    public static h a() {
+    public static void a(String str, Map<String, String> map, String str2) {
+        nc().a(str, map, str2);
+    }
+
+    public static String bM(String str) {
+        return nc().bM(str);
+    }
+
+    public static void c(@NonNull Map<String, String> map) {
+        nc().c(map);
+    }
+
+    public static String getResponseData(String str) {
+        com.kwad.sdk.components.c.f(DevelopMangerComponents.class);
+        return nc().getResponseData(str);
+    }
+
+    public static h nc() {
         h fVar;
-        h hVar = a;
+        h hVar = XC;
         if (hVar != null) {
             return hVar;
         }
-        com.kwad.sdk.components.c.a(DevelopMangerComponents.class);
-        com.kwad.sdk.components.f fVar2 = (com.kwad.sdk.components.f) com.kwad.sdk.components.c.a(com.kwad.sdk.components.f.class);
+        com.kwad.sdk.components.c.f(DevelopMangerComponents.class);
+        com.kwad.sdk.components.f fVar2 = (com.kwad.sdk.components.f) com.kwad.sdk.components.c.f(com.kwad.sdk.components.f.class);
         if (fVar2 != null) {
-            fVar2.b();
-            fVar = fVar2.b();
+            fVar2.nc();
+            fVar = fVar2.nc();
         } else {
             fVar = new f();
         }
-        a = fVar;
-        return a;
-    }
-
-    public static String a(String str) {
-        return a().a(str);
-    }
-
-    public static void a(String str, Map<String, String> map, String str2) {
-        a().a(str, map, str2);
-    }
-
-    public static void a(@NonNull Map<String, String> map) {
-        a().a(map);
-    }
-
-    public static String b(String str) {
-        com.kwad.sdk.components.c.a(DevelopMangerComponents.class);
-        return a().b(str);
+        XC = fVar;
+        return XC;
     }
 }

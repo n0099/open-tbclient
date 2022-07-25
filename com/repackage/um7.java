@@ -134,7 +134,7 @@ public class um7 extends tm7<ThreadData, ThreadCardViewHolder<ThreadData>> {
             qy5 qy5Var = (qy5) nnVar;
             qy5Var.f = 1;
             ThreadCardUtils.jumpToPB(qy5Var, view2.getContext(), 17, false, this.j.getOrignalPage().C1(), Z() ? "3" : "2");
-            threadCardViewHolder.c().o(new ny.a(1));
+            threadCardViewHolder.b().o(new ny.a(1));
         }
     }
 
@@ -153,11 +153,11 @@ public class um7 extends tm7<ThreadData, ThreadCardViewHolder<ThreadData>> {
             bVar.n(new rw(this.l.getPageActivity()));
             bVar.h(new ax(this.l.getPageActivity()));
             ey eyVar = new ey(this.l.getPageActivity());
-            tn4 tn4Var = new tn4();
-            tn4Var.b = 1;
-            tn4Var.h = 1;
+            un4 un4Var = new un4();
+            un4Var.b = 1;
+            un4Var.h = 1;
             eyVar.x(false);
-            eyVar.w(tn4Var);
+            eyVar.w(un4Var);
             eyVar.y(1);
             eyVar.D(3);
             eyVar.z(17);
@@ -165,7 +165,7 @@ public class um7 extends tm7<ThreadData, ThreadCardViewHolder<ThreadData>> {
             cy k = bVar.k(BaseCardInfo.SupportType.FULL, viewGroup, this.n);
             k.r(17);
             ThreadCardViewHolder<ThreadData> threadCardViewHolder = new ThreadCardViewHolder<>(k);
-            threadCardViewHolder.k(this.k);
+            threadCardViewHolder.j(this.k);
             V(new b(this));
             return threadCardViewHolder;
         }
@@ -179,18 +179,18 @@ public class um7 extends tm7<ThreadData, ThreadCardViewHolder<ThreadData>> {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view2, viewGroup, threadData, threadCardViewHolder})) == null) {
-            if (threadData == null || threadCardViewHolder == null || threadCardViewHolder.b() == null) {
+            if (threadData == null || threadCardViewHolder == null || threadCardViewHolder.a() == null) {
                 return null;
             }
             threadData.statFloor = B(i) + 1;
-            threadCardViewHolder.c().q(i);
-            threadCardViewHolder.q(true).u(this.m);
-            threadCardViewHolder.u(true, Align.ALIGN_RIGHT_BOTTOM);
-            threadCardViewHolder.g(threadData);
-            threadCardViewHolder.c().p(this.o);
-            threadCardViewHolder.c().onChangeSkinType(this.l, TbadkCoreApplication.getInst().getSkinType());
+            threadCardViewHolder.b().q(i);
+            threadCardViewHolder.p(true).u(this.m);
+            threadCardViewHolder.t(true, Align.ALIGN_RIGHT_BOTTOM);
+            threadCardViewHolder.f(threadData);
+            threadCardViewHolder.b().p(this.o);
+            threadCardViewHolder.b().onChangeSkinType(this.l, TbadkCoreApplication.getInst().getSkinType());
             qm7.c(this, threadData);
-            return threadCardViewHolder.b();
+            return threadCardViewHolder.a();
         }
         return (View) invokeCommon.objValue;
     }

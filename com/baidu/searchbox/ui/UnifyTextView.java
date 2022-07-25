@@ -139,7 +139,7 @@ public class UnifyTextView extends TextView {
             if (hasEmoji(charSequence)) {
                 Context context = getContext();
                 Intrinsics.checkNotNullExpressionValue(context, "context");
-                this.mTopBuffer = Math.round(getDimensionPixelSize(context, R.dimen.obfuscated_res_0x7f07065b) * 1.5f);
+                this.mTopBuffer = Math.round(getDimensionPixelSize(context, R.dimen.obfuscated_res_0x7f07064d) * 1.5f);
                 if (this.DEBUG) {
                     String str = this.TAG;
                     Log.d(str, "has emoji, mTopBuffer: " + this.mTopBuffer);
@@ -147,7 +147,7 @@ public class UnifyTextView extends TextView {
             } else {
                 Context context2 = getContext();
                 Intrinsics.checkNotNullExpressionValue(context2, "context");
-                this.mTopBuffer = getDimensionPixelSize(context2, R.dimen.obfuscated_res_0x7f07065b);
+                this.mTopBuffer = getDimensionPixelSize(context2, R.dimen.obfuscated_res_0x7f07064d);
                 if (this.DEBUG) {
                     String str2 = this.TAG;
                     Log.d(str2, "has no emoji, mTopBuffer: " + this.mTopBuffer);
@@ -155,7 +155,7 @@ public class UnifyTextView extends TextView {
             }
             Context context3 = getContext();
             Intrinsics.checkNotNullExpressionValue(context3, "context");
-            this.mBottomBuffer = getDimensionPixelSize(context3, R.dimen.obfuscated_res_0x7f070659);
+            this.mBottomBuffer = getDimensionPixelSize(context3, R.dimen.obfuscated_res_0x7f07064b);
         }
     }
 
@@ -278,8 +278,8 @@ public class UnifyTextView extends TextView {
         }
         Intrinsics.checkNotNullParameter(context, "context");
         this.TAG = "UnifyTextView";
-        this.DEFAULT_TOP_BOTTOM_PADDING = getDimensionPixelSize(context, R.dimen.obfuscated_res_0x7f07065a);
-        TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f0405bb, R.attr.obfuscated_res_0x7f0405bc});
+        this.DEFAULT_TOP_BOTTOM_PADDING = getDimensionPixelSize(context, R.dimen.obfuscated_res_0x7f07064c);
+        TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f0405bd, R.attr.obfuscated_res_0x7f0405be});
         Intrinsics.checkNotNullExpressionValue(obtainStyledAttributes, "getContext().obtainStyle…able.spannable_etextview)");
         this.mTopPadding = obtainStyledAttributes.getDimensionPixelSize(1, this.DEFAULT_TOP_BOTTOM_PADDING);
         this.mBottomPadding = obtainStyledAttributes.getDimensionPixelSize(0, this.DEFAULT_TOP_BOTTOM_PADDING);

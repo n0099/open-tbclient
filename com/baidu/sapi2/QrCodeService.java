@@ -23,7 +23,6 @@ import com.baidu.sapi2.utils.SapiEnv;
 import com.baidu.sapi2.utils.SapiUtils;
 import com.baidu.sapi2.utils.enums.Enums;
 import com.baidu.searchbox.crius.constants.CriusAttrConstants;
-import com.baidu.sofire.core.ForHostApp;
 import com.baidu.tbadk.core.util.httpNet.HttpRequest;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -481,7 +480,7 @@ public class QrCodeService extends AbstractService implements NoProguard {
                         this.a.onFailure(this.b);
                         return;
                     }
-                    JSONObject optJSONObject = jSONObject.optJSONObject(ForHostApp.KEY_NAME_LOCAL);
+                    JSONObject optJSONObject = jSONObject.optJSONObject("local");
                     if (optJSONObject != null) {
                         this.b.country = optJSONObject.optString("country");
                         this.b.province = optJSONObject.optString("provice");

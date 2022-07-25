@@ -4,12 +4,12 @@ import androidx.annotation.NonNull;
 import com.kwad.sdk.core.response.a.e;
 /* loaded from: classes5.dex */
 public interface a extends com.kwad.sdk.components.a {
-    int a();
+    int ls();
 
-    boolean b();
-
-    boolean c();
+    boolean lv();
 
     @NonNull
-    e d();
+    e lw();
+
+    boolean qn();
 }

@@ -28,7 +28,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.yv4;
+import com.repackage.zv4;
 import java.util.ArrayList;
 import java.util.Iterator;
 @SuppressLint({"ResourceAsColor"})
@@ -84,7 +84,7 @@ public class tl7 extends sl7 {
     }
 
     /* loaded from: classes7.dex */
-    public class b implements yv4.f {
+    public class b implements zv4.f {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ tl7 a;
@@ -107,14 +107,14 @@ public class tl7 extends sl7 {
             this.a = tl7Var;
         }
 
-        @Override // com.repackage.yv4.f
+        @Override // com.repackage.zv4.f
         public void a(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
                 if (z) {
                     pi.N(this.a.d, R.string.obfuscated_res_0x7f0f02b6);
                 } else {
-                    pi.N(this.a.d, R.string.obfuscated_res_0x7f0f14b0);
+                    pi.N(this.a.d, R.string.obfuscated_res_0x7f0f145f);
                 }
             }
         }
@@ -132,7 +132,7 @@ public class tl7 extends sl7 {
         public LinearLayout f;
         public LinearLayout g;
         public NewMyFansUserLikeButton h;
-        public yv4 i;
+        public zv4 i;
         public ImageView j;
         public ProgressBar k;
         public TextView l;
@@ -188,12 +188,12 @@ public class tl7 extends sl7 {
     }
 
     @Override // com.repackage.sl7
-    public void a(vp4 vp4Var) {
+    public void a(wp4 wp4Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, vp4Var) == null) || vp4Var == null || vp4Var.b() == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, wp4Var) == null) || wp4Var == null || wp4Var.b() == null) {
             return;
         }
-        Iterator<UserData> it = vp4Var.b().iterator();
+        Iterator<UserData> it = wp4Var.b().iterator();
         while (true) {
             if (!it.hasNext()) {
                 break;
@@ -207,7 +207,7 @@ public class tl7 extends sl7 {
         if (this.a == null) {
             this.a = new ArrayList<>();
         }
-        arrayList.addAll(vp4Var.b());
+        arrayList.addAll(wp4Var.b());
         if (!ListUtils.isEmpty(this.a)) {
             ArrayList<UserData> arrayList2 = this.a;
             if (arrayList2.get(arrayList2.size() - 1) != null) {
@@ -339,48 +339,48 @@ public class tl7 extends sl7 {
             } else {
                 cVar = new c(this, null);
                 if (itemViewType == 0) {
-                    inflate = LayoutInflater.from(this.d.getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d06ce, (ViewGroup) null);
-                    ViewGroup viewGroup2 = (ViewGroup) inflate.findViewById(R.id.obfuscated_res_0x7f090f7e);
+                    inflate = LayoutInflater.from(this.d.getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d06d8, (ViewGroup) null);
+                    ViewGroup viewGroup2 = (ViewGroup) inflate.findViewById(R.id.obfuscated_res_0x7f090f77);
                     cVar.a = viewGroup2;
                     viewGroup2.setOnClickListener(this.h);
-                    ClickableHeaderImageView clickableHeaderImageView = (ClickableHeaderImageView) inflate.findViewById(R.id.obfuscated_res_0x7f0918ce);
+                    ClickableHeaderImageView clickableHeaderImageView = (ClickableHeaderImageView) inflate.findViewById(R.id.obfuscated_res_0x7f0918a9);
                     cVar.b = clickableHeaderImageView;
-                    clickableHeaderImageView.setRadius(pi.f(this.d.getPageContext().getPageActivity(), R.dimen.obfuscated_res_0x7f07030a));
+                    clickableHeaderImageView.setRadius(pi.f(this.d.getPageContext().getPageActivity(), R.dimen.obfuscated_res_0x7f070308));
                     cVar.b.setAutoChangeStyle(true);
                     cVar.b.setClickable(false);
                     ((ViewGroup.MarginLayoutParams) cVar.b.getLayoutParams()).setMargins(pi.f(this.d, R.dimen.obfuscated_res_0x7f07020f), 0, 0, 0);
-                    cVar.f = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f090ec4);
-                    cVar.g = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091f49);
-                    EMTextView eMTextView = (EMTextView) inflate.findViewById(R.id.obfuscated_res_0x7f09155e);
+                    cVar.f = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f090ebd);
+                    cVar.g = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091f4d);
+                    EMTextView eMTextView = (EMTextView) inflate.findViewById(R.id.obfuscated_res_0x7f091539);
                     cVar.c = eMTextView;
                     eMTextView.getViewTreeObserver().addOnGlobalLayoutListener(new a(this, cVar));
-                    View a2 = uk4.b().a(this.d.getPageContext().getPageActivity(), 5);
+                    View a2 = vk4.b().a(this.d.getPageContext().getPageActivity(), 5);
                     cVar.d = a2;
                     if (a2 != null) {
                         a2.setVisibility(8);
                         cVar.g.addView(cVar.d, 1);
                     }
                     cVar.l = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0902b1);
-                    cVar.e = (EMTextView) inflate.findViewById(R.id.obfuscated_res_0x7f090f14);
+                    cVar.e = (EMTextView) inflate.findViewById(R.id.obfuscated_res_0x7f090f0d);
                     NewMyFansUserLikeButton newMyFansUserLikeButton = (NewMyFansUserLikeButton) inflate.findViewById(R.id.obfuscated_res_0x7f0902bd);
                     cVar.h = newMyFansUserLikeButton;
                     newMyFansUserLikeButton.setContext(this.d.getPageContext());
                     ((LinearLayout.LayoutParams) cVar.h.getLayoutParams()).setMargins(0, 0, pi.f(this.d, R.dimen.obfuscated_res_0x7f07020f), 0);
-                    yv4 yv4Var = new yv4(this.d.getPageContext(), cVar.h);
-                    cVar.i = yv4Var;
-                    yv4Var.n((wv4) ListUtils.getItem(this.a, i));
+                    zv4 zv4Var = new zv4(this.d.getPageContext(), cVar.h);
+                    cVar.i = zv4Var;
+                    zv4Var.n((xv4) ListUtils.getItem(this.a, i));
                     cVar.i.o(new b(this));
                     cVar.k = null;
                     cVar.m = null;
-                    cVar.j = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f0907ac);
+                    cVar.j = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f0907aa);
                 } else if (itemViewType == 2) {
-                    inflate = LayoutInflater.from(this.d.getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d058f, (ViewGroup) null);
-                    cVar.m = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09150a);
+                    inflate = LayoutInflater.from(this.d.getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0599, (ViewGroup) null);
+                    cVar.m = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0914e5);
                 } else {
-                    inflate = LayoutInflater.from(this.d.getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0603, (ViewGroup) null);
-                    cVar.c = (EMTextView) inflate.findViewById(R.id.obfuscated_res_0x7f091765);
+                    inflate = LayoutInflater.from(this.d.getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d060d, (ViewGroup) null);
+                    cVar.c = (EMTextView) inflate.findViewById(R.id.obfuscated_res_0x7f091740);
                     inflate.setOnClickListener(this.g);
-                    cVar.k = (ProgressBar) inflate.findViewById(R.id.obfuscated_res_0x7f0919c7);
+                    cVar.k = (ProgressBar) inflate.findViewById(R.id.obfuscated_res_0x7f0919a2);
                     cVar.m = null;
                 }
                 inflate.setTag(cVar);
@@ -394,15 +394,15 @@ public class tl7 extends sl7 {
                     cVar.f.setVisibility(8);
                     cVar.l.setVisibility(0);
                     if (this.e) {
-                        cVar.l.setText(R.string.obfuscated_res_0x7f0f0c8b);
+                        cVar.l.setText(R.string.obfuscated_res_0x7f0f0c77);
                     } else {
                         int i2 = this.f;
                         if (i2 == 2) {
-                            cVar.l.setText(R.string.obfuscated_res_0x7f0f0839);
+                            cVar.l.setText(R.string.obfuscated_res_0x7f0f0835);
                         } else if (i2 == 1) {
-                            cVar.l.setText(R.string.obfuscated_res_0x7f0f083c);
+                            cVar.l.setText(R.string.obfuscated_res_0x7f0f0838);
                         } else {
-                            cVar.l.setText(R.string.obfuscated_res_0x7f0f0c4d);
+                            cVar.l.setText(R.string.obfuscated_res_0x7f0f0c39);
                         }
                     }
                 } else {
@@ -421,10 +421,10 @@ public class tl7 extends sl7 {
                             cVar.d.setVisibility(8);
                         } else {
                             cVar.d.setVisibility(0);
-                            tk4 tk4Var = new tk4();
-                            tk4Var.a = userData.getAlaUserData();
-                            tk4Var.b = 5;
-                            cVar.d.setTag(tk4Var);
+                            uk4 uk4Var = new uk4();
+                            uk4Var.a = userData.getAlaUserData();
+                            uk4Var.b = 5;
+                            cVar.d.setTag(uk4Var);
                         }
                     }
                     if (oi.isEmpty(userData.getIntro())) {
@@ -446,7 +446,7 @@ public class tl7 extends sl7 {
                 }
                 LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) cVar.j.getLayoutParams();
                 if (ListUtils.getItem(this.a, i) != null && ((UserData) ListUtils.getItem(this.a, i)).isLastNewFan) {
-                    layoutParams.height = pi.f(this.d, R.dimen.obfuscated_res_0x7f07023d);
+                    layoutParams.height = pi.f(this.d, R.dimen.obfuscated_res_0x7f07023b);
                     layoutParams.setMargins(0, 0, 0, 0);
                     cVar.j.setVisibility(0);
                 } else {
@@ -457,10 +457,10 @@ public class tl7 extends sl7 {
                 cVar.j.setLayoutParams(layoutParams);
                 cVar.k = null;
             } else if (itemViewType == 2) {
-                cVar.m.setText(R.string.obfuscated_res_0x7f0f0c2f);
+                cVar.m.setText(R.string.obfuscated_res_0x7f0f0c1b);
                 cVar.m.setVisibility(0);
             } else {
-                cVar.c.setText(this.d.getPageContext().getString(R.string.obfuscated_res_0x7f0f0a2c));
+                cVar.c.setText(this.d.getPageContext().getString(R.string.obfuscated_res_0x7f0f0a18));
                 cVar.k.setVisibility(0);
             }
             h(inflate, cVar);

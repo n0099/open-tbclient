@@ -48,17 +48,17 @@ public class PbReplyLoadMoreAdapter extends du7<PostData, ReplyLoadMoreViewHolde
                     return;
                 }
             }
-            this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09226b);
+            this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09226d);
         }
 
-        public void c() {
+        public void b() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 SkinManager.setViewTextColor(this.a, (int) R.color.CAM_X0109);
             }
         }
 
-        public void d(PostData postData) {
+        public void c(PostData postData) {
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, postData) == null) || postData == null) {
                 return;
@@ -103,10 +103,10 @@ public class PbReplyLoadMoreAdapter extends du7<PostData, ReplyLoadMoreViewHolde
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d069e, viewGroup, false);
-            inflate.findViewById(R.id.obfuscated_res_0x7f09226b).setOnClickListener(this.o);
+            View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d06a8, viewGroup, false);
+            inflate.findViewById(R.id.obfuscated_res_0x7f09226d).setOnClickListener(this.o);
             ReplyLoadMoreViewHolder replyLoadMoreViewHolder = new ReplyLoadMoreViewHolder(inflate);
-            replyLoadMoreViewHolder.c();
+            replyLoadMoreViewHolder.b();
             return replyLoadMoreViewHolder;
         }
         return (ReplyLoadMoreViewHolder) invokeL.objValue;
@@ -119,8 +119,8 @@ public class PbReplyLoadMoreAdapter extends du7<PostData, ReplyLoadMoreViewHolde
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, postData, replyLoadMoreViewHolder})) == null) {
-            replyLoadMoreViewHolder.d(postData);
-            return replyLoadMoreViewHolder.b();
+            replyLoadMoreViewHolder.c(postData);
+            return replyLoadMoreViewHolder.a();
         }
         return (View) invokeCommon.objValue;
     }

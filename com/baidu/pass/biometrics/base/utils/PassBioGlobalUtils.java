@@ -54,11 +54,11 @@ public final class PassBioGlobalUtils {
             if (context.getApplicationContext() != null) {
                 context = context.getApplicationContext();
             }
-            if (TextUtils.isEmpty(charSequence) || (inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0655, (ViewGroup) null)) == null || (textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091b44)) == null) {
+            if (TextUtils.isEmpty(charSequence) || (inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d065f, (ViewGroup) null)) == null || (textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091b1e)) == null) {
                 return;
             }
             textView.setText(charSequence);
-            ImageView imageView = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091b43);
+            ImageView imageView = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091b1d);
             if (imageView != null && i > 0) {
                 imageView.setImageResource(i);
                 imageView.setVisibility(0);

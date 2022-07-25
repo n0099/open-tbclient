@@ -1,46 +1,43 @@
 package com.kwad.sdk.core.b.kwai;
 
-import com.kwad.sdk.core.response.model.SdkConfigData;
-import com.kwad.sdk.core.response.model.TemplateConfig;
+import com.kwad.components.ad.splashscreen.local.SplashSkipViewModel;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public final class fj implements com.kwad.sdk.core.d<SdkConfigData.TemplateConfigMap> {
+public final class fj implements com.kwad.sdk.core.d<SplashSkipViewModel> {
     /* renamed from: a  reason: avoid collision after fix types in other method */
-    public static void a2(SdkConfigData.TemplateConfigMap templateConfigMap, JSONObject jSONObject) {
+    public static void a2(SplashSkipViewModel splashSkipViewModel, JSONObject jSONObject) {
         if (jSONObject == null) {
             return;
         }
-        TemplateConfig templateConfig = new TemplateConfig();
-        templateConfigMap.couponOpenConfig = templateConfig;
-        templateConfig.parseJson(jSONObject.optJSONObject("couponOpenConfig"));
-        TemplateConfig templateConfig2 = new TemplateConfig();
-        templateConfigMap.couponInfoConfig = templateConfig2;
-        templateConfig2.parseJson(jSONObject.optJSONObject("couponInfoConfig"));
-        TemplateConfig templateConfig3 = new TemplateConfig();
-        templateConfigMap.rewardReflowConfig = templateConfig3;
-        templateConfig3.parseJson(jSONObject.optJSONObject("rewardReflowConfig"));
+        splashSkipViewModel.needShowMiniWindow = jSONObject.optBoolean("needShowMiniWindow");
+        splashSkipViewModel.skipSecond = jSONObject.optInt("skipSecond");
     }
 
     /* renamed from: b  reason: avoid collision after fix types in other method */
-    public static JSONObject b2(SdkConfigData.TemplateConfigMap templateConfigMap, JSONObject jSONObject) {
+    public static JSONObject b2(SplashSkipViewModel splashSkipViewModel, JSONObject jSONObject) {
         if (jSONObject == null) {
             jSONObject = new JSONObject();
         }
-        com.kwad.sdk.utils.r.a(jSONObject, "couponOpenConfig", templateConfigMap.couponOpenConfig);
-        com.kwad.sdk.utils.r.a(jSONObject, "couponInfoConfig", templateConfigMap.couponInfoConfig);
-        com.kwad.sdk.utils.r.a(jSONObject, "rewardReflowConfig", templateConfigMap.rewardReflowConfig);
+        boolean z = splashSkipViewModel.needShowMiniWindow;
+        if (z) {
+            com.kwad.sdk.utils.r.putValue(jSONObject, "needShowMiniWindow", z);
+        }
+        int i = splashSkipViewModel.skipSecond;
+        if (i != 0) {
+            com.kwad.sdk.utils.r.putValue(jSONObject, "skipSecond", i);
+        }
         return jSONObject;
     }
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.kwad.sdk.core.b, org.json.JSONObject] */
     @Override // com.kwad.sdk.core.d
-    public final /* bridge */ /* synthetic */ void a(SdkConfigData.TemplateConfigMap templateConfigMap, JSONObject jSONObject) {
-        a2(templateConfigMap, jSONObject);
+    public final /* bridge */ /* synthetic */ void a(SplashSkipViewModel splashSkipViewModel, JSONObject jSONObject) {
+        a2(splashSkipViewModel, jSONObject);
     }
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.kwad.sdk.core.b, org.json.JSONObject] */
     @Override // com.kwad.sdk.core.d
-    public final /* bridge */ /* synthetic */ JSONObject b(SdkConfigData.TemplateConfigMap templateConfigMap, JSONObject jSONObject) {
-        return b2(templateConfigMap, jSONObject);
+    public final /* bridge */ /* synthetic */ JSONObject b(SplashSkipViewModel splashSkipViewModel, JSONObject jSONObject) {
+        return b2(splashSkipViewModel, jSONObject);
     }
 }

@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.s55;
+import com.repackage.t55;
 /* loaded from: classes2.dex */
 public class InitHomeTabBarViewTask extends LaunchTask {
     public static /* synthetic */ Interceptable $ic;
@@ -43,7 +43,7 @@ public class InitHomeTabBarViewTask extends LaunchTask {
                 }
                 StickyAppBarLayout stickyAppBarLayout = new StickyAppBarLayout(mainActivity);
                 stickyAppBarLayout.setId(R.id.obfuscated_res_0x7f09027b);
-                s55.e().a(1006, stickyAppBarLayout);
+                t55.e().a(1006, stickyAppBarLayout);
             } catch (Exception e) {
                 BdLog.e(e);
             }

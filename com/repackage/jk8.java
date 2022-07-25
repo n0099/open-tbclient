@@ -70,7 +70,7 @@ public class jk8 {
                 asyncPublishStatData.errorMessage = errorData.error_msg;
             } else {
                 asyncPublishStatData.errorCode = -17;
-                asyncPublishStatData.errorMessage = TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f0c2b);
+                asyncPublishStatData.errorMessage = TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f0c17);
             }
             f(asyncPublishStatData);
             b("上传结束（endAsyncPublish）: id =" + asyncPublishStatData.startTime + "    endTime = " + asyncPublishStatData.endTime);
@@ -102,7 +102,7 @@ public class jk8 {
             }
         } else {
             asyncPublishImageStatData.errorCode = -52;
-            asyncPublishImageStatData.errorMessage = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0c2b);
+            asyncPublishImageStatData.errorMessage = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0c17);
         }
         b("结束单张上传图片（endAsyncPublishImage）: path =" + imageFileInfo.getFilePath());
         b("结束单张上传图片（网络耗时）: time = " + (asyncPublishImageStatData.endTime - asyncPublishImageStatData.endCompressTime));
@@ -212,27 +212,27 @@ public class jk8 {
         b("上传视频首帧结束（endAsyncPublishVideoFirstFrame）: id =" + asyncPublishImageStatData.startTime + "    endTime = " + asyncPublishImageStatData.endTime);
     }
 
-    public static void i(WriteData writeData, hx4 hx4Var) {
+    public static void i(WriteData writeData, ix4 ix4Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65544, null, writeData, hx4Var) == null) || writeData == null || writeData.getAsyncPublishStatData() == null || writeData.getAsyncPublishStatData().voiceData == null) {
+        if (!(interceptable == null || interceptable.invokeLL(65544, null, writeData, ix4Var) == null) || writeData == null || writeData.getAsyncPublishStatData() == null || writeData.getAsyncPublishStatData().voiceData == null) {
             return;
         }
         AsyncPublishStatData asyncPublishStatData = writeData.getAsyncPublishStatData();
         AsyncPublishVoiceStatData asyncPublishVoiceStatData = asyncPublishStatData.voiceData;
         asyncPublishVoiceStatData.endTime = System.currentTimeMillis();
         asyncPublishStatData.haveVoice = 1;
-        if (hx4Var != null && hx4Var.d()) {
-            gx4 a = hx4Var.a();
+        if (ix4Var != null && ix4Var.d()) {
+            hx4 a = ix4Var.a();
             if (a != null) {
                 asyncPublishVoiceStatData.errorCode = 0;
                 asyncPublishVoiceStatData.md5 = a.b();
             } else {
-                asyncPublishVoiceStatData.errorCode = hx4Var.b();
-                asyncPublishVoiceStatData.errorMessage = hx4Var.c();
+                asyncPublishVoiceStatData.errorCode = ix4Var.b();
+                asyncPublishVoiceStatData.errorMessage = ix4Var.c();
             }
-        } else if (hx4Var != null) {
-            asyncPublishVoiceStatData.errorCode = hx4Var.b();
-            asyncPublishVoiceStatData.errorMessage = hx4Var.c();
+        } else if (ix4Var != null) {
+            asyncPublishVoiceStatData.errorCode = ix4Var.b();
+            asyncPublishVoiceStatData.errorMessage = ix4Var.c();
         } else {
             asyncPublishVoiceStatData.errorCode = TbErrInfo.ERR_VOI_SEND;
         }

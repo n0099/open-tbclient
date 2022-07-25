@@ -36,7 +36,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class ea7 extends b9 implements NoNetworkView.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -51,7 +51,7 @@ public class ea7 extends b9 implements NoNetworkView.b {
     public NavigationBar i;
     public NoNetworkView j;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -85,7 +85,7 @@ public class ea7 extends b9 implements NoNetworkView.b {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -202,7 +202,7 @@ public class ea7 extends b9 implements NoNetworkView.b {
     public final void k() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            NavigationBar navigationBar = (NavigationBar) this.f.findViewById(R.id.obfuscated_res_0x7f09158d);
+            NavigationBar navigationBar = (NavigationBar) this.f.findViewById(R.id.obfuscated_res_0x7f091568);
             this.i = navigationBar;
             View addSystemImageButton = navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new a(this));
             if (addSystemImageButton != null) {
@@ -214,11 +214,11 @@ public class ea7 extends b9 implements NoNetworkView.b {
             }
             TextView textView = new TextView(this.a.getContext());
             this.h = textView;
-            textView.setText(this.a.getContext().getString(R.string.obfuscated_res_0x7f0f08c5));
+            textView.setText(this.a.getContext().getString(R.string.obfuscated_res_0x7f0f08b0));
             this.h.setGravity(16);
             this.h.setLayoutParams(new ViewGroup.LayoutParams(-2, -1));
             this.h.setCompoundDrawablesWithIntrinsicBounds(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f0809da, SkinManager.getColor(R.color.CAM_X0105), WebPManager.ResourceStateType.NORMAL_PRESS), (Drawable) null, (Drawable) null, (Drawable) null);
-            ur4 d = ur4.d(this.h);
+            vr4 d = vr4.d(this.h);
             d.v(R.color.CAM_X0105);
             d.z(R.dimen.T_X06);
             this.i.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, this.h, new b(this));
@@ -254,7 +254,7 @@ public class ea7 extends b9 implements NoNetworkView.b {
     public final void l() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            TbTabLayout tbTabLayout = (TbTabLayout) LayoutInflater.from(this.a.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0552, (ViewGroup) null);
+            TbTabLayout tbTabLayout = (TbTabLayout) LayoutInflater.from(this.a.getContext()).inflate(R.layout.obfuscated_res_0x7f0d055c, (ViewGroup) null);
             this.b = tbTabLayout;
             tbTabLayout.setupWithViewPager(this.c);
             int tabCount = this.b.getTabCount();
@@ -275,7 +275,7 @@ public class ea7 extends b9 implements NoNetworkView.b {
         n();
         l();
         k();
-        NoNetworkView noNetworkView = (NoNetworkView) this.f.findViewById(R.id.obfuscated_res_0x7f092439);
+        NoNetworkView noNetworkView = (NoNetworkView) this.f.findViewById(R.id.obfuscated_res_0x7f09243b);
         this.j = noNetworkView;
         noNetworkView.a(this);
     }
@@ -283,12 +283,12 @@ public class ea7 extends b9 implements NoNetworkView.b {
     public final void n() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.c = (BdBaseViewPager) this.f.findViewById(R.id.obfuscated_res_0x7f091482);
+            this.c = (BdBaseViewPager) this.f.findViewById(R.id.obfuscated_res_0x7f09145e);
             MessageFragmentPagerAdapter.a aVar = new MessageFragmentPagerAdapter.a();
             ChatAggregationFragment chatAggregationFragment = new ChatAggregationFragment();
             this.g = chatAggregationFragment;
             aVar.a = chatAggregationFragment;
-            aVar.b = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0ab9);
+            aVar.b = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0aa5);
             ArrayList arrayList = new ArrayList();
             this.e = arrayList;
             arrayList.add(aVar);
@@ -323,7 +323,7 @@ public class ea7 extends b9 implements NoNetworkView.b {
                 }
             }
             this.h.setCompoundDrawablesWithIntrinsicBounds(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f0809da, SkinManager.getColor(R.color.CAM_X0105), WebPManager.ResourceStateType.NORMAL_PRESS), (Drawable) null, (Drawable) null, (Drawable) null);
-            ur4 d = ur4.d(this.h);
+            vr4 d = vr4.d(this.h);
             d.v(R.color.CAM_X0105);
             d.z(R.dimen.T_X06);
             TbTabLayout tbTabLayout = this.b;

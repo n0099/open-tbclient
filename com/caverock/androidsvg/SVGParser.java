@@ -136,7 +136,7 @@ public class SVGParser extends DefaultHandler2 {
         public static final SVGAttr requiredFormats;
 
         /* renamed from: rx  reason: collision with root package name */
-        public static final SVGAttr f1783rx;
+        public static final SVGAttr f1063rx;
         public static final SVGAttr ry;
         public static final SVGAttr solid_color;
         public static final SVGAttr solid_opacity;
@@ -242,7 +242,7 @@ public class SVGParser extends DefaultHandler2 {
             requiredExtensions = new SVGAttr("requiredExtensions", 53);
             requiredFormats = new SVGAttr("requiredFormats", 54);
             requiredFonts = new SVGAttr("requiredFonts", 55);
-            f1783rx = new SVGAttr("rx", 56);
+            f1063rx = new SVGAttr("rx", 56);
             ry = new SVGAttr("ry", 57);
             solid_color = new SVGAttr("solid_color", 58);
             solid_opacity = new SVGAttr("solid_opacity", 59);
@@ -279,7 +279,7 @@ public class SVGParser extends DefaultHandler2 {
             visibility = new SVGAttr("visibility", 90);
             SVGAttr sVGAttr = new SVGAttr("UNSUPPORTED", 91);
             UNSUPPORTED = sVGAttr;
-            $VALUES = new SVGAttr[]{CLASS, clip, clip_path, clipPathUnits, clip_rule, color, cx, cy, direction, dx, dy, fx, fy, d, display, fill, fill_rule, fill_opacity, font, font_family, font_size, font_weight, font_style, gradientTransform, gradientUnits, height, href, id, marker, marker_start, marker_mid, marker_end, markerHeight, markerUnits, markerWidth, mask, maskContentUnits, maskUnits, media, offset, opacity, orient, overflow, pathLength, patternContentUnits, patternTransform, patternUnits, points, preserveAspectRatio, r, refX, refY, requiredFeatures, requiredExtensions, requiredFormats, requiredFonts, f1783rx, ry, solid_color, solid_opacity, spreadMethod, startOffset, stop_color, stop_opacity, stroke, stroke_dasharray, stroke_dashoffset, stroke_linecap, stroke_linejoin, stroke_miterlimit, stroke_opacity, stroke_width, style, systemLanguage, text_anchor, text_decoration, transform, type, vector_effect, version, viewBox, width, x, y, x1, y1, x2, y2, viewport_fill, viewport_fill_opacity, visibility, sVGAttr};
+            $VALUES = new SVGAttr[]{CLASS, clip, clip_path, clipPathUnits, clip_rule, color, cx, cy, direction, dx, dy, fx, fy, d, display, fill, fill_rule, fill_opacity, font, font_family, font_size, font_weight, font_style, gradientTransform, gradientUnits, height, href, id, marker, marker_start, marker_mid, marker_end, markerHeight, markerUnits, markerWidth, mask, maskContentUnits, maskUnits, media, offset, opacity, orient, overflow, pathLength, patternContentUnits, patternTransform, patternUnits, points, preserveAspectRatio, r, refX, refY, requiredFeatures, requiredExtensions, requiredFormats, requiredFonts, f1063rx, ry, solid_color, solid_opacity, spreadMethod, startOffset, stop_color, stop_opacity, stroke, stroke_dasharray, stroke_dashoffset, stroke_linecap, stroke_linejoin, stroke_miterlimit, stroke_opacity, stroke_width, style, systemLanguage, text_anchor, text_decoration, transform, type, vector_effect, version, viewBox, width, x, y, x1, y1, x2, y2, viewport_fill, viewport_fill_opacity, visibility, sVGAttr};
             cache = new HashMap();
         }
 
@@ -384,7 +384,7 @@ public class SVGParser extends DefaultHandler2 {
         public static final SVGElem use;
 
         /* renamed from: view  reason: collision with root package name */
-        public static final SVGElem f1784view;
+        public static final SVGElem f1064view;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -430,10 +430,10 @@ public class SVGParser extends DefaultHandler2 {
             tref = new SVGElem(TrackReferenceBox.TYPE, 27);
             tspan = new SVGElem("tspan", 28);
             use = new SVGElem(TbConfig.ST_TYPE_USE, 29);
-            f1784view = new SVGElem(NativeConstants.TYPE_VIEW, 30);
+            f1064view = new SVGElem(NativeConstants.TYPE_VIEW, 30);
             SVGElem sVGElem = new SVGElem("UNSUPPORTED", 31);
             UNSUPPORTED = sVGElem;
-            $VALUES = new SVGElem[]{svg, a, circle, clipPath, defs, desc, ellipse, g, image, line, linearGradient, marker, mask, path, pattern, polygon, polyline, radialGradient, rect, solidColor, stop, style, SWITCH, symbol, text, textPath, title, tref, tspan, use, f1784view, sVGElem};
+            $VALUES = new SVGElem[]{svg, a, circle, clipPath, defs, desc, ellipse, g, image, line, linearGradient, marker, mask, path, pattern, polygon, polyline, radialGradient, rect, solidColor, stop, style, SWITCH, symbol, text, textPath, title, tref, tspan, use, f1064view, sVGElem};
             cache = new HashMap();
         }
 
@@ -554,7 +554,7 @@ public class SVGParser extends DefaultHandler2 {
             } catch (NoSuchFieldError unused9) {
             }
             try {
-                b[SVGAttr.f1783rx.ordinal()] = 10;
+                b[SVGAttr.f1063rx.ordinal()] = 10;
             } catch (NoSuchFieldError unused10) {
             }
             try {
@@ -980,7 +980,7 @@ public class SVGParser extends DefaultHandler2 {
             } catch (NoSuchFieldError unused115) {
             }
             try {
-                a[SVGElem.f1784view.ordinal()] = 28;
+                a[SVGElem.f1064view.ordinal()] = 28;
             } catch (NoSuchFieldError unused116) {
             }
             try {

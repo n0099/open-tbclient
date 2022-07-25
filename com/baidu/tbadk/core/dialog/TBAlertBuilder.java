@@ -33,8 +33,8 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.pi;
-import com.repackage.qr4;
-import com.repackage.ur4;
+import com.repackage.rr4;
+import com.repackage.vr4;
 /* loaded from: classes3.dex */
 public class TBAlertBuilder {
     public static /* synthetic */ Interceptable $ic;
@@ -421,25 +421,25 @@ public class TBAlertBuilder {
             linearLayout2.setGravity(17);
             linearLayout2.setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
             if (this.r) {
-                ur4 d = ur4.d(linearLayout2);
+                vr4 d = vr4.d(linearLayout2);
                 d.m(this.e == null ? 0 : 2);
                 d.n(R.string.J_X06);
                 d.f(R.color.transparent);
             } else {
-                ur4 d2 = ur4.d(linearLayout2);
+                vr4 d2 = vr4.d(linearLayout2);
                 d2.m(this.e == null ? 0 : 2);
                 d2.n(R.string.J_X06);
                 d2.f(R.color.CAM_X0205);
             }
             if (!TextUtils.isEmpty(this.f)) {
-                TextView k = qr4.k(this.b);
+                TextView k = rr4.k(this.b);
                 k.setText(this.f);
                 k.setPadding(UtilHelper.getDimenPixelSize(R.dimen.M_W_X013), UtilHelper.getDimenPixelSize(R.dimen.M_H_X009), UtilHelper.getDimenPixelSize(R.dimen.M_W_X013), UtilHelper.getDimenPixelSize(R.dimen.M_H_X007));
                 linearLayout2.addView(k);
                 CharSequence charSequence = this.g;
                 if (charSequence != null && !StringUtils.isNull(charSequence.toString())) {
                     k.setPadding(k.getPaddingLeft(), k.getPaddingTop(), k.getPaddingRight(), UtilHelper.getDimenPixelSize(R.dimen.M_H_X003));
-                    TextView k2 = qr4.k(this.b);
+                    TextView k2 = rr4.k(this.b);
                     k2.setText(this.g);
                     k2.setPadding(UtilHelper.getDimenPixelSize(R.dimen.M_W_X013), 0, UtilHelper.getDimenPixelSize(R.dimen.M_W_X013), UtilHelper.getDimenPixelSize(R.dimen.M_H_X007));
                     linearLayout2.addView(k2);
@@ -448,10 +448,10 @@ public class TBAlertBuilder {
             if (!TextUtils.isEmpty(this.h)) {
                 RelativeLayout relativeLayout = new RelativeLayout(this.b);
                 relativeLayout.setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
-                TextView b2 = qr4.b(this.b, this.j);
+                TextView b2 = rr4.b(this.b, this.j);
                 b2.setText(this.h);
                 b2.setGravity(this.i);
-                b2.setId(R.id.obfuscated_res_0x7f090754);
+                b2.setId(R.id.obfuscated_res_0x7f090753);
                 b2.setPadding(UtilHelper.getDimenPixelSize(R.dimen.M_W_X013), 0, UtilHelper.getDimenPixelSize(R.dimen.M_W_X013), 0);
                 b2.setMaxHeight(UtilHelper.getDimenPixelSize(R.dimen.tbds868));
                 b2.setMovementMethod(this.k);
@@ -459,7 +459,7 @@ public class TBAlertBuilder {
                 View view3 = new View(this.b);
                 view3.setVisibility(4);
                 RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, UtilHelper.getDimenPixelSize(R.dimen.tbds104));
-                layoutParams.addRule(8, R.id.obfuscated_res_0x7f090754);
+                layoutParams.addRule(8, R.id.obfuscated_res_0x7f090753);
                 SkinManager.setBackgroundColorToTransparent(view3, R.color.CAM_X0205, GradientDrawable.Orientation.BOTTOM_TOP);
                 relativeLayout.addView(view3, layoutParams);
                 linearLayout2.addView(relativeLayout);
@@ -477,7 +477,7 @@ public class TBAlertBuilder {
                 if (this.o) {
                     this.p = new b(this);
                 }
-                linearLayout2.addView(qr4.i(this.b, this.m, this.p));
+                linearLayout2.addView(rr4.i(this.b, this.m, this.p));
             }
             linearLayout.addView(linearLayout2, new ViewGroup.LayoutParams(-1, -2));
             if (this.n) {

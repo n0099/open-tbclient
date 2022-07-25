@@ -12,10 +12,10 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.bo8;
-import com.repackage.fu4;
 import com.repackage.go8;
+import com.repackage.gu4;
 import com.repackage.po8;
-import com.repackage.y85;
+import com.repackage.z85;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class BubbleListActivity extends BaseActivity<BubbleListActivity> {
@@ -26,7 +26,7 @@ public class BubbleListActivity extends BaseActivity<BubbleListActivity> {
     public bo8 c;
     public BubbleListModel.c d;
     public BdListView.p e;
-    public final fu4.g f;
+    public final gu4.g f;
 
     /* loaded from: classes4.dex */
     public class a implements BubbleListModel.c {
@@ -104,7 +104,7 @@ public class BubbleListActivity extends BaseActivity<BubbleListActivity> {
     }
 
     /* loaded from: classes4.dex */
-    public class c implements fu4.g {
+    public class c implements gu4.g {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ BubbleListActivity a;
@@ -127,7 +127,7 @@ public class BubbleListActivity extends BaseActivity<BubbleListActivity> {
             this.a = bubbleListActivity;
         }
 
-        @Override // com.repackage.fu4.g
+        @Override // com.repackage.gu4.g
         public void e(boolean z) {
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeZ(1048576, this, z) == null) || this.a.a == null) {
@@ -155,7 +155,7 @@ public class BubbleListActivity extends BaseActivity<BubbleListActivity> {
         this.f = new c(this);
     }
 
-    @Override // com.baidu.tbadk.BaseActivity, com.repackage.v85
+    @Override // com.baidu.tbadk.BaseActivity, com.repackage.w85
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -163,17 +163,17 @@ public class BubbleListActivity extends BaseActivity<BubbleListActivity> {
     }
 
     @Override // com.baidu.tbadk.BaseActivity
-    public y85 getPageStayDurationItem() {
+    public z85 getPageStayDurationItem() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            y85 pageStayDurationItem = super.getPageStayDurationItem();
+            z85 pageStayDurationItem = super.getPageStayDurationItem();
             if (pageStayDurationItem != null) {
                 pageStayDurationItem.a = true;
             }
             return pageStayDurationItem;
         }
-        return (y85) invokeV.objValue;
+        return (z85) invokeV.objValue;
     }
 
     @Override // com.baidu.tbadk.BaseActivity

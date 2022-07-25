@@ -44,7 +44,7 @@ public class ps7 extends ms7<qs7, CustomDialogData> {
     public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? pi.f(this.c, R.dimen.obfuscated_res_0x7f07030a) : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? pi.f(this.c, R.dimen.obfuscated_res_0x7f070308) : invokeV.intValue;
     }
 
     @Override // com.repackage.rs7

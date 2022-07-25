@@ -1,76 +1,18 @@
 package com.kwad.sdk.api.loader;
 
-import android.content.Context;
-import android.content.res.Resources;
-import android.text.TextUtils;
-import com.kwad.sdk.api.core.IKsAdSDK;
-import java.io.File;
+import android.os.Handler;
+import android.os.Looper;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Future;
+import java.util.concurrent.LinkedBlockingQueue;
+import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
 /* loaded from: classes5.dex */
 public final class k {
-    public Resources a;
-    public ClassLoader b;
-    public IKsAdSDK c;
-    public final String d;
-    public final String e;
-    public final String f;
+    public static final ExecutorService Sr = new ThreadPoolExecutor(1, 1, 0, TimeUnit.MILLISECONDS, new LinkedBlockingQueue());
+    public static final Handler Ss = new Handler(Looper.getMainLooper());
 
-    public k(String str, String str2, String str3) {
-        this.d = str;
-        this.e = str2;
-        this.f = str3;
-    }
-
-    public static synchronized k a(Context context, String str) {
-        k a;
-        synchronized (k.class) {
-            try {
-                a = a(context, h.c(context, str), h.d(context, str), h.e(context, str));
-            } catch (Exception e) {
-                e.printStackTrace();
-                return null;
-            }
-        }
-        return a;
-    }
-
-    public static k a(Context context, String str, String str2, String str3) {
-        if (TextUtils.isEmpty(str)) {
-            throw new RuntimeException("mApk is null");
-        }
-        File file = new File(str);
-        if (file.exists() && file.isFile()) {
-            k kVar = new k(str, str2, str3);
-            kVar.a(context);
-            return kVar;
-        }
-        throw new RuntimeException("mApk not a file");
-    }
-
-    private void a() {
-        if (TextUtils.isEmpty(this.d)) {
-            throw new RuntimeException("mApk is null");
-        }
-        File file = new File(this.d);
-        if (!file.isFile() || !file.exists()) {
-            throw new RuntimeException("mApk not a file");
-        }
-    }
-
-    private void a(Context context) {
-        a();
-        Resources a = p.a(context, context.getResources(), this.d);
-        ClassLoader a2 = e.a(context, this.d, this.e, this.f);
-        IKsAdSDK a3 = Loader.a(a2);
-        this.a = a;
-        this.b = a2;
-        this.c = a3;
-        int sDKType = a3.getSDKType();
-        if (sDKType != 1) {
-            throw new RuntimeException("sdkType error apiType: 1 , sdkType:".concat(String.valueOf(sDKType)));
-        }
-    }
-
-    public final String toString() {
-        return "ExternalPackage{mApk='" + this.d + "', mDexDir='" + this.e + "', mNativeLibDir='" + this.f + "', mResource=" + this.a + ", mClassLoader=" + this.b + ", mKsSdk=" + this.c + '}';
+    public static Future<?> b(Runnable runnable) {
+        return Sr.submit(runnable);
     }
 }

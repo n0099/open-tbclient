@@ -22,11 +22,11 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.dv4;
+import com.repackage.ev4;
 import com.repackage.hx;
 import com.repackage.pi;
 import com.repackage.ul6;
-import com.repackage.ur4;
+import com.repackage.vr4;
 import java.util.List;
 import tbclient.GameCodeList;
 /* loaded from: classes3.dex */
@@ -71,7 +71,7 @@ public class CardItemGameCodeLayout extends RelativeLayout implements hx {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || ListUtils.isEmpty(this.a.g)) {
                 return;
             }
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, new dv4(14)));
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, new ev4(14)));
             if (this.a.e == null) {
                 this.a.e = new GameCodeListDialog(view2.getContext());
             }
@@ -120,7 +120,7 @@ public class CardItemGameCodeLayout extends RelativeLayout implements hx {
             layoutParams2.addRule(1, this.a.getId());
             layoutParams2.addRule(15);
             this.b.setLayoutParams(layoutParams2);
-            this.b.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0709));
+            this.b.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0705));
             addView(this.b);
             ImageView imageView2 = new ImageView(context);
             this.d = imageView2;
@@ -144,13 +144,13 @@ public class CardItemGameCodeLayout extends RelativeLayout implements hx {
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext, i) == null) {
-            ur4 d = ur4.d(this.b);
+            vr4 d = vr4.d(this.b);
             d.v(R.color.CAM_X0105);
             d.z(R.dimen.T_X07);
-            ur4 d2 = ur4.d(this.c);
+            vr4 d2 = vr4.d(this.c);
             d2.v(R.color.CAM_X0107);
             d2.z(R.dimen.T_X08);
-            ur4 d3 = ur4.d(this);
+            vr4 d3 = vr4.d(this);
             d3.n(R.string.J_X06);
             d3.f(R.color.CAM_X0205);
             WebPManager.setMaskDrawable(this.a, R.drawable.obfuscated_res_0x7f0807cc, WebPManager.ResourceStateType.NORMAL);
@@ -172,7 +172,7 @@ public class CardItemGameCodeLayout extends RelativeLayout implements hx {
         if (this.f != 0) {
             this.c.setText(String.format(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02bf), Integer.valueOf(this.f)));
         } else {
-            this.c.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f14ad));
+            this.c.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f145c));
         }
     }
 

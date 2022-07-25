@@ -327,7 +327,7 @@ public class Texture extends o3 {
                 bVar.g = next.f();
                 bVar.h = next.j();
                 bVar.i = next.k();
-                bVar.c = next.i.g();
+                bVar.c = next.i.f();
                 bVar.d = next;
                 bVar.a = new a(q);
                 j.C(m);
@@ -342,11 +342,11 @@ public class Texture extends o3 {
     public void A(TextureData textureData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, textureData) == null) {
-            if (this.i != null && textureData.b() != this.i.b()) {
+            if (this.i != null && textureData.a() != this.i.a()) {
                 throw new GdxRuntimeException("New data must have the same managed status as the old data");
             }
             this.i = textureData;
-            if (!textureData.a()) {
+            if (!textureData.isPrepared()) {
                 textureData.prepare();
             }
             a();
@@ -377,7 +377,7 @@ public class Texture extends o3 {
             return;
         }
         delete();
-        if (!this.i.b() || k.get(e1.a) == null) {
+        if (!this.i.a() || k.get(e1.a) == null) {
             return;
         }
         k.get(e1.a).j(this, true);
@@ -414,7 +414,7 @@ public class Texture extends o3 {
     public boolean z() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.i.b() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.i.a() : invokeV.booleanValue;
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -478,7 +478,7 @@ public class Texture extends o3 {
             }
         }
         A(textureData);
-        if (textureData.b()) {
+        if (textureData.a()) {
             s(e1.a, this);
         }
     }

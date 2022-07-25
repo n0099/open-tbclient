@@ -39,8 +39,8 @@ public class j77 implements CustomMessageTask.CustomRunnable<Object> {
             UserInfoBigVip userInfoBigVip = null;
             if (customMessage != null && (customMessage.getData() instanceof Long)) {
                 long longValue = ((Long) customMessage.getData()).longValue();
-                br4.f();
-                te<byte[]> d = br4.d("tb.im_recommend_detail");
+                cr4.f();
+                te<byte[]> d = cr4.d("tb.im_recommend_detail");
                 if (d == null) {
                     return new CustomResponsedMessage<>(2001306, null);
                 }

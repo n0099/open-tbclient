@@ -43,19 +43,19 @@ public class wp7 extends rp7 {
                 return;
             }
         }
-        ViewStub viewStub = (ViewStub) view2.findViewById(R.id.obfuscated_res_0x7f092456);
+        ViewStub viewStub = (ViewStub) view2.findViewById(R.id.obfuscated_res_0x7f092458);
         this.o = viewStub;
         viewStub.inflate();
         RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.o.getLayoutParams();
         layoutParams.topMargin = pi.i(tbPageContext.getPageActivity()) / 2;
         this.o.setLayoutParams(layoutParams);
-        this.p = view2.findViewById(R.id.obfuscated_res_0x7f092324);
-        TbImageView tbImageView = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f09230c);
+        this.p = view2.findViewById(R.id.obfuscated_res_0x7f092326);
+        TbImageView tbImageView = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f09230e);
         this.q = tbImageView;
         tbImageView.setIsRound(true);
         this.q.setDefaultBgResource(R.drawable.icon_default_avatar100_bg);
-        this.r = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09232d);
-        this.s = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092348);
+        this.r = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09232f);
+        this.s = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09234a);
     }
 
     @Override // com.repackage.rp7
@@ -63,14 +63,14 @@ public class wp7 extends rp7 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
             super.a(i);
-            ur4 d = ur4.d(this.p);
+            vr4 d = vr4.d(this.p);
             d.n(R.string.J_X05);
             d.f(R.color.CAM_X0204);
-            ur4 d2 = ur4.d(this.r);
+            vr4 d2 = vr4.d(this.r);
             d2.v(R.color.CAM_X0105);
             d2.z(R.dimen.T_X05);
             d2.A(R.string.F_X02);
-            ur4 d3 = ur4.d(this.s);
+            vr4 d3 = vr4.d(this.s);
             d3.v(R.color.CAM_X0108);
             d3.z(R.dimen.T_X08);
             d3.A(R.string.F_X01);
@@ -86,6 +86,6 @@ public class wp7 extends rp7 {
         }
         this.q.J(storageModel.url, 10, false);
         this.r.setText(storageModel.displayname);
-        this.s.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f114f, storageModel.app));
+        this.s.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f10fe, storageModel.app));
     }
 }

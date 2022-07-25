@@ -29,7 +29,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.ba6;
 import com.repackage.da6;
 import com.repackage.ea6;
-import com.repackage.fu4;
+import com.repackage.gu4;
 import com.repackage.ni;
 import com.repackage.pi;
 import com.repackage.x96;
@@ -48,7 +48,7 @@ public class ForumEmotionFragment extends BaseFragment implements ForumEmotionMo
     public final CustomMessageListener g;
     public CustomMessageListener h;
     public final x96 i;
-    public fu4.g j;
+    public gu4.g j;
     public BdListView.p k;
 
     /* loaded from: classes3.dex */
@@ -171,7 +171,7 @@ public class ForumEmotionFragment extends BaseFragment implements ForumEmotionMo
     }
 
     /* loaded from: classes3.dex */
-    public class d implements fu4.g {
+    public class d implements gu4.g {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ForumEmotionFragment a;
@@ -194,7 +194,7 @@ public class ForumEmotionFragment extends BaseFragment implements ForumEmotionMo
             this.a = forumEmotionFragment;
         }
 
-        @Override // com.repackage.fu4.g
+        @Override // com.repackage.gu4.g
         public void e(boolean z) {
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeZ(1048576, this, z) == null) || this.a.b == null || this.a.d) {

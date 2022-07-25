@@ -31,7 +31,7 @@ public abstract class mu9<E> extends nu9<E> {
     public final boolean isEmpty() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? d() == b() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? c() == a() : invokeV.booleanValue;
     }
 
     @Override // java.util.AbstractCollection, java.util.Collection, java.lang.Iterable
@@ -50,15 +50,15 @@ public abstract class mu9<E> extends nu9<E> {
         LinkedQueueNode<E> lvNext;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            LinkedQueueNode<E> d = d();
-            LinkedQueueNode<E> b = b();
+            LinkedQueueNode<E> c = c();
+            LinkedQueueNode<E> a = a();
             int i = 0;
-            while (d != b && i < Integer.MAX_VALUE) {
+            while (c != a && i < Integer.MAX_VALUE) {
                 do {
-                    lvNext = d.lvNext();
+                    lvNext = c.lvNext();
                 } while (lvNext == null);
                 i++;
-                d = lvNext;
+                c = lvNext;
             }
             return i;
         }

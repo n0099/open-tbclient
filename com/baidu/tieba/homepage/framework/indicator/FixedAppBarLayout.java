@@ -48,9 +48,9 @@ import com.google.android.material.appbar.AppBarLayout;
 import com.repackage.ng;
 import com.repackage.pi;
 import com.repackage.qg;
-import com.repackage.tm4;
-import com.repackage.ur4;
-import com.repackage.xt4;
+import com.repackage.um4;
+import com.repackage.vr4;
+import com.repackage.yt4;
 /* loaded from: classes3.dex */
 public class FixedAppBarLayout extends AppBarLayout {
     public static /* synthetic */ Interceptable $ic;
@@ -351,18 +351,18 @@ public class FixedAppBarLayout extends AppBarLayout {
             if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, view2)) == null) {
                 e eVar = new e();
                 eVar.a = view2;
-                eVar.b = (TBLottieAnimationView) view2.findViewById(R.id.obfuscated_res_0x7f091321);
-                eVar.c = (HomeTabBarView) view2.findViewById(R.id.obfuscated_res_0x7f090d43);
-                eVar.d = view2.findViewById(R.id.obfuscated_res_0x7f090739);
-                eVar.e = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091cb8);
-                eVar.f = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091cca);
-                eVar.g = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f091cd1);
-                eVar.h = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091c98);
-                TbImageView tbImageView = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090e66);
+                eVar.b = (TBLottieAnimationView) view2.findViewById(R.id.obfuscated_res_0x7f0912fd);
+                eVar.c = (HomeTabBarView) view2.findViewById(R.id.obfuscated_res_0x7f090d3c);
+                eVar.d = view2.findViewById(R.id.obfuscated_res_0x7f090738);
+                eVar.e = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091cbe);
+                eVar.f = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091cd0);
+                eVar.g = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f091cd7);
+                eVar.h = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091c9e);
+                TbImageView tbImageView = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090e5f);
                 eVar.i = tbImageView;
                 tbImageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
                 eVar.i.setUseNightOrDarkMask(false);
-                eVar.j = view2.findViewById(R.id.obfuscated_res_0x7f0906b5);
+                eVar.j = view2.findViewById(R.id.obfuscated_res_0x7f0906b4);
                 return eVar;
             }
             return (e) invokeL.objValue;
@@ -411,7 +411,7 @@ public class FixedAppBarLayout extends AppBarLayout {
     public final void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.a.d.setVisibility(tm4.h() ? 0 : 8);
+            this.a.d.setVisibility(um4.h() ? 0 : 8);
             this.a.d.setOnClickListener(new a(this));
         }
     }
@@ -434,7 +434,7 @@ public class FixedAppBarLayout extends AppBarLayout {
     public final void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.a.g.setText(this.c.getString(R.string.obfuscated_res_0x7f0f10bd));
+            this.a.g.setText(this.c.getString(R.string.obfuscated_res_0x7f0f1079));
             if (j()) {
                 this.e = true;
                 this.a.h.setVisibility(0);
@@ -477,12 +477,12 @@ public class FixedAppBarLayout extends AppBarLayout {
         String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            String[] split = xt4.k().q("key_home_page_seacher_anim_show_number", "").split(",");
+            String[] split = yt4.k().q("key_home_page_seacher_anim_show_number", "").split(",");
             long currentTimeMillis = System.currentTimeMillis();
             if (split.length >= 7 || TimeHelper.isSameDay(ng.g(split[split.length - 1], 0L), currentTimeMillis)) {
                 return false;
             }
-            xt4 k = xt4.k();
+            yt4 k = yt4.k();
             if (split.length == 6) {
                 str = String.valueOf(currentTimeMillis);
             } else {
@@ -505,17 +505,17 @@ public class FixedAppBarLayout extends AppBarLayout {
                 setLiveSquareLottie("lottie_home_live_entrance_lh/", R.raw.obfuscated_res_0x7f11003f);
             }
             this.a.e.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f0809e3, SkinManager.getColor(R.color.CAM_X0105), WebPManager.ResourceStateType.NORMAL_PRESS));
-            ur4 d2 = ur4.d(this.a.g);
+            vr4 d2 = vr4.d(this.a.g);
             d2.z(R.dimen.T_X09);
             d2.v(R.color.CAM_X0105);
             if (TbadkApplication.getInst().getSkinType() != 1 && TbadkApplication.getInst().getSkinType() != 4) {
-                ur4 d3 = ur4.d(this.a.h);
+                vr4 d3 = vr4.d(this.a.h);
                 d3.l(R.dimen.L_X01);
                 d3.k(R.color.CAM_X0113);
                 d3.n(R.string.J_X01);
                 d3.f(R.color.CAM_X0211);
             } else {
-                ur4 d4 = ur4.d(this.a.h);
+                vr4 d4 = vr4.d(this.a.h);
                 d4.n(R.string.J_X01);
                 d4.f(R.color.CAM_X0211);
             }

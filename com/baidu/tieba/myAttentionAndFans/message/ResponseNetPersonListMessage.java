@@ -12,16 +12,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.br4;
+import com.repackage.cr4;
 import com.repackage.te;
-import com.repackage.vp4;
+import com.repackage.wp4;
 import java.util.Map;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class ResponseNetPersonListMessage extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public vp4 data;
+    public wp4 data;
     public int mErrCode;
     public String mErrMsg;
 
@@ -56,17 +56,17 @@ public class ResponseNetPersonListMessage extends JsonHttpResponsedMessage {
             if (statusCode == 200 && error == 0) {
                 this.mErrCode = jSONObject.optInt("error_code");
                 this.mErrMsg = jSONObject.optString(GameCodeGetResponseMsg.PARAM_ERROR_MSG);
-                vp4 vp4Var = new vp4();
-                this.data = vp4Var;
-                vp4Var.c(jSONObject);
+                wp4 wp4Var = new wp4();
+                this.data = wp4Var;
+                wp4Var.c(jSONObject);
             }
         }
     }
 
-    public vp4 getData() {
+    public wp4 getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.data : (vp4) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.data : (wp4) invokeV.objValue;
     }
 
     public String getErrMsg() {
@@ -97,8 +97,8 @@ public class ResponseNetPersonListMessage extends JsonHttpResponsedMessage {
                 if ((map.get("page") == null || map.get("page").equals("0")) && map.get("id") != null) {
                     boolean z = tag != null && tag.equals(PersonListModel.FOLLOWME);
                     String str = new String(bArr);
-                    br4.f();
-                    te<String> g = br4.g("tb.my_pages");
+                    cr4.f();
+                    te<String> g = cr4.g("tb.my_pages");
                     if (g != null) {
                         String str2 = z ? "personal_followme" : "personal_myfollow";
                         g.e(str2 + "_" + map.get("id"), str, 604800000L);

@@ -9,10 +9,10 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public final class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final long a;
-    public final long b;
-    public final long c;
-    public final long d;
+    public final long auq;
+    public final long aur;
+    public final long aus;
+    public final long contentLength;
 
     public a(long j, long j2, long j3, long j4) {
         Interceptable interceptable = $ic;
@@ -29,15 +29,15 @@ public final class a {
                 return;
             }
         }
-        this.a = j;
-        this.b = j2;
-        this.c = j3;
-        this.d = j4;
+        this.auq = j;
+        this.aur = j2;
+        this.aus = j3;
+        this.contentLength = j4;
     }
 
     public final String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? com.kwai.filedownloader.e.f.a("range[%d, %d) current offset[%d]", Long.valueOf(this.a), Long.valueOf(this.c), Long.valueOf(this.b)) : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? com.kwai.filedownloader.e.f.h("range[%d, %d) current offset[%d]", Long.valueOf(this.auq), Long.valueOf(this.aus), Long.valueOf(this.aur)) : (String) invokeV.objValue;
     }
 }

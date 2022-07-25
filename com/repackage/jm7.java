@@ -19,7 +19,7 @@ public class jm7 implements nn {
     public static final BdUniqueId d;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean a;
-    public List<p05> b;
+    public List<q05> b;
     public boolean c;
 
     static {
@@ -62,9 +62,9 @@ public class jm7 implements nn {
         if (optJSONArray != null && optJSONArray.length() > 0) {
             this.b = new ArrayList();
             for (int i = 0; i < optJSONArray.length(); i++) {
-                p05 p05Var = new p05();
-                p05Var.a(optJSONArray.optJSONObject(i));
-                this.b.add(p05Var);
+                q05 q05Var = new q05();
+                q05Var.a(optJSONArray.optJSONObject(i));
+                this.b.add(q05Var);
             }
         }
         this.c = jSONObject.optInt("has_more", 0) == 1;

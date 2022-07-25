@@ -222,7 +222,7 @@ public class SelectForumActivity extends BaseActivity<SelectForumActivity> {
             if (interceptable == null || interceptable.invokeL(1048576, this, ox8Var) == null) {
                 if (ox8Var == null) {
                     SelectForumActivity selectForumActivity = this.a;
-                    selectForumActivity.showToast(selectForumActivity.getString(R.string.obfuscated_res_0x7f0f116c));
+                    selectForumActivity.showToast(selectForumActivity.getString(R.string.obfuscated_res_0x7f0f111b));
                     Intent intent = new Intent();
                     intent.putExtra(PmsConstant.Statistic.STATISTIC_ERRCODE, -2113);
                     this.a.setResult(1008, intent);
@@ -477,28 +477,28 @@ public class SelectForumActivity extends BaseActivity<SelectForumActivity> {
     public final void b2() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.g = findViewById(R.id.obfuscated_res_0x7f091b72);
-            this.h = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0921cc);
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f092437);
+            this.g = findViewById(R.id.obfuscated_res_0x7f091b4c);
+            this.h = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0921ce);
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f092439);
             this.b = navigationBar;
             TextView addTextButton = navigationBar.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, getString(R.string.obfuscated_res_0x7f0f036a));
             this.c = addTextButton;
             if (addTextButton.getLayoutParams() instanceof LinearLayout.LayoutParams) {
                 LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.c.getLayoutParams();
-                layoutParams.leftMargin = pi.f(getActivity(), R.dimen.obfuscated_res_0x7f070232);
+                layoutParams.leftMargin = pi.f(getActivity(), R.dimen.obfuscated_res_0x7f070230);
                 this.c.setLayoutParams(layoutParams);
             }
-            this.d = this.b.setCenterTextTitle(getResources().getString(R.string.obfuscated_res_0x7f0f10fe));
+            this.d = this.b.setCenterTextTitle(getResources().getString(R.string.obfuscated_res_0x7f0f10ba));
             this.c.setOnClickListener(this.E);
-            this.j = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091252);
-            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f090dd3);
+            this.j = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f09122e);
+            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f090dcc);
             this.k = imageView;
             imageView.setOnClickListener(this.E);
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f092001);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f092005);
             this.l = textView;
             textView.setOnClickListener(this.E);
-            this.i = findViewById(R.id.obfuscated_res_0x7f092424);
-            BdListView bdListView = (BdListView) findViewById(R.id.obfuscated_res_0x7f0921cf);
+            this.i = findViewById(R.id.obfuscated_res_0x7f092426);
+            BdListView bdListView = (BdListView) findViewById(R.id.obfuscated_res_0x7f0921d1);
             this.a = bdListView;
             bdListView.setOnItemClickListener(this.F);
             rx8 rx8Var = new rx8(getActivity());
@@ -656,7 +656,7 @@ public class SelectForumActivity extends BaseActivity<SelectForumActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d075e);
+            setContentView(R.layout.obfuscated_res_0x7f0d0768);
             initData();
             b2();
             registerListener(this.D);

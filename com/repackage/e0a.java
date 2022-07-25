@@ -275,7 +275,7 @@ public final class e0a {
                         }
                         this.d.dismiss();
                     }
-                    this.e.setTextColor(this.c.getResources().getColor(e ? R.color.obfuscated_res_0x7f0608a7 : R.color.obfuscated_res_0x7f0608aa));
+                    this.e.setTextColor(this.c.getResources().getColor(e ? R.color.obfuscated_res_0x7f0608a5 : R.color.obfuscated_res_0x7f0608a8));
                 }
                 return false;
             }
@@ -336,7 +336,7 @@ public final class e0a {
                             Intrinsics.checkExpressionValueIsNotNull(tvInputAmount2, "tvInputAmount");
                             tvInputAmount2.setText(editable);
                         }
-                        this.d.setTextColor(this.e.getResources().getColor(e ? R.color.obfuscated_res_0x7f0608a7 : R.color.obfuscated_res_0x7f0608aa));
+                        this.d.setTextColor(this.e.getResources().getColor(e ? R.color.obfuscated_res_0x7f0608a5 : R.color.obfuscated_res_0x7f0608a8));
                         return;
                     }
                     this.c.setText("");
@@ -544,7 +544,7 @@ public final class e0a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, context, str)) == null) {
             if (str == null) {
-                Toast.makeText(context, (int) R.string.obfuscated_res_0x7f0f0d73, 1).show();
+                Toast.makeText(context, (int) R.string.obfuscated_res_0x7f0f0d5c, 1).show();
                 return 0;
             }
             int length = str.length() - 1;
@@ -566,16 +566,16 @@ public final class e0a {
             try {
                 int parseInt = Integer.parseInt(str.subSequence(i2, length + 1).toString());
                 if (parseInt <= 0) {
-                    Toast.makeText(context, (int) R.string.obfuscated_res_0x7f0f0d73, 1).show();
+                    Toast.makeText(context, (int) R.string.obfuscated_res_0x7f0f0d5c, 1).show();
                     return 0;
                 } else if (parseInt > 500000) {
-                    Toast.makeText(context, (int) R.string.obfuscated_res_0x7f0f0d72, 1).show();
+                    Toast.makeText(context, (int) R.string.obfuscated_res_0x7f0f0d5b, 1).show();
                     return 0;
                 } else {
                     return parseInt;
                 }
             } catch (Exception unused) {
-                Toast.makeText(context, (int) R.string.obfuscated_res_0x7f0f0d73, 1).show();
+                Toast.makeText(context, (int) R.string.obfuscated_res_0x7f0f0d5c, 1).show();
                 return 0;
             }
         }
@@ -613,7 +613,7 @@ public final class e0a {
             zz9Var.setOnDismissListener(new b(d0aVar));
             zz9Var.setOnCancelListener(new c(d0aVar));
             Window window = zz9Var.getWindow();
-            View inflate = LayoutInflater.from(new ContextThemeWrapper(activity, nz9.a.a(payUIKitConfig))).inflate(R.layout.obfuscated_res_0x7f0d065c, (ViewGroup) null, false);
+            View inflate = LayoutInflater.from(new ContextThemeWrapper(activity, nz9.a.a(payUIKitConfig))).inflate(R.layout.obfuscated_res_0x7f0d0666, (ViewGroup) null, false);
             if (window == null) {
                 Intrinsics.throwNpe();
             }
@@ -626,15 +626,15 @@ public final class e0a {
             attributes.width = -1;
             attributes.height = -2;
             window.setAttributes(attributes);
-            window.findViewById(R.id.obfuscated_res_0x7f091b5b).setOnClickListener(new d(payDialogType, zz9Var, iViewEventListener, d0aVar));
-            TextView textView = (TextView) window.findViewById(R.id.obfuscated_res_0x7f0921ff);
-            TextView textView2 = (TextView) window.findViewById(R.id.obfuscated_res_0x7f092244);
-            EditText etInput = (EditText) window.findViewById(R.id.obfuscated_res_0x7f0908ec);
+            window.findViewById(R.id.obfuscated_res_0x7f091b35).setOnClickListener(new d(payDialogType, zz9Var, iViewEventListener, d0aVar));
+            TextView textView = (TextView) window.findViewById(R.id.obfuscated_res_0x7f092201);
+            TextView textView2 = (TextView) window.findViewById(R.id.obfuscated_res_0x7f092246);
+            EditText etInput = (EditText) window.findViewById(R.id.obfuscated_res_0x7f0908e5);
             TextView btnOk = (TextView) window.findViewById(R.id.obfuscated_res_0x7f090426);
             Intrinsics.checkExpressionValueIsNotNull(btnOk, "btnOk");
             btnOk.setEnabled(false);
             Button button = (Button) window.findViewById(R.id.obfuscated_res_0x7f090409);
-            String string = activity.getResources().getString(R.string.obfuscated_res_0x7f0f0d71);
+            String string = activity.getResources().getString(R.string.obfuscated_res_0x7f0f0d5a);
             Intrinsics.checkExpressionValueIsNotNull(string, "mContext.getResources().…_ui_string_custom_amount)");
             Intrinsics.checkExpressionValueIsNotNull(etInput, "etInput");
             etInput.setHint(string);

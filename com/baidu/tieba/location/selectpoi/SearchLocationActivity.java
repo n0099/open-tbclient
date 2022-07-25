@@ -40,7 +40,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.nj8;
 import com.repackage.oi;
 import com.repackage.pi;
-import com.repackage.ur4;
+import com.repackage.vr4;
 import com.repackage.we7;
 import com.repackage.za;
 import com.repackage.ze7;
@@ -108,7 +108,7 @@ public class SearchLocationActivity extends NavigationBarActivity {
                     this.a.g.notifyDataSetChanged();
                     return;
                 }
-                this.a.showToast(StringUtils.isNull(responsedMessage.getErrorString()) ? this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0c2b) : responsedMessage.getErrorString());
+                this.a.showToast(StringUtils.isNull(responsedMessage.getErrorString()) ? this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0c17) : responsedMessage.getErrorString());
             }
         }
     }
@@ -229,7 +229,7 @@ public class SearchLocationActivity extends NavigationBarActivity {
             if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048576, this, textView, i, keyEvent)) == null) {
                 if (i == 3) {
                     if (!pi.D()) {
-                        this.a.showToast(R.string.obfuscated_res_0x7f0f0c64);
+                        this.a.showToast(R.string.obfuscated_res_0x7f0f0c50);
                         return false;
                     } else if (StringUtils.isNull(this.a.H1())) {
                         return false;
@@ -273,7 +273,7 @@ public class SearchLocationActivity extends NavigationBarActivity {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 if (!pi.D()) {
-                    this.a.showToast(R.string.obfuscated_res_0x7f0f0c64);
+                    this.a.showToast(R.string.obfuscated_res_0x7f0f0c50);
                 } else if (StringUtils.isNull(this.a.H1())) {
                 } else {
                     this.a.I1();
@@ -414,18 +414,18 @@ public class SearchLocationActivity extends NavigationBarActivity {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             InputMethodManager inputMethodManager = (InputMethodManager) getSystemService("input_method");
             this.a.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new b(this));
-            LinearLayout linearLayout = (LinearLayout) this.a.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_CENTER, R.layout.obfuscated_res_0x7f0d074e, (View.OnClickListener) null);
+            LinearLayout linearLayout = (LinearLayout) this.a.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_CENTER, R.layout.obfuscated_res_0x7f0d0758, (View.OnClickListener) null);
             this.i = linearLayout;
-            this.l = (ImageView) linearLayout.findViewById(R.id.obfuscated_res_0x7f091c9e);
-            EditText editText = (EditText) this.i.findViewById(R.id.obfuscated_res_0x7f091cc1);
+            this.l = (ImageView) linearLayout.findViewById(R.id.obfuscated_res_0x7f091ca4);
+            EditText editText = (EditText) this.i.findViewById(R.id.obfuscated_res_0x7f091cc7);
             this.j = editText;
             editText.addTextChangedListener(new c(this));
             this.j.setOnEditorActionListener(new d(this));
-            TextView textView = (TextView) this.i.findViewById(R.id.obfuscated_res_0x7f091cc0);
+            TextView textView = (TextView) this.i.findViewById(R.id.obfuscated_res_0x7f091cc6);
             this.k = textView;
             textView.setEnabled(false);
             this.k.setOnClickListener(new e(this));
-            this.h = (BdListView) findViewById(R.id.obfuscated_res_0x7f091cc4);
+            this.h = (BdListView) findViewById(R.id.obfuscated_res_0x7f091cca);
             ze7 ze7Var = new ze7(this);
             this.g = ze7Var;
             this.h.setAdapter((ListAdapter) ze7Var);
@@ -489,7 +489,7 @@ public class SearchLocationActivity extends NavigationBarActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
             super.onChangeSkinType(i);
-            ur4 d2 = ur4.d(this.k);
+            vr4 d2 = vr4.d(this.k);
             d2.v(R.color.CAM_X0101);
             d2.n(R.string.J_X01);
             d2.f(R.color.CAM_X0302);
@@ -508,7 +508,7 @@ public class SearchLocationActivity extends NavigationBarActivity {
             super.onCreate(bundle);
             registerListener(this.m);
             SearchLocationActivityStatic.a();
-            setContentView(R.layout.obfuscated_res_0x7f0d074f);
+            setContentView(R.layout.obfuscated_res_0x7f0d0759);
             J1();
             initData();
         }

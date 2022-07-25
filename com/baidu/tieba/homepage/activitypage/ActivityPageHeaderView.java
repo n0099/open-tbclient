@@ -15,29 +15,29 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ao4;
-import com.repackage.cs4;
-import com.repackage.gm4;
+import com.repackage.bo4;
+import com.repackage.ds4;
 import com.repackage.h9;
-import com.repackage.jm4;
-import com.repackage.kc5;
-import com.repackage.lb5;
+import com.repackage.hm4;
+import com.repackage.km4;
+import com.repackage.lc5;
+import com.repackage.mb5;
 import com.repackage.pi;
 import com.repackage.qs6;
 import com.repackage.uz6;
 /* loaded from: classes3.dex */
-public class ActivityPageHeaderView extends LinearLayout implements kc5<qs6> {
+public class ActivityPageHeaderView extends LinearLayout implements lc5<qs6> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext<?> a;
     public AutoBannerLayout b;
     public GridIconLayout c;
     public String d;
-    public jm4 e;
-    public cs4<ao4> f;
+    public km4 e;
+    public ds4<bo4> f;
 
     /* loaded from: classes3.dex */
-    public class a implements jm4<ao4> {
+    public class a implements km4<bo4> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ActivityPageHeaderView a;
@@ -61,27 +61,27 @@ public class ActivityPageHeaderView extends LinearLayout implements kc5<qs6> {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.jm4
+        @Override // com.repackage.km4
         /* renamed from: a */
-        public void d(View view2, ao4 ao4Var, int i, long j) {
+        public void d(View view2, bo4 bo4Var, int i, long j) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, ao4Var, Integer.valueOf(i), Long.valueOf(j)}) == null) {
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, bo4Var, Integer.valueOf(i), Long.valueOf(j)}) == null) {
             }
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.jm4
+        @Override // com.repackage.km4
         /* renamed from: b */
-        public void c(View view2, ao4 ao4Var, int i, long j) {
+        public void c(View view2, bo4 bo4Var, int i, long j) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{view2, ao4Var, Integer.valueOf(i), Long.valueOf(j)}) == null) {
-                uz6.a("c13751", ao4Var, i + 1, this.a.d);
+            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{view2, bo4Var, Integer.valueOf(i), Long.valueOf(j)}) == null) {
+                uz6.a("c13751", bo4Var, i + 1, this.a.d);
             }
         }
     }
 
     /* loaded from: classes3.dex */
-    public class b implements cs4<ao4> {
+    public class b implements ds4<bo4> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ActivityPageHeaderView a;
@@ -104,29 +104,29 @@ public class ActivityPageHeaderView extends LinearLayout implements kc5<qs6> {
             this.a = activityPageHeaderView;
         }
 
-        @Override // com.repackage.cs4
+        @Override // com.repackage.ds4
         public void b(int i, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) {
-                ao4 ao4Var = new ao4();
-                ao4Var.g(str);
-                uz6.a("c13750", ao4Var, i, this.a.d);
+                bo4 bo4Var = new bo4();
+                bo4Var.g(str);
+                uz6.a("c13750", bo4Var, i, this.a.d);
             }
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.cs4
+        @Override // com.repackage.ds4
         /* renamed from: c */
-        public void a(int i, ao4 ao4Var) {
+        public void a(int i, bo4 bo4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, ao4Var) == null) {
-                uz6.b("c13750", ao4Var, i, this.a.d);
+            if (interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, bo4Var) == null) {
+                uz6.b("c13750", bo4Var, i, this.a.d);
             }
         }
     }
 
     /* loaded from: classes3.dex */
-    public class c implements gm4 {
+    public class c implements hm4 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ActivityPageHeaderView a;
@@ -149,7 +149,7 @@ public class ActivityPageHeaderView extends LinearLayout implements kc5<qs6> {
             this.a = activityPageHeaderView;
         }
 
-        @Override // com.repackage.gm4
+        @Override // com.repackage.hm4
         public void a(View view2, boolean z, Object obj) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, Boolean.valueOf(z), obj}) == null) && z && this.a.b != null) {
@@ -159,7 +159,7 @@ public class ActivityPageHeaderView extends LinearLayout implements kc5<qs6> {
     }
 
     /* loaded from: classes3.dex */
-    public class d implements gm4 {
+    public class d implements hm4 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ActivityPageHeaderView a;
@@ -182,7 +182,7 @@ public class ActivityPageHeaderView extends LinearLayout implements kc5<qs6> {
             this.a = activityPageHeaderView;
         }
 
-        @Override // com.repackage.gm4
+        @Override // com.repackage.hm4
         public void a(View view2, boolean z, Object obj) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, Boolean.valueOf(z), obj}) == null) && z) {
@@ -225,9 +225,9 @@ public class ActivityPageHeaderView extends LinearLayout implements kc5<qs6> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.lc5
+    @Override // com.repackage.mc5
     /* renamed from: e */
-    public lb5 a(qs6 qs6Var) {
+    public mb5 a(qs6 qs6Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, qs6Var)) == null) {
@@ -258,19 +258,19 @@ public class ActivityPageHeaderView extends LinearLayout implements kc5<qs6> {
                 this.c.setMaxItem(10);
             }
             this.c.a(qs6Var.g);
-            return new lb5();
+            return new mb5();
         }
-        return (lb5) invokeL.objValue;
+        return (mb5) invokeL.objValue;
     }
 
-    @Override // com.repackage.kc5
+    @Override // com.repackage.lc5
     public View getView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this : (View) invokeV.objValue;
     }
 
-    @Override // com.repackage.mc5
+    @Override // com.repackage.nc5
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {

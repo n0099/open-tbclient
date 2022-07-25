@@ -59,24 +59,24 @@ public class jq8 {
             if (context == null) {
                 context = TbadkCoreApplication.getInst();
             }
-            a(arrayList, R.drawable.obfuscated_res_0x7f080559, context.getString(R.string.obfuscated_res_0x7f0f061c), "origin");
-            a(arrayList, R.drawable.obfuscated_res_0x7f08055d, context.getString(R.string.obfuscated_res_0x7f0f0619), "hongkong");
-            a(arrayList, R.drawable.obfuscated_res_0x7f080560, context.getString(R.string.obfuscated_res_0x7f0f061d), "refreshing");
-            a(arrayList, R.drawable.obfuscated_res_0x7f08055c, context.getString(R.string.obfuscated_res_0x7f0f0617), "girly");
-            a(arrayList, R.drawable.obfuscated_res_0x7f080557, context.getString(R.string.obfuscated_res_0x7f0f0614), "concrete");
-            a(arrayList, R.drawable.obfuscated_res_0x7f080564, context.getString(R.string.obfuscated_res_0x7f0f0621), "warm");
-            a(arrayList, R.drawable.obfuscated_res_0x7f080556, context.getString(R.string.obfuscated_res_0x7f0f0613), "cold");
-            a(arrayList, R.drawable.obfuscated_res_0x7f08055e, context.getString(R.string.obfuscated_res_0x7f0f061a), "Japanese");
-            a(arrayList, R.drawable.obfuscated_res_0x7f080558, context.getString(R.string.obfuscated_res_0x7f0f0618), "cruz");
-            a(arrayList, R.drawable.obfuscated_res_0x7f080553, context.getString(R.string.obfuscated_res_0x7f0f0610), "abao");
-            a(arrayList, R.drawable.obfuscated_res_0x7f08055a, context.getString(R.string.obfuscated_res_0x7f0f0615), "dew");
-            a(arrayList, R.drawable.obfuscated_res_0x7f080562, context.getString(R.string.obfuscated_res_0x7f0f061f), "slowlived");
-            a(arrayList, R.drawable.obfuscated_res_0x7f080563, context.getString(R.string.obfuscated_res_0x7f0f0620), "sweet");
-            a(arrayList, R.drawable.obfuscated_res_0x7f080555, context.getString(R.string.obfuscated_res_0x7f0f0612), "boardwalk");
-            a(arrayList, R.drawable.obfuscated_res_0x7f08055f, context.getString(R.string.obfuscated_res_0x7f0f061b), "keylime");
-            a(arrayList, R.drawable.obfuscated_res_0x7f08055b, context.getString(R.string.obfuscated_res_0x7f0f0616), "electric");
-            a(arrayList, R.drawable.obfuscated_res_0x7f080561, context.getString(R.string.obfuscated_res_0x7f0f061e), "silver");
-            a(arrayList, R.drawable.obfuscated_res_0x7f080554, context.getString(R.string.obfuscated_res_0x7f0f0611), "blackwhite");
+            a(arrayList, R.drawable.obfuscated_res_0x7f080559, context.getString(R.string.obfuscated_res_0x7f0f0618), "origin");
+            a(arrayList, R.drawable.obfuscated_res_0x7f08055d, context.getString(R.string.obfuscated_res_0x7f0f0615), "hongkong");
+            a(arrayList, R.drawable.obfuscated_res_0x7f080560, context.getString(R.string.obfuscated_res_0x7f0f0619), "refreshing");
+            a(arrayList, R.drawable.obfuscated_res_0x7f08055c, context.getString(R.string.obfuscated_res_0x7f0f0613), "girly");
+            a(arrayList, R.drawable.obfuscated_res_0x7f080557, context.getString(R.string.obfuscated_res_0x7f0f0610), "concrete");
+            a(arrayList, R.drawable.obfuscated_res_0x7f080564, context.getString(R.string.obfuscated_res_0x7f0f061d), "warm");
+            a(arrayList, R.drawable.obfuscated_res_0x7f080556, context.getString(R.string.obfuscated_res_0x7f0f060f), "cold");
+            a(arrayList, R.drawable.obfuscated_res_0x7f08055e, context.getString(R.string.obfuscated_res_0x7f0f0616), "Japanese");
+            a(arrayList, R.drawable.obfuscated_res_0x7f080558, context.getString(R.string.obfuscated_res_0x7f0f0614), "cruz");
+            a(arrayList, R.drawable.obfuscated_res_0x7f080553, context.getString(R.string.obfuscated_res_0x7f0f060c), "abao");
+            a(arrayList, R.drawable.obfuscated_res_0x7f08055a, context.getString(R.string.obfuscated_res_0x7f0f0611), "dew");
+            a(arrayList, R.drawable.obfuscated_res_0x7f080562, context.getString(R.string.obfuscated_res_0x7f0f061b), "slowlived");
+            a(arrayList, R.drawable.obfuscated_res_0x7f080563, context.getString(R.string.obfuscated_res_0x7f0f061c), "sweet");
+            a(arrayList, R.drawable.obfuscated_res_0x7f080555, context.getString(R.string.obfuscated_res_0x7f0f060e), "boardwalk");
+            a(arrayList, R.drawable.obfuscated_res_0x7f08055f, context.getString(R.string.obfuscated_res_0x7f0f0617), "keylime");
+            a(arrayList, R.drawable.obfuscated_res_0x7f08055b, context.getString(R.string.obfuscated_res_0x7f0f0612), "electric");
+            a(arrayList, R.drawable.obfuscated_res_0x7f080561, context.getString(R.string.obfuscated_res_0x7f0f061a), "silver");
+            a(arrayList, R.drawable.obfuscated_res_0x7f080554, context.getString(R.string.obfuscated_res_0x7f0f060d), "blackwhite");
             return arrayList;
         }
         return (List) invokeL.objValue;

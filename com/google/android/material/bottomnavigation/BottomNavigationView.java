@@ -56,7 +56,7 @@ public class BottomNavigationView extends FrameLayout {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: DEF_STYLE_RES */
-    public static final int obfuscated_res_0x7f100324 = 2131755812;
+    public static final int obfuscated_res_0x7f100327 = 2131755815;
     public static final int MENU_PRESENTER_ID = 1;
     public transient /* synthetic */ FieldHolder $fh;
     @Nullable
@@ -250,7 +250,7 @@ public class BottomNavigationView extends FrameLayout {
         if (interceptable == null || interceptable.invokeL(65542, this, context) == null) {
             View view2 = new View(context);
             view2.setBackgroundColor(ContextCompat.getColor(context, R.color.obfuscated_res_0x7f0606de));
-            view2.setLayoutParams(new FrameLayout.LayoutParams(-1, getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701fe)));
+            view2.setLayoutParams(new FrameLayout.LayoutParams(-1, getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701fc)));
             addView(view2);
         }
     }
@@ -644,7 +644,7 @@ public class BottomNavigationView extends FrameLayout {
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public BottomNavigationView(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
-        super(MaterialThemeOverlay.wrap(context, attributeSet, i, obfuscated_res_0x7f100324), attributeSet, i);
+        super(MaterialThemeOverlay.wrap(context, attributeSet, i, obfuscated_res_0x7f100327), attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -673,14 +673,14 @@ public class BottomNavigationView extends FrameLayout {
         this.menuView.setPresenter(this.presenter);
         this.menu.addMenuPresenter(this.presenter);
         this.presenter.initForMenu(getContext(), this.menu);
-        TintTypedArray obtainTintedStyledAttributes = ThemeEnforcement.obtainTintedStyledAttributes(context2, attributeSet, new int[]{R.attr.backgroundTint, R.attr.obfuscated_res_0x7f040215, R.attr.obfuscated_res_0x7f040317, R.attr.obfuscated_res_0x7f04031a, R.attr.obfuscated_res_0x7f04031c, R.attr.obfuscated_res_0x7f04031d, R.attr.obfuscated_res_0x7f040320, R.attr.obfuscated_res_0x7f04032c, R.attr.obfuscated_res_0x7f04032d, R.attr.obfuscated_res_0x7f04032e, R.attr.obfuscated_res_0x7f0403c5, R.attr.obfuscated_res_0x7f040470}, i, R.style.obfuscated_res_0x7f100324, 8, 7);
+        TintTypedArray obtainTintedStyledAttributes = ThemeEnforcement.obtainTintedStyledAttributes(context2, attributeSet, new int[]{R.attr.backgroundTint, R.attr.obfuscated_res_0x7f040215, R.attr.obfuscated_res_0x7f040317, R.attr.obfuscated_res_0x7f04031a, R.attr.obfuscated_res_0x7f04031c, R.attr.obfuscated_res_0x7f04031d, R.attr.obfuscated_res_0x7f040320, R.attr.obfuscated_res_0x7f04032c, R.attr.obfuscated_res_0x7f04032d, R.attr.obfuscated_res_0x7f04032e, R.attr.obfuscated_res_0x7f0403c5, R.attr.obfuscated_res_0x7f040470}, i, R.style.obfuscated_res_0x7f100327, 8, 7);
         if (obtainTintedStyledAttributes.hasValue(5)) {
             this.menuView.setIconTintList(obtainTintedStyledAttributes.getColorStateList(5));
         } else {
             BottomNavigationMenuView bottomNavigationMenuView = this.menuView;
             bottomNavigationMenuView.setIconTintList(bottomNavigationMenuView.createDefaultColorStateList(16842808));
         }
-        setItemIconSize(obtainTintedStyledAttributes.getDimensionPixelSize(4, getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701fa)));
+        setItemIconSize(obtainTintedStyledAttributes.getDimensionPixelSize(4, getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701f7)));
         if (obtainTintedStyledAttributes.hasValue(8)) {
             setItemTextAppearanceInactive(obtainTintedStyledAttributes.getResourceId(8, 0));
         }

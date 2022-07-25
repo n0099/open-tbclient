@@ -337,10 +337,10 @@ public class kb7 implements ImagePagerAdapter.a {
         this.d = tbPageContext;
         this.e = arrayList;
         this.f = new HashMap();
-        this.i = tw4.c() - 1;
-        this.j = tw4.b() + 1;
-        this.k = tw4.d() + 1;
-        this.h = xt4.k().l("fun_ad_big_image_switch", -1) == 1;
+        this.i = uw4.c() - 1;
+        this.j = uw4.b() + 1;
+        this.k = uw4.d() + 1;
+        this.h = yt4.k().l("fun_ad_big_image_switch", -1) == 1;
         String str3 = (String) ListUtils.getItem(arrayList, i);
         this.r = StringUtils.isNull(str3) ? arrayList.get(0) : str3;
     }
@@ -523,7 +523,7 @@ public class kb7 implements ImagePagerAdapter.a {
                 TextView textView = new TextView(this.d.getPageActivity());
                 this.w = textView;
                 textView.setIncludeFontPadding(false);
-                ur4 d2 = ur4.d(this.w);
+                vr4 d2 = vr4.d(this.w);
                 d2.v(R.color.CAM_X0108);
                 d2.z(R.dimen.T_X06);
                 d2.A(R.string.F_X01);
@@ -534,7 +534,7 @@ public class kb7 implements ImagePagerAdapter.a {
             }
             TextView textView2 = this.w;
             if (textView2 != null) {
-                textView2.setText(this.n ? R.string.obfuscated_res_0x7f0f08cf : R.string.obfuscated_res_0x7f0f08ce);
+                textView2.setText(this.n ? R.string.obfuscated_res_0x7f0f08ba : R.string.obfuscated_res_0x7f0f08b9);
             }
             ViewParent parent = this.v.getParent();
             if (parent != null) {
@@ -560,7 +560,7 @@ public class kb7 implements ImagePagerAdapter.a {
             }
             View inflate = LayoutInflater.from(this.d.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d03be, (ViewGroup) null);
             this.u = inflate;
-            ur4.d(inflate.findViewById(R.id.obfuscated_res_0x7f0900e0)).p(new int[]{R.color.black_alpha40, R.color.black_alpha0}, Direction.RIGHT);
+            vr4.d(inflate.findViewById(R.id.obfuscated_res_0x7f0900e0)).p(new int[]{R.color.black_alpha40, R.color.black_alpha0}, Direction.RIGHT);
             TBLottieAnimationView tBLottieAnimationView = (TBLottieAnimationView) this.u.findViewById(R.id.obfuscated_res_0x7f0900ce);
             this.x = tBLottieAnimationView;
             SkinManager.setLottieAnimation(tBLottieAnimationView, R.raw.obfuscated_res_0x7f110000);

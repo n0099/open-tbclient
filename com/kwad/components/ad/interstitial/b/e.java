@@ -9,8 +9,8 @@ import com.kwad.sdk.core.response.model.AdInfo;
 public final class e extends b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public c a;
-    public AdInfo b;
+    public c gh;
+    public AdInfo mAdInfo;
 
     public e(AdInfo adInfo) {
         Interceptable interceptable = $ic;
@@ -27,19 +27,19 @@ public final class e extends b {
                 return;
             }
         }
-        this.b = adInfo;
+        this.mAdInfo = adInfo;
     }
 
-    @Override // com.kwad.sdk.mvp.Presenter
-    public final void a() {
+    @Override // com.kwad.components.ad.interstitial.b.b, com.kwad.sdk.mvp.Presenter
+    public final void aq() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            super.a();
-            this.a = (c) t();
-            if (!(com.kwad.sdk.core.response.a.a.aT(this.b) || com.kwad.sdk.core.response.a.a.ba(this.b)) || this.a.a.mAdScene == null) {
+            super.aq();
+            this.gh = (c) xR();
+            if (!(com.kwad.sdk.core.response.a.a.bD(this.mAdInfo) || com.kwad.sdk.core.response.a.a.bJ(this.mAdInfo)) || this.gh.mAdTemplate.mAdScene == null) {
                 return;
             }
-            this.b.adConversionInfo.deeplinkUrl = com.kwad.components.core.c.a.c.a(u(), this.b, this.a.a.mAdScene);
+            this.mAdInfo.adConversionInfo.deeplinkUrl = com.kwad.components.core.c.a.d.e(getContext(), this.mAdInfo, this.gh.mAdTemplate.mAdScene);
         }
     }
 }

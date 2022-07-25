@@ -1,7 +1,7 @@
 package com.kwad.sdk.widget;
 
-import com.kwad.sdk.utils.y;
+import com.kwad.sdk.utils.aa;
 /* loaded from: classes5.dex */
 public interface e {
-    y.a getTouchCoords();
+    aa.a getTouchCoords();
 }

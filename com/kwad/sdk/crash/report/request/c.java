@@ -9,11 +9,11 @@ import java.util.Calendar;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public final class c {
-    public static ReportEvent a(@NonNull ExceptionMessage exceptionMessage) {
+    public static ReportEvent c(@NonNull ExceptionMessage exceptionMessage) {
         ReportEvent reportEvent = new ReportEvent();
-        reportEvent.clientIncrementId = d.a();
+        reportEvent.clientIncrementId = d.uH();
         reportEvent.clientTimeStamp = exceptionMessage.mCurrentTimeStamp;
-        reportEvent.sessionId = a(exceptionMessage.mCustomMsg);
+        reportEvent.sessionId = dd(exceptionMessage.mCustomMsg);
         reportEvent.timeZone = Calendar.getInstance().getTimeZone().getID();
         reportEvent.statPackage = new ReportEvent.StatPackage();
         ReportEvent.ExceptionEvent exceptionEvent = new ReportEvent.ExceptionEvent();
@@ -24,15 +24,15 @@ public final class c {
         return reportEvent;
     }
 
-    public static String a(String str) {
+    public static String dd(String str) {
         if (!TextUtils.isEmpty(str) && !"Unknown".equals(str)) {
             try {
-                String optString = new JSONObject(str).optString(com.kwad.sdk.crash.c.g);
+                String optString = new JSONObject(str).optString(com.kwad.sdk.crash.c.ahb);
                 if (!TextUtils.isEmpty(optString)) {
                     return optString;
                 }
             } catch (Exception e) {
-                com.kwad.sdk.core.d.b.b(e);
+                com.kwad.sdk.core.e.b.printStackTraceOnly(e);
             }
         }
         return "Unknown";

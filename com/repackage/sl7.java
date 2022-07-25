@@ -35,7 +35,7 @@ public abstract class sl7 extends BaseAdapter {
         this.c = false;
     }
 
-    public abstract void a(vp4 vp4Var);
+    public abstract void a(wp4 wp4Var);
 
     public void b() {
         Interceptable interceptable = $ic;

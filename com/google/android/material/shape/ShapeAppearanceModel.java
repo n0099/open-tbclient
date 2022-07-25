@@ -674,7 +674,7 @@ public class ShapeAppearanceModel {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65546, null, new Object[]{context, attributeSet, Integer.valueOf(i), Integer.valueOf(i2), cornerSize})) == null) {
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f040590, R.attr.obfuscated_res_0x7f040593}, i, i2);
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f040592, R.attr.obfuscated_res_0x7f040595}, i, i2);
             int resourceId = obtainStyledAttributes.getResourceId(0, 0);
             int resourceId2 = obtainStyledAttributes.getResourceId(1, 0);
             obtainStyledAttributes.recycle();

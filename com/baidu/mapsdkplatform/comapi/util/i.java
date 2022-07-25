@@ -22,7 +22,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.fun.ad.sdk.FunAdSdk;
-import com.kuaishou.weapon.p0.C0400;
+import com.kuaishou.weapon.p0.u;
 import com.tencent.open.SocialOperation;
 import java.util.Date;
 import java.util.HashMap;
@@ -157,7 +157,7 @@ public class i {
             bundle.putString("net", r);
             bundle.putString("cuid", A);
             bundle.putByteArray(SocialOperation.GAME_SIGNATURE, a(a));
-            bundle.putString(C0400.f425, a.getPackageName());
+            bundle.putString(u.w, a.getPackageName());
             bundle.putInt("screen_x", h());
             bundle.putInt("screen_y", j());
             com.baidu.mapsdkplatform.comjni.util.a aVar = f;
@@ -193,7 +193,7 @@ public class i {
             B.put("os", AppMD5.encodeUrlParamsValue(k()));
             B.put("dpi", AppMD5.encodeUrlParamsValue(String.format("%d,%d", Integer.valueOf(l()), Integer.valueOf(l()))));
             B.put("cuid", AppMD5.encodeUrlParamsValue(A));
-            B.put(C0400.f425, AppMD5.encodeUrlParamsValue(a.getPackageName()));
+            B.put(u.w, AppMD5.encodeUrlParamsValue(a.getPackageName()));
             B.put("screen", AppMD5.encodeUrlParamsValue(String.format("%d,%d", Integer.valueOf(h()), Integer.valueOf(j()))));
             com.baidu.mapsdkplatform.comjni.util.a aVar = f;
             if (aVar != null) {
@@ -304,7 +304,7 @@ public class i {
             bundle.putInt("dpi_y", l());
             bundle.putString("net", r);
             bundle.putString("cuid", A);
-            bundle.putString(C0400.f425, a.getPackageName());
+            bundle.putString(u.w, a.getPackageName());
             bundle.putInt("screen_x", h());
             bundle.putInt("screen_y", j());
             bundle.putString("appid", y);

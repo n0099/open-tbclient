@@ -307,10 +307,10 @@ public class yf5 {
         }
         this.a = tf5Var;
         this.b = bitmapRegionDecoder;
-        l45.k().u((int) (TbConfig.getBigImageMaxUsedMemoryForRemoteProcess() * 0.7f));
+        m45.k().u((int) (TbConfig.getBigImageMaxUsedMemoryForRemoteProcess() * 0.7f));
         this.e = new ThreadPoolExecutor(0, 10, 60L, TimeUnit.SECONDS, new SynchronousQueue(), new b(this));
         this.c = new c(this, (int) (TbConfig.getBigImageMaxUsedMemoryForRemoteProcess() * 0.3f));
-        eg<sf5> p = l45.k().p(this.a.e());
+        eg<sf5> p = m45.k().p(this.a.e());
         this.d = p;
         p.f(6);
     }

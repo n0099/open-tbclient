@@ -102,13 +102,13 @@ public class km6 extends qm6 {
                     if (bd6.g()) {
                         BdTopToast bdTopToast = new BdTopToast(this.a.b.getContext());
                         bdTopToast.i(true);
-                        bdTopToast.h(this.a.b.getContext().getString(R.string.obfuscated_res_0x7f0f118d));
+                        bdTopToast.h(this.a.b.getContext().getString(R.string.obfuscated_res_0x7f0f113c));
                         bdTopToast.j((ViewGroup) this.a.b.C3());
                         return;
                     }
                     BdTopToast bdTopToast2 = new BdTopToast(this.a.b.getContext());
                     bdTopToast2.i(true);
-                    bdTopToast2.h(this.a.b.getContext().getString(R.string.obfuscated_res_0x7f0f04ad));
+                    bdTopToast2.h(this.a.b.getContext().getString(R.string.obfuscated_res_0x7f0f04ac));
                     bdTopToast2.j((ViewGroup) this.a.b.C3());
                 }
             }
@@ -228,7 +228,7 @@ public class km6 extends qm6 {
                     if (!(responsedMessage instanceof GetMyPostHttpResponseMessage)) {
                         GetMyPostHttpResponseMessage getMyPostHttpResponseMessage = (GetMyPostHttpResponseMessage) responsedMessage;
                         if (StringUtils.isNull(getMyPostHttpResponseMessage.getErrorString())) {
-                            errorString2 = this.a.b.getResources().getString(R.string.obfuscated_res_0x7f0f0c2b);
+                            errorString2 = this.a.b.getResources().getString(R.string.obfuscated_res_0x7f0f0c17);
                         } else {
                             errorString2 = getMyPostHttpResponseMessage.getErrorString();
                         }
@@ -248,7 +248,7 @@ public class km6 extends qm6 {
                     } else if (responsedMessage instanceof GetMyPostSocketResponseMessage) {
                         GetMyPostSocketResponseMessage getMyPostSocketResponseMessage = (GetMyPostSocketResponseMessage) responsedMessage;
                         if (StringUtils.isNull(getMyPostSocketResponseMessage.getErrorString())) {
-                            errorString = this.a.b.getResources().getString(R.string.obfuscated_res_0x7f0f0c2b);
+                            errorString = this.a.b.getResources().getString(R.string.obfuscated_res_0x7f0f0c17);
                         } else {
                             errorString = getMyPostSocketResponseMessage.getErrorString();
                         }
@@ -362,17 +362,17 @@ public class km6 extends qm6 {
         }
     }
 
-    public final void d(lp4 lp4Var) {
+    public final void d(mp4 mp4Var) {
         FrsViewData Q0;
         ArrayList<nn> threadList;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, lp4Var) == null) || (Q0 = this.b.Q0()) == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, mp4Var) == null) || (Q0 = this.b.Q0()) == null) {
             return;
         }
-        this.e.K(lp4Var);
+        this.e.K(mp4Var);
         if (this.e.x0()) {
             ArrayList<nn> arrayList = new ArrayList<>();
-            arrayList.add(lp4Var);
+            arrayList.add(mp4Var);
             threadList = this.g.c(false, true, arrayList, null, true, -1, null);
         } else {
             threadList = Q0.getThreadList();
@@ -429,7 +429,7 @@ public class km6 extends qm6 {
             if (Q0 == null || Q0.getForum() == null || getMyPostResIdl == null || this.a == null || this.e == null || (dataRes = getMyPostResIdl.data) == null || dataRes.thread_info == null) {
                 return;
             }
-            lp4 lp4Var = new lp4();
+            mp4 mp4Var = new mp4();
             ThreadInfo.Builder builder = new ThreadInfo.Builder(getMyPostResIdl.data.thread_info);
             User.Builder builder2 = new User.Builder(builder.author);
             h(builder2, getMyPostResIdl.data.user_info);
@@ -444,8 +444,8 @@ public class km6 extends qm6 {
             builder.cheak_repeat = 1;
             builder.fname = Q0.getForum().getName();
             builder.fid = Long.valueOf(ng.g(Q0.getForum().getId(), 0L));
-            lp4Var.parserProtobuf(builder.build(true));
-            i(lp4Var, i2, jSONObject);
+            mp4Var.parserProtobuf(builder.build(true));
+            i(mp4Var, i2, jSONObject);
         }
     }
 
@@ -474,15 +474,15 @@ public class km6 extends qm6 {
         builder.business_account_info = user_Info.business_account_info;
     }
 
-    public final void i(lp4 lp4Var, int i, JSONObject jSONObject) {
+    public final void i(mp4 mp4Var, int i, JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(1048582, this, lp4Var, i, jSONObject) == null) {
+        if (interceptable == null || interceptable.invokeLIL(1048582, this, mp4Var, i, jSONObject) == null) {
             if (i == 1) {
                 FrsTabViewController.p C = this.b.D3().C();
                 if (C != null) {
                     Fragment fragment = C.b;
                     if (fragment instanceof FrsCommonTabFragment) {
-                        ((FrsCommonTabFragment) fragment).C1(lp4Var);
+                        ((FrsCommonTabFragment) fragment).C1(mp4Var);
                     }
                 }
             } else if (i == 2) {
@@ -491,28 +491,28 @@ public class km6 extends qm6 {
                     return;
                 }
                 this.c.b(301);
-                ((FrsGoodFragment) J.b).T1(lp4Var);
-            } else if (lp4Var.getTabId() > 0) {
-                FrsTabViewController.p J2 = this.b.D3().J(lp4Var.getTabId());
+                ((FrsGoodFragment) J.b).T1(mp4Var);
+            } else if (mp4Var.getTabId() > 0) {
+                FrsTabViewController.p J2 = this.b.D3().J(mp4Var.getTabId());
                 if (J2 != null) {
                     Fragment fragment2 = J2.b;
                     if (fragment2 instanceof FrsCommonTabFragment) {
-                        ((FrsCommonTabFragment) fragment2).C1(lp4Var);
+                        ((FrsCommonTabFragment) fragment2).C1(mp4Var);
                     } else if (fragment2 instanceof FrsTabWebFragment) {
-                        ((FrsTabWebFragment) fragment2).T1(lp4Var, jSONObject);
+                        ((FrsTabWebFragment) fragment2).T1(mp4Var, jSONObject);
                     }
                 }
             } else {
-                if (!ListUtils.isEmpty(lp4Var.getItemStar())) {
-                    lp4Var.insertItemToTitleOrAbstractText();
+                if (!ListUtils.isEmpty(mp4Var.getItemStar())) {
+                    mp4Var.insertItemToTitleOrAbstractText();
                 }
                 FrsTabViewController.p J3 = this.b.D3().J(this.b.D3().F());
                 if (J3 != null) {
                     Fragment fragment3 = J3.b;
                     if (fragment3 instanceof FrsNewAreaFragment) {
-                        c(lp4Var, (FrsNewAreaFragment) fragment3);
+                        c(mp4Var, (FrsNewAreaFragment) fragment3);
                     } else {
-                        d(lp4Var);
+                        d(mp4Var);
                     }
                 }
             }
@@ -540,11 +540,11 @@ public class km6 extends qm6 {
             }
             WriteData writeData = postWriteCallBackData.writeDataForVideo;
             if (writeData != null) {
-                lp4 lp4Var = new lp4();
-                lp4Var.parseFromWriteData(writeData);
+                mp4 mp4Var = new mp4();
+                mp4Var.parseFromWriteData(writeData);
                 JSONObject jSONObject = new JSONObject();
                 f(jSONObject, writeData.getForumId(), writeData.getThreadId(), writeData.getRepostId(), TbImageHelper.getInstance().isShowBigImage() ? 2 : 1, "", "0");
-                i(lp4Var, writeData.getProZone(), jSONObject);
+                i(mp4Var, writeData.getProZone(), jSONObject);
             }
         }
     }

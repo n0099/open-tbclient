@@ -52,13 +52,13 @@ public class ho7 implements View.OnClickListener, v96 {
 
         /* renamed from: com.repackage.ho7$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class RunnableC0651a implements Runnable {
+        public class RunnableC0497a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ int a;
             public final /* synthetic */ a b;
 
-            public RunnableC0651a(a aVar, int i) {
+            public RunnableC0497a(a aVar, int i) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -82,7 +82,7 @@ public class ho7 implements View.OnClickListener, v96 {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                     if (this.a >= 30) {
-                        pi.O(this.b.a.j.getPageActivity(), String.format(this.b.a.j.getString(R.string.obfuscated_res_0x7f0f0540), 30));
+                        pi.O(this.b.a.j.getPageActivity(), String.format(this.b.a.j.getString(R.string.obfuscated_res_0x7f0f053c), 30));
                     } else {
                         MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new FaceGroupMakeActivityConfig(this.b.a.j.getPageActivity(), true, 25021)));
                     }
@@ -113,7 +113,7 @@ public class ho7 implements View.OnClickListener, v96 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 List<MyEmotionGroupData> f = mn7.i().f();
-                qg.a().post(new RunnableC0651a(this, f == null ? 0 : f.size()));
+                qg.a().post(new RunnableC0497a(this, f == null ? 0 : f.size()));
             }
         }
     }
@@ -155,7 +155,7 @@ public class ho7 implements View.OnClickListener, v96 {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                     if (this.a >= 30) {
-                        pi.O(this.b.a.j.getPageActivity(), String.format(this.b.a.j.getString(R.string.obfuscated_res_0x7f0f0540), 30));
+                        pi.O(this.b.a.j.getPageActivity(), String.format(this.b.a.j.getString(R.string.obfuscated_res_0x7f0f053c), 30));
                     } else {
                         MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new FaceGroupMakeActivityConfig(this.b.a.j.getPageActivity(), 25021)));
                     }
@@ -211,18 +211,18 @@ public class ho7 implements View.OnClickListener, v96 {
         this.k = i;
         View inflate = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0255, (ViewGroup) null);
         this.c = inflate;
-        this.a = inflate.findViewById(R.id.obfuscated_res_0x7f090875);
-        View findViewById = this.c.findViewById(R.id.obfuscated_res_0x7f090876);
+        this.a = inflate.findViewById(R.id.obfuscated_res_0x7f090873);
+        View findViewById = this.c.findViewById(R.id.obfuscated_res_0x7f090874);
         this.b = findViewById;
         findViewById.setOnClickListener(this);
         this.a.setVisibility(0);
-        View findViewById2 = this.c.findViewById(R.id.obfuscated_res_0x7f09087a);
+        View findViewById2 = this.c.findViewById(R.id.obfuscated_res_0x7f090878);
         this.d = findViewById2;
         findViewById2.setClickable(false);
         this.d.setOnClickListener(this);
         this.d.setVisibility(8);
-        this.e = (ImageView) this.c.findViewById(R.id.obfuscated_res_0x7f092307);
-        this.f = (ImageView) this.c.findViewById(R.id.obfuscated_res_0x7f090dc6);
+        this.e = (ImageView) this.c.findViewById(R.id.obfuscated_res_0x7f092309);
+        this.f = (ImageView) this.c.findViewById(R.id.obfuscated_res_0x7f090dbf);
         this.g = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f090104);
         this.h = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f090103);
     }
@@ -336,7 +336,7 @@ public class ho7 implements View.OnClickListener, v96 {
             SkinManager.setBackgroundColor(this.d, R.color.CAM_X0201);
             SkinManager.setImageResource(this.e, R.drawable.emotion_uploading_bar_refresh);
             SkinManager.setViewTextColor(this.h, (int) R.color.CAM_X0302);
-            this.h.setText(R.string.obfuscated_res_0x7f0f0564);
+            this.h.setText(R.string.obfuscated_res_0x7f0f0560);
             this.d.setClickable(false);
         }
     }
@@ -377,7 +377,7 @@ public class ho7 implements View.OnClickListener, v96 {
             if (!TextUtils.isEmpty(str)) {
                 this.h.setText(str);
             } else {
-                this.h.setText(R.string.obfuscated_res_0x7f0f053d);
+                this.h.setText(R.string.obfuscated_res_0x7f0f0539);
             }
             this.d.setClickable(true);
         }

@@ -1,147 +1,190 @@
 package com.repackage;
 
 import android.text.TextUtils;
-import android.util.Log;
+import android.util.AtomicFile;
+import android.util.SparseArray;
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.unitedscheme.SchemeCollecter;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.uc3;
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.nio.channels.FileChannel;
+import java.nio.channels.FileLock;
 import java.util.ArrayList;
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class se3 extends uc3.a {
+public class se3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean c;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755323472, "Lcom/repackage/se3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755323472, "Lcom/repackage/se3;");
-                return;
-            }
-        }
-        c = rg1.a;
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public se3(boolean z) {
-        super(z);
+    /* JADX WARN: Removed duplicated region for block: B:101:0x015e A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:106:0x0158 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:70:0x0149  */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static boolean a(@NonNull JSONArray jSONArray, @NonNull File file, int i) {
+        InterceptResult invokeLLI;
+        FileOutputStream fileOutputStream;
+        FileChannel fileChannel;
+        FileLock fileLock;
+        AtomicFile atomicFile;
+        JSONArray optJSONArray;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super(((Boolean) newInitContext.callArgs[0]).booleanValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
+        if (interceptable != null && (invokeLLI = interceptable.invokeLLI(65536, null, jSONArray, file, i)) != null) {
+            return invokeLLI.booleanValue;
         }
-        String str = z ? "swan_js_native_v8_ab.txt" : "swan_js_native_webview_ab.txt";
-        this.b = dj2.g().getPath() + File.separator + "js_native" + File.separator + str;
-    }
-
-    public boolean a(int i) {
-        InterceptResult invokeI;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            String str = dj2.g().getPath() + File.separator + "js_native" + File.separator;
-            if ((i & 1) != 0) {
-                z = jg4.M(str + "swan_js_native_v8_ab.txt");
-            } else {
-                z = true;
-            }
-            if ((i & 2) != 0) {
-                return z & jg4.M(str + "swan_js_native_webview_ab.txt");
-            }
-            return z;
-        }
-        return invokeI.booleanValue;
-    }
-
-    @Nullable
-    public final List<String> b(boolean z, String str) {
-        InterceptResult invokeZL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZL = interceptable.invokeZL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z, str)) == null) {
-            List<JSONObject> b = qe3.b(z ? SchemeCollecter.CLASSIFY_SWAN_V8 : SchemeCollecter.CLASSIFY_SWAN_WEBVIEW, z ? "swan/v8_ab" : "swan/webview_ab");
-            if (b != null) {
-                File file = new File(str);
+        StringBuilder sb = new StringBuilder();
+        AtomicFile atomicFile2 = null;
+        r1 = null;
+        FileLock fileLock2 = null;
+        FileChannel fileChannel2 = null;
+        try {
+            try {
+                BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(new FileInputStream(file)));
+                SparseArray sparseArray = new SparseArray(i);
                 ArrayList arrayList = new ArrayList();
-                for (JSONObject jSONObject : b) {
-                    if (jSONObject != null) {
-                        arrayList.add(jSONObject.toString());
+                for (int i2 = 0; i2 < i; i2++) {
+                    arrayList.add(bufferedReader.readLine());
+                }
+                for (int i3 = 0; i3 < i; i3++) {
+                    String str = (String) arrayList.get(i3);
+                    if (TextUtils.isEmpty(str) || (optJSONArray = new JSONObject(str).optJSONArray("descriptions")) == null) {
+                        return false;
+                    }
+                    HashMap hashMap = new HashMap();
+                    for (int i4 = 0; i4 < optJSONArray.length(); i4++) {
+                        JSONObject jSONObject = (JSONObject) optJSONArray.get(i4);
+                        hashMap.put(jSONObject.optString("name"), jSONObject);
+                    }
+                    sparseArray.put(i3, hashMap);
+                }
+                for (int i5 = 0; i5 < jSONArray.length(); i5++) {
+                    JSONObject jSONObject2 = (JSONObject) jSONArray.get(i5);
+                    String optString = jSONObject2.optString("name");
+                    int i6 = 0;
+                    while (true) {
+                        if (i6 >= i) {
+                            break;
+                        } else if (((Map) sparseArray.get(i6)).containsKey(optString)) {
+                            ((Map) sparseArray.get(i6)).put(optString, jSONObject2);
+                            break;
+                        } else {
+                            if (i6 == i - 1) {
+                                ((Map) sparseArray.get(i6)).put(optString, jSONObject2);
+                            }
+                            i6++;
+                        }
                     }
                 }
-                if (file.exists()) {
-                    jg4.L(file);
+                for (int i7 = 0; i7 < i; i7++) {
+                    JSONObject jSONObject3 = new JSONObject((String) arrayList.get(i7));
+                    JSONArray jSONArray2 = new JSONArray();
+                    jSONObject3.optJSONArray("descriptions");
+                    for (Map.Entry entry : ((Map) sparseArray.get(i7)).entrySet()) {
+                        jSONArray2.put(entry.getValue());
+                    }
+                    jSONObject3.put("descriptions", jSONArray2);
+                    if (i7 != i - 1) {
+                        sb.append(jSONObject3.toString());
+                        sb.append("\n");
+                    } else {
+                        sb.append(jSONObject3.toString());
+                    }
                 }
-                jg4.h(file);
-                jg4.P(arrayList, file);
-                return arrayList;
-            }
-            return null;
-        }
-        return (List) invokeZL.objValue;
-    }
-
-    public boolean c(@NonNull JSONArray jSONArray) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONArray)) == null) {
-            if (jSONArray.length() <= 0 || !jg4.v(this.b)) {
-                return false;
-            }
-            return re3.a(jSONArray, new File(this.b), SchemeCollecter.getSchemesDesListSize(this.a ? SchemeCollecter.CLASSIFY_SWAN_V8 : SchemeCollecter.CLASSIFY_SWAN_WEBVIEW));
-        }
-        return invokeL.booleanValue;
-    }
-
-    public List<String> d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (c) {
-                Log.i("SwanAppCompat", "FileDescriptionsManager obtain desc...");
-            }
-            if (!mc4.b() && !TextUtils.equals(mc4.a(), "0")) {
-                File file = new File(this.b);
-                if (file.exists()) {
-                    jg4.L(file);
+                bufferedReader.close();
+                atomicFile = new AtomicFile(file);
+                try {
+                    atomicFile.startWrite();
+                    fileOutputStream = atomicFile.startWrite();
+                    try {
+                        fileChannel = fileOutputStream.getChannel();
+                    } catch (IOException | JSONException unused) {
+                        fileChannel = null;
+                        fileLock = fileChannel;
+                        atomicFile2 = atomicFile;
+                        if (atomicFile2 != null) {
+                            if (fileLock != null) {
+                                try {
+                                    fileLock.release();
+                                } catch (IOException unused2) {
+                                }
+                            }
+                            atomicFile2.failWrite(fileOutputStream);
+                        }
+                        if (fileChannel != null) {
+                            try {
+                                fileChannel.close();
+                            } catch (IOException unused3) {
+                            }
+                        }
+                        return false;
+                    }
+                } catch (IOException | JSONException unused4) {
+                    fileOutputStream = null;
+                    fileChannel = null;
                 }
-            }
-            if (jg4.v(this.b)) {
-                if (c) {
-                    Log.d("SwanAppCompat", "start create cache");
+            } catch (Throwable th) {
+                th = th;
+                if (fileChannel2 != null) {
+                    try {
+                        fileChannel2.close();
+                    } catch (IOException unused5) {
+                    }
                 }
-                return jg4.F(new File(this.b));
+                throw th;
             }
-            return b(this.a, this.b);
+            try {
+                try {
+                    fileLock = fileChannel.lock();
+                } catch (IOException | JSONException unused6) {
+                    fileLock = fileLock2;
+                }
+                try {
+                    fileOutputStream.write(sb.toString().getBytes());
+                    if (fileLock != null) {
+                        fileLock.release();
+                    } else {
+                        fileLock2 = fileLock;
+                    }
+                    atomicFile.finishWrite(fileOutputStream);
+                    if (fileChannel != null) {
+                        try {
+                            fileChannel.close();
+                            return true;
+                        } catch (IOException unused7) {
+                            return true;
+                        }
+                    }
+                    return true;
+                } catch (IOException | JSONException unused8) {
+                    atomicFile2 = atomicFile;
+                    if (atomicFile2 != null) {
+                    }
+                    if (fileChannel != null) {
+                    }
+                    return false;
+                }
+            } catch (Throwable th2) {
+                th = th2;
+                fileChannel2 = fileChannel;
+                if (fileChannel2 != null) {
+                }
+                throw th;
+            }
+        } catch (IOException | JSONException unused9) {
+            fileOutputStream = null;
+            fileChannel = null;
+            fileLock = null;
         }
-        return (List) invokeV.objValue;
     }
 }

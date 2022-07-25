@@ -45,7 +45,7 @@ public class en8 extends CustomMessageListener {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 i08 a = i08.a();
-                boolean h = xt4.k().h("key_home_operate_dialog_click", false);
+                boolean h = yt4.k().h("key_home_operate_dialog_click", false);
                 if (TbadkCoreApplication.isLogin() && a.b() != 1 && h) {
                     this.a.c.a().g();
                 }

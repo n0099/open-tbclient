@@ -43,8 +43,8 @@ public final class b extends com.kwad.sdk.core.network.b {
             putBody("protocolVersion", "2.0");
             putBody("SDKVersion", BuildConfig.VERSION_NAME);
             putBody("SDKVersionCode", BuildConfig.VERSION_CODE);
-            putBody("sdkApiVersion", ((d) ServiceProvider.a(d.class)).e());
-            putBody("sdkApiVersionCode", ((d) ServiceProvider.a(d.class)).f());
+            putBody("sdkApiVersion", ((d) ServiceProvider.get(d.class)).getApiVersion());
+            putBody("sdkApiVersionCode", ((d) ServiceProvider.get(d.class)).getApiVersionCode());
             putBody("sdkType", 1);
         }
     }
@@ -60,6 +60,6 @@ public final class b extends com.kwad.sdk.core.network.b {
     public final String getUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? com.kwad.sdk.b.e() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? com.kwad.sdk.b.qN() : (String) invokeV.objValue;
     }
 }

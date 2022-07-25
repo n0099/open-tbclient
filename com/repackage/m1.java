@@ -266,8 +266,8 @@ public class m1 implements h7 {
                 v7 v7Var = new v7();
                 while (this.b.a > 0) {
                     v7Var.clear();
-                    a7<String> e = this.b.f().e();
-                    a7.b<String> it = e.iterator();
+                    a7<String> d = this.b.f().d();
+                    a7.b<String> it = d.iterator();
                     while (it.hasNext()) {
                         a7<String> c = this.c.c(it.next());
                         if (c != null) {
@@ -277,7 +277,7 @@ public class m1 implements h7 {
                             }
                         }
                     }
-                    a7.b<String> it3 = e.iterator();
+                    a7.b<String> it3 = d.iterator();
                     while (it3.hasNext()) {
                         String next = it3.next();
                         if (v7Var.c(next, 0) == 0) {
@@ -383,7 +383,7 @@ public class m1 implements h7 {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, t)) == null) {
             synchronized (this) {
                 w7.c<Class> f = this.a.f();
-                f.d();
+                f.c();
                 while (f.hasNext()) {
                     w7.a<String, a> it = this.a.c(f.next()).iterator();
                     while (it.hasNext()) {
@@ -427,7 +427,7 @@ public class m1 implements h7 {
                 }
                 int i = -1;
                 w7.a<String, n1> b = c.b();
-                b.d();
+                b.c();
                 while (b.hasNext()) {
                     w7.b next = b.next();
                     if (((String) next.a).length() > i && str.endsWith((String) next.a)) {

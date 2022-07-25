@@ -18,9 +18,9 @@ import com.repackage.db8;
 import com.repackage.ng;
 import com.repackage.ni;
 import com.repackage.pi;
-import com.repackage.td5;
-import com.repackage.tp4;
-import com.repackage.yc5;
+import com.repackage.ud5;
+import com.repackage.up4;
+import com.repackage.zc5;
 import tbclient.Personalized.DataReq;
 import tbclient.Personalized.PersonalizedReqIdl;
 /* loaded from: classes3.dex */
@@ -67,7 +67,7 @@ public class RecPersonalizeRequest extends NetMessage {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
             DataReq.Builder builder = new DataReq.Builder();
-            td5.c(builder, true, false, true);
+            ud5.c(builder, true, false, true);
             builder.need_tags = 0;
             builder.load_type = Integer.valueOf(this.loadType);
             builder.page_thread_count = Integer.valueOf(this.threadCount);
@@ -87,7 +87,7 @@ public class RecPersonalizeRequest extends NetMessage {
             builder.ad_context_list = db8.f().d("HOME");
             builder.app_pos = ab8.e().c();
             if (TbSingleton.getInstance().getPbToHomeUpdateData() != null) {
-                tp4 pbToHomeUpdateData = TbSingleton.getInstance().getPbToHomeUpdateData();
+                up4 pbToHomeUpdateData = TbSingleton.getInstance().getPbToHomeUpdateData();
                 builder.from_tid = Long.valueOf(ng.g(pbToHomeUpdateData.a, 0L));
                 builder.query_eqid = pbToHomeUpdateData.b;
                 builder.first_dir = pbToHomeUpdateData.c;
@@ -97,7 +97,7 @@ public class RecPersonalizeRequest extends NetMessage {
             AdExtParam.a b = AdExtParam.a.b();
             b.e(this.adFloorInfo);
             builder.ad_ext_params = b.a();
-            builder.app_transmit_data = yc5.b();
+            builder.app_transmit_data = zc5.b();
             PersonalizedReqIdl.Builder builder2 = new PersonalizedReqIdl.Builder();
             builder2.data = builder.build(false);
             return builder2.build(false);

@@ -223,11 +223,11 @@ public class VideoClipAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
         if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, viewGroup, i)) == null) {
             if (i != m && i != n) {
                 if (i == k) {
-                    View inflate = LayoutInflater.from(this.h).inflate(R.layout.obfuscated_res_0x7f0d085b, viewGroup, false);
+                    View inflate = LayoutInflater.from(this.h).inflate(R.layout.obfuscated_res_0x7f0d0865, viewGroup, false);
                     inflate.setLayoutParams(new ViewGroup.LayoutParams(this.b, this.f));
                     return new CommonRangerSliderHolder(inflate);
                 } else if (i == l) {
-                    View inflate2 = LayoutInflater.from(this.h).inflate(R.layout.obfuscated_res_0x7f0d085b, viewGroup, false);
+                    View inflate2 = LayoutInflater.from(this.h).inflate(R.layout.obfuscated_res_0x7f0d0865, viewGroup, false);
                     inflate2.setLayoutParams(new ViewGroup.LayoutParams((int) this.d, this.f));
                     return new CommonRangerSliderHolder(inflate2);
                 } else {

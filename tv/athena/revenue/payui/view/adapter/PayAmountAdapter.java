@@ -76,14 +76,14 @@ public class PayAmountAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
                     return;
                 }
             }
-            this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092221);
-            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092200);
+            this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092223);
+            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092202);
             this.c = view2.findViewById(R.id.obfuscated_res_0x7f090263);
             this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090262);
-            this.e = view2.findViewById(R.id.obfuscated_res_0x7f091351);
-            this.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092267);
-            this.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0921f7);
-            this.h = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092298);
+            this.e = view2.findViewById(R.id.obfuscated_res_0x7f09132d);
+            this.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092269);
+            this.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0921f9);
+            this.h = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09229a);
         }
     }
 
@@ -116,12 +116,12 @@ public class PayAmountAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
                     return;
                 }
             }
-            this.a = (ViewGroup) view2.findViewById(R.id.obfuscated_res_0x7f09134e);
-            this.b = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090eae);
-            this.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090e6d);
-            this.d = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090e70);
-            this.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09220f);
-            this.f = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090e71);
+            this.a = (ViewGroup) view2.findViewById(R.id.obfuscated_res_0x7f09132a);
+            this.b = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090ea7);
+            this.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090e66);
+            this.d = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090e69);
+            this.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092211);
+            this.f = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090e6a);
         }
     }
 
@@ -344,9 +344,9 @@ public class PayAmountAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048593, this, viewGroup, i)) == null) {
             ContextThemeWrapper contextThemeWrapper = new ContextThemeWrapper(this.a, nz9.a.a(this.h));
             if (i == 2) {
-                return new CampaignViewHolder(this, LayoutInflater.from(contextThemeWrapper).inflate(R.layout.obfuscated_res_0x7f0d065e, viewGroup, false));
+                return new CampaignViewHolder(this, LayoutInflater.from(contextThemeWrapper).inflate(R.layout.obfuscated_res_0x7f0d0668, viewGroup, false));
             }
-            return new AmountViewHolder(this, LayoutInflater.from(contextThemeWrapper).inflate(R.layout.obfuscated_res_0x7f0d0660, viewGroup, false));
+            return new AmountViewHolder(this, LayoutInflater.from(contextThemeWrapper).inflate(R.layout.obfuscated_res_0x7f0d066a, viewGroup, false));
         }
         return (RecyclerView.ViewHolder) invokeLI.objValue;
     }
@@ -416,10 +416,10 @@ public class PayAmountAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
     public final void r(CampaignViewHolder campaignViewHolder, qy9 qy9Var, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLI(1048596, this, campaignViewHolder, qy9Var, i) == null) {
-            int i2 = nz9.a.b(this.h) ? R.drawable.obfuscated_res_0x7f080e2c : R.drawable.obfuscated_res_0x7f080e2d;
-            int i3 = nz9.a.b(this.h) ? R.drawable.obfuscated_res_0x7f080e2a : R.drawable.obfuscated_res_0x7f080e2b;
-            int i4 = nz9.a.b(this.h) ? R.drawable.obfuscated_res_0x7f080e2e : R.drawable.obfuscated_res_0x7f080e2f;
-            int i5 = nz9.a.b(this.h) ? R.drawable.obfuscated_res_0x7f080e28 : R.drawable.obfuscated_res_0x7f080e29;
+            int i2 = nz9.a.b(this.h) ? R.drawable.obfuscated_res_0x7f080e33 : R.drawable.obfuscated_res_0x7f080e34;
+            int i3 = nz9.a.b(this.h) ? R.drawable.obfuscated_res_0x7f080e31 : R.drawable.obfuscated_res_0x7f080e32;
+            int i4 = nz9.a.b(this.h) ? R.drawable.obfuscated_res_0x7f080e35 : R.drawable.obfuscated_res_0x7f080e36;
+            int i5 = nz9.a.b(this.h) ? R.drawable.obfuscated_res_0x7f080e2f : R.drawable.obfuscated_res_0x7f080e30;
             campaignViewHolder.b.setBackgroundResource(i4);
             campaignViewHolder.c.setBackgroundResource(i5);
             campaignViewHolder.d.setImageResource(i2);
@@ -471,7 +471,7 @@ public class PayAmountAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
             if (valueOf == null) {
                 amountViewHolder.d.setText("");
             } else {
-                amountViewHolder.d.setText(String.format(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0d68), mz9.a(valueOf.doubleValue())));
+                amountViewHolder.d.setText(String.format(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0d51), mz9.a(valueOf.doubleValue())));
             }
             if (this.b == i) {
                 amountViewHolder.c.setSelected(true);

@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.plugin.ZeusPlugin;
 /* loaded from: classes7.dex */
-public class zh2 extends be2<si2> {
+public class zh2 extends ce2<ti2> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -27,33 +27,22 @@ public class zh2 extends be2<si2> {
         }
     }
 
-    @Override // com.repackage.be2
+    @Override // com.repackage.ce2
     @NonNull
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "setRate" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "pause" : (String) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.be2
+    @Override // com.repackage.ce2
     /* renamed from: e */
-    public void a(@NonNull ZeusPlugin.Command command, @NonNull si2 si2Var) {
-        Object obj;
-        float floatValue;
+    public void a(@NonNull ZeusPlugin.Command command, @NonNull ti2 ti2Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, si2Var) == null) || (obj = command.obj) == null) {
-            return;
-        }
-        if (obj instanceof Float) {
-            floatValue = ((Float) obj).floatValue();
-        } else {
-            floatValue = obj instanceof Double ? ((Double) obj).floatValue() : Float.MIN_VALUE;
-        }
-        if (floatValue != Float.MIN_VALUE) {
-            si2Var.setSpeed(floatValue);
-            String str = command.what;
-            d(si2Var, str, "playbackRate: " + command.obj, false);
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, ti2Var) == null) {
+            ti2Var.pause();
+            d(ti2Var, command.what, null, false);
         }
     }
 }

@@ -59,10 +59,10 @@ public class va7 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 if (view2.getId() == this.a.e.getId()) {
-                    kz4.e(this.a.a);
+                    lz4.e(this.a.a);
                     TiebaStatic.log(new StatisticItem("c13705").param("obj_type", 1));
                 } else if (view2.getId() == this.a.c.getId()) {
-                    xt4.k().x("key_im_open_notification_close_time", System.currentTimeMillis());
+                    yt4.k().x("key_im_open_notification_close_time", System.currentTimeMillis());
                     if (this.a.f != null) {
                         this.a.f.onClose();
                     }
@@ -94,15 +94,15 @@ public class va7 {
         }
         this.g = new a(this);
         this.a = d9Var;
-        View inflate = LayoutInflater.from(d9Var.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0648, (ViewGroup) null);
+        View inflate = LayoutInflater.from(d9Var.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0652, (ViewGroup) null);
         this.b = inflate;
-        ImageView imageView = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090e77);
+        ImageView imageView = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090e70);
         this.c = imageView;
         imageView.setOnClickListener(this.g);
-        this.d = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091669);
+        this.d = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091644);
         this.e = (TBSpecificationBtn) this.b.findViewById(R.id.obfuscated_res_0x7f090423);
-        this.e.setConfig(new uu4());
-        this.e.setText(d9Var.getString(R.string.obfuscated_res_0x7f0f07c9));
+        this.e.setConfig(new vu4());
+        this.e.setText(d9Var.getString(R.string.obfuscated_res_0x7f0f07c5));
         this.e.setOnClickListener(this.g);
         TiebaStatic.log("c13704");
         f(TbadkCoreApplication.getInst().getSkinType());

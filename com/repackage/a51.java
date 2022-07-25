@@ -109,7 +109,7 @@ public class a51 {
             z41 operateBar = this.a.getOperateBar();
             if (z41.d(adBaseModel) && (adOperator = adBaseModel.h) != null) {
                 if (operateBar == null || !a(adBaseModel, operateBar.a)) {
-                    RelativeLayout relativeLayout = (RelativeLayout) this.a.findViewById(R.id.obfuscated_res_0x7f09152e);
+                    RelativeLayout relativeLayout = (RelativeLayout) this.a.findViewById(R.id.obfuscated_res_0x7f091509);
                     relativeLayout.removeAllViews();
                     AdOperator.TYPE type = adOperator.a;
                     AdOperator.TYPE type2 = AdOperator.TYPE.DOWNLOAD;
@@ -118,7 +118,7 @@ public class a51 {
                         if (xm0Var == null || !xm0Var.e) {
                             return null;
                         }
-                        int i = R.layout.obfuscated_res_0x7f0d05c5;
+                        int i = R.layout.obfuscated_res_0x7f0d05cf;
                         pn0 pn0Var = adBaseModel.p;
                         if (pn0Var != null && pn0Var.b(type2) != 0) {
                             i = adBaseModel.p.b(AdOperator.TYPE.DOWNLOAD);
@@ -126,22 +126,22 @@ public class a51 {
                         qn0 qn0Var = adBaseModel.i;
                         if (qn0Var != null && qn0Var.k) {
                             View inflate = LayoutInflater.from(this.b).inflate(i, (ViewGroup) relativeLayout, true);
-                            b(inflate.findViewById(R.id.obfuscated_res_0x7f09152d), 6.0f);
+                            b(inflate.findViewById(R.id.obfuscated_res_0x7f091508), 6.0f);
                             return new b51(3, inflate);
                         }
-                        View inflate2 = LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d05c7, (ViewGroup) relativeLayout, true);
-                        b(inflate2.findViewById(R.id.obfuscated_res_0x7f09152d), 6.0f);
+                        View inflate2 = LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d05d1, (ViewGroup) relativeLayout, true);
+                        b(inflate2.findViewById(R.id.obfuscated_res_0x7f091508), 6.0f);
                         return new d51(1, inflate2);
                     }
                     AdOperator.TYPE type3 = AdOperator.TYPE.CHECK;
                     if (type == type3) {
-                        int i2 = R.layout.obfuscated_res_0x7f0d05c6;
+                        int i2 = R.layout.obfuscated_res_0x7f0d05d0;
                         pn0 pn0Var2 = adBaseModel.p;
                         if (pn0Var2 != null && pn0Var2.b(type3) != 0) {
                             i2 = adBaseModel.p.b(AdOperator.TYPE.CHECK);
                         }
                         View inflate3 = LayoutInflater.from(this.b).inflate(i2, (ViewGroup) relativeLayout, true);
-                        b(inflate3.findViewById(R.id.obfuscated_res_0x7f09152c), 6.0f);
+                        b(inflate3.findViewById(R.id.obfuscated_res_0x7f091507), 6.0f);
                         return new c51(2, inflate3);
                     }
                     return null;

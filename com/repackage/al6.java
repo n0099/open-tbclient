@@ -142,11 +142,11 @@ public class al6 {
                 String str = (String) customResponsedMessage.getData();
                 int objTypeByDownloadMode = this.a.j.getObjTypeByDownloadMode();
                 if (objTypeByDownloadMode > 0) {
-                    dv4 dv4Var = new dv4(8);
-                    dv4Var.o(objTypeByDownloadMode);
-                    dv4Var.n(ev4.a(this.a.j.getCurrentItem().buttonLinkType.intValue(), this.a.j.getCurrentItem().apkDetail != null ? this.a.j.getCurrentItem().apkDetail.pkg_source.intValue() : 0));
-                    dv4Var.l(str);
-                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, dv4Var));
+                    ev4 ev4Var = new ev4(8);
+                    ev4Var.o(objTypeByDownloadMode);
+                    ev4Var.n(fv4.a(this.a.j.getCurrentItem().buttonLinkType.intValue(), this.a.j.getCurrentItem().apkDetail != null ? this.a.j.getCurrentItem().apkDetail.pkg_source.intValue() : 0));
+                    ev4Var.l(str);
+                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, ev4Var));
                 }
             }
         }
@@ -178,16 +178,16 @@ public class al6 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001440, view2));
-                Object tag = view2.getTag(R.id.obfuscated_res_0x7f090f31);
-                if (tag instanceof cv4) {
-                    ItemData a = ((cv4) tag).a();
+                Object tag = view2.getTag(R.id.obfuscated_res_0x7f090f2a);
+                if (tag instanceof dv4) {
+                    ItemData a = ((dv4) tag).a();
                     if (ItemCardHelper.a.equals(a.buttonName) || ItemCardHelper.b.equals(a.buttonName) || ItemCardHelper.f.equals(a.buttonName)) {
-                        dv4 dv4Var = new dv4(8);
-                        dv4Var.o(ev4.b(a.buttonName));
+                        ev4 ev4Var = new ev4(8);
+                        ev4Var.o(fv4.b(a.buttonName));
                         int intValue = a.buttonLinkType.intValue();
                         ApkDetail apkDetail = a.apkDetail;
-                        dv4Var.n(ev4.a(intValue, apkDetail != null ? apkDetail.pkg_source.intValue() : 0));
-                        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, dv4Var));
+                        ev4Var.n(fv4.a(intValue, apkDetail != null ? apkDetail.pkg_source.intValue() : 0));
+                        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, ev4Var));
                     }
                 }
             }
@@ -223,14 +223,14 @@ public class al6 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
                 int objTypeByDownloadMode = this.a.j.getObjTypeByDownloadMode();
-                int a = ev4.a(this.a.j.getCurrentItem().buttonLinkType.intValue(), this.a.j.getCurrentItem().apkDetail != null ? this.a.j.getCurrentItem().apkDetail.pkg_source.intValue() : 0);
+                int a = fv4.a(this.a.j.getCurrentItem().buttonLinkType.intValue(), this.a.j.getCurrentItem().apkDetail != null ? this.a.j.getCurrentItem().apkDetail.pkg_source.intValue() : 0);
                 if (objTypeByDownloadMode <= 0 || a == 4) {
                     return;
                 }
-                dv4 dv4Var = new dv4(8);
-                dv4Var.o(objTypeByDownloadMode);
-                dv4Var.n(a);
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, dv4Var));
+                ev4 ev4Var = new ev4(8);
+                ev4Var.o(objTypeByDownloadMode);
+                ev4Var.n(a);
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, ev4Var));
             }
         }
     }
@@ -387,13 +387,13 @@ public class al6 {
                 int error = httpResponsedMessage.getError();
                 GameCodeGetResponseMsg gameCodeGetResponseMsg = (GameCodeGetResponseMsg) httpResponsedMessage;
                 if (httpResponsedMessage.getStatusCode() == 200 && error == 0 && gameCodeGetResponseMsg.errCode == 0) {
-                    this.a.s(true, TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f07a4));
+                    this.a.s(true, TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f07a0));
                     zl6 zl6Var = new zl6(((GameCodeGetMsg) httpResponsedMessage.getOrginalMessage()).getPosition(), gameCodeGetResponseMsg.getCodeValue());
                     this.a.t(zl6Var);
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921640, zl6Var));
                     return;
                 }
-                this.a.s(false, TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f07a3));
+                this.a.s(false, TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f079f));
             }
         }
     }
@@ -428,8 +428,8 @@ public class al6 {
         frsItemTabFragment.getBaseFragmentActivity().registerListener(this.r);
         frsItemTabFragment.registerListener(this.q);
         frsItemTabFragment.registerListener(this.s);
-        this.i = view2.findViewById(R.id.obfuscated_res_0x7f090ab5);
-        ItemCardDownloadButton itemCardDownloadButton = (ItemCardDownloadButton) view2.findViewById(R.id.obfuscated_res_0x7f090ab3);
+        this.i = view2.findViewById(R.id.obfuscated_res_0x7f090aae);
+        ItemCardDownloadButton itemCardDownloadButton = (ItemCardDownloadButton) view2.findViewById(R.id.obfuscated_res_0x7f090aac);
         this.j = itemCardDownloadButton;
         itemCardDownloadButton.setShadow(R.array.S_O_X003);
         this.j.A();
@@ -437,11 +437,11 @@ public class al6 {
         this.o.setSelfListener(true);
         this.o.setTag(this.j.getTag());
         MessageManager.getInstance().registerListener(this.o);
-        TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090ab4);
+        TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090aad);
         this.k = textView;
         textView.setOnClickListener(this.p);
-        ur4.d(this.k).u(R.array.S_O_X003);
-        BdTypeRecyclerView bdTypeRecyclerView = (BdTypeRecyclerView) view2.findViewById(R.id.obfuscated_res_0x7f090b30);
+        vr4.d(this.k).u(R.array.S_O_X003);
+        BdTypeRecyclerView bdTypeRecyclerView = (BdTypeRecyclerView) view2.findViewById(R.id.obfuscated_res_0x7f090b29);
         this.f = bdTypeRecyclerView;
         bdTypeRecyclerView.setLayoutManager(new LinearLayoutManager(frsItemTabFragment.getContext()));
         this.f.setFadingEdgeLength(0);
@@ -509,20 +509,20 @@ public class al6 {
             this.d.onChangeSkinType(this.a.getPageContext(), TbadkCoreApplication.getInst().getSkinType());
             this.e.onChangeSkinType(this.a.getPageContext(), TbadkCoreApplication.getInst().getSkinType());
             this.j.v();
-            ur4 d2 = ur4.d(this.k);
+            vr4 d2 = vr4.d(this.k);
             if (!ItemCardHelper.d.contentEquals(this.k.getText()) && !ItemCardHelper.f.contentEquals(this.k.getText())) {
                 this.k.setTextColor(SkinManager.getColor(TbadkCoreApplication.getInst().getSkinType(), (int) R.color.CAM_X0101));
                 d2.n(R.string.J_X01);
                 d2.k(R.color.transparent);
                 d2.g(sg8.f(this.m));
             } else if (TbadkCoreApplication.getInst().getSkinType() != 1 && TbadkCoreApplication.getInst().getSkinType() != 4) {
-                this.k.setTextColor(sg8.a(sg8.f(this.m), sr4.a(R.string.A_X01)));
+                this.k.setTextColor(sg8.a(sg8.f(this.m), tr4.a(R.string.A_X01)));
                 d2.l(R.dimen.tbds1);
-                d2.t(sg8.a(sg8.f(this.m), sr4.a(R.string.A_X07)));
+                d2.t(sg8.a(sg8.f(this.m), tr4.a(R.string.A_X07)));
                 d2.n(R.string.J_X01);
                 d2.f(R.color.CAM_X0208);
             } else {
-                ur4.d(this.k).v(R.color.CAM_X0103);
+                vr4.d(this.k).v(R.color.CAM_X0103);
                 d2.l(R.dimen.tbds1);
                 d2.k(R.color.CAM_X0209);
                 d2.n(R.string.J_X01);
@@ -573,7 +573,7 @@ public class al6 {
         if (cl6Var.a != null) {
             ItemData itemData = new ItemData();
             itemData.parseProto(cl6Var.a);
-            cv4 cv4Var = new cv4(itemData, 0, "");
+            dv4 dv4Var = new dv4(itemData, 0, "");
             if (ItemCardHelper.w(itemData) && ItemCardHelper.o(itemData)) {
                 this.i.setVisibility(0);
                 this.j.setVisibility(0);
@@ -582,28 +582,28 @@ public class al6 {
                 this.j.setData(itemData, -1, this.a.e);
                 int objTypeByDownloadMode = this.j.getObjTypeByDownloadMode();
                 if (objTypeByDownloadMode > 0) {
-                    dv4 dv4Var = new dv4(7);
-                    dv4Var.o(objTypeByDownloadMode);
-                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, dv4Var));
+                    ev4 ev4Var = new ev4(7);
+                    ev4Var.o(objTypeByDownloadMode);
+                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, ev4Var));
                 }
                 r();
             } else {
-                ItemCardHelper.m(this.k, cv4Var, this.m);
+                ItemCardHelper.m(this.k, dv4Var, this.m);
                 if (!ItemCardHelper.e.equals(itemData.buttonName)) {
-                    ur4 d2 = ur4.d(this.k);
+                    vr4 d2 = vr4.d(this.k);
                     if (!ItemCardHelper.d.equals(itemData.buttonName) && !ItemCardHelper.f.equals(itemData.buttonName)) {
                         this.k.setTextColor(SkinManager.getColor(TbadkCoreApplication.getInst().getSkinType(), (int) R.color.CAM_X0101));
                         d2.n(R.string.J_X01);
                         d2.k(R.color.transparent);
                         d2.g(sg8.f(this.m));
                     } else if (TbadkCoreApplication.getInst().getSkinType() != 1 && TbadkCoreApplication.getInst().getSkinType() != 4) {
-                        this.k.setTextColor(sg8.a(sg8.f(this.m), sr4.a(R.string.A_X01)));
+                        this.k.setTextColor(sg8.a(sg8.f(this.m), tr4.a(R.string.A_X01)));
                         d2.l(R.dimen.tbds1);
-                        d2.t(sg8.a(sg8.f(this.m), sr4.a(R.string.A_X07)));
+                        d2.t(sg8.a(sg8.f(this.m), tr4.a(R.string.A_X07)));
                         d2.n(R.string.J_X01);
                         d2.f(R.color.CAM_X0208);
                     } else {
-                        ur4.d(this.k).v(R.color.CAM_X0103);
+                        vr4.d(this.k).v(R.color.CAM_X0103);
                         d2.l(R.dimen.tbds1);
                         d2.k(R.color.CAM_X0209);
                         d2.n(R.string.J_X01);
@@ -617,9 +617,9 @@ public class al6 {
                     }
                     r();
                     if (ItemCardHelper.a.equals(itemData.buttonName) || ItemCardHelper.b.equals(itemData.buttonName) || ItemCardHelper.f.equals(itemData.buttonName)) {
-                        dv4 dv4Var2 = new dv4(7);
-                        dv4Var2.o(ev4.b(itemData.buttonName));
-                        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, dv4Var2));
+                        ev4 ev4Var2 = new ev4(7);
+                        ev4Var2.o(fv4.b(itemData.buttonName));
+                        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, ev4Var2));
                     }
                 }
             }

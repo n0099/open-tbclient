@@ -35,7 +35,7 @@ import com.kwad.sdk.api.KsNativeAd;
 import com.repackage.hr6;
 import com.repackage.mi8;
 import com.repackage.mr6;
-import com.repackage.ur4;
+import com.repackage.vr4;
 import com.repackage.zq6;
 import java.util.Arrays;
 import java.util.Collections;
@@ -133,8 +133,8 @@ public class FunAdNativePbView extends FunAbsAdView {
             str = funNativeAd2.getNativeInfo().getDescription();
             list = funNativeAd2.getNativeInfo().getImageUrls();
         }
-        if (StringUtils.isNull(this.c) || this.c.equals(activity.getString(R.string.obfuscated_res_0x7f0f077e))) {
-            this.c = activity.getString(R.string.obfuscated_res_0x7f0f0781);
+        if (StringUtils.isNull(this.c) || this.c.equals(activity.getString(R.string.obfuscated_res_0x7f0f077a))) {
+            this.c = activity.getString(R.string.obfuscated_res_0x7f0f077d);
         }
         this.l.setText(this.c);
         this.k.setText(str);
@@ -171,20 +171,20 @@ public class FunAdNativePbView extends FunAbsAdView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, context) == null) {
             LayoutInflater.from(context).inflate(getLayoutId(), (ViewGroup) this, true);
-            this.d = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f090bf7);
-            this.e = findViewById(R.id.obfuscated_res_0x7f0907e1);
-            this.k = (EMTextView) findViewById(R.id.obfuscated_res_0x7f090bf6);
-            this.f = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f090be6);
-            this.h = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f09142b);
-            this.i = (CardView) findViewById(R.id.obfuscated_res_0x7f091433);
-            this.j = (FunAdNativePicView) findViewById(R.id.obfuscated_res_0x7f091434);
-            this.g = (FunAdSmallPicView) findViewById(R.id.obfuscated_res_0x7f091432);
-            this.l = (TextView) findViewById(R.id.obfuscated_res_0x7f090bf5);
-            this.m = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090bf2);
-            this.n = (ImageView) findViewById(R.id.obfuscated_res_0x7f090bef);
-            this.o = (TextView) findViewById(R.id.obfuscated_res_0x7f090bf1);
-            this.q = (FunAdButton) findViewById(R.id.obfuscated_res_0x7f090be3);
-            this.p = (ImageView) findViewById(R.id.obfuscated_res_0x7f090be8);
+            this.d = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f090bf0);
+            this.e = findViewById(R.id.obfuscated_res_0x7f0907df);
+            this.k = (EMTextView) findViewById(R.id.obfuscated_res_0x7f090bef);
+            this.f = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f090bdf);
+            this.h = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f091407);
+            this.i = (CardView) findViewById(R.id.obfuscated_res_0x7f09140f);
+            this.j = (FunAdNativePicView) findViewById(R.id.obfuscated_res_0x7f091410);
+            this.g = (FunAdSmallPicView) findViewById(R.id.obfuscated_res_0x7f09140e);
+            this.l = (TextView) findViewById(R.id.obfuscated_res_0x7f090bee);
+            this.m = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090beb);
+            this.n = (ImageView) findViewById(R.id.obfuscated_res_0x7f090be8);
+            this.o = (TextView) findViewById(R.id.obfuscated_res_0x7f090bea);
+            this.q = (FunAdButton) findViewById(R.id.obfuscated_res_0x7f090bdc);
+            this.p = (ImageView) findViewById(R.id.obfuscated_res_0x7f090be1);
         }
     }
 
@@ -239,10 +239,10 @@ public class FunAdNativePbView extends FunAbsAdView {
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
             WebPManager.setPureDrawable(this.p, R.drawable.icon_pure_card_close22, R.color.CAM_X0111, null);
             SkinManager.setBackgroundColor(this.e, R.color.CAM_X0204);
-            ur4.d(this.k).v(R.color.CAM_X0105);
-            ur4.d(this.l).v(R.color.CAM_X0109);
-            ur4.d(this.o).v(R.color.CAM_X0101);
-            ur4 d = ur4.d(this.m);
+            vr4.d(this.k).v(R.color.CAM_X0105);
+            vr4.d(this.l).v(R.color.CAM_X0109);
+            vr4.d(this.o).v(R.color.CAM_X0101);
+            vr4 d = vr4.d(this.m);
             d.n(R.string.J_X01);
             d.f(R.color.CAM_X0606);
             this.q.g();

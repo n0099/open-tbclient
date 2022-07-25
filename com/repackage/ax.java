@@ -19,7 +19,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class ax extends xw {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public nn4 h;
+    public on4 h;
     public ForumEnterLayout i;
     public final View.OnClickListener j;
 
@@ -123,12 +123,12 @@ public class ax extends xw {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.repackage.gx
     /* renamed from: v */
-    public void a(nn4 nn4Var) {
+    public void a(on4 on4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, nn4Var) == null) {
-            this.h = nn4Var;
+        if (interceptable == null || interceptable.invokeL(1048580, this, on4Var) == null) {
+            this.h = on4Var;
             this.i.setSourceForPb(this.a.i());
-            this.i.setData(nn4Var);
+            this.i.setData(on4Var);
         }
     }
 

@@ -212,8 +212,8 @@ public class AdDownloadViewLP extends View implements kj0<AdDownloadViewLP> {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048576, this, viewGroup) == null) && (viewGroup instanceof RelativeLayout)) {
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, -2);
-            layoutParams.width = (int) (q01.c.e(getContext()) * q01.c.h(R.dimen.obfuscated_res_0x7f07051f));
-            layoutParams.height = (int) (q01.c.c(getContext()) * q01.c.h(R.dimen.obfuscated_res_0x7f07051d));
+            layoutParams.width = (int) (q01.c.e(getContext()) * q01.c.h(R.dimen.obfuscated_res_0x7f07051d));
+            layoutParams.height = (int) (q01.c.c(getContext()) * q01.c.h(R.dimen.obfuscated_res_0x7f07051b));
             layoutParams.addRule(13, -1);
             viewGroup.addView(this, layoutParams);
             viewGroup.setVisibility(0);
@@ -340,7 +340,7 @@ public class AdDownloadViewLP extends View implements kj0<AdDownloadViewLP> {
     public final void i() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            o(getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070554));
+            o(getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070552));
             m(getContext().getResources().getColor(R.color.obfuscated_res_0x7f06080d));
             n(-1);
             l(true);

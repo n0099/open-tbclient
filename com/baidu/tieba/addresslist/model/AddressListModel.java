@@ -11,10 +11,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.az4;
 import com.repackage.bl5;
-import com.repackage.cz4;
+import com.repackage.bz4;
 import com.repackage.d9;
+import com.repackage.dz4;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class AddressListModel extends BdBaseModel<BaseFragmentActivity> {
@@ -43,22 +43,22 @@ public class AddressListModel extends BdBaseModel<BaseFragmentActivity> {
         this.a = bl5.d();
     }
 
-    public void A(az4 az4Var) {
+    public void A(bz4 bz4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, az4Var) == null) {
-            this.a.a(az4Var);
+        if (interceptable == null || interceptable.invokeL(1048576, this, bz4Var) == null) {
+            this.a.a(bz4Var);
         }
     }
 
     public int B(String str) {
         InterceptResult invokeL;
-        List<az4> c;
+        List<bz4> c;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            if (cz4.a(str) && (c = this.a.c()) != null) {
-                for (az4 az4Var : c) {
-                    if (str.equals(az4Var.a())) {
-                        return c.indexOf(az4Var);
+            if (dz4.a(str) && (c = this.a.c()) != null) {
+                for (bz4 bz4Var : c) {
+                    if (str.equals(bz4Var.a())) {
+                        return c.indexOf(bz4Var);
                     }
                 }
                 return -1;
@@ -75,7 +75,7 @@ public class AddressListModel extends BdBaseModel<BaseFragmentActivity> {
         }
     }
 
-    public List<az4> D() {
+    public List<bz4> D() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a.c() : (List) invokeV.objValue;
@@ -102,7 +102,7 @@ public class AddressListModel extends BdBaseModel<BaseFragmentActivity> {
         }
     }
 
-    public void H(List<az4> list) {
+    public void H(List<bz4> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, list) == null) {
             this.a.g(list);

@@ -30,8 +30,8 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.a56;
-import com.repackage.br4;
 import com.repackage.c56;
+import com.repackage.cr4;
 import com.repackage.d9;
 import com.repackage.de5;
 import com.repackage.e56;
@@ -40,7 +40,7 @@ import com.repackage.oi;
 import com.repackage.s46;
 import com.repackage.te;
 import com.repackage.ui8;
-import com.repackage.xt4;
+import com.repackage.yt4;
 import com.squareup.wire.Wire;
 import java.util.ArrayList;
 import java.util.List;
@@ -137,8 +137,8 @@ public class EnterForumModel extends BdBaseModel {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, voidArr)) == null) {
-                br4.f();
-                te<byte[]> e = br4.e("tb_forum_recommend", TbadkCoreApplication.getCurrentAccountName());
+                cr4.f();
+                te<byte[]> e = cr4.e("tb_forum_recommend", TbadkCoreApplication.getCurrentAccountName());
                 a56 a56Var = new a56();
                 byte[] bArr = e.get(EnterForumModel.FORUMRECOMMEND_CACHE_KEY);
                 if (e.get(EnterForumModel.FORUMRGUIDE_CACHE_KEY) != null) {
@@ -227,8 +227,8 @@ public class EnterForumModel extends BdBaseModel {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, voidArr)) == null) {
-                br4.f();
-                te<String> h = br4.h("tb.recently_visited_like_forum", TbadkCoreApplication.getCurrentAccount());
+                cr4.f();
+                te<String> h = cr4.h("tb.recently_visited_like_forum", TbadkCoreApplication.getCurrentAccount());
                 if (h == null || StringUtils.isNull(h.get(EnterForumModel.CACHE_KEY))) {
                     return null;
                 }
@@ -287,8 +287,8 @@ public class EnterForumModel extends BdBaseModel {
             RecentlyVisitedForumData recentlyVisitedForumData;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                br4.f();
-                te<String> h = br4.h("tb.recently_visited_like_forum", TbadkCoreApplication.getCurrentAccount());
+                cr4.f();
+                te<String> h = cr4.h("tb.recently_visited_like_forum", TbadkCoreApplication.getCurrentAccount());
                 if (h != null && (recentlyVisitedForumData = this.a.b) != null) {
                     h.g(EnterForumModel.CACHE_KEY, OrmObject.jsonStrWithObject(recentlyVisitedForumData));
                 }
@@ -426,7 +426,7 @@ public class EnterForumModel extends BdBaseModel {
         a56 a56Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            if (TbadkCoreApplication.isLogin() && xt4.k().h("enter_forum_create_forum", true) && (a56Var = this.a) != null && a56Var.b() != null) {
+            if (TbadkCoreApplication.isLogin() && yt4.k().h("enter_forum_create_forum", true) && (a56Var = this.a) != null && a56Var.b() != null) {
                 return this.a.b().D();
             }
             return false;
@@ -531,7 +531,7 @@ public class EnterForumModel extends BdBaseModel {
             int downSize = forumGuideHttpResponseMessage.getDownSize();
             long costTime = forumGuideHttpResponseMessage.getCostTime();
             if (StringUtils.isNull(forumGuideHttpResponseMessage.getErrorString())) {
-                errorString = TbadkCoreApplication.getInst().getApp().getResources().getString(R.string.obfuscated_res_0x7f0f0c2b);
+                errorString = TbadkCoreApplication.getInst().getApp().getResources().getString(R.string.obfuscated_res_0x7f0f0c17);
             } else {
                 errorString = forumGuideHttpResponseMessage.getErrorString();
             }
@@ -546,7 +546,7 @@ public class EnterForumModel extends BdBaseModel {
             int downSize = forumGuideSocketResponseMessage.getDownSize();
             long costTime = forumGuideSocketResponseMessage.getCostTime();
             if (StringUtils.isNull(forumGuideSocketResponseMessage.getErrorString())) {
-                errorString = TbadkCoreApplication.getInst().getApp().getResources().getString(R.string.obfuscated_res_0x7f0f0c2b);
+                errorString = TbadkCoreApplication.getInst().getApp().getResources().getString(R.string.obfuscated_res_0x7f0f0c17);
             } else {
                 errorString = forumGuideSocketResponseMessage.getErrorString();
             }

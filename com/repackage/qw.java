@@ -12,10 +12,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.nn4;
 import com.repackage.ny;
+import com.repackage.on4;
 /* loaded from: classes7.dex */
-public abstract class qw<T extends nn4> implements hx, gx<T> {
+public abstract class qw<T extends on4> implements hx, gx<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public cy a;
@@ -26,7 +26,7 @@ public abstract class qw<T extends nn4> implements hx, gx<T> {
 
     /* loaded from: classes7.dex */
     public interface a {
-        void a(nn4 nn4Var);
+        void a(on4 on4Var);
     }
 
     public qw(Context context) {
@@ -133,7 +133,7 @@ public abstract class qw<T extends nn4> implements hx, gx<T> {
         if (!(interceptable == null || interceptable.invokeLI(1048587, this, view2, i) == null) || (f = f(view2, i)) == null) {
             return;
         }
-        ur4 d = ur4.d(f);
+        vr4 d = vr4.d(f);
         d.n(R.string.J_X06);
         d.f(R.color.CAM_X0205);
     }

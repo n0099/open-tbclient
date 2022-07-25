@@ -4,10 +4,8 @@ import android.annotation.SuppressLint;
 import android.text.TextUtils;
 import android.util.Log;
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.extcore.model.ExtensionCore;
+import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -15,91 +13,17 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.qb2;
-import java.io.File;
-import java.util.Iterator;
-import java.util.concurrent.CopyOnWriteArrayList;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public abstract class tb2<T extends qb2> extends sa2<T> {
+public class tb2 {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean c;
+    public static tb2 d;
+    public static tb2 e;
     public transient /* synthetic */ FieldHolder $fh;
-    public CopyOnWriteArrayList<af3<Exception>> b;
-
-    /* loaded from: classes7.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ tb2 a;
-
-        public a(tb2 tb2Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {tb2Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = tb2Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                hx1.k("ExtCore-PresetControl", "run: tryUpdateAsync start doUpdate");
-                sb2 b = sb2.b(this.a.a);
-                nb2 nb2Var = new nb2();
-                nb2Var.a = b.a;
-                nb2Var.b = b.b;
-                nb2Var.c = this.a.a.a();
-                tb2 tb2Var = this.a;
-                tb2Var.l(tb2Var.g(nb2Var));
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class b implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ af3 a;
-        public final /* synthetic */ Exception b;
-
-        public b(tb2 tb2Var, af3 af3Var, Exception exc) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {tb2Var, af3Var, exc};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = af3Var;
-            this.b = exc;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.a(this.b);
-            }
-        }
-    }
+    public String a;
+    public long b;
 
     static {
         InterceptResult invokeClinit;
@@ -114,192 +38,105 @@ public abstract class tb2<T extends qb2> extends sa2<T> {
                 return;
             }
         }
-        c = rg1.a;
+        c = sg1.a;
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public tb2(@NonNull T t) {
-        super(t);
+    public tb2() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {t};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((qb2) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
-                return;
             }
         }
-        this.b = new CopyOnWriteArrayList<>();
-    }
-
-    @Override // com.repackage.sa2
-    public File a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new File(super.a(), "preset") : (File) invokeV.objValue;
-    }
-
-    public void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            o("0");
-            n(0L);
-        }
-    }
-
-    /* JADX WARN: Incorrect types in method signature: <T:Lcom/repackage/nb2;>(TT;)Ljava/lang/Exception; */
-    public Exception g(@NonNull nb2 nb2Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, nb2Var)) == null) {
-            if (c) {
-                Log.d("ExtCore-PresetControl", "doUpdate: preset");
-            }
-            if (TextUtils.isEmpty(nb2Var.c)) {
-                if (c) {
-                    Log.e("ExtCore-PresetControl", "doUpdate: preset with null coreFilePath");
-                }
-                return new IllegalStateException("ExtCore-PresetControl doUpdate: failed by updateInfo.coreFilePath is empty");
-            }
-            long j = nb2Var.b;
-            if (jg4.V(nb2Var.c, b(j).getPath())) {
-                yb2.b(a(), j);
-                n(j);
-                o(nb2Var.a);
-                yb2.i(this.a.c(), false);
-                return null;
-            }
-            Exception exc = new Exception("ExtCore-PresetControl doUpdate: failed by can not unzip coreFile = " + nb2Var.c);
-            if (c) {
-                Log.e("ExtCore-PresetControl", "doUpdate preset unzip failed: " + Log.getStackTraceString(exc));
-            }
-            return exc;
-        }
-        return (Exception) invokeL.objValue;
     }
 
     @NonNull
-    public ExtensionCore h() {
-        InterceptResult invokeV;
+    public static tb2 a(@NonNull String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            ExtensionCore extensionCore = new ExtensionCore();
-            long i = i();
-            extensionCore.extensionCoreVersionCode = i;
-            extensionCore.extensionCoreVersionName = j();
-            extensionCore.extensionCorePath = b(i).getPath();
-            extensionCore.extensionCoreType = 0;
-            return extensionCore;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            if (d == null) {
+                d = d(e(str));
+            }
+            return d;
         }
-        return (ExtensionCore) invokeV.objValue;
+        return (tb2) invokeL.objValue;
     }
 
-    public long i() {
-        InterceptResult invokeV;
+    @NonNull
+    public static tb2 b(@NonNull rb2 rb2Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? v83.a().getLong(this.a.b(), 0L) : invokeV.longValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, rb2Var)) == null) {
+            if (rb2Var.c() == 1) {
+                return c(rb2Var.d());
+            }
+            return a(rb2Var.d());
+        }
+        return (tb2) invokeL.objValue;
     }
 
-    public String j() {
-        InterceptResult invokeV;
+    @NonNull
+    public static tb2 c(@NonNull String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? v83.a().getString(this.a.e(), "") : (String) invokeV.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+            if (e == null) {
+                e = d(e(str));
+            }
+            return e;
+        }
+        return (tb2) invokeL.objValue;
     }
 
-    public boolean k() {
-        InterceptResult invokeV;
+    @NonNull
+    public static tb2 d(JSONObject jSONObject) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            if (!h().isAvailable()) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, jSONObject)) == null) {
+            tb2 tb2Var = new tb2();
+            if (jSONObject != null) {
+                tb2Var.a = jSONObject.optString("extension-core-version-name");
+                tb2Var.b = jSONObject.optLong("extension-core-version-code");
+            }
+            return tb2Var;
+        }
+        return (tb2) invokeL.objValue;
+    }
+
+    @SuppressLint({"BDThrowableCheck"})
+    public static JSONObject e(@NonNull String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
+            if (c) {
+                Log.d("ExtCore-PresetConfig", "readPresetConfig start.");
+            }
+            String D = kg4.D(AppRuntime.getAppContext(), str);
+            if (TextUtils.isEmpty(D)) {
                 if (c) {
-                    Log.d("ExtCore-PresetControl", "isNeedUpdate: true, getCurExtensionCore not available.");
+                    Log.w("ExtCore-PresetConfig", "readPresetConfig: empty preset json.");
                 }
-                return true;
-            } else if (!yb2.h(this.a.c())) {
+                return null;
+            }
+            try {
+                JSONObject jSONObject = new JSONObject(D);
                 if (c) {
-                    Log.d("ExtCore-PresetControl", "isNeedUpdate: false");
+                    Log.d("ExtCore-PresetConfig", "readPresetConfig end. config: " + jSONObject.toString());
                 }
-                return false;
-            } else {
-                sb2 b2 = sb2.b(this.a);
-                long i = i();
-                long j = b2.b;
+                return jSONObject;
+            } catch (JSONException e2) {
                 if (c) {
-                    Log.d("ExtCore-PresetControl", "isNeedUpdate curVer: " + i + " newVer: " + j);
+                    throw new RuntimeException(e2);
                 }
-                return i < j;
+                return null;
             }
         }
-        return invokeV.booleanValue;
-    }
-
-    public final void l(Exception exc) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, exc) == null) {
-            Iterator<af3<Exception>> it = this.b.iterator();
-            while (it.hasNext()) {
-                m(it.next(), exc);
-            }
-            this.b.clear();
-        }
-    }
-
-    public final void m(@Nullable af3<Exception> af3Var, Exception exc) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, af3Var, exc) == null) || af3Var == null) {
-            return;
-        }
-        be3.e0(new b(this, af3Var, exc));
-    }
-
-    public void n(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048585, this, j) == null) {
-            v83.a().putLong(this.a.b(), j);
-        }
-    }
-
-    public void o(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
-            v83.a().putString(this.a.e(), str);
-        }
-    }
-
-    @SuppressLint({"SwanNewThread"})
-    public void p(@Nullable af3<Exception> af3Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, af3Var) == null) {
-            hx1.k("ExtCore-PresetControl", "tryUpdateAsync: start");
-            if (!k()) {
-                hx1.k("ExtCore-PresetControl", "tryUpdateAsync: isNeedUpdate = false");
-                m(af3Var, null);
-                return;
-            }
-            if (this.b.isEmpty()) {
-                new Thread(new a(this), "updateExtensionCoreAsync").start();
-            }
-            if (af3Var != null) {
-                this.b.add(af3Var);
-            }
-        }
-    }
-
-    public void q() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048588, this) == null) && k()) {
-            sb2 b2 = sb2.b(this.a);
-            nb2 nb2Var = new nb2();
-            nb2Var.a = b2.a;
-            nb2Var.b = b2.b;
-            nb2Var.c = this.a.a();
-            l(g(nb2Var));
-        }
+        return (JSONObject) invokeL.objValue;
     }
 }

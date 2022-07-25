@@ -50,31 +50,31 @@ public abstract class rp7 {
         }
         this.a = tbPageContext;
         this.b = view2;
-        NavigationBar navigationBar = (NavigationBar) view2.findViewById(R.id.obfuscated_res_0x7f09158d);
+        NavigationBar navigationBar = (NavigationBar) view2.findViewById(R.id.obfuscated_res_0x7f091568);
         this.c = navigationBar;
         View addSystemImageButton = navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         this.d = addSystemImageButton;
         addSystemImageButton.setId(R.id.obfuscated_res_0x7f090409);
-        TextView addTextButton = this.c.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, tbPageContext.getString(R.string.obfuscated_res_0x7f0f11b6));
+        TextView addTextButton = this.c.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, tbPageContext.getString(R.string.obfuscated_res_0x7f0f1165));
         this.e = addTextButton;
         addTextButton.setId(R.id.obfuscated_res_0x7f090433);
-        this.m = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092152);
-        this.n = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092151);
-        ImageView imageView = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090e8c);
+        this.m = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092154);
+        this.n = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092153);
+        ImageView imageView = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090e85);
         this.f = imageView;
         RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) imageView.getLayoutParams();
         layoutParams.topMargin = pi.i(tbPageContext.getPageActivity()) / 4;
         this.f.setLayoutParams(layoutParams);
-        TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091399);
+        TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091375);
         this.g = textView;
         RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) textView.getLayoutParams();
         layoutParams2.topMargin = (pi.i(tbPageContext.getPageActivity()) / 2) + pi.f(tbPageContext.getPageActivity(), R.dimen.tbds239);
         this.g.setLayoutParams(layoutParams2);
-        this.h = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091a2d);
+        this.h = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091a07);
         this.i = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0924dd);
         this.j = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0924e0);
         this.k = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f092563);
-        this.l = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0914b5);
+        this.l = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091490);
     }
 
     public void a(int i) {
@@ -84,11 +84,11 @@ public abstract class rp7 {
             SkinManager.setBackgroundColor(this.c, R.color.CAM_X0201, i);
             SkinManager.setBackgroundColor(this.b, R.color.CAM_X0201, i);
             SkinManager.setViewTextColor(this.e, (int) R.color.CAM_X0107);
-            ur4 d = ur4.d(this.m);
+            vr4 d = vr4.d(this.m);
             d.v(R.color.CAM_X0105);
             d.z(R.dimen.T_X03);
             d.A(R.string.F_X02);
-            ur4 d2 = ur4.d(this.n);
+            vr4 d2 = vr4.d(this.n);
             d2.v(R.color.CAM_X0107);
             d2.z(R.dimen.T_X08);
             d2.A(R.string.F_X01);
@@ -97,7 +97,7 @@ public abstract class rp7 {
             } else {
                 WebPManager.setMaskDrawable(this.f, R.drawable.obfuscated_res_0x7f080809, null);
             }
-            ur4 d3 = ur4.d(this.g);
+            vr4 d3 = vr4.d(this.g);
             d3.v(R.color.CAM_X0101);
             d3.z(R.dimen.T_X05);
             d3.A(R.string.F_X01);

@@ -22,11 +22,11 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.oi;
 import com.repackage.pi;
-import com.repackage.v85;
-import com.repackage.xv4;
+import com.repackage.w85;
+import com.repackage.yv4;
 import java.util.List;
 /* loaded from: classes3.dex */
-public class BlueLikeButton extends TextView implements xv4 {
+public class BlueLikeButton extends TextView implements yv4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean a;
@@ -54,7 +54,7 @@ public class BlueLikeButton extends TextView implements xv4 {
         this.b = false;
     }
 
-    @Override // com.repackage.xv4
+    @Override // com.repackage.yv4
     public void a(View view2) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || this.b) {
@@ -72,9 +72,9 @@ public class BlueLikeButton extends TextView implements xv4 {
             return;
         }
         Context context = getContext();
-        if ((context instanceof Activity) && (context instanceof v85)) {
+        if ((context instanceof Activity) && (context instanceof w85)) {
             String stringExtra = ((Activity) context).getIntent().getStringExtra("thread_id");
-            List<String> currentPageSourceKeyList = ((v85) context).getCurrentPageSourceKeyList();
+            List<String> currentPageSourceKeyList = ((w85) context).getCurrentPageSourceKeyList();
             if (currentPageSourceKeyList == null || !StringHelper.equals((String) ListUtils.getItem(currentPageSourceKeyList, currentPageSourceKeyList.size() - 1), "a002") || oi.isEmpty(stringExtra)) {
                 return;
             }
@@ -82,7 +82,7 @@ public class BlueLikeButton extends TextView implements xv4 {
         }
     }
 
-    @Override // com.repackage.xv4
+    @Override // com.repackage.yv4
     public void b(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, onClickListener) == null) {
@@ -90,7 +90,7 @@ public class BlueLikeButton extends TextView implements xv4 {
         }
     }
 
-    @Override // com.repackage.xv4
+    @Override // com.repackage.yv4
     public void c(boolean z, int i, boolean z2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Boolean.valueOf(z2)}) == null) {
@@ -98,14 +98,14 @@ public class BlueLikeButton extends TextView implements xv4 {
         }
     }
 
-    @Override // com.repackage.xv4
+    @Override // com.repackage.yv4
     public void d(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
         }
     }
 
-    @Override // com.repackage.xv4
+    @Override // com.repackage.yv4
     public void e(boolean z, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i)}) == null) {
@@ -119,12 +119,12 @@ public class BlueLikeButton extends TextView implements xv4 {
             this.a = z;
             if (z) {
                 if (this.b) {
-                    setText(R.string.obfuscated_res_0x7f0f063b);
+                    setText(R.string.obfuscated_res_0x7f0f0637);
                     TBSelector.makeDrawableSelector().setShape(0).setType(1).radius(pi.f(getContext(), R.dimen.tbds42)).defaultColor(R.color.CAM_X0204).into(this);
                     SkinManager.setViewTextColor(this, R.color.CAM_X0105, 1);
                     return;
                 }
-                setText(R.string.obfuscated_res_0x7f0f063b);
+                setText(R.string.obfuscated_res_0x7f0f0637);
                 setBackgroundDrawable(SkinManager.getDrawable(R.drawable.selector_like_button_gray_bg));
                 setPadding(0, 0, 0, 0);
                 setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, (Drawable) null, (Drawable) null);

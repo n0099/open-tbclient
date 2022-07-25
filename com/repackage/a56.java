@@ -18,7 +18,7 @@ public class a56 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public e56 a;
-    public dq4 b;
+    public eq4 b;
     public ForumCreateInfoData c;
     public PrivateForumPopInfoData d;
     public i56 e;
@@ -44,7 +44,7 @@ public class a56 {
         this.g = true;
         this.h = 0;
         this.a = new e56();
-        this.b = new dq4();
+        this.b = new eq4();
         this.c = new ForumCreateInfoData();
         this.d = new PrivateForumPopInfoData();
         this.e = new i56();
@@ -55,7 +55,7 @@ public class a56 {
     public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? System.currentTimeMillis() / h05.a.longValue() == (((long) this.h) * 1000) / h05.a.longValue() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? System.currentTimeMillis() / i05.a.longValue() == (((long) this.h) * 1000) / i05.a.longValue() : invokeV.booleanValue;
     }
 
     public ForumCreateInfoData b() {
@@ -82,10 +82,10 @@ public class a56 {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.a : (e56) invokeV.objValue;
     }
 
-    public dq4 f() {
+    public eq4 f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.b : (dq4) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.b : (eq4) invokeV.objValue;
     }
 
     public int g() {

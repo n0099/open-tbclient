@@ -25,7 +25,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.pi;
-import com.repackage.ur4;
+import com.repackage.vr4;
 /* loaded from: classes3.dex */
 public class RecommendForumInfoView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
@@ -69,7 +69,7 @@ public class RecommendForumInfoView extends LinearLayout {
     public final void b(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
-            LinearLayout.inflate(context, R.layout.obfuscated_res_0x7f0d0724, this);
+            LinearLayout.inflate(context, R.layout.obfuscated_res_0x7f0d072e, this);
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -2);
             setOrientation(0);
             setLayoutParams(layoutParams);
@@ -80,7 +80,7 @@ public class RecommendForumInfoView extends LinearLayout {
     public final void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            BarImageView barImageView = (BarImageView) findViewById(R.id.obfuscated_res_0x7f091a9c);
+            BarImageView barImageView = (BarImageView) findViewById(R.id.obfuscated_res_0x7f091a76);
             this.a = barImageView;
             barImageView.setPlaceHolder(1);
             this.a.setShowOval(true);
@@ -89,10 +89,10 @@ public class RecommendForumInfoView extends LinearLayout {
             this.a.setStrokeWith(pi.f(TbadkCoreApplication.getInst(), R.dimen.tbds1));
             this.a.setStrokeColorResId(R.color.CAM_X0401);
             this.a.setScaleType(ImageView.ScaleType.CENTER_CROP);
-            this.b = (SingleLineEllipsizeTextView) findViewById(R.id.obfuscated_res_0x7f091a9d);
+            this.b = (SingleLineEllipsizeTextView) findViewById(R.id.obfuscated_res_0x7f091a77);
             this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f0902c5);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f09204c);
-            this.e = (FollowUserButton) findViewById(R.id.obfuscated_res_0x7f0912a9);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f092050);
+            this.e = (FollowUserButton) findViewById(R.id.obfuscated_res_0x7f091285);
             e();
         }
     }
@@ -106,8 +106,8 @@ public class RecommendForumInfoView extends LinearLayout {
     public void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            ur4.d(this).f(R.color.CAM_X0201);
-            ur4 d = ur4.d(this.b);
+            vr4.d(this).f(R.color.CAM_X0201);
+            vr4 d = vr4.d(this.b);
             d.z(R.dimen.T_X07);
             d.v(R.color.CAM_X0105);
             Drawable pureDrawable = WebPManager.getPureDrawable(R.drawable.icon_pure_ba16, SkinManager.getColor(R.color.CAM_X0105), null);
@@ -117,10 +117,10 @@ public class RecommendForumInfoView extends LinearLayout {
                 this.b.setCompoundDrawables(null, null, pureDrawable, null);
                 this.b.setCompoundDrawablePadding(pi.f(getContext(), R.dimen.M_W_X002));
             }
-            ur4 d2 = ur4.d(this.c);
+            vr4 d2 = vr4.d(this.c);
             d2.z(R.dimen.T_X09);
             d2.v(R.color.CAM_X0109);
-            ur4 d3 = ur4.d(this.d);
+            vr4 d3 = vr4.d(this.d);
             d3.z(R.dimen.T_X09);
             d3.v(R.color.CAM_X0109);
             this.e.r(TbadkCoreApplication.getInst().getSkinType());
@@ -170,8 +170,8 @@ public class RecommendForumInfoView extends LinearLayout {
             if (!TextUtils.isEmpty(str2)) {
                 this.b.setText(String.format(getContext().getString(R.string.obfuscated_res_0x7f0f03c7), str2));
             }
-            this.c.setText(String.format(getContext().getString(R.string.obfuscated_res_0x7f0f041a), StringHelper.numberUniformFormatExtra(i)));
-            this.d.setText(String.format(getContext().getString(R.string.obfuscated_res_0x7f0f06b9), StringHelper.numberUniformFormatExtra(i2)));
+            this.c.setText(String.format(getContext().getString(R.string.obfuscated_res_0x7f0f0419), StringHelper.numberUniformFormatExtra(i)));
+            this.d.setText(String.format(getContext().getString(R.string.obfuscated_res_0x7f0f06b5), StringHelper.numberUniformFormatExtra(i2)));
             this.f = z;
             this.e.s(z);
         }

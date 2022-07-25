@@ -187,7 +187,7 @@ public class ColumnLayout extends ViewGroup {
     public final void e(Context context, AttributeSet attributeSet) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048581, this, context, attributeSet) == null) {
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f040174, R.attr.obfuscated_res_0x7f0405b7, R.attr.obfuscated_res_0x7f0405b8});
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f040174, R.attr.obfuscated_res_0x7f0405b9, R.attr.obfuscated_res_0x7f0405ba});
             String string = obtainStyledAttributes.getString(0);
             if (string == null) {
                 string = "vertical";

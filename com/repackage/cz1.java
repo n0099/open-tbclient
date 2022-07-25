@@ -1,64 +1,165 @@
 package com.repackage;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.Context;
+import android.text.TextUtils;
+import android.util.Log;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.HashMap;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class cz1 {
+public class cz1 extends f23 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755780009, "Lcom/repackage/cz1;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755780009, "Lcom/repackage/cz1;");
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public cz1(f13 f13Var) {
+        super(f13Var, "/swanAPI/sConsole");
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {f13Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        boolean z = rg1.a;
     }
 
-    public static void a(String str, String str2) {
+    @Override // com.repackage.f23
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, i03 i03Var) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65537, null, str, str2) == null) {
-            HashMap hashMap = new HashMap(1);
-            hashMap.put("data", str2);
-            ul2.U().m(ul2.U().q().b(), new ia2(str, hashMap));
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, i03Var)) == null) {
+            if (f23.b) {
+                Log.d("ConsoleAction", "handle entity: " + unitedSchemeEntity.toString());
+                return false;
+            }
+            return false;
         }
+        return invokeLLLL.booleanValue;
     }
 
-    public static void b() {
+    @Override // com.repackage.f23
+    public boolean i(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str, i03 i03Var) {
+        InterceptResult invokeLLLLL;
+        boolean optBoolean;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65538, null) == null) {
-            pm1 A = ul2.U().A(ul2.U().C());
-            if (A != null) {
-                hx1.i("ConsoleMessageHelper", "send full San request");
-                A.handleSchemeDispatchCallback("window.__san_devtool__.retrieveData", null);
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, unitedSchemeEntity, callbackHandler, str, i03Var)) == null) {
+            if (f23.b) {
+                Log.d("ConsoleAction", "handleSubAction subAction: " + str);
+            }
+            if (!fx1.a() && !ix1.f() && !TextUtils.equals(str, "/swanAPI/sConsole/debugSwitch")) {
+                return super.i(context, unitedSchemeEntity, callbackHandler, str, i03Var);
+            }
+            JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
+            char c = 65535;
+            switch (str.hashCode()) {
+                case -1923550429:
+                    if (str.equals("/swanAPI/sConsole/sanIncData2Console")) {
+                        c = 3;
+                        break;
+                    }
+                    break;
+                case -1792428120:
+                    if (str.equals("/swanAPI/sConsole/sanFullData2Console")) {
+                        c = 4;
+                        break;
+                    }
+                    break;
+                case -797920904:
+                    if (str.equals("/swanAPI/sConsole/hide")) {
+                        c = 2;
+                        break;
+                    }
+                    break;
+                case -797593805:
+                    if (str.equals("/swanAPI/sConsole/show")) {
+                        c = 1;
+                        break;
+                    }
+                    break;
+                case -161927599:
+                    if (str.equals("/swanAPI/sConsole/postMessage")) {
+                        c = 6;
+                        break;
+                    }
+                    break;
+                case 1089933937:
+                    if (str.equals("/swanAPI/sConsole/debugSwitch")) {
+                        c = 0;
+                        break;
+                    }
+                    break;
+                case 2136057821:
+                    if (str.equals("/swanAPI/sConsole/getSanDataFromActiveSlave")) {
+                        c = 5;
+                        break;
+                    }
+                    break;
+            }
+            switch (c) {
+                case 0:
+                    if (optParamsAsJo != null && (optBoolean = optParamsAsJo.optBoolean("enableDebug")) != fx1.a()) {
+                        fx1.c(context, optBoolean);
+                        UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
+                        ix1.i("ConsoleAction", " sConsole switch：" + optParamsAsJo.optBoolean("enableDebug"));
+                    }
+                    return true;
+                case 1:
+                    vl2.U().q().R(true);
+                    UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
+                    ix1.i("ConsoleAction", "sConsole show");
+                    return true;
+                case 2:
+                    vl2.U().q().R(false);
+                    UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
+                    ix1.i("ConsoleAction", "sConsole hide");
+                    return true;
+                case 3:
+                    if (optParamsAsJo != null && optParamsAsJo.length() > 0) {
+                        ix1.i("ConsoleAction", "send san inc data");
+                        dz1.d(optParamsAsJo.toString());
+                    } else {
+                        ix1.c("ConsoleAction", "san inc data is null");
+                    }
+                    return true;
+                case 4:
+                    if (optParamsAsJo != null && optParamsAsJo.length() > 0) {
+                        ix1.i("ConsoleAction", "send san full data");
+                        dz1.c(optParamsAsJo.toString());
+                    } else {
+                        ix1.c("ConsoleAction", "san full data is null");
+                    }
+                    return true;
+                case 5:
+                    ix1.i("ConsoleAction", "request san full data");
+                    dz1.b();
+                    return true;
+                case 6:
+                    rh1 h = qj2.h();
+                    if (h != null) {
+                        h.c(optParamsAsJo);
+                    }
+                    return true;
+                default:
+                    return super.i(context, unitedSchemeEntity, callbackHandler, str, i03Var);
             }
         }
-    }
-
-    public static void c(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, null, str) == null) {
-            a("sanFullData2Console", str);
-        }
-    }
-
-    public static void d(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str) == null) {
-            a("sanIncData2Console", str);
-        }
+        return invokeLLLLL.booleanValue;
     }
 }

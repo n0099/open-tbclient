@@ -49,7 +49,7 @@ public class eq7 extends b9<PayVcodeActivity> {
             }
         }
         this.a = payVcodeActivity;
-        payVcodeActivity.setContentView(R.layout.obfuscated_res_0x7f0d066f);
+        payVcodeActivity.setContentView(R.layout.obfuscated_res_0x7f0d0679);
         m(payVcodeActivity);
     }
 
@@ -86,16 +86,16 @@ public class eq7 extends b9<PayVcodeActivity> {
     public final void m(PayVcodeActivity payVcodeActivity) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, payVcodeActivity) == null) {
-            this.b = (ViewGroup) this.a.findViewById(R.id.obfuscated_res_0x7f0916f4);
-            TextView textView = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f0916ee);
+            this.b = (ViewGroup) this.a.findViewById(R.id.obfuscated_res_0x7f0916cf);
+            TextView textView = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f0916c9);
             this.e = textView;
             SkinManager.setBackgroundResource(textView, R.drawable.s_navbar_button_bg);
             SkinManager.setViewTextColor(this.e, R.color.CAM_X0101, 1);
-            this.f = (BaseWebView) payVcodeActivity.findViewById(R.id.obfuscated_res_0x7f092362);
+            this.f = (BaseWebView) payVcodeActivity.findViewById(R.id.obfuscated_res_0x7f092364);
             this.g = (TextView) payVcodeActivity.findViewById(R.id.obfuscated_res_0x7f0924d1);
-            this.c = payVcodeActivity.findViewById(R.id.obfuscated_res_0x7f0916f2);
-            this.d = (ViewGroup) payVcodeActivity.findViewById(R.id.obfuscated_res_0x7f0916f3);
-            this.h = (ProgressBar) payVcodeActivity.findViewById(R.id.obfuscated_res_0x7f0916f5);
+            this.c = payVcodeActivity.findViewById(R.id.obfuscated_res_0x7f0916cd);
+            this.d = (ViewGroup) payVcodeActivity.findViewById(R.id.obfuscated_res_0x7f0916ce);
+            this.h = (ProgressBar) payVcodeActivity.findViewById(R.id.obfuscated_res_0x7f0916d0);
             this.f.setHorizontalScrollBarEnabled(false);
             this.f.setHorizontalScrollbarOverlay(false);
             this.f.setScrollBarStyle(33554432);
@@ -120,7 +120,7 @@ public class eq7 extends b9<PayVcodeActivity> {
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
-            ga5.a(this.a.getPageContext(), this.b);
+            ha5.a(this.a.getPageContext(), this.b);
             SkinManager.setBgColor(this.g, i);
             SkinManager.setBackgroundResource(this.e, R.drawable.s_navbar_button_bg);
             SkinManager.setViewTextColor(this.e, R.color.CAM_X0101, 1);

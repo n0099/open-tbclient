@@ -52,7 +52,7 @@ public class tu7 extends du7<qr7, PbLoadMoreItemVideoViewHolder> {
     public PbLoadMoreItemVideoViewHolder M(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) ? new PbLoadMoreItemVideoViewHolder(LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0606, viewGroup, false)) : (PbLoadMoreItemVideoViewHolder) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) ? new PbLoadMoreItemVideoViewHolder(LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0610, viewGroup, false)) : (PbLoadMoreItemVideoViewHolder) invokeL.objValue;
     }
 
     public View c0(int i, View view2, ViewGroup viewGroup, qr7 qr7Var, PbLoadMoreItemVideoViewHolder pbLoadMoreItemVideoViewHolder) {
@@ -60,7 +60,7 @@ public class tu7 extends du7<qr7, PbLoadMoreItemVideoViewHolder> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, qr7Var, pbLoadMoreItemVideoViewHolder})) == null) {
             super.S(i, view2, viewGroup, qr7Var, pbLoadMoreItemVideoViewHolder);
-            pbLoadMoreItemVideoViewHolder.c(this.o);
+            pbLoadMoreItemVideoViewHolder.b(this.o);
             return view2;
         }
         return (View) invokeCommon.objValue;

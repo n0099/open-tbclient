@@ -53,7 +53,7 @@ public class u17 extends an<x17, CardViewHolder<z17>> {
             z17Var.o(this.e);
             CardViewHolder<z17> cardViewHolder = new CardViewHolder<>(z17Var);
             int f = pi.f(this.i.getPageActivity(), R.dimen.tbds44);
-            cardViewHolder.b().setPadding(f, 0, f, 0);
+            cardViewHolder.a().setPadding(f, 0, f, 0);
             return cardViewHolder;
         }
         return (CardViewHolder) invokeL.objValue;
@@ -66,12 +66,12 @@ public class u17 extends an<x17, CardViewHolder<z17>> {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, x17Var, cardViewHolder})) == null) {
-            if (x17Var == null || cardViewHolder == null || cardViewHolder.c() == null) {
+            if (x17Var == null || cardViewHolder == null || cardViewHolder.b() == null) {
                 return null;
             }
-            cardViewHolder.c().i(x17Var);
-            cardViewHolder.c().j(this.i, TbadkCoreApplication.getInst().getSkinType());
-            return cardViewHolder.b();
+            cardViewHolder.b().i(x17Var);
+            cardViewHolder.b().j(this.i, TbadkCoreApplication.getInst().getSkinType());
+            return cardViewHolder.a();
         }
         return (View) invokeCommon.objValue;
     }

@@ -95,7 +95,7 @@ public class ry7 extends gz7 {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ni8Var) == null) || ni8Var == null || this.c == null || ni8Var.getAdvertAppInfo() == null) {
             return;
         }
-        ni8Var.getAdvertAppInfo().i = new sn4();
+        ni8Var.getAdvertAppInfo().i = new tn4();
         if (this.c.y() != null) {
             ni8Var.getAdvertAppInfo().i.b = this.c.y().a();
         }

@@ -1,206 +1,80 @@
 package com.repackage;
 
-import android.content.Context;
-import android.graphics.Typeface;
-import android.text.SpannableStringBuilder;
-import android.text.TextUtils;
+import android.graphics.Paint;
+import android.text.style.LineHeightSpan;
 import android.util.Log;
-import android.widget.TextView;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.core.view.GravityCompat;
-import androidx.core.view.InputDeviceCompat;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.tv1;
 /* loaded from: classes7.dex */
-public abstract class sv1<V extends TextView, M extends tv1> extends uv1<V, M> {
+public class sv1 implements LineHeightSpan {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
+    public final int a;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public sv1(@Nullable Context context, @NonNull M m) {
-        super(context, m);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755307197, "Lcom/repackage/sv1;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755307197, "Lcom/repackage/sv1;");
+                return;
+            }
+        }
+        b = sg1.a;
+    }
+
+    public sv1(int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, m};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (vv1) objArr2[1]);
+            Object[] objArr = {Integer.valueOf(i)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
+        this.a = i;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.uv1, com.repackage.wv1
-    @NonNull
-    /* renamed from: S */
-    public zw1 k(@NonNull M m, @NonNull M m2) {
-        InterceptResult invokeLL;
+    @Override // android.text.style.LineHeightSpan
+    public void chooseHeight(CharSequence charSequence, int i, int i2, int i3, int i4, Paint.FontMetricsInt fontMetricsInt) {
+        int i5;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, m, m2)) == null) {
-            zw1 k = super.k(m, m2);
-            if (!TextUtils.equals(m.t, m2.t)) {
-                k.b(6);
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{charSequence, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), fontMetricsInt}) == null) {
+            if (b) {
+                Log.i("AdjustLineHeightSpan", "chooseHeight :: in fm=" + fontMetricsInt);
+                Log.i("AdjustLineHeightSpan", "chooseHeight :: in height=" + this.a);
             }
-            return k;
-        }
-        return (zw1) invokeLL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.uv1
-    /* renamed from: T */
-    public void O(@NonNull V v, @NonNull M m, @NonNull zw1 zw1Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048580, this, v, m, zw1Var) == null) {
-            super.C(v, m, zw1Var);
-            if (zw1Var.a(6)) {
-                U(v, m);
+            if (this.a < 0 || (i5 = fontMetricsInt.descent - fontMetricsInt.ascent) < 0) {
+                return;
             }
-            if (zw1Var.a(4)) {
-                V(v, m);
+            if (b) {
+                Log.i("AdjustLineHeightSpan", "chooseHeight :: in originHeight=" + i5);
+            }
+            int i6 = (this.a - i5) / 2;
+            if (b) {
+                Log.i("AdjustLineHeightSpan", "chooseHeight :: in hafDiff=" + i6);
+            }
+            fontMetricsInt.descent += i6;
+            fontMetricsInt.ascent -= i6;
+            if (b) {
+                Log.i("AdjustLineHeightSpan", "chooseHeight :: out fm=" + fontMetricsInt);
             }
         }
-    }
-
-    /* JADX DEBUG: Multi-variable search result rejected for r4v1, resolved type: android.text.SpannableStringBuilder */
-    /* JADX WARN: Multi-variable type inference failed */
-    public void U(@NonNull V v, @NonNull M m) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048581, this, v, m) == null) {
-            if (wv1.h) {
-                Log.d("Component-TextView", "renderText");
-            }
-            boolean z = !TextUtils.isEmpty(m.t) && m.x >= 0;
-            String str = m.t;
-            if (z) {
-                SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(str);
-                spannableStringBuilder.setSpan(new rv1(m.x), 0, str.length(), 33);
-                str = spannableStringBuilder;
-            }
-            v.setIncludeFontPadding(!z);
-            v.setText(str);
-        }
-    }
-
-    public final void V(@NonNull V v, @NonNull M m) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048582, this, v, m) == null) || m.j == null) {
-            return;
-        }
-        if (wv1.h) {
-            Log.d("Component-TextView", "renderTextStyle");
-        }
-        if (m.v) {
-            v.setTextColor(m.u);
-        }
-        float f = (float) m.w;
-        if (f > 0.0f) {
-            v.setTextSize(1, f);
-        }
-        X(v, m);
-        W(v, m);
-        String str = m.B;
-        char c = 65535;
-        int hashCode = str.hashCode();
-        if (hashCode != -1039745817) {
-            if (hashCode == -1039592053 && str.equals("nowrap")) {
-                c = 1;
-            }
-        } else if (str.equals("normal")) {
-            c = 0;
-        }
-        if (c == 0) {
-            v.setSingleLine(false);
-        } else if (c == 1) {
-            v.setSingleLine(true);
-        }
-        if ("ellipsis".equals(m.C)) {
-            v.setEllipsize(TextUtils.TruncateAt.END);
-        }
-    }
-
-    public void W(@NonNull V v, @NonNull M m) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048583, this, v, m) == null) || m.j == null) {
-            return;
-        }
-        if (wv1.h) {
-            Log.d("Component-TextView", "renderTextStyleFontWeight");
-        }
-        String str = m.A;
-        char c = 65535;
-        int hashCode = str.hashCode();
-        if (hashCode != -1039745817) {
-            if (hashCode == 3029637 && str.equals("bold")) {
-                c = 1;
-            }
-        } else if (str.equals("normal")) {
-            c = 0;
-        }
-        if (c == 0) {
-            v.setTypeface(Typeface.SANS_SERIF, 0);
-        } else if (c != 1) {
-            hx1.o("Component-TextView", "invalid font weight : " + m.A);
-            v.setTypeface(Typeface.SANS_SERIF, 0);
-        } else {
-            v.setTypeface(Typeface.SANS_SERIF, 1);
-        }
-    }
-
-    public void X(@NonNull V v, @NonNull M m) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, v, m) == null) {
-            Y(v, m, 48);
-        }
-    }
-
-    public final void Y(@NonNull V v, @NonNull M m, int i) {
-        int i2;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLI(1048585, this, v, m, i) == null) || m.j == null) {
-            return;
-        }
-        if (wv1.h) {
-            Log.d("Component-TextView", "renderTextStyleTextAlign");
-        }
-        String str = m.z;
-        char c = 65535;
-        int hashCode = str.hashCode();
-        if (hashCode != -1364013995) {
-            if (hashCode != 3317767) {
-                if (hashCode == 108511772 && str.equals("right")) {
-                    c = 1;
-                }
-            } else if (str.equals("left")) {
-                c = 0;
-            }
-        } else if (str.equals("center")) {
-            c = 2;
-        }
-        if (c != 0) {
-            if (c == 1) {
-                i2 = 8388613 | i;
-            } else if (c != 2) {
-                hx1.o("Component-TextView", "invalid text align: " + m.z);
-            } else {
-                i2 = i | 1;
-            }
-            v.setGravity(i2);
-        }
-        i2 = i | GravityCompat.START;
-        v.setGravity(i2);
     }
 }

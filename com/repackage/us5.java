@@ -59,7 +59,7 @@ public class us5 extends an<at5, AlaGameFrsLiveGameCardView.AlaGameFrsGameViewHo
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, at5Var, alaGameFrsGameViewHolder})) == null) {
             alaGameFrsGameViewHolder.a.i(at5Var);
             alaGameFrsGameViewHolder.a.t(this.j);
-            return alaGameFrsGameViewHolder.b();
+            return alaGameFrsGameViewHolder.a();
         }
         return (View) invokeCommon.objValue;
     }

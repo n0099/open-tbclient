@@ -75,10 +75,10 @@ public class lo7 {
         }
         View inflate = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d025d, (ViewGroup) null);
         this.b = inflate;
-        View findViewById = inflate.findViewById(R.id.obfuscated_res_0x7f09086d);
+        View findViewById = inflate.findViewById(R.id.obfuscated_res_0x7f09086b);
         this.a = findViewById;
         findViewById.setVisibility(8);
-        this.c = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090873);
+        this.c = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090871);
     }
 
     public View b() {

@@ -1,38 +1,21 @@
 package com.repackage;
 
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import androidx.annotation.AnyThread;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.swan.apps.api.module.subscription.SubscribeHelper;
+import java.util.List;
+import java.util.Set;
 /* loaded from: classes7.dex */
 public interface ql1 {
+    String a();
 
-    /* loaded from: classes7.dex */
-    public static class a implements ql1 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
+    @AnyThread
+    void b(@NonNull String str, @NonNull Set<String> set, @NonNull SubscribeHelper.i iVar);
 
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
+    void c(@NonNull String str, cd2 cd2Var);
 
-        @Override // com.repackage.ql1
-        public void a(e13 e13Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, e13Var) == null) {
-            }
-        }
-    }
+    void d(@NonNull String str, @NonNull List<String> list, @Nullable String str2, boolean z, cd2 cd2Var);
 
-    void a(e13 e13Var);
+    void e(String str, et2 et2Var);
 }

@@ -4,7 +4,6 @@ import android.content.Context;
 import android.os.Build;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.sofire.sharedpreferences.SharedPreferenceManager;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,7 +15,7 @@ public class v {
     public static Context a;
 
     /* renamed from: a  reason: collision with other field name */
-    public static String f1732a;
+    public static String f1012a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -52,7 +51,7 @@ public class v {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static Context m1625a() {
+    public static Context m687a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a : (Context) invokeV.objValue;
@@ -75,7 +74,7 @@ public class v {
             try {
                 return Class.forName(str);
             } catch (Throwable th) {
-                com.xiaomi.channel.commonutils.logger.b.m1027a(String.format("loadClass fail hasContext= %s, errMsg = %s", Boolean.valueOf(z), th.getLocalizedMessage()));
+                com.xiaomi.channel.commonutils.logger.b.m89a(String.format("loadClass fail hasContext= %s, errMsg = %s", Boolean.valueOf(z), th.getLocalizedMessage()));
                 throw new ClassNotFoundException("loadClass fail ", th);
             }
         }
@@ -83,13 +82,13 @@ public class v {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static synchronized String m1626a() {
+    public static synchronized String m688a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
             synchronized (v.class) {
-                if (f1732a != null) {
-                    return f1732a;
+                if (f1012a != null) {
+                    return f1012a;
                 }
                 String str = Build.VERSION.INCREMENTAL;
                 if (a() <= 0) {
@@ -105,7 +104,7 @@ public class v {
                     }
                     str = b;
                 }
-                f1732a = str;
+                f1012a = str;
                 return str;
             }
         }
@@ -120,14 +119,14 @@ public class v {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m1627a() {
+    public static boolean m689a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) ? TextUtils.equals((String) bk.a("android.os.SystemProperties", SharedPreferenceManager.OPERATION_GET_PERFIX, "sys.boot_completed"), "1") : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) ? TextUtils.equals((String) bk.a("android.os.SystemProperties", "get", "sys.boot_completed"), "1") : invokeV.booleanValue;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m1628a(Context context) {
+    public static boolean m690a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, context)) == null) {
@@ -146,14 +145,14 @@ public class v {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
             String a2 = u.a("ro.build.version.emui", "");
-            f1732a = a2;
+            f1012a = a2;
             return a2;
         }
         return (String) invokeV.objValue;
     }
 
     /* renamed from: b  reason: collision with other method in class */
-    public static boolean m1629b() {
+    public static boolean m691b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
@@ -176,9 +175,9 @@ public class v {
         if (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) {
             String a2 = u.a("ro.build.version.opporom", "");
             if (!TextUtils.isEmpty(a2) && !a2.startsWith("ColorOS_")) {
-                f1732a = "ColorOS_" + a2;
+                f1012a = "ColorOS_" + a2;
             }
-            return f1732a;
+            return f1012a;
         }
         return (String) invokeV.objValue;
     }
@@ -189,9 +188,9 @@ public class v {
         if (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) {
             String a2 = u.a("ro.vivo.os.version", "");
             if (!TextUtils.isEmpty(a2) && !a2.startsWith("FuntouchOS_")) {
-                f1732a = "FuntouchOS_" + a2;
+                f1012a = "FuntouchOS_" + a2;
             }
-            return f1732a;
+            return f1012a;
         }
         return (String) invokeV.objValue;
     }

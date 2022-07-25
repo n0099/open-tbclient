@@ -21,20 +21,20 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
 public class KsAutoCloseView extends LinearLayout implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic = null;
-    public static String b = "%s秒后自动关闭";
+    public static String wD = "%s秒后自动关闭";
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public TextView c;
-    public ImageView d;
-    public a e;
-    public boolean f;
-    public boolean g;
+    public TextView Pr;
+    public ImageView Ps;
+    public a Pt;
+    public boolean Pu;
+    public boolean Pv;
+    public int countDown;
 
     /* loaded from: classes5.dex */
     public interface a {
-        void a();
+        void dg();
 
-        void b();
+        void dh();
     }
 
     static {
@@ -70,10 +70,10 @@ public class KsAutoCloseView extends LinearLayout implements View.OnClickListene
                 return;
             }
         }
-        this.a = 10;
-        this.f = true;
-        this.g = false;
-        a(context);
+        this.countDown = 10;
+        this.Pu = true;
+        this.Pv = false;
+        L(context);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -95,10 +95,10 @@ public class KsAutoCloseView extends LinearLayout implements View.OnClickListene
                 return;
             }
         }
-        this.a = 10;
-        this.f = true;
-        this.g = false;
-        a(context);
+        this.countDown = 10;
+        this.Pu = true;
+        this.Pv = false;
+        L(context);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -120,10 +120,10 @@ public class KsAutoCloseView extends LinearLayout implements View.OnClickListene
                 return;
             }
         }
-        this.a = 10;
-        this.f = true;
-        this.g = false;
-        a(context);
+        this.countDown = 10;
+        this.Pu = true;
+        this.Pv = false;
+        L(context);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -146,47 +146,47 @@ public class KsAutoCloseView extends LinearLayout implements View.OnClickListene
                 return;
             }
         }
-        this.a = 10;
-        this.f = true;
-        this.g = false;
-        a(context);
+        this.countDown = 10;
+        this.Pu = true;
+        this.Pv = false;
+        L(context);
     }
 
-    private void a(Context context) {
+    private void L(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65541, this, context) == null) {
             LinearLayout.inflate(context, R.layout.obfuscated_res_0x7f0d0408, this);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f091002);
-            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f091001);
-            this.d = imageView;
+            this.Pr = (TextView) findViewById(R.id.obfuscated_res_0x7f090ff9);
+            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f090ff8);
+            this.Ps = imageView;
             imageView.setOnClickListener(this);
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void b(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65544, this, i) == null) {
-            this.c.setText(String.format(b, Integer.valueOf(i)));
-        }
-    }
-
     public static /* synthetic */ int e(KsAutoCloseView ksAutoCloseView) {
-        int i = ksAutoCloseView.a;
-        ksAutoCloseView.a = i - 1;
+        int i = ksAutoCloseView.countDown;
+        ksAutoCloseView.countDown = i - 1;
         return i;
     }
 
-    public final void a(int i) {
+    /* JADX INFO: Access modifiers changed from: private */
+    public void x(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(65548, this, i) == null) {
+            this.Pr.setText(String.format(wD, Integer.valueOf(i)));
+        }
+    }
+
+    public final void U(int i) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeI(1048576, this, i) == null) || i <= 0) {
             return;
         }
-        this.a = i;
+        this.countDown = i;
         post(new Runnable(this) { // from class: com.kwad.components.core.widget.KsAutoCloseView.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ KsAutoCloseView a;
+            public final /* synthetic */ KsAutoCloseView Pw;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -203,37 +203,37 @@ public class KsAutoCloseView extends LinearLayout implements View.OnClickListene
                         return;
                     }
                 }
-                this.a = this;
+                this.Pw = this;
             }
 
             @Override // java.lang.Runnable
             public final void run() {
                 Interceptable interceptable2 = $ic;
-                if ((interceptable2 == null || interceptable2.invokeV(1048576, this) == null) && this.a.f) {
-                    if (!this.a.g) {
-                        if (this.a.a == 0) {
-                            if (this.a.e != null) {
-                                this.a.e.a();
+                if ((interceptable2 == null || interceptable2.invokeV(1048576, this) == null) && this.Pw.Pu) {
+                    if (!this.Pw.Pv) {
+                        if (this.Pw.countDown == 0) {
+                            if (this.Pw.Pt != null) {
+                                this.Pw.Pt.dg();
                                 return;
                             }
                             return;
                         }
-                        KsAutoCloseView ksAutoCloseView = this.a;
-                        ksAutoCloseView.b(ksAutoCloseView.a);
-                        KsAutoCloseView.e(this.a);
+                        KsAutoCloseView ksAutoCloseView = this.Pw;
+                        ksAutoCloseView.x(ksAutoCloseView.countDown);
+                        KsAutoCloseView.e(this.Pw);
                     }
-                    this.a.postDelayed(this, 1000L);
+                    this.Pw.postDelayed(this, 1000L);
                 }
             }
         });
     }
 
-    public final void a(boolean z) {
+    public final void aG(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            this.f = z;
+            this.Pu = z;
             int i = z ? 0 : 8;
-            TextView textView = this.c;
+            TextView textView = this.Pr;
             if (textView != null) {
                 textView.setVisibility(i);
             }
@@ -243,22 +243,22 @@ public class KsAutoCloseView extends LinearLayout implements View.OnClickListene
     @Override // android.view.View.OnClickListener
     public void onClick(View view2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2) == null) && this.e != null && view2.equals(this.d)) {
-            this.e.b();
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2) == null) && this.Pt != null && view2.equals(this.Ps)) {
+            this.Pt.dh();
         }
     }
 
     public void setCountDownPaused(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            this.g = z;
+            this.Pv = z;
         }
     }
 
     public void setViewListener(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) {
-            this.e = aVar;
+            this.Pt = aVar;
         }
     }
 }

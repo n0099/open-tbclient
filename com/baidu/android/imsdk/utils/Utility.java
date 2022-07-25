@@ -936,7 +936,7 @@ public final class Utility {
     public static int readLoginType(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65617, null, context)) == null) ? readIntData(context, Constants.KEY_LOGIN_TYPE, -1) : invokeL.intValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65617, null, context)) == null) ? readIntData(context, "login_type", -1) : invokeL.intValue;
     }
 
     public static long readLongData(Context context, String str, long j) {
@@ -979,7 +979,7 @@ public final class Utility {
     public static void removeLoginType(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65624, null, context) == null) {
-            removeKey(context, Constants.KEY_LOGIN_TYPE);
+            removeKey(context, "login_type");
         }
     }
 
@@ -1540,7 +1540,7 @@ public final class Utility {
     public static void writeLoginType(Context context, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(65668, null, context, i) == null) {
-            writeIntData(context, Constants.KEY_LOGIN_TYPE, i);
+            writeIntData(context, "login_type", i);
         }
     }
 

@@ -1,19 +1,10 @@
 package com.repackage;
+
+import android.content.Context;
+import android.content.DialogInterface;
+import com.repackage.mz2;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public interface jk1 {
-    void a(String str, on2 on2Var);
-
-    int getDuration();
-
-    boolean isPlaying();
-
-    void onRelease();
-
-    void pause();
-
-    void play();
-
-    void seek(int i);
-
-    void stop();
+    mz2.a a(Context context, i03 i03Var, i53 i53Var, JSONObject jSONObject, DialogInterface.OnClickListener onClickListener);
 }

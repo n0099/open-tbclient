@@ -7,7 +7,6 @@ import android.net.wifi.WifiManager;
 import android.telephony.TelephonyManager;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.sofire.utility.PermissionChecker;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -15,6 +14,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.kuaishou.weapon.p0.h;
 import java.net.Inet4Address;
 import java.net.InetAddress;
 import java.net.NetworkInterface;
@@ -219,7 +219,7 @@ public class RequsetNetworkUtils extends BaseUtils {
             if (context == null) {
                 return mTelephonyManager;
             }
-            if (context.checkCallingOrSelfPermission(PermissionChecker.READ_PHONE_STATE) == 0 && mTelephonyManager == null) {
+            if (context.checkCallingOrSelfPermission(h.c) == 0 && mTelephonyManager == null) {
                 mTelephonyManager = (TelephonyManager) context.getSystemService("phone");
             }
             return mTelephonyManager;
@@ -232,7 +232,7 @@ public class RequsetNetworkUtils extends BaseUtils {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, context)) == null) {
             try {
-                if (context.checkCallingOrSelfPermission(PermissionChecker.ACCESS_WIFI_STATE) == 0) {
+                if (context.checkCallingOrSelfPermission(h.d) == 0) {
                     int ipAddress = ((WifiManager) context.getSystemService("wifi")).getConnectionInfo().getIpAddress();
                     return String.format("%d.%d.%d.%d", Integer.valueOf(ipAddress & 255), Integer.valueOf((ipAddress >> 8) & 255), Integer.valueOf((ipAddress >> 16) & 255), Integer.valueOf((ipAddress >> 24) & 255));
                 }

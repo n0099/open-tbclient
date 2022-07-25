@@ -104,12 +104,12 @@ public class of8 extends BaseAdapter {
             String valueOf;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                if (view2.getId() == R.id.obfuscated_res_0x7f090a30) {
+                if (view2.getId() == R.id.obfuscated_res_0x7f090a29) {
                     if (!ni.z()) {
-                        this.a.b.showToast(R.string.obfuscated_res_0x7f0f0c2b);
+                        this.a.b.showToast(R.string.obfuscated_res_0x7f0f0c17);
                     } else if (ViewHelper.checkUpIsLogin(this.a.b.getPageActivity())) {
-                        String valueOf2 = view2.getTag(R.id.obfuscated_res_0x7f090a6a) == null ? "" : String.valueOf(view2.getTag(R.id.obfuscated_res_0x7f090a6a));
-                        valueOf = view2.getTag(R.id.obfuscated_res_0x7f090a08) != null ? String.valueOf(view2.getTag(R.id.obfuscated_res_0x7f090a08)) : "";
+                        String valueOf2 = view2.getTag(R.id.obfuscated_res_0x7f090a63) == null ? "" : String.valueOf(view2.getTag(R.id.obfuscated_res_0x7f090a63));
+                        valueOf = view2.getTag(R.id.obfuscated_res_0x7f090a01) != null ? String.valueOf(view2.getTag(R.id.obfuscated_res_0x7f090a01)) : "";
                         this.a.e.R(valueOf2, valueOf);
                         if (this.a.c != 1) {
                             if (this.a.c == 2) {
@@ -120,9 +120,9 @@ public class of8 extends BaseAdapter {
                         }
                         TiebaStatic.log(new StatisticItem("c10566").param("fid", valueOf));
                     }
-                } else if (view2.getId() != R.id.obfuscated_res_0x7f091df7) {
-                    String valueOf3 = view2.getTag(R.id.obfuscated_res_0x7f090a6a) == null ? "" : String.valueOf(view2.getTag(R.id.obfuscated_res_0x7f090a6a));
-                    valueOf = view2.getTag(R.id.obfuscated_res_0x7f090a08) != null ? String.valueOf(view2.getTag(R.id.obfuscated_res_0x7f090a08)) : "";
+                } else if (view2.getId() != R.id.obfuscated_res_0x7f091dfd) {
+                    String valueOf3 = view2.getTag(R.id.obfuscated_res_0x7f090a63) == null ? "" : String.valueOf(view2.getTag(R.id.obfuscated_res_0x7f090a63));
+                    valueOf = view2.getTag(R.id.obfuscated_res_0x7f090a01) != null ? String.valueOf(view2.getTag(R.id.obfuscated_res_0x7f090a01)) : "";
                     this.a.b.sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.a.b.getContext()).createNormalCfg(valueOf3, null)));
                     if (this.a.c != 1) {
                         if (this.a.c == 2) {
@@ -262,7 +262,7 @@ public class of8 extends BaseAdapter {
         if (interceptable == null || (invokeILL = interceptable.invokeILL(1048582, this, i, view2, viewGroup)) == null) {
             if (i == 0) {
                 if (view2 == null || !(view2 instanceof TbImageView)) {
-                    view2 = LayoutInflater.from(this.b.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d079e, (ViewGroup) null);
+                    view2 = LayoutInflater.from(this.b.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d07a8, (ViewGroup) null);
                 }
                 SkinManager.setImageResource((TbImageView) view2, this.c == 1 ? R.drawable.pic_batuijian_bg_red : R.drawable.pic_batuijian_bg_yellow);
                 SkinManager.setBackgroundColor(view2, R.color.CAM_X0201);
@@ -272,22 +272,22 @@ public class of8 extends BaseAdapter {
             if (item == null) {
                 return null;
             }
-            if (view2 == null || !(view2.getTag(R.id.obfuscated_res_0x7f090a46) instanceof c)) {
-                view2 = LayoutInflater.from(this.b.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d079f, (ViewGroup) null);
+            if (view2 == null || !(view2.getTag(R.id.obfuscated_res_0x7f090a3f) instanceof c)) {
+                view2 = LayoutInflater.from(this.b.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d07a9, (ViewGroup) null);
                 c cVar = new c(this, null);
-                cVar.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090a46);
-                cVar.b = (BarImageView) view2.findViewById(R.id.obfuscated_res_0x7f090a2b);
-                cVar.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090a30);
-                cVar.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090a6a);
-                cVar.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090a08);
-                cVar.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090a74);
+                cVar.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090a3f);
+                cVar.b = (BarImageView) view2.findViewById(R.id.obfuscated_res_0x7f090a24);
+                cVar.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090a29);
+                cVar.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090a63);
+                cVar.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090a01);
+                cVar.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090a6d);
                 pi.b(this.b.getPageActivity(), cVar.f, 20, 20, 20, 20);
                 cVar.f.setOnClickListener(this.f);
                 view2.setOnClickListener(this.f);
-                view2.setTag(R.id.obfuscated_res_0x7f090a46, cVar);
+                view2.setTag(R.id.obfuscated_res_0x7f090a3f, cVar);
             }
             SkinManager.setBackgroundResource(view2, R.drawable.square_list_item_bg_selector);
-            c cVar2 = (c) view2.getTag(R.id.obfuscated_res_0x7f090a46);
+            c cVar2 = (c) view2.getTag(R.id.obfuscated_res_0x7f090a3f);
             if (i == 1) {
                 cVar2.a.setText("");
                 SkinManager.setBackgroundResource(cVar2.a, R.drawable.icon_grade_shaitu1);
@@ -308,19 +308,19 @@ public class of8 extends BaseAdapter {
             }
             SkinManager.setViewTextColor(cVar2.a, (int) R.color.CAM_X0108);
             cVar2.b.J(item.avatar, 10, false);
-            cVar2.c.setText(item.forum_name + this.b.getString(R.string.obfuscated_res_0x7f0f0650));
+            cVar2.c.setText(item.forum_name + this.b.getString(R.string.obfuscated_res_0x7f0f064c));
             SkinManager.setViewTextColor(cVar2.c, (int) R.color.CAM_X0105);
             Integer num = this.a.get(item.forum_id);
             int intValue = item.like_num.intValue() + (num == null ? 0 : num.intValue());
-            cVar2.d.setText(this.b.getString(R.string.obfuscated_res_0x7f0f02a7) + ":" + StringHelper.numberUniformFormat(intValue) + GlideException.IndentedAppendable.INDENT + this.b.getString(R.string.obfuscated_res_0x7f0f13c6) + ":" + StringHelper.numberUniformFormat(item.post_num.intValue()));
+            cVar2.d.setText(this.b.getString(R.string.obfuscated_res_0x7f0f02a7) + ":" + StringHelper.numberUniformFormat(intValue) + GlideException.IndentedAppendable.INDENT + this.b.getString(R.string.obfuscated_res_0x7f0f1375) + ":" + StringHelper.numberUniformFormat(item.post_num.intValue()));
             SkinManager.setViewTextColor(cVar2.d, (int) R.color.CAM_X0109);
             cVar2.e.setText(item._abstract);
             SkinManager.setViewTextColor(cVar2.e, (int) R.color.CAM_X0109);
-            cVar2.f.setTag(R.id.obfuscated_res_0x7f090a6a, item.forum_name);
-            cVar2.f.setTag(R.id.obfuscated_res_0x7f090a08, item.forum_id);
+            cVar2.f.setTag(R.id.obfuscated_res_0x7f090a63, item.forum_name);
+            cVar2.f.setTag(R.id.obfuscated_res_0x7f090a01, item.forum_id);
             int intValue2 = this.a.get(item.forum_id) == null ? 0 : this.a.get(item.forum_id).intValue();
             if ((item.is_like.intValue() == 0 && intValue2 > 0) || (item.is_like.intValue() == 1 && intValue2 >= 0)) {
-                cVar2.f.setText(R.string.obfuscated_res_0x7f0f0f9e);
+                cVar2.f.setText(R.string.obfuscated_res_0x7f0f0f87);
                 cVar2.f.setBackgroundResource(0);
                 SkinManager.setViewTextColor(cVar2.f, (int) R.color.CAM_X0109);
             } else {
@@ -328,7 +328,7 @@ public class of8 extends BaseAdapter {
                 cVar2.f.setBackgroundResource(R.drawable.btn_blue_bg);
                 SkinManager.setViewTextColor(cVar2.f, (int) R.color.CAM_X0101);
             }
-            view2.setTag(R.id.obfuscated_res_0x7f090a6a, item.forum_name);
+            view2.setTag(R.id.obfuscated_res_0x7f090a63, item.forum_name);
             return view2;
         }
         return (View) invokeILL.objValue;

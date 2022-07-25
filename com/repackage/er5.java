@@ -78,7 +78,7 @@ public class er5 extends an<nr5, ConcernTabLiveItemView.ViewHolder> {
                 return null;
             }
             viewHolder.a.i(nr5Var);
-            return viewHolder.b();
+            return viewHolder.a();
         }
         return (View) invokeCommon.objValue;
     }

@@ -24,15 +24,15 @@ import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class zc1 extends wc1 {
     public static /* synthetic */ Interceptable $ic;
-    public static AtomicBoolean o0;
-    public static boolean p0;
+    public static AtomicBoolean i0;
+    public static boolean j0;
     public transient /* synthetic */ FieldHolder $fh;
-    public AdVideoView i0;
-    public AtomicInteger j0;
-    public volatile boolean k0;
-    public ld1 l0;
-    public ld1.a m0;
-    public ld1.b n0;
+    public AdVideoView c0;
+    public AtomicInteger d0;
+    public volatile boolean e0;
+    public ld1 f0;
+    public ld1.a g0;
+    public ld1.b h0;
 
     /* loaded from: classes7.dex */
     public class a implements ld1 {
@@ -95,7 +95,7 @@ public class zc1 extends wc1 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
                 try {
-                    AdVideoView adVideoView = this.a.i0;
+                    AdVideoView adVideoView = this.a.c0;
                     adVideoView.getLayoutParams().width = -1;
                     adVideoView.getLayoutParams().height = -1;
                     zc1.super.C();
@@ -136,8 +136,8 @@ public class zc1 extends wc1 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 try {
-                    if (this.a.i0 != null) {
-                        AdVideoView adVideoView = this.a.i0;
+                    if (this.a.c0 != null) {
+                        AdVideoView adVideoView = this.a.c0;
                         adVideoView.getLayoutParams().width = 1;
                         adVideoView.getLayoutParams().height = 1;
                     }
@@ -290,15 +290,15 @@ public class zc1 extends wc1 {
                 return;
             }
         }
-        this.j0 = new AtomicInteger(0);
-        this.k0 = false;
-        this.l0 = new a(this);
-        this.m0 = new b(this);
-        this.n0 = new c(this);
+        this.d0 = new AtomicInteger(0);
+        this.e0 = false;
+        this.f0 = new a(this);
+        this.g0 = new b(this);
+        this.h0 = new c(this);
         this.r = "video";
         try {
             AdVideoView adVideoView = new AdVideoView(this.a);
-            this.i0 = adVideoView;
+            this.c0 = adVideoView;
             if (this.F == 17) {
                 adVideoView.setDisplayMode(7);
             } else {
@@ -306,14 +306,14 @@ public class zc1 extends wc1 {
             }
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(1, 1);
             layoutParams.addRule(13);
-            j(this.i0, layoutParams);
-            this.i0.setAdVideoViewListener(this.l0);
-            this.i0.setDestroyedListener(this.m0);
-            this.i0.setPreparedListener(this.n0);
-            this.i0.B();
-            this.i0.n();
-            this.i0.setVideoMute(true);
-            this.i0.setVideoUrl(g0());
+            j(this.c0, layoutParams);
+            this.c0.setAdVideoViewListener(this.f0);
+            this.c0.setDestroyedListener(this.g0);
+            this.c0.setPreparedListener(this.h0);
+            this.c0.B();
+            this.c0.n();
+            this.c0.setVideoMute(true);
+            this.c0.setVideoUrl(g0());
         } catch (Exception e2) {
             f0("video_container_excepiton_constructor_" + e2.toString());
         }
@@ -324,7 +324,7 @@ public class zc1 extends wc1 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             try {
-                this.i0.A(g0());
+                this.c0.A(g0());
                 e0();
             } catch (Exception e2) {
                 f0("video_container_excepiton_doStartOnUIThread_" + e2.toString());
@@ -335,10 +335,10 @@ public class zc1 extends wc1 {
     @Override // com.repackage.wc1
     public void U() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.i0 == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.c0 == null) {
             return;
         }
-        p0 = true;
+        j0 = true;
     }
 
     @Override // com.repackage.wc1
@@ -360,7 +360,7 @@ public class zc1 extends wc1 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             try {
-                if (this.j0.incrementAndGet() == 2) {
+                if (this.d0.incrementAndGet() == 2) {
                     uh0.b(new e(this));
                 }
             } catch (Throwable unused) {
@@ -371,7 +371,7 @@ public class zc1 extends wc1 {
     public final void f0(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            p0 = false;
+            j0 = false;
             super.y(str);
         }
     }
@@ -396,7 +396,7 @@ public class zc1 extends wc1 {
     public final void h0() {
         AtomicBoolean atomicBoolean;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || (atomicBoolean = o0) == null) {
+        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || (atomicBoolean = i0) == null) {
             return;
         }
         atomicBoolean.compareAndSet(true, false);
@@ -405,10 +405,10 @@ public class zc1 extends wc1 {
     public final void i0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            if (o0 == null) {
-                o0 = new AtomicBoolean(true);
+            if (i0 == null) {
+                i0 = new AtomicBoolean(true);
             }
-            o0.compareAndSet(false, true);
+            i0.compareAndSet(false, true);
         }
     }
 
@@ -417,7 +417,7 @@ public class zc1 extends wc1 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
             super.load();
-            this.i0.setOnClickListener(new d(this));
+            this.c0.setOnClickListener(new d(this));
             V();
         }
     }
@@ -450,9 +450,9 @@ public class zc1 extends wc1 {
     public void onWindowFocusChanged(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048590, this, z) == null) {
-            String str = wc1.h0;
+            String str = wc1.b0;
             Log.d(str, "onWindowFocusChanged: " + z);
-            AdVideoView adVideoView = this.i0;
+            AdVideoView adVideoView = this.c0;
             if (adVideoView == null) {
                 return;
             }
@@ -461,10 +461,10 @@ public class zc1 extends wc1 {
             } else {
                 adVideoView.s();
             }
-            if (this.i0 != null && this.k0 && z && !p0) {
+            if (this.c0 != null && this.e0 && z && !j0) {
                 f0("onWindowFocusChanged");
             }
-            this.k0 = !z;
+            this.e0 = !z;
         }
     }
 
@@ -479,7 +479,7 @@ public class zc1 extends wc1 {
     public void z() {
         AdVideoView adVideoView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048592, this) == null) || (adVideoView = this.i0) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048592, this) == null) || (adVideoView = this.c0) == null) {
             return;
         }
         adVideoView.setOnClickListener(null);

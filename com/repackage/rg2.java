@@ -1,29 +1,16 @@
 package com.repackage;
 
-import android.view.Surface;
-import androidx.annotation.NonNull;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes7.dex */
-public interface rg2 extends tg2 {
+public class rg2 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
-    public interface a {
+    public static boolean a(long j) {
+        InterceptResult invokeJ;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(65536, null, j)) == null) ? j > 0 : invokeJ.booleanValue;
     }
-
-    void R(int i, int i2);
-
-    void X(long j);
-
-    int getVideoHeight();
-
-    int getVideoWidth();
-
-    void m(String str);
-
-    void o(@NonNull a aVar);
-
-    void s(int i, int i2, int i3, int i4);
-
-    void setSurface(Surface surface);
-
-    void z(int i);
 }

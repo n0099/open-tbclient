@@ -47,11 +47,11 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.be6;
 import com.repackage.cr5;
-import com.repackage.p55;
 import com.repackage.q55;
-import com.repackage.st4;
-import com.repackage.xt4;
+import com.repackage.r55;
+import com.repackage.tt4;
 import com.repackage.yc6;
+import com.repackage.yt4;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import tbclient.FrsTabInfo;
@@ -123,7 +123,7 @@ public class AlaSquareDelegateStatic {
         public CustomResponsedMessage<String> run(CustomMessage customMessage) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) ? new CustomResponsedMessage<>(2911006, xt4.k().q("show_live_forum_url", "http://tieba.baidu.com/f?kw=百度直播")) : (CustomResponsedMessage) invokeL.objValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) ? new CustomResponsedMessage<>(2911006, yt4.k().q("show_live_forum_url", "http://tieba.baidu.com/f?kw=百度直播")) : (CustomResponsedMessage) invokeL.objValue;
         }
     }
 
@@ -150,7 +150,7 @@ public class AlaSquareDelegateStatic {
         public CustomResponsedMessage<String> run(CustomMessage customMessage) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) ? new CustomResponsedMessage<>(2911008, xt4.k().q("show_live_forum_name", "百度直播")) : (CustomResponsedMessage) invokeL.objValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) ? new CustomResponsedMessage<>(2911008, yt4.k().q("show_live_forum_name", "百度直播")) : (CustomResponsedMessage) invokeL.objValue;
         }
     }
 
@@ -181,7 +181,7 @@ public class AlaSquareDelegateStatic {
                 if (strArr != null && strArr.length != 0 && strArr[0] != null && tbPageContext != null) {
                     String lowerCase = strArr[0].toLowerCase();
                     if (lowerCase.contains(UrlSchemaHelper.JUMP_TO_VIDEO_SQUARE)) {
-                        st4.f(tbPageContext.getPageActivity(), 15, true);
+                        tt4.f(tbPageContext.getPageActivity(), 15, true);
                         return 1;
                     } else if (lowerCase.startsWith(UrlSchemaHelper.SCHEMA_TO_FORUM_USER_LIVE)) {
                         Uri parse = Uri.parse(lowerCase);
@@ -323,7 +323,7 @@ public class AlaSquareDelegateStatic {
     }
 
     /* loaded from: classes3.dex */
-    public static class h extends p55 {
+    public static class h extends q55 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ yc6 c;
@@ -346,23 +346,23 @@ public class AlaSquareDelegateStatic {
             this.c = yc6Var;
         }
 
-        @Override // com.repackage.p55
-        public q55 a() {
+        @Override // com.repackage.q55
+        public r55 a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
                 LiveTabYYSubFragment K1 = LiveTabYYSubFragment.K1(false, 2);
                 K1.u1(this.c.b(), this.c.c());
-                q55 q55Var = new q55();
-                q55Var.a = K1;
-                q55Var.e = 1120;
-                q55Var.i = q55.k;
-                return q55Var;
+                r55 r55Var = new r55();
+                r55Var.a = K1;
+                r55Var.e = 1120;
+                r55Var.i = r55.k;
+                return r55Var;
             }
-            return (q55) invokeV.objValue;
+            return (r55) invokeV.objValue;
         }
 
-        @Override // com.repackage.p55
+        @Override // com.repackage.q55
         public TbFragmentTabIndicator c(Context context) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
@@ -372,7 +372,7 @@ public class AlaSquareDelegateStatic {
             return (TbFragmentTabIndicator) invokeL.objValue;
         }
 
-        @Override // com.repackage.p55
+        @Override // com.repackage.q55
         public boolean d() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;

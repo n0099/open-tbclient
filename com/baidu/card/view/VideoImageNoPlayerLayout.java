@@ -24,12 +24,12 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.gx;
 import com.repackage.jy5;
-import com.repackage.nn4;
+import com.repackage.on4;
 import com.repackage.oy;
-import com.repackage.ur4;
+import com.repackage.vr4;
 import java.lang.ref.WeakReference;
 /* loaded from: classes.dex */
-public class VideoImageNoPlayerLayout extends RelativeLayout implements gx<nn4> {
+public class VideoImageNoPlayerLayout extends RelativeLayout implements gx<on4> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
@@ -44,8 +44,8 @@ public class VideoImageNoPlayerLayout extends RelativeLayout implements gx<nn4> 
     public RelativeLayout j;
     public RelativeLayout k;
     public boolean l;
-    public jy5<nn4> m;
-    public nn4 n;
+    public jy5<on4> m;
+    public on4 n;
     public View.OnClickListener o;
     public oy p;
 
@@ -149,18 +149,18 @@ public class VideoImageNoPlayerLayout extends RelativeLayout implements gx<nn4> 
     public final void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d087d, (ViewGroup) this, true);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0887, (ViewGroup) this, true);
             setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
-            this.j = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f09166e);
-            this.k = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f09238b);
+            this.j = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091649);
+            this.k = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f09238d);
             new WeakReference(TbadkCoreApplication.getInst());
-            this.c = (TbImageView) findViewById(R.id.obfuscated_res_0x7f0923fb);
-            this.d = findViewById(R.id.obfuscated_res_0x7f0923fc);
-            this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f0923ca);
-            this.f = (ImageView) findViewById(R.id.obfuscated_res_0x7f0923bf);
-            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f0923cc);
-            this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f0923ce);
-            this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f092393);
+            this.c = (TbImageView) findViewById(R.id.obfuscated_res_0x7f0923fd);
+            this.d = findViewById(R.id.obfuscated_res_0x7f0923fe);
+            this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f0923cc);
+            this.f = (ImageView) findViewById(R.id.obfuscated_res_0x7f0923c1);
+            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f0923ce);
+            this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f0923d0);
+            this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f092395);
             this.c.setConrers(15);
             this.c.setRadiusById(R.string.J_X05);
             this.c.setDrawCorner(true);
@@ -173,19 +173,19 @@ public class VideoImageNoPlayerLayout extends RelativeLayout implements gx<nn4> 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.repackage.gx
     /* renamed from: g */
-    public void a(nn4 nn4Var) {
+    public void a(on4 on4Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, nn4Var) == null) || nn4Var == null || nn4Var.getThreadData() == null || nn4Var.getThreadData().originalThreadData == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, on4Var) == null) || on4Var == null || on4Var.getThreadData() == null || on4Var.getThreadData().originalThreadData == null) {
             return;
         }
-        OriginalThreadInfo originalThreadInfo = nn4Var.getThreadData().originalThreadData;
+        OriginalThreadInfo originalThreadInfo = on4Var.getThreadData().originalThreadData;
         originalThreadInfo.r.is_vertical.intValue();
         String str = originalThreadInfo.f;
         originalThreadInfo.r.video_length.intValue();
         originalThreadInfo.r.video_duration.intValue();
         long j = originalThreadInfo.e;
         this.i.setText(StringHelper.stringForVideoTime(originalThreadInfo.r.video_duration.intValue() * 1000));
-        this.g.setText(String.format(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0e72), StringHelper.numFormatOverWan(originalThreadInfo.r.play_count.intValue())));
+        this.g.setText(String.format(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0e5b), StringHelper.numFormatOverWan(originalThreadInfo.r.play_count.intValue())));
         this.h.setVisibility(8);
         this.c.J(originalThreadInfo.r.thumbnail_url, 10, false);
     }
@@ -201,8 +201,8 @@ public class VideoImageNoPlayerLayout extends RelativeLayout implements gx<nn4> 
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048580, this, tbPageContext, i) == null) {
             if (this.b != i) {
-                ur4.d(this.d).s(R.array.Mask_X003);
-                ur4.d(this.d).n(R.string.J_X05);
+                vr4.d(this.d).s(R.array.Mask_X003);
+                vr4.d(this.d).n(R.string.J_X05);
                 SkinManager.setBackgroundColor(this.j, R.color.CAM_X0206);
                 SkinManager.setBackgroundColor(this.k, R.color.CAM_X0206);
                 SkinManager.setBackgroundColor(this, R.color.CAM_X0206);
@@ -229,10 +229,10 @@ public class VideoImageNoPlayerLayout extends RelativeLayout implements gx<nn4> 
         }
     }
 
-    public void setData(nn4 nn4Var) {
+    public void setData(on4 on4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, nn4Var) == null) {
-            this.n = nn4Var;
+        if (interceptable == null || interceptable.invokeL(1048583, this, on4Var) == null) {
+            this.n = on4Var;
         }
     }
 
@@ -243,7 +243,7 @@ public class VideoImageNoPlayerLayout extends RelativeLayout implements gx<nn4> 
         }
     }
 
-    public void setOnCardSubClickListener(jy5<nn4> jy5Var) {
+    public void setOnCardSubClickListener(jy5<on4> jy5Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, jy5Var) == null) {
             this.m = jy5Var;

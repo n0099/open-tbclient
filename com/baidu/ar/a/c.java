@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.kuaishou.weapon.p0.C0294;
+import com.kuaishou.weapon.p0.k1;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.util.HashMap;
@@ -64,7 +64,7 @@ public class c {
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
             try {
                 HashMap hashMap = new HashMap();
-                BufferedReader bufferedReader = new BufferedReader(new FileReader(C0294.f19));
+                BufferedReader bufferedReader = new BufferedReader(new FileReader(k1.a));
                 while (true) {
                     String readLine = bufferedReader.readLine();
                     if (readLine == null) {

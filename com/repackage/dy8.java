@@ -41,19 +41,19 @@ public class dy8 extends cy8 {
                 return;
             }
         }
-        g = d9Var.getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f070304);
+        g = d9Var.getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f070302);
     }
 
     @Override // com.repackage.cy8
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            View inflate = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d06e7, (ViewGroup) null);
+            View inflate = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d06f1, (ViewGroup) null);
             this.b = inflate;
-            this.c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091b77);
-            this.d = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091b79);
-            this.e = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091b78);
-            this.f = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091b7a);
+            this.c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091b51);
+            this.d = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091b53);
+            this.e = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091b52);
+            this.f = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091b54);
         }
     }
 

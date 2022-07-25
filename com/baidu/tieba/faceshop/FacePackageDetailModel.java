@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.br4;
+import com.repackage.cr4;
 import com.repackage.d9;
 import com.repackage.oi;
 import com.repackage.pi;
@@ -246,8 +246,8 @@ public class FacePackageDetailModel extends BdBaseModel<FacePackageDetailActivit
         public final void b(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                br4.f();
-                te<String> g = br4.g("tb_face_package");
+                cr4.f();
+                te<String> g = cr4.g("tb_face_package");
                 if (g != null) {
                     g.e(TbadkCoreApplication.getCurrentAccount() + this.c.d, str, 604800000L);
                 }
@@ -268,8 +268,8 @@ public class FacePackageDetailModel extends BdBaseModel<FacePackageDetailActivit
                 if (this.c.d == null || this.c.d.length() <= 0 || this.b) {
                     return null;
                 }
-                br4.f();
-                te<String> g = br4.g("tb_face_package");
+                cr4.f();
+                te<String> g = cr4.g("tb_face_package");
                 if (g != null) {
                     String str = g.get(TbadkCoreApplication.getCurrentAccount() + this.c.d);
                     if (!oi.isEmpty(str)) {

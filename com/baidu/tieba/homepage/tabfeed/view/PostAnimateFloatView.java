@@ -27,8 +27,8 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.hx;
 import com.repackage.qg;
-import com.repackage.ur4;
 import com.repackage.uz6;
+import com.repackage.vr4;
 /* loaded from: classes3.dex */
 public class PostAnimateFloatView extends FrameLayout implements hx {
     public static /* synthetic */ Interceptable $ic;
@@ -363,12 +363,12 @@ public class PostAnimateFloatView extends FrameLayout implements hx {
     public final void i(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d04b1, (ViewGroup) this, true);
-            this.a = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091b5c);
-            this.b = (ImageView) findViewById(R.id.obfuscated_res_0x7f091955);
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f09196c);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d04af, (ViewGroup) this, true);
+            this.a = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091b36);
+            this.b = (ImageView) findViewById(R.id.obfuscated_res_0x7f091930);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f091947);
             this.c = textView;
-            this.f = textView.getPaint().measureText(getContext().getString(R.string.obfuscated_res_0x7f0f0ec6));
+            this.f = textView.getPaint().measureText(getContext().getString(R.string.obfuscated_res_0x7f0f0eaf));
             j();
             this.a.setOnClickListener(new b(this));
         }
@@ -426,7 +426,7 @@ public class PostAnimateFloatView extends FrameLayout implements hx {
             }
             LinearLayout linearLayout = this.a;
             if (linearLayout != null) {
-                ur4 d2 = ur4.d(linearLayout);
+                vr4 d2 = vr4.d(linearLayout);
                 d2.n(R.string.J_X01);
                 d2.h(R.color.CAM_X0302);
             }

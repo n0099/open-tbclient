@@ -77,7 +77,7 @@ public class ip7 implements View.OnClickListener, BaseInterestSelectionFragment.
             InterestedForumStyleAFragment y1 = InterestedForumStyleAFragment.y1(this.b, this.e);
             this.j = y1;
             y1.v1(list);
-            b().beginTransaction().add(R.id.obfuscated_res_0x7f0906b5, this.j).addToBackStack(null).commitAllowingStateLoss();
+            b().beginTransaction().add(R.id.obfuscated_res_0x7f0906b4, this.j).addToBackStack(null).commitAllowingStateLoss();
             ep7.a(b().getFragments().size() == 1 ? 1 : 2, 1, this.b, c(list), "");
         }
     }
@@ -131,9 +131,9 @@ public class ip7 implements View.OnClickListener, BaseInterestSelectionFragment.
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d003d, (ViewGroup) null);
             this.f = inflate;
-            NavigationBar navigationBar = (NavigationBar) inflate.findViewById(R.id.obfuscated_res_0x7f09158d);
+            NavigationBar navigationBar = (NavigationBar) inflate.findViewById(R.id.obfuscated_res_0x7f091568);
             this.i = navigationBar;
-            TextView addTextButton = navigationBar.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, this.a.getString(R.string.obfuscated_res_0x7f0f11b6));
+            TextView addTextButton = navigationBar.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, this.a.getString(R.string.obfuscated_res_0x7f0f1165));
             this.h = addTextButton;
             addTextButton.setId(R.id.obfuscated_res_0x7f090433);
             SkinManager.setViewTextColor(this.h, (int) R.color.CAM_X0108);
@@ -153,7 +153,7 @@ public class ip7 implements View.OnClickListener, BaseInterestSelectionFragment.
                 this.k = w1;
                 baseInterestedForumFragment = w1;
             }
-            b().beginTransaction().add(R.id.obfuscated_res_0x7f0906b5, baseInterestedForumFragment).commitAllowingStateLoss();
+            b().beginTransaction().add(R.id.obfuscated_res_0x7f0906b4, baseInterestedForumFragment).commitAllowingStateLoss();
             TiebaStatic.log(new StatisticItem("c13681"));
         }
     }

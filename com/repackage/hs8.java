@@ -48,9 +48,9 @@ public class hs8 {
         }
 
         @Override // com.baidu.tieba.NEGFeedBack.NEGFeedBackView.b
-        public void a(ArrayList<Integer> arrayList, String str, kp4 kp4Var) {
+        public void a(ArrayList<Integer> arrayList, String str, lp4 lp4Var) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLLL(1048576, this, arrayList, str, kp4Var) == null) || arrayList == null || kp4Var == null) {
+            if (!(interceptable == null || interceptable.invokeLLL(1048576, this, arrayList, str, lp4Var) == null) || arrayList == null || lp4Var == null) {
                 return;
             }
             StringBuilder sb = new StringBuilder();
@@ -63,7 +63,7 @@ public class hs8 {
             if (sb.length() > 0) {
                 sb.deleteCharAt(sb.length() - 1);
             }
-            int i3 = kp4Var.n;
+            int i3 = lp4Var.n;
             int i4 = 3;
             if (i3 == 0) {
                 i = 1;
@@ -72,26 +72,26 @@ public class hs8 {
             } else if (i3 == 49 || i3 == 69) {
                 i = 3;
             }
-            boolean z = kp4Var.r;
+            boolean z = lp4Var.r;
             if (!this.a.a) {
                 i4 = z ? 5 : 4;
             } else if (!z) {
                 i4 = 2;
             }
-            StatisticItem.make(TbadkCoreStatisticKey.NEG_FEEDBACK_KEY).param("tid", kp4Var.f()).param("nid", kp4Var.e()).param("uid", TbadkCoreApplication.getCurrentAccount()).param("fid", kp4Var.c()).param("obj_param1", kp4Var.k).param("obj_source", kp4Var.l).param("obj_id", kp4Var.m).param("obj_type", sb.toString()).param("obj_name", str).param(TiebaStatic.Params.OBJ_PARAM2, i).param("obj_locate", i4).eventStat();
+            StatisticItem.make(TbadkCoreStatisticKey.NEG_FEEDBACK_KEY).param("tid", lp4Var.f()).param("nid", lp4Var.e()).param("uid", TbadkCoreApplication.getCurrentAccount()).param("fid", lp4Var.c()).param("obj_param1", lp4Var.k).param("obj_source", lp4Var.l).param("obj_id", lp4Var.m).param("obj_type", sb.toString()).param("obj_name", str).param(TiebaStatic.Params.OBJ_PARAM2, i).param("obj_locate", i4).eventStat();
         }
 
         @Override // com.baidu.tieba.NEGFeedBack.NEGFeedBackView.b
-        public void b(kp4 kp4Var, CompoundButton compoundButton, boolean z) {
+        public void b(lp4 lp4Var, CompoundButton compoundButton, boolean z) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, kp4Var, compoundButton, z) == null) {
+            if (interceptable == null || interceptable.invokeLLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, lp4Var, compoundButton, z) == null) {
             }
         }
 
         @Override // com.baidu.tieba.NEGFeedBack.NEGFeedBackView.b
-        public void c(kp4 kp4Var) {
+        public void c(lp4 lp4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, kp4Var) == null) {
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, lp4Var) == null) {
             }
         }
     }
@@ -137,9 +137,9 @@ public class hs8 {
         if (this.b == null) {
             this.b = new ij5(tbPageContext);
         }
-        kp4 negFeedBackData = videoItemData.getNegFeedBackData();
+        lp4 negFeedBackData = videoItemData.getNegFeedBackData();
         if (negFeedBackData == null) {
-            negFeedBackData = new kp4();
+            negFeedBackData = new lp4();
         }
         String str = videoItemData.thread_id;
         String str2 = videoItemData.forum_id;

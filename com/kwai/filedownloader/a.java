@@ -6,119 +6,121 @@ public interface a {
 
     /* renamed from: com.kwai.filedownloader.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public interface InterfaceC0555a {
-        a F();
+    public interface InterfaceC0403a {
+        a Ci();
 
-        x.a G();
+        x.a Cj();
 
-        boolean H();
+        int Ck();
 
-        int I();
+        void Cl();
 
-        void J();
+        boolean Cm();
 
-        boolean K();
+        void Cn();
 
-        void L();
+        void Co();
 
-        void M();
+        boolean Cp();
 
-        void N();
+        boolean bR(int i);
 
-        boolean O();
+        void free();
 
-        boolean b(int i);
+        boolean isOver();
     }
 
     /* loaded from: classes5.dex */
     public interface b {
-        int a();
+        int Cq();
     }
 
     /* loaded from: classes5.dex */
     public interface c {
-        void a();
+        void Cr();
 
-        void n_();
+        void onBegin();
     }
 
-    int A();
+    b BR();
 
-    int B();
+    boolean BS();
 
-    boolean C();
+    boolean BT();
 
-    boolean D();
+    int BU();
 
-    boolean E();
+    int BV();
 
-    b a();
+    boolean BW();
 
-    a a(int i);
+    i BX();
+
+    long BY();
+
+    long BZ();
+
+    byte Ca();
+
+    boolean Cb();
+
+    Throwable Cc();
+
+    int Cd();
+
+    int Ce();
+
+    boolean Cf();
+
+    boolean Cg();
+
+    boolean Ch();
+
+    a Y(String str, String str2);
 
     a a(i iVar);
 
-    a a(Object obj);
+    a bA(boolean z);
 
-    a a(String str);
+    a bQ(int i);
 
-    a a(String str, String str2);
+    a by(boolean z);
 
-    a a(String str, boolean z);
+    a bz(boolean z);
 
-    a a(boolean z);
+    a c(String str, boolean z);
 
-    a b(String str);
+    boolean cancel();
 
-    a b(boolean z);
+    a en(String str);
 
-    boolean b();
+    a eo(String str);
 
-    boolean c();
+    a g(Object obj);
 
-    boolean d();
+    String getFilename();
 
-    int e();
+    int getId();
 
-    boolean f();
+    String getPath();
 
-    boolean g();
+    int getSmallFileSoFarBytes();
 
-    int h();
+    int getSmallFileTotalBytes();
 
-    String i();
+    int getSpeed();
 
-    int j();
+    long getStatusUpdateTime();
 
-    int k();
+    Object getTag();
 
-    String l();
+    String getTargetFilePath();
 
-    boolean m();
+    String getUrl();
 
-    String n();
+    boolean isRunning();
 
-    String o();
+    boolean pause();
 
-    i p();
-
-    int q();
-
-    long r();
-
-    int s();
-
-    long t();
-
-    int u();
-
-    byte v();
-
-    long w();
-
-    boolean x();
-
-    Throwable y();
-
-    Object z();
+    int start();
 }

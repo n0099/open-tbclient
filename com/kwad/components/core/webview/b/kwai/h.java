@@ -1,16 +1,15 @@
 package com.kwad.components.core.webview.b.kwai;
 
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.ksad.json.annotation.KsJson;
-@KsJson
 /* loaded from: classes5.dex */
-public class h extends com.kwad.sdk.core.response.kwai.a {
+public class h extends e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
 
     public h() {
         Interceptable interceptable = $ic;
@@ -24,5 +23,13 @@ public class h extends com.kwad.sdk.core.response.kwai.a {
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
+    }
+
+    @Override // com.kwad.sdk.core.webview.kwai.a
+    @NonNull
+    public final String getKey() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "registerVideoAutoPlayListener" : (String) invokeV.objValue;
     }
 }

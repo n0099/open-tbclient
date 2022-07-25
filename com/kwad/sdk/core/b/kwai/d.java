@@ -9,14 +9,14 @@ public final class d implements com.kwad.sdk.core.d<com.kwad.sdk.core.webview.a.
         if (jSONObject == null) {
             return;
         }
-        aVar.b = jSONObject.optBoolean("clickActionButton");
-        aVar.c = jSONObject.optInt(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_AREA);
+        aVar.Mv = jSONObject.optBoolean("clickActionButton");
+        aVar.Mx = jSONObject.optInt(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_AREA);
         com.kwad.sdk.core.webview.a.a.c cVar = new com.kwad.sdk.core.webview.a.a.c();
-        aVar.d = cVar;
+        aVar.My = cVar;
         cVar.parseJson(jSONObject.optJSONObject("logParam"));
-        aVar.e = jSONObject.optBoolean("needReport", new Boolean("true").booleanValue());
-        aVar.f = jSONObject.optLong("creativeId", new Long("-1").longValue());
-        aVar.g = jSONObject.optInt("adStyle", new Integer("-1").intValue());
+        aVar.DZ = jSONObject.optBoolean("needReport", new Boolean("true").booleanValue());
+        aVar.creativeId = jSONObject.optLong("creativeId", new Long("-1").longValue());
+        aVar.adStyle = jSONObject.optInt("adStyle", new Integer("-1").intValue());
     }
 
     /* renamed from: b  reason: avoid collision after fix types in other method */
@@ -24,12 +24,18 @@ public final class d implements com.kwad.sdk.core.d<com.kwad.sdk.core.webview.a.
         if (jSONObject == null) {
             jSONObject = new JSONObject();
         }
-        com.kwad.sdk.utils.r.a(jSONObject, "clickActionButton", aVar.b);
-        com.kwad.sdk.utils.r.a(jSONObject, CreateGroupActivityActivityConfig.GROUP_ACTIVITY_AREA, aVar.c);
-        com.kwad.sdk.utils.r.a(jSONObject, "logParam", aVar.d);
-        com.kwad.sdk.utils.r.a(jSONObject, "needReport", aVar.e);
-        com.kwad.sdk.utils.r.a(jSONObject, "creativeId", aVar.f);
-        com.kwad.sdk.utils.r.a(jSONObject, "adStyle", aVar.g);
+        boolean z = aVar.Mv;
+        if (z) {
+            com.kwad.sdk.utils.r.putValue(jSONObject, "clickActionButton", z);
+        }
+        int i = aVar.Mx;
+        if (i != 0) {
+            com.kwad.sdk.utils.r.putValue(jSONObject, CreateGroupActivityActivityConfig.GROUP_ACTIVITY_AREA, i);
+        }
+        com.kwad.sdk.utils.r.a(jSONObject, "logParam", aVar.My);
+        com.kwad.sdk.utils.r.putValue(jSONObject, "needReport", aVar.DZ);
+        com.kwad.sdk.utils.r.putValue(jSONObject, "creativeId", aVar.creativeId);
+        com.kwad.sdk.utils.r.putValue(jSONObject, "adStyle", aVar.adStyle);
         return jSONObject;
     }
 

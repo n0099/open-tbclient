@@ -6,13 +6,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.kwad.components.core.offline.init.kwai.h;
+import com.kwad.components.core.offline.init.kwai.i;
 import com.kwad.components.offline.api.core.api.IOfflineCompoWrapper;
 import com.kwad.components.offline.api.obiwan.IObiwanOfflineCompo;
 import com.kwad.components.offline.api.obiwan.IObiwanOfflineCompoInitConfig;
 import com.kwad.sdk.KsAdSDKImpl;
 import com.kwad.sdk.core.config.d;
-import com.kwad.sdk.utils.ap;
+import com.kwad.sdk.utils.as;
 /* loaded from: classes5.dex */
 public final class c implements IObiwanOfflineCompoInitConfig {
     public static /* synthetic */ Interceptable $ic;
@@ -36,41 +36,41 @@ public final class c implements IObiwanOfflineCompoInitConfig {
     public final String getLogDirPath() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? ap.d(KsAdSDKImpl.get().getContext()).getAbsolutePath() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? as.da(KsAdSDKImpl.get().getContext()).getAbsolutePath() : (String) invokeV.objValue;
     }
 
     @Override // com.kwad.components.offline.api.obiwan.IObiwanOfflineCompoInitConfig
     public final String getLogObiwanData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? d.af() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? d.getLogObiwanData() : (String) invokeV.objValue;
     }
 
     @Override // com.kwad.components.offline.api.obiwan.IObiwanOfflineCompoInitConfig
     public final long getLogObiwanStorageQuota() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? d.ae() : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? d.getLogObiwanStorageQuota() : invokeV.longValue;
     }
 
     @Override // com.kwad.components.offline.api.obiwan.IObiwanOfflineCompoInitConfig
     public final boolean isLogObiwanEnableNow() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? d.ac() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? d.isLogObiwanEnableNow() : invokeV.booleanValue;
     }
 
     @Override // com.kwad.components.offline.api.obiwan.IObiwanOfflineCompoInitConfig
     public final boolean isLogObiwanRecordAll() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? d.ad() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? d.isLogObiwanRecordAll() : invokeV.booleanValue;
     }
 
     @Override // com.kwad.components.offline.api.IOfflineCompoInitConfig
     public final IOfflineCompoWrapper wrapper() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? new h(IObiwanOfflineCompo.PACKAGE_NAME) : (IOfflineCompoWrapper) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? new i(IObiwanOfflineCompo.PACKAGE_NAME) : (IOfflineCompoWrapper) invokeV.objValue;
     }
 }

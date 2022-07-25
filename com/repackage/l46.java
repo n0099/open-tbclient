@@ -25,7 +25,7 @@ import java.util.Iterator;
 public class l46 implements kg<ym> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final z55 a;
+    public final a65 a;
 
     public l46() {
         Interceptable interceptable = $ic;
@@ -40,7 +40,7 @@ public class l46 implements kg<ym> {
                 return;
             }
         }
-        this.a = z55.b;
+        this.a = a65.b;
     }
 
     public final String a(String str, boolean z) {
@@ -75,7 +75,7 @@ public class l46 implements kg<ym> {
                 return null;
             }
             g(valueOf2);
-            ArrayList<b25> i3 = q46.k().i();
+            ArrayList<c25> i3 = q46.k().i();
             if ((q46.k().q(valueOf2) || q46.k().r(valueOf2)) && valueOf3.booleanValue() && !new File(q46.k().g(valueOf2, true)).exists()) {
                 valueOf3 = Boolean.FALSE;
             }
@@ -90,12 +90,12 @@ public class l46 implements kg<ym> {
             }
             if (valueOf3.booleanValue()) {
                 String g2 = q46.k().g(valueOf2, true);
-                Iterator<b25> it = i3.iterator();
+                Iterator<c25> it = i3.iterator();
                 while (true) {
                     if (!it.hasNext()) {
                         break;
                     }
-                    b25 next = it.next();
+                    c25 next = it.next();
                     if (next.m(valueOf2)) {
                         if (next.j()) {
                             ymVar2 = next.n(valueOf2);
@@ -110,14 +110,14 @@ public class l46 implements kg<ym> {
             if (booleanValue && q46.k().o(valueOf2)) {
                 g3 = g3.replaceFirst("s_", "d_");
             }
-            Iterator<b25> it2 = i3.iterator();
+            Iterator<c25> it2 = i3.iterator();
             ym ymVar3 = null;
             while (true) {
                 if (!it2.hasNext()) {
                     ymVar = ymVar3;
                     break;
                 }
-                b25 next2 = it2.next();
+                c25 next2 = it2.next();
                 if (next2.m(valueOf2)) {
                     if (next2.j()) {
                         ymVar3 = next2.o(valueOf2);
@@ -141,7 +141,7 @@ public class l46 implements kg<ym> {
     public ym getFromMemory(String str, String str2, int i, int i2, boolean z, Object... objArr) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, str2, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z), objArr})) == null) ? l45.k().m(a(str, Boolean.valueOf(String.valueOf(objArr[2])).booleanValue())) : (ym) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, str2, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z), objArr})) == null) ? m45.k().m(a(str, Boolean.valueOf(String.valueOf(objArr[2])).booleanValue())) : (ym) invokeCommon.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -158,7 +158,7 @@ public class l46 implements kg<ym> {
                 Boolean valueOf3 = Boolean.valueOf(String.valueOf(objArr[2]));
                 String valueOf4 = objArr[3] == null ? "" : String.valueOf(objArr[3]);
                 if (valueOf != null && valueOf2 != null && valueOf3 != null && valueOf4 != null) {
-                    nd5.g(l46.class.getSimpleName(), valueOf4);
+                    od5.g(l46.class.getSimpleName(), valueOf4);
                     WebClient webClient = new WebClient();
                     byte[] downloadImageBytes = webClient.downloadImageBytes(valueOf4, false);
                     boolean needCache = webClient.needCache();
@@ -179,13 +179,13 @@ public class l46 implements kg<ym> {
                                     diskCancelWorker.setOperate(wbVar);
                                     hgVar.a = diskCancelWorker;
                                 }
-                                Iterator<b25> it = q46.k().i().iterator();
+                                Iterator<c25> it = q46.k().i().iterator();
                                 while (true) {
                                     if (!it.hasNext()) {
                                         ymVar = null;
                                         break;
                                     }
-                                    b25 next = it.next();
+                                    c25 next = it.next();
                                     if (next.m(valueOf2)) {
                                         ymVar = e(next.f(), g, hgVar);
                                         break;
@@ -198,7 +198,7 @@ public class l46 implements kg<ym> {
                                     return null;
                                 }
                             } else {
-                                l45.k().i(80000);
+                                m45.k().i(80000);
                                 Bitmap checkBitmapSize = BitmapHelper.checkBitmapSize(BitmapHelper.Bytes2Bitmap(downloadImageBytes), i, i2);
                                 if (checkBitmapSize == null) {
                                     return null;
@@ -366,7 +366,7 @@ public class l46 implements kg<ym> {
     public boolean isNeedLoad() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? zm4.c().g() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? an4.c().g() : invokeV.booleanValue;
     }
 
     @Override // com.repackage.kg
@@ -377,7 +377,7 @@ public class l46 implements kg<ym> {
             if (ymVar.u()) {
                 ymVar.A(i);
                 ymVar.z(i2);
-                l45.k().d(a(str, Boolean.valueOf(String.valueOf(objArr[2])).booleanValue()), ymVar);
+                m45.k().d(a(str, Boolean.valueOf(String.valueOf(objArr[2])).booleanValue()), ymVar);
             }
         }
     }

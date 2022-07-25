@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.Button;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.pass.biometrics.base.utils.SapiSystemBarTintManager;
@@ -180,9 +181,9 @@ public class ViewUtility implements NoProguard {
                 z = false;
                 if (z && -1 == i) {
                     if (Build.VERSION.SDK_INT >= 23) {
-                        i = activity.getResources().getColor(R.color.obfuscated_res_0x7f0609b5);
+                        i = activity.getResources().getColor(R.color.obfuscated_res_0x7f0609aa);
                     } else {
-                        i = activity.getColor(R.color.obfuscated_res_0x7f0609b5);
+                        i = activity.getColor(R.color.obfuscated_res_0x7f0609aa);
                     }
                 }
                 if (!b(activity, true)) {
@@ -244,7 +245,9 @@ public class ViewUtility implements NoProguard {
         if (!(interceptable == null || interceptable.invokeLI(65543, null, view2, i) == null) || view2 == null) {
             return;
         }
-        if (view2 instanceof TextView) {
+        if (view2 instanceof Button) {
+            enlargedTextView((TextView) view2, i);
+        } else if (view2 instanceof TextView) {
             enlargedTextView((TextView) view2, i);
         } else {
             enlargedOtherView(view2, i);

@@ -1,14 +1,10 @@
 package com.repackage;
 
 import android.util.Log;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import androidx.annotation.AnyThread;
-import androidx.annotation.LayoutRes;
-import androidx.annotation.Nullable;
-import androidx.annotation.UiThread;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.apps.performance.HybridUbcFlow;
+import com.baidu.swan.apps.performance.UbcFlowEvent;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,157 +12,132 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.ConcurrentHashMap;
-import java.util.concurrent.CopyOnWriteArrayList;
 /* loaded from: classes7.dex */
-public class ru2 implements ll2 {
-    public static /* synthetic */ Interceptable $ic;
+public class ru2 implements bf3<HybridUbcFlow> {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static boolean b = true;
+    public static int c = -1;
     public transient /* synthetic */ FieldHolder $fh;
-    public ConcurrentHashMap<Integer, CopyOnWriteArrayList<View>> c;
+    public final String a;
 
     /* loaded from: classes7.dex */
-    public static /* synthetic */ class a {
+    public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-    }
 
-    /* loaded from: classes7.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static final ru2 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-30285180, "Lcom/repackage/ru2$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-30285180, "Lcom/repackage/ru2$b;");
-                    return;
+        public a(ru2 ru2Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ru2Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                 }
             }
-            a = new ru2(null);
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                ce3.Y();
+            }
         }
     }
 
-    public /* synthetic */ ru2(a aVar) {
-        this();
-    }
-
-    public static ru2 a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b.a : (ru2) invokeV.objValue;
-    }
-
-    @Nullable
-    @UiThread
-    public View b(@LayoutRes int i, @Nullable ViewGroup viewGroup, boolean z) {
-        InterceptResult invokeCommon;
-        ViewGroup.LayoutParams layoutParams;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), viewGroup, Boolean.valueOf(z)})) == null) {
-            View d = d(i);
-            if (d != null && viewGroup != null && (layoutParams = viewGroup.getLayoutParams()) != null) {
-                ViewGroup.LayoutParams layoutParams2 = d.getLayoutParams();
-                if (layoutParams2 == null) {
-                    layoutParams2 = new ViewGroup.LayoutParams(layoutParams);
-                } else {
-                    layoutParams2.width = layoutParams.width;
-                    layoutParams2.height = layoutParams.height;
-                }
-                d.setLayoutParams(layoutParams2);
-            }
-            if (d == null) {
-                long currentTimeMillis = System.currentTimeMillis();
-                View inflate = LayoutInflater.from(oj2.c()).inflate(i, viewGroup, z);
-                long currentTimeMillis2 = System.currentTimeMillis();
-                if (ll2.a) {
-                    Log.d("SwanPerformance", "getView resId = " + i + " ；inflate new view cost = " + (currentTimeMillis2 - currentTimeMillis) + "ms");
-                }
-                return inflate;
-            }
-            return d;
-        }
-        return (View) invokeCommon.objValue;
-    }
-
-    @AnyThread
-    public void c(@LayoutRes int... iArr) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, iArr) == null) || iArr == null || iArr.length == 0) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755337918, "Lcom/repackage/ru2;")) == null) {
             return;
         }
-        try {
-            long currentTimeMillis = System.currentTimeMillis();
-            int length = iArr.length;
-            LayoutInflater from = LayoutInflater.from(oj2.c());
-            for (int i : iArr) {
-                View inflate = from.inflate(i, (ViewGroup) null);
-                CopyOnWriteArrayList<View> copyOnWriteArrayList = this.c.get(Integer.valueOf(i));
-                if (copyOnWriteArrayList == null) {
-                    copyOnWriteArrayList = new CopyOnWriteArrayList<>();
-                }
-                copyOnWriteArrayList.add(inflate);
-                this.c.put(Integer.valueOf(i), copyOnWriteArrayList);
-            }
-            if (ll2.a) {
-                long currentTimeMillis2 = System.currentTimeMillis();
-                Log.d("SwanPerformance", "inflateLayoutRes count = " + length + "; cost = " + (currentTimeMillis2 - currentTimeMillis) + "ms");
-            }
-        } catch (Exception e) {
-            if (ll2.a) {
-                Log.d("SwanPerformance", Log.getStackTraceString(e));
-            }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-755337918, "Lcom/repackage/ru2;");
         }
     }
 
-    @Nullable
-    @AnyThread
-    public View d(@LayoutRes int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
-            View view2 = null;
-            try {
-                CopyOnWriteArrayList<View> copyOnWriteArrayList = this.c.get(Integer.valueOf(i));
-                if (copyOnWriteArrayList != null && !copyOnWriteArrayList.isEmpty()) {
-                    view2 = copyOnWriteArrayList.remove(0);
-                }
-            } catch (Exception e) {
-                if (ll2.a) {
-                    Log.d("SwanPerformance", Log.getStackTraceString(e));
-                }
-            }
-            if (ll2.a) {
-                StringBuilder sb = new StringBuilder();
-                sb.append("tryObtainLayoutByResId resId = ");
-                sb.append(i);
-                sb.append(view2 == null ? " cache view is null" : " adopt cached view");
-                Log.d("SwanPerformance", sb.toString());
-            }
-            return view2;
-        }
-        return (View) invokeI.objValue;
-    }
-
-    public ru2() {
+    public ru2(String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.c = new ConcurrentHashMap<>();
+        this.a = str;
+    }
+
+    public final void b(@NonNull HybridUbcFlow hybridUbcFlow) {
+        UbcFlowEvent g;
+        UbcFlowEvent a2;
+        UbcFlowEvent a3;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hybridUbcFlow) == null) || (g = hybridUbcFlow.g("na_first_meaningful_paint")) == null) {
+            return;
+        }
+        v62 v62Var = (v62) hybridUbcFlow.k("fmp_data_record");
+        if ("fmp_callback".equals(this.a)) {
+            String name = ru2.class.getName();
+            Log.d(name, "Current Record FMP - " + g.a + ":" + g.g());
+            if (v62Var == null || (a3 = v62Var.a()) == null) {
+                return;
+            }
+            String name2 = ru2.class.getName();
+            Log.d(name2, "First Page Record FMP - " + a3.a + ":" + a3.g());
+        } else if ("callback_on_submit".equals(this.a)) {
+            String name3 = ru2.class.getName();
+            Log.d(name3, "Real Report FMP - " + g.a + ":" + g.g());
+            if (v62Var == null || (a2 = v62Var.a()) == null) {
+                return;
+            }
+            String name4 = ru2.class.getName();
+            Log.d(name4, "First Page Report FMP - " + a2.a + ":" + a2.g());
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.bf3
+    /* renamed from: c */
+    public synchronized void a(HybridUbcFlow hybridUbcFlow) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, hybridUbcFlow) == null) {
+            synchronized (this) {
+                if (b) {
+                    if (c == -1) {
+                        pj2.g0().getSwitch("swan_next_env_delay", 600);
+                        c = 600;
+                    }
+                    ce3.b0(new a(this), c);
+                }
+                if (sg1.a) {
+                    String name = getClass().getName();
+                    Log.d(name, "enable=" + b + ", delay=" + c);
+                }
+                if ("fmp_callback".equals(this.a)) {
+                    b = false;
+                } else if ("callback_on_submit".equals(this.a)) {
+                    b = true;
+                }
+                if (sg1.a && hybridUbcFlow != null) {
+                    b(hybridUbcFlow);
+                }
+            }
+        }
     }
 }

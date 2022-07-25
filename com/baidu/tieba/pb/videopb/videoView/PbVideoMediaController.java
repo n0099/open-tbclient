@@ -47,7 +47,7 @@ public class PbVideoMediaController extends OperableVideoMediaControllerView {
     public View f(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) ? View.inflate(context, R.layout.obfuscated_res_0x7f0d06a2, null) : (View) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) ? View.inflate(context, R.layout.obfuscated_res_0x7f0d06ac, null) : (View) invokeL.objValue;
     }
 
     @Override // com.baidu.tieba.play.VideoControllerView
@@ -99,7 +99,7 @@ public class PbVideoMediaController extends OperableVideoMediaControllerView {
     public final void r() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.o = (ProgressBar) findViewById(R.id.obfuscated_res_0x7f091702);
+            this.o = (ProgressBar) findViewById(R.id.obfuscated_res_0x7f0916dd);
         }
     }
 

@@ -382,7 +382,7 @@ public abstract class CommonGroupChatActiviy<T> extends MsglistActivity<T> {
             JSONObject jSONObject = new JSONObject(groupNewsPojo.getContent());
             String string = jSONObject.getJSONObject(TbEnum.SystemMessage.KEY_EVENT_PARAM).getString(TbEnum.SystemMessage.KEY_GROUP_ID);
             if (jSONObject.getString(TbEnum.SystemMessage.KEY_EVENT_ID).equals(TbEnum.SystemMessage.EVENT_ID_DISMISS_GROUP) && string.equals(String.valueOf(group.getGroupId()))) {
-                showToast(TbadkApplication.getInst().getString(R.string.obfuscated_res_0x7f0f07f5), false);
+                showToast(TbadkApplication.getInst().getString(R.string.obfuscated_res_0x7f0f07f1), false);
                 finish();
             }
         } catch (JSONException e) {
@@ -401,7 +401,7 @@ public abstract class CommonGroupChatActiviy<T> extends MsglistActivity<T> {
             JSONObject jSONObject = new JSONObject(groupNewsPojo.getContent());
             String string = jSONObject.getJSONObject(TbEnum.SystemMessage.KEY_EVENT_PARAM).getString(TbEnum.SystemMessage.KEY_GROUP_ID);
             if (jSONObject.getString(TbEnum.SystemMessage.KEY_EVENT_ID).equals(TbEnum.SystemMessage.EVENT_ID_KICKED_OUT) && string.equals(String.valueOf(group.getGroupId()))) {
-                showToast(TbadkApplication.getInst().getString(R.string.obfuscated_res_0x7f0f07f6), false);
+                showToast(TbadkApplication.getInst().getString(R.string.obfuscated_res_0x7f0f07f2), false);
                 finish();
             }
         } catch (JSONException e) {

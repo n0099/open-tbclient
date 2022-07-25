@@ -18,7 +18,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ur4;
+import com.repackage.vr4;
 /* loaded from: classes3.dex */
 public class FakeVideoContainer extends RelativeLayout implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
@@ -53,12 +53,12 @@ public class FakeVideoContainer extends RelativeLayout implements View.OnClickLi
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             RelativeLayout.inflate(getContext(), R.layout.obfuscated_res_0x7f0d0283, this);
-            this.a = (TbImageView) findViewById(R.id.obfuscated_res_0x7f0923fb);
+            this.a = (TbImageView) findViewById(R.id.obfuscated_res_0x7f0923fd);
             this.b = findViewById(R.id.obfuscated_res_0x7f090380);
-            this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f0923ca);
-            this.d = (EMTextView) findViewById(R.id.obfuscated_res_0x7f090949);
+            this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f0923cc);
+            this.d = (EMTextView) findViewById(R.id.obfuscated_res_0x7f090942);
             this.c.setImageDrawable(WebPManager.getPureDrawable(R.drawable.icon_pure_video_play44, SkinManager.getColor(R.color.CAM_X0101), WebPManager.ResourceStateType.NORMAL));
-            ur4 d = ur4.d(this.d);
+            vr4 d = vr4.d(this.d);
             d.v(R.color.CAM_X0101);
             d.A(R.string.F_X01);
             this.a.s();
@@ -72,7 +72,7 @@ public class FakeVideoContainer extends RelativeLayout implements View.OnClickLi
     public void onClick(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) {
-            BdToast b = BdToast.b(getContext(), getContext().getString(R.string.obfuscated_res_0x7f0f151b));
+            BdToast b = BdToast.b(getContext(), getContext().getString(R.string.obfuscated_res_0x7f0f14ca));
             b.f(BdToast.ToastIcon.FAILURE);
             b.h();
         }

@@ -16,14 +16,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.cr4;
+import com.repackage.dr4;
 /* loaded from: classes6.dex */
 public class mk6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes6.dex */
-    public static class a implements cr4.e {
+    public static class a implements dr4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -41,18 +41,18 @@ public class mk6 {
             }
         }
 
-        @Override // com.repackage.cr4.e
-        public void onClick(cr4 cr4Var) {
+        @Override // com.repackage.dr4.e
+        public void onClick(dr4 dr4Var) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, cr4Var) == null) || cr4Var == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, dr4Var) == null) || dr4Var == null) {
                 return;
             }
-            cr4Var.dismiss();
+            dr4Var.dismiss();
         }
     }
 
     /* loaded from: classes6.dex */
-    public static class b implements cr4.e {
+    public static class b implements dr4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ TbPageContext a;
@@ -77,15 +77,15 @@ public class mk6 {
             this.b = blockPopInfoData;
         }
 
-        @Override // com.repackage.cr4.e
-        public void onClick(cr4 cr4Var) {
+        @Override // com.repackage.dr4.e
+        public void onClick(dr4 dr4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, cr4Var) == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, dr4Var) == null) {
                 UrlManager.getInstance().dealOneLink(this.a, new String[]{this.b.ahead_url});
-                if (cr4Var == null) {
+                if (dr4Var == null) {
                     return;
                 }
-                cr4Var.dismiss();
+                dr4Var.dismiss();
             }
         }
     }
@@ -128,7 +128,7 @@ public class mk6 {
             if (blockPopInfoData == null || blockPopInfoData.can_post.intValue() == 1 || !TbadkCoreApplication.isLogin()) {
                 return false;
             }
-            String string = StringUtils.isNull(blockPopInfoData.block_info) ? tbPageContext.getResources().getString(R.string.obfuscated_res_0x7f0f06d0) : blockPopInfoData.block_info;
+            String string = StringUtils.isNull(blockPopInfoData.block_info) ? tbPageContext.getResources().getString(R.string.obfuscated_res_0x7f0f06cc) : blockPopInfoData.block_info;
             if (i != 1 && i != 2) {
                 BdToast b2 = BdToast.b(tbPageContext.getPageActivity(), string);
                 b2.f(BdToast.ToastIcon.FAILURE);
@@ -136,13 +136,13 @@ public class mk6 {
                 b2.h();
                 return false;
             }
-            cr4 cr4Var = new cr4(tbPageContext.getPageActivity());
-            cr4Var.setMessage(StringHelper.getFixedText(string, 50, true));
-            cr4Var.setNegativeButton(StringHelper.getFixedText(StringUtils.isNull(blockPopInfoData.ok_info) ? tbPageContext.getResources().getString(R.string.obfuscated_res_0x7f0f07ee) : blockPopInfoData.ok_info, 4, true), new a());
+            dr4 dr4Var = new dr4(tbPageContext.getPageActivity());
+            dr4Var.setMessage(StringHelper.getFixedText(string, 50, true));
+            dr4Var.setNegativeButton(StringHelper.getFixedText(StringUtils.isNull(blockPopInfoData.ok_info) ? tbPageContext.getResources().getString(R.string.obfuscated_res_0x7f0f07ea) : blockPopInfoData.ok_info, 4, true), new a());
             if (!StringUtils.isNull(blockPopInfoData.ahead_info) && !StringUtils.isNull(blockPopInfoData.ahead_url)) {
-                cr4Var.setPositiveButton(StringHelper.getFixedText(blockPopInfoData.ahead_info, 4, true), new b(tbPageContext, blockPopInfoData));
+                dr4Var.setPositiveButton(StringHelper.getFixedText(blockPopInfoData.ahead_info, 4, true), new b(tbPageContext, blockPopInfoData));
             }
-            cr4Var.create(tbPageContext).show();
+            dr4Var.create(tbPageContext).show();
             return true;
         }
         return invokeLIL.booleanValue;

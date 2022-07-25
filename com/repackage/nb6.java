@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.fu4;
+import com.repackage.gu4;
 import java.util.List;
 /* loaded from: classes6.dex */
 public class nb6 {
@@ -26,7 +26,7 @@ public class nb6 {
     public View c;
     public NavigationBar d;
     public BdTypeListView e;
-    public gu4 f;
+    public hu4 f;
     public NoNetworkView g;
     public mb6 h;
 
@@ -81,19 +81,19 @@ public class nb6 {
         this.a = baseActivity;
         baseActivity.setContentView(R.layout.obfuscated_res_0x7f0d02b2);
         this.b = this.a.findViewById(R.id.obfuscated_res_0x7f090075);
-        NavigationBar navigationBar = (NavigationBar) this.a.findViewById(R.id.obfuscated_res_0x7f092437);
+        NavigationBar navigationBar = (NavigationBar) this.a.findViewById(R.id.obfuscated_res_0x7f092439);
         this.d = navigationBar;
-        navigationBar.setCenterTextTitle(this.a.getString(R.string.obfuscated_res_0x7f0f06c0)).setOnClickListener(new a(this));
+        navigationBar.setCenterTextTitle(this.a.getString(R.string.obfuscated_res_0x7f0f06bc)).setOnClickListener(new a(this));
         this.d.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         this.a.setNetRefreshViewTopMargin(BdListViewHelper.a);
-        this.g = (NoNetworkView) this.a.findViewById(R.id.obfuscated_res_0x7f092439);
-        this.e = (BdTypeListView) this.a.findViewById(R.id.obfuscated_res_0x7f090a3d);
-        gu4 gu4Var = new gu4(this.a.getPageContext());
-        this.f = gu4Var;
-        gu4Var.b0(this.a.getUniqueId());
+        this.g = (NoNetworkView) this.a.findViewById(R.id.obfuscated_res_0x7f09243b);
+        this.e = (BdTypeListView) this.a.findViewById(R.id.obfuscated_res_0x7f090a36);
+        hu4 hu4Var = new hu4(this.a.getPageContext());
+        this.f = hu4Var;
+        hu4Var.b0(this.a.getUniqueId());
         BaseActivity baseActivity2 = this.a;
-        if (baseActivity2 instanceof fu4.g) {
-            this.f.f((fu4.g) baseActivity2);
+        if (baseActivity2 instanceof gu4.g) {
+            this.f.f((gu4.g) baseActivity2);
         }
         BaseActivity baseActivity3 = this.a;
         if (baseActivity3 instanceof BdListView.p) {

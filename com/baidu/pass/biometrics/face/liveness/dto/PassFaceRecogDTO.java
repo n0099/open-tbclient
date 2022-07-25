@@ -1,5 +1,6 @@
 package com.baidu.pass.biometrics.face.liveness.dto;
 
+import android.os.Bundle;
 import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pass.biometrics.base.dto.PassBiometricDto;
@@ -28,6 +29,7 @@ public class PassFaceRecogDTO extends PassBiometricDto {
     public String bduss;
     public String di;
     public String exUid;
+    public Bundle extraParams;
     public Map<String, String> extraParamsMap;
     public int faceDebug;
     public String idCardNum;

@@ -181,7 +181,7 @@ public class hr6 {
         NativeUnifiedADData nativeUnifiedADData;
         View m;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65538, null, funNativeAd2) == null) || !tm4.h() || funNativeAd2 == null || d(funNativeAd2) == null) {
+        if (!(interceptable == null || interceptable.invokeL(65538, null, funNativeAd2) == null) || !um4.h() || funNativeAd2 == null || d(funNativeAd2) == null) {
             return;
         }
         ChannelNativeAds d = d(funNativeAd2);

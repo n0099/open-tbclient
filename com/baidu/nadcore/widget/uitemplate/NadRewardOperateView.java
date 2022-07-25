@@ -344,15 +344,15 @@ public class NadRewardOperateView extends FrameLayout {
     public final void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d05ce, (ViewGroup) this, true);
-            this.c = (AdImageView) findViewById(R.id.obfuscated_res_0x7f09154b);
-            this.d = (SimpleFeedAdInfoView) findViewById(R.id.obfuscated_res_0x7f091b08);
-            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f091b09);
-            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f091b0a);
-            RelativeLayout relativeLayout = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091b0c);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d05d8, (ViewGroup) this, true);
+            this.c = (AdImageView) findViewById(R.id.obfuscated_res_0x7f091526);
+            this.d = (SimpleFeedAdInfoView) findViewById(R.id.obfuscated_res_0x7f091ae2);
+            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f091ae3);
+            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f091ae4);
+            RelativeLayout relativeLayout = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091ae6);
             this.e = relativeLayout;
             f(relativeLayout);
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f091b0b);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f091ae5);
             this.h = textView;
             f(textView);
         }

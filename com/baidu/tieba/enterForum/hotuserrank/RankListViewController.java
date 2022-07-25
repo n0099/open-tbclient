@@ -43,7 +43,7 @@ import com.repackage.pi;
 import com.repackage.q56;
 import com.repackage.s56;
 import com.repackage.t56;
-import com.repackage.yv4;
+import com.repackage.zv4;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
@@ -71,7 +71,7 @@ public class RankListViewController {
         public ImageView f;
         public TextView g;
         public HotUserRankLikeButton h;
-        public yv4 i;
+        public zv4 i;
         public TbPageContext j;
         public int k;
         public String l;
@@ -152,20 +152,20 @@ public class RankListViewController {
             this.l = "";
             this.n = 0;
             this.j = d(view2.getContext());
-            TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091a54);
+            TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091a2e);
             this.a = textView;
             textView.getPaint().setFakeBoldText(true);
-            HeadImageView headImageView = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f090cd3);
+            HeadImageView headImageView = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f090ccc);
             this.b = headImageView;
             headImageView.setIsRound(true);
             this.b.setPlaceHolder(1);
             this.b.setScaleType(ImageView.ScaleType.CENTER_CROP);
-            this.c = (UserHeadCoverView) view2.findViewById(R.id.obfuscated_res_0x7f090cd2);
-            this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09232d);
-            this.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092327);
-            this.f = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090c91);
-            this.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092321);
-            this.h = (HotUserRankLikeButton) view2.findViewById(R.id.obfuscated_res_0x7f0912a9);
+            this.c = (UserHeadCoverView) view2.findViewById(R.id.obfuscated_res_0x7f090ccb);
+            this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09232f);
+            this.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092329);
+            this.f = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090c8a);
+            this.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092323);
+            this.h = (HotUserRankLikeButton) view2.findViewById(R.id.obfuscated_res_0x7f091285);
         }
 
         public void c(t56 t56Var) {
@@ -225,9 +225,9 @@ public class RankListViewController {
                 this.g.setText(t56Var.e);
             }
             if (this.i == null && (tbPageContext = this.j) != null) {
-                yv4 yv4Var = new yv4(tbPageContext, this.h);
-                this.i = yv4Var;
-                yv4Var.l(this.j.getUniqueId());
+                zv4 zv4Var = new zv4(tbPageContext, this.h);
+                this.i = zv4Var;
+                zv4Var.l(this.j.getUniqueId());
             }
             this.i.n(t56Var.f);
             this.h.setOnClickEvent(new a(this, t56Var));
@@ -488,7 +488,7 @@ public class RankListViewController {
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             this.d.J();
             this.d.Q();
-            this.d.C(this.a.getContext().getString(R.string.obfuscated_res_0x7f0f09e6));
+            this.d.C(this.a.getContext().getString(R.string.obfuscated_res_0x7f0f09d2));
             this.d.L(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
         }
     }
@@ -499,9 +499,9 @@ public class RankListViewController {
         if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
             this.d.P(pi.f(this.a.getContext(), R.dimen.tbds96));
             if (!TextUtils.isEmpty(str)) {
-                string = String.format(this.a.getContext().getString(R.string.obfuscated_res_0x7f0f08a0), str);
+                string = String.format(this.a.getContext().getString(R.string.obfuscated_res_0x7f0f088b), str);
             } else {
-                string = this.a.getContext().getString(R.string.obfuscated_res_0x7f0f0676);
+                string = this.a.getContext().getString(R.string.obfuscated_res_0x7f0f0672);
             }
             this.d.D(string, pi.f(this.a.getContext(), R.dimen.tbds156));
             this.d.f();

@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.hg;
-import com.repackage.l45;
+import com.repackage.m45;
 import com.repackage.ym;
 /* loaded from: classes3.dex */
 public class LocalFileDrawableLoaderProc extends AbstractImageLoaderProc {
@@ -97,7 +97,7 @@ public class LocalFileDrawableLoaderProc extends AbstractImageLoaderProc {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, str2, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z), objArr})) == null) {
-            ym checkIsValidPicMemoryCache = BitmapHelper.checkIsValidPicMemoryCache(str, l45.k().m(str), i, i2);
+            ym checkIsValidPicMemoryCache = BitmapHelper.checkIsValidPicMemoryCache(str, m45.k().m(str), i, i2);
             if (checkIsValidPicMemoryCache == null || checkIsValidPicMemoryCache.p() == null || checkIsValidPicMemoryCache.p().isRecycled()) {
                 return null;
             }

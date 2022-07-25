@@ -142,23 +142,23 @@ public class BackgroundItemView extends LinearLayout {
     public final void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            int k = (pi.k(this.a) - pi.f(this.a, R.dimen.obfuscated_res_0x7f070308)) / 3;
+            int k = (pi.k(this.a) - pi.f(this.a, R.dimen.obfuscated_res_0x7f070306)) / 3;
             this.j = k;
             this.k = (int) (k / 0.66d);
             View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0129, this);
             this.b = inflate;
             this.c = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090362);
-            TbImageView tbImageView = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f0917ee);
+            TbImageView tbImageView = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f0917c9);
             this.d = tbImageView;
-            tbImageView.setDefaultResource(R.drawable.obfuscated_res_0x7f0811a4);
-            this.d.setDefaultBgResource(R.drawable.obfuscated_res_0x7f0811a4);
-            TbImageView tbImageView2 = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f091e2f);
+            tbImageView.setDefaultResource(R.drawable.obfuscated_res_0x7f0811a8);
+            this.d.setDefaultBgResource(R.drawable.obfuscated_res_0x7f0811a8);
+            TbImageView tbImageView2 = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f091e35);
             this.e = tbImageView2;
-            tbImageView2.setDefaultResource(R.drawable.obfuscated_res_0x7f0811a4);
-            this.e.setDefaultBgResource(R.drawable.obfuscated_res_0x7f0811a4);
+            tbImageView2.setDefaultResource(R.drawable.obfuscated_res_0x7f0811a8);
+            this.e.setDefaultBgResource(R.drawable.obfuscated_res_0x7f0811a8);
             this.f = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f0905f1);
-            this.g = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091fb8);
-            SkinProgressView skinProgressView = (SkinProgressView) this.b.findViewById(R.id.obfuscated_res_0x7f09241a);
+            this.g = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091fbc);
+            SkinProgressView skinProgressView = (SkinProgressView) this.b.findViewById(R.id.obfuscated_res_0x7f09241c);
             this.h = skinProgressView;
             skinProgressView.setOnClickListener(this.m);
             this.c.setOnClickListener(this.m);

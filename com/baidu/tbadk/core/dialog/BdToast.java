@@ -127,8 +127,8 @@ public class BdToast {
         this.a = context;
         ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0220, (ViewGroup) null);
         this.c = viewGroup;
-        this.d = (ImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f092117);
-        this.e = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f09211a);
+        this.d = (ImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f092119);
+        this.e = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f09211c);
     }
 
     public static BdToast b(Context context, CharSequence charSequence) {

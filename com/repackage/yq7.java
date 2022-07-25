@@ -84,7 +84,7 @@ public class yq7 extends BaseAdapter {
             } else {
                 view2 = LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d01d2, (ViewGroup) null);
                 aVar = new a();
-                aVar.a = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f09170a);
+                aVar.a = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f0916e5);
                 view2.setTag(aVar);
             }
             by7 item = getItem(i);

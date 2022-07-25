@@ -263,14 +263,14 @@ public class GLVideoPreviewView extends GLSurfaceView implements ur8 {
 
         /* renamed from: com.baidu.tieba.video.record.GLVideoPreviewView$c$c  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        public class HandlerC0243c extends Handler {
+        public class HandlerC0257c extends Handler {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public WeakReference<Context> a;
             public final /* synthetic */ c b;
 
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-            public HandlerC0243c(c cVar, Looper looper, Context context) {
+            public HandlerC0257c(c cVar, Looper looper, Context context) {
                 super(looper);
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
@@ -434,7 +434,7 @@ public class GLVideoPreviewView extends GLSurfaceView implements ur8 {
             HandlerThread handlerThread = new HandlerThread("CreateItemThread");
             this.o = handlerThread;
             handlerThread.start();
-            this.p = new HandlerC0243c(this, this.o.getLooper(), context);
+            this.p = new HandlerC0257c(this, this.o.getLooper(), context);
             D(wp8.b(2));
         }
 

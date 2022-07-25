@@ -29,7 +29,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.ax8;
-import com.repackage.ia5;
+import com.repackage.ja5;
 import java.util.HashMap;
 /* loaded from: classes4.dex */
 public class AlbumFloatActivity extends SuspendedActivity {
@@ -115,18 +115,18 @@ public class AlbumFloatActivity extends SuspendedActivity {
     }
 
     @Override // com.baidu.tbadk.suspended.SuspendedActivity
-    public ia5 o0(LinearLayout linearLayout, NavigationBar navigationBar) {
+    public ja5 o0(LinearLayout linearLayout, NavigationBar navigationBar) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, linearLayout, navigationBar)) == null) {
             if (this.k == null) {
-                ax8 ax8Var = new ax8(this, null, linearLayout.getId(), R.id.obfuscated_res_0x7f091b71);
+                ax8 ax8Var = new ax8(this, null, linearLayout.getId(), R.id.obfuscated_res_0x7f091b4b);
                 this.k = ax8Var;
                 ax8Var.Q(navigationBar);
             }
             return this.k;
         }
-        return (ia5) invokeLL.objValue;
+        return (ja5) invokeLL.objValue;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
@@ -156,7 +156,7 @@ public class AlbumFloatActivity extends SuspendedActivity {
         if (interceptable == null || interceptable.invokeL(1048582, this, bundle) == null) {
             E0();
             super.onCreate(bundle);
-            this.l = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f091e6a);
+            this.l = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f091e6e);
         }
     }
 

@@ -35,14 +35,14 @@ public class ic8 extends b9<BrowseSettingActivity> {
     public TbSettingTextTipView f;
     public TbSettingTextTipView g;
     public MsgSettingItemView h;
-    public gr4 i;
-    public gr4 j;
-    public gr4 k;
-    public gr4 l;
-    public ArrayList<pr4> m;
-    public ArrayList<pr4> n;
-    public ArrayList<pr4> o;
-    public ArrayList<pr4> p;
+    public hr4 i;
+    public hr4 j;
+    public hr4 k;
+    public hr4 l;
+    public ArrayList<qr4> m;
+    public ArrayList<qr4> n;
+    public ArrayList<qr4> o;
+    public ArrayList<qr4> p;
     public TbSettingTextTipView q;
     public final AdapterView.OnItemClickListener r;
     public final AdapterView.OnItemClickListener s;
@@ -74,7 +74,7 @@ public class ic8 extends b9<BrowseSettingActivity> {
         public void j0(View view2, BdSwitchView.SwitchState switchState) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, view2, switchState) == null) {
-                xt4.k().w("slide_local_switch_is_clicked", 1);
+                yt4.k().w("slide_local_switch_is_clicked", 1);
                 if (switchState == BdSwitchView.SwitchState.ON) {
                     TbSingleton.getInstance().setSlideAnimLocalSwitch(true);
                     TiebaStatic.log(new StatisticItem("c13396").param("obj_type", 1));
@@ -116,18 +116,18 @@ public class ic8 extends b9<BrowseSettingActivity> {
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view2, Integer.valueOf(i), Long.valueOf(j)}) == null) {
                 this.a.i.h(i);
                 if (i == 0) {
-                    zm4.c().j(true);
-                    zm4.c().k(0);
+                    an4.c().j(true);
+                    an4.c().k(0);
                 } else if (i == 1) {
-                    zm4.c().j(true);
-                    zm4.c().k(1);
+                    an4.c().j(true);
+                    an4.c().k(1);
                     TiebaStatic.log(new StatisticItem("c10415").param("obj_type", 1));
                 } else if (i == 2) {
-                    zm4.c().j(true);
-                    zm4.c().k(2);
+                    an4.c().j(true);
+                    an4.c().k(2);
                     TiebaStatic.log(new StatisticItem("c10415").param("obj_type", 3));
                 } else if (i == 3) {
-                    zm4.c().j(false);
+                    an4.c().j(false);
                 }
                 this.a.i.d();
                 this.a.H();
@@ -177,7 +177,7 @@ public class ic8 extends b9<BrowseSettingActivity> {
                 SetImageWatermarkTypeReqMsg setImageWatermarkTypeReqMsg = new SetImageWatermarkTypeReqMsg(i2);
                 setImageWatermarkTypeReqMsg.setTag(this.a.a.getUniqueId());
                 MessageManager.getInstance().sendMessage(setImageWatermarkTypeReqMsg);
-                zm4.c().i(i2);
+                an4.c().i(i2);
                 this.a.I(i2);
             }
         }
@@ -336,7 +336,7 @@ public class ic8 extends b9<BrowseSettingActivity> {
     public final void D() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            I(zm4.c().b());
+            I(an4.c().b());
         }
     }
 
@@ -362,13 +362,13 @@ public class ic8 extends b9<BrowseSettingActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             if (TbadkCoreApplication.getInst().getFontSize() == 0) {
-                this.f.setTip(this.mContext.getString(R.string.obfuscated_res_0x7f0f0641));
+                this.f.setTip(this.mContext.getString(R.string.obfuscated_res_0x7f0f063d));
             } else if (TbadkCoreApplication.getInst().getFontSize() == 1) {
-                this.f.setTip(this.mContext.getString(R.string.obfuscated_res_0x7f0f063e));
+                this.f.setTip(this.mContext.getString(R.string.obfuscated_res_0x7f0f063a));
             } else if (TbadkCoreApplication.getInst().getFontSize() == 2) {
-                this.f.setTip(this.mContext.getString(R.string.obfuscated_res_0x7f0f063f));
+                this.f.setTip(this.mContext.getString(R.string.obfuscated_res_0x7f0f063b));
             } else {
-                this.f.setTip(this.mContext.getString(R.string.obfuscated_res_0x7f0f0640));
+                this.f.setTip(this.mContext.getString(R.string.obfuscated_res_0x7f0f063c));
             }
         }
     }
@@ -376,14 +376,14 @@ public class ic8 extends b9<BrowseSettingActivity> {
     public final void H() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            if (!zm4.c().g()) {
+            if (!an4.c().g()) {
                 this.d.setTip(this.mContext.getString(R.string.obfuscated_res_0x7f0f03e8));
-            } else if (zm4.c().e() == 1) {
-                this.d.setTip(this.mContext.getString(R.string.obfuscated_res_0x7f0f1548));
-            } else if (zm4.c().e() == 2) {
-                this.d.setTip(this.mContext.getString(R.string.obfuscated_res_0x7f0f154f));
+            } else if (an4.c().e() == 1) {
+                this.d.setTip(this.mContext.getString(R.string.obfuscated_res_0x7f0f14f7));
+            } else if (an4.c().e() == 2) {
+                this.d.setTip(this.mContext.getString(R.string.obfuscated_res_0x7f0f14fe));
             } else {
-                this.d.setTip(this.mContext.getString(R.string.obfuscated_res_0x7f0f154b));
+                this.d.setTip(this.mContext.getString(R.string.obfuscated_res_0x7f0f14fa));
             }
         }
     }
@@ -392,12 +392,12 @@ public class ic8 extends b9<BrowseSettingActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
             if (i == 0) {
-                this.e.setTip(this.mContext.getString(R.string.obfuscated_res_0x7f0f08dd));
+                this.e.setTip(this.mContext.getString(R.string.obfuscated_res_0x7f0f08c8));
             } else if (i == 1) {
-                this.e.setTip(this.mContext.getString(R.string.obfuscated_res_0x7f0f08de));
+                this.e.setTip(this.mContext.getString(R.string.obfuscated_res_0x7f0f08c9));
             } else if (i != 2) {
             } else {
-                this.e.setTip(this.mContext.getString(R.string.obfuscated_res_0x7f0f08dc));
+                this.e.setTip(this.mContext.getString(R.string.obfuscated_res_0x7f0f08c7));
             }
         }
     }
@@ -406,11 +406,11 @@ public class ic8 extends b9<BrowseSettingActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             if (TbadkCoreApplication.getInst().getAutoPlaySwitch() == 1) {
-                this.g.setTip(this.mContext.getString(R.string.obfuscated_res_0x7f0f1511));
+                this.g.setTip(this.mContext.getString(R.string.obfuscated_res_0x7f0f14c0));
             } else if (TbadkCoreApplication.getInst().getAutoPlaySwitch() == 3) {
                 this.g.setTip(this.mContext.getString(R.string.obfuscated_res_0x7f0f03e8));
             } else if (TbadkCoreApplication.getInst().getAutoPlaySwitch() == 2) {
-                this.g.setTip(this.mContext.getString(R.string.obfuscated_res_0x7f0f1510));
+                this.g.setTip(this.mContext.getString(R.string.obfuscated_res_0x7f0f14bf));
             }
         }
     }
@@ -428,21 +428,21 @@ public class ic8 extends b9<BrowseSettingActivity> {
             this.a.getLayoutMode().j(this.b);
             this.c.onChangeSkinType(getPageContext(), i);
             this.h.c(this.a.getPageContext(), i);
-            gr4 gr4Var = this.i;
-            if (gr4Var != null) {
-                gr4Var.g();
+            hr4 hr4Var = this.i;
+            if (hr4Var != null) {
+                hr4Var.g();
             }
-            gr4 gr4Var2 = this.j;
-            if (gr4Var2 != null) {
-                gr4Var2.g();
+            hr4 hr4Var2 = this.j;
+            if (hr4Var2 != null) {
+                hr4Var2.g();
             }
-            gr4 gr4Var3 = this.k;
-            if (gr4Var3 != null) {
-                gr4Var3.g();
+            hr4 hr4Var3 = this.k;
+            if (hr4Var3 != null) {
+                hr4Var3.g();
             }
-            gr4 gr4Var4 = this.l;
-            if (gr4Var4 != null) {
-                gr4Var4.g();
+            hr4 hr4Var4 = this.l;
+            if (hr4Var4 != null) {
+                hr4Var4.g();
             }
         }
     }
@@ -475,29 +475,29 @@ public class ic8 extends b9<BrowseSettingActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
             this.o = new ArrayList<>();
-            int b2 = zm4.c().b();
-            this.o.add(new pr4(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f08de), (String) null, b2 == 1));
-            this.o.add(new pr4(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f08dc), (String) null, b2 == 2));
-            this.o.add(new pr4(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f08dd), (String) null, b2 == 0));
-            gr4 gr4Var = new gr4(this.a.getPageContext());
-            gr4Var.l(R.string.obfuscated_res_0x7f0f00cc);
-            this.j = gr4Var;
-            gr4Var.k(this.o, this.s);
-            gr4Var.c();
+            int b2 = an4.c().b();
+            this.o.add(new qr4(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f08c9), (String) null, b2 == 1));
+            this.o.add(new qr4(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f08c7), (String) null, b2 == 2));
+            this.o.add(new qr4(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f08c8), (String) null, b2 == 0));
+            hr4 hr4Var = new hr4(this.a.getPageContext());
+            hr4Var.l(R.string.obfuscated_res_0x7f0f00cc);
+            this.j = hr4Var;
+            hr4Var.k(this.o, this.s);
+            hr4Var.c();
         }
     }
 
     public final void u() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
-            this.k = new gr4(this.a.getPageContext());
+            this.k = new hr4(this.a.getPageContext());
             this.m = new ArrayList<>();
             int fontSize = TbadkCoreApplication.getInst().getFontSize();
-            this.m.add(new pr4(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f0641), (String) null, fontSize == 0));
-            this.m.add(new pr4(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f063e), (String) null, fontSize == 1));
-            this.m.add(new pr4(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f063f), (String) null, fontSize == 2));
-            this.m.add(new pr4(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f0640), (String) null, fontSize == 3));
-            this.k.l(R.string.obfuscated_res_0x7f0f063d);
+            this.m.add(new qr4(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f063d), (String) null, fontSize == 0));
+            this.m.add(new qr4(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f063a), (String) null, fontSize == 1));
+            this.m.add(new qr4(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f063b), (String) null, fontSize == 2));
+            this.m.add(new qr4(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f063c), (String) null, fontSize == 3));
+            this.k.l(R.string.obfuscated_res_0x7f0f0639);
             this.k.k(this.m, this.t);
             this.k.c();
         }
@@ -507,24 +507,24 @@ public class ic8 extends b9<BrowseSettingActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
             this.n = new ArrayList<>();
-            int e2 = zm4.c().e();
-            boolean g = zm4.c().g();
+            int e2 = an4.c().e();
+            boolean g = an4.c().g();
             boolean z = false;
-            this.n.add(new pr4(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f154b), this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f154c), g && e2 == 0));
-            this.n.add(new pr4(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f1548), this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f154d), g && e2 == 1));
-            ArrayList<pr4> arrayList = this.n;
-            String string = this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f154f);
-            String string2 = this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f154e);
+            this.n.add(new qr4(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f14fa), this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f14fb), g && e2 == 0));
+            this.n.add(new qr4(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f14f7), this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f14fc), g && e2 == 1));
+            ArrayList<qr4> arrayList = this.n;
+            String string = this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f14fe);
+            String string2 = this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f14fd);
             if (g && e2 == 2) {
                 z = true;
             }
-            arrayList.add(new pr4(string, string2, z));
-            gr4 gr4Var = new gr4(this.a.getPageContext());
-            this.i = gr4Var;
-            gr4Var.l(R.string.obfuscated_res_0x7f0f0340);
-            gr4 gr4Var2 = this.i;
-            gr4Var2.k(this.n, this.r);
-            gr4Var2.c();
+            arrayList.add(new qr4(string, string2, z));
+            hr4 hr4Var = new hr4(this.a.getPageContext());
+            this.i = hr4Var;
+            hr4Var.l(R.string.obfuscated_res_0x7f0f0340);
+            hr4 hr4Var2 = this.i;
+            hr4Var2.k(this.n, this.r);
+            hr4Var2.c();
         }
     }
 
@@ -543,42 +543,42 @@ public class ic8 extends b9<BrowseSettingActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048596, this) == null) {
             this.a.setContentView(R.layout.obfuscated_res_0x7f0d015e);
-            NavigationBar navigationBar = (NavigationBar) this.a.findViewById(R.id.obfuscated_res_0x7f092437);
+            NavigationBar navigationBar = (NavigationBar) this.a.findViewById(R.id.obfuscated_res_0x7f092439);
             this.c = navigationBar;
             navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
             this.c.setTitleText(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f033e));
-            this.q = (TbSettingTextTipView) this.a.findViewById(R.id.obfuscated_res_0x7f09073a);
-            this.d = (TbSettingTextTipView) this.a.findViewById(R.id.obfuscated_res_0x7f090e6e);
+            this.q = (TbSettingTextTipView) this.a.findViewById(R.id.obfuscated_res_0x7f090739);
+            this.d = (TbSettingTextTipView) this.a.findViewById(R.id.obfuscated_res_0x7f090e67);
             this.e = (TbSettingTextTipView) this.a.findViewById(R.id.obfuscated_res_0x7f090111);
-            this.f = (TbSettingTextTipView) this.a.findViewById(R.id.obfuscated_res_0x7f0909e8);
-            this.g = (TbSettingTextTipView) this.a.findViewById(R.id.obfuscated_res_0x7f092382);
+            this.f = (TbSettingTextTipView) this.a.findViewById(R.id.obfuscated_res_0x7f0909e1);
+            this.g = (TbSettingTextTipView) this.a.findViewById(R.id.obfuscated_res_0x7f092384);
             if (RichTextGifViewSwitch.isOn()) {
-                this.g.setText(R.string.obfuscated_res_0x7f0f151a);
+                this.g.setText(R.string.obfuscated_res_0x7f0f14c9);
             } else {
-                this.g.setText(R.string.obfuscated_res_0x7f0f150f);
+                this.g.setText(R.string.obfuscated_res_0x7f0f14be);
             }
-            MsgSettingItemView msgSettingItemView = (MsgSettingItemView) this.a.findViewById(R.id.obfuscated_res_0x7f091dba);
+            MsgSettingItemView msgSettingItemView = (MsgSettingItemView) this.a.findViewById(R.id.obfuscated_res_0x7f091dc0);
             this.h = msgSettingItemView;
-            msgSettingItemView.setText(R.string.obfuscated_res_0x7f0f11bb);
+            msgSettingItemView.setText(R.string.obfuscated_res_0x7f0f116a);
             this.h.setSwitchStateNoCallback(TbSingleton.getInstance().isSlideAnimLocalSwitchOn());
             this.h.setOnSwitchStateChangeListener(new a(this));
-            this.b = this.a.findViewById(R.id.obfuscated_res_0x7f0916ba);
+            this.b = this.a.findViewById(R.id.obfuscated_res_0x7f091695);
         }
     }
 
     public final void y() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
-            this.l = new gr4(this.a.getPageContext());
+            this.l = new hr4(this.a.getPageContext());
             this.p = new ArrayList<>();
             int autoPlaySwitch = TbadkCoreApplication.getInst().getAutoPlaySwitch();
-            this.p.add(new pr4(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f1510), (String) null, autoPlaySwitch == 2));
-            this.p.add(new pr4(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f1511), (String) null, autoPlaySwitch == 1));
-            this.p.add(new pr4(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f03e8), (String) null, autoPlaySwitch == 3));
+            this.p.add(new qr4(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f14bf), (String) null, autoPlaySwitch == 2));
+            this.p.add(new qr4(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f14c0), (String) null, autoPlaySwitch == 1));
+            this.p.add(new qr4(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f03e8), (String) null, autoPlaySwitch == 3));
             if (RichTextGifViewSwitch.isOn()) {
-                this.l.l(R.string.obfuscated_res_0x7f0f151a);
+                this.l.l(R.string.obfuscated_res_0x7f0f14c9);
             } else {
-                this.l.l(R.string.obfuscated_res_0x7f0f150f);
+                this.l.l(R.string.obfuscated_res_0x7f0f14be);
             }
             this.l.k(this.p, this.u);
             this.l.c();

@@ -38,7 +38,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.i86;
-import com.repackage.ia5;
+import com.repackage.ja5;
 import com.repackage.ni;
 import com.repackage.pi;
 import com.repackage.ru8;
@@ -49,7 +49,7 @@ import com.repackage.xu8;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
-public class CloudMusicActivity extends SuspendedActivity implements ia5, uu8, xu8 {
+public class CloudMusicActivity extends SuspendedActivity implements ja5, uu8, xu8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public NavigationBar k;
@@ -194,14 +194,14 @@ public class CloudMusicActivity extends SuspendedActivity implements ia5, uu8, x
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
             if (z && (view2 = this.n) != null) {
-                showLoadingView(view2, false, pi.f(getPageContext().getPageActivity(), R.dimen.obfuscated_res_0x7f0702bd));
+                showLoadingView(view2, false, pi.f(getPageContext().getPageActivity(), R.dimen.obfuscated_res_0x7f0702bb));
             } else {
                 hideLoadingView(this.n);
             }
         }
     }
 
-    @Override // com.repackage.ia5
+    @Override // com.repackage.ja5
     public boolean J0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -235,7 +235,7 @@ public class CloudMusicActivity extends SuspendedActivity implements ia5, uu8, x
         }
     }
 
-    @Override // com.repackage.ia5
+    @Override // com.repackage.ja5
     public Intent getResultIntent() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -254,7 +254,7 @@ public class CloudMusicActivity extends SuspendedActivity implements ia5, uu8, x
         }
     }
 
-    @Override // com.repackage.ia5
+    @Override // com.repackage.ja5
     public void n(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
@@ -280,22 +280,22 @@ public class CloudMusicActivity extends SuspendedActivity implements ia5, uu8, x
     }
 
     @Override // com.baidu.tbadk.suspended.SuspendedActivity
-    public ia5 o0(LinearLayout linearLayout, NavigationBar navigationBar) {
+    public ja5 o0(LinearLayout linearLayout, NavigationBar navigationBar) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048586, this, linearLayout, navigationBar)) == null) {
             LayoutInflater.from(this).inflate(R.layout.obfuscated_res_0x7f0d0031, (ViewGroup) linearLayout, true);
             new su8(new CloudMusicModel(getPageContext()), this);
-            this.n = findViewById(R.id.obfuscated_res_0x7f090636);
+            this.n = findViewById(R.id.obfuscated_res_0x7f090635);
             this.k = navigationBar;
-            SkinManager.setViewTextColor(navigationBar.setCenterTextTitle(getString(R.string.obfuscated_res_0x7f0f0b18)), (int) R.color.CAM_X0105);
-            NoDataView a2 = NoDataViewFactory.a(getPageContext().getPageActivity(), this.n, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NODATA, pi.f(getPageContext().getPageActivity(), R.dimen.obfuscated_res_0x7f07026e)), NoDataViewFactory.e.a(R.string.obfuscated_res_0x7f0f0c45), null);
+            SkinManager.setViewTextColor(navigationBar.setCenterTextTitle(getString(R.string.obfuscated_res_0x7f0f0b04)), (int) R.color.CAM_X0105);
+            NoDataView a2 = NoDataViewFactory.a(getPageContext().getPageActivity(), this.n, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NODATA, pi.f(getPageContext().getPageActivity(), R.dimen.obfuscated_res_0x7f07026c)), NoDataViewFactory.e.a(R.string.obfuscated_res_0x7f0f0c31), null);
             this.m = a2;
             a2.f(getPageContext(), TbadkCoreApplication.getInst().getSkinType());
-            CommonPagerSlidingTabStrip commonPagerSlidingTabStrip = (CommonPagerSlidingTabStrip) findViewById(R.id.obfuscated_res_0x7f090638);
+            CommonPagerSlidingTabStrip commonPagerSlidingTabStrip = (CommonPagerSlidingTabStrip) findViewById(R.id.obfuscated_res_0x7f090637);
             this.o = commonPagerSlidingTabStrip;
             commonPagerSlidingTabStrip.k(pi.f(getPageContext().getPageActivity(), R.dimen.obfuscated_res_0x7f070201), pi.f(getPageContext().getPageActivity(), R.dimen.obfuscated_res_0x7f0701e8), pi.f(getPageContext().getPageActivity(), R.dimen.obfuscated_res_0x7f0701be), pi.f(getPageContext().getPageActivity(), R.dimen.obfuscated_res_0x7f0701e8), pi.f(getPageContext().getPageActivity(), R.dimen.obfuscated_res_0x7f0701d5), pi.f(getPageContext().getPageActivity(), R.dimen.obfuscated_res_0x7f070224), pi.f(getPageContext().getPageActivity(), R.dimen.obfuscated_res_0x7f070258), R.color.CAM_X0107, R.color.CAM_X0105);
-            BdBaseViewPager bdBaseViewPager = (BdBaseViewPager) findViewById(R.id.obfuscated_res_0x7f090639);
+            BdBaseViewPager bdBaseViewPager = (BdBaseViewPager) findViewById(R.id.obfuscated_res_0x7f090638);
             this.p = bdBaseViewPager;
             bdBaseViewPager.setOffscreenPageLimit(2);
             b bVar = new b(this, getSupportFragmentManager());
@@ -309,7 +309,7 @@ public class CloudMusicActivity extends SuspendedActivity implements ia5, uu8, x
             }
             return this;
         }
-        return (ia5) invokeLL.objValue;
+        return (ja5) invokeLL.objValue;
     }
 
     @Override // com.baidu.tbadk.suspended.SuspendedActivity, com.baidu.tbadk.core.BaseFragmentActivity
@@ -383,7 +383,7 @@ public class CloudMusicActivity extends SuspendedActivity implements ia5, uu8, x
         }
     }
 
-    @Override // com.repackage.ia5
+    @Override // com.repackage.ja5
     public boolean s() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

@@ -159,13 +159,13 @@ public class vq0 extends tq0 {
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -2);
             this.j = layoutParams;
             layoutParams.gravity = 80;
-            ViewGroup viewGroup = (ViewGroup) View.inflate(getContext(), R.layout.obfuscated_res_0x7f0d05d8, null);
+            ViewGroup viewGroup = (ViewGroup) View.inflate(getContext(), R.layout.obfuscated_res_0x7f0d05e2, null);
             this.e = viewGroup;
             this.i = viewGroup.findViewById(R.id.obfuscated_res_0x7f09033f);
-            BdLayerSeekBar bdLayerSeekBar = (BdLayerSeekBar) this.e.findViewById(R.id.obfuscated_res_0x7f09121d);
+            BdLayerSeekBar bdLayerSeekBar = (BdLayerSeekBar) this.e.findViewById(R.id.obfuscated_res_0x7f0911f9);
             this.f = bdLayerSeekBar;
             bdLayerSeekBar.setSeekBarHolderListener(this);
-            ImageView imageView = (ImageView) this.e.findViewById(R.id.obfuscated_res_0x7f09090a);
+            ImageView imageView = (ImageView) this.e.findViewById(R.id.obfuscated_res_0x7f090903);
             this.h = imageView;
             imageView.setOnClickListener(this);
             D(false);

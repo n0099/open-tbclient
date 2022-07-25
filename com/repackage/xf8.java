@@ -31,11 +31,11 @@ public class xf8 extends BaseAdapter {
     public HashSet<String> a;
     public ArrayList<vf8> b;
     public CoverFlowView<vf8> c;
-    public cs4<vf8> d;
+    public ds4<vf8> d;
     public TbPageContext<?> e;
 
     /* loaded from: classes7.dex */
-    public class a implements cs4<vf8> {
+    public class a implements ds4<vf8> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ xf8 a;
@@ -58,7 +58,7 @@ public class xf8 extends BaseAdapter {
             this.a = xf8Var;
         }
 
-        @Override // com.repackage.cs4
+        @Override // com.repackage.ds4
         public void b(int i, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) {
@@ -74,7 +74,7 @@ public class xf8 extends BaseAdapter {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.cs4
+        @Override // com.repackage.ds4
         /* renamed from: c */
         public void a(int i, vf8 vf8Var) {
             Interceptable interceptable = $ic;
@@ -89,7 +89,7 @@ public class xf8 extends BaseAdapter {
     }
 
     /* loaded from: classes7.dex */
-    public class b extends as4 {
+    public class b extends bs4 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ TbPageContext a;
@@ -112,12 +112,12 @@ public class xf8 extends BaseAdapter {
             this.a = tbPageContext;
         }
 
-        @Override // com.repackage.as4, com.repackage.yr4
-        public bs4 a() {
+        @Override // com.repackage.bs4, com.repackage.zr4
+        public cs4 a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                bs4 a = super.a();
+                cs4 a = super.a();
                 if (a != null) {
                     a.d(85);
                     a.e(R.dimen.obfuscated_res_0x7f0701d5);
@@ -125,19 +125,19 @@ public class xf8 extends BaseAdapter {
                 }
                 return a;
             }
-            return (bs4) invokeV.objValue;
+            return (cs4) invokeV.objValue;
         }
 
-        @Override // com.repackage.as4, com.repackage.yr4
-        public ds4 c() {
+        @Override // com.repackage.bs4, com.repackage.zr4
+        public es4 c() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                ds4 ds4Var = new ds4();
-                ds4Var.a(this.a.getPageActivity().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702a4));
-                return ds4Var;
+                es4 es4Var = new es4();
+                es4Var.a(this.a.getPageActivity().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702a2));
+                return es4Var;
             }
-            return (ds4) invokeV.objValue;
+            return (es4) invokeV.objValue;
         }
     }
 
@@ -181,13 +181,13 @@ public class xf8 extends BaseAdapter {
         coverFlowView.s();
     }
 
-    public void f(ArrayList<nq4> arrayList) {
+    public void f(ArrayList<oq4> arrayList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, arrayList) == null) {
             ArrayList<vf8> arrayList2 = new ArrayList<>();
-            Iterator<nq4> it = arrayList.iterator();
+            Iterator<oq4> it = arrayList.iterator();
             while (it.hasNext()) {
-                nq4 next = it.next();
+                oq4 next = it.next();
                 if (next != null) {
                     arrayList2.add(new vf8(next));
                 }

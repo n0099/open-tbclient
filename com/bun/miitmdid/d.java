@@ -4,7 +4,6 @@ import android.content.Context;
 import android.content.pm.PackageManager;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.sofire.sharedpreferences.SharedPreferenceManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -25,7 +24,7 @@ public class d {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, str2)) == null) {
             try {
                 Class<?> cls = Class.forName("android.os.SystemProperties");
-                return (String) cls.getMethod(SharedPreferenceManager.OPERATION_GET_PERFIX, String.class, String.class).invoke(cls, str, "unknown");
+                return (String) cls.getMethod("get", String.class, String.class).invoke(cls, str, "unknown");
             } catch (Exception e) {
                 e.printStackTrace();
                 return str2;

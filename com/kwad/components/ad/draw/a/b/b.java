@@ -8,14 +8,15 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.kwad.components.ad.i.b;
 /* loaded from: classes5.dex */
 public final class b extends com.kwad.components.ad.draw.kwai.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public FrameLayout b;
+    public com.kwad.sdk.core.webview.a.kwai.a bJ;
+    public FrameLayout bS;
     @Nullable
-    public com.kwad.components.ad.h.b c;
-    public com.kwad.sdk.core.webview.a.kwai.a d;
+    public com.kwad.components.ad.i.b bb;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -30,10 +31,10 @@ public final class b extends com.kwad.components.ad.draw.kwai.a {
                 return;
             }
         }
-        this.d = new com.kwad.sdk.core.webview.a.kwai.a(this) { // from class: com.kwad.components.ad.draw.a.b.b.1
+        this.bJ = new com.kwad.sdk.core.webview.a.kwai.a(this) { // from class: com.kwad.components.ad.draw.a.b.b.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ b a;
+            public final /* synthetic */ b bT;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -50,56 +51,56 @@ public final class b extends com.kwad.components.ad.draw.kwai.a {
                         return;
                     }
                 }
-                this.a = this;
+                this.bT = this;
             }
 
             @Override // com.kwad.sdk.core.webview.a.kwai.a
             public final void a(com.kwad.sdk.core.webview.a.a.a aVar) {
                 Interceptable interceptable2 = $ic;
-                if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, aVar) == null) || ((com.kwad.components.ad.draw.kwai.a) this.a).a.a == null) {
+                if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, aVar) == null) || this.bT.aK.aJ == null) {
                     return;
                 }
-                ((com.kwad.components.ad.draw.kwai.a) this.a).a.a.onAdClicked();
+                this.bT.aK.aJ.onAdClicked();
             }
         };
     }
 
     @Override // com.kwad.components.ad.draw.kwai.a, com.kwad.sdk.mvp.Presenter
-    public final void a() {
+    public final void aq() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            super.a();
-            com.kwad.components.ad.h.b bVar = ((com.kwad.components.ad.draw.kwai.a) this).a.g;
-            this.c = bVar;
+            super.aq();
+            com.kwad.components.ad.i.b bVar = this.aK.bb;
+            this.bb = bVar;
             if (bVar == null) {
                 return;
             }
-            bVar.a(this.d);
-            com.kwad.components.ad.h.b bVar2 = this.c;
-            FrameLayout frameLayout = this.b;
-            com.kwad.components.ad.draw.kwai.b bVar3 = ((com.kwad.components.ad.draw.kwai.a) this).a;
-            bVar2.a(frameLayout, bVar3.b, bVar3.c, bVar3.d);
-            this.c.d();
+            bVar.a(this.bJ);
+            com.kwad.components.ad.i.b bVar2 = this.bb;
+            FrameLayout frameLayout = this.bS;
+            com.kwad.components.ad.draw.kwai.b bVar3 = this.aK;
+            bVar2.a(frameLayout, bVar3.mRootContainer, bVar3.mAdTemplate, bVar3.mApkDownloadHelper);
+            this.bb.a((b.InterfaceC0314b) null);
         }
     }
 
     @Override // com.kwad.sdk.mvp.Presenter
-    public final void i_() {
+    public final void onCreate() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            super.i_();
-            this.b = (FrameLayout) b(R.id.obfuscated_res_0x7f0910b0);
+            super.onCreate();
+            this.bS = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0910a7);
         }
     }
 
     @Override // com.kwad.sdk.mvp.Presenter
-    public final void k_() {
+    public final void onUnbind() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            super.k_();
-            com.kwad.components.ad.h.b bVar = this.c;
+            super.onUnbind();
+            com.kwad.components.ad.i.b bVar = this.bb;
             if (bVar != null) {
-                bVar.i();
+                bVar.bt();
             }
         }
     }

@@ -114,12 +114,12 @@ public class iz6 {
             statisticItem.addParam(TiebaStatic.Params.FID_1, threadData.getFid());
             statisticItem.addParam("order_id", threadData.tiebaPlusOrderId);
             TiebaStatic.log(statisticItem);
-            pk4.a(pk4.e, pk4.a, threadData.tiebaPlusOrderId, threadData.tiebaPlusToken, threadData.tiebaPlusExtraParam, i);
+            qk4.a(qk4.e, qk4.a, threadData.tiebaPlusOrderId, threadData.tiebaPlusToken, threadData.tiebaPlusExtraParam, i);
         }
         if (str == null || !str.startsWith("manual")) {
             return;
         }
-        pk4.a(pk4.l, pk4.a, str, threadData.tiebaPlusToken, threadData.tiebaPlusExtraParam, i);
+        qk4.a(qk4.l, qk4.a, str, threadData.tiebaPlusToken, threadData.tiebaPlusExtraParam, i);
     }
 
     public static void d(ThreadData threadData, BdUniqueId bdUniqueId, int i, int i2) {
@@ -229,10 +229,10 @@ public class iz6 {
             statisticItem.addParam(TiebaStatic.Params.FID_1, threadData.getFid());
             statisticItem.addParam("order_id", threadData.tiebaPlusOrderId);
             TiebaStatic.log(statisticItem);
-            pk4.a(pk4.d, pk4.a, threadData.tiebaPlusOrderId, threadData.tiebaPlusToken, threadData.tiebaPlusExtraParam, i);
+            qk4.a(qk4.d, qk4.a, threadData.tiebaPlusOrderId, threadData.tiebaPlusToken, threadData.tiebaPlusExtraParam, i);
         }
         if (str != null && str.startsWith("manual")) {
-            pk4.a(pk4.k, pk4.a, str, threadData.tiebaPlusToken, threadData.tiebaPlusExtraParam, i);
+            qk4.a(qk4.k, qk4.a, str, threadData.tiebaPlusToken, threadData.tiebaPlusExtraParam, i);
         }
         if (TextUtils.isEmpty(threadData.tiePlusMonitorShowUrl)) {
             return;

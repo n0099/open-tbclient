@@ -103,7 +103,7 @@ public class BubbleItemView extends LinearLayout {
         if (dressItemData.isDefault()) {
             this.d.setDefaultResource(R.drawable.obfuscated_res_0x7f0806b0);
             this.d.J("", 10, false);
-            this.e.setText(R.string.obfuscated_res_0x7f0f0487);
+            this.e.setText(R.string.obfuscated_res_0x7f0f0486);
             this.e.setGravity(17);
             this.e.setTextSize(0, pi.f(this.a, R.dimen.obfuscated_res_0x7f0701f9));
             this.e.setTextColor(getResources().getColor(R.color.CAM_X0108));
@@ -141,16 +141,16 @@ public class BubbleItemView extends LinearLayout {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0163, this);
             this.b = inflate;
-            this.c = (FrameLayout) inflate.findViewById(R.id.obfuscated_res_0x7f0913c9);
+            this.c = (FrameLayout) inflate.findViewById(R.id.obfuscated_res_0x7f0913a5);
             this.d = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f090362);
-            TbImageView tbImageView = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f0917ee);
+            TbImageView tbImageView = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f0917c9);
             this.f = tbImageView;
-            tbImageView.setDefaultResource(R.drawable.obfuscated_res_0x7f0811a4);
-            this.f.setDefaultBgResource(R.drawable.obfuscated_res_0x7f0811a4);
-            TbImageView tbImageView2 = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f091e2f);
+            tbImageView.setDefaultResource(R.drawable.obfuscated_res_0x7f0811a8);
+            this.f.setDefaultBgResource(R.drawable.obfuscated_res_0x7f0811a8);
+            TbImageView tbImageView2 = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f091e35);
             this.g = tbImageView2;
-            tbImageView2.setDefaultResource(R.drawable.obfuscated_res_0x7f0811a4);
-            this.g.setDefaultBgResource(R.drawable.obfuscated_res_0x7f0811a4);
+            tbImageView2.setDefaultResource(R.drawable.obfuscated_res_0x7f0811a8);
+            this.g.setDefaultBgResource(R.drawable.obfuscated_res_0x7f0811a8);
             this.h = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f0905f1);
             this.e = new TextView(this.a);
             this.d.setOnClickListener(this.l);

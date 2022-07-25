@@ -1,16 +1,17 @@
 package com.repackage;
 
-import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import java.util.concurrent.atomic.AtomicInteger;
 /* loaded from: classes6.dex */
 public class o22 {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean a;
+    public static AtomicInteger b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -26,50 +27,46 @@ public class o22 {
                 return;
             }
         }
-        a = rg1.a;
+        a = sg1.a;
+        b = new AtomicInteger(0);
     }
 
-    public static boolean a(fz1 fz1Var, String str) {
-        InterceptResult invokeLL;
-        h03 b0;
-        j22 a2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, fz1Var, str)) == null) {
-            if (a) {
-                Log.d("MasterIsolationHelper", "JS CALL - " + str);
-            }
-            boolean z = false;
-            if (gw2.D()) {
-                return false;
-            }
-            if (fz1Var != null && !TextUtils.isEmpty(fz1Var.getContainerId())) {
-                if (w22.i().k(fz1Var.getContainerId())) {
-                    return true;
-                }
-                if (!h42.h()) {
-                    return false;
-                }
-                String containerId = fz1Var.getContainerId();
-                if (!n22.a(containerId) || (b0 = h03.b0()) == null || !b(fz1Var) || (a2 = q22.b().a()) == null) {
-                    return false;
-                }
-                String h = a2.h();
-                if (TextUtils.isEmpty(h)) {
-                    return false;
-                }
-                z = (TextUtils.equals(a2.i().b(), fz1Var.getContainerId()) && TextUtils.equals(h, b0.b)) ? true : true;
-                if (a && z) {
-                    Log.w("MasterIsolationHelper", "master id - " + containerId + ",can not call API - " + str + ", intercept for preload/prefetch");
-                }
-            }
-            return z;
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public static boolean b(fz1 fz1Var) {
+    public static boolean a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, fz1Var)) == null) ? (fz1Var instanceof p72) && ((p72) fz1Var).getInvokeSourceType() == 0 : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) ? str != null && str.startsWith("master") : invokeL.booleanValue;
+    }
+
+    public static String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            String str = "master";
+            if (i42.h()) {
+                int andIncrement = b.getAndIncrement();
+                if (andIncrement >= 1) {
+                    str = "master" + andIncrement;
+                }
+                if (a) {
+                    Log.i("MasterIdGenerator", "next master id - " + str);
+                }
+                return str;
+            }
+            return "master";
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static int c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            int andSet = b.getAndSet(0);
+            if (a) {
+                Log.i("MasterIdGenerator", "last master id - " + andSet);
+            }
+            return andSet;
+        }
+        return invokeV.intValue;
     }
 }

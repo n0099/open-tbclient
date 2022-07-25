@@ -18,7 +18,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.b57;
 import com.repackage.l67;
-import com.repackage.s65;
+import com.repackage.t65;
 import com.repackage.x67;
 import java.util.List;
 /* loaded from: classes3.dex */
@@ -29,11 +29,11 @@ public class SingleForumBroadcastFeedActivity extends BaseActivity {
     public OfficialBarFeedMsglistView b;
     public String c;
     public byte d;
-    public s65 e;
+    public t65 e;
     public b57.d f;
 
     /* loaded from: classes3.dex */
-    public class a extends s65<TopToastEvent> {
+    public class a extends t65<TopToastEvent> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ SingleForumBroadcastFeedActivity c;
@@ -57,7 +57,7 @@ public class SingleForumBroadcastFeedActivity extends BaseActivity {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.l65
+        @Override // com.repackage.m65
         /* renamed from: a */
         public boolean onEvent(TopToastEvent topToastEvent) {
             InterceptResult invokeL;

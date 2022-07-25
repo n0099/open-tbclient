@@ -5,21 +5,23 @@ import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.lang.reflect.Method;
 /* loaded from: classes7.dex */
-public class uk3 implements rk3 {
+public class uk3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public vk3 a;
-    public boolean b;
+    public Method a;
+    public Object b;
 
-    public uk3(@NonNull Context context) {
+    public uk3(Class<?> cls) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
+            Object[] objArr = {cls};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -29,39 +31,58 @@ public class uk3 implements rk3 {
                 return;
             }
         }
-        this.b = false;
-        c(context);
-    }
-
-    @Override // com.repackage.rk3
-    public void a() {
-        vk3 vk3Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.b && (vk3Var = this.a) != null && vk3Var.c()) {
-            this.b = false;
-            vk3 vk3Var2 = this.a;
-            vk3Var2.d(vk3Var2.a(), "", -1);
-        }
-    }
-
-    @Override // com.repackage.rk3
-    public void b(int i) {
-        vk3 vk3Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) || this.b || (vk3Var = this.a) == null || !vk3Var.c()) {
+        if (cls == null) {
             return;
         }
-        vk3 vk3Var2 = this.a;
-        if (vk3Var2.d(vk3Var2.a(), "", 0) != 0) {
-            return;
+        try {
+            this.b = l44.m(cls);
+            Method i3 = l44.i(cls, "perfEvent", Integer.TYPE, String.class, int[].class);
+            this.a = i3;
+            if (i3 != null) {
+                i3.setAccessible(true);
+            }
+        } catch (Throwable unused) {
         }
-        this.b = true;
     }
 
-    public final void c(Context context) {
+    public static uk3 a(@NonNull Context context) {
+        Class<?> cls;
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) && this.a == null) {
-            this.a = vk3.b(context);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+            try {
+                cls = l44.b("com.hisi.perfhub.PerfHub", true);
+            } catch (Throwable unused) {
+                cls = null;
+            }
+            return new uk3(cls);
         }
+        return (uk3) invokeL.objValue;
+    }
+
+    public boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? (this.b == null || this.a == null) ? false : true : invokeV.booleanValue;
+    }
+
+    public int c(int i, String str, int... iArr) {
+        InterceptResult invokeILL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str, iArr)) == null) {
+            if (b()) {
+                try {
+                    Object invoke = this.a.invoke(this.b, Integer.valueOf(i), str, iArr);
+                    if (invoke == null) {
+                        return -1;
+                    }
+                    return ((Integer) invoke).intValue();
+                } catch (Throwable unused) {
+                    return -1;
+                }
+            }
+            return -1;
+        }
+        return invokeILL.intValue;
     }
 }

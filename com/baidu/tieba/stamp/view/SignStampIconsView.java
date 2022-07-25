@@ -33,8 +33,8 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.hg8;
 import com.repackage.ig;
 import com.repackage.jg;
-import com.repackage.lq4;
-import com.repackage.ur4;
+import com.repackage.mq4;
+import com.repackage.vr4;
 import com.repackage.ym;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -153,7 +153,7 @@ public class SignStampIconsView extends LinearLayout {
             marginLayoutParams.rightMargin = i2 - i3;
             view2.setLayoutParams(marginLayoutParams);
             view2.setTag("crossLine");
-            ur4 d2 = ur4.d(view2);
+            vr4 d2 = vr4.d(view2);
             d2.n(g);
             d2.p(new int[]{R.color.CAM_X0612, R.color.CAM_X0618}, Direction.LEFT);
             return view2;
@@ -173,7 +173,7 @@ public class SignStampIconsView extends LinearLayout {
         return (ObjectAnimator) invokeCommon.objValue;
     }
 
-    public final View c(final lq4.a aVar) {
+    public final View c(final mq4.a aVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar)) == null) {
@@ -194,13 +194,13 @@ public class SignStampIconsView extends LinearLayout {
             ViewGroup.MarginLayoutParams marginLayoutParams2 = new ViewGroup.MarginLayoutParams(-2, -2);
             marginLayoutParams2.topMargin = i;
             textView.setLayoutParams(marginLayoutParams2);
-            textView.setText(String.format(getResources().getString(R.string.obfuscated_res_0x7f0f11f5), Integer.valueOf(aVar.a())));
+            textView.setText(String.format(getResources().getString(R.string.obfuscated_res_0x7f0f11a4), Integer.valueOf(aVar.a())));
             if (aVar.e() == 1) {
-                ur4.d(textView).v(j);
+                vr4.d(textView).v(j);
             } else {
-                ur4.d(textView).v(k);
+                vr4.d(textView).v(k);
             }
-            ur4.d(textView).z(l);
+            vr4.d(textView).z(l);
             LinearLayout linearLayout = new LinearLayout(this.a);
             linearLayout.setOrientation(1);
             linearLayout.setGravity(1);
@@ -231,7 +231,7 @@ public class SignStampIconsView extends LinearLayout {
         }
     }
 
-    public /* synthetic */ void e(lq4.a aVar, View view2) {
+    public /* synthetic */ void e(mq4.a aVar, View view2) {
         if (aVar.f()) {
             return;
         }
@@ -256,7 +256,7 @@ public class SignStampIconsView extends LinearLayout {
         tbImageView.setImageBitmap(i(ymVar.p()));
     }
 
-    public final void g(lq4.a aVar, TbImageView tbImageView) {
+    public final void g(mq4.a aVar, TbImageView tbImageView) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLL(1048581, this, aVar, tbImageView) == null) || aVar == null) {
             return;
@@ -345,12 +345,12 @@ public class SignStampIconsView extends LinearLayout {
         }
     }
 
-    public void setStampIconsList(List<lq4.a> list) {
+    public void setStampIconsList(List<mq4.a> list) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048587, this, list) == null) || list == null) {
             return;
         }
-        Iterator<lq4.a> it = list.iterator();
+        Iterator<mq4.a> it = list.iterator();
         while (it.hasNext()) {
             View c = c(it.next());
             if (c != null) {

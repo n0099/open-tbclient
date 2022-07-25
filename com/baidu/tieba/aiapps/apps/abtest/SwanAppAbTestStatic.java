@@ -48,18 +48,18 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.am;
-import com.repackage.jm3;
-import com.repackage.m93;
+import com.repackage.km3;
+import com.repackage.n93;
 import com.repackage.pi;
-import com.repackage.pi4;
 import com.repackage.qg;
+import com.repackage.qi4;
 import com.repackage.qm5;
-import com.repackage.r65;
 import com.repackage.rm5;
 import com.repackage.s65;
-import com.repackage.sg1;
 import com.repackage.sm5;
-import com.repackage.v83;
+import com.repackage.t65;
+import com.repackage.tg1;
+import com.repackage.w83;
 import com.repackage.z8;
 import com.repackage.zl;
 import java.util.List;
@@ -67,11 +67,11 @@ import java.util.List;
 public class SwanAppAbTestStatic {
     public static /* synthetic */ Interceptable $ic;
     public static String a;
-    public static s65 b;
+    public static t65 b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes3.dex */
-    public static class a extends s65<PrivacyPolicyEvent> {
+    public static class a extends t65<PrivacyPolicyEvent> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -90,7 +90,7 @@ public class SwanAppAbTestStatic {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.l65
+        @Override // com.repackage.m65
         /* renamed from: a */
         public boolean onEvent(PrivacyPolicyEvent privacyPolicyEvent) {
             InterceptResult invokeL;
@@ -101,7 +101,7 @@ public class SwanAppAbTestStatic {
                 }
                 qm5.a();
                 if (!TextUtils.isEmpty(SwanAppAbTestStatic.a) && TbadkCoreApplication.getInst().isMainProcess(false)) {
-                    jm3.a(SwanAppAbTestStatic.a);
+                    km3.a(SwanAppAbTestStatic.a);
                     SwanAppAbTestStatic.a = null;
                 }
                 return true;
@@ -187,7 +187,7 @@ public class SwanAppAbTestStatic {
             PopupWindow a;
             Activity b;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && (customResponsedMessage.getData() instanceof pi4) && (a = rm5.a((pi4) customResponsedMessage.getData())) != null && (b = z8.g().b()) != null && b.getWindow() != null) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && (customResponsedMessage.getData() instanceof qi4) && (a = rm5.a((qi4) customResponsedMessage.getData())) != null && (b = z8.g().b()) != null && b.getWindow() != null) {
                 try {
                     a.showAtLocation(b.getWindow().getDecorView(), 17, 0, 0);
                 } catch (Exception unused) {
@@ -319,11 +319,11 @@ public class SwanAppAbTestStatic {
             public void onSuccess(GetUserInfoResult getUserInfoResult) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048582, this, getUserInfoResult) == null) {
-                    v83.a().putString("bd_box_display_name", getUserInfoResult.displayname);
-                    v83.a().putString("bd_box_uid", getUserInfoResult.uid);
-                    v83.a().putString("bd_box_avatar_url", getUserInfoResult.portraitHttps);
-                    v83.a().putString("bd_box_bduss", SapiAccountManager.getInstance().getSession().bduss);
-                    v83.a().putString("bd_box_ptoken", SapiAccountManager.getInstance().getSession().getPtoken());
+                    w83.a().putString("bd_box_display_name", getUserInfoResult.displayname);
+                    w83.a().putString("bd_box_uid", getUserInfoResult.uid);
+                    w83.a().putString("bd_box_avatar_url", getUserInfoResult.portraitHttps);
+                    w83.a().putString("bd_box_bduss", SapiAccountManager.getInstance().getSession().bduss);
+                    w83.a().putString("bd_box_ptoken", SapiAccountManager.getInstance().getSession().getPtoken());
                     sm5.l().y(getUserInfoResult);
                 }
             }
@@ -391,9 +391,9 @@ public class SwanAppAbTestStatic {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
-                String a = sg1.a();
-                long f = m93.f(0);
-                long f2 = m93.f(1);
+                String a = tg1.a();
+                long f = n93.f(0);
+                long f2 = n93.f(1);
                 TbadkCoreApplication.getInst().setSdk_ver(a);
                 TbadkCoreApplication.getInst().setFramework_ver(Long.toString(f));
                 TbadkCoreApplication.getInst().setSwan_game_ver(Long.toString(f2));
@@ -427,10 +427,10 @@ public class SwanAppAbTestStatic {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
-                String a = sg1.a();
+                String a = tg1.a();
                 if (TbadkCoreApplication.getInst().getSwan_game_ver() == null) {
-                    long f = m93.f(0);
-                    long f2 = m93.f(1);
+                    long f = n93.f(0);
+                    long f2 = n93.f(1);
                     TbadkCoreApplication.getInst().setSdk_ver(a);
                     TbadkCoreApplication.getInst().setFramework_ver(Long.toString(f));
                     TbadkCoreApplication.getInst().setSwan_game_ver(Long.toString(f2));
@@ -550,7 +550,7 @@ public class SwanAppAbTestStatic {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65541, null) == null) {
             if (!PermissionUtil.isAgreePrivacyPolicy()) {
-                r65.f().m(PrivacyPolicyEvent.class, b, BdUniqueId.gen());
+                s65.f().m(PrivacyPolicyEvent.class, b, BdUniqueId.gen());
             } else if (AiAppsLazyInitSwitch.getIsOn()) {
             } else {
                 if (TbadkCoreApplication.getInst().isRemoteProcess()) {

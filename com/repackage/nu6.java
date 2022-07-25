@@ -237,22 +237,22 @@ public class nu6 {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.b : (BdUniqueId) invokeV.objValue;
     }
 
-    public void h(String str, wc5 wc5Var) {
+    public void h(String str, xc5 xc5Var) {
         ConcernNetModel concernNetModel;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048582, this, str, wc5Var) == null) || (concernNetModel = this.d) == null) {
+        if (!(interceptable == null || interceptable.invokeLL(1048582, this, str, xc5Var) == null) || (concernNetModel = this.d) == null) {
             return;
         }
-        concernNetModel.E(str, wc5Var);
+        concernNetModel.E(str, xc5Var);
     }
 
-    public void i(int i, int i2, wc5 wc5Var, int i3, int i4) {
+    public void i(int i, int i2, xc5 xc5Var, int i3, int i4) {
         RecPersonalizePageModel recPersonalizePageModel;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), wc5Var, Integer.valueOf(i3), Integer.valueOf(i4)}) == null) || (recPersonalizePageModel = this.c) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), xc5Var, Integer.valueOf(i3), Integer.valueOf(i4)}) == null) || (recPersonalizePageModel = this.c) == null) {
             return;
         }
-        recPersonalizePageModel.i(i, i2, wc5Var, i3, i4);
+        recPersonalizePageModel.i(i, i2, xc5Var, i3, i4);
     }
 
     public void j(ee7 ee7Var) {

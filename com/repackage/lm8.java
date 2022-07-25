@@ -42,11 +42,11 @@ public class lm8 extends CustomMessageListener {
         if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || customResponsedMessage.getData() == null) {
             return;
         }
-        p25 p25Var = customResponsedMessage.getData() instanceof p25 ? (p25) customResponsedMessage.getData() : null;
-        if (p25Var == null || p25Var.b() != 0) {
+        q25 q25Var = customResponsedMessage.getData() instanceof q25 ? (q25) customResponsedMessage.getData() : null;
+        if (q25Var == null || q25Var.b() != 0) {
             return;
         }
         MainTabActivity mainTabActivity = this.a;
-        new o25(mainTabActivity, mainTabActivity.findViewById(R.id.obfuscated_res_0x7f091ec6), p25Var).m();
+        new p25(mainTabActivity, mainTabActivity.findViewById(R.id.obfuscated_res_0x7f091eca), q25Var).m();
     }
 }

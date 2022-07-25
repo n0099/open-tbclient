@@ -128,11 +128,11 @@ public class TbTitleActivity extends BaseActivity<TbTitleActivity> {
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && view2.getId() == R.id.obfuscated_res_0x7f091f97 && this.a.checkUpIsLogin()) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && view2.getId() == R.id.obfuscated_res_0x7f091f9b && this.a.checkUpIsLogin()) {
                 if (ni.z()) {
                     this.a.e.R(this.a.b, this.a.a);
                 } else {
-                    this.a.showToast(R.string.obfuscated_res_0x7f0f0c2b);
+                    this.a.showToast(R.string.obfuscated_res_0x7f0f0c17);
                 }
             }
         }
@@ -262,7 +262,7 @@ public class TbTitleActivity extends BaseActivity<TbTitleActivity> {
                             return;
                         }
                     }
-                    this.a.getPageContext().showToast(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f0819));
+                    this.a.getPageContext().showToast(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f0815));
                     return;
                 }
                 this.a.getPageContext().showToast(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f02b6));

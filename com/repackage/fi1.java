@@ -1,9 +1,12 @@
 package com.repackage;
 
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class fi1 implements ck1 {
     public static /* synthetic */ Interceptable $ic;
@@ -24,9 +27,9 @@ public class fi1 implements ck1 {
     }
 
     @Override // com.repackage.ck1
-    public void a(String str, gx2 gx2Var) {
+    public String a(@NonNull String str, JSONObject jSONObject) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, str, gx2Var) == null) {
-        }
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, jSONObject)) == null) ? str : (String) invokeLL.objValue;
     }
 }

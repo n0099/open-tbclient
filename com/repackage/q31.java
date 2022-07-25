@@ -50,13 +50,13 @@ public class q31 implements s31<ImageView> {
 
         /* renamed from: com.repackage.q31$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public class RunnableC0712a implements Runnable {
+        public class RunnableC0556a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ Bitmap a;
             public final /* synthetic */ a b;
 
-            public RunnableC0712a(a aVar, Bitmap bitmap) {
+            public RunnableC0556a(a aVar, Bitmap bitmap) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -117,7 +117,7 @@ public class q31 implements s31<ImageView> {
         public void b(Bitmap bitmap) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bitmap) == null) {
-                uh0.b(new RunnableC0712a(this, bitmap));
+                uh0.b(new RunnableC0556a(this, bitmap));
             }
         }
     }

@@ -22,7 +22,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class pz6 implements x68 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -68,26 +68,26 @@ public class pz6 implements x68 {
         if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (context = this.b) == null || this.c == null) {
             return;
         }
-        View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d08df, this.c, true);
+        View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d08e9, this.c, true);
         if (inflate != null) {
             inflate.setOnClickListener(this);
         }
-        ImageView imageView = (ImageView) this.c.findViewById(R.id.obfuscated_res_0x7f0923ca);
+        ImageView imageView = (ImageView) this.c.findViewById(R.id.obfuscated_res_0x7f0923cc);
         if (imageView != null) {
             imageView.setImageDrawable(WebPManager.getPureDrawable(R.drawable.icon_pure_video_play44, SkinManager.getColor(R.color.CAM_X0101), WebPManager.ResourceStateType.NORMAL));
             imageView.setOnClickListener(this);
         }
-        TextView textView = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f092393);
+        TextView textView = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f092395);
         this.f = textView;
         if (textView != null) {
-            ur4.d(textView).y(R.array.S_O_X001);
+            vr4.d(textView).y(R.array.S_O_X001);
         }
-        TextView textView2 = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f0923cc);
+        TextView textView2 = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f0923ce);
         this.e = textView2;
         if (textView2 != null) {
-            ur4.d(textView2).y(R.array.S_O_X001);
+            vr4.d(textView2).y(R.array.S_O_X001);
         }
-        TbImageView tbImageView = (TbImageView) this.c.findViewById(R.id.obfuscated_res_0x7f0923fb);
+        TbImageView tbImageView = (TbImageView) this.c.findViewById(R.id.obfuscated_res_0x7f0923fd);
         this.d = tbImageView;
         if (tbImageView != null) {
             tbImageView.s();
@@ -347,7 +347,7 @@ public class pz6 implements x68 {
         }
         TextView textView2 = this.e;
         if (textView2 != null) {
-            textView2.setText(String.format(this.b.getResources().getString(R.string.obfuscated_res_0x7f0f0e72), StringHelper.numFormatOverWan(threadData.getThreadVideoInfo().play_count.intValue())));
+            textView2.setText(String.format(this.b.getResources().getString(R.string.obfuscated_res_0x7f0f0e5b), StringHelper.numFormatOverWan(threadData.getThreadVideoInfo().play_count.intValue())));
         }
         if (this.d != null) {
             if (TbadkCoreApplication.getInst().getAutoPlaySwitch() != 2 && TbadkCoreApplication.getInst().getAutoPlaySwitch() != 1) {

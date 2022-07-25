@@ -68,7 +68,7 @@ public class nm6 {
     public PbListView e;
     public mm6 f;
     public BannerView g;
-    public uo4 h;
+    public vo4 h;
     public boolean i;
     public RelativeLayout j;
     public fi6 k;
@@ -314,12 +314,12 @@ public class nm6 {
                 }
                 if (!ListUtils.isEmpty(j)) {
                     for (nn nnVar : j) {
-                        if (nnVar instanceof qq4) {
-                            qq4 qq4Var = (qq4) nnVar;
-                            if (qq4Var.t != 0 && (threadData = qq4Var.s) != null) {
+                        if (nnVar instanceof rq4) {
+                            rq4 rq4Var = (rq4) nnVar;
+                            if (rq4Var.t != 0 && (threadData = rq4Var.s) != null) {
                                 int[] imageWidthAndHeight = threadData.getImageWidthAndHeight();
-                                qq4Var.t = imageWidthAndHeight[0];
-                                qq4Var.u = imageWidthAndHeight[1];
+                                rq4Var.t = imageWidthAndHeight[0];
+                                rq4Var.u = imageWidthAndHeight[1];
                             }
                         }
                     }
@@ -452,7 +452,7 @@ public class nm6 {
             if (this.l) {
                 return false;
             }
-            this.e.C(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0a2a));
+            this.e.C(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0a16));
             this.e.f();
             return true;
         }
@@ -506,7 +506,7 @@ public class nm6 {
         if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
             this.l = z;
             if (z) {
-                this.e.C(TbadkCoreApplication.getInst().getContext().getResources().getString(R.string.obfuscated_res_0x7f0f0a29));
+                this.e.C(TbadkCoreApplication.getInst().getContext().getResources().getString(R.string.obfuscated_res_0x7f0f0a15));
                 BdTypeRecyclerView bdTypeRecyclerView = this.c;
                 if (bdTypeRecyclerView.getChildAt(bdTypeRecyclerView.getChildCount() - 1) == this.e.b()) {
                     this.e.Q();
@@ -516,7 +516,7 @@ public class nm6 {
                 this.e.f();
                 return;
             }
-            this.e.C(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0a2a));
+            this.e.C(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0a16));
             this.e.f();
         }
     }
@@ -604,7 +604,7 @@ public class nm6 {
             this.c.setNextPage(this.e);
             this.e.L(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
             this.e.f();
-            this.e.C(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f09e5));
+            this.e.C(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f09cf));
         }
     }
 
@@ -619,12 +619,12 @@ public class nm6 {
     }
 
     public final void i() {
-        uo4 uo4Var;
+        vo4 vo4Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048591, this) == null) || (uo4Var = this.h) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048591, this) == null) || (vo4Var = this.h) == null) {
             return;
         }
-        String d2 = uo4Var.d();
+        String d2 = vo4Var.d();
         if (this.h.a() == 1) {
             MessageManager.getInstance().sendMessage(new CustomMessage(2902014, new FacePackageDetailActivityConfig(this.a.getPageContext().getPageActivity(), d2, false, "frs_banner")));
         } else if (this.h.a() == 2) {
@@ -727,14 +727,14 @@ public class nm6 {
         }
     }
 
-    public final void o(uo4 uo4Var) {
+    public final void o(vo4 vo4Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048597, this, uo4Var) == null) && this.g == null) {
+        if ((interceptable == null || interceptable.invokeL(1048597, this, vo4Var) == null) && this.g == null) {
             this.g = new BannerView(this.a.getPageContext().getPageActivity());
             this.g.setLayoutParams(new AbsListView.LayoutParams(-1, this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07019a)));
             this.g.setVisibility(8);
             this.g.setBannerViewClickListener(this.n);
-            this.g.setBannerData(uo4Var);
+            this.g.setBannerData(vo4Var);
             this.g.setBannerViewEvent(new b(this));
         }
     }
@@ -742,8 +742,8 @@ public class nm6 {
     public final void p(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048598, this, view2) == null) {
-            this.b = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f090aee);
-            BdTypeRecyclerView bdTypeRecyclerView = (BdTypeRecyclerView) view2.findViewById(R.id.obfuscated_res_0x7f090af0);
+            this.b = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f090ae7);
+            BdTypeRecyclerView bdTypeRecyclerView = (BdTypeRecyclerView) view2.findViewById(R.id.obfuscated_res_0x7f090ae9);
             this.c = bdTypeRecyclerView;
             bdTypeRecyclerView.setLayoutManager(new LinearLayoutManager(bdTypeRecyclerView.getContext()));
             this.c.setFadingEdgeLength(0);
@@ -762,7 +762,7 @@ public class nm6 {
             this.e.E(SkinManager.getColor(R.color.CAM_X0107));
             this.e.A(R.color.CAM_X0110);
             this.c.setOnSrollToBottomListener(this.a);
-            this.d = (FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f090b50);
+            this.d = (FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f090b49);
             this.f = new mm6(this.a, this.c);
             D(false);
             this.j = new RelativeLayout(this.a.getContext());
@@ -840,7 +840,7 @@ public class nm6 {
         if (!(interceptable == null || interceptable.invokeLL(1048604, this, forumData, userData) == null) || this.i || forumData == null || forumData.getFrsBannerData() == null || !forumData.getFrsBannerData().e()) {
             return;
         }
-        uo4 frsBannerData = forumData.getFrsBannerData();
+        vo4 frsBannerData = forumData.getFrsBannerData();
         this.h = frsBannerData;
         o(frsBannerData);
         this.g.k();

@@ -80,16 +80,16 @@ public class OfficialFeedItemImage extends RelativeLayout {
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0641, (ViewGroup) this, true);
-            this.b = (TbImageView) findViewById(R.id.obfuscated_res_0x7f091472);
-            this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f091479);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f091478);
-            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f09147e);
+            LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d064b, (ViewGroup) this, true);
+            this.b = (TbImageView) findViewById(R.id.obfuscated_res_0x7f09144e);
+            this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f091455);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f091454);
+            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f09145a);
             this.f = findViewById(R.id.obfuscated_res_0x7f090380);
             this.b.setConrers(15);
             this.b.setRadius(pi.f(this.a, R.dimen.tbds21));
-            this.g = findViewById(R.id.obfuscated_res_0x7f090e39);
-            this.h = findViewById(R.id.obfuscated_res_0x7f0914cc);
+            this.g = findViewById(R.id.obfuscated_res_0x7f090e32);
+            this.h = findViewById(R.id.obfuscated_res_0x7f0914a7);
             c();
         }
     }
@@ -113,7 +113,7 @@ public class OfficialFeedItemImage extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
             if (i > 0) {
-                this.d.setText(this.a.getString(R.string.obfuscated_res_0x7f0f0e56, StringHelper.numberUniformFormatExtraWithRound(i)));
+                this.d.setText(this.a.getString(R.string.obfuscated_res_0x7f0f0e3f, StringHelper.numberUniformFormatExtraWithRound(i)));
                 this.d.setVisibility(0);
                 this.c.setVisibility(0);
                 return;

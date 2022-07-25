@@ -33,11 +33,11 @@ public class fi7 implements ThirdPartAliRechargeService {
         InterceptResult invokeLLZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(1048576, this, activity, str, z)) == null) {
-            sk4 sk4Var = new sk4();
-            sk4Var.a = activity;
-            sk4Var.b = str;
-            sk4Var.c = z;
-            CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2921539, String.class, sk4Var);
+            tk4 tk4Var = new tk4();
+            tk4Var.a = activity;
+            tk4Var.b = str;
+            tk4Var.c = z;
+            CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2921539, String.class, tk4Var);
             return runTask == null ? "" : (String) runTask.getData();
         }
         return (String) invokeLLZ.objValue;

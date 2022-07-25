@@ -22,12 +22,12 @@ public interface o21 {
 
         /* renamed from: com.repackage.o21$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class View$OnClickListenerC0696a implements View.OnClickListener {
+        public class View$OnClickListenerC0542a implements View.OnClickListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ AbsContainer a;
 
-            public View$OnClickListenerC0696a(a aVar, AbsContainer absContainer) {
+            public View$OnClickListenerC0542a(a aVar, AbsContainer absContainer) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -81,7 +81,7 @@ public interface o21 {
         public void b(View view2, AbsContainer absContainer) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, absContainer) == null) && ((Integer) view2.getTag()).intValue() == R.drawable.obfuscated_res_0x7f080db9) {
-                view2.setOnClickListener(new View$OnClickListenerC0696a(this, absContainer));
+                view2.setOnClickListener(new View$OnClickListenerC0542a(this, absContainer));
             }
         }
 

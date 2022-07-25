@@ -1,108 +1,178 @@
 package com.repackage;
 
+import android.content.Context;
 import android.text.TextUtils;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.facebook.imageutils.JfifUtil;
-import java.util.HashMap;
-import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class qp2 {
+public class qp2 implements gn2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final HashMap<String, Integer> a;
-    public static final HashMap<String, Integer> b;
-    public static final HashMap<String, Integer> c;
     public transient /* synthetic */ FieldHolder $fh;
+    public am1 a;
+    public String b;
+    public sp2 c;
+    public boolean d;
+    public Context e;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755372514, "Lcom/repackage/qp2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755372514, "Lcom/repackage/qp2;");
-                return;
-            }
-        }
-        HashMap<String, Integer> hashMap = new HashMap<>(16);
-        a = hashMap;
-        hashMap.put("VRModeProjectionSphere", 201);
-        a.put("VRModeProjectionDome180", 202);
-        a.put("VRModeProjectionDome230", 203);
-        a.put("VRModeProjectionDome180Upper", 204);
-        a.put("VRModeProjectionDome230Upper", 205);
-        a.put("VRModeProjectionPlaneFit", 207);
-        a.put("VRModeProjectionPlaneCrop", 208);
-        a.put("VRModeProjectionPlaneFull", 209);
-        a.put("VRModeProjectionMultiFishEyeHorizontal", 210);
-        a.put("VRModeProjectionMultiFishEyeVertical", 211);
-        a.put("VRModeProjectionStereoSphereHorizontal", 212);
-        a.put("VRModeProjectionStereoSphereVertical", 213);
-        a.put("VRModeProjectionStereoPlaneFitHorizontal", 214);
-        a.put("VRModeProjectionStereoPlaneFitVertical", 215);
-        a.put("VRModeProjectionPlaneFullHorizontal", Integer.valueOf((int) JfifUtil.MARKER_SOI));
-        a.put("VRModeProjectionPlaneFullVertical", 217);
-        HashMap<String, Integer> hashMap2 = new HashMap<>(2);
-        b = hashMap2;
-        hashMap2.put("VRModeDisplayNormal", 101);
-        b.put("VRModeDisplayGlass", 102);
-        HashMap<String, Integer> hashMap3 = new HashMap<>(5);
-        c = hashMap3;
-        hashMap3.put("VRModeInteractiveMotion", 1);
-        c.put("VRModeInteractiveTouch", 2);
-        c.put("VRModeInteractiveMotionWithTouch", 3);
-        c.put("VRModeInteractiveGVRMotion", 4);
-        c.put("VRModeInteractiveGVRMotionWithTouch", 5);
-    }
-
-    public qp2() {
+    public qp2(Context context, @NonNull sp2 sp2Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, sp2Var};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.e = context;
+        this.c = sp2Var;
+        this.b = sp2Var.j;
+        e();
+        a();
+    }
+
+    public final void a() {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || TextUtils.isEmpty(this.b)) {
+            return;
+        }
+        hn2.a(this);
+    }
+
+    @Override // com.repackage.gn2
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.c.c : (String) invokeV.objValue;
+    }
+
+    @Override // com.repackage.gn2
+    public String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.b : (String) invokeV.objValue;
+    }
+
+    public sp2 d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.c : (sp2) invokeV.objValue;
+    }
+
+    public am1 e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            if (this.a == null) {
+                ix1.i("VrVideo", "create player");
+                this.a = pj2.D0().create();
+            }
+            return this.a;
+        }
+        return (am1) invokeV.objValue;
+    }
+
+    @Override // com.repackage.gn2
+    public String f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            sp2 sp2Var = this.c;
+            return sp2Var != null ? sp2Var.t : "";
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public void g(sp2 sp2Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, sp2Var) == null) {
+            ix1.i("VrVideo", "Open Player " + sp2Var.j);
+            am1 am1Var = this.a;
+            if (am1Var != null) {
+                am1Var.e(sp2Var, this.e);
+            }
+            this.c = sp2Var;
+        }
+    }
+
+    public void h(sp2 sp2Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, sp2Var) == null) {
+            ix1.b("VrVideo", "update 接口");
+            am1 am1Var = this.a;
+            if (am1Var != null) {
+                am1Var.d(sp2Var, true);
+            }
+            this.c = sp2Var;
+        }
+    }
+
+    @Override // com.repackage.gn2
+    public Object i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this : invokeV.objValue;
+    }
+
+    @Override // com.repackage.gn2
+    public void j(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
+        }
+    }
+
+    @Override // com.repackage.gn2
+    public void k(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
+            if (z) {
+                if (this.d) {
+                    e().resume();
+                }
+                e().b();
+            } else if (this.a != null) {
+                this.d = e().isPlaying();
+                e().pause();
+                e().c();
             }
         }
     }
 
-    public qp2 a(JSONObject jSONObject) {
-        InterceptResult invokeL;
+    @Override // com.repackage.gn2
+    public boolean onBackPressed() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jSONObject)) == null) {
-            qp2 qp2Var = new qp2();
-            if (jSONObject == null) {
-                return qp2Var;
-            }
-            String optString = jSONObject.optString("projectionMode");
-            if (!TextUtils.isEmpty(optString) && a.containsKey(optString)) {
-                a.get(optString).intValue();
-            }
-            String optString2 = jSONObject.optString("displayMode");
-            if (!TextUtils.isEmpty(optString2) && b.containsKey(optString2)) {
-                b.get(optString2).intValue();
-            }
-            String optString3 = jSONObject.optString("interactiveMode");
-            if (!TextUtils.isEmpty(optString3) && c.containsKey(optString3)) {
-                c.get(optString3).intValue();
-            }
-            jSONObject.optInt("fov", -1);
-            jSONObject.optInt("minFov", -1);
-            jSONObject.optInt("maxFov", -1);
-            jSONObject.optBoolean("pinchEnable", true);
-            return qp2Var;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            ix1.i("VrVideo", "onBackPressed");
+            am1 am1Var = this.a;
+            return am1Var != null && am1Var.onBackPressed();
         }
-        return (qp2) invokeL.objValue;
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.repackage.gn2
+    public void onDestroy() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
+            ix1.i("VrVideo", MissionEvent.MESSAGE_DESTROY);
+            am1 am1Var = this.a;
+            if (am1Var != null) {
+                am1Var.stop();
+                this.a = null;
+            }
+            hn2.k(this);
+        }
     }
 }

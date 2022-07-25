@@ -36,8 +36,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.cr4;
-import com.repackage.g35;
+import com.repackage.dr4;
+import com.repackage.h35;
 import java.io.Serializable;
 import org.json.JSONArray;
 /* loaded from: classes6.dex */
@@ -61,7 +61,7 @@ public class ib7 {
     public qv7 o;
     public ReplyPrivacyCheckController p;
     public View.OnClickListener q;
-    public k35 r;
+    public l35 r;
     public final NewWriteModel.e s;
 
     /* loaded from: classes6.dex */
@@ -99,7 +99,7 @@ public class ib7 {
     }
 
     /* loaded from: classes6.dex */
-    public class b implements k35 {
+    public class b implements l35 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ib7 a;
@@ -122,7 +122,7 @@ public class ib7 {
             this.a = ib7Var;
         }
 
-        @Override // com.repackage.k35
+        @Override // com.repackage.l35
         public boolean a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -159,7 +159,7 @@ public class ib7 {
         public final /* synthetic */ ib7 a;
 
         /* loaded from: classes6.dex */
-        public class a implements cr4.e {
+        public class a implements dr4.e {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -179,17 +179,17 @@ public class ib7 {
                 }
             }
 
-            @Override // com.repackage.cr4.e
-            public void onClick(cr4 cr4Var) {
+            @Override // com.repackage.dr4.e
+            public void onClick(dr4 dr4Var) {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(1048576, this, cr4Var) == null) {
-                    cr4Var.dismiss();
+                if (interceptable == null || interceptable.invokeL(1048576, this, dr4Var) == null) {
+                    dr4Var.dismiss();
                 }
             }
         }
 
         /* loaded from: classes6.dex */
-        public class b implements cr4.e {
+        public class b implements dr4.e {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ c a;
@@ -212,11 +212,11 @@ public class ib7 {
                 this.a = cVar;
             }
 
-            @Override // com.repackage.cr4.e
-            public void onClick(cr4 cr4Var) {
+            @Override // com.repackage.dr4.e
+            public void onClick(dr4 dr4Var) {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(1048576, this, cr4Var) == null) {
-                    cr4Var.dismiss();
+                if (interceptable == null || interceptable.invokeL(1048576, this, dr4Var) == null) {
+                    dr4Var.dismiss();
                     this.a.a.a.sendMessage(new CustomMessage(2002001, new MemberPayActivityConfig(this.a.a.a.getPageActivity(), 0, 26, 2)));
                     TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.WRITE_MORE_LINK_DIALOG_SHOW_OPEN_CLICK).param("obj_locate", 1).param("obj_type", 2));
                 }
@@ -242,11 +242,11 @@ public class ib7 {
         }
 
         @Override // com.baidu.tieba.tbadkCore.writeModel.NewWriteModel.e
-        public void callback(boolean z, PostWriteCallBackData postWriteCallBackData, fy4 fy4Var, WriteData writeData, AntiData antiData) {
+        public void callback(boolean z, PostWriteCallBackData postWriteCallBackData, gy4 gy4Var, WriteData writeData, AntiData antiData) {
             String str;
             int i;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), postWriteCallBackData, fy4Var, writeData, antiData}) == null) {
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), postWriteCallBackData, gy4Var, writeData, antiData}) == null) {
                 if (postWriteCallBackData != null) {
                     i = postWriteCallBackData.getErrorCode();
                     str = postWriteCallBackData.getErrorString();
@@ -280,29 +280,29 @@ public class ib7 {
                     if (!oi.isEmpty(str)) {
                         this.a.a.showToast(str);
                     } else {
-                        this.a.a.showToast(R.string.obfuscated_res_0x7f0f0abb);
+                        this.a.a.showToast(R.string.obfuscated_res_0x7f0f0aa7);
                     }
                     this.a.k();
                 } else if (postWriteCallBackData != null && postWriteCallBackData.isErrorLinkCountExceedLimit()) {
                     if (!oi.isEmpty(postWriteCallBackData.getErrorString())) {
                         DefaultNavigationBarCoverTip.s(this.a.a.getPageActivity(), postWriteCallBackData.getErrorString(), null).u();
                     } else {
-                        DefaultNavigationBarCoverTip.s(this.a.a.getPageActivity(), this.a.a.getString(R.string.obfuscated_res_0x7f0f046e), null).u();
+                        DefaultNavigationBarCoverTip.s(this.a.a.getPageActivity(), this.a.a.getString(R.string.obfuscated_res_0x7f0f046d), null).u();
                     }
                 } else if (postWriteCallBackData != null && postWriteCallBackData.isErrorShowApplyMemberDialog()) {
-                    cr4 cr4Var = new cr4(this.a.a.getPageActivity());
+                    dr4 dr4Var = new dr4(this.a.a.getPageActivity());
                     if (oi.isEmpty(postWriteCallBackData.getErrorString())) {
-                        cr4Var.setMessage(this.a.a.getString(R.string.obfuscated_res_0x7f0f0ce1));
+                        dr4Var.setMessage(this.a.a.getString(R.string.obfuscated_res_0x7f0f0ccd));
                     } else {
-                        cr4Var.setMessage(postWriteCallBackData.getErrorString());
+                        dr4Var.setMessage(postWriteCallBackData.getErrorString());
                     }
-                    cr4Var.setNegativeButton(R.string.obfuscated_res_0x7f0f036a, new a(this));
-                    cr4Var.setPositiveButton(R.string.obfuscated_res_0x7f0f0ce3, new b(this));
-                    cr4Var.create(this.a.a).show();
+                    dr4Var.setNegativeButton(R.string.obfuscated_res_0x7f0f036a, new a(this));
+                    dr4Var.setPositiveButton(R.string.obfuscated_res_0x7f0f0ccf, new b(this));
+                    dr4Var.create(this.a.a).show();
                     TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.WRITE_MORE_LINK_DIALOG_SHOW).param("obj_locate", 1).param("obj_type", 2));
                 } else if (dp8.d(i)) {
                     this.a.k();
-                } else if (fy4Var != null || i == 227001) {
+                } else if (gy4Var != null || i == 227001) {
                 } else {
                     this.a.t(i, str);
                     this.a.k();
@@ -372,24 +372,24 @@ public class ib7 {
         }
 
         @Override // com.baidu.tieba.tbadkCore.util.AntiHelper.k
-        public void onNavigationButtonClick(cr4 cr4Var) {
+        public void onNavigationButtonClick(dr4 dr4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, cr4Var) == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, dr4Var) == null) {
                 TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_ANTI_DIALOG_NEG_CLICK).param("obj_locate", TbadkCoreStatisticKey.AntiLocateValue.LOCATE_REPLY));
             }
         }
 
         @Override // com.baidu.tieba.tbadkCore.util.AntiHelper.k
-        public void onPositiveButtonClick(cr4 cr4Var) {
+        public void onPositiveButtonClick(dr4 dr4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cr4Var) == null) {
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dr4Var) == null) {
                 TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_ANTI_DIALOG_POS_CLICK).param("obj_locate", TbadkCoreStatisticKey.AntiLocateValue.LOCATE_REPLY));
             }
         }
     }
 
     /* loaded from: classes6.dex */
-    public class f implements cr4.e {
+    public class f implements dr4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -409,17 +409,17 @@ public class ib7 {
             }
         }
 
-        @Override // com.repackage.cr4.e
-        public void onClick(cr4 cr4Var) {
+        @Override // com.repackage.dr4.e
+        public void onClick(dr4 dr4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, cr4Var) == null) {
-                cr4Var.dismiss();
+            if (interceptable == null || interceptable.invokeL(1048576, this, dr4Var) == null) {
+                dr4Var.dismiss();
             }
         }
     }
 
     /* loaded from: classes6.dex */
-    public class g implements g35.b {
+    public class g implements h35.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ib7 a;
@@ -442,7 +442,7 @@ public class ib7 {
             this.a = ib7Var;
         }
 
-        @Override // com.repackage.g35.b
+        @Override // com.repackage.h35.b
         public void a(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
@@ -456,7 +456,7 @@ public class ib7 {
     }
 
     /* loaded from: classes6.dex */
-    public class h implements g35.b {
+    public class h implements h35.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ib7 a;
@@ -479,7 +479,7 @@ public class ib7 {
             this.a = ib7Var;
         }
 
-        @Override // com.repackage.g35.b
+        @Override // com.repackage.h35.b
         public void a(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
@@ -519,9 +519,9 @@ public class ib7 {
     }
 
     public final void j(int i, Intent intent) {
-        v15 v15Var;
+        w15 w15Var;
         gb7 gb7Var;
-        v15 v15Var2;
+        w15 w15Var2;
         gb7 gb7Var2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048576, this, i, intent) == null) {
@@ -545,9 +545,9 @@ public class ib7 {
                     if (editorType == 1 && (gb7Var = this.f) != null) {
                         gb7Var.G(writeData);
                         this.f.w0(pbEditorData.getVoiceModel());
-                        u15 n = this.f.a().n(6);
-                        if (n != null && (v15Var2 = n.m) != null) {
-                            v15Var2.C(new j15(52, 0, pbEditorData.getVoiceModel()));
+                        v15 n = this.f.a().n(6);
+                        if (n != null && (w15Var2 = n.m) != null) {
+                            w15Var2.C(new k15(52, 0, pbEditorData.getVoiceModel()));
                         }
                         if (i == -1) {
                             this.f.M(null, null);
@@ -562,9 +562,9 @@ public class ib7 {
                     gb7Var3.T();
                     this.e.w0(pbEditorData.getVoiceModel());
                     this.e.G(writeData);
-                    u15 n2 = this.e.a().n(6);
-                    if (n2 != null && (v15Var = n2.m) != null) {
-                        v15Var.C(new j15(52, 0, pbEditorData.getVoiceModel()));
+                    v15 n2 = this.e.a().n(6);
+                    if (n2 != null && (w15Var = n2.m) != null) {
+                        w15Var.C(new k15(52, 0, pbEditorData.getVoiceModel()));
                     }
                     if (i == -1) {
                         this.e.M(null, null);
@@ -619,10 +619,10 @@ public class ib7 {
                 replyPrivacyCheckController.onDestroy();
             }
             if (this.g != null) {
-                g35.c(this.a.getPageActivity(), this.g);
+                h35.c(this.a.getPageActivity(), this.g);
             }
             if (this.h != null) {
-                g35.c(this.a.getPageActivity(), this.h);
+                h35.c(this.a.getPageActivity(), this.h);
             }
         }
     }
@@ -667,7 +667,7 @@ public class ib7 {
         boolean z;
         JSONArray jSONArray;
         ImageUrlData imageUrlData2;
-        q15 m;
+        r15 m;
         ImageUrlData imageUrlData3;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLL(1048583, this, imageUrlData, za7Var) == null) || imageUrlData == null || za7Var == null) {
@@ -683,12 +683,12 @@ public class ib7 {
             hb7 hb7Var2 = this.c;
             hb7Var2.e = false;
             this.e = (gb7) hb7Var2.a(this.a.getPageActivity());
-            this.g = g35.b(this.a.getPageActivity(), this.e.a().b, new g(this));
+            this.g = h35.b(this.a.getPageActivity(), this.e.a().b, new g(this));
         } else if (!imageUrlData.isFirstPost && this.f == null) {
             hb7 hb7Var3 = this.c;
             hb7Var3.e = true;
             this.f = (gb7) hb7Var3.a(this.a.getPageActivity());
-            this.h = g35.b(this.a.getPageActivity(), this.f.a().b, new h(this));
+            this.h = h35.b(this.a.getPageActivity(), this.f.a().b, new h(this));
         } else {
             z = false;
             gb7 gb7Var = !imageUrlData.isFirstPost ? this.e : this.f;
@@ -714,7 +714,7 @@ public class ib7 {
                     this.d.Q();
                 }
                 this.d.a().a.setPadding(0, 0, 0, 0);
-                this.d.a().A(new j15(45, 27, null));
+                this.d.a().A(new k15(45, 27, null));
                 this.d.a().w(this.n);
             }
             imageUrlData2 = this.k;
@@ -731,7 +731,7 @@ public class ib7 {
                 gb7 gb7Var5 = this.d;
                 gb7Var5.M = imageUrlData.userId;
                 if (!imageUrlData.isFirstPost && gb7Var5.a() != null) {
-                    String string = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0fcc);
+                    String string = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0fb5);
                     try {
                         if (!TextUtils.isEmpty(imageUrlData.richTextArray)) {
                             jSONArray = new JSONArray(imageUrlData.richTextArray);
@@ -739,7 +739,7 @@ public class ib7 {
                     } catch (Exception e2) {
                         e2.printStackTrace();
                     }
-                    this.d.a().A(new j15(45, 27, String.format(string, imageUrlData.userNameShow, (jSONArray != null || jSONArray.length() <= 0) ? "" : TbRichTextView.U(jSONArray, false).toString())));
+                    this.d.a().A(new k15(45, 27, String.format(string, imageUrlData.userNameShow, (jSONArray != null || jSONArray.length() <= 0) ? "" : TbRichTextView.U(jSONArray, false).toString())));
                 }
                 this.i = za7Var.L;
                 this.j = za7Var.K;
@@ -784,10 +784,10 @@ public class ib7 {
         gb7 gb7Var52 = this.d;
         gb7Var52.M = imageUrlData.userId;
         if (!imageUrlData.isFirstPost) {
-            String string2 = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0fcc);
+            String string2 = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0fb5);
             if (!TextUtils.isEmpty(imageUrlData.richTextArray)) {
             }
-            this.d.a().A(new j15(45, 27, String.format(string2, imageUrlData.userNameShow, (jSONArray != null || jSONArray.length() <= 0) ? "" : TbRichTextView.U(jSONArray, false).toString())));
+            this.d.a().A(new k15(45, 27, String.format(string2, imageUrlData.userNameShow, (jSONArray != null || jSONArray.length() <= 0) ? "" : TbRichTextView.U(jSONArray, false).toString())));
         }
         this.i = za7Var.L;
         this.j = za7Var.K;
@@ -870,10 +870,10 @@ public class ib7 {
             if (tbPageContext == null) {
                 return;
             }
-            cr4 cr4Var = new cr4(tbPageContext.getPageActivity());
-            cr4Var.setMessage(str);
-            cr4Var.setNegativeButton(R.string.obfuscated_res_0x7f0f099e, new f(this));
-            cr4Var.create(this.a).show();
+            dr4 dr4Var = new dr4(tbPageContext.getPageActivity());
+            dr4Var.setMessage(str);
+            dr4Var.setNegativeButton(R.string.obfuscated_res_0x7f0f0989, new f(this));
+            dr4Var.create(this.a).show();
         }
     }
 }

@@ -22,7 +22,7 @@ import com.repackage.ny;
 import com.repackage.qw;
 import com.yy.mobile.framework.revenuesdk.statistics.hiido.eventtype.UVEventType;
 /* loaded from: classes5.dex */
-public class dn7 extends tm7<qq4, AutoVideoCardViewHolder<ThreadData>> {
+public class dn7 extends tm7<rq4, AutoVideoCardViewHolder<ThreadData>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public BdUniqueId k;
@@ -94,18 +94,18 @@ public class dn7 extends tm7<qq4, AutoVideoCardViewHolder<ThreadData>> {
         }
 
         @Override // com.repackage.qw.a
-        public void a(nn4 nn4Var) {
+        public void a(on4 on4Var) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, nn4Var) == null) || nn4Var == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, on4Var) == null) || on4Var == null) {
                 return;
             }
             Rect computeViewArea = ThreadCardUtils.computeViewArea(this.a.getVideoContainer());
-            if (!(nn4Var instanceof ThreadData)) {
-                ThreadCardUtils.jumpToPB(nn4Var, this.b.a, 17, false, computeViewArea);
+            if (!(on4Var instanceof ThreadData)) {
+                ThreadCardUtils.jumpToPB(on4Var, this.b.a, 17, false, computeViewArea);
                 return;
             }
-            nn4Var.objType = 5;
-            ThreadCardUtils.jumpToPB(nn4Var, this.b.a, 17, false, computeViewArea);
+            on4Var.objType = 5;
+            ThreadCardUtils.jumpToPB(on4Var, this.b.a, 17, false, computeViewArea);
         }
     }
 
@@ -136,15 +136,15 @@ public class dn7 extends tm7<qq4, AutoVideoCardViewHolder<ThreadData>> {
         @Override // com.repackage.xn
         public void b(View view2, nn nnVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i, long j) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, nnVar, bdUniqueId, viewGroup, Integer.valueOf(i), Long.valueOf(j)}) == null) && (nnVar instanceof qq4) && (view2.getTag() instanceof ThreadCardViewHolder)) {
+            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, nnVar, bdUniqueId, viewGroup, Integer.valueOf(i), Long.valueOf(j)}) == null) && (nnVar instanceof rq4) && (view2.getTag() instanceof ThreadCardViewHolder)) {
                 AutoVideoCardViewHolder autoVideoCardViewHolder = (AutoVideoCardViewHolder) view2.getTag();
-                ThreadData threadData = ((qq4) nnVar).s;
+                ThreadData threadData = ((rq4) nnVar).s;
                 threadData.objType = 1;
                 if (this.a.o != null) {
-                    this.a.o.a(autoVideoCardViewHolder.b(), threadData);
+                    this.a.o.a(autoVideoCardViewHolder.a(), threadData);
                 }
                 ThreadCardUtils.jumpToPB(threadData, view2.getContext(), 17, false, uw.a((tn) viewGroup, view2, i), this.a.j.getOrignalPage().C1(), this.a.Z() ? "3" : "2");
-                autoVideoCardViewHolder.c().o(new ny.a(1));
+                autoVideoCardViewHolder.b().o(new ny.a(1));
             }
         }
     }
@@ -234,7 +234,7 @@ public class dn7 extends tm7<qq4, AutoVideoCardViewHolder<ThreadData>> {
             bVar.n(this.n);
             cy k = bVar.k(BaseCardInfo.SupportType.CONTENT, viewGroup, this.m);
             AutoVideoCardViewHolder<ThreadData> autoVideoCardViewHolder = new AutoVideoCardViewHolder<>(k);
-            autoVideoCardViewHolder.k(this.k);
+            autoVideoCardViewHolder.j(this.k);
             k.p(this.o);
             k.r(17);
             V(new c(this));
@@ -246,24 +246,24 @@ public class dn7 extends tm7<qq4, AutoVideoCardViewHolder<ThreadData>> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.repackage.an
     /* renamed from: j0 */
-    public View S(int i, View view2, ViewGroup viewGroup, qq4 qq4Var, AutoVideoCardViewHolder<ThreadData> autoVideoCardViewHolder) {
+    public View S(int i, View view2, ViewGroup viewGroup, rq4 rq4Var, AutoVideoCardViewHolder<ThreadData> autoVideoCardViewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i), view2, viewGroup, qq4Var, autoVideoCardViewHolder})) == null) {
-            if (qq4Var == null) {
-                return autoVideoCardViewHolder.b();
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i), view2, viewGroup, rq4Var, autoVideoCardViewHolder})) == null) {
+            if (rq4Var == null) {
+                return autoVideoCardViewHolder.a();
             }
             if (autoVideoCardViewHolder == null) {
                 return null;
             }
-            qq4Var.s.statFloor = B(i) + 1;
-            autoVideoCardViewHolder.c().q(i);
-            autoVideoCardViewHolder.w(g0(qq4Var.s));
-            autoVideoCardViewHolder.g(qq4Var.s);
-            autoVideoCardViewHolder.c().onChangeSkinType(this.l, TbadkCoreApplication.getInst().getSkinType());
-            autoVideoCardViewHolder.c().p(this.o);
-            qm7.c(this, qq4Var);
-            return autoVideoCardViewHolder.b();
+            rq4Var.s.statFloor = B(i) + 1;
+            autoVideoCardViewHolder.b().q(i);
+            autoVideoCardViewHolder.v(g0(rq4Var.s));
+            autoVideoCardViewHolder.f(rq4Var.s);
+            autoVideoCardViewHolder.b().onChangeSkinType(this.l, TbadkCoreApplication.getInst().getSkinType());
+            autoVideoCardViewHolder.b().p(this.o);
+            qm7.c(this, rq4Var);
+            return autoVideoCardViewHolder.a();
         }
         return (View) invokeCommon.objValue;
     }

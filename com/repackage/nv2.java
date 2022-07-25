@@ -1,138 +1,128 @@
 package com.repackage;
 
+import android.text.TextUtils;
+import android.util.Log;
 import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.swan.apps.runtime.config.SwanAppConfigData;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
+import java.util.List;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class nv2 extends l32 {
+public class nv2 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-    public t12<Boolean> c;
-    public String d;
-    public String e;
-    public long f;
-    public final w74<g94> g;
 
-    /* loaded from: classes6.dex */
-    public class a extends m32<nv2> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ nv2 b;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(nv2 nv2Var, nv2 nv2Var2) {
-            super(nv2Var2);
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755456121, "Lcom/repackage/nv2;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {nv2Var, nv2Var2};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((l32) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.b = nv2Var;
-        }
-
-        @Override // com.repackage.m32
-        public void r(@NonNull g94 g94Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, g94Var) == null) {
-                this.b.c.a(Boolean.TRUE);
-            }
-        }
-
-        @Override // com.repackage.m32
-        public void u(g94 g94Var, ac3 ac3Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, g94Var, ac3Var) == null) {
-                this.b.c.a(Boolean.FALSE);
-            }
-        }
-    }
-
-    public nv2(String str, String str2, long j, t12<Boolean> t12Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2, Long.valueOf(j), t12Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755456121, "Lcom/repackage/nv2;");
                 return;
             }
         }
-        this.g = new a(this, this);
-        this.c = t12Var;
-        this.d = str;
-        this.e = str2;
-        this.f = j;
+        a = sg1.a;
     }
 
-    @Override // com.repackage.a84
-    public void C(z84 z84Var) {
-        g94 p;
+    public static void a(SwanAppConfigData swanAppConfigData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, z84Var) == null) {
-            super.C(z84Var);
-            if (z84Var != null) {
-                if (z84Var.a == 1010 && (p = ov2.p(this.d, this.e, this.f)) != null) {
-                    p.d = p.b();
-                    c84.i().x(p);
+        if (!(interceptable == null || interceptable.invokeL(65537, null, swanAppConfigData) == null) || swanAppConfigData == null) {
+            return;
+        }
+        List<cw2> e = swanAppConfigData.e();
+        if (e != null && !e.isEmpty()) {
+            JSONObject jSONObject = new JSONObject();
+            JSONObject jSONObject2 = new JSONObject();
+            b(e, jSONObject, jSONObject2);
+            if (xa2.k()) {
+                boolean z = false;
+                for (cw2 cw2Var : e) {
+                    String h = xa2.h(cw2Var.a);
+                    if (!TextUtils.isEmpty(h) && new File(h).exists()) {
+                        cw2Var.e = h;
+                        c(jSONObject, jSONObject2, cw2Var);
+                        z = true;
+                        ix1.i("Module-Plugin", "use debug dependencies，name=" + cw2Var.a + " path=" + cw2Var.e);
+                    } else {
+                        ix1.o("Module-Plugin", "debug dependencies not exist，name=" + cw2Var.a + " path=" + cw2Var.e);
+                    }
                 }
-                zv2.b("fetch plugin error: " + z84Var.toString());
-            } else {
-                zv2.b("fetch plugin error");
+                if (!z) {
+                    a03.g(AppRuntime.getAppContext(), "no debug dependency").G();
+                    ix1.c("Module-Plugin", "no debug dependency");
+                }
             }
-            this.c.a(Boolean.FALSE);
+            String jSONObject3 = jSONObject.toString();
+            String jSONObject4 = jSONObject2.toString();
+            gw2.c("dependenciesPath", jSONObject3);
+            gw2.c("dependenciesConfig", jSONObject4);
+            return;
+        }
+        gw2.c("dependenciesPath", null);
+        gw2.c("dependenciesConfig", null);
+        if (a) {
+            aw2.b("this swan app not apply on someone dynamic lib");
         }
     }
 
-    @Override // com.repackage.a84
-    public void E() {
+    public static void b(@NonNull List<cw2> list, @NonNull JSONObject jSONObject, @NonNull JSONObject jSONObject2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            super.E();
-            zv2.b("fetch plugin success");
+        if (!(interceptable == null || interceptable.invokeLLL(65538, null, list, jSONObject, jSONObject2) == null) || list.isEmpty()) {
+            return;
+        }
+        for (cw2 cw2Var : list) {
+            if (cw2Var != null) {
+                if (cw2Var.g) {
+                    c(jSONObject, jSONObject2, cw2Var);
+                } else {
+                    h94 q = d84.i().q(cw2Var.a, cw2Var.h, cw2Var.i);
+                    if (q == null) {
+                        aw2.a(Log.getStackTraceString(new Throwable(cw2Var.a + " query db fail")));
+                    } else {
+                        File t = ej2.t(cw2Var.a, String.valueOf(q.i));
+                        if (t != null && t.exists()) {
+                            cw2Var.e = t.getAbsolutePath();
+                            c(jSONObject, jSONObject2, cw2Var);
+                        } else {
+                            aw2.a(Log.getStackTraceString(new Throwable(cw2Var.a + " local file not exist")));
+                        }
+                    }
+                }
+            }
         }
     }
 
-    @Override // com.repackage.a84
-    public void F() {
+    public static void c(@NonNull JSONObject jSONObject, @NonNull JSONObject jSONObject2, @NonNull cw2 cw2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            super.F();
-            zv2.b("no package");
-            this.c.a(Boolean.FALSE);
+        if (interceptable == null || interceptable.invokeLLL(65539, null, jSONObject, jSONObject2, cw2Var) == null) {
+            String str = cw2Var.e;
+            String str2 = cw2Var.f;
+            if (a) {
+                aw2.b("apply dep path, name = " + cw2Var.a + "; inline = " + cw2Var.g + "; path = " + str + "; config = " + str2);
+            }
+            if (TextUtils.isEmpty(str)) {
+                aw2.b(Log.getStackTraceString(new Throwable(cw2Var.a + " path is empty")));
+                return;
+            }
+            id3.f(jSONObject, cw2Var.a, str);
+            if (TextUtils.isEmpty(cw2Var.f)) {
+                return;
+            }
+            File file = new File(str, str2);
+            if (file.exists() && file.isFile()) {
+                id3.f(jSONObject2, cw2Var.a, id3.d(kg4.E(file)));
+            }
         }
-    }
-
-    @Override // com.repackage.a84
-    public void G(nd4 nd4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, nd4Var) == null) {
-            super.G(nd4Var);
-        }
-    }
-
-    @Override // com.repackage.a84
-    public w74<g94> x() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.g : (w74) invokeV.objValue;
     }
 }

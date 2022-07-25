@@ -21,14 +21,14 @@ public class gk implements go {
     public String a;
 
     /* renamed from: a  reason: collision with other field name */
-    public List<gk> f1150a;
+    public List<gk> f430a;
 
     /* renamed from: a  reason: collision with other field name */
-    public String[] f1151a;
+    public String[] f431a;
     public String b;
 
     /* renamed from: b  reason: collision with other field name */
-    public String[] f1152b;
+    public String[] f432b;
     public String c;
 
     public gk(String str, String str2, String[] strArr, String[] strArr2) {
@@ -46,13 +46,13 @@ public class gk implements go {
                 return;
             }
         }
-        this.f1151a = null;
-        this.f1152b = null;
-        this.f1150a = null;
+        this.f431a = null;
+        this.f432b = null;
+        this.f430a = null;
         this.a = str;
         this.b = str2;
-        this.f1151a = strArr;
-        this.f1152b = strArr2;
+        this.f431a = strArr;
+        this.f432b = strArr2;
     }
 
     public gk(String str, String str2, String[] strArr, String[] strArr2, String str3, List<gk> list) {
@@ -70,15 +70,15 @@ public class gk implements go {
                 return;
             }
         }
-        this.f1151a = null;
-        this.f1152b = null;
-        this.f1150a = null;
+        this.f431a = null;
+        this.f432b = null;
+        this.f430a = null;
         this.a = str;
         this.b = str2;
-        this.f1151a = strArr;
-        this.f1152b = strArr2;
+        this.f431a = strArr;
+        this.f432b = strArr2;
         this.c = str3;
-        this.f1150a = list;
+        this.f430a = list;
     }
 
     public static gk a(Bundle bundle) {
@@ -129,7 +129,7 @@ public class gk implements go {
             }
             Parcelable[] parcelableArr = new Parcelable[gkVarArr.length];
             for (int i = 0; i < gkVarArr.length; i++) {
-                parcelableArr[i] = gkVarArr[i].m1304a();
+                parcelableArr[i] = gkVarArr[i].m366a();
             }
             return parcelableArr;
         }
@@ -145,22 +145,22 @@ public class gk implements go {
             bundle.putString("ext_ns", this.b);
             bundle.putString("ext_text", this.c);
             Bundle bundle2 = new Bundle();
-            String[] strArr = this.f1151a;
+            String[] strArr = this.f431a;
             if (strArr != null && strArr.length > 0) {
                 int i = 0;
                 while (true) {
-                    String[] strArr2 = this.f1151a;
+                    String[] strArr2 = this.f431a;
                     if (i >= strArr2.length) {
                         break;
                     }
-                    bundle2.putString(strArr2[i], this.f1152b[i]);
+                    bundle2.putString(strArr2[i], this.f432b[i]);
                     i++;
                 }
             }
             bundle.putBundle("attributes", bundle2);
-            List<gk> list = this.f1150a;
+            List<gk> list = this.f430a;
             if (list != null && list.size() > 0) {
-                bundle.putParcelableArray(CriusAttrConstants.CHILDREN, a(this.f1150a));
+                bundle.putParcelableArray(CriusAttrConstants.CHILDREN, a(this.f430a));
             }
             return bundle;
         }
@@ -168,14 +168,14 @@ public class gk implements go {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public Parcelable m1304a() {
+    public Parcelable m366a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? a() : (Parcelable) invokeV.objValue;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public String m1305a() {
+    public String m367a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : (String) invokeV.objValue;
@@ -190,17 +190,17 @@ public class gk implements go {
         if (str == null) {
             throw new IllegalArgumentException();
         }
-        if (this.f1151a == null) {
+        if (this.f431a == null) {
             return null;
         }
         int i = 0;
         while (true) {
-            String[] strArr = this.f1151a;
+            String[] strArr = this.f431a;
             if (i >= strArr.length) {
                 return null;
             }
             if (str.equals(strArr[i])) {
-                return this.f1152b[i];
+                return this.f432b[i];
             }
             i++;
         }
@@ -209,18 +209,18 @@ public class gk implements go {
     public void a(gk gkVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, gkVar) == null) {
-            if (this.f1150a == null) {
-                this.f1150a = new ArrayList();
+            if (this.f430a == null) {
+                this.f430a = new ArrayList();
             }
-            if (this.f1150a.contains(gkVar)) {
+            if (this.f430a.contains(gkVar)) {
                 return;
             }
-            this.f1150a.add(gkVar);
+            this.f430a.add(gkVar);
         }
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m1306a(String str) {
+    public void m368a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
             if (!TextUtils.isEmpty(str)) {
@@ -257,26 +257,26 @@ public class gk implements go {
                 sb.append(this.b);
                 sb.append("\"");
             }
-            String[] strArr = this.f1151a;
+            String[] strArr = this.f431a;
             if (strArr != null && strArr.length > 0) {
-                for (int i = 0; i < this.f1151a.length; i++) {
-                    if (!TextUtils.isEmpty(this.f1152b[i])) {
+                for (int i = 0; i < this.f431a.length; i++) {
+                    if (!TextUtils.isEmpty(this.f432b[i])) {
                         sb.append(" ");
-                        sb.append(this.f1151a[i]);
+                        sb.append(this.f431a[i]);
                         sb.append("=\"");
-                        sb.append(gy.a(this.f1152b[i]));
+                        sb.append(gy.a(this.f432b[i]));
                         sb.append("\"");
                     }
                 }
             }
             if (TextUtils.isEmpty(this.c)) {
-                List<gk> list = this.f1150a;
+                List<gk> list = this.f430a;
                 if (list == null || list.size() <= 0) {
                     sb.append("/>");
                     return sb.toString();
                 }
                 sb.append(">");
-                for (gk gkVar : this.f1150a) {
+                for (gk gkVar : this.f430a) {
                     sb.append(gkVar.d());
                 }
             } else {

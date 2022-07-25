@@ -41,7 +41,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.ei;
 import com.repackage.gi;
 import com.repackage.iy0;
-import com.repackage.jz4;
+import com.repackage.kz4;
 import com.repackage.ma8;
 import com.repackage.pi;
 import org.json.JSONObject;
@@ -150,9 +150,9 @@ public class AdThreadCommentAndPraiseInfoLayout extends ThreadCardBottomOpSegmen
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view3) == null) {
                         ShareItem shareItem2 = this.a;
-                        shareItem2.w = jz4.v(shareItem2.w, shareItem2.N, UtilHelper.isVideoThread(shareItem2.P));
+                        shareItem2.w = kz4.v(shareItem2.w, shareItem2.N, UtilHelper.isVideoThread(shareItem2.P));
                         ei.a(this.a.w);
-                        pi.O(this.b.C, view3.getResources().getString(R.string.obfuscated_res_0x7f0f0446));
+                        pi.O(this.b.C, view3.getResources().getString(R.string.obfuscated_res_0x7f0f0445));
                     }
                 }
             });

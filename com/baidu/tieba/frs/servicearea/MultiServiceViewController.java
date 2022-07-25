@@ -98,7 +98,7 @@ public class MultiServiceViewController implements hn6 {
                         customResponsedMessage.setOrginalMessage(customMessage);
                         MessageManager.getInstance().dispatchResponsedMessage(customResponsedMessage);
                     }
-                    if (!TextUtils.equals(view2.getResources().getString(R.string.obfuscated_res_0x7f0f089c), this.a.e.b) || this.a.g == null || this.a.g.getForum() == null || TextUtils.isEmpty(this.a.g.getForum().getId())) {
+                    if (!TextUtils.equals(view2.getResources().getString(R.string.obfuscated_res_0x7f0f0887), this.a.e.b) || this.a.g == null || this.a.g.getForum() == null || TextUtils.isEmpty(this.a.g.getForum().getId())) {
                         if (this.a.e != null && this.a.e.f != null) {
                             TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_FE_FITE_PROGRAM_CLICK).param("uid", TbadkCoreApplication.getCurrentAccountId()).param("fid", this.a.e.g).param("obj_source", "frs_card").param("obj_id", this.a.e.f.b).param("obj_name", this.a.e.f.a).param("obj_param1", this.a.e.f.d.intValue()));
                         }
@@ -171,7 +171,7 @@ public class MultiServiceViewController implements hn6 {
                 return;
             }
             this.e = uh8Var;
-            if (TextUtils.equals(this.itemView.getResources().getString(R.string.obfuscated_res_0x7f0f089c), uh8Var.b)) {
+            if (TextUtils.equals(this.itemView.getResources().getString(R.string.obfuscated_res_0x7f0f0887), uh8Var.b)) {
                 this.c.setImageResource(R.drawable.icon_mask_service_celebrity24);
                 FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.c.getLayoutParams();
                 layoutParams.width = pi.f(this.c.getContext(), R.dimen.tbds62);

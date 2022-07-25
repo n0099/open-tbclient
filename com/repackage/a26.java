@@ -11,7 +11,7 @@ public final class a26 {
 
     public static final void a() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65536, null) == null) && tm4.e()) {
+        if ((interceptable == null || interceptable.invokeV(65536, null) == null) && um4.e()) {
             Trace.endSection();
         }
     }
@@ -20,7 +20,7 @@ public final class a26 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65537, null, name) == null) {
             Intrinsics.checkNotNullParameter(name, "name");
-            if (tm4.e()) {
+            if (um4.e()) {
                 Trace.beginSection(name);
             }
         }

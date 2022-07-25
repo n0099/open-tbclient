@@ -54,9 +54,9 @@ public class yn8 {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             View inflate = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d012c, (ViewGroup) null);
             this.b = inflate;
-            this.c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091fb8);
+            this.c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091fbc);
             this.d = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f090365);
-            this.e = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091fb7);
+            this.e = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091fbb);
             c();
         }
     }
@@ -64,7 +64,7 @@ public class yn8 {
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            ga5.a(this.a, this.b);
+            ha5.a(this.a, this.b);
         }
     }
 

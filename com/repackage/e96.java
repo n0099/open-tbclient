@@ -10,13 +10,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 @Deprecated
-/* loaded from: classes5.dex */
-public class e96 extends b25 {
+/* loaded from: classes6.dex */
+public class e96 extends c25 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final String e;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class a extends ig<ym> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -59,7 +59,7 @@ public class e96 extends b25 {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public interface b {
         void a(e96 e96Var);
     }
@@ -84,7 +84,7 @@ public class e96 extends b25 {
         q(4);
     }
 
-    @Override // com.repackage.b25
+    @Override // com.repackage.c25
     public String b(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
@@ -94,7 +94,7 @@ public class e96 extends b25 {
         return (String) invokeI.objValue;
     }
 
-    @Override // com.repackage.b25
+    @Override // com.repackage.c25
     public int c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -104,21 +104,21 @@ public class e96 extends b25 {
         return invokeV.intValue;
     }
 
-    @Override // com.repackage.b25
+    @Override // com.repackage.c25
     public ym e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? super.d() : (ym) invokeV.objValue;
     }
 
-    @Override // com.repackage.b25
+    @Override // com.repackage.c25
     public String f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.e : (String) invokeV.objValue;
     }
 
-    @Override // com.repackage.b25
+    @Override // com.repackage.c25
     public String g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -128,14 +128,14 @@ public class e96 extends b25 {
         return (String) invokeV.objValue;
     }
 
-    @Override // com.repackage.b25
+    @Override // com.repackage.c25
     public EmotionGroupType h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? EmotionGroupType.SINGLE_FORUM : (EmotionGroupType) invokeV.objValue;
     }
 
-    @Override // com.repackage.b25
+    @Override // com.repackage.c25
     public int i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -145,7 +145,7 @@ public class e96 extends b25 {
         return invokeV.intValue;
     }
 
-    @Override // com.repackage.b25
+    @Override // com.repackage.c25
     public boolean j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -155,7 +155,7 @@ public class e96 extends b25 {
         return invokeV.booleanValue;
     }
 
-    @Override // com.repackage.b25
+    @Override // com.repackage.c25
     public int l() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -165,7 +165,7 @@ public class e96 extends b25 {
         return invokeV.intValue;
     }
 
-    @Override // com.repackage.b25
+    @Override // com.repackage.c25
     public boolean m(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -175,7 +175,7 @@ public class e96 extends b25 {
         return invokeL.booleanValue;
     }
 
-    @Override // com.repackage.b25
+    @Override // com.repackage.c25
     public ym n(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -185,7 +185,7 @@ public class e96 extends b25 {
         return (ym) invokeL.objValue;
     }
 
-    @Override // com.repackage.b25
+    @Override // com.repackage.c25
     public ym o(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;

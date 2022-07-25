@@ -6,12 +6,12 @@ import android.provider.Settings;
 import android.text.TextUtils;
 import android.util.Base64;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.sofire.sharedpreferences.SharedPreferenceManager;
 import com.baidu.tbadk.core.util.RomTypeUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.kuaishou.weapon.p0.C0453;
+import com.kuaishou.weapon.p0.h;
+import com.kuaishou.weapon.p0.i1;
 import com.yxcorp.kuaishou.addfp.KWEGIDDFP;
 import com.yxcorp.kuaishou.addfp.android.a.d;
 import com.yxcorp.kuaishou.addfp.android.b.e;
@@ -98,7 +98,7 @@ public final class a {
             int i = -1;
             try {
                 try {
-                    process = Runtime.getRuntime().exec(z ? C0453.f723 : "sh");
+                    process = Runtime.getRuntime().exec(z ? i1.w : "sh");
                 } catch (Throwable th3) {
                     dataOutputStream = null;
                     th2 = th3;
@@ -519,7 +519,7 @@ public final class a {
                 String a = a(context, "k_w_o_d_out_dtt");
                 String str2 = "";
                 if (TextUtils.isEmpty(a)) {
-                    if (!g.a(context, new String[]{"android.permission.READ_EXTERNAL_STORAGE", "android.permission.WRITE_EXTERNAL_STORAGE"})) {
+                    if (!g.a(context, new String[]{h.i, "android.permission.WRITE_EXTERNAL_STORAGE"})) {
                         str = "KWE_PN";
                         if (TextUtils.isEmpty(a) || !TextUtils.isEmpty(str2)) {
                             b = d.a(context).b(a);
@@ -555,7 +555,7 @@ public final class a {
                         } catch (Throwable unused2) {
                         }
                     }
-                } else if (g.a(context, new String[]{"android.permission.READ_EXTERNAL_STORAGE", "android.permission.WRITE_EXTERNAL_STORAGE"})) {
+                } else if (g.a(context, new String[]{h.i, "android.permission.WRITE_EXTERNAL_STORAGE"})) {
                     str2 = d.a(context).a("Lm91a2R0ZnQ=");
                     if (TextUtils.isEmpty(str2)) {
                         d.a(context, a);
@@ -611,7 +611,7 @@ public final class a {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, str, str2)) == null) {
             try {
                 Class<?> cls = Class.forName("android.os.SystemProperties");
-                str3 = (String) cls.getMethod(SharedPreferenceManager.OPERATION_GET_PERFIX, String.class, String.class).invoke(cls, str, str2);
+                str3 = (String) cls.getMethod("get", String.class, String.class).invoke(cls, str, str2);
             } catch (Exception unused) {
                 str3 = null;
             }

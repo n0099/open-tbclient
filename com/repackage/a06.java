@@ -53,7 +53,7 @@ public class a06 implements View.OnClickListener {
     public TextView c;
     public TextView d;
     public TBSpecificationBtn e;
-    public au4 f;
+    public bu4 f;
     public long g;
     public long h;
     public ThreadData i;
@@ -197,17 +197,17 @@ public class a06 implements View.OnClickListener {
                 k();
                 return;
             }
-            this.k.showToast(R.string.obfuscated_res_0x7f0f0c2b);
+            this.k.showToast(R.string.obfuscated_res_0x7f0f0c17);
         }
     }
 
     public final void g() {
-        au4 au4Var;
+        bu4 bu4Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (au4Var = this.f) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (bu4Var = this.f) == null) {
             return;
         }
-        au4Var.h(false);
+        bu4Var.h(false);
     }
 
     public void h() {
@@ -237,7 +237,7 @@ public class a06 implements View.OnClickListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             if (this.f == null) {
-                this.f = new au4(this.k);
+                this.f = new bu4(this.k);
             }
             this.f.h(true);
         }
@@ -260,7 +260,7 @@ public class a06 implements View.OnClickListener {
         String c = c(this.i);
         Uri parse = c == null ? null : Uri.parse(c);
         String str2 = this.i.getAbstract();
-        String format = MessageFormat.format(this.j.getResources().getString(R.string.obfuscated_res_0x7f0f1144), title, str2);
+        String format = MessageFormat.format(this.j.getResources().getString(R.string.obfuscated_res_0x7f0f10f3), title, str2);
         ShareItem shareItem = new ShareItem();
         shareItem.u = title;
         shareItem.v = format;
@@ -306,15 +306,15 @@ public class a06 implements View.OnClickListener {
         }
         this.m = false;
         if (this.b == null) {
-            ShadowLinearLayout shadowLinearLayout = (ShadowLinearLayout) LayoutInflater.from(this.j).inflate(R.layout.obfuscated_res_0x7f0d0816, (ViewGroup) null, false).findViewById(R.id.obfuscated_res_0x7f091f93);
+            ShadowLinearLayout shadowLinearLayout = (ShadowLinearLayout) LayoutInflater.from(this.j).inflate(R.layout.obfuscated_res_0x7f0d0820, (ViewGroup) null, false).findViewById(R.id.obfuscated_res_0x7f091f97);
             this.b = shadowLinearLayout;
-            this.c = (TextView) shadowLinearLayout.findViewById(R.id.obfuscated_res_0x7f091f94);
-            this.d = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091f92);
-            this.e = (TBSpecificationBtn) this.b.findViewById(R.id.obfuscated_res_0x7f091f91);
-            this.c.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f15e9));
-            this.d.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f15e7));
-            this.e.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f113f));
-            this.e.setConfig(new tu4());
+            this.c = (TextView) shadowLinearLayout.findViewById(R.id.obfuscated_res_0x7f091f98);
+            this.d = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091f96);
+            this.e = (TBSpecificationBtn) this.b.findViewById(R.id.obfuscated_res_0x7f091f95);
+            this.c.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f1598));
+            this.d.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f1596));
+            this.e.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f10ee));
+            this.e.setConfig(new uu4());
         }
         SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0302);
         SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0302);
@@ -333,7 +333,7 @@ public class a06 implements View.OnClickListener {
         }
         this.m = true;
         if (!ni.z()) {
-            this.k.showToast(R.string.obfuscated_res_0x7f0f0c2b);
+            this.k.showToast(R.string.obfuscated_res_0x7f0f0c17);
             this.a.e();
             return;
         }

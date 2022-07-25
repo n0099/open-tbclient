@@ -18,9 +18,9 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.hg;
 import com.repackage.jg;
 import com.repackage.kg;
-import com.repackage.l45;
-import com.repackage.nd5;
+import com.repackage.m45;
 import com.repackage.ni;
+import com.repackage.od5;
 import com.repackage.ub;
 import com.repackage.yb;
 import com.repackage.ym;
@@ -110,7 +110,7 @@ public class BigdayImageLoaderProc implements kg<ym> {
         if ((interceptable == null || interceptable.invokeCommon(1048588, this, new Object[]{str, obj, Integer.valueOf(i), Integer.valueOf(i2), objArr}) == null) && obj != null && (obj instanceof ym)) {
             ym ymVar = (ym) obj;
             if (ymVar.u()) {
-                l45.k().d(str, ymVar);
+                m45.k().d(str, ymVar);
             }
         }
     }
@@ -164,7 +164,7 @@ public class BigdayImageLoaderProc implements kg<ym> {
     public ym getFromMemory(String str, String str2, int i, int i2, boolean z, Object... objArr) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{str, str2, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z), objArr})) == null) ? l45.k().m(str) : (ym) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{str, str2, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z), objArr})) == null) ? m45.k().m(str) : (ym) invokeCommon.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -177,7 +177,7 @@ public class BigdayImageLoaderProc implements kg<ym> {
             if (StringUtils.isNull(str)) {
                 return null;
             }
-            nd5.g(BigdayImageLoaderProc.class.getSimpleName(), str);
+            od5.g(BigdayImageLoaderProc.class.getSimpleName(), str);
             WebClient webClient = new WebClient();
             if (hgVar != null) {
                 hgVar.a = webClient;

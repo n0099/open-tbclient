@@ -28,31 +28,31 @@ public final class aa implements e.b {
         }
     }
 
-    public static boolean a(List<a.InterfaceC0555a> list, MessageSnapshot messageSnapshot) {
+    public static boolean a(List<a.InterfaceC0403a> list, MessageSnapshot messageSnapshot) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, list, messageSnapshot)) == null) {
-            if (list.size() > 1 && messageSnapshot.b() == -3) {
-                for (a.InterfaceC0555a interfaceC0555a : list) {
-                    if (interfaceC0555a.G().c(messageSnapshot)) {
+            if (list.size() > 1 && messageSnapshot.Ca() == -3) {
+                for (a.InterfaceC0403a interfaceC0403a : list) {
+                    if (interfaceC0403a.Cj().c(messageSnapshot)) {
                         return true;
                     }
                 }
             }
-            for (a.InterfaceC0555a interfaceC0555a2 : list) {
-                if (interfaceC0555a2.G().b(messageSnapshot)) {
+            for (a.InterfaceC0403a interfaceC0403a2 : list) {
+                if (interfaceC0403a2.Cj().b(messageSnapshot)) {
                     return true;
                 }
             }
-            if (-4 == messageSnapshot.b()) {
-                for (a.InterfaceC0555a interfaceC0555a3 : list) {
-                    if (interfaceC0555a3.G().d(messageSnapshot)) {
+            if (-4 == messageSnapshot.Ca()) {
+                for (a.InterfaceC0403a interfaceC0403a3 : list) {
+                    if (interfaceC0403a3.Cj().d(messageSnapshot)) {
                         return true;
                     }
                 }
             }
             if (list.size() == 1) {
-                return list.get(0).G().a(messageSnapshot);
+                return list.get(0).Cj().a(messageSnapshot);
             }
             return false;
         }
@@ -60,26 +60,26 @@ public final class aa implements e.b {
     }
 
     @Override // com.kwai.filedownloader.message.e.b
-    public final void a(MessageSnapshot messageSnapshot) {
+    public final void r(MessageSnapshot messageSnapshot) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, messageSnapshot) == null) {
-            synchronized (Integer.toString(messageSnapshot.m()).intern()) {
-                List<a.InterfaceC0555a> b = h.a().b(messageSnapshot.m());
-                if (b.size() > 0) {
-                    a F = b.get(0).F();
-                    if (com.kwai.filedownloader.e.d.a) {
-                        com.kwai.filedownloader.e.d.c(this, "~~~callback %s old[%s] new[%s] %d", Integer.valueOf(messageSnapshot.m()), Byte.valueOf(F.v()), Byte.valueOf(messageSnapshot.b()), Integer.valueOf(b.size()));
+            synchronized (Integer.toString(messageSnapshot.getId()).intern()) {
+                List<a.InterfaceC0403a> bT = h.CG().bT(messageSnapshot.getId());
+                if (bT.size() > 0) {
+                    a Ci = bT.get(0).Ci();
+                    if (com.kwai.filedownloader.e.d.awL) {
+                        com.kwai.filedownloader.e.d.e(this, "~~~callback %s old[%s] new[%s] %d", Integer.valueOf(messageSnapshot.getId()), Byte.valueOf(Ci.Ca()), Byte.valueOf(messageSnapshot.Ca()), Integer.valueOf(bT.size()));
                     }
-                    if (!a(b, messageSnapshot)) {
-                        StringBuilder sb = new StringBuilder("The event isn't consumed, id:" + messageSnapshot.m() + " status:" + ((int) messageSnapshot.b()) + " task-count:" + b.size());
-                        for (a.InterfaceC0555a interfaceC0555a : b) {
+                    if (!a(bT, messageSnapshot)) {
+                        StringBuilder sb = new StringBuilder("The event isn't consumed, id:" + messageSnapshot.getId() + " status:" + ((int) messageSnapshot.Ca()) + " task-count:" + bT.size());
+                        for (a.InterfaceC0403a interfaceC0403a : bT) {
                             sb.append(" | ");
-                            sb.append((int) interfaceC0555a.F().v());
+                            sb.append((int) interfaceC0403a.Ci().Ca());
                         }
-                        com.kwai.filedownloader.e.d.b(this, sb.toString(), new Object[0]);
+                        com.kwai.filedownloader.e.d.d(this, sb.toString(), new Object[0]);
                     }
                 } else {
-                    com.kwai.filedownloader.e.d.b(this, "Receive the event %d, but there isn't any running task in the upper layer", Byte.valueOf(messageSnapshot.b()));
+                    com.kwai.filedownloader.e.d.d(this, "Receive the event %d, but there isn't any running task in the upper layer", Byte.valueOf(messageSnapshot.Ca()));
                 }
             }
         }

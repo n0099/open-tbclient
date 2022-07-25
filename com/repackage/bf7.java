@@ -28,7 +28,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class bf7 implements ia5, View.OnClickListener, AdapterView.OnItemClickListener {
+public class bf7 implements ja5, View.OnClickListener, AdapterView.OnItemClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext<SelectLocationActivity> a;
@@ -61,7 +61,7 @@ public class bf7 implements ia5, View.OnClickListener, AdapterView.OnItemClickLi
         a();
     }
 
-    @Override // com.repackage.ia5
+    @Override // com.repackage.ja5
     public boolean J0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -74,8 +74,8 @@ public class bf7 implements ia5, View.OnClickListener, AdapterView.OnItemClickLi
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0760, (ViewGroup) this.d, true);
-            this.e = (BdListView) this.d.findViewById(R.id.obfuscated_res_0x7f091d09);
+            LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d076a, (ViewGroup) this.d, true);
+            this.e = (BdListView) this.d.findViewById(R.id.obfuscated_res_0x7f091d0f);
             af7 af7Var = new af7(this.a);
             this.f = af7Var;
             this.e.setAdapter((ListAdapter) af7Var);
@@ -86,25 +86,25 @@ public class bf7 implements ia5, View.OnClickListener, AdapterView.OnItemClickLi
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.b.setCenterTextTitle(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f10fd));
-            ImageView imageView = (ImageView) this.b.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.obfuscated_res_0x7f0d08cf, (View.OnClickListener) null);
+            this.b.setCenterTextTitle(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f10b9));
+            ImageView imageView = (ImageView) this.b.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.obfuscated_res_0x7f0d08d9, (View.OnClickListener) null);
             this.c = imageView;
             LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) imageView.getLayoutParams();
-            layoutParams.setMargins(0, 0, pi.f(this.a.getPageActivity(), R.dimen.obfuscated_res_0x7f070232), 0);
+            layoutParams.setMargins(0, 0, pi.f(this.a.getPageActivity(), R.dimen.obfuscated_res_0x7f070230), 0);
             this.c.setLayoutParams(layoutParams);
             this.c.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f0809e3, SkinManager.getColor(R.color.CAM_X0105), WebPManager.ResourceStateType.NORMAL_PRESS));
             this.c.setOnClickListener(this);
         }
     }
 
-    @Override // com.repackage.ia5
+    @Override // com.repackage.ja5
     public Intent getResultIntent() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.g : (Intent) invokeV.objValue;
     }
 
-    @Override // com.repackage.ia5
+    @Override // com.repackage.ja5
     public void n(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
@@ -151,7 +151,7 @@ public class bf7 implements ia5, View.OnClickListener, AdapterView.OnItemClickLi
         }
     }
 
-    @Override // com.repackage.ia5
+    @Override // com.repackage.ja5
     public boolean s() {
         InterceptResult invokeV;
         View childAt;

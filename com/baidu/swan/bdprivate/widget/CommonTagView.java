@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.yd3;
+import com.repackage.zd3;
 /* loaded from: classes2.dex */
 public class CommonTagView extends TextView {
     public static /* synthetic */ Interceptable $ic;
@@ -52,12 +52,12 @@ public class CommonTagView extends TextView {
     public final void a(Context context, AttributeSet attributeSet, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLI(1048576, this, context, attributeSet, i) == null) {
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f0400df, R.attr.obfuscated_res_0x7f0400e3, R.attr.obfuscated_res_0x7f040191, R.attr.obfuscated_res_0x7f04066b});
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f0400df, R.attr.obfuscated_res_0x7f0400e3, R.attr.obfuscated_res_0x7f040191, R.attr.obfuscated_res_0x7f04066d});
             this.b = obtainStyledAttributes.getDimensionPixelOffset(1, 1);
             this.c = obtainStyledAttributes.getColor(0, -16777216);
             this.d = obtainStyledAttributes.getDimensionPixelOffset(2, 3);
             obtainStyledAttributes.recycle();
-            setPadding(getPaddingLeft() == 0 ? yd3.f(context, 2.0f) : getPaddingLeft(), getPaddingTop() == 0 ? yd3.f(context, 1.0f) : getPaddingTop(), getPaddingRight() == 0 ? yd3.f(context, 2.0f) : getPaddingRight(), getPaddingBottom() == 0 ? yd3.f(context, 1.0f) : getPaddingBottom());
+            setPadding(getPaddingLeft() == 0 ? zd3.f(context, 2.0f) : getPaddingLeft(), getPaddingTop() == 0 ? zd3.f(context, 1.0f) : getPaddingTop(), getPaddingRight() == 0 ? zd3.f(context, 2.0f) : getPaddingRight(), getPaddingBottom() == 0 ? zd3.f(context, 1.0f) : getPaddingBottom());
             b(context);
         }
     }

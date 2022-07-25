@@ -48,7 +48,7 @@ import com.repackage.h9;
 import com.repackage.ik5;
 import com.repackage.iy0;
 import com.repackage.pi;
-import com.repackage.uu4;
+import com.repackage.vu4;
 import java.util.ArrayList;
 import java.util.List;
 import tbclient.ActionControl;
@@ -69,7 +69,7 @@ public class AdCloseView extends FrameLayout {
     public PopupWindow c;
     public LinearLayout d;
     public TBSpecificationBtn e;
-    public uu4 f;
+    public vu4 f;
     public TextView g;
     public RelativeLayout h;
     public EMTextView i;
@@ -186,7 +186,7 @@ public class AdCloseView extends FrameLayout {
                     int n = this.a.n();
                     if (n > 0) {
                         AdCloseView adCloseView = this.a;
-                        adCloseView.e.setText(adCloseView.a.getResources().getString(R.string.obfuscated_res_0x7f0f0427));
+                        adCloseView.e.setText(adCloseView.a.getResources().getString(R.string.obfuscated_res_0x7f0f0426));
                         SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
                         spannableStringBuilder.append((CharSequence) this.a.a.getString(R.string.obfuscated_res_0x7f0f00a6));
                         int color = SkinManager.getColor(R.color.CAM_X0105);
@@ -375,18 +375,18 @@ public class AdCloseView extends FrameLayout {
                 return null;
             }
             View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0065, (ViewGroup) null);
-            this.g = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090cdd);
-            this.h = (RelativeLayout) inflate.findViewById(R.id.obfuscated_res_0x7f09212e);
+            this.g = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090cd6);
+            this.h = (RelativeLayout) inflate.findViewById(R.id.obfuscated_res_0x7f092130);
             View findViewById = inflate.findViewById(R.id.obfuscated_res_0x7f0900df);
             this.i = (EMTextView) inflate.findViewById(R.id.obfuscated_res_0x7f0900de);
             this.j = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f0902a7);
             if (!TextUtils.isEmpty(this.q)) {
                 this.g.setText(this.q);
             }
-            this.e = (TBSpecificationBtn) inflate.findViewById(R.id.obfuscated_res_0x7f0909f1);
-            uu4 uu4Var = new uu4();
-            this.f = uu4Var;
-            uu4Var.r(R.color.CAM_X0304);
+            this.e = (TBSpecificationBtn) inflate.findViewById(R.id.obfuscated_res_0x7f0909ea);
+            vu4 vu4Var = new vu4();
+            this.f = vu4Var;
+            vu4Var.r(R.color.CAM_X0304);
             this.e.setConfig(this.f);
             if (!TextUtils.isEmpty(this.r)) {
                 this.e.setText(this.r);
@@ -402,7 +402,7 @@ public class AdCloseView extends FrameLayout {
             SkinManager.setViewTextColor(this.g, R.color.CAM_X0105, 1);
             SkinManager.setViewTextColor(this.i, R.color.CAM_X0107, 1);
             this.j.setImageDrawable(SkinManager.getDrawable(R.drawable.icon_ad_dislike_arrow20_right_n));
-            this.d = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091a65);
+            this.d = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091a3f);
             this.m = new ArrayList();
             return inflate;
         }
@@ -597,10 +597,10 @@ public class AdCloseView extends FrameLayout {
             layoutParams.gravity = 21;
             addView(this.k, layoutParams);
             this.w = pi.f(this.a, R.dimen.M_W_X004);
-            this.x = pi.f(this.a, R.dimen.obfuscated_res_0x7f070232);
-            this.s = pi.f(this.a, R.dimen.obfuscated_res_0x7f070293);
+            this.x = pi.f(this.a, R.dimen.obfuscated_res_0x7f070230);
+            this.s = pi.f(this.a, R.dimen.obfuscated_res_0x7f070291);
             this.t = pi.k(this.a) - (this.w * 2);
-            this.v = pi.f(this.a, R.dimen.obfuscated_res_0x7f07023e);
+            this.v = pi.f(this.a, R.dimen.obfuscated_res_0x7f07023c);
             setOnClickListener(this.B);
             this.k.setImageDrawable(WebPManager.getPureDrawable(this.l, R.color.CAM_X0111, WebPManager.ResourceStateType.NORMAL_PRESS));
         }
@@ -633,7 +633,7 @@ public class AdCloseView extends FrameLayout {
             MessageManager.getInstance().registerListener(this.F);
             this.z = true;
         }
-        PopupWindow popupWindow2 = new PopupWindow(LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0897, (ViewGroup) null), -1, -1);
+        PopupWindow popupWindow2 = new PopupWindow(LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d08a1, (ViewGroup) null), -1, -1);
         this.c = popupWindow2;
         popupWindow2.setFocusable(false);
         this.c.setTouchable(false);
@@ -670,7 +670,7 @@ public class AdCloseView extends FrameLayout {
             String str2 = adCloseInfo.title;
             this.q = str2;
             if (TextUtils.isEmpty(str2)) {
-                this.q = this.a.getString(R.string.obfuscated_res_0x7f0f13c1);
+                this.q = this.a.getString(R.string.obfuscated_res_0x7f0f1370);
             }
             this.r = adCloseInfo.confirm_title;
         }
@@ -779,7 +779,7 @@ public class AdCloseView extends FrameLayout {
                     int n = this.a.n();
                     if (n > 0) {
                         AdCloseView adCloseView = this.a;
-                        adCloseView.e.setText(adCloseView.a.getResources().getString(R.string.obfuscated_res_0x7f0f0427));
+                        adCloseView.e.setText(adCloseView.a.getResources().getString(R.string.obfuscated_res_0x7f0f0426));
                         SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
                         spannableStringBuilder.append((CharSequence) this.a.a.getString(R.string.obfuscated_res_0x7f0f00a6));
                         int color = SkinManager.getColor(R.color.CAM_X0105);
@@ -1055,7 +1055,7 @@ public class AdCloseView extends FrameLayout {
                     int n = this.a.n();
                     if (n > 0) {
                         AdCloseView adCloseView = this.a;
-                        adCloseView.e.setText(adCloseView.a.getResources().getString(R.string.obfuscated_res_0x7f0f0427));
+                        adCloseView.e.setText(adCloseView.a.getResources().getString(R.string.obfuscated_res_0x7f0f0426));
                         SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
                         spannableStringBuilder.append((CharSequence) this.a.a.getString(R.string.obfuscated_res_0x7f0f00a6));
                         int color = SkinManager.getColor(R.color.CAM_X0105);

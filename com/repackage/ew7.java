@@ -101,7 +101,7 @@ public class ew7 {
     public final void c(TbPageContext<?> tbPageContext) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext) == null) && this.a == null) {
-            this.a = (FrameLayout) LayoutInflater.from(tbPageContext.getContext()).inflate(R.layout.obfuscated_res_0x7f0d067f, (ViewGroup) null);
+            this.a = (FrameLayout) LayoutInflater.from(tbPageContext.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0689, (ViewGroup) null);
             h(tbPageContext);
         }
     }
@@ -109,7 +109,7 @@ public class ew7 {
     public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            ur4 d = ur4.d(this.b);
+            vr4 d = vr4.d(this.b);
             d.n(R.string.J_X05);
             d.f(R.color.CAM_X0206);
             SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0109);
@@ -142,24 +142,24 @@ public class ew7 {
     public final void h(TbPageContext<?> tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, tbPageContext) == null) {
-            this.b = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f0906a0);
-            this.c = (EMTextView) this.a.findViewById(R.id.obfuscated_res_0x7f0922a1);
-            this.d = (EMTextView) this.a.findViewById(R.id.obfuscated_res_0x7f092219);
-            ur4 d = ur4.d(this.c);
+            this.b = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f09069f);
+            this.c = (EMTextView) this.a.findViewById(R.id.obfuscated_res_0x7f0922a3);
+            this.d = (EMTextView) this.a.findViewById(R.id.obfuscated_res_0x7f09221b);
+            vr4 d = vr4.d(this.c);
             d.v(R.color.CAM_X0109);
             d.A(R.string.F_X01);
-            ur4 d2 = ur4.d(this.d);
+            vr4 d2 = vr4.d(this.d);
             d2.w(R.dimen.M_H_X003);
             d2.v(R.color.CAM_X0109);
             d2.A(R.string.F_X01);
-            SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(tbPageContext.getResources().getString(R.string.obfuscated_res_0x7f0f0dbb));
+            SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(tbPageContext.getResources().getString(R.string.obfuscated_res_0x7f0f0da4));
             EMRichTextAnyIconSpan eMRichTextAnyIconSpan = new EMRichTextAnyIconSpan(R.drawable.obfuscated_res_0x7f0808f1, R.color.CAM_X0109, EMRichTextAnyIconSpan.IconType.WEBP);
             eMRichTextAnyIconSpan.f(pi.f(tbPageContext.getContext(), R.dimen.tbds31));
             eMRichTextAnyIconSpan.d(pi.f(tbPageContext.getContext(), R.dimen.M_W_X002));
             eMRichTextAnyIconSpan.b(0);
             spannableStringBuilder.setSpan(eMRichTextAnyIconSpan, 0, 1, 33);
             this.c.setText(spannableStringBuilder);
-            SpannableStringBuilder spannableStringBuilder2 = new SpannableStringBuilder(tbPageContext.getResources().getString(R.string.obfuscated_res_0x7f0f0dba));
+            SpannableStringBuilder spannableStringBuilder2 = new SpannableStringBuilder(tbPageContext.getResources().getString(R.string.obfuscated_res_0x7f0f0da3));
             EMRichTextAnyIconSpan eMRichTextAnyIconSpan2 = new EMRichTextAnyIconSpan(R.drawable.icon_pure_arrow12_right_n, R.color.CAM_X0109, EMRichTextAnyIconSpan.IconType.WEBP);
             eMRichTextAnyIconSpan2.b(pi.f(tbPageContext.getContext(), R.dimen.tbds3));
             spannableStringBuilder2.setSpan(eMRichTextAnyIconSpan2, spannableStringBuilder2.length() - 1, spannableStringBuilder2.length(), 33);

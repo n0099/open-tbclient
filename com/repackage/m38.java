@@ -89,7 +89,7 @@ public class m38 extends an<ry5, ThreadCardViewHolder<ry5>> implements ck5 {
                 if (imageView instanceof TbImageView) {
                     TbImageView tbImageView = (TbImageView) imageView;
                     tbImageView.setTag(null);
-                    if (zm4.c().g()) {
+                    if (an4.c().g()) {
                         tbImageView.setAdjustViewBounds(false);
                         tbImageView.setInterceptOnClick(false);
                     } else {
@@ -130,7 +130,7 @@ public class m38 extends an<ry5, ThreadCardViewHolder<ry5>> implements ck5 {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
                 ForeDrawableImageView foreDrawableImageView = new ForeDrawableImageView(this.a.j.getPageActivity());
-                boolean g = zm4.c().g();
+                boolean g = an4.c().g();
                 foreDrawableImageView.setDefaultBg(SkinManager.getDrawable(R.color.common_color_10220));
                 if (g) {
                     foreDrawableImageView.setAdjustViewBounds(false);
@@ -213,7 +213,7 @@ public class m38 extends an<ry5, ThreadCardViewHolder<ry5>> implements ck5 {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, gifView)) == null) {
                 gifView.setTag(null);
-                if (zm4.c().g()) {
+                if (an4.c().g()) {
                     gifView.setAdjustViewBounds(false);
                     gifView.setInterceptOnClick(false);
                 } else {
@@ -249,7 +249,7 @@ public class m38 extends an<ry5, ThreadCardViewHolder<ry5>> implements ck5 {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
                 GifView gifView = new GifView(this.a.j.getPageActivity());
-                boolean g = zm4.c().g();
+                boolean g = an4.c().g();
                 gifView.setDefaultBg(SkinManager.getDrawable(R.color.common_color_10220));
                 if (g) {
                     gifView.setAdjustViewBounds(false);
@@ -312,16 +312,16 @@ public class m38 extends an<ry5, ThreadCardViewHolder<ry5>> implements ck5 {
                 return;
             }
             int id = view2.getId();
-            if (id == R.id.obfuscated_res_0x7f09202a) {
+            if (id == R.id.obfuscated_res_0x7f09202e) {
                 StatisticItem s = ry5Var.s("c13543");
                 s.param("obj_type", ry5Var.N(ry5Var.a));
                 TiebaStatic.log(s);
                 s28.a(view2, ry5Var, 2);
             } else if (view2 instanceof TbImageView) {
                 s28.a(view2, ry5Var, 3);
-            } else if (view2.getId() == R.id.obfuscated_res_0x7f09202b || view2.getId() == R.id.obfuscated_res_0x7f09201d) {
+            } else if (view2.getId() == R.id.obfuscated_res_0x7f09202f || view2.getId() == R.id.obfuscated_res_0x7f092021) {
                 s28.a(view2, ry5Var, 2);
-            } else if (id == R.id.obfuscated_res_0x7f090a40) {
+            } else if (id == R.id.obfuscated_res_0x7f090a39) {
                 s28.a(view2, ry5Var, 7);
             }
         }
@@ -359,10 +359,10 @@ public class m38 extends an<ry5, ThreadCardViewHolder<ry5>> implements ck5 {
                 ry5 ry5Var = (ry5) nnVar;
                 ry5Var.f = 1;
                 if (this.a.r != null) {
-                    this.a.r.a(threadCardViewHolder.b(), ry5Var);
+                    this.a.r.a(threadCardViewHolder.a(), ry5Var);
                 }
-                ThreadCardUtils.jumpToPB((nn4) ry5Var, view2.getContext(), 4, false);
-                threadCardViewHolder.c().o(new ny.a(1));
+                ThreadCardUtils.jumpToPB((on4) ry5Var, view2.getContext(), 4, false);
+                threadCardViewHolder.b().o(new ny.a(1));
             }
         }
     }
@@ -399,7 +399,7 @@ public class m38 extends an<ry5, ThreadCardViewHolder<ry5>> implements ck5 {
     public final void b0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            vy5.n0 = "c13542";
+            vy5.h0 = "c13542";
         }
     }
 
@@ -434,10 +434,10 @@ public class m38 extends an<ry5, ThreadCardViewHolder<ry5>> implements ck5 {
             ey eyVar = new ey(this.j.getPageActivity());
             eyVar.c(32);
             eyVar.x(false);
-            tn4 tn4Var = new tn4();
-            tn4Var.b = 3;
-            tn4Var.h = 3;
-            eyVar.w(tn4Var);
+            un4 un4Var = new un4();
+            un4Var.b = 3;
+            un4Var.h = 3;
+            eyVar.w(un4Var);
             eyVar.y(8);
             eyVar.D(6);
             eyVar.z(4);
@@ -445,8 +445,8 @@ public class m38 extends an<ry5, ThreadCardViewHolder<ry5>> implements ck5 {
             cy i2 = bVar.i();
             i2.r(4);
             ThreadCardViewHolder threadCardViewHolder = new ThreadCardViewHolder(i2);
-            threadCardViewHolder.k(this.i);
-            threadCardViewHolder.s(this.n);
+            threadCardViewHolder.j(this.i);
+            threadCardViewHolder.r(this.n);
             V(new d(this));
             return threadCardViewHolder;
         }
@@ -460,19 +460,19 @@ public class m38 extends an<ry5, ThreadCardViewHolder<ry5>> implements ck5 {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view2, viewGroup, ry5Var, threadCardViewHolder})) == null) {
-            if (ry5Var == null || threadCardViewHolder == null || threadCardViewHolder.b() == null || ry5Var.a == null) {
+            if (ry5Var == null || threadCardViewHolder == null || threadCardViewHolder.a() == null || ry5Var.a == null) {
                 return null;
             }
             ry5Var.I(ry5Var.position + 1);
-            threadCardViewHolder.c().b(this.k);
+            threadCardViewHolder.b().b(this.k);
             if (!this.o) {
-                threadCardViewHolder.t();
+                threadCardViewHolder.s();
             }
-            threadCardViewHolder.g(ry5Var);
-            threadCardViewHolder.c().onChangeSkinType(this.j, TbadkCoreApplication.getInst().getSkinType());
-            threadCardViewHolder.c().p(this.r);
+            threadCardViewHolder.f(ry5Var);
+            threadCardViewHolder.b().onChangeSkinType(this.j, TbadkCoreApplication.getInst().getSkinType());
+            threadCardViewHolder.b().p(this.r);
             s28.b(ry5Var);
-            return threadCardViewHolder.b();
+            return threadCardViewHolder.a();
         }
         return (View) invokeCommon.objValue;
     }

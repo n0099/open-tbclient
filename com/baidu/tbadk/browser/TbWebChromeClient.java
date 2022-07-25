@@ -27,7 +27,7 @@ import com.repackage.hj8;
 import com.repackage.lj8;
 import com.repackage.oi;
 import com.repackage.sg;
-import com.repackage.tx4;
+import com.repackage.ux4;
 /* loaded from: classes2.dex */
 public class TbWebChromeClient extends WebChromeClient {
     public static /* synthetic */ Interceptable $ic;
@@ -134,13 +134,13 @@ public class TbWebChromeClient extends WebChromeClient {
         ej8 ej8Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048581, this, webView, str, str2, str3, jsPromptResult)) == null) {
-            if (!tx4.a(str) && str2.startsWith("tiebaapp")) {
+            if (!ux4.a(str) && str2.startsWith("tiebaapp")) {
                 hj8 hj8Var = new hj8();
                 hj8Var.v(lj8.b(str2));
                 hj8Var.x(301);
                 callJsMethod(webView, hj8Var.c(), hj8Var.d());
             }
-            if (tx4.a(str) && (ej8Var = this.callback) != null && ej8Var.onJsPrompt(str2, jsPromptResult)) {
+            if (ux4.a(str) && (ej8Var = this.callback) != null && ej8Var.onJsPrompt(str2, jsPromptResult)) {
                 return true;
             }
             jsPromptResult.cancel();

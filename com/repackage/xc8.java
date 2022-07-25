@@ -93,7 +93,7 @@ public abstract class xc8 implements dd8 {
             shareEvent.channel = i2;
             shareEvent.extLiveInfo = this.d;
             shareEvent.from = i3;
-            r65.i(shareEvent);
+            s65.i(shareEvent);
         }
     }
 
@@ -333,17 +333,17 @@ public abstract class xc8 implements dd8 {
         if (interceptable == null || interceptable.invokeCommon(1048599, this, new Object[]{Integer.valueOf(i), str, Integer.valueOf(i2)}) == null) {
             if (i == 1) {
                 if (TextUtils.isEmpty(str)) {
-                    str = l(R.string.obfuscated_res_0x7f0f1170, new Object[0]);
+                    str = l(R.string.obfuscated_res_0x7f0f111f, new Object[0]);
                 }
                 x(str);
             } else if (i == 3) {
                 if (TextUtils.isEmpty(str)) {
-                    str = l(R.string.obfuscated_res_0x7f0f1140, new Object[0]);
+                    str = l(R.string.obfuscated_res_0x7f0f10ef, new Object[0]);
                 }
                 w(str);
             } else if (i == 2) {
                 if (TextUtils.isEmpty(str)) {
-                    str = l(R.string.obfuscated_res_0x7f0f1148, new Object[0]);
+                    str = l(R.string.obfuscated_res_0x7f0f10f7, new Object[0]);
                 }
                 w(str);
             }

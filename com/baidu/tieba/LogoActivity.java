@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.dj5;
-import com.repackage.is4;
+import com.repackage.js4;
 @SuppressLint({"HandlerLeak"})
 /* loaded from: classes3.dex */
 public class LogoActivity extends BaseFragmentActivity {
@@ -55,7 +55,7 @@ public class LogoActivity extends BaseFragmentActivity {
         }
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.repackage.v85
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.repackage.w85
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -90,7 +90,7 @@ public class LogoActivity extends BaseFragmentActivity {
             this.a = dj5Var;
             dj5Var.e(bundle);
             SpeedStatsManager.getInstance().addStatsTimeStamp(3001);
-            is4.m();
+            js4.m();
         }
     }
 
@@ -102,7 +102,7 @@ public class LogoActivity extends BaseFragmentActivity {
             super.onDestroy();
             this.a.f();
             SpeedStatsManager.getInstance().addStatsTimeStamp(3005);
-            is4.n();
+            js4.n();
         }
     }
 
@@ -124,7 +124,7 @@ public class LogoActivity extends BaseFragmentActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, intent) == null) {
             super.onNewIntent(intent);
-            is4.m();
+            js4.m();
         }
     }
 

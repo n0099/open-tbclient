@@ -38,6 +38,7 @@ import android.webkit.CookieSyncManager;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.util.DeviceId;
 import com.baidu.android.util.devices.RomUtils;
+import com.baidu.pass.biometrics.base.utils.PassBioEnv;
 import com.baidu.pass.common.SecurityUtil;
 import com.baidu.sapi2.NoProguard;
 import com.baidu.sapi2.SapiConfiguration;
@@ -50,7 +51,6 @@ import com.baidu.sapi2.utils.enums.Domain;
 import com.baidu.sapi2.utils.enums.Enums;
 import com.baidu.searchbox.aideviceperformance.utils.HardwareInfoUtils;
 import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
-import com.baidu.sofire.utility.PermissionChecker;
 import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
 import com.baidu.tbadk.core.util.httpNet.HttpRequest;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -61,7 +61,8 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.fun.ad.sdk.FunAdSdk;
-import com.kuaishou.weapon.p0.C0294;
+import com.kuaishou.weapon.p0.h;
+import com.kuaishou.weapon.p0.k1;
 import com.yy.hiidostatis.defs.obj.ParamableElem;
 import java.io.BufferedReader;
 import java.io.ByteArrayOutputStream;
@@ -273,10 +274,19 @@ public class SapiUtils implements NoProguard {
         return (String) invokeLL.objValue;
     }
 
+    public static String buildTplCuidCookie(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65549, null, str, str2)) == null) {
+            return "tcuid=" + str2 + ";domain=" + str + ";path=/;httponly";
+        }
+        return (String) invokeLL.objValue;
+    }
+
     public static String calculateSig(Map<String, String> map, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65549, null, map, str)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65550, null, map, str)) == null) {
             map.remove(FunAdSdk.PLATFORM_SIG);
             ArrayList arrayList = new ArrayList();
             for (String str2 : map.keySet()) {
@@ -310,7 +320,7 @@ public class SapiUtils implements NoProguard {
     public static boolean checkRequestPermission(String str, Context context) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65550, null, str, context)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65551, null, str, context)) == null) {
             try {
                 if (Build.VERSION.SDK_INT < 23 || context.checkSelfPermission(str) != 0) {
                     if (Build.VERSION.SDK_INT >= 23) {
@@ -331,7 +341,7 @@ public class SapiUtils implements NoProguard {
     public static String createRequestParams(List<PassNameValuePair> list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65551, null, list)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65552, null, list)) == null) {
             StringBuilder sb = new StringBuilder();
             if (list != null) {
                 for (PassNameValuePair passNameValuePair : list) {
@@ -357,7 +367,7 @@ public class SapiUtils implements NoProguard {
     public static int dip2px(Context context, float f) {
         InterceptResult invokeLF;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLF = interceptable.invokeLF(65552, null, context, f)) == null) {
+        if (interceptable == null || (invokeLF = interceptable.invokeLF(65553, null, context, f)) == null) {
             if (context != null) {
                 return (int) ((f * context.getResources().getDisplayMetrics().density) + 0.5f);
             }
@@ -369,7 +379,7 @@ public class SapiUtils implements NoProguard {
     public static Bitmap drawableToBitamp(Drawable drawable) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65553, null, drawable)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65554, null, drawable)) == null) {
             if (drawable == null) {
                 return null;
             }
@@ -390,7 +400,7 @@ public class SapiUtils implements NoProguard {
     public static String getAppName(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65554, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65555, null, context)) == null) {
             try {
                 PackageManager packageManager = context.getPackageManager();
                 return packageManager.getPackageInfo(context.getPackageName(), 0).applicationInfo.loadLabel(packageManager).toString();
@@ -404,20 +414,20 @@ public class SapiUtils implements NoProguard {
     public static List<String> getAuthorizedDomains() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65555, null)) == null) ? SapiContext.getInstance().getAuthorizedDomains() : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65556, null)) == null) ? SapiContext.getInstance().getAuthorizedDomains() : (List) invokeV.objValue;
     }
 
     public static List<String> getAuthorizedDomainsForPtoken() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65556, null)) == null) ? SapiContext.getInstance().getAuthorizedDomainsForPtoken() : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65557, null)) == null) ? SapiContext.getInstance().getAuthorizedDomainsForPtoken() : (List) invokeV.objValue;
     }
 
     @TargetApi(3)
     public static String getBlueToothDeviceName(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65557, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65558, null, context)) == null) {
             try {
                 SapiConfiguration confignation = ServiceManager.getInstance().getIsAccountManager().getConfignation();
                 return (confignation == null || !confignation.isAgreeDangerousProtocol()) ? "" : Settings.Secure.getString(context.getContentResolver(), "bluetooth_name");
@@ -434,7 +444,7 @@ public class SapiUtils implements NoProguard {
         ISAccountManager isAccountManager;
         SapiConfiguration confignation;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65558, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65559, null, context)) == null) {
             ServiceManager serviceManager = ServiceManager.getInstance();
             if (serviceManager == null || (isAccountManager = serviceManager.getIsAccountManager()) == null || (confignation = isAccountManager.getConfignation()) == null) {
                 return null;
@@ -454,7 +464,7 @@ public class SapiUtils implements NoProguard {
         InterceptResult invokeLL;
         int indexOf;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65559, null, str, str2)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65560, null, str, str2)) == null) {
             try {
                 CookieSyncManager.createInstance(ServiceManager.getInstance().getIsAccountManager().getConfignation().context);
                 String cookie = CookieManager.getInstance().getCookie(str);
@@ -487,13 +497,13 @@ public class SapiUtils implements NoProguard {
     public static String getCookieBduss() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65560, null)) == null) ? getCookie(SapiHost.getHost(SapiHost.DOMAIN_BAIDU_HTTPS_URL), HttpRequest.BDUSS) : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65561, null)) == null) ? getCookie(SapiHost.getHost(SapiHost.DOMAIN_BAIDU_HTTPS_URL), HttpRequest.BDUSS) : (String) invokeV.objValue;
     }
 
     public static String getCookiePtoken() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65561, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65562, null)) == null) {
             SapiConfiguration confignation = ServiceManager.getInstance().getIsAccountManager().getConfignation();
             String cookie = getCookie(confignation.environment.getWap(), "PTOKEN");
             return TextUtils.isEmpty(cookie) ? getCookie(confignation.environment.getURL(), "PTOKEN") : cookie;
@@ -504,9 +514,9 @@ public class SapiUtils implements NoProguard {
     public static String getCpuName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65562, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65563, null)) == null) {
             try {
-                FileReader fileReader = new FileReader(C0294.f19);
+                FileReader fileReader = new FileReader(k1.a);
                 String readLine = new BufferedReader(fileReader).readLine();
                 fileReader.close();
                 if (!TextUtils.isEmpty(readLine)) {
@@ -526,14 +536,14 @@ public class SapiUtils implements NoProguard {
     public static List<String> getCuidAuthorizedDomains() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65563, null)) == null) ? SapiContext.getInstance().getCuidAuthorizedDomains() : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65564, null)) == null) ? SapiContext.getInstance().getCuidAuthorizedDomains() : (List) invokeV.objValue;
     }
 
     @TargetApi(3)
     public static String getCurProcessName(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65564, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65565, null, context)) == null) {
             try {
                 int myPid = Process.myPid();
                 for (ActivityManager.RunningAppProcessInfo runningAppProcessInfo : ((ActivityManager) context.getSystemService("activity")).getRunningAppProcesses()) {
@@ -553,13 +563,13 @@ public class SapiUtils implements NoProguard {
     public static boolean getDefaultHttpsEnabled() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65565, null)) == null) ? SapiContext.getInstance().getDefaultHttpsEnabled() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65566, null)) == null) ? SapiContext.getInstance().getDefaultHttpsEnabled() : invokeV.booleanValue;
     }
 
     public static String getDeviceID(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65566, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65567, null, context)) == null) {
             try {
                 return DeviceId.getDeviceID(context);
             } catch (Throwable unused) {
@@ -574,7 +584,7 @@ public class SapiUtils implements NoProguard {
     public static String getDeviceName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65567, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65568, null)) == null) {
             try {
                 return ServiceManager.getInstance().getIsAccountManager().getConfignation().deviceName;
             } catch (Exception e) {
@@ -588,7 +598,7 @@ public class SapiUtils implements NoProguard {
     public static String getIccid(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65568, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65569, null, context)) == null) {
             if (ServiceManager.getInstance().getIsAccountManager().getConfignation().isAgreeDangerousProtocol()) {
                 if (!TextUtils.isEmpty(iccid)) {
                     return iccid;
@@ -634,7 +644,7 @@ public class SapiUtils implements NoProguard {
     public static long getInternalAvailableMemorySize() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65569, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65570, null)) == null) {
             try {
                 StatFs statFs = new StatFs(Environment.getDataDirectory().getPath());
                 return (statFs.getBlockSize() * statFs.getAvailableBlocks()) / 1024;
@@ -649,7 +659,7 @@ public class SapiUtils implements NoProguard {
     public static long getInternalMemorySize() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65570, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65571, null)) == null) {
             try {
                 StatFs statFs = new StatFs(Environment.getDataDirectory().getPath());
                 return (statFs.getBlockSize() * statFs.getBlockCount()) / 1024;
@@ -664,14 +674,14 @@ public class SapiUtils implements NoProguard {
     public static int getLastLoginType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65571, null)) == null) ? Enums.LastLoginType.getValueByName(SapiContext.getInstance().getString(SapiContext.KEY_PRE_LOGIN_TYPE)) : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65572, null)) == null) ? Enums.LastLoginType.getValueByName(SapiContext.getInstance().getString(SapiContext.KEY_PRE_LOGIN_TYPE)) : invokeV.intValue;
     }
 
     public static String getLocalIpAddress() {
         String hostAddress;
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65572, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65573, null)) == null) {
             try {
                 if (ServiceManager.getInstance().getIsAccountManager().getConfignation().isAgreeDangerousProtocol()) {
                     Enumeration<NetworkInterface> networkInterfaces = NetworkInterface.getNetworkInterfaces();
@@ -698,7 +708,7 @@ public class SapiUtils implements NoProguard {
     public static String getLoginType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65573, null)) == null) ? SapiContext.getInstance().getAccountActionType() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65574, null)) == null) ? SapiContext.getInstance().getAccountActionType() : (String) invokeV.objValue;
     }
 
     @TargetApi(3)
@@ -706,7 +716,7 @@ public class SapiUtils implements NoProguard {
         InterceptResult invokeL;
         NetworkInfo activeNetworkInfo;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65574, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65575, null, context)) == null) {
             try {
                 activeNetworkInfo = ((ConnectivityManager) context.getSystemService("connectivity")).getActiveNetworkInfo();
             } catch (Throwable th) {
@@ -754,7 +764,7 @@ public class SapiUtils implements NoProguard {
     public static List<String> getPackageList(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65575, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65576, null, context)) == null) {
             ArrayList arrayList = new ArrayList();
             List<ResolveInfo> queryIntentServices = context.getPackageManager().queryIntentServices(new Intent("baidu.intent.action.account.SHARE_SERVICE"), 32);
             if (queryIntentServices != null) {
@@ -773,7 +783,7 @@ public class SapiUtils implements NoProguard {
     public static String getPackageSign(Context context, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65576, null, context, str)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65577, null, context, str)) == null) {
             String str2 = "";
             if (context != null && !TextUtils.isEmpty(str)) {
                 try {
@@ -796,7 +806,7 @@ public class SapiUtils implements NoProguard {
     public static String[] getPkgIconAndName(Context context, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65577, null, context, str)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65578, null, context, str)) == null) {
             String[] strArr = new String[2];
             PackageManager packageManager = context.getPackageManager();
             try {
@@ -824,7 +834,7 @@ public class SapiUtils implements NoProguard {
     public static String getRamMemorySize() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65578, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65579, null)) == null) {
             try {
                 FileReader fileReader = new FileReader(HardwareInfoUtils.MEM_INFO_FILE);
                 String readLine = new BufferedReader(fileReader).readLine();
@@ -847,7 +857,7 @@ public class SapiUtils implements NoProguard {
         InterceptResult invokeL;
         String[] split;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65579, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65580, null, str)) == null) {
             for (String str2 : str.replaceAll("[^0-9]*([0-9]*)[^0-9]*", "$1-").split("-")) {
                 if (str2.length() == 6) {
                     return str2;
@@ -861,13 +871,13 @@ public class SapiUtils implements NoProguard {
     public static long getTimeSinceBoot() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65580, null)) == null) ? SystemClock.elapsedRealtime() / 1000 : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65581, null)) == null) ? SystemClock.elapsedRealtime() / 1000 : invokeV.longValue;
     }
 
     public static String getVersionName(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65581, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65582, null, context)) == null) {
             try {
                 return context.getPackageManager().getPackageInfo(context.getPackageName(), 0).versionName;
             } catch (Throwable th) {
@@ -884,12 +894,13 @@ public class SapiUtils implements NoProguard {
         String str2;
         int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65582, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65583, null, context)) == null) {
             String str3 = "";
             if (ServiceManager.getInstance().getIsAccountManager().getConfignation().isAgreeDangerousProtocol()) {
                 StringBuffer stringBuffer = new StringBuffer();
                 try {
                     WifiManager wifiManager = (WifiManager) context.getSystemService("wifi");
+                    List<ScanResult> list = null;
                     WifiInfo connectionInfo = ServiceManager.getInstance().getIsAccountManager().getConfignation().isAgreeDangerousProtocol() ? wifiManager.getConnectionInfo() : null;
                     int i2 = 0;
                     if (connectionInfo != null) {
@@ -907,9 +918,11 @@ public class SapiUtils implements NoProguard {
                         str2 = str;
                         i = 0;
                     }
-                    List<ScanResult> scanResults = checkRequestPermission(PermissionChecker.ACCESS_FINE_LOCATION, context) ? wifiManager.getScanResults() : null;
-                    if (scanResults != null) {
-                        for (ScanResult scanResult : scanResults) {
+                    if (checkRequestPermission(h.h, context) && checkRequestPermission(h.g, context)) {
+                        list = wifiManager.getScanResults();
+                    }
+                    if (list != null) {
+                        for (ScanResult scanResult : list) {
                             String str4 = scanResult.BSSID;
                             String str5 = scanResult.SSID;
                             int abs = StrictMath.abs(scanResult.level);
@@ -946,7 +959,7 @@ public class SapiUtils implements NoProguard {
     public static boolean hasActiveNetwork(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65583, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65584, null, context)) == null) {
             if (context == null) {
                 return false;
             }
@@ -963,7 +976,7 @@ public class SapiUtils implements NoProguard {
     @TargetApi(3)
     public static void hideSoftInput(Activity activity) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65584, null, activity) == null) {
+        if (interceptable == null || interceptable.invokeL(65585, null, activity) == null) {
             InputMethodManager inputMethodManager = (InputMethodManager) activity.getSystemService("input_method");
             if (!inputMethodManager.isActive() || activity.getCurrentFocus() == null || activity.getCurrentFocus().getWindowToken() == null) {
                 return;
@@ -975,7 +988,7 @@ public class SapiUtils implements NoProguard {
     public static boolean isAppInstalled(Context context, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65585, null, context, str)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65586, null, context, str)) == null) {
             if (context != null && !TextUtils.isEmpty(str)) {
                 try {
                     if (context.getPackageManager().getPackageInfo(str, 0) != null) {
@@ -993,7 +1006,7 @@ public class SapiUtils implements NoProguard {
     public static boolean isDebug(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65586, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65587, null, context)) == null) {
             try {
             } catch (Exception e) {
                 Log.e(e);
@@ -1008,12 +1021,12 @@ public class SapiUtils implements NoProguard {
         InterceptResult invokeL;
         String str;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeL = interceptable.invokeL(65587, null, context)) != null) {
+        if (interceptable != null && (invokeL = interceptable.invokeL(65588, null, context)) != null) {
             return invokeL.booleanValue;
         }
         if (!SapiDeviceUtils.isForbidDangerousPermissionApp(context) && ServiceManager.getInstance().getIsAccountManager().getConfignation().isAgreeDangerousProtocol()) {
             if (Build.VERSION.SDK_INT > 27 && context.getApplicationInfo().targetSdkVersion > 27) {
-                if (checkRequestPermission(PermissionChecker.READ_PHONE_STATE, context)) {
+                if (checkRequestPermission(h.c, context)) {
                     try {
                         str = Build.getSerial();
                     } catch (Throwable unused) {
@@ -1029,8 +1042,11 @@ public class SapiUtils implements NoProguard {
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:66:0x00ad  */
-    /* JADX WARN: Removed duplicated region for block: B:76:0x00a3 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:60:0x00a4  */
+    /* JADX WARN: Removed duplicated region for block: B:70:0x00b6  */
+    /* JADX WARN: Removed duplicated region for block: B:76:0x00ac A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:78:0x009a A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:93:? A[RETURN, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -1038,94 +1054,119 @@ public class SapiUtils implements NoProguard {
         InterceptResult invokeL;
         Process process;
         Process exec;
+        BufferedReader bufferedReader;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeL = interceptable.invokeL(65588, null, str)) != null) {
+        if (interceptable != null && (invokeL = interceptable.invokeL(65589, null, str)) != null) {
             return invokeL.booleanValue;
         }
-        BufferedReader bufferedReader = null;
+        BufferedReader bufferedReader2 = null;
+        String readLine = null;
+        bufferedReader2 = null;
+        bufferedReader2 = null;
+        bufferedReader2 = null;
         try {
             if ("/system/bin/su".equals(str)) {
                 exec = Runtime.getRuntime().exec("ls -l /system/bin/su");
             } else {
                 exec = "/system/xbin/su".equals(str) ? Runtime.getRuntime().exec("ls -l /system/xbin/su") : null;
             }
-            try {
-                BufferedReader bufferedReader2 = new BufferedReader(new InputStreamReader(exec.getInputStream()));
+            if (exec != null) {
                 try {
-                    String readLine = bufferedReader2.readLine();
-                    if (readLine != null && readLine.length() >= 4) {
-                        char charAt = readLine.charAt(3);
-                        if (charAt == 's' || charAt == 'x') {
-                            try {
-                                bufferedReader2.close();
-                            } catch (Exception e) {
-                                Log.e(e);
-                            }
-                            if (exec != null) {
-                                exec.destroy();
-                            }
-                            return true;
-                        }
-                    }
+                    bufferedReader = new BufferedReader(new InputStreamReader(exec.getInputStream()));
                     try {
-                        bufferedReader2.close();
-                    } catch (Exception e2) {
-                        Log.e(e2);
-                    }
-                    if (exec != null) {
-                        exec.destroy();
-                        return false;
-                    }
-                    return false;
-                } catch (IOException e3) {
-                    process = exec;
-                    e = e3;
-                    bufferedReader = bufferedReader2;
-                    try {
-                        Log.e(e);
-                        if (bufferedReader != null) {
-                            try {
-                                bufferedReader.close();
-                            } catch (Exception e4) {
-                                Log.e(e4);
+                        readLine = bufferedReader.readLine();
+                    } catch (IOException e) {
+                        BufferedReader bufferedReader3 = bufferedReader;
+                        process = exec;
+                        e = e;
+                        bufferedReader2 = bufferedReader3;
+                        try {
+                            Log.e(e);
+                            if (bufferedReader2 != null) {
+                                try {
+                                    bufferedReader2.close();
+                                } catch (Exception e2) {
+                                    Log.e(e2);
+                                }
                             }
-                        }
-                        if (process != null) {
-                            process.destroy();
+                            if (process == null) {
+                                process.destroy();
+                                return false;
+                            }
                             return false;
-                        }
-                        return false;
-                    } catch (Throwable th) {
-                        th = th;
-                        if (bufferedReader != null) {
-                            try {
-                                bufferedReader.close();
-                            } catch (Exception e5) {
-                                Log.e(e5);
+                        } catch (Throwable th) {
+                            th = th;
+                            if (bufferedReader2 != null) {
+                                try {
+                                    bufferedReader2.close();
+                                } catch (Exception e3) {
+                                    Log.e(e3);
+                                }
                             }
+                            if (process != null) {
+                                process.destroy();
+                            }
+                            throw th;
+                        }
+                    } catch (Throwable th2) {
+                        BufferedReader bufferedReader4 = bufferedReader;
+                        process = exec;
+                        th = th2;
+                        bufferedReader2 = bufferedReader4;
+                        if (bufferedReader2 != null) {
                         }
                         if (process != null) {
-                            process.destroy();
                         }
                         throw th;
                     }
-                } catch (Throwable th2) {
+                } catch (IOException e4) {
                     process = exec;
-                    th = th2;
-                    bufferedReader = bufferedReader2;
-                    if (bufferedReader != null) {
+                    e = e4;
+                    Log.e(e);
+                    if (bufferedReader2 != null) {
+                    }
+                    if (process == null) {
+                    }
+                } catch (Throwable th3) {
+                    process = exec;
+                    th = th3;
+                    if (bufferedReader2 != null) {
                     }
                     if (process != null) {
                     }
                     throw th;
                 }
-            } catch (IOException e6) {
-                process = exec;
-                e = e6;
-            } catch (Throwable th3) {
-                process = exec;
-                th = th3;
+            } else {
+                bufferedReader = null;
             }
+            if (readLine != null && readLine.length() >= 4) {
+                char charAt = readLine.charAt(3);
+                if (charAt == 's' || charAt == 'x') {
+                    if (bufferedReader != null) {
+                        try {
+                            bufferedReader.close();
+                        } catch (Exception e5) {
+                            Log.e(e5);
+                        }
+                    }
+                    if (exec != null) {
+                        exec.destroy();
+                    }
+                    return true;
+                }
+            }
+            if (bufferedReader != null) {
+                try {
+                    bufferedReader.close();
+                } catch (Exception e6) {
+                    Log.e(e6);
+                }
+            }
+            if (exec != null) {
+                exec.destroy();
+                return false;
+            }
+            return false;
         } catch (IOException e7) {
             e = e7;
             process = null;
@@ -1138,7 +1179,7 @@ public class SapiUtils implements NoProguard {
     public static boolean isExternalQrLoginSchema(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65589, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65590, null, str)) == null) {
             if (isOauthQrLoginSchema(str)) {
                 return true;
             }
@@ -1154,13 +1195,13 @@ public class SapiUtils implements NoProguard {
     public static boolean isMethodOverWrited(Object obj, String str, Class cls, Class... clsArr) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65590, null, obj, str, cls, clsArr)) == null) ? !cls.equals(obj.getClass().getMethod(str, clsArr).getDeclaringClass()) : invokeLLLL.booleanValue;
+        return (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65591, null, obj, str, cls, clsArr)) == null) ? !cls.equals(obj.getClass().getMethod(str, clsArr).getDeclaringClass()) : invokeLLLL.booleanValue;
     }
 
     public static boolean isOauthQrLoginSchema(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65591, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65592, null, str)) == null) {
             if (!TextUtils.isEmpty(str) && str.contains("qrsign") && str.contains("scope") && str.contains("channelid") && str.contains("client_id")) {
                 Map<String, String> urlParamsToMap = urlParamsToMap(str);
                 return (TextUtils.isEmpty(urlParamsToMap.get("qrsign")) || TextUtils.isEmpty(urlParamsToMap.get("scope")) || TextUtils.isEmpty(urlParamsToMap.get("channelid")) || TextUtils.isEmpty(urlParamsToMap.get("client_id"))) ? false : true;
@@ -1174,7 +1215,7 @@ public class SapiUtils implements NoProguard {
     public static boolean isOnline(SapiConfiguration sapiConfiguration) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65592, null, sapiConfiguration)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65593, null, sapiConfiguration)) == null) {
             Context context = sapiConfiguration.context;
             String packageName = context.getPackageName();
             if (TextUtils.isEmpty(packageName)) {
@@ -1204,7 +1245,7 @@ public class SapiUtils implements NoProguard {
         InterceptResult invokeL;
         Domain environment;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65593, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65594, null, str)) == null) {
             String host = Uri.parse(ServiceManager.getInstance().getIsAccountManager().getConfignation().getEnvironment().getWap()).getHost();
             Uri parse = Uri.parse(str);
             String str2 = Uri.parse(environment.getWap()).getHost() + "/v3/getpass/artificialappeal";
@@ -1223,7 +1264,7 @@ public class SapiUtils implements NoProguard {
     public static boolean isQrLoginEnuidSchema(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65594, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65595, null, str)) == null) {
             if (isOauthQrLoginSchema(str)) {
                 return true;
             }
@@ -1238,7 +1279,7 @@ public class SapiUtils implements NoProguard {
     public static boolean isQrLoginSchema(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65595, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65596, null, str)) == null) {
             if (isOauthQrLoginSchema(str) || isExternalQrLoginSchema(str)) {
                 return true;
             }
@@ -1254,13 +1295,13 @@ public class SapiUtils implements NoProguard {
     public static boolean isRoot() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65596, null)) == null) ? (new File("/system/bin/su").exists() && isExecutable("/system/bin/su")) || (new File("/system/xbin/su").exists() && isExecutable("/system/xbin/su")) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65597, null)) == null) ? (new File("/system/bin/su").exists() && isExecutable("/system/bin/su")) || (new File("/system/xbin/su").exists() && isExecutable("/system/xbin/su")) : invokeV.booleanValue;
     }
 
     public static boolean isValidPhoneNumber(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65597, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65598, null, str)) == null) {
             if (TextUtils.isEmpty(str)) {
                 return false;
             }
@@ -1272,13 +1313,13 @@ public class SapiUtils implements NoProguard {
     public static boolean isValidUsername(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65598, null, str)) == null) ? !TextUtils.isEmpty(str) && str.length() <= 14 : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65599, null, str)) == null) ? !TextUtils.isEmpty(str) && str.length() <= 14 : invokeL.booleanValue;
     }
 
     public static JSONArray map2JsonArray(Map<String, Long> map, String str, String str2) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65599, null, map, str, str2)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65600, null, map, str, str2)) == null) {
             JSONArray jSONArray = new JSONArray();
             if (map != null && !map.isEmpty()) {
                 for (Map.Entry<String, Long> entry : map.entrySet()) {
@@ -1301,7 +1342,7 @@ public class SapiUtils implements NoProguard {
     public static String mapToUrlParams(Map<String, String> map, boolean z) {
         InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65600, null, map, z)) == null) {
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65601, null, map, z)) == null) {
             if (map == null) {
                 return "";
             }
@@ -1337,14 +1378,14 @@ public class SapiUtils implements NoProguard {
 
     public static void notEmpty(String str, String str2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65601, null, str, str2) == null) && TextUtils.isEmpty(str)) {
+        if ((interceptable == null || interceptable.invokeLL(65602, null, str, str2) == null) && TextUtils.isEmpty(str)) {
             throw new IllegalArgumentException(str2);
         }
     }
 
     public static void notNull(Object obj, String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65602, null, obj, str) == null) && obj == null) {
+        if ((interceptable == null || interceptable.invokeLL(65603, null, obj, str) == null) && obj == null) {
             throw new IllegalArgumentException(str);
         }
     }
@@ -1352,7 +1393,7 @@ public class SapiUtils implements NoProguard {
     public static String parseQrFaceAuthSchema(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65603, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65604, null, str)) == null) {
             if (TextUtils.isEmpty(str)) {
                 return null;
             }
@@ -1370,7 +1411,7 @@ public class SapiUtils implements NoProguard {
     public static Map<String, String> parseQrLoginSchema(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65604, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65605, null, str)) == null) {
             HashMap hashMap = new HashMap();
             if (isOauthQrLoginSchema(str)) {
                 hashMap.put(KEY_QR_LOGIN_LP, "pc");
@@ -1398,13 +1439,13 @@ public class SapiUtils implements NoProguard {
     public static int px2sp(Context context, float f) {
         InterceptResult invokeLF;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLF = interceptable.invokeLF(65605, null, context, f)) == null) ? (int) ((f / context.getResources().getDisplayMetrics().scaledDensity) + 0.5f) : invokeLF.intValue;
+        return (interceptable == null || (invokeLF = interceptable.invokeLF(65606, null, context, f)) == null) ? (int) ((f / context.getResources().getDisplayMetrics().scaledDensity) + 0.5f) : invokeLF.intValue;
     }
 
     public static void sendSms(Context context, String str, List<String> list) {
         String defaultSmsPackage;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65606, null, context, str, list) == null) {
+        if (interceptable == null || interceptable.invokeLLL(65607, null, context, str, list) == null) {
             String join = (list == null || list.isEmpty()) ? "" : TextUtils.join("Samsung".equalsIgnoreCase(Build.MANUFACTURER) ? "," : ParamableElem.DIVIDE_PARAM, list);
             Uri parse = Uri.parse("smsto:" + join);
             Intent intent = new Intent();
@@ -1424,15 +1465,32 @@ public class SapiUtils implements NoProguard {
         }
     }
 
+    public static void setCookiesTPLCuid(Context context, String str) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(65608, null, context, str) == null) || TextUtils.isEmpty(str)) {
+            return;
+        }
+        CookieSyncManager.createInstance(context);
+        CookieManager cookieManager = CookieManager.getInstance();
+        cookieManager.setAcceptCookie(true);
+        cookieManager.setCookie(PassBioEnv.PASSPORT_DOMAIN, buildTplCuidCookie("passport.baidu.com", str));
+        cookieManager.setCookie("https://wappass.baidu.com", buildTplCuidCookie("wappass.baidu.com", str));
+        if (Build.VERSION.SDK_INT < 21) {
+            CookieSyncManager.getInstance().sync();
+        } else {
+            cookieManager.flush();
+        }
+    }
+
     public static boolean statExtraValid(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65607, null, str)) == null) ? !TextUtils.isEmpty(str) && str.getBytes().length <= SapiContext.getInstance().getLoginStatExtraLimitLen() : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65609, null, str)) == null) ? !TextUtils.isEmpty(str) && str.getBytes().length <= SapiContext.getInstance().getLoginStatExtraLimitLen() : invokeL.booleanValue;
     }
 
     public static void syncCookies(Context context, List<PassNameValuePair> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65608, null, context, list) == null) {
+        if (interceptable == null || interceptable.invokeLL(65610, null, context, list) == null) {
             CookieSyncManager.createInstance(context);
             CookieManager cookieManager = CookieManager.getInstance();
             cookieManager.setAcceptCookie(true);
@@ -1469,7 +1527,7 @@ public class SapiUtils implements NoProguard {
     public static Map<String, String> urlParamsToMap(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65609, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65611, null, str)) == null) {
             HashMap hashMap = new HashMap();
             if (TextUtils.isEmpty(str)) {
                 return hashMap;
@@ -1495,13 +1553,13 @@ public class SapiUtils implements NoProguard {
     public static boolean validateMobile(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65610, null, str)) == null) ? Pattern.compile("1[3456789]\\d{9}").matcher(str).matches() : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65612, null, str)) == null) ? Pattern.compile("1[3456789]\\d{9}").matcher(str).matches() : invokeL.booleanValue;
     }
 
     public static int versionCompareTo(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65611, null, str, str2)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65613, null, str, str2)) == null) {
             String replaceAll = TextUtils.isEmpty(str) ? "0" : str.replaceAll("[^\\d\\.]+", "");
             String replaceAll2 = TextUtils.isEmpty(str2) ? "0" : str2.replaceAll("[^\\d\\.]+", "");
             String[] split = replaceAll.split(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX);
@@ -1537,13 +1595,13 @@ public class SapiUtils implements NoProguard {
     public static boolean webLogin(Context context, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65612, null, context, str)) == null) ? ServiceManager.getInstance().getIsAccountManager().getIsAccountService().webLogin(context, str) : invokeLL.booleanValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65614, null, context, str)) == null) ? ServiceManager.getInstance().getIsAccountManager().getIsAccountService().webLogin(context, str) : invokeLL.booleanValue;
     }
 
     public static boolean webLogout(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65614, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65616, null, context)) == null) {
             if (context == null) {
                 return false;
             }
@@ -1583,7 +1641,7 @@ public class SapiUtils implements NoProguard {
     public static boolean webLogin(Context context, String str, String str2) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65613, null, context, str, str2)) == null) ? ServiceManager.getInstance().getIsAccountManager().getIsAccountService().webLogin(context, str, str2) : invokeLLL.booleanValue;
+        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65615, null, context, str, str2)) == null) ? ServiceManager.getInstance().getIsAccountManager().getIsAccountService().webLogin(context, str, str2) : invokeLLL.booleanValue;
     }
 
     public static String buildBDUSSCookie(String str, String str2) {

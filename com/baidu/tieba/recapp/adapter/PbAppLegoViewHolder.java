@@ -40,7 +40,7 @@ public class PbAppLegoViewHolder extends TypeAdapter.ViewHolder implements c68 {
         this.a = pd7Var;
     }
 
-    public void c(int i) {
+    public void b(int i) {
         i98 i98Var;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeI(1048576, this, i) == null) || (i98Var = this.b) == null) {
@@ -49,7 +49,7 @@ public class PbAppLegoViewHolder extends TypeAdapter.ViewHolder implements c68 {
         i98Var.autoPlay(i);
     }
 
-    public boolean d() {
+    public boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -62,7 +62,7 @@ public class PbAppLegoViewHolder extends TypeAdapter.ViewHolder implements c68 {
         return invokeV.booleanValue;
     }
 
-    public int e() {
+    public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
@@ -75,7 +75,7 @@ public class PbAppLegoViewHolder extends TypeAdapter.ViewHolder implements c68 {
         return invokeV.intValue;
     }
 
-    public void f() {
+    public void e() {
         i98 i98Var;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (i98Var = this.b) == null) {
@@ -84,18 +84,27 @@ public class PbAppLegoViewHolder extends TypeAdapter.ViewHolder implements c68 {
         i98Var.release();
     }
 
-    public void g(i98 i98Var) {
+    public void f(i98 i98Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, i98Var) == null) {
             this.b = i98Var;
         }
     }
 
+    public void g() {
+        pd7<?> pd7Var;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (pd7Var = this.a) == null) {
+            return;
+        }
+        pd7Var.e();
+    }
+
     @Override // com.repackage.c68
     public int getCurrentPosition() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             i98 i98Var = this.b;
             if (i98Var == null) {
                 return 0;
@@ -109,7 +118,7 @@ public class PbAppLegoViewHolder extends TypeAdapter.ViewHolder implements c68 {
     public String getPlayUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             i98 i98Var = this.b;
             return i98Var == null ? "" : i98Var.getPlayUrl();
         }
@@ -120,7 +129,7 @@ public class PbAppLegoViewHolder extends TypeAdapter.ViewHolder implements c68 {
     public View getVideoContainer() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
             i98 i98Var = this.b;
             if (i98Var == null) {
                 return null;
@@ -128,15 +137,6 @@ public class PbAppLegoViewHolder extends TypeAdapter.ViewHolder implements c68 {
             return i98Var.getVideoContainer();
         }
         return (View) invokeV.objValue;
-    }
-
-    public void h() {
-        pd7<?> pd7Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || (pd7Var = this.a) == null) {
-            return;
-        }
-        pd7Var.e();
     }
 
     @Override // com.repackage.c68

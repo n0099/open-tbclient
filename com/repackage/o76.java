@@ -83,18 +83,18 @@ public class o76 {
             }
         }
         this.a = tbPageContext;
-        View inflate = tbPageContext.getPageActivity().getLayoutInflater().inflate(R.layout.obfuscated_res_0x7f0d0726, (ViewGroup) null);
+        View inflate = tbPageContext.getPageActivity().getLayoutInflater().inflate(R.layout.obfuscated_res_0x7f0d0730, (ViewGroup) null);
         this.b = inflate;
-        this.c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091fe1);
-        ImageView imageView = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f090dcc);
+        this.c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091fe5);
+        ImageView imageView = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f090dc5);
         this.d = imageView;
         imageView.setOnClickListener(new a(this));
     }
 
-    public void c(eq4 eq4Var) {
+    public void c(fq4 fq4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, eq4Var) == null) {
-            String title = eq4Var.getTitle();
+        if (interceptable == null || interceptable.invokeL(1048576, this, fq4Var) == null) {
+            String title = fq4Var.getTitle();
             if (!TextUtils.isEmpty(title)) {
                 this.c.setText(title);
             }

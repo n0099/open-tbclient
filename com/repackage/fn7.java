@@ -19,7 +19,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.cy;
 /* loaded from: classes6.dex */
-public class fn7 extends tm7<dq4, ThreadCardViewHolder<dq4>> implements ck5 {
+public class fn7 extends tm7<eq4, ThreadCardViewHolder<eq4>> implements ck5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public BdUniqueId k;
@@ -29,7 +29,7 @@ public class fn7 extends tm7<dq4, ThreadCardViewHolder<dq4>> implements ck5 {
     public String o;
     public View.OnClickListener p;
     public PullLeftRefreshLayout.f q;
-    public jm4 r;
+    public km4 r;
 
     /* loaded from: classes6.dex */
     public class a implements View.OnClickListener {
@@ -98,7 +98,7 @@ public class fn7 extends tm7<dq4, ThreadCardViewHolder<dq4>> implements ck5 {
     }
 
     /* loaded from: classes6.dex */
-    public class c implements jm4<cq4> {
+    public class c implements km4<dq4> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ fn7 a;
@@ -122,29 +122,29 @@ public class fn7 extends tm7<dq4, ThreadCardViewHolder<dq4>> implements ck5 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.jm4
+        @Override // com.repackage.km4
         /* renamed from: a */
-        public void d(View view2, cq4 cq4Var, int i, long j) {
+        public void d(View view2, dq4 dq4Var, int i, long j) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, cq4Var, Integer.valueOf(i), Long.valueOf(j)}) == null) {
-                qm7.a("c14399", cq4Var, i + 1, this.a.j.getOrignalPage().C1());
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, dq4Var, Integer.valueOf(i), Long.valueOf(j)}) == null) {
+                qm7.a("c14399", dq4Var, i + 1, this.a.j.getOrignalPage().C1());
             }
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.jm4
+        @Override // com.repackage.km4
         /* renamed from: b */
-        public void c(View view2, cq4 cq4Var, int i, long j) {
+        public void c(View view2, dq4 dq4Var, int i, long j) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{view2, cq4Var, Integer.valueOf(i), Long.valueOf(j)}) == null) {
-                if (cq4Var == null) {
+            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{view2, dq4Var, Integer.valueOf(i), Long.valueOf(j)}) == null) {
+                if (dq4Var == null) {
                     this.a.l.sendMessage(new CustomMessage(2002001, new ForumSquareActivityConfig(this.a.l.getPageActivity(), this.a.o)));
                     return;
                 }
-                String k = cq4Var.k();
+                String k = dq4Var.k();
                 if (oi.isForumName(k)) {
                     this.a.l.sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.a.l.getPageActivity()).createNormalCfg(k, FrsActivityConfig.FRS_FROM_ENTERFORUM_RECOMMEND).setCallFrom(3)));
-                    qm7.a("c13739", cq4Var, i + 1, this.a.j.getOrignalPage().C1());
+                    qm7.a("c13739", dq4Var, i + 1, this.a.j.getOrignalPage().C1());
                 }
             }
         }
@@ -196,7 +196,7 @@ public class fn7 extends tm7<dq4, ThreadCardViewHolder<dq4>> implements ck5 {
             bVar.l().e(0);
             bVar.l().h(0);
             ThreadCardViewHolder threadCardViewHolder = new ThreadCardViewHolder(bVar.k(BaseCardInfo.SupportType.FULL, viewGroup, this.m));
-            threadCardViewHolder.k(this.k);
+            threadCardViewHolder.j(this.k);
             return threadCardViewHolder;
         }
         return (ThreadCardViewHolder) invokeL.objValue;
@@ -205,21 +205,21 @@ public class fn7 extends tm7<dq4, ThreadCardViewHolder<dq4>> implements ck5 {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.repackage.an
     /* renamed from: f0 */
-    public View S(int i, View view2, ViewGroup viewGroup, dq4 dq4Var, ThreadCardViewHolder<dq4> threadCardViewHolder) {
+    public View S(int i, View view2, ViewGroup viewGroup, eq4 eq4Var, ThreadCardViewHolder<eq4> threadCardViewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, dq4Var, threadCardViewHolder})) == null) {
-            if (dq4Var == null || threadCardViewHolder == null || threadCardViewHolder.b() == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, eq4Var, threadCardViewHolder})) == null) {
+            if (eq4Var == null || threadCardViewHolder == null || threadCardViewHolder.a() == null) {
                 return null;
             }
             qm7.g("c14384", this.j.getOrignalPage().C1());
-            threadCardViewHolder.c().q(i);
-            if (threadCardViewHolder.c() instanceof bk5) {
-                threadCardViewHolder.c().b(this.n);
+            threadCardViewHolder.b().q(i);
+            if (threadCardViewHolder.b() instanceof bk5) {
+                threadCardViewHolder.b().b(this.n);
             }
-            threadCardViewHolder.g(dq4Var);
-            threadCardViewHolder.c().onChangeSkinType(this.l, TbadkCoreApplication.getInst().getSkinType());
-            return threadCardViewHolder.b();
+            threadCardViewHolder.f(eq4Var);
+            threadCardViewHolder.b().onChangeSkinType(this.l, TbadkCoreApplication.getInst().getSkinType());
+            return threadCardViewHolder.a();
         }
         return (View) invokeCommon.objValue;
     }

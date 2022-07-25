@@ -19,7 +19,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class yt7 extends du7<eo4, PbBjhRecommendViewHolder> {
+public class yt7 extends du7<fo4, PbBjhRecommendViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public jr7 o;
@@ -64,7 +64,7 @@ public class yt7 extends du7<eo4, PbBjhRecommendViewHolder> {
             SkinManager.setViewTextColor(pbBjhRecommendViewHolder.v, R.color.CAM_X0109, 1, skinType);
             SkinManager.setViewTextColor(pbBjhRecommendViewHolder.w, R.color.CAM_X0109, 1, skinType);
             SkinManager.setBackgroundSelector(pbBjhRecommendViewHolder.h, R.color.CAM_X0302, R.color.CAM_X0204, skinType);
-            ur4.d(pbBjhRecommendViewHolder.h).i(R.color.CAM_X0205, R.color.CAM_X0204);
+            vr4.d(pbBjhRecommendViewHolder.h).i(R.color.CAM_X0205, R.color.CAM_X0204);
             TBSelector.makeDrawableSelector().setShape(0).gradientLinear(R.color.cp_bg_line_d_alpha0, R.color.CAM_X0105).cornerRadius(pi.f(this.i.N(), R.dimen.tbds10)).into(pbBjhRecommendViewHolder.m);
         }
         pbBjhRecommendViewHolder.a = skinType;
@@ -87,24 +87,24 @@ public class yt7 extends du7<eo4, PbBjhRecommendViewHolder> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.repackage.du7, com.repackage.an
     /* renamed from: d0 */
-    public View S(int i, View view2, ViewGroup viewGroup, eo4 eo4Var, PbBjhRecommendViewHolder pbBjhRecommendViewHolder) {
+    public View S(int i, View view2, ViewGroup viewGroup, fo4 fo4Var, PbBjhRecommendViewHolder pbBjhRecommendViewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view2, viewGroup, eo4Var, pbBjhRecommendViewHolder})) == null) {
-            super.S(i, view2, viewGroup, eo4Var, pbBjhRecommendViewHolder);
-            if (eo4Var == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view2, viewGroup, fo4Var, pbBjhRecommendViewHolder})) == null) {
+            super.S(i, view2, viewGroup, fo4Var, pbBjhRecommendViewHolder);
+            if (fo4Var == null) {
                 return null;
             }
             b0(pbBjhRecommendViewHolder);
-            pbBjhRecommendViewHolder.i(eo4Var);
-            pbBjhRecommendViewHolder.j(this.p);
-            pbBjhRecommendViewHolder.n(this.q);
+            pbBjhRecommendViewHolder.h(fo4Var);
+            pbBjhRecommendViewHolder.i(this.p);
+            pbBjhRecommendViewHolder.m(this.q);
             jr7 jr7Var = this.o;
             if (jr7Var != null) {
-                pbBjhRecommendViewHolder.m(jr7Var.Q());
-                pbBjhRecommendViewHolder.l(this.o.r0());
+                pbBjhRecommendViewHolder.l(jr7Var.Q());
+                pbBjhRecommendViewHolder.k(this.o.r0());
                 if (this.o.O() != null && this.o.O().getBaijiahaoData() != null) {
-                    pbBjhRecommendViewHolder.k(this.o.O().getBaijiahaoData().oriUgcNid);
+                    pbBjhRecommendViewHolder.j(this.o.O().getBaijiahaoData().oriUgcNid);
                 }
                 int i2 = this.p;
                 int i3 = 3;
@@ -115,30 +115,30 @@ public class yt7 extends du7<eo4, PbBjhRecommendViewHolder> {
                 } else if (i2 != 3) {
                     i3 = 4;
                 }
-                if (eo4Var.threadType == 40) {
-                    StatisticItem.make("c13536").param("tid", eo4Var.getTid()).param("fid", eo4Var.getFid()).param("obj_source", i3).param("obj_locate", eo4Var.c()).param("obj_id", this.o.Q()).param("obj_type", eo4Var.isBjhDynamicThread() ? 1 : 0).eventStat();
+                if (fo4Var.threadType == 40) {
+                    StatisticItem.make("c13536").param("tid", fo4Var.getTid()).param("fid", fo4Var.getFid()).param("obj_source", i3).param("obj_locate", fo4Var.c()).param("obj_id", this.o.Q()).param("obj_type", fo4Var.isBjhDynamicThread() ? 1 : 0).eventStat();
                 } else {
-                    StatisticItem.make("c13533").param("tid", eo4Var.getTid()).param("fid", eo4Var.getFid()).param("obj_source", i3).param("obj_locate", eo4Var.c()).param("obj_id", this.o.Q()).eventStat();
+                    StatisticItem.make("c13533").param("tid", fo4Var.getTid()).param("fid", fo4Var.getFid()).param("obj_source", i3).param("obj_locate", fo4Var.c()).param("obj_id", this.o.Q()).eventStat();
                 }
                 if (this.o.r0()) {
                     StatisticItem statisticItem = new StatisticItem("c13588");
-                    if (eo4Var.getForumData() != null) {
-                        statisticItem.param("fid", eo4Var.getForumData().d());
+                    if (fo4Var.getForumData() != null) {
+                        statisticItem.param("fid", fo4Var.getForumData().d());
                     }
-                    statisticItem.param("tid", eo4Var.getTid());
-                    statisticItem.param("obj_param1", eo4Var.mRecomWeight);
-                    statisticItem.param("obj_source", eo4Var.mRecomSource);
-                    statisticItem.param("obj_locate", eo4Var.c());
+                    statisticItem.param("tid", fo4Var.getTid());
+                    statisticItem.param("obj_param1", fo4Var.mRecomWeight);
+                    statisticItem.param("obj_source", fo4Var.mRecomSource);
+                    statisticItem.param("obj_locate", fo4Var.c());
                     statisticItem.param(TiebaStatic.Params.OBJ_PARAM3, System.currentTimeMillis());
                     statisticItem.param("obj_id", this.o.Q());
                     statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
-                    if (eo4Var.getThreadData().getBaijiahaoData() != null) {
-                        statisticItem.param(TiebaStatic.Params.OBJ_PARAM4, eo4Var.getThreadData().getBaijiahaoData().oriUgcNid);
-                        statisticItem.param(TiebaStatic.Params.OBJ_PARAM5, eo4Var.getThreadData().getBaijiahaoData().oriUgcVid);
+                    if (fo4Var.getThreadData().getBaijiahaoData() != null) {
+                        statisticItem.param(TiebaStatic.Params.OBJ_PARAM4, fo4Var.getThreadData().getBaijiahaoData().oriUgcNid);
+                        statisticItem.param(TiebaStatic.Params.OBJ_PARAM5, fo4Var.getThreadData().getBaijiahaoData().oriUgcVid);
                     }
-                    statisticItem.param(TiebaStatic.Params.OBJ_PARAM6, eo4Var.getVideoRecStaticticType());
-                    statisticItem.param("ab_tag", eo4Var.mRecomAbTag);
-                    statisticItem.param("extra", eo4Var.mRecomExtra);
+                    statisticItem.param(TiebaStatic.Params.OBJ_PARAM6, fo4Var.getVideoRecStaticticType());
+                    statisticItem.param("ab_tag", fo4Var.mRecomAbTag);
+                    statisticItem.param("extra", fo4Var.mRecomExtra);
                     TiebaStatic.log(statisticItem);
                 }
             }

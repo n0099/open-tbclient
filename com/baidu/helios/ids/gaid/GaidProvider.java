@@ -267,14 +267,14 @@ public class GaidProvider extends g40 {
 
             /* renamed from: com.baidu.helios.ids.gaid.GaidProvider$d$a$a  reason: collision with other inner class name */
             /* loaded from: classes2.dex */
-            public class RunnableC0096a implements Runnable {
+            public class RunnableC0097a implements Runnable {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ String a;
                 public final /* synthetic */ boolean b;
                 public final /* synthetic */ a c;
 
-                public RunnableC0096a(a aVar, String str, boolean z) {
+                public RunnableC0097a(a aVar, String str, boolean z) {
                     Interceptable interceptable = $ic;
                     if (interceptable != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
@@ -346,7 +346,7 @@ public class GaidProvider extends g40 {
                         if (this.b.a.i != null) {
                             this.b.a.i.removeMessages(0);
                         }
-                        this.b.a.b.d.submit(new RunnableC0096a(this, a, a2));
+                        this.b.a.b.d.submit(new RunnableC0097a(this, a, a2));
                         this.b.a.b.a.unbindService(this.b);
                     } catch (Exception unused) {
                     }

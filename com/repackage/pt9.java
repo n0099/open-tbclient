@@ -34,13 +34,13 @@ public final class pt9 extends xr9 implements vt9 {
 
         /* renamed from: com.repackage.pt9$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class C0710a implements hs9 {
+        public class C0553a implements hs9 {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ hs9 a;
             public final /* synthetic */ a b;
 
-            public C0710a(a aVar, hs9 hs9Var) {
+            public C0553a(a aVar, hs9 hs9Var) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -135,7 +135,7 @@ public final class pt9 extends xr9 implements vt9 {
                 if (isUnsubscribed()) {
                     return rw9.c();
                 }
-                return this.d.i(new C0710a(this, hs9Var), 0L, null, this.a);
+                return this.d.i(new C0553a(this, hs9Var), 0L, null, this.a);
             }
             return (bs9) invokeL.objValue;
         }

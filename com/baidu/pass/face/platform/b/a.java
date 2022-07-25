@@ -39,6 +39,7 @@ public class a {
 
     public ArrayList<ImageInfo> a(FaceExtInfo faceExtInfo, BDFaceImageInstance bDFaceImageInstance) {
         InterceptResult invokeLL;
+        boolean z;
         String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, faceExtInfo, bDFaceImageInstance)) == null) {
@@ -47,11 +48,21 @@ public class a {
             } else if (bDFaceImageInstance != null) {
                 ArrayList<ImageInfo> arrayList = new ArrayList<>();
                 ImageInfo imageInfo = new ImageInfo();
+                int i = 0;
+                int i2 = 300;
                 FaceConfig faceConfig = this.c;
-                int secType = faceConfig != null ? faceConfig.getSecType() : 0;
-                imageInfo.setBase64(bDFaceImageInstance.getBase64());
-                if (secType == 1) {
-                    String imageSec = FaceSDKManager.getInstance().imageSec(bDFaceImageInstance);
+                if (faceConfig != null) {
+                    i = faceConfig.getSecType();
+                    i2 = this.c.getCompressValue();
+                    z = this.c.isCompressImage();
+                } else {
+                    z = true;
+                }
+                if (i == 0) {
+                    imageInfo.setBase64(bDFaceImageInstance.getBase64());
+                }
+                if (i == 1) {
+                    String imageSec = FaceSDKManager.getInstance().imageSec(bDFaceImageInstance, z, i2);
                     if (!TextUtils.isEmpty(imageSec)) {
                         imageInfo.setSecBase64(imageSec.replaceAll("\n", ""));
                     }
@@ -98,6 +109,7 @@ public class a {
 
     public ArrayList<ImageInfo> b(FaceExtInfo faceExtInfo, BDFaceImageInstance bDFaceImageInstance) {
         InterceptResult invokeLL;
+        boolean z;
         String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, faceExtInfo, bDFaceImageInstance)) == null) {
@@ -106,11 +118,21 @@ public class a {
             } else if (bDFaceImageInstance != null) {
                 ArrayList<ImageInfo> arrayList = new ArrayList<>();
                 ImageInfo imageInfo = new ImageInfo();
+                int i = 0;
+                int i2 = 300;
                 FaceConfig faceConfig = this.c;
-                int secType = faceConfig != null ? faceConfig.getSecType() : 0;
-                imageInfo.setBase64(bDFaceImageInstance.getBase64());
-                if (secType == 1) {
-                    String imageSec = FaceSDKManager.getInstance().imageSec(bDFaceImageInstance);
+                if (faceConfig != null) {
+                    i = faceConfig.getSecType();
+                    i2 = this.c.getCompressValue();
+                    z = this.c.isCompressImage();
+                } else {
+                    z = true;
+                }
+                if (i == 0) {
+                    imageInfo.setBase64(bDFaceImageInstance.getBase64());
+                }
+                if (i == 1) {
+                    String imageSec = FaceSDKManager.getInstance().imageSec(bDFaceImageInstance, z, i2);
                     if (!TextUtils.isEmpty(imageSec)) {
                         imageInfo.setSecBase64(imageSec.replaceAll("\n", ""));
                     }

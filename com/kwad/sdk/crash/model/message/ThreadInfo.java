@@ -27,10 +27,10 @@ public final class ThreadInfo implements b, Serializable {
     @Override // com.kwad.sdk.core.b
     public final JSONObject toJson() {
         JSONObject jSONObject = new JSONObject();
-        r.a(jSONObject, "mName", this.mName);
-        r.a(jSONObject, "mTrace", this.mTrace);
-        r.a(jSONObject, "mTid", this.mTid);
-        r.a(jSONObject, "mIndex", this.mIndex);
+        r.putValue(jSONObject, "mName", this.mName);
+        r.putValue(jSONObject, "mTrace", this.mTrace);
+        r.putValue(jSONObject, "mTid", this.mTid);
+        r.putValue(jSONObject, "mIndex", this.mIndex);
         return jSONObject;
     }
 }

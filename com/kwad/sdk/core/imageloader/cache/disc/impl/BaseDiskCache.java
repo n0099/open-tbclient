@@ -93,7 +93,7 @@ public abstract class BaseDiskCache implements DiskCache {
         BufferedOutputStream bufferedOutputStream = new BufferedOutputStream(new FileOutputStream(file2), this.bufferSize);
         try {
             boolean compress = bitmap.compress(this.compressFormat, this.compressQuality, bufferedOutputStream);
-            b.a(bufferedOutputStream);
+            b.closeQuietly(bufferedOutputStream);
             if (compress && !file2.renameTo(file)) {
                 compress = false;
             }
@@ -103,7 +103,7 @@ public abstract class BaseDiskCache implements DiskCache {
             bitmap.recycle();
             return compress;
         } catch (Throwable th) {
-            b.a(bufferedOutputStream);
+            b.closeQuietly(bufferedOutputStream);
             file2.delete();
             throw th;
         }
@@ -119,7 +119,7 @@ public abstract class BaseDiskCache implements DiskCache {
             BufferedOutputStream bufferedOutputStream = new BufferedOutputStream(new FileOutputStream(file2), this.bufferSize);
             z = IoUtils.copyStream(inputStream, bufferedOutputStream, copyListener, this.bufferSize);
             try {
-                b.a(bufferedOutputStream);
+                b.closeQuietly(bufferedOutputStream);
                 if (!z || file2.renameTo(file)) {
                     z2 = z;
                 }

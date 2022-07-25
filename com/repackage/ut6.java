@@ -89,17 +89,17 @@ public class ut6 extends an<vy5, ThreadCardViewHolder<vy5>> implements ck5 {
         }
 
         @Override // com.repackage.tw.b
-        public void a(nn4 nn4Var, View view2) {
+        public void a(on4 on4Var, View view2) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLL(1048576, this, nn4Var, view2) == null) || nn4Var == null) {
+            if (!(interceptable == null || interceptable.invokeLL(1048576, this, on4Var, view2) == null) || on4Var == null) {
                 return;
             }
-            if (view2.getId() == R.id.obfuscated_res_0x7f09232d) {
-                nn4Var.objType = 3;
-            } else if (view2.getId() == R.id.obfuscated_res_0x7f09230c) {
-                nn4Var.objType = 4;
+            if (view2.getId() == R.id.obfuscated_res_0x7f09232f) {
+                on4Var.objType = 3;
+            } else if (view2.getId() == R.id.obfuscated_res_0x7f09230e) {
+                on4Var.objType = 4;
             } else {
-                nn4Var.objType = 1;
+                on4Var.objType = 1;
             }
         }
     }
@@ -136,10 +136,10 @@ public class ut6 extends an<vy5, ThreadCardViewHolder<vy5>> implements ck5 {
                 vy5 vy5Var = (vy5) nnVar;
                 vy5Var.f = 1;
                 if (this.a.m != null) {
-                    this.a.m.a(threadCardViewHolder.b(), vy5Var);
+                    this.a.m.a(threadCardViewHolder.a(), vy5Var);
                 }
-                ThreadCardUtils.jumpToPB((nn4) vy5Var, view2.getContext(), 1, false, uw.a((tn) viewGroup, view2, i));
-                threadCardViewHolder.c().o(new ny.a(1));
+                ThreadCardUtils.jumpToPB((on4) vy5Var, view2.getContext(), 1, false, uw.a((tn) viewGroup, view2, i));
+                threadCardViewHolder.b().o(new ny.a(1));
             }
         }
     }
@@ -184,7 +184,7 @@ public class ut6 extends an<vy5, ThreadCardViewHolder<vy5>> implements ck5 {
             cy k = bVar.k(BaseCardInfo.SupportType.TOP, viewGroup, this.l);
             k.r(1);
             ThreadCardViewHolder threadCardViewHolder = new ThreadCardViewHolder(k);
-            threadCardViewHolder.k(this.i);
+            threadCardViewHolder.j(this.i);
             V(new c(this));
             return threadCardViewHolder;
         }
@@ -198,19 +198,19 @@ public class ut6 extends an<vy5, ThreadCardViewHolder<vy5>> implements ck5 {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, vy5Var, threadCardViewHolder})) == null) {
-            if (vy5Var == null || threadCardViewHolder == null || threadCardViewHolder.b() == null || vy5Var.a == null) {
+            if (vy5Var == null || threadCardViewHolder == null || threadCardViewHolder.a() == null || vy5Var.a == null) {
                 return null;
             }
             vy5Var.I(vy5Var.position + 1);
-            threadCardViewHolder.c().q(i);
-            if (threadCardViewHolder.c() instanceof bk5) {
-                threadCardViewHolder.c().b(this.k);
+            threadCardViewHolder.b().q(i);
+            if (threadCardViewHolder.b() instanceof bk5) {
+                threadCardViewHolder.b().b(this.k);
             }
-            threadCardViewHolder.u(true, Align.ALIGN_RIGHT_TOP);
-            threadCardViewHolder.g(vy5Var);
-            threadCardViewHolder.c().onChangeSkinType(this.j, TbadkCoreApplication.getInst().getSkinType());
-            threadCardViewHolder.c().p(this.m);
-            return threadCardViewHolder.b();
+            threadCardViewHolder.t(true, Align.ALIGN_RIGHT_TOP);
+            threadCardViewHolder.f(vy5Var);
+            threadCardViewHolder.b().onChangeSkinType(this.j, TbadkCoreApplication.getInst().getSkinType());
+            threadCardViewHolder.b().p(this.m);
+            return threadCardViewHolder.a();
         }
         return (View) invokeCommon.objValue;
     }
@@ -219,9 +219,9 @@ public class ut6 extends an<vy5, ThreadCardViewHolder<vy5>> implements ck5 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048580, this, view2, vy5Var) == null) {
             int id = view2.getId();
-            if (view2.getId() == R.id.obfuscated_res_0x7f09202a) {
+            if (view2.getId() == R.id.obfuscated_res_0x7f09202e) {
                 vs6.b(view2, vy5Var, 2);
-            } else if (id == R.id.obfuscated_res_0x7f09230c || id == R.id.obfuscated_res_0x7f09232d) {
+            } else if (id == R.id.obfuscated_res_0x7f09230e || id == R.id.obfuscated_res_0x7f09232f) {
                 vs6.b(view2, vy5Var, 1);
             }
         }

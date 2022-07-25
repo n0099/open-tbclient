@@ -82,7 +82,7 @@ public class tz5 {
         }
         SplashAdView splashAdView = new SplashAdView(baseFragmentActivity, 1);
         this.a = new WeakReference<>(splashAdView);
-        ViewGroup viewGroup = (ViewGroup) baseFragmentActivity.findViewById(R.id.obfuscated_res_0x7f091251);
+        ViewGroup viewGroup = (ViewGroup) baseFragmentActivity.findViewById(R.id.obfuscated_res_0x7f09122d);
         if (viewGroup != null) {
             viewGroup.addView(splashAdView);
         }

@@ -7,9 +7,9 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
 public final class R$dimen {
     public static /* synthetic */ Interceptable $ic = null;
-    public static final int cardview_compat_inset_shadow = 2131165621;
-    public static final int cardview_default_elevation = 2131165622;
-    public static final int cardview_default_radius = 2131165623;
+    public static final int cardview_compat_inset_shadow = 2131165619;
+    public static final int cardview_default_elevation = 2131165620;
+    public static final int cardview_default_radius = 2131165621;
     public transient /* synthetic */ FieldHolder $fh;
 
     public R$dimen() {

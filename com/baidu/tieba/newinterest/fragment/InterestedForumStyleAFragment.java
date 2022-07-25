@@ -23,10 +23,10 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.pi;
-import com.repackage.tu4;
 import com.repackage.uo7;
-import com.repackage.ur4;
-import com.repackage.vu4;
+import com.repackage.uu4;
+import com.repackage.vr4;
+import com.repackage.wu4;
 /* loaded from: classes3.dex */
 public class InterestedForumStyleAFragment extends BaseInterestedForumFragment {
     public static /* synthetic */ Interceptable $ic;
@@ -87,32 +87,32 @@ public class InterestedForumStyleAFragment extends BaseInterestedForumFragment {
     public final void A1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.i = (TextView) this.e.findViewById(R.id.obfuscated_res_0x7f090ef6);
-            TextView textView = (TextView) this.e.findViewById(R.id.obfuscated_res_0x7f090f04);
+            this.i = (TextView) this.e.findViewById(R.id.obfuscated_res_0x7f090eef);
+            TextView textView = (TextView) this.e.findViewById(R.id.obfuscated_res_0x7f090efd);
             this.h = textView;
             String[] strArr = this.c;
             if (strArr != null && strArr.length == 3) {
                 textView.setText(strArr[0]);
                 this.i.setText(this.c[2]);
             }
-            tu4 tu4Var = new tu4();
-            TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) this.e.findViewById(R.id.obfuscated_res_0x7f090ee3);
+            uu4 uu4Var = new uu4();
+            TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) this.e.findViewById(R.id.obfuscated_res_0x7f090edc);
             this.j = tBSpecificationBtn;
             tBSpecificationBtn.setTextSize(R.dimen.T_X06);
-            this.j.setConfig(tu4Var);
-            this.j.setText(getResources().getString(R.string.obfuscated_res_0x7f0f0933));
+            this.j.setConfig(uu4Var);
+            this.j.setText(getResources().getString(R.string.obfuscated_res_0x7f0f091e));
             this.j.setEnabled(false);
-            vu4 vu4Var = new vu4();
-            TBSpecificationBtn tBSpecificationBtn2 = (TBSpecificationBtn) this.e.findViewById(R.id.obfuscated_res_0x7f091cf1);
+            wu4 wu4Var = new wu4();
+            TBSpecificationBtn tBSpecificationBtn2 = (TBSpecificationBtn) this.e.findViewById(R.id.obfuscated_res_0x7f091cf7);
             this.g = tBSpecificationBtn2;
             tBSpecificationBtn2.setTextSize(R.dimen.T_X06);
-            vu4Var.r(R.color.CAM_X0105);
-            this.g.setConfig(vu4Var);
-            this.g.setText(getString(R.string.obfuscated_res_0x7f0f093b));
-            this.k = this.e.findViewById(R.id.obfuscated_res_0x7f090ee4);
-            this.l = (LinearLayout) this.e.findViewById(R.id.obfuscated_res_0x7f090ee5);
-            this.m = this.e.findViewById(R.id.obfuscated_res_0x7f090ee6);
-            BdTypeRecyclerView bdTypeRecyclerView = (BdTypeRecyclerView) this.e.findViewById(R.id.obfuscated_res_0x7f090efb);
+            wu4Var.r(R.color.CAM_X0105);
+            this.g.setConfig(wu4Var);
+            this.g.setText(getString(R.string.obfuscated_res_0x7f0f0926));
+            this.k = this.e.findViewById(R.id.obfuscated_res_0x7f090edd);
+            this.l = (LinearLayout) this.e.findViewById(R.id.obfuscated_res_0x7f090ede);
+            this.m = this.e.findViewById(R.id.obfuscated_res_0x7f090edf);
+            BdTypeRecyclerView bdTypeRecyclerView = (BdTypeRecyclerView) this.e.findViewById(R.id.obfuscated_res_0x7f090ef4);
             this.f = bdTypeRecyclerView;
             bdTypeRecyclerView.getRecycledViewPool().setMaxRecycledViews(1, 12);
             ((DefaultItemAnimator) this.f.getItemAnimator()).setSupportsChangeAnimations(false);
@@ -138,18 +138,18 @@ public class InterestedForumStyleAFragment extends BaseInterestedForumFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
             super.onChangeSkinType(i);
-            ur4 d = ur4.d(this.h);
+            vr4 d = vr4.d(this.h);
             d.v(R.color.CAM_X0105);
             d.z(R.dimen.T_X03);
             d.A(R.string.F_X02);
-            ur4 d2 = ur4.d(this.i);
+            vr4 d2 = vr4.d(this.i);
             d2.v(R.color.CAM_X0108);
             d2.z(R.dimen.T_X07);
             d2.A(R.string.F_X01);
             SkinManager.setBackgroundColor(this.e, R.color.CAM_X0201);
-            ur4.d(this.l).f(R.color.CAM_X0201);
-            ur4.d(this.k).o(new int[]{R.color.CAM_X0201, R.color.CAM_X0612});
-            ur4.d(this.m).o(new int[]{R.color.CAM_X0612, R.color.CAM_X0201});
+            vr4.d(this.l).f(R.color.CAM_X0201);
+            vr4.d(this.k).o(new int[]{R.color.CAM_X0201, R.color.CAM_X0612});
+            vr4.d(this.m).o(new int[]{R.color.CAM_X0612, R.color.CAM_X0201});
             this.g.k();
             uo7 uo7Var = this.n;
             if (uo7Var != null) {

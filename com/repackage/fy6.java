@@ -113,18 +113,18 @@ public class fy6 extends an<wy5, AutoVideoCardViewHolder<wy5>> implements ck5 {
         }
 
         @Override // com.repackage.qw.a
-        public void a(nn4 nn4Var) {
+        public void a(on4 on4Var) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, nn4Var) == null) || nn4Var == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, on4Var) == null) || on4Var == null) {
                 return;
             }
             Rect computeViewArea = ThreadCardUtils.computeViewArea(this.a.getVideoContainer());
-            if (!(nn4Var instanceof wy5)) {
-                ThreadCardUtils.jumpToPB(nn4Var, this.b.a, 2, false, computeViewArea);
+            if (!(on4Var instanceof wy5)) {
+                ThreadCardUtils.jumpToPB(on4Var, this.b.a, 2, false, computeViewArea);
                 return;
             }
-            nn4Var.objType = 5;
-            ThreadCardUtils.jumpToPB(nn4Var, this.b.a, 2, false, computeViewArea);
+            on4Var.objType = 5;
+            ThreadCardUtils.jumpToPB(on4Var, this.b.a, 2, false, computeViewArea);
         }
     }
 
@@ -160,10 +160,10 @@ public class fy6 extends an<wy5, AutoVideoCardViewHolder<wy5>> implements ck5 {
                 wy5 wy5Var = (wy5) nnVar;
                 wy5Var.f = 1;
                 if (this.a.o != null) {
-                    this.a.o.a(autoVideoCardViewHolder.b(), wy5Var);
+                    this.a.o.a(autoVideoCardViewHolder.a(), wy5Var);
                 }
-                ThreadCardUtils.jumpToPB((nn4) wy5Var, view2.getContext(), 2, false, uw.a((tn) viewGroup, view2, i));
-                autoVideoCardViewHolder.c().o(new ny.a(1));
+                ThreadCardUtils.jumpToPB((on4) wy5Var, view2.getContext(), 2, false, uw.a((tn) viewGroup, view2, i));
+                autoVideoCardViewHolder.b().o(new ny.a(1));
             }
         }
     }
@@ -236,7 +236,7 @@ public class fy6 extends an<wy5, AutoVideoCardViewHolder<wy5>> implements ck5 {
             iz6.d(wy5Var.a, this.i, wy5Var.m(), 4);
             TbSingleton.getInstance().setCurrentClickTime(TiebaStatic.logWithBackTime(wy5Var.P()));
             iz6.c(wy5Var.a, wy5Var.o(), wy5Var.m(), 2);
-        } else if (view2.getId() == R.id.obfuscated_res_0x7f09202a) {
+        } else if (view2.getId() == R.id.obfuscated_res_0x7f09202e) {
             TbSingleton.getInstance().setCurrentClickTime(TiebaStatic.logWithBackTime(wy5Var.N(wy5Var.a)));
             iz6.c(wy5Var.a, wy5Var.o(), wy5Var.m(), 1);
         }
@@ -258,8 +258,8 @@ public class fy6 extends an<wy5, AutoVideoCardViewHolder<wy5>> implements ck5 {
             wy5.X = "c10709";
             wy5.Y = "c10734";
             wy5.Z = "c11929";
-            wy5.g0 = "c11928";
-            wy5.h0 = "c10756";
+            wy5.a0 = "c11928";
+            wy5.b0 = "c10756";
         }
     }
 
@@ -280,7 +280,7 @@ public class fy6 extends an<wy5, AutoVideoCardViewHolder<wy5>> implements ck5 {
             bVar.n(this.n);
             cy k = bVar.k(BaseCardInfo.SupportType.CONTENT, viewGroup, this.m);
             AutoVideoCardViewHolder<wy5> autoVideoCardViewHolder = new AutoVideoCardViewHolder<>(k);
-            autoVideoCardViewHolder.k(this.i);
+            autoVideoCardViewHolder.j(this.i);
             k.p(this.o);
             k.r(2);
             V(new c(this));
@@ -297,26 +297,26 @@ public class fy6 extends an<wy5, AutoVideoCardViewHolder<wy5>> implements ck5 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048583, this, new Object[]{Integer.valueOf(i), view2, viewGroup, wy5Var, autoVideoCardViewHolder})) == null) {
             if (wy5Var == null) {
-                return autoVideoCardViewHolder.b();
+                return autoVideoCardViewHolder.a();
             }
             if (autoVideoCardViewHolder == null) {
                 return null;
             }
             wy5Var.I(wy5Var.position + 1);
             wy5Var.a.statFloor = wy5Var.m();
-            autoVideoCardViewHolder.c().q(i);
+            autoVideoCardViewHolder.b().q(i);
             wy5Var.T = 0;
             cy5.b().a(wy5Var.B());
-            autoVideoCardViewHolder.w(e0(wy5Var));
-            if (autoVideoCardViewHolder.c() != null) {
-                autoVideoCardViewHolder.c().b(this.l);
+            autoVideoCardViewHolder.v(e0(wy5Var));
+            if (autoVideoCardViewHolder.b() != null) {
+                autoVideoCardViewHolder.b().b(this.l);
             }
-            autoVideoCardViewHolder.g(wy5Var);
-            autoVideoCardViewHolder.c().onChangeSkinType(this.j, TbadkCoreApplication.getInst().getSkinType());
-            autoVideoCardViewHolder.c().p(this.o);
+            autoVideoCardViewHolder.f(wy5Var);
+            autoVideoCardViewHolder.b().onChangeSkinType(this.j, TbadkCoreApplication.getInst().getSkinType());
+            autoVideoCardViewHolder.b().p(this.o);
             iz6.i(wy5Var.a, this.i, wy5Var.m());
             iz6.h(wy5Var.a, wy5Var.o(), wy5Var.m());
-            return autoVideoCardViewHolder.b();
+            return autoVideoCardViewHolder.a();
         }
         return (View) invokeCommon.objValue;
     }

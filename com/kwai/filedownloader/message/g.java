@@ -14,16 +14,16 @@ import java.util.concurrent.Executor;
 public final class g {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final List<a> a;
-    public final e.b b;
+    public final e.b avU;
+    public final List<a> avW;
 
     /* loaded from: classes5.dex */
     public class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ g a;
-        public final List<Integer> b;
-        public final Executor c;
+        public final List<Integer> avX;
+        public final Executor avY;
+        public final /* synthetic */ g avZ;
 
         public a(g gVar, int i) {
             Interceptable interceptable = $ic;
@@ -40,26 +40,26 @@ public final class g {
                     return;
                 }
             }
-            this.a = gVar;
-            this.b = new ArrayList();
-            this.c = com.kwai.filedownloader.e.b.a(1, "Flow-" + i);
+            this.avZ = gVar;
+            this.avX = new ArrayList();
+            this.avY = com.kwai.filedownloader.e.b.l(1, "Flow-" + i);
         }
 
-        public final void a(int i) {
+        public final void cu(int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-                this.b.add(Integer.valueOf(i));
+                this.avX.add(Integer.valueOf(i));
             }
         }
 
-        public final void a(MessageSnapshot messageSnapshot) {
+        public final void u(MessageSnapshot messageSnapshot) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, messageSnapshot) == null) {
-                this.c.execute(new Runnable(this, messageSnapshot) { // from class: com.kwai.filedownloader.message.g.a.1
+                this.avY.execute(new Runnable(this, messageSnapshot) { // from class: com.kwai.filedownloader.message.g.a.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
-                    public final /* synthetic */ MessageSnapshot a;
-                    public final /* synthetic */ a b;
+                    public final /* synthetic */ MessageSnapshot awa;
+                    public final /* synthetic */ a awb;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -76,17 +76,17 @@ public final class g {
                                 return;
                             }
                         }
-                        this.b = this;
-                        this.a = messageSnapshot;
+                        this.awb = this;
+                        this.awa = messageSnapshot;
                     }
 
                     @Override // java.lang.Runnable
                     public final void run() {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            this.b.a.b.a(this.a);
+                            this.awb.avZ.avU.r(this.awa);
                             try {
-                                this.b.b.remove(Integer.valueOf(this.a.m()));
+                                this.awb.avX.remove(Integer.valueOf(this.awa.getId()));
                             } catch (Exception unused) {
                             }
                         }
@@ -111,52 +111,56 @@ public final class g {
                 return;
             }
         }
-        this.b = bVar;
-        this.a = new ArrayList();
+        this.avU = bVar;
+        this.avW = new ArrayList();
         for (int i4 = 0; i4 < 5; i4++) {
-            this.a.add(new a(this, i4));
+            this.avW.add(new a(this, i4));
         }
     }
 
-    public final void a(MessageSnapshot messageSnapshot) {
+    public final void u(MessageSnapshot messageSnapshot) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, messageSnapshot) == null) {
             a aVar = null;
             try {
-                synchronized (this.a) {
-                    int m = messageSnapshot.m();
-                    Iterator<a> it = this.a.iterator();
+                synchronized (this.avW) {
+                    int id = messageSnapshot.getId();
+                    Iterator<a> it = this.avW.iterator();
                     while (true) {
                         if (!it.hasNext()) {
                             break;
                         }
                         a next = it.next();
-                        if (next.b.contains(Integer.valueOf(m))) {
+                        if (next.avX.contains(Integer.valueOf(id))) {
                             aVar = next;
                             break;
                         }
                     }
                     if (aVar == null) {
                         int i = 0;
-                        Iterator<a> it2 = this.a.iterator();
+                        Iterator<a> it2 = this.avW.iterator();
                         while (true) {
                             if (!it2.hasNext()) {
                                 break;
                             }
                             a next2 = it2.next();
-                            if (next2.b.size() <= 0) {
+                            if (next2.avX.size() <= 0) {
                                 aVar = next2;
                                 break;
-                            } else if (i == 0 || next2.b.size() < i) {
-                                i = next2.b.size();
+                            } else if (i == 0 || next2.avX.size() < i) {
+                                i = next2.avX.size();
                                 aVar = next2;
                             }
                         }
                     }
-                    aVar.a(m);
+                    if (aVar != null) {
+                        aVar.cu(id);
+                    }
                 }
             } finally {
-                aVar.a(messageSnapshot);
+                if (aVar != null) {
+                    aVar.u(messageSnapshot);
+                }
             }
         }
     }

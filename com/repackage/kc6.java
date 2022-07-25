@@ -16,7 +16,7 @@ public class kc6 {
     public static void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65536, null) == null) {
-            xt4.k().y(xt4.o("search_forum_history"), "");
+            yt4.k().y(yt4.o("search_forum_history"), "");
         }
     }
 
@@ -25,7 +25,7 @@ public class kc6 {
         if (!(interceptable == null || interceptable.invokeL(65537, null, str) == null) || StringUtils.isNull(str)) {
             return;
         }
-        String q = xt4.k().q(xt4.o("search_forum_history"), "");
+        String q = yt4.k().q(yt4.o("search_forum_history"), "");
         if (StringUtils.isNull(q)) {
             return;
         }
@@ -41,7 +41,7 @@ public class kc6 {
                     arrayList.add((String) obj);
                 }
             }
-            xt4.k().y(xt4.o("search_forum_history"), new JSONArray((Collection) arrayList).toString());
+            yt4.k().y(yt4.o("search_forum_history"), new JSONArray((Collection) arrayList).toString());
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -53,7 +53,7 @@ public class kc6 {
         if (interceptable != null && (invokeV = interceptable.invokeV(65538, null)) != null) {
             return (ArrayList) invokeV.objValue;
         }
-        String q = xt4.k().q(xt4.o("search_forum_history"), "");
+        String q = yt4.k().q(yt4.o("search_forum_history"), "");
         ArrayList<String> arrayList = null;
         if (StringUtils.isNull(q)) {
             return null;
@@ -88,7 +88,7 @@ public class kc6 {
         if (!(interceptable == null || interceptable.invokeL(65539, null, str) == null) || StringUtils.isNull(str)) {
             return;
         }
-        String q = xt4.k().q(xt4.o("search_forum_history"), "");
+        String q = yt4.k().q(yt4.o("search_forum_history"), "");
         try {
             JSONArray jSONArray = StringUtils.isNull(q) ? new JSONArray() : new JSONArray(q);
             ArrayList arrayList = new ArrayList();
@@ -104,7 +104,7 @@ public class kc6 {
                     break;
                 }
             }
-            xt4.k().y(xt4.o("search_forum_history"), new JSONArray((Collection) arrayList).toString());
+            yt4.k().y(yt4.o("search_forum_history"), new JSONArray((Collection) arrayList).toString());
         } catch (JSONException e) {
             e.printStackTrace();
         }

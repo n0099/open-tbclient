@@ -18,8 +18,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.an4;
-import com.repackage.en4;
+import com.repackage.bn4;
+import com.repackage.fn4;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -29,14 +29,14 @@ public class al7 {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes5.dex */
-    public static class a implements en4.b {
+    public static class a implements fn4.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ b a;
-        public final /* synthetic */ an4.a b;
+        public final /* synthetic */ bn4.a b;
         public final /* synthetic */ String c;
 
-        public a(b bVar, an4.a aVar, String str) {
+        public a(b bVar, bn4.a aVar, String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -56,9 +56,9 @@ public class al7 {
             this.c = str;
         }
 
-        @Override // com.repackage.en4.b
+        @Override // com.repackage.fn4.b
         public void onFailed() {
-            an4.a aVar;
+            bn4.a aVar;
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (aVar = this.b) == null) {
                 return;
@@ -66,7 +66,7 @@ public class al7 {
             aVar.a(this.c, 1, null);
         }
 
-        @Override // com.repackage.en4.b
+        @Override // com.repackage.fn4.b
         public void onSuccess(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
@@ -85,11 +85,11 @@ public class al7 {
         public final String c;
         public final String d;
         public String e;
-        public final an4.a f;
+        public final bn4.a f;
         public final boolean g;
 
         /* loaded from: classes5.dex */
-        public class a implements an4.a {
+        public class a implements bn4.a {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -109,21 +109,21 @@ public class al7 {
                 }
             }
 
-            @Override // com.repackage.an4.a
+            @Override // com.repackage.bn4.a
             public void a(String str, int i, String str2) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeLIL(1048576, this, str, i, str2) == null) {
                 }
             }
 
-            @Override // com.repackage.an4.a
+            @Override // com.repackage.bn4.a
             public void b(String str) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
                 }
             }
 
-            @Override // com.repackage.an4.a
+            @Override // com.repackage.bn4.a
             public void c(AccountData accountData) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, accountData) == null) {
@@ -131,7 +131,7 @@ public class al7 {
             }
         }
 
-        public b(String str, String str2, String str3, an4.a aVar, boolean z) {
+        public b(String str, String str2, String str3, bn4.a aVar, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -167,7 +167,7 @@ public class al7 {
             AccountData accountData;
             int i;
             int i2;
-            an4.b d;
+            bn4.b d;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, strArr)) == null) {
                 this.a = new NetWork(TbConfig.LOGIN_FULL_ADDRESS);
@@ -183,22 +183,22 @@ public class al7 {
                 if (!this.a.getNetContext().getResponse().isRequestSuccess() || postNetData == null) {
                     accountData = null;
                 } else {
-                    gp4 gp4Var = new gp4();
-                    gp4Var.c(postNetData);
+                    hp4 hp4Var = new hp4();
+                    hp4Var.c(postNetData);
                     accountData = new AccountData();
-                    accountData.setAccount(gp4Var.b().getUserName());
+                    accountData.setAccount(hp4Var.b().getUserName());
                     accountData.setPassword("");
-                    accountData.setID(gp4Var.b().getUserId());
+                    accountData.setID(hp4Var.b().getUserId());
                     String str = this.c;
-                    if (this.g && (d = dl7.d(an4.b().c(str))) != null) {
+                    if (this.g && (d = dl7.d(bn4.b().c(str))) != null) {
                         str = d.a + "|" + d.b;
                     }
                     accountData.setBDUSS(str);
-                    accountData.setPortrait(gp4Var.b().getPortrait());
+                    accountData.setPortrait(hp4Var.b().getPortrait());
                     accountData.setStoken(this.e);
                     accountData.setIsActive(1);
-                    if (gp4Var.a() != null) {
-                        accountData.setTbs(gp4Var.a().getTbs());
+                    if (hp4Var.a() != null) {
+                        accountData.setTbs(hp4Var.a().getTbs());
                     }
                 }
                 NetWork netWork = new NetWork(TbConfig.SERVER_ADDRESS + TbConfig.URL_CHECK_SHOW_INIT_NAME_DIALOG);
@@ -206,7 +206,7 @@ public class al7 {
                 netWork.getNetContext().getRequest().mIsUseCurrentBDUSS = false;
                 if (accountData != null) {
                     netWork.addPostData(HttpRequest.BDUSS, accountData.getBDUSS());
-                    netWork.addPostData("stoken", en4.a(accountData));
+                    netWork.addPostData("stoken", fn4.a(accountData));
                 }
                 String postNetData2 = netWork.postNetData();
                 if (!netWork.getNetContext().getResponse().isRequestSuccess() || postNetData2 == null) {
@@ -259,7 +259,7 @@ public class al7 {
                 super.onPostExecute(accountData);
                 int i = 0;
                 ReloginManager.g().o(false);
-                mt4.a(DI.ACCOUNT, -1L, 0, "cslogin_result", this.a.getServerErrorCode(), this.a.getErrorString(), new Object[0]);
+                nt4.a(DI.ACCOUNT, -1L, 0, "cslogin_result", this.a.getServerErrorCode(), this.a.getErrorString(), new Object[0]);
                 if (accountData != null && accountData.getBDUSS() != null) {
                     this.f.c(accountData);
                     return;
@@ -270,7 +270,7 @@ public class al7 {
                     i = this.a.getServerErrorCode();
                 }
                 if (str == null) {
-                    str = TbadkCoreApplication.getInst().getApp().getResources().getString(R.string.obfuscated_res_0x7f0f047b);
+                    str = TbadkCoreApplication.getInst().getApp().getResources().getString(R.string.obfuscated_res_0x7f0f047a);
                 }
                 this.f.a(this.b, i, str);
             }
@@ -303,16 +303,16 @@ public class al7 {
         }
     }
 
-    public static BdAsyncTask<?, ?, ?> a(String str, String str2, String str3, String str4, an4.a aVar) {
+    public static BdAsyncTask<?, ?, ?> a(String str, String str2, String str3, String str4, bn4.a aVar) {
         InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(65536, null, str, str2, str3, str4, aVar)) == null) {
-            en4 en4Var = new en4();
+            fn4 fn4Var = new fn4();
             b bVar = new b(str, str2, str3, aVar, false);
-            if (en4.b() && StringUtils.isNull(str4)) {
-                en4Var.c(str2, new a(bVar, aVar, str));
+            if (fn4.b() && StringUtils.isNull(str4)) {
+                fn4Var.c(str2, new a(bVar, aVar, str));
             } else {
-                if (en4.b()) {
+                if (fn4.b()) {
                     bVar.d(str4);
                 }
                 bVar.execute(new String[0]);

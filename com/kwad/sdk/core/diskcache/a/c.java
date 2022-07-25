@@ -3,8 +3,8 @@ package com.kwad.sdk.core.diskcache.a;
 import androidx.annotation.NonNull;
 import com.baidu.searchbox.aperf.bosuploader.BOSTokenRequest;
 import com.kwad.sdk.core.diskcache.kwai.a;
-import com.kwad.sdk.core.network.n;
-import com.kwad.sdk.core.network.p;
+import com.kwad.sdk.core.network.o;
+import com.kwad.sdk.core.network.q;
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
 import java.io.File;
@@ -16,18 +16,18 @@ import java.util.concurrent.ExecutorService;
 import org.apache.http.protocol.HTTP;
 /* loaded from: classes5.dex */
 public final class c {
-    public static ExecutorService a = com.kwad.sdk.core.threads.b.j();
+    public static ExecutorService WG = com.kwad.sdk.core.threads.b.vq();
 
     /* loaded from: classes5.dex */
     public static class a {
-        public String a;
+        public String Qd;
     }
 
     public static File a(@NonNull com.kwad.sdk.core.diskcache.kwai.a aVar, @NonNull String str) {
         try {
-            a.c a2 = aVar.a(str);
-            if (a2 != null) {
-                return a2.a(0);
+            a.c bx = aVar.bx(str);
+            if (bx != null) {
+                return bx.ax(0);
             }
             return null;
         } catch (IOException unused) {
@@ -36,24 +36,24 @@ public final class c {
     }
 
     public static void a(@NonNull final com.kwad.sdk.core.diskcache.kwai.a aVar, @NonNull final String str, @NonNull final String str2) {
-        a.execute(new Runnable() { // from class: com.kwad.sdk.core.diskcache.a.c.1
+        WG.execute(new Runnable() { // from class: com.kwad.sdk.core.diskcache.a.c.1
             @Override // java.lang.Runnable
             public final void run() {
                 OutputStream outputStream = null;
                 try {
-                    a.C0537a b = com.kwad.sdk.core.diskcache.kwai.a.this.b(str2);
-                    if (b != null) {
-                        outputStream = b.a(0);
-                        if (c.b(str, outputStream, new a())) {
-                            b.a();
+                    a.C0384a by = com.kwad.sdk.core.diskcache.kwai.a.this.by(str2);
+                    if (by != null) {
+                        outputStream = by.au(0);
+                        if (c.a(str, outputStream, new a())) {
+                            by.commit();
                         } else {
-                            b.b();
+                            by.abort();
                         }
-                        com.kwad.sdk.core.diskcache.kwai.a.this.d();
+                        com.kwad.sdk.core.diskcache.kwai.a.this.flush();
                     }
                 } catch (IOException unused) {
                 } finally {
-                    com.kwad.sdk.crash.utils.b.a(outputStream);
+                    com.kwad.sdk.crash.utils.b.closeQuietly(outputStream);
                 }
             }
         });
@@ -64,27 +64,27 @@ public final class c {
         OutputStream outputStream = null;
         try {
             try {
-                a.C0537a b = aVar.b(str2);
-                if (b != null) {
-                    outputStream = b.a(0);
-                    if (b(str, outputStream, aVar2)) {
-                        b.a();
+                a.C0384a by = aVar.by(str2);
+                if (by != null) {
+                    outputStream = by.au(0);
+                    if (a(str, outputStream, aVar2)) {
+                        by.commit();
                         z = true;
                     } else {
-                        b.b();
+                        by.abort();
                     }
-                    aVar.d();
+                    aVar.flush();
                 }
             } catch (IOException e) {
-                aVar2.a = e.getMessage();
+                aVar2.Qd = e.getMessage();
             }
             return z;
         } finally {
-            com.kwad.sdk.crash.utils.b.a(outputStream);
+            com.kwad.sdk.crash.utils.b.closeQuietly(outputStream);
         }
     }
 
-    public static boolean b(String str, OutputStream outputStream, a aVar) {
+    public static boolean a(String str, OutputStream outputStream, a aVar) {
         HttpURLConnection httpURLConnection;
         BufferedOutputStream bufferedOutputStream;
         BufferedInputStream bufferedInputStream;
@@ -92,7 +92,7 @@ public final class c {
         try {
             httpURLConnection = (HttpURLConnection) new URL(str).openConnection();
             try {
-                p.a(httpURLConnection);
+                q.wrapHttpURLConnection(httpURLConnection);
                 httpURLConnection.setRequestProperty("Accept-Language", "zh-CN");
                 httpURLConnection.setConnectTimeout(10000);
                 httpURLConnection.setReadTimeout(120000);
@@ -100,9 +100,9 @@ public final class c {
                 httpURLConnection.setDoInput(true);
                 httpURLConnection.setRequestProperty(HTTP.CONN_DIRECTIVE, "keep-alive");
                 httpURLConnection.setRequestProperty(BOSTokenRequest.CHARSET, "UTF-8");
-                httpURLConnection.setRequestProperty("User-Agent", n.c());
-                httpURLConnection.setRequestProperty("BrowserUa", n.d());
-                httpURLConnection.setRequestProperty("SystemUa", n.a());
+                httpURLConnection.setRequestProperty("User-Agent", o.getUserAgent());
+                httpURLConnection.setRequestProperty("BrowserUa", o.tD());
+                httpURLConnection.setRequestProperty("SystemUa", o.tC());
                 bufferedInputStream = new BufferedInputStream(httpURLConnection.getInputStream());
                 try {
                     bufferedOutputStream = new BufferedOutputStream(outputStream);
@@ -129,8 +129,8 @@ public final class c {
                 bufferedOutputStream.write(bArr, 0, read);
             }
             bufferedOutputStream.flush();
-            com.kwad.sdk.crash.utils.b.a(bufferedOutputStream);
-            com.kwad.sdk.crash.utils.b.a(bufferedInputStream);
+            com.kwad.sdk.crash.utils.b.closeQuietly(bufferedOutputStream);
+            com.kwad.sdk.crash.utils.b.closeQuietly(bufferedInputStream);
             if (httpURLConnection != null) {
                 httpURLConnection.disconnect();
             }
@@ -139,11 +139,11 @@ public final class c {
             th = th4;
             bufferedInputStream2 = bufferedInputStream;
             try {
-                aVar.a = th.getMessage();
+                aVar.Qd = th.getMessage();
                 return false;
             } finally {
-                com.kwad.sdk.crash.utils.b.a(bufferedOutputStream);
-                com.kwad.sdk.crash.utils.b.a(bufferedInputStream2);
+                com.kwad.sdk.crash.utils.b.closeQuietly(bufferedOutputStream);
+                com.kwad.sdk.crash.utils.b.closeQuietly(bufferedInputStream2);
                 if (httpURLConnection != null) {
                     httpURLConnection.disconnect();
                 }

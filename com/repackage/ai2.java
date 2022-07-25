@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.plugin.ZeusPlugin;
 /* loaded from: classes5.dex */
-public class ai2 extends be2<si2> {
+public class ai2 extends ce2<ti2> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -27,31 +27,33 @@ public class ai2 extends be2<si2> {
         }
     }
 
-    @Override // com.repackage.be2
+    @Override // com.repackage.ce2
     @NonNull
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "prepareAsync" : (String) invokeV.objValue;
-    }
-
-    @Override // com.repackage.be2
-    public void c(@NonNull ZeusPlugin.Command command) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, command) == null) {
-            command.ret = 1;
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "setRate" : (String) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.be2
+    @Override // com.repackage.ce2
     /* renamed from: e */
-    public void a(@NonNull ZeusPlugin.Command command, @NonNull si2 si2Var) {
+    public void a(@NonNull ZeusPlugin.Command command, @NonNull ti2 ti2Var) {
+        Object obj;
+        float floatValue;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, command, si2Var) == null) {
-            command.ret = si2Var.prepareAsync() ? 1 : 0;
+        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, ti2Var) == null) || (obj = command.obj) == null) {
+            return;
+        }
+        if (obj instanceof Float) {
+            floatValue = ((Float) obj).floatValue();
+        } else {
+            floatValue = obj instanceof Double ? ((Double) obj).floatValue() : Float.MIN_VALUE;
+        }
+        if (floatValue != Float.MIN_VALUE) {
+            ti2Var.setSpeed(floatValue);
             String str = command.what;
-            d(si2Var, str, "isSupport: " + command.ret, false);
+            d(ti2Var, str, "playbackRate: " + command.obj, false);
         }
     }
 }

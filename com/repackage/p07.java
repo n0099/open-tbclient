@@ -24,7 +24,7 @@ import com.repackage.cy;
 import com.repackage.ny;
 import com.repackage.tw;
 /* loaded from: classes6.dex */
-public class p07 extends an<qq4, ThreadCardViewHolder<qq4>> {
+public class p07 extends an<rq4, ThreadCardViewHolder<rq4>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public BdUniqueId i;
@@ -32,12 +32,12 @@ public class p07 extends an<qq4, ThreadCardViewHolder<qq4>> {
     public String k;
     public TbPageContext<?> l;
     public tn m;
-    public jy5<qq4> n;
+    public jy5<rq4> n;
     public NEGFeedBackView.b o;
     public FollowUserButton.a p;
 
     /* loaded from: classes6.dex */
-    public class a extends jy5<qq4> {
+    public class a extends jy5<rq4> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ p07 b;
@@ -63,11 +63,11 @@ public class p07 extends an<qq4, ThreadCardViewHolder<qq4>> {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.repackage.jy5
         /* renamed from: d */
-        public void a(View view2, qq4 qq4Var) {
+        public void a(View view2, rq4 rq4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, qq4Var) == null) {
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, rq4Var) == null) {
                 cy5.b().d(true);
-                uz6.m(view2, qq4Var, this.b.j);
+                uz6.m(view2, rq4Var, this.b.j);
             }
         }
     }
@@ -94,17 +94,17 @@ public class p07 extends an<qq4, ThreadCardViewHolder<qq4>> {
         }
 
         @Override // com.repackage.tw.b
-        public void a(nn4 nn4Var, View view2) {
+        public void a(on4 on4Var, View view2) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLL(1048576, this, nn4Var, view2) == null) || nn4Var == null) {
+            if (!(interceptable == null || interceptable.invokeLL(1048576, this, on4Var, view2) == null) || on4Var == null) {
                 return;
             }
-            if (view2.getId() == R.id.obfuscated_res_0x7f09232d) {
-                nn4Var.objType = 3;
-            } else if (view2.getId() == R.id.obfuscated_res_0x7f09230c) {
-                nn4Var.objType = 4;
+            if (view2.getId() == R.id.obfuscated_res_0x7f09232f) {
+                on4Var.objType = 3;
+            } else if (view2.getId() == R.id.obfuscated_res_0x7f09230e) {
+                on4Var.objType = 4;
             } else {
-                nn4Var.objType = 1;
+                on4Var.objType = 1;
             }
         }
     }
@@ -136,16 +136,16 @@ public class p07 extends an<qq4, ThreadCardViewHolder<qq4>> {
         @Override // com.repackage.xn
         public void b(View view2, nn nnVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i, long j) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, nnVar, bdUniqueId, viewGroup, Integer.valueOf(i), Long.valueOf(j)}) == null) && (nnVar instanceof qq4) && (view2.getTag() instanceof ThreadCardViewHolder)) {
+            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, nnVar, bdUniqueId, viewGroup, Integer.valueOf(i), Long.valueOf(j)}) == null) && (nnVar instanceof rq4) && (view2.getTag() instanceof ThreadCardViewHolder)) {
                 ThreadCardViewHolder threadCardViewHolder = (ThreadCardViewHolder) view2.getTag();
-                qq4 qq4Var = (qq4) nnVar;
-                ThreadData threadData = qq4Var.s;
+                rq4 rq4Var = (rq4) nnVar;
+                ThreadData threadData = rq4Var.s;
                 threadData.objType = 1;
                 if (this.a.n != null) {
-                    this.a.n.a(threadCardViewHolder.b(), qq4Var);
+                    this.a.n.a(threadCardViewHolder.a(), rq4Var);
                 }
-                ThreadCardUtils.jumpToPB((nn4) threadData, view2.getContext(), 0, false, uw.a((tn) viewGroup, view2, i));
-                threadCardViewHolder.c().o(new ny.a(1));
+                ThreadCardUtils.jumpToPB((on4) threadData, view2.getContext(), 0, false, uw.a((tn) viewGroup, view2, i));
+                threadCardViewHolder.b().o(new ny.a(1));
             }
         }
     }
@@ -193,7 +193,7 @@ public class p07 extends an<qq4, ThreadCardViewHolder<qq4>> {
             cy k = bVar.k(BaseCardInfo.SupportType.TOP, viewGroup, this.m);
             k.r(2);
             ThreadCardViewHolder threadCardViewHolder = new ThreadCardViewHolder(k);
-            threadCardViewHolder.k(this.i);
+            threadCardViewHolder.j(this.i);
             V(new c(this));
             return threadCardViewHolder;
         }
@@ -203,30 +203,30 @@ public class p07 extends an<qq4, ThreadCardViewHolder<qq4>> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.repackage.an
     /* renamed from: c0 */
-    public View S(int i, View view2, ViewGroup viewGroup, qq4 qq4Var, ThreadCardViewHolder<qq4> threadCardViewHolder) {
+    public View S(int i, View view2, ViewGroup viewGroup, rq4 rq4Var, ThreadCardViewHolder<rq4> threadCardViewHolder) {
         InterceptResult invokeCommon;
         ThreadData threadData;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, qq4Var, threadCardViewHolder})) == null) {
-            if (qq4Var == null || threadCardViewHolder == null || threadCardViewHolder.b() == null || (threadData = qq4Var.s) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, rq4Var, threadCardViewHolder})) == null) {
+            if (rq4Var == null || threadCardViewHolder == null || threadCardViewHolder.a() == null || (threadData = rq4Var.s) == null) {
                 return null;
             }
             threadData.statFloor = B(i) + 1;
-            threadCardViewHolder.c().q(i);
-            threadCardViewHolder.c().b("page_recommend");
-            threadCardViewHolder.r(true, Align.ALIGN_RIGHT_TOP, this.o);
+            threadCardViewHolder.b().q(i);
+            threadCardViewHolder.b().b("page_recommend");
+            threadCardViewHolder.q(true, Align.ALIGN_RIGHT_TOP, this.o);
             boolean equals = "fashion".equals(this.k);
             if (equals) {
-                threadCardViewHolder.n(false, this.p, true);
+                threadCardViewHolder.m(false, this.p, true);
             } else {
-                threadCardViewHolder.n(qq4Var.showFollowBtn(), this.p, true);
+                threadCardViewHolder.m(rq4Var.showFollowBtn(), this.p, true);
             }
-            threadCardViewHolder.u(!equals, Align.ALIGN_RIGHT_TOP);
-            qq4Var.s.mHomePageTopTabTabCode = this.k;
-            threadCardViewHolder.g(qq4Var);
-            threadCardViewHolder.c().onChangeSkinType(this.l, TbadkCoreApplication.getInst().getSkinType());
-            threadCardViewHolder.c().p(this.n);
-            return threadCardViewHolder.b();
+            threadCardViewHolder.t(!equals, Align.ALIGN_RIGHT_TOP);
+            rq4Var.s.mHomePageTopTabTabCode = this.k;
+            threadCardViewHolder.f(rq4Var);
+            threadCardViewHolder.b().onChangeSkinType(this.l, TbadkCoreApplication.getInst().getSkinType());
+            threadCardViewHolder.b().p(this.n);
+            return threadCardViewHolder.a();
         }
         return (View) invokeCommon.objValue;
     }

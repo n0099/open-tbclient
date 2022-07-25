@@ -150,17 +150,17 @@ public class js6 {
         this.b = inflate;
         this.a.setContentView(inflate);
         this.c = this.b.findViewById(R.id.obfuscated_res_0x7f090394);
-        NavigationBar navigationBar = (NavigationBar) this.b.findViewById(R.id.obfuscated_res_0x7f092437);
+        NavigationBar navigationBar = (NavigationBar) this.b.findViewById(R.id.obfuscated_res_0x7f092439);
         this.f = navigationBar;
         navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.f.setTitleText(R.string.obfuscated_res_0x7f0f045f);
-        this.d = (NoNetworkView) this.b.findViewById(R.id.obfuscated_res_0x7f092439);
-        this.h = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091fc7);
-        this.g = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091fc6);
-        this.k = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f091e38);
+        this.f.setTitleText(R.string.obfuscated_res_0x7f0f045e);
+        this.d = (NoNetworkView) this.b.findViewById(R.id.obfuscated_res_0x7f09243b);
+        this.h = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091fcb);
+        this.g = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091fca);
+        this.k = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f091e3e);
         this.g.setOnClickListener(new a(this));
-        this.i = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091fc1);
-        this.j = (LinearLayout) this.b.findViewById(R.id.obfuscated_res_0x7f0915a6);
+        this.i = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091fc5);
+        this.j = (LinearLayout) this.b.findViewById(R.id.obfuscated_res_0x7f091581);
         MessageManager.getInstance().registerListener(new b(this, 2016458));
     }
 
@@ -180,7 +180,7 @@ public class js6 {
     public void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            ga5.a(this.a.getPageContext(), this.b);
+            ha5.a(this.a.getPageContext(), this.b);
             NavigationBar navigationBar = this.f;
             if (navigationBar != null) {
                 navigationBar.onChangeSkinType(this.a.getPageContext(), TbadkCoreApplication.getInst().getSkinType());
@@ -210,7 +210,7 @@ public class js6 {
             this.l = userBfbInfo;
             if (this.e == null) {
                 int f = pi.f(this.a.getActivity(), R.dimen.obfuscated_res_0x7f07019a);
-                NoDataView a2 = NoDataViewFactory.a(this.a.getPageContext().getPageActivity(), (LinearLayout) this.b.findViewById(R.id.obfuscated_res_0x7f090863), NoDataViewFactory.d.b(NoDataViewFactory.ImgType.CREATE, f), null, null);
+                NoDataView a2 = NoDataViewFactory.a(this.a.getPageContext().getPageActivity(), (LinearLayout) this.b.findViewById(R.id.obfuscated_res_0x7f090861), NoDataViewFactory.d.b(NoDataViewFactory.ImgType.CREATE, f), null, null);
                 this.e = a2;
                 a2.setVisibility(0);
                 f();

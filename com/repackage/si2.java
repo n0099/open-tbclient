@@ -1,107 +1,48 @@
 package com.repackage;
 
-import android.content.Context;
-import android.view.Surface;
-import androidx.annotation.NonNull;
-import com.baidu.webkit.sdk.plugin.ZeusPluginFactory;
-import java.util.Map;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.apps.performance.HybridUbcFlow;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public interface si2 extends ee2 {
+public class si2 implements ri2 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
-    public interface a {
-        void a(int i);
-
-        void b(int i);
-
-        void c(String str);
-
-        void d(@NonNull String str);
-
-        void e(String str);
-
-        void f();
-
-        void onEnded();
-
-        void onError(int i);
-
-        void onPrepared();
-
-        void onRelease(String str);
+    public si2() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
     }
 
-    void B(boolean z);
+    @Override // com.repackage.ri2
+    public void a(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) {
+        }
+    }
 
-    void C();
+    @Override // com.repackage.ri2
+    public void b(boolean z, HybridUbcFlow hybridUbcFlow) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z, hybridUbcFlow) == null) {
+        }
+    }
 
-    void G(int i);
-
-    void H();
-
-    void L(int i, int i2, int i3, int i4);
-
-    void N(ZeusPluginFactory.Invoker invoker);
-
-    boolean O(String str, String str2, String str3, boolean z);
-
-    boolean P();
-
-    a Q();
-
-    void T(Map map);
-
-    void U();
-
-    void W();
-
-    int a();
-
-    void b0(String str);
-
-    String c();
-
-    void c0();
-
-    ZeusPluginFactory.Invoker f0();
-
-    void g0(int i);
-
-    Context getContext();
-
-    int getCurrentPosition();
-
-    int getDuration();
-
-    int getVideoHeight();
-
-    int getVideoSarDen();
-
-    int getVideoSarNum();
-
-    int getVideoWidth();
-
-    void h0(@NonNull a aVar);
-
-    boolean isPlaying();
-
-    boolean j0();
-
-    void l(boolean z);
-
-    void n0();
-
-    void pause();
-
-    boolean prepareAsync();
-
-    void release();
-
-    void seekTo(int i);
-
-    void setSpeed(float f);
-
-    void setSurface(Surface surface);
-
-    void start();
+    @Override // com.repackage.ri2
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+        }
+    }
 }

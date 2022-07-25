@@ -185,23 +185,23 @@ public class cu5 extends ix5<ThreadData> implements hy5, bk5 {
         o(bdUniqueId);
         this.i = tbPageContext;
         View h = h();
-        RelativeLayout relativeLayout = (RelativeLayout) h.findViewById(R.id.obfuscated_res_0x7f091251);
+        RelativeLayout relativeLayout = (RelativeLayout) h.findViewById(R.id.obfuscated_res_0x7f09122d);
         this.A = relativeLayout;
         FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) relativeLayout.getLayoutParams();
         layoutParams.topMargin = UtilHelper.getDimenPixelSize(R.dimen.M_H_X003);
         layoutParams.bottomMargin = 0;
-        this.y = (LinearLayout) h.findViewById(R.id.obfuscated_res_0x7f092387);
+        this.y = (LinearLayout) h.findViewById(R.id.obfuscated_res_0x7f092389);
         this.A.setOnClickListener(this);
-        TbImageView tbImageView = (TbImageView) h.findViewById(R.id.obfuscated_res_0x7f092389);
+        TbImageView tbImageView = (TbImageView) h.findViewById(R.id.obfuscated_res_0x7f09238b);
         this.C = tbImageView;
         tbImageView.setDefaultResource(R.drawable.pic_frs_studio_photo);
         this.C.setDefaultBgResource(R.color.transparent);
         CardUserInfoLayout cardUserInfoLayout = (CardUserInfoLayout) h.findViewById(R.id.obfuscated_res_0x7f0904a6);
         this.v = cardUserInfoLayout;
         cardUserInfoLayout.setUserAfterClickListener(this.W);
-        this.B = (TextView) h.findViewById(R.id.obfuscated_res_0x7f091fe1);
-        this.D = (RelativeLayout) h.findViewById(R.id.obfuscated_res_0x7f090a85);
-        TbImageView tbImageView2 = (TbImageView) h.findViewById(R.id.obfuscated_res_0x7f090e4d);
+        this.B = (TextView) h.findViewById(R.id.obfuscated_res_0x7f091fe5);
+        this.D = (RelativeLayout) h.findViewById(R.id.obfuscated_res_0x7f090a7e);
+        TbImageView tbImageView2 = (TbImageView) h.findViewById(R.id.obfuscated_res_0x7f090e46);
         this.E = tbImageView2;
         tbImageView2.setDrawCorner(true);
         this.E.setPlaceHolder(3);
@@ -218,10 +218,10 @@ public class cu5 extends ix5<ThreadData> implements hy5, bk5 {
         tBLottieAnimationView.loop(true);
         SkinManager.setLottieAnimation(this.F, R.raw.ala_live2);
         this.F.addOnAttachStateChangeListener(new a(this));
-        this.G = (TextView) h.findViewById(R.id.obfuscated_res_0x7f0918fe);
+        this.G = (TextView) h.findViewById(R.id.obfuscated_res_0x7f0918d9);
         this.H = (TextView) h.findViewById(R.id.obfuscated_res_0x7f0901ed);
-        this.J = h.findViewById(R.id.obfuscated_res_0x7f0918ff);
-        ThreadCommentAndPraiseInfoLayout threadCommentAndPraiseInfoLayout = (ThreadCommentAndPraiseInfoLayout) h.findViewById(R.id.obfuscated_res_0x7f091fb9);
+        this.J = h.findViewById(R.id.obfuscated_res_0x7f0918da);
+        ThreadCommentAndPraiseInfoLayout threadCommentAndPraiseInfoLayout = (ThreadCommentAndPraiseInfoLayout) h.findViewById(R.id.obfuscated_res_0x7f091fbd);
         this.l = threadCommentAndPraiseInfoLayout;
         t(threadCommentAndPraiseInfoLayout);
         this.l.setSelectVisible(false);
@@ -231,16 +231,16 @@ public class cu5 extends ix5<ThreadData> implements hy5, bk5 {
         this.l.setFrom(2);
         this.l.getCommentContainer().setOnClickListener(this);
         this.l.hideDisagree();
-        tn4 tn4Var = new tn4();
-        tn4Var.b = 2;
-        tn4Var.h = 2;
-        this.l.setAgreeStatisticData(tn4Var);
+        un4 un4Var = new un4();
+        un4Var.b = 2;
+        un4Var.h = 2;
+        this.l.setAgreeStatisticData(un4Var);
         ThreadCommentAndPraiseInfoLayout threadCommentAndPraiseInfoLayout2 = (ThreadCommentAndPraiseInfoLayout) h.findViewById(R.id.obfuscated_res_0x7f0904ac);
         this.m = threadCommentAndPraiseInfoLayout2;
         t(threadCommentAndPraiseInfoLayout2);
         this.m.setFrom(2);
         this.m.setShareReportFrom(1);
-        ThreadSourceShareAndPraiseLayout threadSourceShareAndPraiseLayout = (ThreadSourceShareAndPraiseLayout) h.findViewById(R.id.obfuscated_res_0x7f091fba);
+        ThreadSourceShareAndPraiseLayout threadSourceShareAndPraiseLayout = (ThreadSourceShareAndPraiseLayout) h.findViewById(R.id.obfuscated_res_0x7f091fbe);
         this.w = threadSourceShareAndPraiseLayout;
         threadSourceShareAndPraiseLayout.b.setOnClickListener(this);
         this.w.b.getCommentContainer().setOnClickListener(this);
@@ -249,19 +249,19 @@ public class cu5 extends ix5<ThreadData> implements hy5, bk5 {
         this.w.setSourceFromForPb(3);
         this.w.setStType("frs_page");
         this.w.setHideBarName(true);
-        this.x = h.findViewById(R.id.obfuscated_res_0x7f0907be);
-        this.z = (ThreadSkinView) h.findViewById(R.id.obfuscated_res_0x7f090bbd);
-        View findViewById = h.findViewById(R.id.obfuscated_res_0x7f09204a);
+        this.x = h.findViewById(R.id.obfuscated_res_0x7f0907bc);
+        this.z = (ThreadSkinView) h.findViewById(R.id.obfuscated_res_0x7f090bb6);
+        View findViewById = h.findViewById(R.id.obfuscated_res_0x7f09204e);
         this.S = findViewById;
         findViewById.setClickable(true);
         vt5 vt5Var = new vt5(tbPageContext, this.v.getSuffixContainer());
         this.V = vt5Var;
         vt5Var.d(f());
-        this.K = (FrameLayout) h.findViewById(R.id.obfuscated_res_0x7f091fbb);
-        this.L = (LinearLayout) h.findViewById(R.id.obfuscated_res_0x7f090a1f);
-        this.M = (TextView) h.findViewById(R.id.obfuscated_res_0x7f092239);
-        this.N = (ImageView) h.findViewById(R.id.obfuscated_res_0x7f090e3b);
-        this.O = (TbLiveContainer) h.findViewById(R.id.obfuscated_res_0x7f091f86);
+        this.K = (FrameLayout) h.findViewById(R.id.obfuscated_res_0x7f091fbf);
+        this.L = (LinearLayout) h.findViewById(R.id.obfuscated_res_0x7f090a18);
+        this.M = (TextView) h.findViewById(R.id.obfuscated_res_0x7f09223b);
+        this.N = (ImageView) h.findViewById(R.id.obfuscated_res_0x7f090e34);
+        this.O = (TbLiveContainer) h.findViewById(R.id.obfuscated_res_0x7f091f8a);
     }
 
     public final void M(ThreadData threadData, String str) {
@@ -310,7 +310,7 @@ public class cu5 extends ix5<ThreadData> implements hy5, bk5 {
         T t;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            if (zm4.c().g() && (t = this.k) != 0 && ((ThreadData) t).getThreadData() != null && ((ThreadData) this.k).getThreadData().getThreadAlaInfo() != null) {
+            if (an4.c().g() && (t = this.k) != 0 && ((ThreadData) t).getThreadData() != null && ((ThreadData) this.k).getThreadData().getThreadAlaInfo() != null) {
                 this.E.setPlaceHolder(3);
                 this.E.J(((ThreadData) this.k).getThreadData().getThreadAlaInfo().cover, 10, false);
                 this.D.setVisibility(0);
@@ -326,7 +326,7 @@ public class cu5 extends ix5<ThreadData> implements hy5, bk5 {
             return;
         }
         if (!ni.z()) {
-            pi.N(context, R.string.obfuscated_res_0x7f0f0c64);
+            pi.N(context, R.string.obfuscated_res_0x7f0f0c50);
             return;
         }
         String str = this.T ? AlaLiveRoomActivityConfig.FREM_TYPE_LIVE_FRS_STAGE_LIVE : AlaLiveRoomActivityConfig.FROM_TYPE_FRS_PLAY;
@@ -470,10 +470,10 @@ public class cu5 extends ix5<ThreadData> implements hy5, bk5 {
                     this.L.setVisibility(0);
                     String cutChineseAndEnglishWithSuffix = StringHelper.cutChineseAndEnglishWithSuffix(((ThreadData) this.k).getThreadAlaInfo().forumUserLiveMsg, 10, StringHelper.STRING_MORE);
                     this.M.setText(cutChineseAndEnglishWithSuffix + TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f021a));
-                    layoutParams3.addRule(3, R.id.obfuscated_res_0x7f090a1f);
+                    layoutParams3.addRule(3, R.id.obfuscated_res_0x7f090a18);
                 } else {
                     this.L.setVisibility(8);
-                    layoutParams3.addRule(3, R.id.obfuscated_res_0x7f092387);
+                    layoutParams3.addRule(3, R.id.obfuscated_res_0x7f092389);
                 }
                 this.K.setLayoutParams(layoutParams3);
                 X(O(1));
@@ -557,10 +557,10 @@ public class cu5 extends ix5<ThreadData> implements hy5, bk5 {
         if (interceptable == null || interceptable.invokeLI(1048592, this, tbPageContext, i) == null) {
             if (this.a != i) {
                 w(tbPageContext, i);
-                ur4 d = ur4.d(this.A);
+                vr4 d = vr4.d(this.A);
                 d.n(R.string.J_X06);
                 d.i(R.color.CAM_X0205, R.color.CAM_X0206);
-                ur4 d2 = ur4.d(this.D);
+                vr4 d2 = vr4.d(this.D);
                 d2.l(R.dimen.L_X01);
                 d2.k(R.color.CAM_X0401);
                 d2.n(R.string.J_X05);
@@ -613,7 +613,7 @@ public class cu5 extends ix5<ThreadData> implements hy5, bk5 {
             return;
         }
         if (view2 != this.A && view2 != this.l.getCommentContainer() && view2 != this.y && view2 != this.w.b.getCommentContainer() && view2 != this.m.getCommentContainer() && view2 != this.L) {
-            if (view2.getId() == R.id.obfuscated_res_0x7f09238b) {
+            if (view2.getId() == R.id.obfuscated_res_0x7f09238d) {
                 if (e() != null) {
                     e().a(view2, this.k);
                 }
@@ -637,7 +637,7 @@ public class cu5 extends ix5<ThreadData> implements hy5, bk5 {
                 statisticItem.param("obj_type", 5);
                 statisticItem.param("tid", ((ThreadData) this.k).getTid());
                 statisticItem.param("nid", ((ThreadData) this.k).getNid());
-                p85 findPageExtraByView = TbPageExtraHelper.findPageExtraByView(view2);
+                q85 findPageExtraByView = TbPageExtraHelper.findPageExtraByView(view2);
                 if (findPageExtraByView != null) {
                     statisticItem.param(TiebaStatic.Params.OBJ_CUR_PAGE, findPageExtraByView.a());
                 }

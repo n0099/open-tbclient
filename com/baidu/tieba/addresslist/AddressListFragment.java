@@ -46,21 +46,21 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.al5;
-import com.repackage.az4;
 import com.repackage.bb;
 import com.repackage.bl5;
-import com.repackage.fu4;
+import com.repackage.bz4;
 import com.repackage.gu4;
 import com.repackage.hl5;
+import com.repackage.hu4;
 import com.repackage.ll5;
 import com.repackage.ni;
 import com.repackage.pi;
-import com.repackage.rm4;
-import com.repackage.xt4;
+import com.repackage.sm4;
+import com.repackage.yt4;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
-public class AddressListFragment extends BaseFragment implements bl5.a, fu4.g, AssortView.a {
+public class AddressListFragment extends BaseFragment implements bl5.a, gu4.g, AssortView.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public AddressListModel a;
@@ -69,11 +69,11 @@ public class AddressListFragment extends BaseFragment implements bl5.a, fu4.g, A
     public d d;
     public e e;
     public long f;
-    public rm4 g;
+    public sm4 g;
     public View h;
     public AssortView i;
     public LinearLayout j;
-    public gu4 k;
+    public hu4 k;
     public BdListView l;
     public al5 m;
     public TextView n;
@@ -160,21 +160,21 @@ public class AddressListFragment extends BaseFragment implements bl5.a, fu4.g, A
                     ArrayList arrayList = new ArrayList();
                     if (addressListData != null) {
                         for (ll5 ll5Var : addressListData.a()) {
-                            List<az4> a = ll5Var.a();
+                            List<bz4> a = ll5Var.a();
                             if (a.size() > 0) {
-                                az4 az4Var = new az4();
-                                az4Var.j(ll5Var.b());
-                                arrayList.add(az4Var);
+                                bz4 bz4Var = new bz4();
+                                bz4Var.j(ll5Var.b());
+                                arrayList.add(bz4Var);
                             }
-                            for (az4 az4Var2 : a) {
-                                arrayList.add(az4Var2);
+                            for (bz4 bz4Var2 : a) {
+                                arrayList.add(bz4Var2);
                             }
                         }
                     }
                     this.a.a.H(arrayList);
                     return;
                 }
-                this.a.showToast(StringUtils.isNull(socketResponsedMessage.getErrorString()) ? this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0c2b) : socketResponsedMessage.getErrorString(), false);
+                this.a.showToast(StringUtils.isNull(socketResponsedMessage.getErrorString()) ? this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0c17) : socketResponsedMessage.getErrorString(), false);
             }
         }
     }
@@ -211,7 +211,7 @@ public class AddressListFragment extends BaseFragment implements bl5.a, fu4.g, A
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
-                xt4 k = xt4.k();
+                yt4 k = yt4.k();
                 if (!k.h("get_addresslist_switch" + TbadkCoreApplication.getCurrentAccount(), true)) {
                     this.a.l.A(0L);
                 }
@@ -264,13 +264,13 @@ public class AddressListFragment extends BaseFragment implements bl5.a, fu4.g, A
                     if (StringUtils.isNull(responseNewFriendUpdateUiMsg.getKey()) || StringUtils.isNull(responseNewFriendUpdateUiMsg.getName())) {
                         return;
                     }
-                    az4 az4Var = new az4();
-                    az4Var.j(responseNewFriendUpdateUiMsg.getKey());
-                    az4Var.l(responseNewFriendUpdateUiMsg.getQuanping());
-                    az4Var.m(responseNewFriendUpdateUiMsg.getFriendId());
-                    az4Var.n(responseNewFriendUpdateUiMsg.getName());
-                    az4Var.p(responseNewFriendUpdateUiMsg.getPortrait());
-                    this.a.a.A(az4Var);
+                    bz4 bz4Var = new bz4();
+                    bz4Var.j(responseNewFriendUpdateUiMsg.getKey());
+                    bz4Var.l(responseNewFriendUpdateUiMsg.getQuanping());
+                    bz4Var.m(responseNewFriendUpdateUiMsg.getFriendId());
+                    bz4Var.n(responseNewFriendUpdateUiMsg.getName());
+                    bz4Var.p(responseNewFriendUpdateUiMsg.getPortrait());
+                    this.a.a.A(bz4Var);
                 } else if (responseNewFriendUpdateUiMsg.getAction() == 1) {
                     this.a.a.C(responseNewFriendUpdateUiMsg.getFriendId());
                 }
@@ -343,7 +343,7 @@ public class AddressListFragment extends BaseFragment implements bl5.a, fu4.g, A
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, layoutInflater)) == null) {
             this.h = LayoutInflater.from(this.q.getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0079, (ViewGroup) null);
-            this.k = new gu4(this.q.getPageContext());
+            this.k = new hu4(this.q.getPageContext());
             this.m = new al5(TbadkCoreApplication.getInst().getApplicationContext(), this.g);
             LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(this.q.getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d007d, (ViewGroup) null, false);
             this.j = linearLayout;
@@ -367,7 +367,7 @@ public class AddressListFragment extends BaseFragment implements bl5.a, fu4.g, A
         return (View) invokeL.objValue;
     }
 
-    public final void B1(List<az4> list) {
+    public final void B1(List<bz4> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
             this.m.e(list);
@@ -402,7 +402,7 @@ public class AddressListFragment extends BaseFragment implements bl5.a, fu4.g, A
 
     @Override // com.baidu.tieba.addresslist.view.AssortView.a
     public void c1(String str) {
-        List<az4> D;
+        List<bz4> D;
         int B;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048579, this, str) == null) || (D = this.a.D()) == null || D.size() == 0 || (B = this.a.B(str)) < 0) {
@@ -411,7 +411,7 @@ public class AddressListFragment extends BaseFragment implements bl5.a, fu4.g, A
         this.l.setSelection(B + 5);
     }
 
-    @Override // com.repackage.fu4.g
+    @Override // com.repackage.gu4.g
     public void e(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
@@ -422,7 +422,7 @@ public class AddressListFragment extends BaseFragment implements bl5.a, fu4.g, A
                 this.a.F();
             } else {
                 this.l.A(0L);
-                showToast(R.string.obfuscated_res_0x7f0f0c64);
+                showToast(R.string.obfuscated_res_0x7f0f0c50);
             }
         }
     }
@@ -458,9 +458,9 @@ public class AddressListFragment extends BaseFragment implements bl5.a, fu4.g, A
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
             super.onChangeSkinType(i);
-            rm4 rm4Var = this.g;
-            if (rm4Var != null) {
-                rm4Var.k(i == 1);
+            sm4 sm4Var = this.g;
+            if (sm4Var != null) {
+                sm4Var.k(i == 1);
                 this.g.j(this.h);
                 this.g.j(this.j);
             }
@@ -537,7 +537,7 @@ public class AddressListFragment extends BaseFragment implements bl5.a, fu4.g, A
                 sendMessage(new CustomMessage(2002001, new PersonGroupActivityConfig(getActivity(), 0, 1)));
                 TiebaStatic.log("contacts_mygp");
             } else {
-                az4 item = this.m.getItem(i);
+                bz4 item = this.m.getItem(i);
                 if (item == null || item.d() <= 0) {
                     return;
                 }
@@ -555,9 +555,9 @@ public class AddressListFragment extends BaseFragment implements bl5.a, fu4.g, A
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
             super.onPrimary();
-            xt4 k = xt4.k();
+            yt4 k = yt4.k();
             if (k.h("show_new_icon_for_new_friend_" + TbadkCoreApplication.getCurrentAccount(), true)) {
-                xt4 k2 = xt4.k();
+                yt4 k2 = yt4.k();
                 k2.u("show_new_icon_for_new_friend_" + TbadkCoreApplication.getCurrentAccount(), false);
             }
         }
@@ -573,7 +573,7 @@ public class AddressListFragment extends BaseFragment implements bl5.a, fu4.g, A
     }
 
     @Override // com.repackage.bl5.a
-    public void p(List<az4> list) {
+    public void p(List<bz4> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048592, this, list) == null) {
             B1(list);

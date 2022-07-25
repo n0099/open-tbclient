@@ -184,11 +184,11 @@ public class iq8 extends BaseAdapter {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeILL = interceptable.invokeILL(1048585, this, i, view2, viewGroup)) == null) {
             if (view2 == null) {
-                view2 = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d04a1, (ViewGroup) null);
+                view2 = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d04a0, (ViewGroup) null);
                 aVar = new a(this);
-                aVar.a = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f0914f7);
-                aVar.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0914fb);
-                aVar.b = view2.findViewById(R.id.obfuscated_res_0x7f0914f8);
+                aVar.a = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f0914d2);
+                aVar.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0914d6);
+                aVar.b = view2.findViewById(R.id.obfuscated_res_0x7f0914d3);
                 aVar.a.setDrawerType(1);
                 aVar.a.setIsRound(true);
                 aVar.a.setDefaultBgResource(R.color.transparent);
@@ -213,18 +213,18 @@ public class iq8 extends BaseAdapter {
                 aVar.b.setVisibility(4);
                 aVar.c.setTextColor(SkinManager.getColor(R.color.CAM_X0107));
                 aVar.c.setText(musicData.name);
-                a(aVar.c, pi.f(this.a.getPageActivity(), R.dimen.obfuscated_res_0x7f07023e), musicData.name);
+                a(aVar.c, pi.f(this.a.getPageActivity(), R.dimen.obfuscated_res_0x7f07023c), musicData.name);
                 if (i == this.c) {
                     aVar.a.setDrawBorder(true);
                 } else {
                     aVar.a.setDrawBorder(false);
                 }
                 if (i == 0) {
-                    view2.setPadding(pi.f(this.a.getPageActivity(), R.dimen.obfuscated_res_0x7f07020f), pi.f(this.a.getPageActivity(), R.dimen.obfuscated_res_0x7f0702c5), 0, 0);
+                    view2.setPadding(pi.f(this.a.getPageActivity(), R.dimen.obfuscated_res_0x7f07020f), pi.f(this.a.getPageActivity(), R.dimen.obfuscated_res_0x7f0702c3), 0, 0);
                 } else if (i == this.b.size() - 1) {
-                    view2.setPadding(pi.f(this.a.getPageActivity(), R.dimen.obfuscated_res_0x7f07020f), pi.f(this.a.getPageActivity(), R.dimen.obfuscated_res_0x7f0702c5), pi.f(this.a.getPageActivity(), R.dimen.obfuscated_res_0x7f07020f), 0);
+                    view2.setPadding(pi.f(this.a.getPageActivity(), R.dimen.obfuscated_res_0x7f07020f), pi.f(this.a.getPageActivity(), R.dimen.obfuscated_res_0x7f0702c3), pi.f(this.a.getPageActivity(), R.dimen.obfuscated_res_0x7f07020f), 0);
                 } else {
-                    view2.setPadding(pi.f(this.a.getPageActivity(), R.dimen.obfuscated_res_0x7f0701f9), pi.f(this.a.getPageActivity(), R.dimen.obfuscated_res_0x7f0702c5), 0, 0);
+                    view2.setPadding(pi.f(this.a.getPageActivity(), R.dimen.obfuscated_res_0x7f0701f9), pi.f(this.a.getPageActivity(), R.dimen.obfuscated_res_0x7f0702c3), 0, 0);
                 }
                 if (this.a.getPageActivity() instanceof BaseActivity) {
                     ((BaseActivity) this.a.getPageActivity()).getLayoutMode().k(TbadkCoreApplication.getInst().getSkinType() == 1);

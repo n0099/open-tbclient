@@ -31,7 +31,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.cr4;
+import com.repackage.dr4;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 /* loaded from: classes6.dex */
@@ -75,11 +75,11 @@ public class mp6 {
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_SHARE_FORUM_OR_THREAD).param("fid", this.a.t).param("obj_type", 18).param("obj_source", 10));
                 FrsPrivateShareDialogView frsPrivateShareDialogView = new FrsPrivateShareDialogView(this.b.getPageActivity());
-                cr4 cr4Var = new cr4(this.b.getPageActivity());
-                if (frsPrivateShareDialogView.d(this.c, this.b, cr4Var)) {
-                    cr4Var.setContentViewSize(2);
-                    cr4Var.setContentView(frsPrivateShareDialogView);
-                    cr4Var.create(this.b).show();
+                dr4 dr4Var = new dr4(this.b.getPageActivity());
+                if (frsPrivateShareDialogView.d(this.c, this.b, dr4Var)) {
+                    dr4Var.setContentViewSize(2);
+                    dr4Var.setContentView(frsPrivateShareDialogView);
+                    dr4Var.create(this.b).show();
                 }
                 StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.THREAD_ACHIEVEMENT_DETAIL_SHARE);
                 statisticItem.param("obj_param1", this.d.experimentId);
@@ -124,7 +124,7 @@ public class mp6 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 ei.a(this.a);
-                pi.O(this.b.getPageActivity(), view2.getResources().getString(R.string.obfuscated_res_0x7f0f0446));
+                pi.O(this.b.getPageActivity(), view2.getResources().getString(R.string.obfuscated_res_0x7f0f0445));
             }
         }
     }
@@ -134,14 +134,14 @@ public class mp6 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ForumData a;
-        public final /* synthetic */ cr4 b;
+        public final /* synthetic */ dr4 b;
 
-        public c(ForumData forumData, cr4 cr4Var) {
+        public c(ForumData forumData, dr4 dr4Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {forumData, cr4Var};
+                Object[] objArr = {forumData, dr4Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -152,7 +152,7 @@ public class mp6 {
                 }
             }
             this.a = forumData;
-            this.b = cr4Var;
+            this.b = dr4Var;
         }
 
         @Override // android.view.View.OnClickListener
@@ -166,7 +166,7 @@ public class mp6 {
     }
 
     /* loaded from: classes6.dex */
-    public static class d implements cr4.e {
+    public static class d implements dr4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ FrsFragment a;
@@ -199,19 +199,19 @@ public class mp6 {
             this.f = shareFromFrsMsgData;
         }
 
-        @Override // com.repackage.cr4.e
-        public void onClick(cr4 cr4Var) {
+        @Override // com.repackage.dr4.e
+        public void onClick(dr4 dr4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, cr4Var) == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, dr4Var) == null) {
                 this.a.HidenSoftKeyPad((InputMethodManager) TbadkCoreApplication.getInst().getSystemService("input_method"), this.b.getChatMsgView());
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new GroupChatActivityConfig(this.a.o().getPageActivity(), this.c, this.d, this.e, "from_share", this.b.getLeaveMsg(), this.f.toChatMessageContent())));
-                cr4Var.dismiss();
+                dr4Var.dismiss();
             }
         }
     }
 
     /* loaded from: classes6.dex */
-    public static class e implements cr4.e {
+    public static class e implements dr4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ FrsFragment a;
@@ -236,12 +236,12 @@ public class mp6 {
             this.b = frsShareCardView;
         }
 
-        @Override // com.repackage.cr4.e
-        public void onClick(cr4 cr4Var) {
+        @Override // com.repackage.dr4.e
+        public void onClick(dr4 dr4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, cr4Var) == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, dr4Var) == null) {
                 this.a.HidenSoftKeyPad((InputMethodManager) TbadkCoreApplication.getInst().getSystemService("input_method"), this.b.getChatMsgView());
-                cr4Var.dismiss();
+                dr4Var.dismiss();
             }
         }
     }
@@ -261,7 +261,7 @@ public class mp6 {
                 str5 = frsViewData.getForum().getfShareImage();
             }
             ShareItem shareItem = new ShareItem();
-            shareItem.u = str4 + tbPageContext.getString(R.string.obfuscated_res_0x7f0f0650);
+            shareItem.u = str4 + tbPageContext.getString(R.string.obfuscated_res_0x7f0f064c);
             shareItem.v = str3;
             shareItem.w = str2;
             shareItem.b = true;
@@ -299,9 +299,9 @@ public class mp6 {
         } else {
             str = "";
         }
-        sb.append(tbPageContext.getString(R.string.obfuscated_res_0x7f0f0763));
+        sb.append(tbPageContext.getString(R.string.obfuscated_res_0x7f0f075f));
         sb.append(str2);
-        sb.append(tbPageContext.getString(R.string.obfuscated_res_0x7f0f0650));
+        sb.append(tbPageContext.getString(R.string.obfuscated_res_0x7f0f064c));
         shareItem.D0 = sb.toString();
         StringBuilder sb2 = new StringBuilder();
         sb2.append(str);
@@ -313,11 +313,11 @@ public class mp6 {
             sb2.append(StringUtils.lineSeparator);
         }
         if (frsViewData.getForum() != null && frsViewData.getForum().getMember_num() > 0) {
-            sb2.append(tbPageContext.getString(R.string.obfuscated_res_0x7f0f066f));
+            sb2.append(tbPageContext.getString(R.string.obfuscated_res_0x7f0f066b));
             sb2.append(" ");
             sb2.append(StringHelper.numFormatOver10000(frsViewData.getForum().getMember_num()));
             sb2.append(" ");
-            sb2.append(tbPageContext.getString(R.string.obfuscated_res_0x7f0f0ec5));
+            sb2.append(tbPageContext.getString(R.string.obfuscated_res_0x7f0f0eae));
             sb2.append(" ");
             sb2.append(StringHelper.numFormatOver10000(frsViewData.getForum().getPost_num()));
         }
@@ -370,16 +370,16 @@ public class mp6 {
             return;
         }
         ShareFromFrsMsgData d2 = d(frsViewData);
-        cr4 cr4Var = new cr4(frsFragment.getPageContext().getPageActivity());
+        dr4 dr4Var = new dr4(frsFragment.getPageContext().getPageActivity());
         FrsShareCardView frsShareCardView = new FrsShareCardView(frsFragment.getPageContext().getPageActivity());
         frsShareCardView.setPageId(frsFragment.getUniqueId());
         frsShareCardView.setData(d2);
-        cr4Var.setContentViewSize(1);
-        cr4Var.setContentView(frsShareCardView);
-        cr4Var.setPositiveButton(R.string.obfuscated_res_0x7f0f113c, new d(frsFragment, frsShareCardView, j, str, j2, d2));
-        cr4Var.setNegativeButton(R.string.obfuscated_res_0x7f0f036a, new e(frsFragment, frsShareCardView));
-        cr4Var.setCanceledOnTouchOutside(true);
-        cr4Var.create(frsFragment.getPageContext()).show();
+        dr4Var.setContentViewSize(1);
+        dr4Var.setContentView(frsShareCardView);
+        dr4Var.setPositiveButton(R.string.obfuscated_res_0x7f0f10eb, new d(frsFragment, frsShareCardView, j, str, j2, d2));
+        dr4Var.setNegativeButton(R.string.obfuscated_res_0x7f0f036a, new e(frsFragment, frsShareCardView));
+        dr4Var.setCanceledOnTouchOutside(true);
+        dr4Var.create(frsFragment.getPageContext()).show();
         if (oi.isEmpty(d2.getImageUrl())) {
             return;
         }
@@ -392,13 +392,13 @@ public class mp6 {
             return;
         }
         FrsLikeShareDialogView frsLikeShareDialogView = new FrsLikeShareDialogView(tbPageContext.getPageActivity());
-        cr4 cr4Var = new cr4(tbPageContext.getPageActivity());
-        cr4Var.setContentViewSize(9);
-        cr4Var.setContentView(frsLikeShareDialogView);
-        cr4Var.setCancelable(false);
-        cr4Var.setCanceledOnTouchOutside(false);
-        cr4Var.create(tbPageContext).show();
-        frsLikeShareDialogView.setCloseListener(new c(forumData, cr4Var));
+        dr4 dr4Var = new dr4(tbPageContext.getPageActivity());
+        dr4Var.setContentViewSize(9);
+        dr4Var.setContentView(frsLikeShareDialogView);
+        dr4Var.setCancelable(false);
+        dr4Var.setCanceledOnTouchOutside(false);
+        dr4Var.create(tbPageContext).show();
+        frsLikeShareDialogView.setCloseListener(new c(forumData, dr4Var));
         frsLikeShareDialogView.b(tbPageContext, oh8Var, forumData);
         lp6.c(forumData.getId());
     }
@@ -416,7 +416,7 @@ public class mp6 {
             Uri parse = frsViewData.getForum().getImage_url() == null ? null : Uri.parse(frsViewData.getForum().getImage_url());
             String slogan = frsViewData.getForum().getSlogan();
             ShareItem shareItem = new ShareItem();
-            shareItem.u = name + tbPageContext.getString(R.string.obfuscated_res_0x7f0f0650);
+            shareItem.u = name + tbPageContext.getString(R.string.obfuscated_res_0x7f0f064c);
             shareItem.v = slogan;
             shareItem.w = c2;
             shareItem.b = true;
@@ -431,25 +431,25 @@ public class mp6 {
             shareDialogConfig.shareItem.f0 = forum;
             shareDialogConfig.setSpecialShareItems(3, a(tbPageContext, frsViewData, str, c2, parse, slogan));
             shareDialogConfig.setIsCopyLink(true);
-            shareDialogConfig.setCustomCopyTitle(R.string.obfuscated_res_0x7f0f0445);
-            shareDialogConfig.addOutsideTextView(R.string.obfuscated_res_0x7f0f0ece, R.drawable.obfuscated_res_0x7f0809ad, new a(shareItem, tbPageContext, frsViewData, shareDialogConfig));
+            shareDialogConfig.setCustomCopyTitle(R.string.obfuscated_res_0x7f0f0444);
+            shareDialogConfig.addOutsideTextView(R.string.obfuscated_res_0x7f0f0eb7, R.drawable.obfuscated_res_0x7f0809ad, new a(shareItem, tbPageContext, frsViewData, shareDialogConfig));
             shareDialogConfig.setCopyLinkListener(new b(c2, tbPageContext));
             shareDialogConfig.experimentId = kn6.c();
             tbPageContext.sendMessage(new CustomMessage(2001276, shareDialogConfig));
             return;
         }
-        tbPageContext.showToast(tbPageContext.getString(R.string.obfuscated_res_0x7f0f0c50));
+        tbPageContext.showToast(tbPageContext.getString(R.string.obfuscated_res_0x7f0f0c3c));
     }
 
     public static void h(TbPageContext tbPageContext, FrsViewData frsViewData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65543, null, tbPageContext, frsViewData) == null) {
             FrsPrivateShareDialogView frsPrivateShareDialogView = new FrsPrivateShareDialogView(tbPageContext.getPageActivity());
-            cr4 cr4Var = new cr4(tbPageContext.getPageActivity());
-            if (frsPrivateShareDialogView.d(frsViewData, tbPageContext, cr4Var)) {
-                cr4Var.setContentViewSize(2);
-                cr4Var.setContentView(frsPrivateShareDialogView);
-                cr4Var.create(tbPageContext).show();
+            dr4 dr4Var = new dr4(tbPageContext.getPageActivity());
+            if (frsPrivateShareDialogView.d(frsViewData, tbPageContext, dr4Var)) {
+                dr4Var.setContentViewSize(2);
+                dr4Var.setContentView(frsPrivateShareDialogView);
+                dr4Var.create(tbPageContext).show();
             }
         }
     }

@@ -4,35 +4,43 @@ import android.content.SharedPreferences;
 import androidx.annotation.NonNull;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public final class k extends a<Long> {
-    public k(String str) {
-        this(str, 0L);
+public final class k extends b<String> {
+    public boolean VF;
+
+    public k(String str, String str2) {
+        super(str, str2);
+        this.VF = false;
     }
 
-    public k(String str, Long l) {
-        super(str, l);
-    }
-
-    @Override // com.kwad.sdk.core.config.item.b
-    public final void a(@NonNull SharedPreferences.Editor editor) {
-        editor.putLong(a(), b().longValue());
+    public k(String str, String str2, boolean z) {
+        this(str, str2);
+        this.VF = false;
     }
 
     @Override // com.kwad.sdk.core.config.item.b
     public final void a(@NonNull SharedPreferences sharedPreferences) {
-        a((k) Long.valueOf(sharedPreferences.getLong(a(), c().longValue())));
+        if (this.VF) {
+            setValue(sharedPreferences.getString(getKey(), sx()));
+        }
     }
 
     @Override // com.kwad.sdk.core.config.item.b
-    public final void a(JSONObject jSONObject) {
-        a((k) (jSONObject != null ? Long.valueOf(jSONObject.optLong(a(), c().longValue())) : c()));
+    public final void b(@NonNull SharedPreferences.Editor editor) {
+        if (this.VF) {
+            editor.putString(getKey(), getValue());
+        }
+    }
+
+    @Override // com.kwad.sdk.core.config.item.b
+    public final void e(JSONObject jSONObject) {
+        JSONObject optJSONObject;
+        setValue((jSONObject == null || (optJSONObject = jSONObject.optJSONObject(getKey())) == null) ? sx() : optJSONObject.toString());
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.kwad.sdk.core.config.item.b
     @NonNull
-    /* renamed from: d */
-    public final Long b() {
-        return (Long) super.b();
+    public final String getValue() {
+        return (String) super.getValue();
     }
 }

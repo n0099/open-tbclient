@@ -4,6 +4,7 @@ import android.content.Context;
 import android.os.AsyncTask;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -90,7 +91,7 @@ public class zd0 extends ce0 {
                             }
                         }
                         try {
-                            zd0.h.put("result", a);
+                            zd0.h.put(TiebaStatic.LogFields.RESULT, a);
                         } catch (JSONException e4) {
                             e4.printStackTrace();
                         }

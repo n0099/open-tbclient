@@ -20,21 +20,21 @@ public class dz {
     }
 
     public static void a(Context context, HashMap<String, String> hashMap) {
-        eh m1244a;
+        eh m306a;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65537, null, context, hashMap) == null) || (m1244a = ed.a(context).m1244a()) == null) {
+        if (!(interceptable == null || interceptable.invokeLL(65537, null, context, hashMap) == null) || (m306a = ed.a(context).m306a()) == null) {
             return;
         }
-        m1244a.a(context, hashMap);
+        m306a.a(context, hashMap);
     }
 
     public static void b(Context context, HashMap<String, String> hashMap) {
-        eh m1244a;
+        eh m306a;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65539, null, context, hashMap) == null) || (m1244a = ed.a(context).m1244a()) == null) {
+        if (!(interceptable == null || interceptable.invokeLL(65539, null, context, hashMap) == null) || (m306a = ed.a(context).m306a()) == null) {
             return;
         }
-        m1244a.c(context, hashMap);
+        m306a.c(context, hashMap);
     }
 
     public static void c(Context context, String str, int i, String str2) {
@@ -65,11 +65,11 @@ public class dz {
     }
 
     public static void c(Context context, HashMap<String, String> hashMap) {
-        eh m1244a;
+        eh m306a;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65541, null, context, hashMap) == null) || (m1244a = ed.a(context).m1244a()) == null) {
+        if (!(interceptable == null || interceptable.invokeLL(65541, null, context, hashMap) == null) || (m306a = ed.a(context).m306a()) == null) {
             return;
         }
-        m1244a.b(context, hashMap);
+        m306a.b(context, hashMap);
     }
 }

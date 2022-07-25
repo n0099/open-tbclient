@@ -20,9 +20,9 @@ public class KsConvertButton extends KSCornerButton implements KsAppDownloadList
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     @Nullable
-    public com.kwad.components.core.c.a.b a;
+    public AdTemplate mAdTemplate;
     @Nullable
-    public AdTemplate b;
+    public com.kwad.components.core.c.a.c mApkDownloadHelper;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public KsConvertButton(Context context) {
@@ -108,7 +108,7 @@ public class KsConvertButton extends KSCornerButton implements KsAppDownloadList
         }
     }
 
-    private void a(@Nullable String str) {
+    private void aL(@Nullable String str) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, str) == null) || str == null) {
             return;
@@ -121,24 +121,24 @@ public class KsConvertButton extends KSCornerButton implements KsAppDownloadList
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65541, this)) == null) {
-            AdTemplate adTemplate = this.b;
+            AdTemplate adTemplate = this.mAdTemplate;
             if (adTemplate != null) {
-                return com.kwad.sdk.core.response.a.a.H(com.kwad.sdk.core.response.a.d.i(adTemplate));
+                return com.kwad.sdk.core.response.a.a.al(com.kwad.sdk.core.response.a.d.bQ(adTemplate));
             }
             return null;
         }
         return (String) invokeV.objValue;
     }
 
-    public final void a(@Nullable com.kwad.components.core.c.a.b bVar, AdTemplate adTemplate) {
+    public final void a(@Nullable com.kwad.components.core.c.a.c cVar, AdTemplate adTemplate) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, bVar, adTemplate) == null) {
-            this.a = bVar;
-            this.b = adTemplate;
-            if (bVar != null) {
-                bVar.a(this);
+        if (interceptable == null || interceptable.invokeLL(1048576, this, cVar, adTemplate) == null) {
+            this.mApkDownloadHelper = cVar;
+            this.mAdTemplate = adTemplate;
+            if (cVar != null) {
+                cVar.b(this);
             }
-            a(getAdActionDesc());
+            aL(getAdActionDesc());
         }
     }
 
@@ -146,8 +146,8 @@ public class KsConvertButton extends KSCornerButton implements KsAppDownloadList
     public void onDownloadFailed() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            AdTemplate adTemplate = this.b;
-            a(adTemplate != null ? com.kwad.sdk.core.response.a.a.H(com.kwad.sdk.core.response.a.d.i(adTemplate)) : "立即下载");
+            AdTemplate adTemplate = this.mAdTemplate;
+            aL(adTemplate != null ? com.kwad.sdk.core.response.a.a.al(com.kwad.sdk.core.response.a.d.bQ(adTemplate)) : "立即下载");
         }
     }
 
@@ -169,7 +169,7 @@ public class KsConvertButton extends KSCornerButton implements KsAppDownloadList
     public void onIdle() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            a(getAdActionDesc());
+            aL(getAdActionDesc());
         }
     }
 
@@ -177,8 +177,8 @@ public class KsConvertButton extends KSCornerButton implements KsAppDownloadList
     public void onInstalled() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            AdTemplate adTemplate = this.b;
-            a(adTemplate != null ? com.kwad.sdk.core.response.a.a.n(com.kwad.sdk.core.response.a.d.i(adTemplate)) : "立即打开");
+            AdTemplate adTemplate = this.mAdTemplate;
+            aL(adTemplate != null ? com.kwad.sdk.core.response.a.a.P(com.kwad.sdk.core.response.a.d.bQ(adTemplate)) : "立即打开");
         }
     }
 
@@ -186,7 +186,7 @@ public class KsConvertButton extends KSCornerButton implements KsAppDownloadList
     public void onProgressUpdate(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
-            a("下载中..." + i + "%");
+            aL("下载中..." + i + "%");
         }
     }
 }

@@ -72,7 +72,7 @@ public class hd8 implements View.OnClickListener {
     public final SparseArray<ShareItem> j;
     public boolean k;
     public SparseArray<String> l;
-    public SparseArray<cy4> m;
+    public SparseArray<dy4> m;
 
     /* loaded from: classes6.dex */
     public class a implements CustomMessageTask.CustomRunnable<Object> {
@@ -231,12 +231,12 @@ public class hd8 implements View.OnClickListener {
         this.f = new ArrayList();
         View inflate = LayoutInflater.from(TbadkCoreApplication.getInst().getContext()).inflate(R.layout.obfuscated_res_0x7f0d0105, (ViewGroup) null);
         this.b = inflate;
-        this.d = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091d3c);
+        this.d = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091d42);
         String sharePanelText = TbSingleton.getInstance().getSharePanelText();
         if (!TextUtils.isEmpty(sharePanelText)) {
             this.d.setText(sharePanelText);
         }
-        ShareGridLayout shareGridLayout = (ShareGridLayout) this.b.findViewById(R.id.obfuscated_res_0x7f091d40);
+        ShareGridLayout shareGridLayout = (ShareGridLayout) this.b.findViewById(R.id.obfuscated_res_0x7f091d46);
         this.e = shareGridLayout;
         ViewGroup.LayoutParams layoutParams = shareGridLayout.getLayoutParams();
         if (layoutParams instanceof ViewGroup.MarginLayoutParams) {
@@ -251,18 +251,18 @@ public class hd8 implements View.OnClickListener {
         this.c = textView;
         textView.setOnClickListener(this);
         if (!o(i)) {
-            m(new SvgMaskType(R.drawable.obfuscated_res_0x7f080804), R.string.obfuscated_res_0x7f0f117f, 4);
+            m(new SvgMaskType(R.drawable.obfuscated_res_0x7f080804), R.string.obfuscated_res_0x7f0f112e, 4);
         }
         if (!p(i)) {
-            m(new SvgMaskType(R.drawable.obfuscated_res_0x7f080800), R.string.obfuscated_res_0x7f0f1186, 3);
+            m(new SvgMaskType(R.drawable.obfuscated_res_0x7f080800), R.string.obfuscated_res_0x7f0f1135, 3);
         }
         if (!n(i)) {
-            m(new SvgMaskType(R.drawable.obfuscated_res_0x7f080801), R.string.obfuscated_res_0x7f0f115e, 9);
+            m(new SvgMaskType(R.drawable.obfuscated_res_0x7f080801), R.string.obfuscated_res_0x7f0f110d, 9);
         }
         if (!q(i)) {
-            m(new SvgMaskType(R.drawable.obfuscated_res_0x7f080805), R.string.obfuscated_res_0x7f0f116d, 7);
+            m(new SvgMaskType(R.drawable.obfuscated_res_0x7f080805), R.string.obfuscated_res_0x7f0f111c, 7);
         }
-        if (jz4.n()) {
+        if (kz4.n()) {
             return;
         }
         this.e.setVisibility(8);
@@ -406,7 +406,7 @@ public class hd8 implements View.OnClickListener {
             layoutParams2.gravity = 1;
             linearLayout.addView(textView, layoutParams2);
             imageView.setImageResource(i2);
-            textView.setTextColor(this.a.getResources().getColorStateList(R.color.obfuscated_res_0x7f060a11));
+            textView.setTextColor(this.a.getResources().getColorStateList(R.color.obfuscated_res_0x7f060a01));
             return linearLayout;
         }
         return (LinearLayout) invokeII.objValue;
@@ -438,7 +438,7 @@ public class hd8 implements View.OnClickListener {
         layoutParams2.gravity = 1;
         linearLayout.addView(textView, layoutParams2);
         imageView.setImageDrawable(absSvgType.getDrawable());
-        textView.setTextColor(this.a.getResources().getColorStateList(R.color.obfuscated_res_0x7f060a11));
+        textView.setTextColor(this.a.getResources().getColorStateList(R.color.obfuscated_res_0x7f060a01));
         linearLayout.setOnClickListener(this);
         this.f.add(linearLayout);
     }
@@ -466,7 +466,7 @@ public class hd8 implements View.OnClickListener {
             }
             if (view2.getId() == R.id.obfuscated_res_0x7f0903f9 || !this.k) {
                 this.k = true;
-                jz4 jz4Var = new jz4(this.a, null);
+                kz4 kz4Var = new kz4(this.a, null);
                 ShareItem j = j(1);
                 if (id == R.id.obfuscated_res_0x7f0903f9) {
                     v("share_cancel", new Object[0]);
@@ -478,7 +478,7 @@ public class hd8 implements View.OnClickListener {
                 }
                 if (intValue == 4) {
                     if (!ni.z()) {
-                        pi.N(TbadkCoreApplication.getInst().getContext(), R.string.obfuscated_res_0x7f0f1153);
+                        pi.N(TbadkCoreApplication.getInst().getContext(), R.string.obfuscated_res_0x7f0f1102);
                         return;
                     }
                     v("share_to_weixin", new Object[0]);
@@ -486,11 +486,11 @@ public class hd8 implements View.OnClickListener {
                     ShareItem j2 = j(3);
                     A(j2, 4);
                     if (j2 != null) {
-                        jz4Var.t(j2);
+                        kz4Var.t(j2);
                     }
                 } else if (intValue == 3) {
                     if (!ni.z()) {
-                        pi.N(TbadkCoreApplication.getInst().getContext(), R.string.obfuscated_res_0x7f0f1153);
+                        pi.N(TbadkCoreApplication.getInst().getContext(), R.string.obfuscated_res_0x7f0f1102);
                         return;
                     }
                     v("share_to_pyq", new Object[0]);
@@ -501,11 +501,11 @@ public class hd8 implements View.OnClickListener {
                         if (j3.b) {
                             j3.v = "【" + j3.u + "】 " + j3.v;
                         }
-                        jz4Var.u(j3);
+                        kz4Var.u(j3);
                     }
                 } else if (intValue == 5) {
                     if (!ni.z()) {
-                        pi.N(TbadkCoreApplication.getInst().getContext(), R.string.obfuscated_res_0x7f0f1153);
+                        pi.N(TbadkCoreApplication.getInst().getContext(), R.string.obfuscated_res_0x7f0f1102);
                         return;
                     } else if (sh8.b(this.a, "com.tencent.mobileqq")) {
                         v("share_to_qzone", new Object[0]);
@@ -513,15 +513,15 @@ public class hd8 implements View.OnClickListener {
                         ShareItem j4 = j(4);
                         A(j4, 5);
                         if (j4 != null) {
-                            jz4Var.p(j4);
+                            kz4Var.p(j4);
                         }
                     } else {
                         Context context = this.a;
-                        BdToast.b(context, context.getText(R.string.obfuscated_res_0x7f0f115f)).h();
+                        BdToast.b(context, context.getText(R.string.obfuscated_res_0x7f0f110e)).h();
                     }
                 } else if (intValue == 6) {
                     if (!ni.z()) {
-                        pi.N(TbadkCoreApplication.getInst().getContext(), R.string.obfuscated_res_0x7f0f1153);
+                        pi.N(TbadkCoreApplication.getInst().getContext(), R.string.obfuscated_res_0x7f0f1102);
                         return;
                     }
                     v("share_to_qweibo", new Object[0]);
@@ -532,11 +532,11 @@ public class hd8 implements View.OnClickListener {
                         if (!j5.a) {
                             j5.v = h(j5);
                         }
-                        jz4Var.s(j5);
+                        kz4Var.s(j5);
                     }
                 } else if (intValue == 7) {
                     if (!ni.z()) {
-                        pi.N(TbadkCoreApplication.getInst().getContext(), R.string.obfuscated_res_0x7f0f1153);
+                        pi.N(TbadkCoreApplication.getInst().getContext(), R.string.obfuscated_res_0x7f0f1102);
                         return;
                     }
                     v("share_to_sweibo", new Object[0]);
@@ -547,11 +547,11 @@ public class hd8 implements View.OnClickListener {
                         if (!j6.a) {
                             j6.v = h(j6);
                         }
-                        jz4Var.r(j6);
+                        kz4Var.r(j6);
                     }
                 } else if (intValue == 8) {
                     if (!ni.z()) {
-                        pi.N(TbadkCoreApplication.getInst().getContext(), R.string.obfuscated_res_0x7f0f1153);
+                        pi.N(TbadkCoreApplication.getInst().getContext(), R.string.obfuscated_res_0x7f0f1102);
                         return;
                     }
                     v("share_to_renren", new Object[0]);
@@ -562,11 +562,11 @@ public class hd8 implements View.OnClickListener {
                         if (!j7.a) {
                             j7.v = h(j7);
                         }
-                        jz4Var.q(j7);
+                        kz4Var.q(j7);
                     }
                 } else if (intValue == 9) {
                     if (!ni.z()) {
-                        pi.N(TbadkCoreApplication.getInst().getContext(), R.string.obfuscated_res_0x7f0f1153);
+                        pi.N(TbadkCoreApplication.getInst().getContext(), R.string.obfuscated_res_0x7f0f1102);
                         return;
                     } else if (sh8.b(this.a, "com.tencent.mobileqq")) {
                         v("share_to_qq_friend", new Object[0]);
@@ -574,11 +574,11 @@ public class hd8 implements View.OnClickListener {
                         ShareItem j8 = j(8);
                         A(j8, 9);
                         if (j8 != null) {
-                            jz4Var.o(j8);
+                            kz4Var.o(j8);
                         }
                     } else {
                         Context context2 = this.a;
-                        BdToast.b(context2, context2.getText(R.string.obfuscated_res_0x7f0f115f)).h();
+                        BdToast.b(context2, context2.getText(R.string.obfuscated_res_0x7f0f110e)).h();
                     }
                 } else if (intValue == 10) {
                     A(j, 10);
@@ -587,7 +587,7 @@ public class hd8 implements View.OnClickListener {
                         onClickListener.onClick(view2);
                     } else {
                         ei.a(j.w);
-                        pi.O(this.a.getApplicationContext(), this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0446));
+                        pi.O(this.a.getApplicationContext(), this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0445));
                     }
                     y(j);
                     if (j != null && j.a) {
@@ -643,13 +643,13 @@ public class hd8 implements View.OnClickListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048596, this) == null) {
             if (!ni.z()) {
-                pi.N(TbadkCoreApplication.getInst().getContext(), R.string.obfuscated_res_0x7f0f1153);
+                pi.N(TbadkCoreApplication.getInst().getContext(), R.string.obfuscated_res_0x7f0f1102);
                 Context context = this.a;
                 if (context instanceof Activity) {
                     ((Activity) context).finish();
                 }
-            } else if (!jz4.n()) {
-                pi.N(TbadkCoreApplication.getInst().getContext(), R.string.obfuscated_res_0x7f0f0e9b);
+            } else if (!kz4.n()) {
+                pi.N(TbadkCoreApplication.getInst().getContext(), R.string.obfuscated_res_0x7f0f0e84);
             } else {
                 d();
                 AlertDialog create = new AlertDialog.Builder(this.a, R.style.obfuscated_res_0x7f100106).create();
@@ -690,11 +690,11 @@ public class hd8 implements View.OnClickListener {
             return;
         }
         this.k = true;
-        SparseArray<cy4> sparseArray = this.m;
+        SparseArray<dy4> sparseArray = this.m;
         if (sparseArray != null) {
-            cy4 cy4Var = sparseArray.get(i);
-            if (!StringUtils.isNull(cy4Var.b()) && cy4Var.a() != null && cy4Var.a().size() > 0) {
-                v(cy4Var.b(), cy4Var.a());
+            dy4 dy4Var = sparseArray.get(i);
+            if (!StringUtils.isNull(dy4Var.b()) && dy4Var.a() != null && dy4Var.a().size() > 0) {
+                v(dy4Var.b(), dy4Var.a());
                 return;
             }
         }

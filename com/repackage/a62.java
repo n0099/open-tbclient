@@ -1,17 +1,21 @@
 package com.repackage;
 
 import android.util.Log;
-import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class a62 {
+public class a62 implements z52 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
+    public static final boolean c;
     public transient /* synthetic */ FieldHolder $fh;
+    public final int a;
+    public final t52 b;
 
     static {
         InterceptResult invokeClinit;
@@ -26,51 +30,66 @@ public class a62 {
                 return;
             }
         }
-        a = rg1.a;
+        c = sg1.a;
     }
 
-    @NonNull
-    public static y52 a() {
+    public a62(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.a = i >= 20 ? Math.min(i, 300) : 20;
+        this.b = new w52(10);
+    }
+
+    @Override // com.repackage.z52
+    public t52 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            y52 b = b(c());
-            if (a) {
-                Log.d("PrelinkStrategyFactory", "prelink strategy - " + b.getClass().getSimpleName());
-            }
-            return b;
-        }
-        return (y52) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (t52) invokeV.objValue;
     }
 
-    public static y52 b(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
-            if (i == 0) {
-                return new w52();
-            }
-            if (i > 0) {
-                return new z52(i);
-            }
-            if (i == -1) {
-                return new x52();
-            }
-            return new w52();
-        }
-        return (y52) invokeI.objValue;
-    }
-
-    public static int c() {
+    @Override // com.repackage.z52
+    public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            oj2.g0().getSwitch("swan_prelink_policy_when_prefetch", 0);
-            if (a) {
-                Log.d("PrelinkStrategyFactory", "swan_prelink_policy_when_prefetch = 0");
-            }
-            return 0;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return true;
         }
-        return invokeV.intValue;
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.repackage.z52
+    public boolean c(String str, String str2, String str3) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, str, str2, str3)) == null) {
+            if (c) {
+                Log.d("LocalLruStrategy", "prelink url - " + str3);
+            }
+            u52 a = this.b.a(str2, str3);
+            if (a == null) {
+                if (c) {
+                    Log.d("LocalLruStrategy", "url not in LRU, do prelink");
+                }
+                return true;
+            }
+            boolean z = System.currentTimeMillis() - a.b >= ((long) (this.a * 1000));
+            if (c) {
+                Log.d("LocalLruStrategy", "url in LRU, time is out - " + z);
+            }
+            return z;
+        }
+        return invokeLLL.booleanValue;
     }
 }

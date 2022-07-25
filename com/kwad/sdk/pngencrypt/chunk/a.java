@@ -1,14 +1,14 @@
 package com.kwad.sdk.pngencrypt.chunk;
 /* loaded from: classes5.dex */
 public final class a implements com.kwad.sdk.pngencrypt.g {
-    public boolean a;
+    public boolean alt;
 
     public a() {
         this(true);
     }
 
     public a(boolean z) {
-        this.a = true;
+        this.alt = true;
     }
 
     public static PngChunk a(String str, com.kwad.sdk.pngencrypt.k kVar) {
@@ -61,15 +61,15 @@ public final class a implements com.kwad.sdk.pngencrypt.g {
 
     @Override // com.kwad.sdk.pngencrypt.g
     public final PngChunk a(d dVar, com.kwad.sdk.pngencrypt.k kVar) {
-        PngChunk a = a(dVar.c, kVar);
+        PngChunk a = a(dVar.alB, kVar);
         if (a == null) {
-            a = c(dVar.c, kVar);
+            a = c(dVar.alB, kVar);
         }
         if (a == null) {
-            a = b(dVar.c, kVar);
+            a = b(dVar.alB, kVar);
         }
         a.b(dVar);
-        if (this.a && dVar.d != null) {
+        if (this.alt && dVar.data != null) {
             a.a(dVar);
         }
         return a;

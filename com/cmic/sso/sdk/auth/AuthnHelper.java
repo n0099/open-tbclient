@@ -8,7 +8,6 @@ import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.launched.LaunchedTaskSpeedStats;
-import com.baidu.sofire.utility.PermissionChecker;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -281,7 +280,7 @@ public class AuthnHelper {
             JSONObject jSONObject = new JSONObject();
             try {
                 boolean a2 = m.a(this.b);
-                com.cmic.sso.sdk.b.a.a().a(context, g.a(context, PermissionChecker.READ_PHONE_STATE), a2);
+                com.cmic.sso.sdk.b.a.a().a(context, g.a(context, com.kuaishou.weapon.p0.h.c), a2);
                 String a3 = j.a().a((String) null);
                 int a4 = m.a(context, a2);
                 jSONObject.put("operatortype", a3);
@@ -590,7 +589,7 @@ public class AuthnHelper {
             aVar.a("appkey", str2);
             aVar.a("appid", str);
             aVar.a("timeOut", String.valueOf(this.d));
-            boolean a4 = g.a(this.b, PermissionChecker.READ_PHONE_STATE);
+            boolean a4 = g.a(this.b, com.kuaishou.weapon.p0.h.c);
             com.cmic.sso.sdk.e.c.a("AuthnHelper", "有READ_PHONE_STATE权限？" + a4);
             aVar.a("hsaReadPhoneStatePermission", a4);
             boolean a5 = m.a(this.b);

@@ -541,7 +541,7 @@ public class cd8 extends xc8 {
                     if (ed8Var2 != null) {
                         ed8Var2.e1(this.i, 2);
                     }
-                    BdToast.b(d(), d().getText(R.string.obfuscated_res_0x7f0f1185)).h();
+                    BdToast.b(d(), d().getText(R.string.obfuscated_res_0x7f0f1134)).h();
                     return;
                 }
                 ym p = p(shareEntity);
@@ -789,7 +789,7 @@ public class cd8 extends xc8 {
         if (!(interceptable == null || interceptable.invokeIL(1048602, this, i, str) == null) || (shareEntity = this.e) == null || StringUtils.isNull(shareEntity.getImgUrl())) {
             return;
         }
-        mt4.a("socail_share", -1L, 0, WXEntryActivityConfig.WX_SHARE_FAIL, i, "", "share_fail_exception", str + "&" + this.e.getImgUrl());
+        nt4.a("socail_share", -1L, 0, WXEntryActivityConfig.WX_SHARE_FAIL, i, "", "share_fail_exception", str + "&" + this.e.getImgUrl());
     }
 
     public byte[] m0(Bitmap bitmap, boolean z) {

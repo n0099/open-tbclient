@@ -1,15 +1,17 @@
 package com.repackage;
 
-import com.baidu.swan.game.ad.downloader.model.DownloadInfo;
+import com.baidu.swan.game.ad.downloader.model.DownloadState;
 /* loaded from: classes6.dex */
 public interface io3 {
-    void a(DownloadInfo downloadInfo);
+    void a(int i);
 
     void b();
 
-    DownloadInfo c(String str);
+    void c(DownloadState downloadState, int i);
 
-    void close();
+    void d(String str);
 
-    void delete(DownloadInfo downloadInfo);
+    String e();
+
+    void f(boolean z);
 }

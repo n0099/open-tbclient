@@ -12,7 +12,7 @@ import org.json.JSONObject;
 import tbclient.ItemManage.DataRes;
 import tbclient.ManageInfo;
 /* loaded from: classes7.dex */
-public class s36 implements u75 {
+public class s36 implements v75 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public List<j36> a;
@@ -59,14 +59,14 @@ public class s36 implements u75 {
         }
     }
 
-    @Override // com.repackage.u75
+    @Override // com.repackage.v75
     public void initByJson(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) {
         }
     }
 
-    @Override // com.repackage.u75
+    @Override // com.repackage.v75
     public void initByProtobuf(Message message) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, message) == null) {

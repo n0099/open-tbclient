@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.kn7;
-import com.repackage.m45;
+import com.repackage.n45;
 import com.repackage.nn7;
 import com.repackage.vi;
 import java.util.ArrayList;
@@ -128,7 +128,7 @@ public class GetCloudFaceGroupMessage extends JsonHttpResponsedMessage {
                         collectEmotionData.thumbnail = jSONObject.optString("thumbnail");
                         collectEmotionData.uid = TbadkCoreApplication.getCurrentAccount();
                         collectEmotionData.pkgId = jSONObject.optString("pck_id");
-                        StringBuilder sb = new StringBuilder(m45.h);
+                        StringBuilder sb = new StringBuilder(n45.h);
                         if (TextUtils.isEmpty(collectEmotionData.pkgId)) {
                             sb.append(collectEmotionData.pkgId);
                             sb.append(",");

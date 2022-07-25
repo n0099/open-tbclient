@@ -1,13 +1,5 @@
 package com.repackage;
-
-import android.content.Intent;
 /* loaded from: classes6.dex */
-public interface ia5 {
-    boolean J0();
-
-    Intent getResultIntent();
-
-    void n(int i);
-
-    boolean s();
+public interface ia5 extends ja5 {
+    void D(float f);
 }

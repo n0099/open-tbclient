@@ -51,12 +51,12 @@ public class OaidProvider extends g40 {
 
         /* renamed from: com.baidu.helios.ids.oid.OaidProvider$a$a  reason: collision with other inner class name */
         /* loaded from: classes2.dex */
-        public class RunnableC0097a implements Runnable {
+        public class RunnableC0098a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public RunnableC0097a(a aVar) {
+            public RunnableC0098a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -113,7 +113,7 @@ public class OaidProvider extends g40 {
         public void handleMessage(Message message) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, message) == null) && message.what == 0) {
-                this.b.b.d.submit(new RunnableC0097a(this));
+                this.b.b.d.submit(new RunnableC0098a(this));
             }
         }
     }
@@ -173,13 +173,13 @@ public class OaidProvider extends g40 {
 
         /* renamed from: com.baidu.helios.ids.oid.OaidProvider$b$b  reason: collision with other inner class name */
         /* loaded from: classes2.dex */
-        public class RunnableC0098b implements Runnable {
+        public class RunnableC0099b implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ Throwable a;
             public final /* synthetic */ b b;
 
-            public RunnableC0098b(b bVar, Throwable th) {
+            public RunnableC0099b(b bVar, Throwable th) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -247,7 +247,7 @@ public class OaidProvider extends g40 {
                     }
                     this.d.m(this.c, this.a, this.d.h ? MdidSdkHelper.InitSdk(this.b, false, new a(this, elapsedRealtime)) : InfoCode.INIT_ERROR_CERT_ERROR, 0);
                 } catch (Throwable th) {
-                    this.d.b.d.submit(new RunnableC0098b(this, th));
+                    this.d.b.d.submit(new RunnableC0099b(this, th));
                 }
             }
         }

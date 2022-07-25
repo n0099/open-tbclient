@@ -229,9 +229,9 @@ public class ka6 {
             if (this.d == null) {
                 tt8 tt8Var = new tt8(this.a.getContext());
                 this.e = tt8Var;
-                tt8Var.h(this.a.getString(R.string.obfuscated_res_0x7f0f042d));
+                tt8Var.h(this.a.getString(R.string.obfuscated_res_0x7f0f042c));
                 ArrayList arrayList = new ArrayList();
-                tt8.b bVar = new tt8.b(this.a.getString(R.string.obfuscated_res_0x7f0f0427), this.e);
+                tt8.b bVar = new tt8.b(this.a.getString(R.string.obfuscated_res_0x7f0f0426), this.e);
                 bVar.h(new c(this));
                 arrayList.add(bVar);
                 this.e.g(new d(this));

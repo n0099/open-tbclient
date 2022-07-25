@@ -20,7 +20,7 @@ public abstract class ff5<T> extends gf5 {
     public List<T> c;
     public Context d;
     public LayoutInflater e;
-    public im4<T> f;
+    public jm4<T> f;
 
     /* loaded from: classes6.dex */
     public class a implements View.OnClickListener {
@@ -52,14 +52,14 @@ public abstract class ff5<T> extends gf5 {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
-            im4<T> im4Var;
+            jm4<T> jm4Var;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || (im4Var = this.c.f) == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || (jm4Var = this.c.f) == null) {
                 return;
             }
             T t = this.a;
             int i = this.b;
-            im4Var.c(view2, t, i, i);
+            jm4Var.c(view2, t, i, i);
         }
     }
 
@@ -119,10 +119,10 @@ public abstract class ff5<T> extends gf5 {
         }
     }
 
-    public void h(im4<T> im4Var) {
+    public void h(jm4<T> jm4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, im4Var) == null) {
-            this.f = im4Var;
+        if (interceptable == null || interceptable.invokeL(1048580, this, jm4Var) == null) {
+            this.f = jm4Var;
         }
     }
 

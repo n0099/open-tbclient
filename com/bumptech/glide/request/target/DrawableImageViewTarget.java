@@ -59,7 +59,7 @@ public class DrawableImageViewTarget extends ImageViewTarget<Drawable> {
     public void setResource(@Nullable Drawable drawable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, drawable) == null) {
-            ((ImageView) this.f1780view).setImageDrawable(drawable);
+            ((ImageView) this.f1060view).setImageDrawable(drawable);
         }
     }
 }

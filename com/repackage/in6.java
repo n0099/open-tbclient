@@ -82,7 +82,7 @@ public class in6 implements hn6, gn6 {
                     customResponsedMessage.setOrginalMessage(customMessage);
                     MessageManager.getInstance().dispatchResponsedMessage(customResponsedMessage);
                 }
-                if (!TextUtils.equals(this.a.a.getResources().getString(R.string.obfuscated_res_0x7f0f089c), this.a.f.b) || this.a.i == null || this.a.i.getForum() == null || TextUtils.isEmpty(this.a.i.getForum().getId())) {
+                if (!TextUtils.equals(this.a.a.getResources().getString(R.string.obfuscated_res_0x7f0f0887), this.a.f.b) || this.a.i == null || this.a.i.getForum() == null || TextUtils.isEmpty(this.a.i.getForum().getId())) {
                     if (this.a.f != null && this.a.f.f != null) {
                         TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_FE_FITE_PROGRAM_CLICK).param("uid", TbadkCoreApplication.getCurrentAccountId()).param("fid", this.a.f.g).param("obj_source", "frs_card").param("obj_id", this.a.f.f.b).param("obj_name", this.a.f.f.a).param("obj_param1", this.a.f.f.d.intValue()));
                     }
@@ -120,10 +120,10 @@ public class in6 implements hn6, gn6 {
         this.j = new a(this);
         View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0339, (ViewGroup) null);
         this.a = inflate;
-        this.b = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090b9d);
-        this.c = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f090b9f);
-        this.d = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f090ba1);
-        TbClipImageView tbClipImageView = (TbClipImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090ba0);
+        this.b = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090b96);
+        this.c = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f090b98);
+        this.d = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f090b9a);
+        TbClipImageView tbClipImageView = (TbClipImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090b99);
         this.e = tbClipImageView;
         tbClipImageView.setDrawerType(1);
         this.e.setIsRound(true);
@@ -131,13 +131,13 @@ public class in6 implements hn6, gn6 {
         int dimensionPixelOffset = TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(R.dimen.tbds57);
         int dimensionPixelOffset2 = TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(R.dimen.tbds1);
         int dimensionPixelOffset3 = TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(R.dimen.tbds15);
-        ImageOverlayView imageOverlayView = (ImageOverlayView) this.a.findViewById(R.id.obfuscated_res_0x7f090e3d);
+        ImageOverlayView imageOverlayView = (ImageOverlayView) this.a.findViewById(R.id.obfuscated_res_0x7f090e36);
         this.h = imageOverlayView;
         imageOverlayView.a(3, dimensionPixelOffset, dimensionPixelOffset, dimensionPixelOffset2, R.color.CAM_X0618, dimensionPixelOffset3);
         this.h.setStrokeStyle(1);
         this.h.setLoadImageType(12);
         this.a.setOnClickListener(this.j);
-        this.g = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090b9e);
+        this.g = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090b97);
     }
 
     @Override // com.repackage.hn6
@@ -152,14 +152,14 @@ public class in6 implements hn6, gn6 {
             return;
         }
         this.f = uh8Var;
-        if (!TextUtils.equals(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f089c), this.f.b)) {
-            this.c.setText(this.a.getContext().getString(R.string.obfuscated_res_0x7f0f066d));
+        if (!TextUtils.equals(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0887), this.f.b)) {
+            this.c.setText(this.a.getContext().getString(R.string.obfuscated_res_0x7f0f0669));
         } else {
-            this.c.setText(this.a.getContext().getString(R.string.obfuscated_res_0x7f0f073f));
-            this.b.setText(this.a.getContext().getString(R.string.obfuscated_res_0x7f0f0871));
+            this.c.setText(this.a.getContext().getString(R.string.obfuscated_res_0x7f0f073b));
+            this.b.setText(this.a.getContext().getString(R.string.obfuscated_res_0x7f0f085c));
         }
         this.d.setText(StringHelper.cutStringWithEllipsisStrict(uh8Var.c, 20));
-        if (TextUtils.equals(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f089c), uh8Var.b)) {
+        if (TextUtils.equals(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0887), uh8Var.b)) {
             this.h.setVisibility(0);
             this.e.setVisibility(8);
             f(frsViewData);

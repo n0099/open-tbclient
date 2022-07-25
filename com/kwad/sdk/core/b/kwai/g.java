@@ -140,6 +140,7 @@ public final class g implements com.kwad.sdk.core.d<AdInfo.AdBaseInfo> {
         adBaseInfo.campaignType = jSONObject.optInt("campaignType");
         adBaseInfo.itemType = jSONObject.optInt("itemType");
         adBaseInfo.industryFirstLevelId = jSONObject.optInt("industryFirstLevelId");
+        adBaseInfo.extraClickReward = jSONObject.optBoolean("extraClickReward");
     }
 
     /* renamed from: b  reason: avoid collision after fix types in other method */
@@ -147,51 +148,166 @@ public final class g implements com.kwad.sdk.core.d<AdInfo.AdBaseInfo> {
         if (jSONObject == null) {
             jSONObject = new JSONObject();
         }
-        com.kwad.sdk.utils.r.a(jSONObject, "creativeId", adBaseInfo.creativeId);
-        com.kwad.sdk.utils.r.a(jSONObject, "adSourceType", adBaseInfo.adSourceType);
-        com.kwad.sdk.utils.r.a(jSONObject, "viewCount", adBaseInfo.viewCount);
-        com.kwad.sdk.utils.r.a(jSONObject, "sdkExtraData", adBaseInfo.sdkExtraData);
-        com.kwad.sdk.utils.r.a(jSONObject, "adDescription", adBaseInfo.adDescription);
-        com.kwad.sdk.utils.r.a(jSONObject, "installAppLabel", adBaseInfo.installAppLabel);
-        com.kwad.sdk.utils.r.a(jSONObject, "openAppLabel", adBaseInfo.openAppLabel);
-        com.kwad.sdk.utils.r.a(jSONObject, "adMarkIcon", adBaseInfo.adMarkIcon);
-        com.kwad.sdk.utils.r.a(jSONObject, "adGrayMarkIcon", adBaseInfo.adGrayMarkIcon);
-        com.kwad.sdk.utils.r.a(jSONObject, "adSourceDescription", adBaseInfo.adSourceDescription);
-        com.kwad.sdk.utils.r.a(jSONObject, "adOperationType", adBaseInfo.adOperationType);
-        com.kwad.sdk.utils.r.a(jSONObject, "adActionDescription", adBaseInfo.adActionDescription);
-        com.kwad.sdk.utils.r.a(jSONObject, "adActionBarColor", adBaseInfo.adActionBarColor);
-        com.kwad.sdk.utils.r.a(jSONObject, "adShowDuration", adBaseInfo.adShowDuration);
-        com.kwad.sdk.utils.r.a(jSONObject, "appName", adBaseInfo.appName);
-        com.kwad.sdk.utils.r.a(jSONObject, "appIconUrl", adBaseInfo.appIconUrl);
-        com.kwad.sdk.utils.r.a(jSONObject, "appPackageName", adBaseInfo.appPackageName);
-        com.kwad.sdk.utils.r.a(jSONObject, "appScore", adBaseInfo.appScore);
-        com.kwad.sdk.utils.r.a(jSONObject, "appDownloadCountDesc", adBaseInfo.appDownloadCountDesc);
-        com.kwad.sdk.utils.r.a(jSONObject, "appCategory", adBaseInfo.appCategory);
-        com.kwad.sdk.utils.r.a(jSONObject, "appVersion", adBaseInfo.appVersion);
-        com.kwad.sdk.utils.r.a(jSONObject, "corporationName", adBaseInfo.corporationName);
-        com.kwad.sdk.utils.r.a(jSONObject, "packageSize", adBaseInfo.packageSize);
-        com.kwad.sdk.utils.r.a(jSONObject, "appImageUrl", adBaseInfo.appImageUrl);
+        long j = adBaseInfo.creativeId;
+        if (j != 0) {
+            com.kwad.sdk.utils.r.putValue(jSONObject, "creativeId", j);
+        }
+        int i = adBaseInfo.adSourceType;
+        if (i != 0) {
+            com.kwad.sdk.utils.r.putValue(jSONObject, "adSourceType", i);
+        }
+        long j2 = adBaseInfo.viewCount;
+        if (j2 != 0) {
+            com.kwad.sdk.utils.r.putValue(jSONObject, "viewCount", j2);
+        }
+        String str = adBaseInfo.sdkExtraData;
+        if (str != null && !str.equals("")) {
+            com.kwad.sdk.utils.r.putValue(jSONObject, "sdkExtraData", adBaseInfo.sdkExtraData);
+        }
+        String str2 = adBaseInfo.adDescription;
+        if (str2 != null && !str2.equals("")) {
+            com.kwad.sdk.utils.r.putValue(jSONObject, "adDescription", adBaseInfo.adDescription);
+        }
+        String str3 = adBaseInfo.installAppLabel;
+        if (str3 != null && !str3.equals("")) {
+            com.kwad.sdk.utils.r.putValue(jSONObject, "installAppLabel", adBaseInfo.installAppLabel);
+        }
+        String str4 = adBaseInfo.openAppLabel;
+        if (str4 != null && !str4.equals("")) {
+            com.kwad.sdk.utils.r.putValue(jSONObject, "openAppLabel", adBaseInfo.openAppLabel);
+        }
+        String str5 = adBaseInfo.adMarkIcon;
+        if (str5 != null && !str5.equals("")) {
+            com.kwad.sdk.utils.r.putValue(jSONObject, "adMarkIcon", adBaseInfo.adMarkIcon);
+        }
+        String str6 = adBaseInfo.adGrayMarkIcon;
+        if (str6 != null && !str6.equals("")) {
+            com.kwad.sdk.utils.r.putValue(jSONObject, "adGrayMarkIcon", adBaseInfo.adGrayMarkIcon);
+        }
+        String str7 = adBaseInfo.adSourceDescription;
+        if (str7 != null && !str7.equals("")) {
+            com.kwad.sdk.utils.r.putValue(jSONObject, "adSourceDescription", adBaseInfo.adSourceDescription);
+        }
+        int i2 = adBaseInfo.adOperationType;
+        if (i2 != 0) {
+            com.kwad.sdk.utils.r.putValue(jSONObject, "adOperationType", i2);
+        }
+        String str8 = adBaseInfo.adActionDescription;
+        if (str8 != null && !str8.equals("")) {
+            com.kwad.sdk.utils.r.putValue(jSONObject, "adActionDescription", adBaseInfo.adActionDescription);
+        }
+        String str9 = adBaseInfo.adActionBarColor;
+        if (str9 != null && !str9.equals("")) {
+            com.kwad.sdk.utils.r.putValue(jSONObject, "adActionBarColor", adBaseInfo.adActionBarColor);
+        }
+        int i3 = adBaseInfo.adShowDuration;
+        if (i3 != 0) {
+            com.kwad.sdk.utils.r.putValue(jSONObject, "adShowDuration", i3);
+        }
+        String str10 = adBaseInfo.appName;
+        if (str10 != null && !str10.equals("")) {
+            com.kwad.sdk.utils.r.putValue(jSONObject, "appName", adBaseInfo.appName);
+        }
+        String str11 = adBaseInfo.appIconUrl;
+        if (str11 != null && !str11.equals("")) {
+            com.kwad.sdk.utils.r.putValue(jSONObject, "appIconUrl", adBaseInfo.appIconUrl);
+        }
+        String str12 = adBaseInfo.appPackageName;
+        if (str12 != null && !str12.equals("")) {
+            com.kwad.sdk.utils.r.putValue(jSONObject, "appPackageName", adBaseInfo.appPackageName);
+        }
+        int i4 = adBaseInfo.appScore;
+        if (i4 != 0) {
+            com.kwad.sdk.utils.r.putValue(jSONObject, "appScore", i4);
+        }
+        String str13 = adBaseInfo.appDownloadCountDesc;
+        if (str13 != null && !str13.equals("")) {
+            com.kwad.sdk.utils.r.putValue(jSONObject, "appDownloadCountDesc", adBaseInfo.appDownloadCountDesc);
+        }
+        String str14 = adBaseInfo.appCategory;
+        if (str14 != null && !str14.equals("")) {
+            com.kwad.sdk.utils.r.putValue(jSONObject, "appCategory", adBaseInfo.appCategory);
+        }
+        String str15 = adBaseInfo.appVersion;
+        if (str15 != null && !str15.equals("")) {
+            com.kwad.sdk.utils.r.putValue(jSONObject, "appVersion", adBaseInfo.appVersion);
+        }
+        String str16 = adBaseInfo.corporationName;
+        if (str16 != null && !str16.equals("")) {
+            com.kwad.sdk.utils.r.putValue(jSONObject, "corporationName", adBaseInfo.corporationName);
+        }
+        long j3 = adBaseInfo.packageSize;
+        if (j3 != 0) {
+            com.kwad.sdk.utils.r.putValue(jSONObject, "packageSize", j3);
+        }
+        com.kwad.sdk.utils.r.putValue(jSONObject, "appImageUrl", adBaseInfo.appImageUrl);
         com.kwad.sdk.utils.r.a(jSONObject, "appImageSize", adBaseInfo.appImageSize);
-        com.kwad.sdk.utils.r.a(jSONObject, "appDescription", adBaseInfo.appDescription);
-        com.kwad.sdk.utils.r.a(jSONObject, "enableSkipAd", adBaseInfo.enableSkipAd);
-        com.kwad.sdk.utils.r.a(jSONObject, "adCacheSwitch", adBaseInfo.adCacheSwitch);
-        com.kwad.sdk.utils.r.a(jSONObject, "adCacheSecond", adBaseInfo.adCacheSecond);
-        com.kwad.sdk.utils.r.a(jSONObject, "adCacheStrategy", adBaseInfo.adCacheStrategy);
-        com.kwad.sdk.utils.r.a(jSONObject, "adCacheSize", adBaseInfo.adCacheSize);
-        com.kwad.sdk.utils.r.a(jSONObject, "skipSecond", adBaseInfo.skipSecond);
-        com.kwad.sdk.utils.r.a(jSONObject, "ecpm", adBaseInfo.ecpm);
-        com.kwad.sdk.utils.r.a(jSONObject, "videoPlayedNS", adBaseInfo.videoPlayedNS);
-        com.kwad.sdk.utils.r.a(jSONObject, "productName", adBaseInfo.productName);
-        com.kwad.sdk.utils.r.a(jSONObject, "expParam", adBaseInfo.mABParams.toJson().toString());
-        com.kwad.sdk.utils.r.a(jSONObject, "showUrl", adBaseInfo.showUrl);
-        com.kwad.sdk.utils.r.a(jSONObject, Constants.KEYS.EXPOSED_CLICK_URL_KEY, adBaseInfo.clickUrl);
-        com.kwad.sdk.utils.r.a(jSONObject, "convUrl", adBaseInfo.convUrl);
-        com.kwad.sdk.utils.r.a(jSONObject, "adAttributeType", adBaseInfo.adAttributeType);
+        String str17 = adBaseInfo.appDescription;
+        if (str17 != null && !str17.equals("")) {
+            com.kwad.sdk.utils.r.putValue(jSONObject, "appDescription", adBaseInfo.appDescription);
+        }
+        int i5 = adBaseInfo.enableSkipAd;
+        if (i5 != 0) {
+            com.kwad.sdk.utils.r.putValue(jSONObject, "enableSkipAd", i5);
+        }
+        com.kwad.sdk.utils.r.putValue(jSONObject, "adCacheSwitch", adBaseInfo.adCacheSwitch);
+        com.kwad.sdk.utils.r.putValue(jSONObject, "adCacheSecond", adBaseInfo.adCacheSecond);
+        com.kwad.sdk.utils.r.putValue(jSONObject, "adCacheStrategy", adBaseInfo.adCacheStrategy);
+        com.kwad.sdk.utils.r.putValue(jSONObject, "adCacheSize", adBaseInfo.adCacheSize);
+        int i6 = adBaseInfo.skipSecond;
+        if (i6 != 0) {
+            com.kwad.sdk.utils.r.putValue(jSONObject, "skipSecond", i6);
+        }
+        int i7 = adBaseInfo.ecpm;
+        if (i7 != 0) {
+            com.kwad.sdk.utils.r.putValue(jSONObject, "ecpm", i7);
+        }
+        String str18 = adBaseInfo.videoPlayedNS;
+        if (str18 != null && !str18.equals("")) {
+            com.kwad.sdk.utils.r.putValue(jSONObject, "videoPlayedNS", adBaseInfo.videoPlayedNS);
+        }
+        String str19 = adBaseInfo.productName;
+        if (str19 != null && !str19.equals("")) {
+            com.kwad.sdk.utils.r.putValue(jSONObject, "productName", adBaseInfo.productName);
+        }
+        com.kwad.sdk.utils.r.putValue(jSONObject, "expParam", adBaseInfo.mABParams.toJson().toString());
+        String str20 = adBaseInfo.showUrl;
+        if (str20 != null && !str20.equals("")) {
+            com.kwad.sdk.utils.r.putValue(jSONObject, "showUrl", adBaseInfo.showUrl);
+        }
+        String str21 = adBaseInfo.clickUrl;
+        if (str21 != null && !str21.equals("")) {
+            com.kwad.sdk.utils.r.putValue(jSONObject, Constants.KEYS.EXPOSED_CLICK_URL_KEY, adBaseInfo.clickUrl);
+        }
+        String str22 = adBaseInfo.convUrl;
+        if (str22 != null && !str22.equals("")) {
+            com.kwad.sdk.utils.r.putValue(jSONObject, "convUrl", adBaseInfo.convUrl);
+        }
+        int i8 = adBaseInfo.adAttributeType;
+        if (i8 != 0) {
+            com.kwad.sdk.utils.r.putValue(jSONObject, "adAttributeType", i8);
+        }
         com.kwad.sdk.utils.r.a(jSONObject, "apiExpParam", adBaseInfo.apiExpParam);
-        com.kwad.sdk.utils.r.a(jSONObject, StatConstants.KEY_EXT_TASK_TYPE, adBaseInfo.taskType);
-        com.kwad.sdk.utils.r.a(jSONObject, "campaignType", adBaseInfo.campaignType);
-        com.kwad.sdk.utils.r.a(jSONObject, "itemType", adBaseInfo.itemType);
-        com.kwad.sdk.utils.r.a(jSONObject, "industryFirstLevelId", adBaseInfo.industryFirstLevelId);
+        int i9 = adBaseInfo.taskType;
+        if (i9 != 0) {
+            com.kwad.sdk.utils.r.putValue(jSONObject, StatConstants.KEY_EXT_TASK_TYPE, i9);
+        }
+        int i10 = adBaseInfo.campaignType;
+        if (i10 != 0) {
+            com.kwad.sdk.utils.r.putValue(jSONObject, "campaignType", i10);
+        }
+        int i11 = adBaseInfo.itemType;
+        if (i11 != 0) {
+            com.kwad.sdk.utils.r.putValue(jSONObject, "itemType", i11);
+        }
+        int i12 = adBaseInfo.industryFirstLevelId;
+        if (i12 != 0) {
+            com.kwad.sdk.utils.r.putValue(jSONObject, "industryFirstLevelId", i12);
+        }
+        boolean z = adBaseInfo.extraClickReward;
+        if (z) {
+            com.kwad.sdk.utils.r.putValue(jSONObject, "extraClickReward", z);
+        }
         return jSONObject;
     }
 

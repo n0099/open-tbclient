@@ -1,15 +1,22 @@
 package com.repackage;
 
-import android.content.Context;
-import java.io.File;
-import org.json.JSONObject;
+import com.baidu.webkit.sdk.VideoPlayerFactory;
+import com.repackage.jz1;
 /* loaded from: classes6.dex */
 public interface lk1 {
-    void a(String str, String str2);
+    int a();
 
-    File b(Context context, String str);
+    VideoPlayerFactory b();
 
-    JSONObject c(Context context, String str);
+    int c();
 
-    void d();
+    void d(boolean z);
+
+    boolean e();
+
+    boolean f();
+
+    void g(int i);
+
+    void h(jz1.c cVar);
 }

@@ -96,9 +96,9 @@ public class h89 {
 
     /* loaded from: classes6.dex */
     public interface b {
-        void b(long j);
-
         void onError(int i, String str);
+
+        void onProgress(long j);
 
         void onStartSuccess();
 

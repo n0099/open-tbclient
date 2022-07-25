@@ -80,16 +80,16 @@ public class DefaultDownloadViewLP extends FrameLayout implements kj0<DefaultDow
     public void c(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d05aa, this);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d05b4, this);
             setBackgroundResource(R.color.obfuscated_res_0x7f060868);
-            this.a = (BannerDownloadView) findViewById(R.id.obfuscated_res_0x7f0913be);
+            this.a = (BannerDownloadView) findViewById(R.id.obfuscated_res_0x7f09139a);
         }
     }
 
     public void d(boolean z) {
         View findViewById;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) || (findViewById = findViewById(R.id.obfuscated_res_0x7f09152a)) == null) {
+        if (!(interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) || (findViewById = findViewById(R.id.obfuscated_res_0x7f091505)) == null) {
             return;
         }
         findViewById.setVisibility(z ? 0 : 8);
@@ -115,7 +115,7 @@ public class DefaultDownloadViewLP extends FrameLayout implements kj0<DefaultDow
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048582, this, str, si0Var) == null) {
             if (si0Var.c == AdDownloadStatus.DOWNLOADING) {
-                str = getResources().getString(R.string.obfuscated_res_0x7f0f0b8f) + str;
+                str = getResources().getString(R.string.obfuscated_res_0x7f0f0b7b) + str;
                 setProgress(si0Var.i);
             } else {
                 setProgress(0.0f);

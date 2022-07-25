@@ -62,15 +62,15 @@ public class cw7 {
     public void b() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.c == null) {
-            RelativeLayout relativeLayout = (RelativeLayout) LayoutInflater.from(this.a.getContext()).inflate(R.layout.obfuscated_res_0x7f0d06a4, (ViewGroup) null);
+            RelativeLayout relativeLayout = (RelativeLayout) LayoutInflater.from(this.a.getContext()).inflate(R.layout.obfuscated_res_0x7f0d06ae, (ViewGroup) null);
             this.c = relativeLayout;
-            HeadImageView headImageView = (HeadImageView) relativeLayout.findViewById(R.id.obfuscated_res_0x7f090fb4);
+            HeadImageView headImageView = (HeadImageView) relativeLayout.findViewById(R.id.obfuscated_res_0x7f090fad);
             this.d = headImageView;
             headImageView.setIsRound(true);
             this.d.setPlaceHolder(1);
-            this.e = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f09226e);
-            this.f = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f09226d);
-            this.g = (ImageView) this.c.findViewById(R.id.obfuscated_res_0x7f090fb3);
+            this.e = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f092270);
+            this.f = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f09226f);
+            this.g = (ImageView) this.c.findViewById(R.id.obfuscated_res_0x7f090fac);
             this.c.setOnClickListener(this.b);
         }
     }
@@ -125,15 +125,15 @@ public class cw7 {
                 this.d.L(smartApp.avatar, 10, false, false);
             }
             if (!oi.isEmpty(smartApp.name)) {
-                charSequence = smartApp.name + " " + ((Object) this.a.getText(R.string.obfuscated_res_0x7f0f11be));
+                charSequence = smartApp.name + " " + ((Object) this.a.getText(R.string.obfuscated_res_0x7f0f116d));
             } else {
-                charSequence = this.a.getText(R.string.obfuscated_res_0x7f0f0906).toString();
+                charSequence = this.a.getText(R.string.obfuscated_res_0x7f0f08f1).toString();
             }
             this.e.setText(charSequence);
             if (!oi.isEmpty(smartApp._abstract)) {
                 this.f.setText(smartApp._abstract);
             } else {
-                this.f.setText(this.a.getText(R.string.obfuscated_res_0x7f0f11bd));
+                this.f.setText(this.a.getText(R.string.obfuscated_res_0x7f0f116c));
             }
             this.c.setTag(smartApp);
             return;

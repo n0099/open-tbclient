@@ -18,7 +18,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.de5;
 import com.repackage.he5;
-import com.repackage.jd5;
+import com.repackage.kd5;
 import com.repackage.pi;
 import com.repackage.s67;
 import com.repackage.v57;
@@ -110,9 +110,9 @@ public class ValidateModel {
         return (List) invokeL.objValue;
     }
 
-    public static void deleteValidateData(ValidateItemData validateItemData, jd5<Boolean> jd5Var) {
+    public static void deleteValidateData(ValidateItemData validateItemData, kd5<Boolean> kd5Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65539, null, validateItemData, jd5Var) == null) || validateItemData == null) {
+        if (!(interceptable == null || interceptable.invokeLL(65539, null, validateItemData, kd5Var) == null) || validateItemData == null) {
             return;
         }
         he5.c(new de5<Boolean>(validateItemData) { // from class: com.baidu.tieba.im.model.ValidateModel.3
@@ -146,7 +146,7 @@ public class ValidateModel {
                 Interceptable interceptable2 = $ic;
                 return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? Boolean.valueOf(v57.f().a(this.val$data.getNotice_id())) : (Boolean) invokeV.objValue;
             }
-        }, jd5Var);
+        }, kd5Var);
     }
 
     public static ValidateItemData getByNoticeid(String str) {
@@ -206,9 +206,9 @@ public class ValidateModel {
         }.execute(new Void[0]);
     }
 
-    public static void requestValidateDataCountFromDB(jd5<Integer> jd5Var) {
+    public static void requestValidateDataCountFromDB(kd5<Integer> kd5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65542, null, jd5Var) == null) {
+        if (interceptable == null || interceptable.invokeL(65542, null, kd5Var) == null) {
             he5.c(new de5<Integer>() { // from class: com.baidu.tieba.im.model.ValidateModel.5
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
@@ -235,13 +235,13 @@ public class ValidateModel {
                     Interceptable interceptable2 = $ic;
                     return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? Integer.valueOf(v57.f().e("apply_join_group")) : (Integer) invokeV.objValue;
                 }
-            }, jd5Var);
+            }, kd5Var);
         }
     }
 
-    public static void requestValidateDataFromDB(int i, int i2, jd5<LinkedList<GroupNewsPojo>> jd5Var) {
+    public static void requestValidateDataFromDB(int i, int i2, kd5<LinkedList<GroupNewsPojo>> kd5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIL(65543, null, i, i2, jd5Var) == null) {
+        if (interceptable == null || interceptable.invokeIIL(65543, null, i, i2, kd5Var) == null) {
             he5.c(new de5<LinkedList<GroupNewsPojo>>(i, i2) { // from class: com.baidu.tieba.im.model.ValidateModel.4
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
@@ -274,7 +274,7 @@ public class ValidateModel {
                     Interceptable interceptable2 = $ic;
                     return (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? v57.f().c(0L, this.val$count, this.val$offset, "apply_join_group") : (LinkedList) invokeV.objValue;
                 }
-            }, jd5Var);
+            }, kd5Var);
         }
     }
 
@@ -288,9 +288,9 @@ public class ValidateModel {
         }
     }
 
-    public static void updateValidateData(jd5<Boolean> jd5Var, ValidateItemData validateItemData) {
+    public static void updateValidateData(kd5<Boolean> kd5Var, ValidateItemData validateItemData) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65545, null, jd5Var, validateItemData) == null) || validateItemData == null) {
+        if (!(interceptable == null || interceptable.invokeLL(65545, null, kd5Var, validateItemData) == null) || validateItemData == null) {
             return;
         }
         he5.c(new de5<Boolean>(validateItemData) { // from class: com.baidu.tieba.im.model.ValidateModel.1
@@ -324,6 +324,6 @@ public class ValidateModel {
                 Interceptable interceptable2 = $ic;
                 return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? Boolean.valueOf(v57.f().j(this.val$data)) : (Boolean) invokeV.objValue;
             }
-        }, jd5Var);
+        }, kd5Var);
     }
 }

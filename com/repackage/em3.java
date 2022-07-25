@@ -1,12 +1,14 @@
 package com.repackage;
 
-import android.app.Application;
+import android.content.Context;
+import com.baidu.pyramid.annotation.Service;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+@Service
 /* loaded from: classes6.dex */
-public class em3 implements gm3 {
+public class em3 implements ml1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -24,10 +26,11 @@ public class em3 implements gm3 {
         }
     }
 
-    @Override // com.repackage.gm3
-    public void a(Application application, boolean z, boolean z2) {
+    @Override // com.repackage.ml1
+    public void a(String str, jq2 jq2Var, Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{application, Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
+        if (interceptable == null || interceptable.invokeLLL(1048576, this, str, jq2Var, context) == null) {
+            rs2.e().a(str, jq2Var, context);
         }
     }
 }

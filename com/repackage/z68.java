@@ -100,10 +100,10 @@ public class z68 extends a78 {
         if (!(interceptable == null || interceptable.invokeL(1048581, this, view2) == null) || view2 == null) {
             return;
         }
-        if (view2.getId() == R.id.obfuscated_res_0x7f0923ba) {
+        if (view2.getId() == R.id.obfuscated_res_0x7f0923bc) {
             W();
         } else if (!ni.z()) {
-            pi.N(this.O, R.string.obfuscated_res_0x7f0f0c64);
+            pi.N(this.O, R.string.obfuscated_res_0x7f0f0c50);
         } else if (this.T) {
             VideoItemData videoItemData = this.N0;
             if (videoItemData != null) {

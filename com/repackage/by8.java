@@ -32,7 +32,7 @@ public class by8 extends BaseAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
-    public o45 b;
+    public p45 b;
     public EditorTools c;
     public int d;
     public int e;
@@ -79,14 +79,14 @@ public class by8 extends BaseAdapter {
             }
             int size = this.a.g.size();
             if (this.a.c != null) {
-                this.a.c.A(new j15(this.a.d, -1, null));
+                this.a.c.A(new k15(this.a.d, -1, null));
                 if (size > 0) {
-                    this.a.c.A(new j15(2, 10, String.valueOf(size)));
+                    this.a.c.A(new k15(2, 10, String.valueOf(size)));
                 } else {
-                    this.a.c.A(new j15(2, 10, null));
+                    this.a.c.A(new k15(2, 10, null));
                 }
                 if (this.a.g.size() == 1 && size == 0) {
-                    this.a.c.A(new j15(1, 2, null));
+                    this.a.c.A(new k15(1, 2, null));
                 }
             }
             this.a.k();
@@ -98,7 +98,7 @@ public class by8 extends BaseAdapter {
     }
 
     /* loaded from: classes5.dex */
-    public class b implements k45 {
+    public class b implements l45 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ViewGroup a;
@@ -121,7 +121,7 @@ public class by8 extends BaseAdapter {
             this.a = viewGroup;
         }
 
-        @Override // com.repackage.k45
+        @Override // com.repackage.l45
         public void a(ym ymVar, String str, boolean z) {
             ViewGroup viewGroup;
             TbImageView tbImageView;
@@ -191,13 +191,13 @@ public class by8 extends BaseAdapter {
             }
             z = false;
             if (!z) {
-                pi.K(this.c.a, R.string.obfuscated_res_0x7f0f0531);
+                pi.K(this.c.a, R.string.obfuscated_res_0x7f0f052d);
             } else if (this.c.c != null) {
                 if (this.c.j()) {
                     this.c.k();
                 }
                 ((WriteActivity) this.c.f).f7(this.c.g);
-                this.c.c.A(new j15(15, 0, Integer.valueOf(indexOfChild)));
+                this.c.c.A(new k15(15, 0, Integer.valueOf(indexOfChild)));
             }
         }
     }
@@ -259,7 +259,7 @@ public class by8 extends BaseAdapter {
             }
         }
         this.a = null;
-        this.b = new o45();
+        this.b = new p45();
         this.c = null;
         this.d = 13;
         this.e = 6;
@@ -313,18 +313,18 @@ public class by8 extends BaseAdapter {
     @Override // android.widget.Adapter
     public View getView(int i, View view2, ViewGroup viewGroup) {
         InterceptResult invokeILL;
-        o45 o45Var;
+        p45 p45Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeILL = interceptable.invokeILL(1048579, this, i, view2, viewGroup)) == null) {
             boolean z = false;
-            View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d06e6, viewGroup, false);
+            View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d06f0, viewGroup, false);
             LinkedList<ImageFileInfo> linkedList = this.g;
             ym ymVar = null;
             ImageFileInfo imageFileInfo = (linkedList == null || linkedList.size() - 1 < i) ? null : this.g.get(i);
-            View findViewById = inflate.findViewById(R.id.obfuscated_res_0x7f090f69);
-            FrameLayout frameLayout = (FrameLayout) findViewById.findViewById(R.id.obfuscated_res_0x7f091d34);
-            TbImageView tbImageView = (TbImageView) findViewById.findViewById(R.id.obfuscated_res_0x7f090fb6);
-            ImageView imageView = (ImageView) findViewById.findViewById(R.id.obfuscated_res_0x7f090751);
+            View findViewById = inflate.findViewById(R.id.obfuscated_res_0x7f090f62);
+            FrameLayout frameLayout = (FrameLayout) findViewById.findViewById(R.id.obfuscated_res_0x7f091d3a);
+            TbImageView tbImageView = (TbImageView) findViewById.findViewById(R.id.obfuscated_res_0x7f090faf);
+            ImageView imageView = (ImageView) findViewById.findViewById(R.id.obfuscated_res_0x7f090750);
             String filePath = imageFileInfo != null ? imageFileInfo.getFilePath() : "";
             LinkedList<ImageFileInfo> linkedList2 = this.g;
             if (linkedList2 != null && i == linkedList2.size() - 1 && filePath.startsWith("android.resource://")) {
@@ -337,16 +337,16 @@ public class by8 extends BaseAdapter {
                 SkinManager.setImageResource(imageView, R.drawable.obfuscated_res_0x7f08078c);
             }
             frameLayout.setForeground(SkinManager.getDrawable(R.drawable.bg_add_photo_foregroundselector));
-            int dimensionPixelSize = this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070272);
-            ImageOperation g = x45.g(dimensionPixelSize, dimensionPixelSize);
+            int dimensionPixelSize = this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070270);
+            ImageOperation g = y45.g(dimensionPixelSize, dimensionPixelSize);
             if (imageFileInfo != null) {
                 imageFileInfo.clearPageActions();
                 imageFileInfo.addPageAction(g);
                 tbImageView.setTag(imageFileInfo.toCachedKey(true));
             }
             b bVar = new b(this, viewGroup);
-            if (imageFileInfo != null && (o45Var = this.b) != null) {
-                ymVar = o45Var.d(imageFileInfo, bVar, true);
+            if (imageFileInfo != null && (p45Var = this.b) != null) {
+                ymVar = p45Var.d(imageFileInfo, bVar, true);
             }
             if (ymVar != null) {
                 tbImageView.invalidate();

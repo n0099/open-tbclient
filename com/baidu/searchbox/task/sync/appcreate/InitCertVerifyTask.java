@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.de5;
 import com.repackage.he5;
-import com.repackage.jd5;
+import com.repackage.kd5;
 /* loaded from: classes2.dex */
 public class InitCertVerifyTask extends LaunchTask {
     public static /* synthetic */ Interceptable $ic;
@@ -67,7 +67,7 @@ public class InitCertVerifyTask extends LaunchTask {
                     Interceptable interceptable2 = $ic;
                     return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? Boolean.valueOf(CertVerifyHelper.isOfficial(TbadkCoreApplication.getInst())) : (Boolean) invokeV.objValue;
                 }
-            }, new jd5<Boolean>(this) { // from class: com.baidu.searchbox.task.sync.appcreate.InitCertVerifyTask.2
+            }, new kd5<Boolean>(this) { // from class: com.baidu.searchbox.task.sync.appcreate.InitCertVerifyTask.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ InitCertVerifyTask this$0;
@@ -91,7 +91,7 @@ public class InitCertVerifyTask extends LaunchTask {
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
-                @Override // com.repackage.jd5
+                @Override // com.repackage.kd5
                 public void onReturnDataInUI(Boolean bool) {
                     Interceptable interceptable2 = $ic;
                     if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, bool) == null) || bool == null) {

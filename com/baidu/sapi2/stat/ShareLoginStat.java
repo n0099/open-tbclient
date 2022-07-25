@@ -1,5 +1,6 @@
 package com.baidu.sapi2.stat;
 
+import com.baidu.sapi2.NoProguard;
 import com.baidu.sapi2.SapiConfiguration;
 import com.baidu.sapi2.ServiceManager;
 import com.baidu.sapi2.callback.UbcUploadImplCallback;
@@ -17,14 +18,14 @@ import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
-public class ShareLoginStat {
+public class ShareLoginStat implements NoProguard {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "ShareLoginStat";
     public static final String UBC_ID = "4833";
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes2.dex */
-    public static class GetShareListStat {
+    public static class GetShareListStat implements NoProguard {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String KEY_ACCOUNT_APPS = "account_apps";
         public static final String KEY_ACCOUNT_SIZE = "account_size";
@@ -141,7 +142,7 @@ public class ShareLoginStat {
     }
 
     /* loaded from: classes2.dex */
-    public static class MakeShareLoginStat {
+    public static class MakeShareLoginStat implements NoProguard {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String KEY_ERRMSG = "errorMsg";
         public static final String KEY_ERRNO = "errorNo";

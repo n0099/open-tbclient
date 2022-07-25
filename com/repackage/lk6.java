@@ -131,16 +131,16 @@ public class lk6 {
         public class a implements View.OnClickListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ tu4 a;
+            public final /* synthetic */ uu4 a;
             public final /* synthetic */ FollowUserButton b;
             public final /* synthetic */ c c;
 
-            public a(c cVar, tu4 tu4Var, FollowUserButton followUserButton) {
+            public a(c cVar, uu4 uu4Var, FollowUserButton followUserButton) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {cVar, tu4Var, followUserButton};
+                    Object[] objArr = {cVar, uu4Var, followUserButton};
                     interceptable.invokeUnInit(65536, newInitContext);
                     int i = newInitContext.flag;
                     if ((i & 1) != 0) {
@@ -151,7 +151,7 @@ public class lk6 {
                     }
                 }
                 this.c = cVar;
-                this.a = tu4Var;
+                this.a = uu4Var;
                 this.b = followUserButton;
             }
 
@@ -164,7 +164,7 @@ public class lk6 {
                     }
                     this.a.p(R.color.CAM_X0109);
                     this.a.i(0, 0, TBSpecificationButtonConfig.IconType.SVG);
-                    this.b.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f063b));
+                    this.b.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0637));
                     this.b.setClickable(false);
                     if (this.c.a.h != null) {
                         this.c.a.g.removeCallbacks(this.c.a.h);
@@ -218,10 +218,10 @@ public class lk6 {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, layoutInflater)) == null) {
                 View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d030c, (ViewGroup) null);
-                View findViewById = inflate.findViewById(R.id.obfuscated_res_0x7f090af3);
-                BarImageView barImageView = (BarImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090af2);
-                FollowUserButton followUserButton = (FollowUserButton) inflate.findViewById(R.id.obfuscated_res_0x7f090af5);
-                SkinManager.setViewTextColor((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090afa), (int) R.color.CAM_X0302);
+                View findViewById = inflate.findViewById(R.id.obfuscated_res_0x7f090aec);
+                BarImageView barImageView = (BarImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090aeb);
+                FollowUserButton followUserButton = (FollowUserButton) inflate.findViewById(R.id.obfuscated_res_0x7f090aee);
+                SkinManager.setViewTextColor((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090af3), (int) R.color.CAM_X0302);
                 barImageView.setDefaultScaleType(ImageView.ScaleType.CENTER_CROP);
                 barImageView.setContentDescription(this.a.b.getResources().getString(R.string.obfuscated_res_0x7f0f02dd));
                 barImageView.setStrokeWith(pi.f(this.a.b, R.dimen.tbds1));
@@ -233,14 +233,14 @@ public class lk6 {
                 if (!StringUtils.isNull(this.a.f)) {
                     barImageView.J(this.a.f, 10, false);
                 }
-                tu4 tu4Var = new tu4();
-                tu4Var.p(R.color.CAM_X0302);
-                tu4Var.g(UtilHelper.getDimenPixelSize(R.dimen.tbds28));
-                tu4Var.i(R.drawable.icon_pure_add12_svg, 0, TBSpecificationButtonConfig.IconType.SVG);
-                tu4Var.f(UtilHelper.getDimenPixelSize(R.dimen.tbds11));
-                followUserButton.setConfig(tu4Var);
+                uu4 uu4Var = new uu4();
+                uu4Var.p(R.color.CAM_X0302);
+                uu4Var.g(UtilHelper.getDimenPixelSize(R.dimen.tbds28));
+                uu4Var.i(R.drawable.icon_pure_add12_svg, 0, TBSpecificationButtonConfig.IconType.SVG);
+                uu4Var.f(UtilHelper.getDimenPixelSize(R.dimen.tbds11));
+                followUserButton.setConfig(uu4Var);
                 followUserButton.setText(this.a.b.getString(R.string.obfuscated_res_0x7f0f02a7));
-                followUserButton.setOnClickListener(new a(this, tu4Var, followUserButton));
+                followUserButton.setOnClickListener(new a(this, uu4Var, followUserButton));
                 TBSelector.makeShadowDrawable().setBgColor(R.color.CAM_X0207).setShapeRadius(pi.f(this.a.b, R.dimen.tbds21)).setShadowColor(R.color.CAM_X0803).setShadowSide(ShadowDrawable.ALL).setShadowRadius(pi.f(this.a.b, R.dimen.tbds10)).setOffsetX(0).setOffsetY(pi.f(this.a.b, R.dimen.tbds5)).into(findViewById);
                 return inflate;
             }
@@ -435,14 +435,14 @@ public class lk6 {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, layoutInflater)) == null) {
                 View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d030b, (ViewGroup) null);
-                EMTextView eMTextView = (EMTextView) inflate.findViewById(R.id.obfuscated_res_0x7f090af9);
+                EMTextView eMTextView = (EMTextView) inflate.findViewById(R.id.obfuscated_res_0x7f090af2);
                 SkinManager.setViewTextColor(eMTextView, (int) R.color.CAM_X0302);
                 eMTextView.setText(this.a.i);
-                TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) inflate.findViewById(R.id.obfuscated_res_0x7f090af8);
-                uu4 uu4Var = new uu4();
-                uu4Var.p(R.color.CAM_X0302, R.color.CAM_X0101);
-                tBSpecificationBtn.setConfig(uu4Var);
-                tBSpecificationBtn.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f06ff));
+                TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) inflate.findViewById(R.id.obfuscated_res_0x7f090af1);
+                vu4 vu4Var = new vu4();
+                vu4Var.p(R.color.CAM_X0302, R.color.CAM_X0101);
+                tBSpecificationBtn.setConfig(vu4Var);
+                tBSpecificationBtn.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f06fb));
                 tBSpecificationBtn.setOnClickListener(new a(this));
                 return inflate;
             }
@@ -564,7 +564,7 @@ public class lk6 {
         ff b2 = gfVar.b();
         this.a = b2;
         b2.q(this.b, this.c, false);
-        ur4 d2 = ur4.d(this.c);
+        vr4 d2 = vr4.d(this.c);
         d2.n(R.string.J_X05);
         d2.u(R.array.S_O_X004);
         d2.f(R.color.CAM_X0207);

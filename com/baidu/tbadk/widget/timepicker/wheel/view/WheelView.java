@@ -951,7 +951,7 @@ public class WheelView extends View {
         this.P = 17;
         this.Q = 0;
         this.R = 0;
-        this.o = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070605);
+        this.o = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0705ff);
         float f = getResources().getDisplayMetrics().density;
         if (f < 1.0f) {
             this.S = 2.4f;
@@ -968,7 +968,7 @@ public class WheelView extends View {
             }
         }
         if (attributeSet != null) {
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f0406d1, R.attr.obfuscated_res_0x7f0406d2, R.attr.obfuscated_res_0x7f0406d3, R.attr.obfuscated_res_0x7f0406d4, R.attr.obfuscated_res_0x7f0406d5, R.attr.obfuscated_res_0x7f0406d6}, 0, 0);
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f0406d3, R.attr.obfuscated_res_0x7f0406d4, R.attr.obfuscated_res_0x7f0406d5, R.attr.obfuscated_res_0x7f0406d6, R.attr.obfuscated_res_0x7f0406d7, R.attr.obfuscated_res_0x7f0406d8}, 0, 0);
             this.P = obtainStyledAttributes.getInt(1, 17);
             this.u = obtainStyledAttributes.getColor(4, -5723992);
             this.v = obtainStyledAttributes.getColor(3, -14013910);

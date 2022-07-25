@@ -82,7 +82,7 @@ public class Chip extends AppCompatCheckBox implements ChipDrawable.Delegate, Sh
     public static final String COMPOUND_BUTTON_ACCESSIBILITY_CLASS_NAME = "android.widget.CompoundButton";
 
     /* renamed from: DEF_STYLE_RES */
-    public static final int obfuscated_res_0x7f100355 = 2131755861;
+    public static final int obfuscated_res_0x7f100358 = 2131755864;
     public static final Rect EMPTY_BOUNDS;
     public static final String GENERIC_VIEW_ACCESSIBILITY_CLASS_NAME = "android.view.View";
     public static final int MIN_TOUCH_TARGET_DP = 48;
@@ -211,7 +211,7 @@ public class Chip extends AppCompatCheckBox implements ChipDrawable.Delegate, Sh
                         Context context = this.this$0.getContext();
                         Object[] objArr = new Object[1];
                         objArr[0] = TextUtils.isEmpty(text) ? "" : text;
-                        accessibilityNodeInfoCompat.setContentDescription(context.getString(R.string.obfuscated_res_0x7f0f0af0, objArr).trim());
+                        accessibilityNodeInfoCompat.setContentDescription(context.getString(R.string.obfuscated_res_0x7f0f0adc, objArr).trim());
                     }
                     accessibilityNodeInfoCompat.setBoundsInParent(this.this$0.getCloseIconTouchBoundsInt());
                     accessibilityNodeInfoCompat.addAction(AccessibilityNodeInfoCompat.AccessibilityActionCompat.ACTION_CLICK);
@@ -416,7 +416,7 @@ public class Chip extends AppCompatCheckBox implements ChipDrawable.Delegate, Sh
     private void initMinTouchTarget(Context context, @Nullable AttributeSet attributeSet, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLI(65555, this, context, attributeSet, i) == null) {
-            TypedArray obtainStyledAttributes = ThemeEnforcement.obtainStyledAttributes(context, attributeSet, new int[]{16842804, 16842904, 16842923, 16843039, 16843087, 16843237, R.attr.obfuscated_res_0x7f04012b, R.attr.obfuscated_res_0x7f04012c, R.attr.obfuscated_res_0x7f04012d, R.attr.obfuscated_res_0x7f04012e, R.attr.obfuscated_res_0x7f040130, R.attr.obfuscated_res_0x7f040131, R.attr.obfuscated_res_0x7f040132, R.attr.obfuscated_res_0x7f040134, R.attr.obfuscated_res_0x7f040135, R.attr.obfuscated_res_0x7f040136, R.attr.obfuscated_res_0x7f040137, R.attr.obfuscated_res_0x7f040138, R.attr.obfuscated_res_0x7f040139, R.attr.obfuscated_res_0x7f04013a, R.attr.obfuscated_res_0x7f04013f, R.attr.obfuscated_res_0x7f040140, R.attr.obfuscated_res_0x7f040141, R.attr.obfuscated_res_0x7f040144, R.attr.obfuscated_res_0x7f04014d, R.attr.obfuscated_res_0x7f04014e, R.attr.obfuscated_res_0x7f04014f, R.attr.obfuscated_res_0x7f040150, R.attr.obfuscated_res_0x7f040151, R.attr.obfuscated_res_0x7f040152, R.attr.obfuscated_res_0x7f040153, R.attr.obfuscated_res_0x7f040253, R.attr.obfuscated_res_0x7f0402c4, R.attr.obfuscated_res_0x7f0402ef, R.attr.obfuscated_res_0x7f0402f3, R.attr.obfuscated_res_0x7f040548, R.attr.obfuscated_res_0x7f040590, R.attr.obfuscated_res_0x7f040593, R.attr.obfuscated_res_0x7f04059b, R.attr.obfuscated_res_0x7f04065e, R.attr.obfuscated_res_0x7f040666}, i, obfuscated_res_0x7f100355, new int[0]);
+            TypedArray obtainStyledAttributes = ThemeEnforcement.obtainStyledAttributes(context, attributeSet, new int[]{16842804, 16842904, 16842923, 16843039, 16843087, 16843237, R.attr.obfuscated_res_0x7f04012b, R.attr.obfuscated_res_0x7f04012c, R.attr.obfuscated_res_0x7f04012d, R.attr.obfuscated_res_0x7f04012e, R.attr.obfuscated_res_0x7f040130, R.attr.obfuscated_res_0x7f040131, R.attr.obfuscated_res_0x7f040132, R.attr.obfuscated_res_0x7f040134, R.attr.obfuscated_res_0x7f040135, R.attr.obfuscated_res_0x7f040136, R.attr.obfuscated_res_0x7f040137, R.attr.obfuscated_res_0x7f040138, R.attr.obfuscated_res_0x7f040139, R.attr.obfuscated_res_0x7f04013a, R.attr.obfuscated_res_0x7f04013f, R.attr.obfuscated_res_0x7f040140, R.attr.obfuscated_res_0x7f040141, R.attr.obfuscated_res_0x7f040144, R.attr.obfuscated_res_0x7f04014d, R.attr.obfuscated_res_0x7f04014e, R.attr.obfuscated_res_0x7f04014f, R.attr.obfuscated_res_0x7f040150, R.attr.obfuscated_res_0x7f040151, R.attr.obfuscated_res_0x7f040152, R.attr.obfuscated_res_0x7f040153, R.attr.obfuscated_res_0x7f040253, R.attr.obfuscated_res_0x7f0402c4, R.attr.obfuscated_res_0x7f0402ef, R.attr.obfuscated_res_0x7f0402f3, R.attr.obfuscated_res_0x7f040548, R.attr.obfuscated_res_0x7f040592, R.attr.obfuscated_res_0x7f040595, R.attr.obfuscated_res_0x7f04059d, R.attr.obfuscated_res_0x7f040660, R.attr.obfuscated_res_0x7f040668}, i, obfuscated_res_0x7f100358, new int[0]);
             this.ensureMinTouchTargetSize = obtainStyledAttributes.getBoolean(31, false);
             this.minTouchTargetSize = (int) Math.ceil(obtainStyledAttributes.getDimension(19, (float) Math.ceil(ViewUtils.dpToPx(getContext(), 48))));
             obtainStyledAttributes.recycle();
@@ -2248,7 +2248,7 @@ public class Chip extends AppCompatCheckBox implements ChipDrawable.Delegate, Sh
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public Chip(Context context, AttributeSet attributeSet, int i) {
-        super(MaterialThemeOverlay.wrap(context, attributeSet, i, obfuscated_res_0x7f100355), attributeSet, i);
+        super(MaterialThemeOverlay.wrap(context, attributeSet, i, obfuscated_res_0x7f100358), attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -2310,11 +2310,11 @@ public class Chip extends AppCompatCheckBox implements ChipDrawable.Delegate, Sh
         };
         Context context2 = getContext();
         validateAttributes(attributeSet);
-        ChipDrawable createFromAttributes = ChipDrawable.createFromAttributes(context2, attributeSet, i, obfuscated_res_0x7f100355);
+        ChipDrawable createFromAttributes = ChipDrawable.createFromAttributes(context2, attributeSet, i, obfuscated_res_0x7f100358);
         initMinTouchTarget(context2, attributeSet, i);
         setChipDrawable(createFromAttributes);
         createFromAttributes.setElevation(ViewCompat.getElevation(this));
-        TypedArray obtainStyledAttributes = ThemeEnforcement.obtainStyledAttributes(context2, attributeSet, new int[]{16842804, 16842904, 16842923, 16843039, 16843087, 16843237, R.attr.obfuscated_res_0x7f04012b, R.attr.obfuscated_res_0x7f04012c, R.attr.obfuscated_res_0x7f04012d, R.attr.obfuscated_res_0x7f04012e, R.attr.obfuscated_res_0x7f040130, R.attr.obfuscated_res_0x7f040131, R.attr.obfuscated_res_0x7f040132, R.attr.obfuscated_res_0x7f040134, R.attr.obfuscated_res_0x7f040135, R.attr.obfuscated_res_0x7f040136, R.attr.obfuscated_res_0x7f040137, R.attr.obfuscated_res_0x7f040138, R.attr.obfuscated_res_0x7f040139, R.attr.obfuscated_res_0x7f04013a, R.attr.obfuscated_res_0x7f04013f, R.attr.obfuscated_res_0x7f040140, R.attr.obfuscated_res_0x7f040141, R.attr.obfuscated_res_0x7f040144, R.attr.obfuscated_res_0x7f04014d, R.attr.obfuscated_res_0x7f04014e, R.attr.obfuscated_res_0x7f04014f, R.attr.obfuscated_res_0x7f040150, R.attr.obfuscated_res_0x7f040151, R.attr.obfuscated_res_0x7f040152, R.attr.obfuscated_res_0x7f040153, R.attr.obfuscated_res_0x7f040253, R.attr.obfuscated_res_0x7f0402c4, R.attr.obfuscated_res_0x7f0402ef, R.attr.obfuscated_res_0x7f0402f3, R.attr.obfuscated_res_0x7f040548, R.attr.obfuscated_res_0x7f040590, R.attr.obfuscated_res_0x7f040593, R.attr.obfuscated_res_0x7f04059b, R.attr.obfuscated_res_0x7f04065e, R.attr.obfuscated_res_0x7f040666}, i, obfuscated_res_0x7f100355, new int[0]);
+        TypedArray obtainStyledAttributes = ThemeEnforcement.obtainStyledAttributes(context2, attributeSet, new int[]{16842804, 16842904, 16842923, 16843039, 16843087, 16843237, R.attr.obfuscated_res_0x7f04012b, R.attr.obfuscated_res_0x7f04012c, R.attr.obfuscated_res_0x7f04012d, R.attr.obfuscated_res_0x7f04012e, R.attr.obfuscated_res_0x7f040130, R.attr.obfuscated_res_0x7f040131, R.attr.obfuscated_res_0x7f040132, R.attr.obfuscated_res_0x7f040134, R.attr.obfuscated_res_0x7f040135, R.attr.obfuscated_res_0x7f040136, R.attr.obfuscated_res_0x7f040137, R.attr.obfuscated_res_0x7f040138, R.attr.obfuscated_res_0x7f040139, R.attr.obfuscated_res_0x7f04013a, R.attr.obfuscated_res_0x7f04013f, R.attr.obfuscated_res_0x7f040140, R.attr.obfuscated_res_0x7f040141, R.attr.obfuscated_res_0x7f040144, R.attr.obfuscated_res_0x7f04014d, R.attr.obfuscated_res_0x7f04014e, R.attr.obfuscated_res_0x7f04014f, R.attr.obfuscated_res_0x7f040150, R.attr.obfuscated_res_0x7f040151, R.attr.obfuscated_res_0x7f040152, R.attr.obfuscated_res_0x7f040153, R.attr.obfuscated_res_0x7f040253, R.attr.obfuscated_res_0x7f0402c4, R.attr.obfuscated_res_0x7f0402ef, R.attr.obfuscated_res_0x7f0402f3, R.attr.obfuscated_res_0x7f040548, R.attr.obfuscated_res_0x7f040592, R.attr.obfuscated_res_0x7f040595, R.attr.obfuscated_res_0x7f04059d, R.attr.obfuscated_res_0x7f040660, R.attr.obfuscated_res_0x7f040668}, i, obfuscated_res_0x7f100358, new int[0]);
         if (Build.VERSION.SDK_INT < 23) {
             setTextColor(MaterialResources.getColorStateList(context2, obtainStyledAttributes, 1));
         }

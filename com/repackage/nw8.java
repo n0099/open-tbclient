@@ -133,8 +133,8 @@ public class nw8 extends qw8 {
             }
         }
         this.h = bVar;
-        this.i = AnimationUtils.loadAnimation(this.a, R.anim.obfuscated_res_0x7f01013a);
-        this.j = AnimationUtils.loadAnimation(this.a, R.anim.obfuscated_res_0x7f01013b);
+        this.i = AnimationUtils.loadAnimation(this.a, R.anim.obfuscated_res_0x7f010138);
+        this.j = AnimationUtils.loadAnimation(this.a, R.anim.obfuscated_res_0x7f010139);
         this.i.setAnimationListener(new a(this));
         this.j.setAnimationListener(new b(this));
     }

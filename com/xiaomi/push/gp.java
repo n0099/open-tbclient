@@ -17,10 +17,10 @@ public class gp extends gn {
     public int a;
 
     /* renamed from: a  reason: collision with other field name */
-    public a f1161a;
+    public a f441a;
 
     /* renamed from: a  reason: collision with other field name */
-    public b f1162a;
+    public b f442a;
     public String b;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
@@ -30,7 +30,7 @@ public class gp extends gn {
         public static final a a;
 
         /* renamed from: a  reason: collision with other field name */
-        public static final /* synthetic */ a[] f1163a;
+        public static final /* synthetic */ a[] f443a;
         public static final a b;
         public static final a c;
         public static final a d;
@@ -56,7 +56,7 @@ public class gp extends gn {
             d = new a("xa", 3);
             a aVar = new a("dnd", 4);
             e = aVar;
-            f1163a = new a[]{a, b, c, d, aVar};
+            f443a = new a[]{a, b, c, d, aVar};
         }
 
         public a(String str, int i) {
@@ -87,7 +87,7 @@ public class gp extends gn {
         public static a[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (a[]) f1163a.clone() : (a[]) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (a[]) f443a.clone() : (a[]) invokeV.objValue;
         }
     }
 
@@ -98,7 +98,7 @@ public class gp extends gn {
         public static final b a;
 
         /* renamed from: a  reason: collision with other field name */
-        public static final /* synthetic */ b[] f1164a;
+        public static final /* synthetic */ b[] f444a;
         public static final b b;
         public static final b c;
         public static final b d;
@@ -130,7 +130,7 @@ public class gp extends gn {
             g = new b("error", 6);
             b bVar = new b("probe", 7);
             h = bVar;
-            f1164a = new b[]{a, b, c, d, e, f, g, bVar};
+            f444a = new b[]{a, b, c, d, e, f, g, bVar};
         }
 
         public b(String str, int i) {
@@ -161,7 +161,7 @@ public class gp extends gn {
         public static b[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (b[]) f1164a.clone() : (b[]) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (b[]) f444a.clone() : (b[]) invokeV.objValue;
         }
     }
 
@@ -183,12 +183,12 @@ public class gp extends gn {
                 return;
             }
         }
-        this.f1162a = b.a;
+        this.f442a = b.a;
         this.b = null;
         this.a = Integer.MIN_VALUE;
-        this.f1161a = null;
+        this.f441a = null;
         if (bundle.containsKey("ext_pres_type")) {
-            this.f1162a = b.valueOf(bundle.getString("ext_pres_type"));
+            this.f442a = b.valueOf(bundle.getString("ext_pres_type"));
         }
         if (bundle.containsKey("ext_pres_status")) {
             this.b = bundle.getString("ext_pres_status");
@@ -197,7 +197,7 @@ public class gp extends gn {
             this.a = bundle.getInt("ext_pres_prio");
         }
         if (bundle.containsKey("ext_pres_mode")) {
-            this.f1161a = a.valueOf(bundle.getString("ext_pres_mode"));
+            this.f441a = a.valueOf(bundle.getString("ext_pres_mode"));
         }
     }
 
@@ -216,10 +216,10 @@ public class gp extends gn {
                 return;
             }
         }
-        this.f1162a = b.a;
+        this.f442a = b.a;
         this.b = null;
         this.a = Integer.MIN_VALUE;
-        this.f1161a = null;
+        this.f441a = null;
         a(bVar);
     }
 
@@ -229,7 +229,7 @@ public class gp extends gn {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             Bundle a2 = super.a();
-            b bVar = this.f1162a;
+            b bVar = this.f442a;
             if (bVar != null) {
                 a2.putString("ext_pres_type", bVar.toString());
             }
@@ -241,7 +241,7 @@ public class gp extends gn {
             if (i != Integer.MIN_VALUE) {
                 a2.putInt("ext_pres_prio", i);
             }
-            a aVar = this.f1161a;
+            a aVar = this.f441a;
             if (aVar != null && aVar != a.b) {
                 a2.putString("ext_pres_mode", aVar.toString());
             }
@@ -282,9 +282,9 @@ public class gp extends gn {
                 sb.append(gy.a(k()));
                 sb.append("\"");
             }
-            if (this.f1162a != null) {
+            if (this.f442a != null) {
                 sb.append(" type=\"");
-                sb.append(this.f1162a);
+                sb.append(this.f442a);
                 sb.append("\"");
             }
             sb.append(">");
@@ -298,16 +298,16 @@ public class gp extends gn {
                 sb.append(this.a);
                 sb.append("</priority>");
             }
-            a aVar = this.f1161a;
+            a aVar = this.f441a;
             if (aVar != null && aVar != a.b) {
                 sb.append("<show>");
-                sb.append(this.f1161a);
+                sb.append(this.f441a);
                 sb.append("</show>");
             }
             sb.append(o());
-            gr m1307a = m1307a();
-            if (m1307a != null) {
-                sb.append(m1307a.m1311a());
+            gr m369a = m369a();
+            if (m369a != null) {
+                sb.append(m369a.m373a());
             }
             sb.append("</presence>");
             return sb.toString();
@@ -329,7 +329,7 @@ public class gp extends gn {
     public void a(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) {
-            this.f1161a = aVar;
+            this.f441a = aVar;
         }
     }
 
@@ -339,7 +339,7 @@ public class gp extends gn {
             if (bVar == null) {
                 throw new NullPointerException("Type cannot be null");
             }
-            this.f1162a = bVar;
+            this.f442a = bVar;
         }
     }
 

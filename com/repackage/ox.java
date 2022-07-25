@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class ox extends qw<nn4> {
+public class ox extends qw<on4> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public MutiImgSingleHorizontalLayout f;
@@ -54,7 +54,7 @@ public class ox extends qw<nn4> {
     }
 
     @Override // com.repackage.qw
-    public void m(jy5<nn4> jy5Var) {
+    public void m(jy5<on4> jy5Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, jy5Var) == null) {
             this.f.setSubClickListener(jy5Var);
@@ -72,10 +72,10 @@ public class ox extends qw<nn4> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.repackage.gx
     /* renamed from: p */
-    public void a(nn4 nn4Var) {
+    public void a(on4 on4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, nn4Var) == null) {
-            this.f.a(nn4Var);
+        if (interceptable == null || interceptable.invokeL(1048581, this, on4Var) == null) {
+            this.f.a(on4Var);
         }
     }
 

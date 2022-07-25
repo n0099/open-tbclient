@@ -22,7 +22,7 @@ public class sq8 {
     public DownloadData b;
 
     /* loaded from: classes7.dex */
-    public class a implements e15 {
+    public class a implements f15 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ b a;
@@ -49,7 +49,7 @@ public class sq8 {
             this.b = str;
         }
 
-        @Override // com.repackage.e15
+        @Override // com.repackage.f15
         public void onFileDownloadFailed(DownloadData downloadData, int i, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLIL(1048576, this, downloadData, i, str) == null) {
@@ -67,7 +67,7 @@ public class sq8 {
             }
         }
 
-        @Override // com.repackage.e15
+        @Override // com.repackage.f15
         public void onFileDownloadSucceed(DownloadData downloadData) {
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, downloadData) == null) || downloadData == null || StringUtils.isNull(downloadData.getPath())) {
@@ -82,7 +82,7 @@ public class sq8 {
             }
         }
 
-        @Override // com.repackage.e15
+        @Override // com.repackage.f15
         public boolean onFileDownloaded(DownloadData downloadData) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
@@ -92,7 +92,7 @@ public class sq8 {
             return invokeL.booleanValue;
         }
 
-        @Override // com.repackage.e15
+        @Override // com.repackage.f15
         public void onFileUpdateProgress(DownloadData downloadData) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048579, this, downloadData) == null) && downloadData.getStatus() == 4) {
@@ -110,7 +110,7 @@ public class sq8 {
             }
         }
 
-        @Override // com.repackage.e15
+        @Override // com.repackage.f15
         public boolean onPreDownload(DownloadData downloadData) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
@@ -192,7 +192,7 @@ public class sq8 {
             if (str2.equals(downloadData.getUrl())) {
                 return;
             }
-            f15.k().h(this.b.getUrl(), true);
+            g15.k().h(this.b.getUrl(), true);
         }
         File file = new File(yp8.a);
         if (!file.exists()) {
@@ -205,7 +205,7 @@ public class sq8 {
         downloadData2.setPath(yp8.a + nameMd5FromUrl + ("." + str2.substring(str2.lastIndexOf(".") + 1)));
         downloadData2.setCallback(new a(this, bVar, str2));
         this.b = downloadData2;
-        f15.k().l(downloadData2);
+        g15.k().l(downloadData2);
     }
 
     public String f(String str) {

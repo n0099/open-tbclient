@@ -11,25 +11,25 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.kwad.sdk.utils.bc;
+import com.kwad.sdk.utils.bg;
 import java.util.concurrent.atomic.AtomicBoolean;
 @SuppressLint({"ViewConstructor"})
 /* loaded from: classes5.dex */
-public final class c extends View implements bc.a {
+public final class c extends View implements bg.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public a a;
-    public View b;
-    public boolean c;
-    public boolean d;
-    public boolean e;
-    public final bc f;
-    public final AtomicBoolean g;
-    public final int h;
+    public View Kr;
+    public final bg Ks;
+    public final AtomicBoolean Kt;
+    public a OO;
+    public boolean OP;
+    public final int OQ;
+    public boolean Ou;
+    public boolean Ov;
 
     /* loaded from: classes5.dex */
     public interface a {
-        void a();
+        void em();
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -50,44 +50,44 @@ public final class c extends View implements bc.a {
                 return;
             }
         }
-        this.f = new bc(this);
-        this.g = new AtomicBoolean(true);
-        this.h = (int) (com.kwad.sdk.core.config.d.W() * 100.0f);
-        this.b = view2;
+        this.Ks = new bg(this);
+        this.Kt = new AtomicBoolean(true);
+        this.OQ = (int) (com.kwad.sdk.core.config.d.sk() * 100.0f);
+        this.Kr = view2;
         setLayoutParams(new ViewGroup.LayoutParams(0, 0));
     }
 
-    private void a() {
+    private void pU() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65537, this) == null) {
-            this.g.getAndSet(false);
+        if ((interceptable == null || interceptable.invokeV(65537, this) == null) && this.Ov) {
+            this.Ks.removeCallbacksAndMessages(null);
+            this.Ov = false;
         }
     }
 
-    private void b() {
+    private void pV() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65538, this) == null) {
-            this.g.getAndSet(true);
+        if ((interceptable == null || interceptable.invokeV(65538, this) == null) && this.OP && !this.Ov) {
+            this.Ov = true;
+            this.Ks.sendEmptyMessage(1);
         }
     }
 
-    private void c() {
+    private void pY() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65539, this) == null) && this.d) {
-            this.f.removeCallbacksAndMessages(null);
-            this.d = false;
+        if (interceptable == null || interceptable.invokeV(65539, this) == null) {
+            this.Kt.getAndSet(false);
         }
     }
 
-    private void d() {
+    private void pZ() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) && this.e && !this.d) {
-            this.d = true;
-            this.f.sendEmptyMessage(1);
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
+            this.Kt.getAndSet(true);
         }
     }
 
-    @Override // com.kwad.sdk.utils.bc.a
+    @Override // com.kwad.sdk.utils.bg.a
     public final void a(Message message) {
         a aVar;
         Interceptable interceptable = $ic;
@@ -97,30 +97,30 @@ public final class c extends View implements bc.a {
                 if (i != 2) {
                     return;
                 }
-                if (!com.kwad.sdk.b.kwai.a.a(this.b, this.h, false)) {
-                    if (this.c) {
+                if (!com.kwad.sdk.b.kwai.a.a(this.Kr, this.OQ, false)) {
+                    if (this.Ou) {
                         return;
                     }
                     setNeedCheckingShow(true);
                     return;
                 }
-                if (message.arg1 == 1000 && (aVar = this.a) != null) {
-                    aVar.a();
+                if (message.arg1 == 1000 && (aVar = this.OO) != null) {
+                    aVar.em();
                 }
-                this.f.sendEmptyMessageDelayed(2, 500L);
+                this.Ks.sendEmptyMessageDelayed(2, 500L);
                 return;
             }
-            com.kwad.sdk.core.d.b.a("EmptyView", "handleMsg MSG_CHECKING");
-            if (this.d) {
-                if (!com.kwad.sdk.b.kwai.a.a(this.b, this.h, false)) {
-                    this.f.sendEmptyMessageDelayed(1, 500L);
+            com.kwad.sdk.core.e.b.d("EmptyView", "handleMsg MSG_CHECKING");
+            if (this.Ov) {
+                if (!com.kwad.sdk.b.kwai.a.a(this.Kr, this.OQ, false)) {
+                    this.Ks.sendEmptyMessageDelayed(1, 500L);
                     return;
                 }
-                c();
-                Message obtainMessage = this.f.obtainMessage();
+                pU();
+                Message obtainMessage = this.Ks.obtainMessage();
                 obtainMessage.what = 2;
                 obtainMessage.arg1 = 1000;
-                this.f.sendMessageDelayed(obtainMessage, 1000L);
+                this.Ks.sendMessageDelayed(obtainMessage, 1000L);
             }
         }
     }
@@ -130,10 +130,10 @@ public final class c extends View implements bc.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.onAttachedToWindow();
-            com.kwad.sdk.core.d.b.a("EmptyView", "onAttachedToWindow:" + this);
-            d();
-            this.c = false;
-            a();
+            com.kwad.sdk.core.e.b.d("EmptyView", "onAttachedToWindow:" + this);
+            pV();
+            this.Ou = false;
+            pY();
         }
     }
 
@@ -142,10 +142,10 @@ public final class c extends View implements bc.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             super.onDetachedFromWindow();
-            com.kwad.sdk.core.d.b.a("EmptyView", "onDetachedFromWindow" + this);
-            c();
-            this.c = true;
-            b();
+            com.kwad.sdk.core.e.b.d("EmptyView", "onDetachedFromWindow" + this);
+            pU();
+            this.Ou = true;
+            pZ();
         }
     }
 
@@ -154,8 +154,8 @@ public final class c extends View implements bc.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             super.onFinishTemporaryDetach();
-            com.kwad.sdk.core.d.b.a("EmptyView", "onFinishTemporaryDetach:" + this.b.getParent());
-            a();
+            com.kwad.sdk.core.e.b.d("EmptyView", "onFinishTemporaryDetach:" + this.Kr.getParent());
+            pY();
         }
     }
 
@@ -164,8 +164,8 @@ public final class c extends View implements bc.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             super.onStartTemporaryDetach();
-            com.kwad.sdk.core.d.b.a("EmptyView", "onStartTemporaryDetach:" + this.b.getParent());
-            b();
+            com.kwad.sdk.core.e.b.d("EmptyView", "onStartTemporaryDetach:" + this.Kr.getParent());
+            pZ();
         }
     }
 
@@ -174,7 +174,7 @@ public final class c extends View implements bc.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
             super.onWindowFocusChanged(z);
-            com.kwad.sdk.core.d.b.a("EmptyView", "onWindowFocusChanged hasWindowFocus:" + z);
+            com.kwad.sdk.core.e.b.d("EmptyView", "onWindowFocusChanged hasWindowFocus:" + z);
         }
     }
 
@@ -183,19 +183,19 @@ public final class c extends View implements bc.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
             super.onWindowVisibilityChanged(i);
-            com.kwad.sdk.core.d.b.a("EmptyView", "onWindowVisibilityChanged visibility:" + i);
+            com.kwad.sdk.core.e.b.d("EmptyView", "onWindowVisibilityChanged visibility:" + i);
         }
     }
 
     public final void setNeedCheckingShow(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
-            this.e = z;
-            if (!z && this.d) {
-                c();
-            } else if (!z || this.d) {
+            this.OP = z;
+            if (!z && this.Ov) {
+                pU();
+            } else if (!z || this.Ov) {
             } else {
-                d();
+                pV();
             }
         }
     }
@@ -203,7 +203,7 @@ public final class c extends View implements bc.a {
     public final void setViewCallback(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, aVar) == null) {
-            this.a = aVar;
+            this.OO = aVar;
         }
     }
 }

@@ -45,16 +45,26 @@ public class jd9 implements AdRipper {
     }
 
     @Override // com.fun.ad.sdk.internal.api.ripper.AdRipper
+    public RippedAd getRippedAd(Object obj, boolean z) {
+        InterceptResult invokeLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(Constants.METHOD_SEND_USER_MSG, this, obj, z)) == null) {
+            return null;
+        }
+        return (RippedAd) invokeLZ.objValue;
+    }
+
+    @Override // com.fun.ad.sdk.internal.api.ripper.AdRipper
     public void preParseRippedAd(Object obj) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj) == null) {
+        if (interceptable == null || interceptable.invokeL(1048579, this, obj) == null) {
         }
     }
 
     @Override // com.fun.ad.sdk.internal.api.ripper.AdRipper
     public void report(Object obj, String str, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{obj, str, Long.valueOf(j)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{obj, str, Long.valueOf(j)}) == null) {
         }
     }
 }

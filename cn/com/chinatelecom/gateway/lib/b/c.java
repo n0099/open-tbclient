@@ -2,281 +2,83 @@ package cn.com.chinatelecom.gateway.lib.b;
 
 import android.content.Context;
 import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileWriter;
-import java.io.InputStreamReader;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
+import java.util.Queue;
+import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class c {
+public final class c implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public /* synthetic */ Context a;
+    public /* synthetic */ List b;
+    public /* synthetic */ int c;
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:25:0x0042 */
-    /* JADX DEBUG: Multi-variable search result rejected for r5v14, resolved type: java.io.InputStreamReader */
-    /* JADX DEBUG: Multi-variable search result rejected for r5v6, resolved type: java.io.InputStreamReader */
-    /* JADX DEBUG: Multi-variable search result rejected for r5v7, resolved type: java.io.InputStreamReader */
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Removed duplicated region for block: B:85:0x0056 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:95:0x0060 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static String a(Context context) {
-        InterceptResult invokeL;
-        FileInputStream fileInputStream;
-        BufferedReader bufferedReader;
-        Throwable th;
-        InputStreamReader inputStreamReader;
+    public c(Context context, List list, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
-            File c = c(context);
-            StringBuilder sb = new StringBuilder();
-            if (c == null || !c.exists()) {
-                return "";
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, list, Integer.valueOf(i)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        this.a = context;
+        this.b = list;
+        this.c = i;
+    }
+
+    @Override // java.lang.Runnable
+    public final void run() {
+        Queue b;
+        String b2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             try {
-                fileInputStream = new FileInputStream(c);
+                b = b.b(this.a, this.b, this.c);
+                if (b.isEmpty()) {
+                    return;
+                }
+                b2 = b.b(this.a, b);
+                JSONObject jSONObject = null;
+                int i = -1;
                 try {
-                    inputStreamReader = new InputStreamReader(fileInputStream);
-                    try {
-                        bufferedReader = new BufferedReader(inputStreamReader);
-                        while (true) {
-                            try {
-                                String readLine = bufferedReader.readLine();
-                                if (readLine != null) {
-                                    sb.append(readLine);
-                                } else {
-                                    try {
-                                        break;
-                                    } catch (Exception e) {
-                                        e.printStackTrace();
-                                    }
-                                }
-                            } catch (Throwable th2) {
-                                th = th2;
-                                try {
-                                    th.printStackTrace();
-                                } finally {
-                                    if (bufferedReader != null) {
-                                        try {
-                                            bufferedReader.close();
-                                        } catch (Exception e2) {
-                                            e2.printStackTrace();
-                                        }
-                                    }
-                                    if (inputStreamReader != 0) {
-                                        try {
-                                            inputStreamReader.close();
-                                        } catch (Exception e3) {
-                                            e3.printStackTrace();
-                                        }
-                                    }
-                                    if (fileInputStream != null) {
-                                        try {
-                                            fileInputStream.close();
-                                        } catch (Exception e4) {
-                                            e4.printStackTrace();
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                        bufferedReader.close();
+                    if (!TextUtils.isEmpty(b2)) {
+                        JSONObject jSONObject2 = new JSONObject(b2);
                         try {
-                            inputStreamReader.close();
-                        } catch (Exception e5) {
-                            e5.printStackTrace();
-                        }
-                    } catch (Throwable th3) {
-                        bufferedReader = null;
-                        th = th3;
-                    }
-                } catch (Throwable th4) {
-                    th = th4;
-                    bufferedReader = null;
-                    th = th;
-                    inputStreamReader = bufferedReader;
-                    th.printStackTrace();
-                }
-            } catch (Throwable th5) {
-                th = th5;
-                fileInputStream = null;
-                bufferedReader = null;
-            }
-            return sb.toString();
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static void a(Context context, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65537, null, context, str) == null) {
-            File c = c(context);
-            if (c == null || !c.exists()) {
-                a(b(context), str);
-            } else {
-                a(c, str);
-            }
-        }
-    }
-
-    /* JADX WARN: Removed duplicated region for block: B:58:0x005c A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:60:0x0066 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static void a(File file, String str) {
-        FileWriter fileWriter;
-        Exception e;
-        Throwable th;
-        BufferedWriter bufferedWriter;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65538, null, file, str) == null) && file != null && file.exists()) {
-            BufferedWriter bufferedWriter2 = null;
-            try {
-                fileWriter = new FileWriter(file, false);
-            } catch (Exception e2) {
-                e = e2;
-                fileWriter = null;
-            } catch (Throwable th2) {
-                th = th2;
-                fileWriter = null;
-            }
-            try {
-                bufferedWriter = new BufferedWriter(fileWriter);
-            } catch (Exception e3) {
-                e = e3;
-            } catch (Throwable th3) {
-                th = th3;
-                if (bufferedWriter2 != null) {
-                }
-                if (fileWriter != null) {
-                }
-                throw th;
-            }
-            try {
-                try {
-                    if (TextUtils.isEmpty(str)) {
-                        str = "";
-                    }
-                    bufferedWriter.write(str);
-                    bufferedWriter.flush();
-                    try {
-                        bufferedWriter.close();
-                    } catch (Exception e4) {
-                        e4.printStackTrace();
-                    }
-                } catch (Exception e5) {
-                    e = e5;
-                    bufferedWriter2 = bufferedWriter;
-                    try {
-                        e.printStackTrace();
-                        if (bufferedWriter2 != null) {
-                            try {
-                                bufferedWriter2.close();
-                            } catch (Exception e6) {
-                                e6.printStackTrace();
+                            i = jSONObject2.getInt("code");
+                            jSONObject = jSONObject2;
+                        } catch (Exception e) {
+                            e = e;
+                            jSONObject = jSONObject2;
+                            e.printStackTrace();
+                            if (jSONObject != null) {
                             }
-                        }
-                        if (fileWriter == null) {
+                            b.a(this.a, b, this.c);
                             return;
                         }
-                        fileWriter.close();
-                    } catch (Throwable th4) {
-                        th = th4;
-                        th = th;
-                        if (bufferedWriter2 != null) {
-                            try {
-                                bufferedWriter2.close();
-                            } catch (Exception e7) {
-                                e7.printStackTrace();
-                            }
-                        }
-                        if (fileWriter != null) {
-                            try {
-                                fileWriter.close();
-                            } catch (Exception e8) {
-                                e8.printStackTrace();
-                            }
-                        }
-                        throw th;
                     }
-                } catch (Throwable th5) {
-                    th = th5;
-                    bufferedWriter2 = bufferedWriter;
-                    th = th;
-                    if (bufferedWriter2 != null) {
-                    }
-                    if (fileWriter != null) {
-                    }
-                    throw th;
+                } catch (Exception e2) {
+                    e = e2;
                 }
-                fileWriter.close();
-            } catch (Exception e9) {
-                e9.printStackTrace();
+                if (jSONObject != null || i != 0) {
+                    b.a(this.a, b, this.c);
+                    return;
+                }
+                a.a(this.a, "");
+                b.clear();
+            } catch (Throwable th) {
+                th.printStackTrace();
             }
         }
-    }
-
-    public static File b(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
-            if (context != null) {
-                try {
-                    StringBuilder sb = new StringBuilder();
-                    sb.append(context.getFilesDir());
-                    sb.append("/eAccount/Log/");
-                    File file = new File(sb.toString());
-                    if (!file.exists()) {
-                        file.mkdirs();
-                    }
-                    File file2 = new File(file, "ipa_ol.ds");
-                    if (file2.exists()) {
-                        file2.delete();
-                    }
-                    file2.createNewFile();
-                    return file2;
-                } catch (Exception e) {
-                    e.printStackTrace();
-                    return null;
-                }
-            }
-            return null;
-        }
-        return (File) invokeL.objValue;
-    }
-
-    public static File c(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
-            if (context != null) {
-                try {
-                    StringBuilder sb = new StringBuilder();
-                    sb.append(context.getFilesDir());
-                    sb.append("/eAccount/Log/");
-                    File file = new File(sb.toString());
-                    if (file.exists()) {
-                        File file2 = new File(file, "ipa_ol.ds");
-                        if (file2.exists()) {
-                            return file2;
-                        }
-                        return null;
-                    }
-                    return null;
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-            return null;
-        }
-        return (File) invokeL.objValue;
     }
 }

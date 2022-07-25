@@ -28,7 +28,7 @@ public final class a {
             if (adTemplate == null) {
                 return false;
             }
-            return d.J() <= 0 ? f.a(adTemplate) : com.kwad.sdk.core.videocache.b.a.a(KsAdSDKImpl.get().getContext()).b(com.kwad.sdk.core.response.a.a.b(com.kwad.sdk.core.response.a.d.i(adTemplate)));
+            return d.sc() <= 0 ? f.h(adTemplate) : com.kwad.sdk.core.videocache.b.a.bC(KsAdSDKImpl.get().getContext()).cC(com.kwad.sdk.core.response.a.a.A(com.kwad.sdk.core.response.a.d.bQ(adTemplate)));
         }
         return invokeL.booleanValue;
     }
@@ -42,34 +42,34 @@ public final class a {
         InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65537, null, adTemplate, z)) == null) {
-            AdInfo i = com.kwad.sdk.core.response.a.d.i(adTemplate);
+            AdInfo bQ = com.kwad.sdk.core.response.a.d.bQ(adTemplate);
             boolean z2 = true;
-            if (z && com.kwad.sdk.core.response.a.a.aB(i)) {
+            if (z && com.kwad.sdk.core.response.a.a.bk(bQ)) {
                 return true;
             }
-            String b = com.kwad.sdk.core.response.a.a.b(i);
-            if (TextUtils.isEmpty(b)) {
+            String A = com.kwad.sdk.core.response.a.a.A(bQ);
+            if (TextUtils.isEmpty(A)) {
                 return false;
             }
-            int J = d.J();
+            int sc = d.sc();
             String str = "";
-            if (J < 0) {
-                File b2 = com.kwad.sdk.core.diskcache.a.a.a().b(b);
-                if (!o.a(b2)) {
+            if (sc < 0) {
+                File ad = com.kwad.sdk.core.diskcache.a.a.sS().ad(A);
+                if (!o.I(ad)) {
                     c.a aVar = new c.a();
-                    boolean a = com.kwad.sdk.core.diskcache.a.a.a().a(b, aVar);
-                    str = aVar.a;
+                    boolean a = com.kwad.sdk.core.diskcache.a.a.sS().a(A, aVar);
+                    str = aVar.Qd;
                     z2 = a;
                 }
-                r4 = b2 != null ? b2.length() : 0L;
+                r4 = ad != null ? ad.length() : 0L;
                 adTemplate.mDownloadType = 2;
-            } else if (J > 0) {
-                a.C0548a c0548a = new a.C0548a();
-                int i2 = J * 1024;
-                boolean a2 = com.kwad.sdk.core.videocache.b.a.a(KsAdSDKImpl.get().getContext()).a(b, i2);
-                str = c0548a.a;
+            } else if (sc > 0) {
+                a.C0394a c0394a = new a.C0394a();
+                int i = sc * 1024;
+                boolean a2 = com.kwad.sdk.core.videocache.b.a.bC(KsAdSDKImpl.get().getContext()).a(A, i, c0394a);
+                str = c0394a.Qd;
                 adTemplate.mDownloadType = 3;
-                adTemplate.mDownloadSize = i2;
+                adTemplate.mDownloadSize = i;
                 z2 = a2;
                 if (!z2) {
                     com.kwad.components.ad.reward.monitor.a.a(z, adTemplate, str);

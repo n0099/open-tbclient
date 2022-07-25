@@ -1,13 +1,14 @@
 package com.repackage;
 
 import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.util.NetWorkChangedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbSingleton;
-import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.diskCache.ImagesInvalidService;
-import com.baidu.tbadk.coreExtra.data.NewGodData;
-import com.baidu.tieba.tbadkCore.data.FlutterOpenData;
+import com.baidu.tbadk.core.util.TbImageHelper;
+import com.baidu.tbadk.core.view.NoNetworkView;
+import com.baidu.tieba.compatible.CompatibleUtile;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -15,35 +16,33 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
 /* loaded from: classes7.dex */
 public class vd5 {
     public static /* synthetic */ Interceptable $ic;
-    public static vd5 g;
+    public static final byte[] b;
+    public static vd5 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public String b;
-    public String c;
-    public int d;
-    public String e;
-    public Runnable f;
+    public CustomMessageListener a;
 
     /* loaded from: classes7.dex */
-    public class a implements Runnable {
+    public class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ vd5 a;
 
-        public a(vd5 vd5Var) {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(vd5 vd5Var, int i) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {vd5Var};
+                Object[] objArr = {vd5Var, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -52,27 +51,12 @@ public class vd5 {
             this.a = vd5Var;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                HashMap hashMap = new HashMap();
-                hashMap.put("from", String.valueOf(this.a.a));
-                hashMap.put("field_id", this.a.b);
-                hashMap.put("type", Integer.valueOf(this.a.d));
-                hashMap.put("type_name", this.a.e);
-                if (this.a.a == 2) {
-                    hashMap.put("fid", this.a.c);
-                }
-                hashMap.put("animated", Boolean.FALSE);
-                hashMap.put("transparent", Boolean.TRUE);
-                hashMap.put("swipeback", Boolean.FALSE);
-                if (MessageManager.getInstance().findTask(2002015) == null) {
-                    qg.a().postDelayed(this.a.f, 0L);
-                    return;
-                }
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002015, new FlutterOpenData(TbadkApplication.getInst().getApplicationContext(), "GodInvitePage", hashMap)));
-                xt4.k().x("key_new_god_dialog_showed_time", System.currentTimeMillis());
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && getCmd() == 2000994 && (customResponsedMessage instanceof NetWorkChangedMessage) && !customResponsedMessage.hasError()) {
+                this.a.d();
             }
         }
     }
@@ -80,16 +64,17 @@ public class vd5 {
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755234998, "Lcom/repackage/vd5;")) == null) {
-            return;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755234998, "Lcom/repackage/vd5;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755234998, "Lcom/repackage/vd5;");
+                return;
+            }
         }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(-755234998, "Lcom/repackage/vd5;");
-        }
+        b = new byte[1];
     }
 
     public vd5() {
@@ -105,69 +90,63 @@ public class vd5 {
                 return;
             }
         }
-        this.f = new a(this);
+        ni.r();
     }
 
-    public static synchronized vd5 g() {
+    public static vd5 b() {
         InterceptResult invokeV;
-        vd5 vd5Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
-            synchronized (vd5.class) {
-                if (g == null) {
-                    g = new vd5();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            if (c == null) {
+                synchronized (b) {
+                    if (c == null) {
+                        c = new vd5();
+                    }
                 }
-                vd5Var = g;
             }
-            return vd5Var;
+            return c;
         }
         return (vd5) invokeV.objValue;
     }
 
-    public final boolean h(int i, NewGodData newGodData) {
-        InterceptResult invokeIL;
+    public final CustomMessageListener c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i, newGodData)) == null) {
-            if (i != 5) {
-                return (((((System.currentTimeMillis() - xt4.k().m("key_new_god_dialog_showed_time", 0L)) + 3000) > ImagesInvalidService.FILE_VALID_TIME ? 1 : (((System.currentTimeMillis() - xt4.k().m("key_new_god_dialog_showed_time", 0L)) + 3000) == ImagesInvalidService.FILE_VALID_TIME ? 0 : -1)) < 0) || newGodData == null || !newGodData.isNewGodInvited()) ? false : true;
-            }
-            return true;
-        }
-        return invokeIL.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new a(this, 2000994) : (CustomMessageListener) invokeV.objValue;
     }
 
-    public void i() {
+    public final void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            qg.a().removeCallbacks(this.f);
+            try {
+                boolean z = ni.z();
+                if (z) {
+                    if (ni.H()) {
+                        TbImageHelper.getInstance().setNetworkIsWifi(true);
+                        ab8.e().f();
+                    } else if (ni.x()) {
+                        TbImageHelper.getInstance().setNetworkIsWifi(false);
+                    }
+                }
+                NoNetworkView.setIsHasNetwork(z);
+                CompatibleUtile.dealWebView(null);
+            } catch (Throwable th) {
+                BdLog.e(th.getMessage());
+            }
         }
     }
 
-    public void j(String str) {
+    public void e() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            this.c = str;
-        }
-    }
-
-    public void k(int i, NewGodData newGodData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048579, this, i, newGodData) == null) {
-            l(i, newGodData, true);
-        }
-    }
-
-    public void l(int i, NewGodData newGodData, boolean z) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), newGodData, Boolean.valueOf(z)}) == null) && h(i, newGodData)) {
-            i();
-            this.a = i;
-            this.b = newGodData.getFieldId();
-            this.d = newGodData.getType();
-            this.e = newGodData.getTypeName();
-            qg.a().postDelayed(this.f, z ? 3000L : 0L);
-            if (i == 5 || i == 1) {
-                TbSingleton.getInstance().setExceptInsertAdDiaShow(true);
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            try {
+                if (this.a == null) {
+                    this.a = c();
+                    MessageManager.getInstance().registerListener(this.a);
+                }
+            } catch (Exception e) {
+                this.a = null;
+                BdLog.e(e.getMessage());
             }
         }
     }

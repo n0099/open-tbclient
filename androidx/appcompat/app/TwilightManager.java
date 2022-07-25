@@ -15,6 +15,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.kuaishou.weapon.p0.h;
 import java.util.Calendar;
 /* loaded from: classes.dex */
 public class TwilightManager {
@@ -93,14 +94,14 @@ public class TwilightManager {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) {
-            Location lastKnownLocationForProvider = PermissionChecker.checkSelfPermission(this.mContext, com.baidu.sofire.utility.PermissionChecker.ACCESS_COARSE_LOCATION) == 0 ? getLastKnownLocationForProvider("network") : null;
-            Location lastKnownLocationForProvider2 = PermissionChecker.checkSelfPermission(this.mContext, com.baidu.sofire.utility.PermissionChecker.ACCESS_FINE_LOCATION) == 0 ? getLastKnownLocationForProvider("gps") : null;
+            Location lastKnownLocationForProvider = PermissionChecker.checkSelfPermission(this.mContext, h.h) == 0 ? getLastKnownLocationForProvider("network") : null;
+            Location lastKnownLocationForProvider2 = PermissionChecker.checkSelfPermission(this.mContext, h.g) == 0 ? getLastKnownLocationForProvider("gps") : null;
             return (lastKnownLocationForProvider2 == null || lastKnownLocationForProvider == null) ? lastKnownLocationForProvider2 != null ? lastKnownLocationForProvider2 : lastKnownLocationForProvider : lastKnownLocationForProvider2.getTime() > lastKnownLocationForProvider.getTime() ? lastKnownLocationForProvider2 : lastKnownLocationForProvider;
         }
         return (Location) invokeV.objValue;
     }
 
-    @RequiresPermission(anyOf = {com.baidu.sofire.utility.PermissionChecker.ACCESS_COARSE_LOCATION, com.baidu.sofire.utility.PermissionChecker.ACCESS_FINE_LOCATION})
+    @RequiresPermission(anyOf = {h.h, h.g})
     private Location getLastKnownLocationForProvider(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;

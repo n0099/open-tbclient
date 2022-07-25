@@ -24,8 +24,8 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.a88;
 import com.repackage.b88;
 import com.repackage.c88;
-import com.repackage.ky4;
 import com.repackage.ly4;
+import com.repackage.my4;
 import com.repackage.qg;
 import java.util.HashMap;
 /* loaded from: classes3.dex */
@@ -40,13 +40,13 @@ public class PushMessageStatic {
 
         /* renamed from: com.baidu.tieba.push.PushMessageStatic$a$a  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        public class C0239a implements ky4.h {
+        public class C0253a implements ly4.h {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ Ringtone a;
             public final /* synthetic */ b88 b;
 
-            public C0239a(a aVar, Ringtone ringtone, b88 b88Var) {
+            public C0253a(a aVar, Ringtone ringtone, b88 b88Var) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -65,7 +65,7 @@ public class PushMessageStatic {
                 this.b = b88Var;
             }
 
-            @Override // com.repackage.ky4.h
+            @Override // com.repackage.ly4.h
             public void dismiss() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -85,14 +85,14 @@ public class PushMessageStatic {
         public class b implements b88.e {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ ky4 a;
+            public final /* synthetic */ ly4 a;
 
-            public b(a aVar, ky4 ky4Var) {
+            public b(a aVar, ly4 ly4Var) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar, ky4Var};
+                    Object[] objArr = {aVar, ly4Var};
                     interceptable.invokeUnInit(65536, newInitContext);
                     int i = newInitContext.flag;
                     if ((i & 1) != 0) {
@@ -102,17 +102,17 @@ public class PushMessageStatic {
                         return;
                     }
                 }
-                this.a = ky4Var;
+                this.a = ly4Var;
             }
 
             @Override // com.repackage.b88.e
             public void a(View view2) {
-                ky4 ky4Var;
+                ly4 ly4Var;
                 Interceptable interceptable = $ic;
-                if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || (ky4Var = this.a) == null) {
+                if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || (ly4Var = this.a) == null) {
                     return;
                 }
-                ky4Var.t();
+                ly4Var.t();
             }
         }
 
@@ -188,8 +188,8 @@ public class PushMessageStatic {
                 b88 b88Var = new b88(currentPageContext);
                 b88Var.o(pushGeneralData);
                 Ringtone f = c88.f();
-                ky4 b2 = ly4.b(b88Var.m(), currentPageContext, null, 0L, remindInfo.getShowtime());
-                b2.x(new C0239a(this, f, b88Var));
+                ly4 b2 = my4.b(b88Var.m(), currentPageContext, null, 0L, remindInfo.getShowtime());
+                b2.x(new C0253a(this, f, b88Var));
                 b88Var.p(new b(this, b2));
             } else if (type == 1 || type == 2 || type == 4 || type == 5) {
                 qg.a().post(new c(this, pushGeneralData));
@@ -217,8 +217,8 @@ public class PushMessageStatic {
             hashMap.put("view_top_params_key_yyext", yyExtData);
             hashMap.put("view_top_params_key_type", 1);
             hashMap.put("view_top_params_room_id", extData.getLiveId());
-            ly4.b(null, currentPageContext, hashMap, 0L, remindInfo.getShowtime());
-            ly4.a();
+            my4.b(null, currentPageContext, hashMap, 0L, remindInfo.getShowtime());
+            my4.a();
             TbSingleton.getInstance().setIsNeedRemindLiveRoom(false);
         }
     }

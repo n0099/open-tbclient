@@ -1,10 +1,17 @@
 package com.repackage;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.MessageQueue;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.performance.speed.SpeedRuntimeProvider;
+import com.baidu.searchbox.performance.speed.SpeedStats;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.schemeaction.SchemeActionHelper;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -13,29 +20,70 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
 public class ms4 {
     public static /* synthetic */ Interceptable $ic;
-    public static ms4 h;
     public transient /* synthetic */ FieldHolder $fh;
-    public Handler a;
-    public int b;
-    public boolean c;
-    public boolean d;
+    public boolean a;
+    public boolean b;
+    public int c;
+    public String d;
     public boolean e;
-    public boolean f;
-    public boolean g;
+    public Handler f;
 
     /* loaded from: classes6.dex */
-    public class a implements Runnable {
+    public class a implements MessageQueue.IdleHandler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ ms4 b;
+        public final /* synthetic */ Activity a;
 
-        public a(ms4 ms4Var, String str) {
+        public a(ms4 ms4Var, Activity activity) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {ms4Var, str};
+                Object[] objArr = {ms4Var, activity};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = activity;
+        }
+
+        @Override // android.os.MessageQueue.IdleHandler
+        public boolean queueIdle() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                int i = ms4.a().c == 1 ? 8 : -1;
+                if (ms4.a().c == 2) {
+                    i = 9;
+                }
+                if (this.a.getClass().getSimpleName().equals("PbActivity")) {
+                    return false;
+                }
+                SpeedStats.getInstance().onSchemeOrPushStatsEnd(this.a, i, ms4.a().d);
+                return false;
+            }
+            return invokeV.booleanValue;
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ MessageQueue.IdleHandler a;
+        public final /* synthetic */ ms4 b;
+
+        public b(ms4 ms4Var, MessageQueue.IdleHandler idleHandler) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ms4Var, idleHandler};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -46,51 +94,38 @@ public class ms4 {
                 }
             }
             this.b = ms4Var;
-            this.a = str;
+            this.a = idleHandler;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.b.h(this.a);
+                this.b.d(this.a);
             }
         }
     }
 
     /* loaded from: classes6.dex */
-    public class b implements MessageQueue.IdleHandler {
+    public static final class c {
         public static /* synthetic */ Interceptable $ic;
+        public static final ms4 a;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
 
-        public b(ms4 ms4Var, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ms4Var, str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-175218364, "Lcom/repackage/ms4$c;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-175218364, "Lcom/repackage/ms4$c;");
                     return;
                 }
             }
-            this.a = str;
-        }
-
-        @Override // android.os.MessageQueue.IdleHandler
-        public boolean queueIdle() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                is4.o(this.a);
-                return false;
-            }
-            return invokeV.booleanValue;
+            a = new ms4();
         }
     }
 
@@ -107,111 +142,74 @@ public class ms4 {
                 return;
             }
         }
-        this.b = 3;
-        this.c = false;
-        this.d = false;
+        this.c = 0;
         this.e = false;
-        this.f = false;
-        this.g = false;
     }
 
     public static ms4 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (h == null) {
-                h = new ms4();
-            }
-            return h;
-        }
-        return (ms4) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? c.a : (ms4) invokeV.objValue;
     }
 
-    public int b() {
+    public final Handler b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : invokeV.intValue;
-    }
-
-    public final Handler c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (this.a == null) {
-                this.a = new Handler(Looper.getMainLooper());
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (this.f == null) {
+                this.f = new Handler(Looper.getMainLooper());
             }
-            return this.a;
+            return this.f;
         }
         return (Handler) invokeV.objValue;
     }
 
-    public boolean d() {
-        InterceptResult invokeV;
+    public void c(Intent intent) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.g : invokeV.booleanValue;
-    }
-
-    public boolean e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f : invokeV.booleanValue;
-    }
-
-    public boolean f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.e : invokeV.booleanValue;
-    }
-
-    public void g(String str) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, str) == null) || this.c) {
-            return;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, intent) == null) {
+            if (!TbadkCoreApplication.getInst().isMainProcess(false) || intent == null || intent.getComponent() == null) {
+                return;
+            }
+            String dataString = intent.getDataString();
+            String className = intent.getComponent().getClassName();
+            if ("com.baidu.tieba.tblauncher.SchemaRouteActivity".equals(className)) {
+                this.c = !oi.isEmpty(dataString) ? 1 : 0;
+                this.d = dataString;
+            } else if (SpeedStats.PUSH_ACTIVITY.equals(className)) {
+                this.c = oi.isEmpty(dataString) ? 0 : 2;
+                this.d = dataString;
+            } else {
+                this.c = 0;
+            }
         }
-        is4.p(str);
-        this.e = false;
-        this.c = true;
     }
 
-    public void h(String str) {
+    public void d(MessageQueue.IdleHandler idleHandler) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048582, this, str) == null) || this.d) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, idleHandler) == null) || idleHandler == null || this.e) {
             return;
         }
         if (Looper.myLooper() != Looper.getMainLooper()) {
-            c().post(new a(this, str));
+            b().post(new b(this, idleHandler));
             return;
         }
-        Looper.myQueue().addIdleHandler(new b(this, str));
-        this.f = false;
-        this.d = true;
+        Looper.myQueue().addIdleHandler(idleHandler);
+        this.e = true;
     }
 
-    public void i(int i) {
+    public void e(Activity activity) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
-            this.b = i;
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, activity) == null) || activity == null) {
+            return;
         }
-    }
-
-    public void j(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
-            this.g = z;
-        }
-    }
-
-    public void k(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
-            this.f = z;
-        }
-    }
-
-    public void l(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
-            this.e = z;
+        if (a().c == 1 || a().c == 2) {
+            String name = activity.getClass().getName();
+            if (!ns4.a().d() || SpeedRuntimeProvider.SPLASH_ACTIVITY_NAME.equals(name) || SpeedStats.PUSH_ACTIVITY.equals(name) || "com.baidu.tieba.tblauncher.SchemaRouteActivity".equals(name)) {
+                return;
+            }
+            if (!SpeedRuntimeProvider.MAIN_ACTIVITY_NAME.equals(name) || SchemeActionHelper.isToMaintab(activity.getIntent())) {
+                a().d(new a(this, activity));
+            }
         }
     }
 }

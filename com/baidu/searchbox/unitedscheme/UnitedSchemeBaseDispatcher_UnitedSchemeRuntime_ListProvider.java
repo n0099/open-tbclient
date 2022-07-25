@@ -5,9 +5,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.c13;
 import com.repackage.d13;
-import com.repackage.in3;
+import com.repackage.e13;
+import com.repackage.jn3;
 import com.repackage.nb1;
 import java.util.ArrayList;
 /* loaded from: classes2.dex */
@@ -35,9 +35,9 @@ public class UnitedSchemeBaseDispatcher_UnitedSchemeRuntime_ListProvider impleme
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             ArrayList arrayList = new ArrayList();
-            arrayList.add(new c13());
             arrayList.add(new d13());
-            arrayList.add(new in3());
+            arrayList.add(new e13());
+            arrayList.add(new jn3());
             return arrayList;
         }
         return invokeV.objValue;

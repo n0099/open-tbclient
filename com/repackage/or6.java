@@ -13,7 +13,7 @@ public class or6 {
         String[] split;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65536, null, str) == null) {
-            if ((TbadkCoreApplication.getInst().isDebugMode() || tm4.h()) && !StringUtils.isNull(str)) {
+            if ((TbadkCoreApplication.getInst().isDebugMode() || um4.h()) && !StringUtils.isNull(str)) {
                 for (String str2 : str.split("\n")) {
                     System.out.println("[FunAdSdk] " + str2);
                 }

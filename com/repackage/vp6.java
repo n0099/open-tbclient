@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.cr4;
+import com.repackage.dr4;
 import java.net.URLEncoder;
 import tbclient.PopInfo;
 /* loaded from: classes7.dex */
@@ -34,7 +34,7 @@ public class vp6 {
         public final /* synthetic */ vp6 a;
 
         /* loaded from: classes7.dex */
-        public class a implements cr4.e {
+        public class a implements dr4.e {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -54,25 +54,25 @@ public class vp6 {
                 }
             }
 
-            @Override // com.repackage.cr4.e
-            public void onClick(cr4 cr4Var) {
+            @Override // com.repackage.dr4.e
+            public void onClick(dr4 dr4Var) {
                 Interceptable interceptable = $ic;
-                if (!(interceptable == null || interceptable.invokeL(1048576, this, cr4Var) == null) || cr4Var == null) {
+                if (!(interceptable == null || interceptable.invokeL(1048576, this, dr4Var) == null) || dr4Var == null) {
                     return;
                 }
-                cr4Var.dismiss();
+                dr4Var.dismiss();
             }
         }
 
         /* renamed from: com.repackage.vp6$b$b  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public class C0750b implements cr4.e {
+        public class C0597b implements dr4.e {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ PopInfo a;
             public final /* synthetic */ b b;
 
-            public C0750b(b bVar, PopInfo popInfo) {
+            public C0597b(b bVar, PopInfo popInfo) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -91,15 +91,15 @@ public class vp6 {
                 this.a = popInfo;
             }
 
-            @Override // com.repackage.cr4.e
-            public void onClick(cr4 cr4Var) {
+            @Override // com.repackage.dr4.e
+            public void onClick(dr4 dr4Var) {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(1048576, this, cr4Var) == null) {
+                if (interceptable == null || interceptable.invokeL(1048576, this, dr4Var) == null) {
                     UrlManager.getInstance().dealOneLink(this.b.a.a.getPageContext(), new String[]{this.a.ahead_url});
-                    if (cr4Var == null) {
+                    if (dr4Var == null) {
                         return;
                     }
-                    cr4Var.dismiss();
+                    dr4Var.dismiss();
                 }
             }
         }
@@ -132,8 +132,8 @@ public class vp6 {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, voidArr)) == null) {
-                br4.f();
-                te<String> g = br4.g("tb.enter_frs_dialog_list");
+                cr4.f();
+                te<String> g = cr4.g("tb.enter_frs_dialog_list");
                 String encode = URLEncoder.encode(this.a.a.Q0().getForum().getName());
                 if (g.get(encode) == null) {
                     g.g(encode, "1");
@@ -150,13 +150,13 @@ public class vp6 {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bool) == null) && bool.booleanValue() && this.a.c() && this.a.a.isAdded()) {
                 PopInfo popInfo = this.a.a.Q0().enterFrsDialogInfo;
-                cr4 cr4Var = new cr4(this.a.a.getActivity());
-                cr4Var.setTitle(popInfo.title);
-                cr4Var.setMessage(popInfo.v_title);
-                cr4Var.isShowTitleAndMessage();
-                cr4Var.setNegativeButton(popInfo.ok_info, new a(this));
-                cr4Var.setPositiveButton(popInfo.ahead_info, new C0750b(this, popInfo));
-                cr4Var.create(this.a.a.getPageContext()).show();
+                dr4 dr4Var = new dr4(this.a.a.getActivity());
+                dr4Var.setTitle(popInfo.title);
+                dr4Var.setMessage(popInfo.v_title);
+                dr4Var.isShowTitleAndMessage();
+                dr4Var.setNegativeButton(popInfo.ok_info, new a(this));
+                dr4Var.setPositiveButton(popInfo.ahead_info, new C0597b(this, popInfo));
+                dr4Var.create(this.a.a.getPageContext()).show();
             }
         }
     }

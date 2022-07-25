@@ -40,12 +40,12 @@ public class a98 implements l98, n98 {
 
         /* renamed from: com.repackage.a98$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class C0588a implements te.a<String> {
+        public class C0434a implements te.a<String> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public C0588a(a aVar) {
+            public C0434a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -107,7 +107,7 @@ public class a98 implements l98, n98 {
             if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (teVar = (te) this.a.a.get()) == null) {
                 return;
             }
-            teVar.f(this.a.e, new C0588a(this));
+            teVar.f(this.a.e, new C0434a(this));
         }
     }
 
@@ -244,8 +244,8 @@ public class a98 implements l98, n98 {
                 synchronized (c.class) {
                     if (this.a.get() == null) {
                         AtomicReference<te<String>> atomicReference = this.a;
-                        br4.f();
-                        atomicReference.set(br4.g(this.b));
+                        cr4.f();
+                        atomicReference.set(cr4.g(this.b));
                     }
                 }
                 return null;

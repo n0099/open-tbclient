@@ -39,18 +39,18 @@ public final class c extends a {
     }
 
     @Override // com.kwad.components.ad.reflux.kwai.a
-    public final void a(@NonNull Context context) {
+    public final void M(@NonNull Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             FrameLayout.inflate(context, R.layout.obfuscated_res_0x7f0d0448, this);
-            ((a) this).a = (TextView) findViewById(R.id.obfuscated_res_0x7f0910dd);
-            ((a) this).e = (ImageView) findViewById(R.id.obfuscated_res_0x7f0910db);
-            ((a) this).f = (KsLogoView) findViewById(R.id.obfuscated_res_0x7f0910dc);
-            ((a) this).d = (ImageView) findViewById(R.id.obfuscated_res_0x7f0910d6);
-            ((a) this).b = (TextView) findViewById(R.id.obfuscated_res_0x7f0910d7);
-            ((a) this).c = (TextView) findViewById(R.id.obfuscated_res_0x7f0910d4);
-            ((a) this).g = (ComplianceTextView) findViewById(R.id.obfuscated_res_0x7f0910de);
-            ((a) this).h = (DownloadProgressView) findViewById(R.id.obfuscated_res_0x7f0910d5);
+            this.li = (TextView) findViewById(R.id.obfuscated_res_0x7f0910d4);
+            this.lm = (ImageView) findViewById(R.id.obfuscated_res_0x7f0910d2);
+            this.ln = (KsLogoView) findViewById(R.id.obfuscated_res_0x7f0910d3);
+            this.ll = (ImageView) findViewById(R.id.obfuscated_res_0x7f0910ca);
+            this.lj = (TextView) findViewById(R.id.obfuscated_res_0x7f0910cb);
+            this.lk = (TextView) findViewById(R.id.obfuscated_res_0x7f0910c8);
+            this.bc = (ComplianceTextView) findViewById(R.id.obfuscated_res_0x7f0910d5);
+            this.dk = (DownloadProgressView) findViewById(R.id.obfuscated_res_0x7f0910c9);
         }
     }
 }

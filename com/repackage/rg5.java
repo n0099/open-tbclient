@@ -52,7 +52,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.j45;
+import com.repackage.k45;
 import java.util.ArrayList;
 import java.util.List;
 import tbclient.HeadItem;
@@ -66,7 +66,7 @@ public class rg5 {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes7.dex */
-    public static class a extends RichTextMaker<c65> {
+    public static class a extends RichTextMaker<d65> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -91,17 +91,17 @@ public class rg5 {
         @Override // com.baidu.tbadk.widget.richText.RichTextMaker
         @NonNull
         /* renamed from: j */
-        public SpannableString b(int i, @NonNull String str, @NonNull c65 c65Var) {
+        public SpannableString b(int i, @NonNull String str, @NonNull d65 d65Var) {
             InterceptResult invokeILL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeILL = interceptable.invokeILL(Constants.METHOD_SEND_USER_MSG, this, i, str, c65Var)) == null) {
-                if (c65Var.n() && str.contains("[视频]")) {
-                    c65Var.p(true);
+            if (interceptable == null || (invokeILL = interceptable.invokeILL(Constants.METHOD_SEND_USER_MSG, this, i, str, d65Var)) == null) {
+                if (d65Var.n() && str.contains("[视频]")) {
+                    d65Var.p(true);
                     str = str.replace("[视频]", "");
                 }
-                f(c65Var.m());
-                g(c65Var.o() ? RichTextMaker.IconPos.START_OFFSET.setOffset(1) : RichTextMaker.IconPos.NONE);
-                return super.b(i, str, c65Var);
+                f(d65Var.m());
+                g(d65Var.o() ? RichTextMaker.IconPos.START_OFFSET.setOffset(1) : RichTextMaker.IconPos.NONE);
+                return super.b(i, str, d65Var);
             }
             return (SpannableString) invokeILL.objValue;
         }
@@ -109,20 +109,20 @@ public class rg5 {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.tbadk.widget.richText.RichTextMaker
         /* renamed from: k */
-        public void c(@NonNull View view2, int i, @NonNull c65 c65Var) {
+        public void c(@NonNull View view2, int i, @NonNull d65 d65Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLIL(1048579, this, view2, i, c65Var) == null) {
-                if (c65Var.n()) {
+            if (interceptable == null || interceptable.invokeLIL(1048579, this, view2, i, d65Var) == null) {
+                if (d65Var.n()) {
                     Context context = view2.getContext();
-                    BdToast b = BdToast.b(context, context.getString(R.string.obfuscated_res_0x7f0f1514));
+                    BdToast b = BdToast.b(context, context.getString(R.string.obfuscated_res_0x7f0f14c3));
                     b.f(BdToast.ToastIcon.FAILURE);
                     b.h();
                     return;
                 }
-                if (c65Var.o()) {
-                    HotTopicStat.a(UrlUtils.getParamValue(c65Var.h(), "topic_id"), UrlUtils.getParamValue(c65Var.h(), IntentConfig.TOPIC_NAME), c65Var.i(), c65Var.g(), c65Var.k());
+                if (d65Var.o()) {
+                    HotTopicStat.a(UrlUtils.getParamValue(d65Var.h(), "topic_id"), UrlUtils.getParamValue(d65Var.h(), IntentConfig.TOPIC_NAME), d65Var.i(), d65Var.g(), d65Var.k());
                 }
-                rg5.B(c65Var.h(), c65Var.l());
+                rg5.B(d65Var.h(), d65Var.l());
             }
         }
     }
@@ -232,7 +232,7 @@ public class rg5 {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                BdToast b = BdToast.b(SelectorHelper.getContext(), SelectorHelper.getContext().getString(R.string.obfuscated_res_0x7f0f1514));
+                BdToast b = BdToast.b(SelectorHelper.getContext(), SelectorHelper.getContext().getString(R.string.obfuscated_res_0x7f0f14c3));
                 b.f(BdToast.ToastIcon.FAILURE);
                 b.h();
             }
@@ -429,14 +429,14 @@ public class rg5 {
                 return;
             }
             TbPageContextSupport tbPageContextSupport = (TbPageContextSupport) currentActivity;
-            w05 w05Var = new w05();
-            w05Var.a = str;
+            x05 x05Var = new x05();
+            x05Var.a = str;
             if (threadData != null) {
-                w05Var.b = threadData.getResource();
-                w05Var.c = threadData.getPbTitle();
+                x05Var.b = threadData.getResource();
+                x05Var.c = threadData.getPbTitle();
             }
-            id5.h(w05Var);
-            UrlManager.getInstance().dealOneLink(tbPageContextSupport.getPageContext(), new String[]{w05Var.a, w05Var.c});
+            jd5.h(x05Var);
+            UrlManager.getInstance().dealOneLink(tbPageContextSupport.getPageContext(), new String[]{x05Var.a, x05Var.c});
         }
     }
 
@@ -729,7 +729,7 @@ public class rg5 {
     public static SpannableString j(String str) {
         InterceptResult invokeL;
         String str2;
-        j45.a f2;
+        k45.a f2;
         double d2;
         int a2;
         Interceptable interceptable = $ic;
@@ -807,7 +807,7 @@ public class rg5 {
                         }
                     }
                     if (threadData != null && pbContent != null) {
-                        c65 f3 = c65.f(threadData, pbContent);
+                        d65 f3 = d65.f(threadData, pbContent);
                         f3.b(HotTopicStat.Locate.THREAD_CARD);
                         f3.a(f2 == 1282);
                         return o(f3);
@@ -820,12 +820,12 @@ public class rg5 {
         return (CharSequence) invokeLL.objValue;
     }
 
-    public static SpannableString o(@NonNull c65 c65Var) {
+    public static SpannableString o(@NonNull d65 d65Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65558, null, c65Var)) == null) {
-            SpannableString b2 = b.a(18).b(18, c65Var.j().text, c65Var);
-            SpecHotTopicHelper.addSpecTopic(c65Var.l(), b2, b2.toString(), 0);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65558, null, d65Var)) == null) {
+            SpannableString b2 = b.a(18).b(18, d65Var.j().text, d65Var);
+            SpecHotTopicHelper.addSpecTopic(d65Var.l(), b2, b2.toString(), 0);
             return b2;
         }
         return (SpannableString) invokeL.objValue;
@@ -847,7 +847,7 @@ public class rg5 {
                     if (intValue == 5) {
                         a2.h(R.drawable.obfuscated_res_0x7f0807de);
                     } else if (intValue == 6) {
-                        a2.h(R.drawable.obfuscated_res_0x7f080eee);
+                        a2.h(R.drawable.obfuscated_res_0x7f080ef5);
                     } else if (intValue != 7) {
                         a2.h(R.drawable.obfuscated_res_0x7f080980);
                     }
@@ -872,8 +872,8 @@ public class rg5 {
             int dimenPixelSize = UtilHelper.getDimenPixelSize(R.dimen.tbds10);
             int dimenPixelSize2 = UtilHelper.getDimenPixelSize(R.dimen.tbds36);
             int dimenPixelSize3 = UtilHelper.getDimenPixelSize(R.dimen.tbds13);
-            SpannableString spannableString = new SpannableString(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0993));
-            spannableString.setSpan(new ov4(i2, dimenPixelSize, dimenPixelSize2, dimenPixelSize3, 0, z), 0, spannableString.length(), 33);
+            SpannableString spannableString = new SpannableString(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f097e));
+            spannableString.setSpan(new pv4(i2, dimenPixelSize, dimenPixelSize2, dimenPixelSize3, 0, z), 0, spannableString.length(), 33);
             return spannableString;
         }
         return (SpannableString) invokeCommon.objValue;

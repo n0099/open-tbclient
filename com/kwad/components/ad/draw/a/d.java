@@ -9,13 +9,13 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.components.core.video.g;
 import com.kwad.components.core.video.h;
-import com.kwad.sdk.utils.ac;
+import com.kwad.sdk.utils.ae;
 /* loaded from: classes5.dex */
 public final class d extends com.kwad.components.ad.draw.kwai.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TextView b;
-    public g c;
+    public TextView bt;
+    public g mVideoPlayStateListener;
 
     public d() {
         Interceptable interceptable = $ic;
@@ -30,10 +30,10 @@ public final class d extends com.kwad.components.ad.draw.kwai.a {
                 return;
             }
         }
-        this.c = new h(this) { // from class: com.kwad.components.ad.draw.a.d.1
+        this.mVideoPlayStateListener = new h(this) { // from class: com.kwad.components.ad.draw.a.d.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ d a;
+            public final /* synthetic */ d bu;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -50,69 +50,69 @@ public final class d extends com.kwad.components.ad.draw.kwai.a {
                         return;
                     }
                 }
-                this.a = this;
+                this.bu = this;
             }
 
             @Override // com.kwad.components.core.video.h, com.kwad.components.core.video.g
-            public final void a(int i3, int i4) {
+            public final void onVideoPlayError(int i3, int i4) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeII(1048576, this, i3, i4) == null) {
-                    this.a.b.setVisibility(0);
+                    this.bu.bt.setVisibility(0);
                 }
             }
 
             @Override // com.kwad.components.core.video.h, com.kwad.components.core.video.g
-            public final void b() {
+            public final void onVideoPlayStart() {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                    this.a.b.setVisibility(8);
+                    this.bu.bt.setVisibility(8);
                 }
             }
 
             @Override // com.kwad.components.core.video.h, com.kwad.components.core.video.g
-            public final void c() {
+            public final void onVideoPlaying() {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                    this.a.b.setVisibility(8);
+                    this.bu.bt.setVisibility(8);
                 }
             }
         };
     }
 
     @Override // com.kwad.components.ad.draw.kwai.a, com.kwad.sdk.mvp.Presenter
-    public final void a() {
+    public final void aq() {
         TextView textView;
         int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            super.a();
-            if (ac.b(u())) {
-                textView = this.b;
+            super.aq();
+            if (ae.isNetworkConnected(getContext())) {
+                textView = this.bt;
                 i = 8;
             } else {
-                textView = this.b;
+                textView = this.bt;
                 i = 0;
             }
             textView.setVisibility(i);
-            ((com.kwad.components.ad.draw.kwai.a) this).a.e.a(this.c);
+            this.aK.aL.a(this.mVideoPlayStateListener);
         }
     }
 
     @Override // com.kwad.sdk.mvp.Presenter
-    public final void i_() {
+    public final void onCreate() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            super.i_();
-            this.b = (TextView) b(R.id.obfuscated_res_0x7f0911d1);
+            super.onCreate();
+            this.bt = (TextView) findViewById(R.id.obfuscated_res_0x7f0911ad);
         }
     }
 
     @Override // com.kwad.sdk.mvp.Presenter
-    public final void k_() {
+    public final void onUnbind() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            super.k_();
-            ((com.kwad.components.ad.draw.kwai.a) this).a.e.b(this.c);
+            super.onUnbind();
+            this.aK.aL.b(this.mVideoPlayStateListener);
         }
     }
 }

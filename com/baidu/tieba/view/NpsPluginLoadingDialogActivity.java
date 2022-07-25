@@ -91,7 +91,7 @@ public class NpsPluginLoadingDialogActivity extends BaseActivity implements View
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048582, this, view2) == null) && view2.getId() == R.id.obfuscated_res_0x7f091371) {
+        if ((interceptable == null || interceptable.invokeL(1048582, this, view2) == null) && view2.getId() == R.id.obfuscated_res_0x7f09134d) {
             finish();
             A1();
         }
@@ -106,17 +106,17 @@ public class NpsPluginLoadingDialogActivity extends BaseActivity implements View
             super.onCreate(bundle);
             setSwipeBackEnabled(false);
             setActivityBgTransparent();
-            setContentView(R.layout.obfuscated_res_0x7f0d08c5);
+            setContentView(R.layout.obfuscated_res_0x7f0d08cf);
             Intent intent = getIntent();
             this.c = intent.getBooleanExtra("showHideView", false);
             intent.getLongExtra("dialogId", -1L);
-            PluginRoundProgressBar pluginRoundProgressBar = (PluginRoundProgressBar) findViewById(R.id.obfuscated_res_0x7f0919cb);
+            PluginRoundProgressBar pluginRoundProgressBar = (PluginRoundProgressBar) findViewById(R.id.obfuscated_res_0x7f0919a5);
             this.a = pluginRoundProgressBar;
             pluginRoundProgressBar.setMax(100);
             this.a.setRoundColor(0);
             this.a.setTextColor(-1);
             this.a.setRoundProgressColor(-1);
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f091371);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f09134d);
             this.b = textView;
             if (this.c) {
                 textView.setVisibility(8);

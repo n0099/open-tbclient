@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ma5;
+import com.repackage.na5;
 import com.repackage.wh8;
 /* loaded from: classes3.dex */
 public class GameVideoStatic {
@@ -53,10 +53,10 @@ public class GameVideoStatic {
     public static void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, null) == null) {
-            ma5 ma5Var = new ma5(309646);
-            ma5Var.setResponsedClass(GameVideoSocketResMessage.class);
-            ma5Var.g(true);
-            MessageManager.getInstance().registerTask(ma5Var);
+            na5 na5Var = new na5(309646);
+            na5Var.setResponsedClass(GameVideoSocketResMessage.class);
+            na5Var.g(true);
+            MessageManager.getInstance().registerTask(na5Var);
             TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_GAME_VIDEO, wh8.a(TbConfig.URL_GAME_VIDEO, 309646));
             tbHttpMessageTask.setIsNeedAddCommenParam(true);
             tbHttpMessageTask.setResponsedClass(GameVideoHttpResMessage.class);

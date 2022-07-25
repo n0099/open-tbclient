@@ -19,10 +19,10 @@ import java.util.concurrent.CopyOnWriteArrayList;
 /* loaded from: classes5.dex */
 public final class a extends PathClassLoader {
     public static /* synthetic */ Interceptable $ic;
-    public static a a;
-    public static List<ClassLoader> c;
+    public static a axB;
+    public static List<ClassLoader> axC;
     public transient /* synthetic */ FieldHolder $fh;
-    public final BaseDexClassLoader b;
+    public final BaseDexClassLoader axA;
 
     static {
         InterceptResult invokeClinit;
@@ -37,7 +37,7 @@ public final class a extends PathClassLoader {
                 return;
             }
         }
-        c = new CopyOnWriteArrayList();
+        axC = new CopyOnWriteArrayList();
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -59,13 +59,13 @@ public final class a extends PathClassLoader {
                 return;
             }
         }
-        this.b = baseDexClassLoader;
+        this.axA = baseDexClassLoader;
     }
 
     public static void a(BaseDexClassLoader baseDexClassLoader) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65538, null, baseDexClassLoader) == null) && a == null) {
-            a = new a(baseDexClassLoader);
+        if ((interceptable == null || interceptable.invokeL(65538, null, baseDexClassLoader) == null) && axB == null) {
+            axB = new a(baseDexClassLoader);
         }
     }
 
@@ -78,7 +78,7 @@ public final class a extends PathClassLoader {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
             Class<?> cls = null;
             try {
-                loadClass2 = this.b.loadClass(str);
+                loadClass2 = this.axA.loadClass(str);
             } catch (Throwable th) {
                 th = th;
             }
@@ -88,7 +88,7 @@ public final class a extends PathClassLoader {
             th = null;
             cls = loadClass2;
             if (cls == null) {
-                for (ClassLoader classLoader : c) {
+                for (ClassLoader classLoader : axC) {
                     try {
                         loadClass = classLoader.loadClass(str);
                     } catch (Throwable unused) {
@@ -111,28 +111,28 @@ public final class a extends PathClassLoader {
     public final String findLibrary(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) ? this.b.findLibrary(str) : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) ? this.axA.findLibrary(str) : (String) invokeL.objValue;
     }
 
     @Override // java.lang.ClassLoader
     public final URL getResource(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) ? this.b.getResource(str) : (URL) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) ? this.axA.getResource(str) : (URL) invokeL.objValue;
     }
 
     @Override // java.lang.ClassLoader
     public final InputStream getResourceAsStream(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) ? this.b.getResourceAsStream(str) : (InputStream) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) ? this.axA.getResourceAsStream(str) : (InputStream) invokeL.objValue;
     }
 
     @Override // java.lang.ClassLoader
     public final Enumeration<URL> getResources(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) ? this.b.getResources(str) : (Enumeration) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) ? this.axA.getResources(str) : (Enumeration) invokeL.objValue;
     }
 
     @Override // java.lang.ClassLoader
@@ -146,6 +146,6 @@ public final class a extends PathClassLoader {
     public final String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.b.toString() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.axA.toString() : (String) invokeV.objValue;
     }
 }

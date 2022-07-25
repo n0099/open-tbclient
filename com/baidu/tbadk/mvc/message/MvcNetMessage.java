@@ -7,10 +7,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.t75;
 import com.repackage.u75;
+import com.repackage.v75;
 /* loaded from: classes3.dex */
-public class MvcNetMessage<T extends t75, D extends u75> extends NetMessage {
+public class MvcNetMessage<T extends u75, D extends v75> extends NetMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean isNeedCache;

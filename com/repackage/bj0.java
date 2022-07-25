@@ -137,7 +137,7 @@ public abstract class bj0 implements jj0 {
             switch (a.a[adDownloadAction.ordinal()]) {
                 case 1:
                     if (this.a.q.q) {
-                        yz0.a().b(hh0.b(), R.string.obfuscated_res_0x7f0f0b51);
+                        yz0.a().b(hh0.b(), R.string.obfuscated_res_0x7f0f0b3d);
                     }
                     ui0 ui0Var = this.a.p.k;
                     if (ui0Var != null && !TextUtils.isEmpty(ui0Var.a)) {
@@ -197,7 +197,7 @@ public abstract class bj0 implements jj0 {
             Context b = hh0.b();
             Object systemService = b.getSystemService(GrowthConstant.UBC_VALUE_TYPE_CLIP_BOARD);
             if (systemService instanceof ClipboardManager) {
-                ((ClipboardManager) systemService).setPrimaryClip(ClipData.newPlainText(b.getResources().getString(R.string.obfuscated_res_0x7f0f0ba5), str));
+                ((ClipboardManager) systemService).setPrimaryClip(ClipData.newPlainText(b.getResources().getString(R.string.obfuscated_res_0x7f0f0b91), str));
                 yz0.a().a(b, str2);
             }
         }

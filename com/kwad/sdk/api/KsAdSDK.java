@@ -11,7 +11,7 @@ import com.kwad.sdk.api.core.KsAdSdkApi;
 import com.kwad.sdk.api.loader.Loader;
 import com.kwad.sdk.api.loader.Wrapper;
 import com.kwad.sdk.api.loader.c;
-import com.kwad.sdk.api.loader.r;
+import com.kwad.sdk.api.loader.t;
 import com.kwad.sdk.api.proxy.app.AdSdkFileProvider;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
@@ -131,6 +131,7 @@ public class KsAdSDK {
     public static synchronized boolean init(Context context, SdkConfig sdkConfig) {
         boolean z;
         synchronized (KsAdSDK.class) {
+            boolean z2 = true;
             try {
                 Context applicationContext = getApplicationContext(context);
                 mOriginalAppContext = applicationContext;
@@ -157,9 +158,13 @@ public class KsAdSDK {
                 }
                 sInited.set(sSdk != null);
                 if (sdkConfig != null) {
-                    r.a(applicationContext, "sdkconfig", sdkConfig.toJson());
+                    t.c(applicationContext, "sdkconfig", sdkConfig.toJson());
                 }
-                if (a.a.booleanValue()) {
+                Boolean bool = (Boolean) b.a("enableDynamic", new Object[0]);
+                if (bool == null || !bool.booleanValue()) {
+                    z2 = false;
+                }
+                if (z2) {
                     Loader.get().checkUpdate(sSdk);
                 }
                 z = sInited.get();

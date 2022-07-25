@@ -192,9 +192,9 @@ public class qh5<T> {
         this.h = true;
         this.i = z;
         this.a = view2;
-        this.b = (WheelView) view2.findViewById(R.id.obfuscated_res_0x7f091671);
-        this.c = (WheelView) view2.findViewById(R.id.obfuscated_res_0x7f091672);
-        this.d = (WheelView) view2.findViewById(R.id.obfuscated_res_0x7f091673);
+        this.b = (WheelView) view2.findViewById(R.id.obfuscated_res_0x7f09164c);
+        this.c = (WheelView) view2.findViewById(R.id.obfuscated_res_0x7f09164d);
+        this.d = (WheelView) view2.findViewById(R.id.obfuscated_res_0x7f09164e);
     }
 
     public final void A() {

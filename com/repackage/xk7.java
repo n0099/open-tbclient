@@ -32,9 +32,9 @@ public class xk7 {
                 return null;
             }
             if (TbadkCoreApplication.getInst().getSkinType() == 1) {
-                return TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f03f6) + TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1371) + str;
+                return TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f03f5) + TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1320) + str;
             }
-            return TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f03f6) + str;
+            return TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f03f5) + str;
         }
         return (String) invokeL.objValue;
     }

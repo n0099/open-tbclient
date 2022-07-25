@@ -13,8 +13,8 @@ public final class BuildConfig {
     public static final boolean DEBUG = false;
     public static final String FLAVOR = "";
     public static final String LIBRARY_PACKAGE_NAME = "com.kwad.components.offline.api";
-    public static final int VERSION_CODE = 3032400;
-    public static final String VERSION_NAME = "3.3.24";
+    public static final int VERSION_CODE = 3032600;
+    public static final String VERSION_NAME = "3.3.26";
     public transient /* synthetic */ FieldHolder $fh;
 
     public BuildConfig() {

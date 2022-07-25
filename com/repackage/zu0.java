@@ -78,7 +78,7 @@ public class zu0 extends qu0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             super.B();
-            AdImageView adImageView = (AdImageView) LayoutInflater.from(this.c).inflate(R.layout.obfuscated_res_0x7f0d0599, x()).findViewById(R.id.obfuscated_res_0x7f090e47);
+            AdImageView adImageView = (AdImageView) LayoutInflater.from(this.c).inflate(R.layout.obfuscated_res_0x7f0d05a3, x()).findViewById(R.id.obfuscated_res_0x7f090e40);
             this.e = adImageView;
             adImageView.setVisibility(8);
             if (this.e.getLayoutParams() instanceof FrameLayout.LayoutParams) {

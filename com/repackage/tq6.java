@@ -14,7 +14,7 @@ import tbclient.CommonReq;
 import tbclient.VoiceRoomListPage.DataReq;
 import tbclient.VoiceRoomListPage.VoiceRoomListPageReqIdl;
 /* loaded from: classes7.dex */
-public class tq6 implements t75 {
+public class tq6 implements u75 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final long a;
@@ -45,7 +45,7 @@ public class tq6 implements t75 {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? TbadkCoreApplication.getInst().getApp().getResources().getDisplayMetrics().density : invokeV.doubleValue;
     }
 
-    @Override // com.repackage.v75
+    @Override // com.repackage.w75
     public Object h(boolean z) {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
@@ -55,7 +55,7 @@ public class tq6 implements t75 {
                 builder.call_from = Long.valueOf(this.a);
                 builder.fid = Long.valueOf(this.b);
                 CommonReq.Builder builder2 = new CommonReq.Builder();
-                builder2.q_type = Integer.valueOf(zm4.c().e());
+                builder2.q_type = Integer.valueOf(an4.c().e());
                 builder2.scr_dip = Double.valueOf(a());
                 builder2.scr_h = Integer.valueOf(pi.i(TbadkCoreApplication.getInst().getApp()));
                 builder2.scr_w = Integer.valueOf(pi.k(TbadkCoreApplication.getInst().getApp()));
@@ -70,7 +70,7 @@ public class tq6 implements t75 {
         return invokeZ.objValue;
     }
 
-    @Override // com.repackage.s75
+    @Override // com.repackage.t75
     public HashMap<String, Object> w() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -78,7 +78,7 @@ public class tq6 implements t75 {
             HashMap<String, Object> hashMap = new HashMap<>();
             hashMap.put(IntentConfig.CALL_FROM, Long.valueOf(this.a));
             hashMap.put("fid", Long.valueOf(this.b));
-            hashMap.put("q_type", Integer.valueOf(zm4.c().e()));
+            hashMap.put("q_type", Integer.valueOf(an4.c().e()));
             hashMap.put("scr_dip", Double.valueOf(a()));
             hashMap.put("scr_h", Integer.valueOf(pi.i(TbadkCoreApplication.getInst().getApp())));
             hashMap.put("scr_w", Integer.valueOf(pi.k(TbadkCoreApplication.getInst().getApp())));
@@ -87,7 +87,7 @@ public class tq6 implements t75 {
         return (HashMap) invokeV.objValue;
     }
 
-    @Override // com.repackage.s75
+    @Override // com.repackage.t75
     public HashMap<String, String> y() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

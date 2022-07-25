@@ -20,17 +20,17 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.af3;
-import com.repackage.be3;
-import com.repackage.bn3;
-import com.repackage.g03;
-import com.repackage.l03;
-import com.repackage.w92;
+import com.repackage.bf3;
+import com.repackage.ce3;
+import com.repackage.cn3;
+import com.repackage.h03;
+import com.repackage.m03;
 import com.repackage.x92;
 import com.repackage.y92;
-import com.repackage.yd3;
+import com.repackage.z92;
+import com.repackage.zd3;
 /* loaded from: classes2.dex */
-public class LoadingActivity extends Activity implements af3<l03.a> {
+public class LoadingActivity extends Activity implements bf3<m03.a> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public SwanAppActionBar a;
@@ -38,25 +38,25 @@ public class LoadingActivity extends Activity implements af3<l03.a> {
     public LottieAnimationView c;
     public ImageView d;
     public TextView e;
-    public y92 f;
+    public z92 f;
     public boolean g;
-    public final af3<y92> h;
-    public final af3<y92> i;
+    public final bf3<z92> h;
+    public final bf3<z92> i;
 
     /* loaded from: classes2.dex */
-    public class a implements af3<y92> {
+    public class a implements bf3<z92> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ LoadingActivity a;
 
         /* renamed from: com.baidu.swan.facade.requred.webview.LoadingActivity$a$a  reason: collision with other inner class name */
         /* loaded from: classes2.dex */
-        public class RunnableC0170a implements Runnable {
+        public class RunnableC0184a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public RunnableC0170a(a aVar) {
+            public RunnableC0184a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -102,18 +102,18 @@ public class LoadingActivity extends Activity implements af3<l03.a> {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.af3
+        @Override // com.repackage.bf3
         /* renamed from: b */
-        public void a(y92 y92Var) {
+        public void a(z92 z92Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, y92Var) == null) {
-                be3.e0(new RunnableC0170a(this));
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z92Var) == null) {
+                ce3.e0(new RunnableC0184a(this));
             }
         }
     }
 
     /* loaded from: classes2.dex */
-    public class b implements af3<y92> {
+    public class b implements bf3<z92> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ LoadingActivity a;
@@ -137,11 +137,11 @@ public class LoadingActivity extends Activity implements af3<l03.a> {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.af3
+        @Override // com.repackage.bf3
         /* renamed from: b */
-        public void a(y92 y92Var) {
+        public void a(z92 z92Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, y92Var) == null) {
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z92Var) == null) {
                 this.a.finish();
             }
         }
@@ -238,14 +238,14 @@ public class LoadingActivity extends Activity implements af3<l03.a> {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             this.e.setText(getString(R.string.obfuscated_res_0x7f0f0198, new Object[]{0}));
             Intent intent = getIntent();
-            Bitmap d2 = bn3.b().d();
+            Bitmap d2 = cn3.b().d();
             if (d2 == null) {
                 this.d.setImageResource(R.drawable.obfuscated_res_0x7f0801bf);
             } else {
                 this.d.setImageBitmap(d2);
             }
             String stringExtra = intent == null ? "" : intent.getStringExtra("so_lib_name");
-            y92 j = w92.d.j(TextUtils.isEmpty(stringExtra) ? "" : stringExtra);
+            z92 j = x92.d.j(TextUtils.isEmpty(stringExtra) ? "" : stringExtra);
             this.f = j;
             if (j != null && !j.n()) {
                 this.f.v(this.h);
@@ -288,9 +288,9 @@ public class LoadingActivity extends Activity implements af3<l03.a> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.af3
+    @Override // com.repackage.bf3
     /* renamed from: f */
-    public void a(l03.a aVar) {
+    public void a(m03.a aVar) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) && TextUtils.equals(aVar.b, "loading_hide")) {
             finish();
@@ -300,7 +300,7 @@ public class LoadingActivity extends Activity implements af3<l03.a> {
     public final void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            g03.K().u(this);
+            h03.K().u(this);
         }
     }
 
@@ -319,15 +319,15 @@ public class LoadingActivity extends Activity implements af3<l03.a> {
     public final void i() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            g03.K().o(this);
+            h03.K().o(this);
         }
     }
 
     public void j() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            y92 y92Var = this.f;
-            x92.b m = y92Var == null ? null : y92Var.m();
+            z92 z92Var = this.f;
+            y92.b m = z92Var == null ? null : z92Var.m();
             if (m == null || !m.a()) {
                 return;
             }
@@ -344,13 +344,13 @@ public class LoadingActivity extends Activity implements af3<l03.a> {
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, bundle) == null) {
-            int c0 = be3.c0(this);
+            int c0 = ce3.c0(this);
             super.onCreate(bundle);
-            be3.g(this, c0);
+            ce3.g(this, c0);
             setContentView(R.layout.obfuscated_res_0x7f0d0040);
             e();
             d();
-            yd3.a(this);
+            zd3.a(this);
             g();
             c();
             LogUtil.logActivity(this, "onCreate");
@@ -364,10 +364,10 @@ public class LoadingActivity extends Activity implements af3<l03.a> {
             this.b.removeAllAnimatorListeners();
             this.b.cancelAnimation();
             this.c.cancelAnimation();
-            y92 y92Var = this.f;
-            if (y92Var != null) {
-                y92Var.g(this.i);
-                y92Var.h(this.h);
+            z92 z92Var = this.f;
+            if (z92Var != null) {
+                z92Var.g(this.i);
+                z92Var.h(this.h);
             }
             i();
             super.onDestroy();

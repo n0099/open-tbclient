@@ -1,5 +1,7 @@
 package com.repackage;
 /* loaded from: classes7.dex */
-public interface xy2 {
-    String a();
+public interface xy2<T> {
+    int a();
+
+    T getItem(int i);
 }

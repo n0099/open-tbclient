@@ -32,11 +32,11 @@ public final class ws9<T> implements ur9.a<T> {
 
         /* renamed from: com.repackage.ws9$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public class C0764a implements ms9<Notification<?>, Notification<?>> {
+        public class C0612a implements ms9<Notification<?>, Notification<?>> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
-            public C0764a(a aVar) {
+            public C0612a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -81,7 +81,7 @@ public final class ws9<T> implements ur9.a<T> {
         public ur9<?> call(ur9<? extends Notification<?>> ur9Var) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, ur9Var)) == null) ? ur9Var.h(new C0764a(this)) : (ur9) invokeL.objValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, ur9Var)) == null) ? ur9Var.h(new C0612a(this)) : (ur9) invokeL.objValue;
         }
     }
 

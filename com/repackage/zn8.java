@@ -106,7 +106,7 @@ public class zn8 {
         this.a = backgroundPreviewActivity;
         View inflate = LayoutInflater.from(backgroundPreviewActivity.getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d012d, (ViewGroup) null);
         this.b = inflate;
-        inflate.setLayoutParams(new AbsListView.LayoutParams(-1, this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702c8)));
+        inflate.setLayoutParams(new AbsListView.LayoutParams(-1, this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702c6)));
         c();
     }
 
@@ -119,14 +119,14 @@ public class zn8 {
     public final void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.c = (BdExpandImageView) this.b.findViewById(R.id.obfuscated_res_0x7f09090c);
-            this.d = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f092316);
-            TbImageView tbImageView = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f09245d);
+            this.c = (BdExpandImageView) this.b.findViewById(R.id.obfuscated_res_0x7f090905);
+            this.d = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f092318);
+            TbImageView tbImageView = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f09245f);
             this.e = tbImageView;
             tbImageView.setAutoChangeStyle(false);
-            this.f = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f09232d);
-            this.g = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f092346);
-            this.h = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f092310);
+            this.f = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f09232f);
+            this.g = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f092348);
+            this.h = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f092312);
             this.d.setDefaultResource(R.drawable.icon_default_avatar100);
         }
     }
@@ -136,7 +136,7 @@ public class zn8 {
         if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.a.getPageContext() == null) {
             return;
         }
-        ga5.a(this.a.getPageContext(), this.b);
+        ha5.a(this.a.getPageContext(), this.b);
     }
 
     public void e(DressItemData dressItemData) {
@@ -153,7 +153,7 @@ public class zn8 {
         AccountData currentAccountInfo = TbadkCoreApplication.getCurrentAccountInfo();
         if (currentAccountInfo == null) {
             SkinManager.setViewTextColor(this.h, R.color.CAM_X0308, 1);
-            this.f.setText(R.string.obfuscated_res_0x7f0f0491);
+            this.f.setText(R.string.obfuscated_res_0x7f0f0490);
             this.g.setImageResource(R.drawable.icon_pop_boy);
             this.e.setVisibility(8);
             return;

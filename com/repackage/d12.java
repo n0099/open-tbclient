@@ -12,30 +12,28 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.p02;
+import com.repackage.q02;
 /* loaded from: classes5.dex */
 public class d12 {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean d;
     public transient /* synthetic */ FieldHolder $fh;
-    public final p02 a;
-    public final y02 b;
-    public final m02 c;
+    public long a;
+    public boolean b;
+    public final q02 c;
 
     /* loaded from: classes5.dex */
-    public class a implements p02.b {
+    public class a implements q02.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ a12 a;
-        public final /* synthetic */ o02 b;
-        public final /* synthetic */ d12 c;
+        public final /* synthetic */ d12 a;
 
-        public a(d12 d12Var, a12 a12Var, o02 o02Var) {
+        public a(d12 d12Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {d12Var, a12Var, o02Var};
+                Object[] objArr = {d12Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -45,27 +43,19 @@ public class d12 {
                     return;
                 }
             }
-            this.c = d12Var;
-            this.a = a12Var;
-            this.b = o02Var;
+            this.a = d12Var;
         }
 
-        @Override // com.repackage.p02.b
+        @Override // com.repackage.q02.b
         public void a(NetworkStatus networkStatus) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, networkStatus) == null) {
-                i02.e(SceneType.SCENE_INIT_DATA_ERROR.getType(), networkStatus.getStatus(), this.a.e().getStatus(), this.a.g(), this.a.b(), this.a.f(), this.a.a());
-                StringBuilder sb = new StringBuilder();
-                sb.append(SceneType.SCENE_INIT_DATA_ERROR.getScene());
-                sb.append(this.b.a());
-                sb.append(this.a.d());
-                sb.append(networkStatus.getDesc());
-                sb.append(this.a.c());
+                k02.g(SceneType.SCENE_DOWNLOAD_PKG_TIMEOUT.getScene() + networkStatus.getDesc());
+                j02.c(SceneType.SCENE_DOWNLOAD_PKG_TIMEOUT.getType(), networkStatus.getStatus());
+                this.a.e(networkStatus);
                 if (d12.d) {
-                    Log.d("SceneInitDataTips", ">> " + sb.toString());
+                    Log.d("SceneDownloadPkgTips", ">> " + SceneType.SCENE_DOWNLOAD_PKG_TIMEOUT.getScene() + networkStatus.getDesc());
                 }
-                j02.g(sb.toString());
-                this.c.d(networkStatus);
             }
         }
     }
@@ -115,7 +105,7 @@ public class d12 {
                 return;
             }
         }
-        d = rg1.a;
+        d = sg1.a;
     }
 
     public d12() {
@@ -131,32 +121,64 @@ public class d12 {
                 return;
             }
         }
-        this.c = m02.d();
-        this.a = new p02();
-        this.b = y02.d();
+        this.c = new q02();
     }
 
-    public void c() {
+    public final void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            if (d) {
-                Log.d("SceneInitDataTips", ">> trigger init data error event.");
-            }
-            y02.d().j();
-            m02.d().j();
-            o02 f = this.c.f();
-            this.a.a(new a(this, this.b.f(), f));
+            this.c.a(new a(this));
         }
     }
 
-    public final void d(NetworkStatus networkStatus) {
+    public void d() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, networkStatus) == null) {
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.b) {
+            if (this.a == 0) {
+                if (d) {
+                    Log.d("SceneDownloadPkgTips", ">> start to check download progress.");
+                }
+                this.a = System.currentTimeMillis();
+                return;
+            }
+            long currentTimeMillis = System.currentTimeMillis();
+            if (currentTimeMillis - this.a > 2000) {
+                if (d) {
+                    Log.d("SceneDownloadPkgTips", ">> download progress over 2s.");
+                }
+                c();
+                g();
+            }
+            this.a = currentTimeMillis;
+        }
+    }
+
+    public final void e(NetworkStatus networkStatus) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, networkStatus) == null) {
             int i = b.a[networkStatus.ordinal()];
             if (i != 1 && i != 2) {
-                h02.f(R.string.obfuscated_res_0x7f0f1326);
+                i02.f(R.string.obfuscated_res_0x7f0f12d5);
             } else {
-                h02.f(R.string.obfuscated_res_0x7f0f131c);
+                i02.f(R.string.obfuscated_res_0x7f0f12cb);
+            }
+        }
+    }
+
+    public void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.b = h03.K().k() != 1;
+            this.a = 0L;
+        }
+    }
+
+    public void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            this.b = false;
+            if (d) {
+                Log.d("SceneDownloadPkgTips", ">> stop collecting network status.");
             }
         }
     }

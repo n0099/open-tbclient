@@ -315,10 +315,10 @@ public class MultiMediaEditLayout extends FrameLayout implements MultiMediaAdapt
                 } else {
                     this.h.setTextColor(getResources().getColor(R.color.CAM_X0201));
                 }
-                this.h.setText(getResources().getString(R.string.obfuscated_res_0x7f0f14a5, Float.valueOf(f)));
+                this.h.setText(getResources().getString(R.string.obfuscated_res_0x7f0f1454, Float.valueOf(f)));
                 return;
             }
-            this.h.setText(getResources().getString(R.string.obfuscated_res_0x7f0f14a8, Float.valueOf(f)));
+            this.h.setText(getResources().getString(R.string.obfuscated_res_0x7f0f1457, Float.valueOf(f)));
             this.h.setTextColor(getResources().getColor(R.color.CAM_X0201));
         }
     }
@@ -896,17 +896,17 @@ public class MultiMediaEditLayout extends FrameLayout implements MultiMediaAdapt
         this.A = 0;
         this.C = false;
         this.D = false;
-        FrameLayout.inflate(context, R.layout.obfuscated_res_0x7f0d04a0, this);
-        this.a = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f0914ef);
-        this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f090e7c);
-        this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f090ea3);
-        this.f = (ImageView) findViewById(R.id.obfuscated_res_0x7f090e74);
-        this.k = (VideoClipLayout) findViewById(R.id.obfuscated_res_0x7f0914e4);
-        this.l = (VideoClipLayout) findViewById(R.id.obfuscated_res_0x7f091db0);
-        this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f092226);
-        this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f092289);
-        this.i = (SimpleDraweeView) findViewById(R.id.obfuscated_res_0x7f090e4a);
-        ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f090e73);
+        FrameLayout.inflate(context, R.layout.obfuscated_res_0x7f0d049f, this);
+        this.a = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f0914ca);
+        this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f090e75);
+        this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f090e9c);
+        this.f = (ImageView) findViewById(R.id.obfuscated_res_0x7f090e6d);
+        this.k = (VideoClipLayout) findViewById(R.id.obfuscated_res_0x7f0914bf);
+        this.l = (VideoClipLayout) findViewById(R.id.obfuscated_res_0x7f091db6);
+        this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f092228);
+        this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f09228b);
+        this.i = (SimpleDraweeView) findViewById(R.id.obfuscated_res_0x7f090e43);
+        ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f090e6c);
         this.e = imageView;
         imageView.setOnClickListener(this);
         GenericDraweeHierarchy hierarchy = this.i.getHierarchy();
@@ -915,7 +915,7 @@ public class MultiMediaEditLayout extends FrameLayout implements MultiMediaAdapt
         roundingParams = roundingParams == null ? new RoundingParams() : roundingParams;
         roundingParams.setCornersRadius(UtilHelper.getDimenPixelSize(R.dimen.tbds3));
         hierarchy.setRoundingParams(roundingParams);
-        this.n = findViewById(R.id.obfuscated_res_0x7f091248);
+        this.n = findViewById(R.id.obfuscated_res_0x7f091224);
         MultiMediaAdapter multiMediaAdapter = new MultiMediaAdapter();
         this.b = multiMediaAdapter;
         multiMediaAdapter.j(this);

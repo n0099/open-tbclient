@@ -12,10 +12,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.b65;
+import com.repackage.c65;
 import java.util.ArrayList;
 /* loaded from: classes6.dex */
-public class ii5 implements ec1<b65> {
+public class ii5 implements ec1<c65> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -26,12 +26,12 @@ public class ii5 implements ec1<b65> {
     }
 
     /* loaded from: classes6.dex */
-    public static final class b implements b65, HotTopicDetailModel.d {
+    public static final class b implements c65, HotTopicDetailModel.d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public HotTopicDetailModel b;
         @Nullable
-        public b65.a c;
+        public c65.a c;
 
         public b() {
             Interceptable interceptable = $ic;
@@ -47,8 +47,8 @@ public class ii5 implements ec1<b65> {
             }
         }
 
-        @Override // com.repackage.b65
-        public b65 a(@NonNull TbPageContext tbPageContext, long j, @NonNull String str) {
+        @Override // com.repackage.c65
+        public c65 a(@NonNull TbPageContext tbPageContext, long j, @NonNull String str) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{tbPageContext, Long.valueOf(j), str})) == null) {
@@ -58,19 +58,19 @@ public class ii5 implements ec1<b65> {
                 this.b.O(this);
                 return this;
             }
-            return (b65) invokeCommon.objValue;
+            return (c65) invokeCommon.objValue;
         }
 
-        @Override // com.repackage.b65
-        public void b(int i, op4 op4Var, long j) {
+        @Override // com.repackage.c65
+        public void b(int i, pp4 pp4Var, long j) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), op4Var, Long.valueOf(j)}) == null) {
-                this.b.C(i, op4Var, j);
+            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), pp4Var, Long.valueOf(j)}) == null) {
+                this.b.C(i, pp4Var, j);
             }
         }
 
-        @Override // com.repackage.b65
-        public void c(@Nullable b65.a aVar) {
+        @Override // com.repackage.c65
+        public void c(@Nullable c65.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
                 this.c = aVar;
@@ -120,9 +120,9 @@ public class ii5 implements ec1<b65> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.repackage.ec1
     /* renamed from: a */
-    public b65 getService() {
+    public c65 getService() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new b(null) : (b65) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new b(null) : (c65) invokeV.objValue;
     }
 }

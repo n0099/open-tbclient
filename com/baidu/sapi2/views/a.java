@@ -29,12 +29,12 @@ public class a extends SurfaceView implements SurfaceHolder.Callback {
 
     /* renamed from: com.baidu.sapi2.views.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public class HandlerC0135a extends Handler {
+    public class HandlerC0136a extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ a a;
 
-        public HandlerC0135a(a aVar) {
+        public HandlerC0136a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -140,7 +140,7 @@ public class a extends SurfaceView implements SurfaceHolder.Callback {
                 return;
             }
         }
-        this.d = new HandlerC0135a(this);
+        this.d = new HandlerC0136a(this);
         this.b = camera;
         SurfaceHolder holder = getHolder();
         this.a = holder;

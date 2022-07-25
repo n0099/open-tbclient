@@ -1,23 +1,19 @@
 package com.repackage;
 
 import android.graphics.Canvas;
-import android.graphics.Matrix;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.crius.constants.NativeConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONArray;
 /* loaded from: classes7.dex */
-public class wu1 extends nt1 {
+public class wu1 extends ot1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public float a;
-    public float b;
-    public float c;
-    public float d;
-    public int e;
-    public int f;
+    public int a;
 
     public wu1() {
         Interceptable interceptable = $ic;
@@ -29,41 +25,39 @@ public class wu1 extends nt1 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = 0;
     }
 
-    @Override // com.repackage.nt1
-    public void a(ot1 ot1Var, Canvas canvas) {
+    @Override // com.repackage.ot1
+    public void a(pt1 pt1Var, Canvas canvas) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, ot1Var, canvas) == null) {
-            if (ot1Var.a() == 0) {
-                ot1Var.b(canvas.save());
-            } else {
-                canvas.restoreToCount(ot1Var.a());
-                ot1Var.b(canvas.save());
-            }
-            Matrix matrix = new Matrix();
-            matrix.setValues(new float[]{this.a, this.c, this.e, this.b, this.d, this.f, 0.0f, 0.0f, 1.0f});
-            canvas.concat(matrix);
+        if (interceptable == null || interceptable.invokeLL(1048576, this, pt1Var, canvas) == null) {
+            pt1Var.k = this.a;
         }
     }
 
-    @Override // com.repackage.nt1
+    @Override // com.repackage.ot1
     public void b(JSONArray jSONArray) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) {
             try {
-                if (jSONArray.length() == 6) {
-                    this.a = (float) jSONArray.optDouble(0);
-                    this.b = (float) jSONArray.optDouble(1);
-                    this.c = (float) jSONArray.optDouble(2);
-                    this.d = (float) jSONArray.optDouble(3);
-                    this.e = yd3.g((float) jSONArray.optDouble(4));
-                    this.f = yd3.g((float) jSONArray.optDouble(5));
+                if (jSONArray.length() > 0) {
+                    String optString = jSONArray.optString(0);
+                    if (TextUtils.equals(optString, "top")) {
+                        this.a = 1;
+                    } else if (TextUtils.equals(optString, NativeConstants.MIDDLE)) {
+                        this.a = 2;
+                    } else if (TextUtils.equals(optString, "bottom")) {
+                        this.a = 3;
+                    } else {
+                        this.a = 0;
+                    }
                 }
             } catch (Exception e) {
-                if (rg1.a) {
+                if (sg1.a) {
                     e.printStackTrace();
                 }
             }

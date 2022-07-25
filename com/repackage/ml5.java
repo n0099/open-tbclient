@@ -49,16 +49,16 @@ public class ml5 {
         return (ml5) invokeV.objValue;
     }
 
-    public boolean a(az4 az4Var) {
+    public boolean a(bz4 bz4Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, az4Var)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bz4Var)) == null) {
             SQLiteDatabase b = ol5.b();
             String currentAccount = TbadkCoreApplication.getCurrentAccount();
-            if (b != null && az4Var != null && !TextUtils.isEmpty(currentAccount)) {
+            if (b != null && bz4Var != null && !TextUtils.isEmpty(currentAccount)) {
                 try {
-                    ContentValues c = c(az4Var);
-                    if (b.update("table_" + currentAccount, c, "id = ?", new String[]{String.valueOf(az4Var.d())}) == 0) {
+                    ContentValues c = c(bz4Var);
+                    if (b.update("table_" + currentAccount, c, "id = ?", new String[]{String.valueOf(bz4Var.d())}) == 0) {
                         b.insert("table_" + currentAccount, null, c);
                     }
                     return true;
@@ -84,8 +84,8 @@ public class ml5 {
                     b.beginTransaction();
                     try {
                         for (ll5 ll5Var : hl5Var.a()) {
-                            for (az4 az4Var : ll5Var.a()) {
-                                ContentValues c = c(az4Var);
+                            for (bz4 bz4Var : ll5Var.a()) {
+                                ContentValues c = c(bz4Var);
                                 b.insert("table_" + currentAccount, null, c);
                             }
                         }
@@ -105,22 +105,22 @@ public class ml5 {
         return invokeL.booleanValue;
     }
 
-    public final ContentValues c(az4 az4Var) {
+    public final ContentValues c(bz4 bz4Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, az4Var)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bz4Var)) == null) {
             ContentValues contentValues = new ContentValues();
-            contentValues.put("name", az4Var.e());
-            contentValues.put("id", Long.valueOf(az4Var.d()));
-            contentValues.put("user_type", Integer.valueOf(az4Var.h()));
-            contentValues.put("portrait", az4Var.g());
-            contentValues.put("quanpin", az4Var.c());
-            contentValues.put("first_letter", az4Var.a());
-            contentValues.put("name_show", az4Var.f());
-            if (az4Var.b() != null) {
-                contentValues.put("location_hide", Integer.valueOf(az4Var.b().b()));
-                contentValues.put("location_distance", az4Var.b().a());
-                contentValues.put("location_time", Long.valueOf(az4Var.b().c()));
+            contentValues.put("name", bz4Var.e());
+            contentValues.put("id", Long.valueOf(bz4Var.d()));
+            contentValues.put("user_type", Integer.valueOf(bz4Var.h()));
+            contentValues.put("portrait", bz4Var.g());
+            contentValues.put("quanpin", bz4Var.c());
+            contentValues.put("first_letter", bz4Var.a());
+            contentValues.put("name_show", bz4Var.f());
+            if (bz4Var.b() != null) {
+                contentValues.put("location_hide", Integer.valueOf(bz4Var.b().b()));
+                contentValues.put("location_distance", bz4Var.b().a());
+                contentValues.put("location_time", Long.valueOf(bz4Var.b().c()));
             }
             return contentValues;
         }
@@ -146,7 +146,7 @@ public class ml5 {
         return invokeJ.booleanValue;
     }
 
-    public synchronized List<az4> e() {
+    public synchronized List<bz4> e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
@@ -159,30 +159,30 @@ public class ml5 {
                     b.beginTransaction();
                     char c = 0;
                     try {
-                        String[] strArr = cz4.a;
+                        String[] strArr = dz4.a;
                         int length = strArr.length;
                         int i = 0;
                         while (i < length) {
                             String str = strArr[i];
                             ArrayList arrayList2 = new ArrayList();
-                            az4 az4Var = new az4();
-                            az4Var.j(str);
-                            arrayList2.add(az4Var);
+                            bz4 bz4Var = new bz4();
+                            bz4Var.j(str);
+                            arrayList2.add(bz4Var);
                             String[] strArr2 = new String[1];
                             strArr2[c] = str;
                             cursor = b.rawQuery("SELECT * FROM table_" + currentAccount + " WHERE first_letter=?", strArr2);
                             if (cursor != null) {
                                 while (cursor.moveToNext()) {
-                                    az4 az4Var2 = new az4();
-                                    az4Var2.j(str);
-                                    az4Var2.n(cursor.getString(cursor.getColumnIndex("name")));
-                                    az4Var2.o(cursor.getString(cursor.getColumnIndex("name_show")));
-                                    az4Var2.m(cursor.getLong(cursor.getColumnIndex("id")));
-                                    az4Var2.q(cursor.getInt(cursor.getColumnIndex("user_type")));
-                                    az4Var2.p(cursor.getString(cursor.getColumnIndex("portrait")));
-                                    az4Var2.l(cursor.getString(cursor.getColumnIndex("quanpin")));
-                                    az4Var2.k(new bz4(cursor.getString(cursor.getColumnIndex("location_distance")), cursor.getLong(cursor.getColumnIndex("location_time")), cursor.getInt(cursor.getColumnIndex("location_hide"))));
-                                    arrayList2.add(az4Var2);
+                                    bz4 bz4Var2 = new bz4();
+                                    bz4Var2.j(str);
+                                    bz4Var2.n(cursor.getString(cursor.getColumnIndex("name")));
+                                    bz4Var2.o(cursor.getString(cursor.getColumnIndex("name_show")));
+                                    bz4Var2.m(cursor.getLong(cursor.getColumnIndex("id")));
+                                    bz4Var2.q(cursor.getInt(cursor.getColumnIndex("user_type")));
+                                    bz4Var2.p(cursor.getString(cursor.getColumnIndex("portrait")));
+                                    bz4Var2.l(cursor.getString(cursor.getColumnIndex("quanpin")));
+                                    bz4Var2.k(new cz4(cursor.getString(cursor.getColumnIndex("location_distance")), cursor.getLong(cursor.getColumnIndex("location_time")), cursor.getInt(cursor.getColumnIndex("location_hide"))));
+                                    arrayList2.add(bz4Var2);
                                 }
                             }
                             if (arrayList2.size() > 1) {
@@ -208,7 +208,7 @@ public class ml5 {
         return (List) invokeV.objValue;
     }
 
-    public synchronized ArrayList<az4> g() {
+    public synchronized ArrayList<bz4> g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
@@ -216,36 +216,36 @@ public class ml5 {
                 SQLiteDatabase b = ol5.b();
                 String currentAccount = TbadkCoreApplication.getCurrentAccount();
                 Cursor cursor = null;
-                ArrayList<az4> arrayList = new ArrayList<>();
+                ArrayList<bz4> arrayList = new ArrayList<>();
                 if (b != null && !TextUtils.isEmpty(currentAccount)) {
                     b.beginTransaction();
                     char c = 0;
                     try {
-                        String[] strArr = cz4.a;
+                        String[] strArr = dz4.a;
                         int length = strArr.length;
                         int i = 0;
                         while (i < length) {
                             String str = strArr[i];
                             ArrayList arrayList2 = new ArrayList();
-                            az4 az4Var = new az4();
-                            az4Var.j(str);
-                            arrayList2.add(az4Var);
+                            bz4 bz4Var = new bz4();
+                            bz4Var.j(str);
+                            arrayList2.add(bz4Var);
                             String[] strArr2 = new String[2];
                             strArr2[c] = str;
                             strArr2[1] = "1";
                             cursor = b.rawQuery("SELECT * FROM table_" + currentAccount + " WHERE first_letter = ? AND user_type = ? ", strArr2);
                             if (cursor != null) {
                                 while (cursor.moveToNext()) {
-                                    az4 az4Var2 = new az4();
-                                    az4Var2.j(str);
-                                    az4Var2.n(cursor.getString(cursor.getColumnIndex("name")));
-                                    az4Var2.o(cursor.getString(cursor.getColumnIndex("name_show")));
-                                    az4Var2.m(cursor.getLong(cursor.getColumnIndex("id")));
-                                    az4Var2.q(cursor.getInt(cursor.getColumnIndex("user_type")));
-                                    az4Var2.p(cursor.getString(cursor.getColumnIndex("portrait")));
-                                    az4Var2.l(cursor.getString(cursor.getColumnIndex("quanpin")));
-                                    az4Var2.k(new bz4(cursor.getString(cursor.getColumnIndex("location_distance")), cursor.getLong(cursor.getColumnIndex("location_time")), cursor.getInt(cursor.getColumnIndex("location_hide"))));
-                                    arrayList2.add(az4Var2);
+                                    bz4 bz4Var2 = new bz4();
+                                    bz4Var2.j(str);
+                                    bz4Var2.n(cursor.getString(cursor.getColumnIndex("name")));
+                                    bz4Var2.o(cursor.getString(cursor.getColumnIndex("name_show")));
+                                    bz4Var2.m(cursor.getLong(cursor.getColumnIndex("id")));
+                                    bz4Var2.q(cursor.getInt(cursor.getColumnIndex("user_type")));
+                                    bz4Var2.p(cursor.getString(cursor.getColumnIndex("portrait")));
+                                    bz4Var2.l(cursor.getString(cursor.getColumnIndex("quanpin")));
+                                    bz4Var2.k(new cz4(cursor.getString(cursor.getColumnIndex("location_distance")), cursor.getLong(cursor.getColumnIndex("location_time")), cursor.getInt(cursor.getColumnIndex("location_hide"))));
+                                    arrayList2.add(bz4Var2);
                                 }
                             }
                             if (arrayList2.size() > 1) {

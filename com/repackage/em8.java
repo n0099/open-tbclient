@@ -31,13 +31,13 @@ public class em8 extends CustomMessageListener {
 
         /* renamed from: com.repackage.em8$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class RunnableC0619a implements Runnable {
+        public class RunnableC0467a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ cg8 a;
             public final /* synthetic */ a b;
 
-            public RunnableC0619a(a aVar, cg8 cg8Var) {
+            public RunnableC0467a(a aVar, cg8 cg8Var) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -91,7 +91,7 @@ public class em8 extends CustomMessageListener {
         public void a(cg8 cg8Var) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cg8Var) == null) {
-                this.a.a.runOnUiThread(new RunnableC0619a(this, cg8Var));
+                this.a.a.runOnUiThread(new RunnableC0467a(this, cg8Var));
             }
         }
     }
@@ -100,14 +100,14 @@ public class em8 extends CustomMessageListener {
     public class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ dr4 a;
+        public final /* synthetic */ er4 a;
 
-        public b(em8 em8Var, dr4 dr4Var) {
+        public b(em8 em8Var, er4 er4Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {em8Var, dr4Var};
+                Object[] objArr = {em8Var, er4Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -117,7 +117,7 @@ public class em8 extends CustomMessageListener {
                     return;
                 }
             }
-            this.a = dr4Var;
+            this.a = er4Var;
         }
 
         @Override // android.view.View.OnClickListener
@@ -133,15 +133,15 @@ public class em8 extends CustomMessageListener {
     public class c implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ dr4 a;
+        public final /* synthetic */ er4 a;
         public final /* synthetic */ em8 b;
 
-        public c(em8 em8Var, dr4 dr4Var) {
+        public c(em8 em8Var, er4 er4Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {em8Var, dr4Var};
+                Object[] objArr = {em8Var, er4Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -152,7 +152,7 @@ public class em8 extends CustomMessageListener {
                 }
             }
             this.b = em8Var;
-            this.a = dr4Var;
+            this.a = er4Var;
         }
 
         @Override // android.view.View.OnClickListener
@@ -170,16 +170,16 @@ public class em8 extends CustomMessageListener {
     public class d implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ dr4 a;
+        public final /* synthetic */ er4 a;
         public final /* synthetic */ cg8 b;
         public final /* synthetic */ em8 c;
 
-        public d(em8 em8Var, dr4 dr4Var, cg8 cg8Var) {
+        public d(em8 em8Var, er4 er4Var, cg8 cg8Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {em8Var, dr4Var, cg8Var};
+                Object[] objArr = {em8Var, er4Var, cg8Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -190,7 +190,7 @@ public class em8 extends CustomMessageListener {
                 }
             }
             this.c = em8Var;
-            this.a = dr4Var;
+            this.a = er4Var;
             this.b = cg8Var;
         }
 
@@ -249,14 +249,14 @@ public class em8 extends CustomMessageListener {
         if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cg8Var) == null) && !this.a.J && TbadkCoreApplication.isLogin() && this.a.D.intValue() == 4) {
             NewStyleStampDialogView newStyleStampDialogView = new NewStyleStampDialogView(this.a);
             newStyleStampDialogView.setStampData(cg8Var);
-            dr4 dr4Var = new dr4(this.a);
-            dr4Var.c(newStyleStampDialogView);
-            dr4Var.d();
+            er4 er4Var = new er4(this.a);
+            er4Var.c(newStyleStampDialogView);
+            er4Var.d();
             h();
             this.a.J = true;
-            newStyleStampDialogView.getImgStampDialogCancelView().setOnClickListener(new b(this, dr4Var));
-            newStyleStampDialogView.getStampDialogLookView().setOnClickListener(new c(this, dr4Var));
-            newStyleStampDialogView.getStampDialogShareView().setOnClickListener(new d(this, dr4Var, cg8Var));
+            newStyleStampDialogView.getImgStampDialogCancelView().setOnClickListener(new b(this, er4Var));
+            newStyleStampDialogView.getStampDialogLookView().setOnClickListener(new c(this, er4Var));
+            newStyleStampDialogView.getStampDialogShareView().setOnClickListener(new d(this, er4Var, cg8Var));
         }
     }
 
@@ -309,12 +309,12 @@ public class em8 extends CustomMessageListener {
                 if (!this.a.J) {
                     e();
                 }
-                if (!TbadkCoreApplication.isLogin() || rd5.b()) {
+                if (!TbadkCoreApplication.isLogin() || sd5.b()) {
                     return;
                 }
                 MainTabActivity mainTabActivity = this.a;
                 if (mainTabActivity.P && mainTabActivity.O) {
-                    new rd5().c(this.a.getPageContext().getPageActivity());
+                    new sd5().c(this.a.getPageContext().getPageActivity());
                     return;
                 }
                 return;

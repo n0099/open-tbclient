@@ -146,20 +146,20 @@ public class c77 extends BaseAdapter {
             if (view2 != null && view2.getTag() != null && (view2.getTag() instanceof a)) {
                 aVar = (a) view2.getTag();
             } else {
-                view2 = LayoutInflater.from(this.a.getActivity()).inflate(R.layout.obfuscated_res_0x7f0d07fa, viewGroup, false);
+                view2 = LayoutInflater.from(this.a.getActivity()).inflate(R.layout.obfuscated_res_0x7f0d0804, viewGroup, false);
                 aVar = new a();
                 aVar.a = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f09061b);
-                aVar.g = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0907ad);
-                aVar.h = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0907ac);
-                aVar.i = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0907ae);
-                aVar.b = (GroupImageView) view2.findViewById(R.id.obfuscated_res_0x7f090f41);
-                aVar.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090f3e);
-                aVar.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090f3f);
-                aVar.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090f4a);
-                aVar.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090f21);
-                aVar.j = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090f3a);
-                aVar.k = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090f3b);
-                ImageView imageView = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090f3c);
+                aVar.g = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0907ab);
+                aVar.h = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0907aa);
+                aVar.i = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0907ac);
+                aVar.b = (GroupImageView) view2.findViewById(R.id.obfuscated_res_0x7f090f3a);
+                aVar.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090f37);
+                aVar.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090f38);
+                aVar.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090f43);
+                aVar.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090f1a);
+                aVar.j = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090f33);
+                aVar.k = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090f34);
+                ImageView imageView = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090f35);
                 aVar.l = imageView;
                 ImageView[] imageViewArr = new ImageView[4];
                 aVar.m = imageViewArr;

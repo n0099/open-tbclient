@@ -130,7 +130,7 @@ public class ApkDownloadBannerView extends LinearLayout implements sk5 {
             this.c = (BannerDownloadStateBar) this.a.findViewById(R.id.obfuscated_res_0x7f090274);
             this.d = (BannerDownloadStateBar) this.a.findViewById(R.id.obfuscated_res_0x7f090275);
             this.b.setTextColor(Color.parseColor("#999999"));
-            TextView textView = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f090802);
+            TextView textView = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f090800);
             this.e = textView;
             textView.setVisibility(this.g ? 0 : 8);
         }

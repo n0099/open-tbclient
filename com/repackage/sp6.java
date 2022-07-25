@@ -24,14 +24,15 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.cr4;
+import com.baidu.webkit.sdk.PermissionRequest;
+import com.repackage.dr4;
 /* loaded from: classes7.dex */
 public class sp6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes7.dex */
-    public static class a implements cr4.e {
+    public static class a implements dr4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -49,11 +50,11 @@ public class sp6 {
             }
         }
 
-        @Override // com.repackage.cr4.e
-        public void onClick(cr4 cr4Var) {
+        @Override // com.repackage.dr4.e
+        public void onClick(dr4 dr4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, cr4Var) == null) {
-                cr4Var.dismiss();
+            if (interceptable == null || interceptable.invokeL(1048576, this, dr4Var) == null) {
+                dr4Var.dismiss();
             }
         }
     }
@@ -121,8 +122,8 @@ public class sp6 {
         PermissionJudgePolicy permissionJudgePolicy = new PermissionJudgePolicy();
         permissionJudgePolicy.clearRequestPermissionList();
         permissionJudgePolicy.appendRequestPermission(tbPageContext.getPageActivity(), "android.permission.WRITE_EXTERNAL_STORAGE");
-        permissionJudgePolicy.appendRequestPermission(tbPageContext.getPageActivity(), "android.permission.CAMERA");
-        permissionJudgePolicy.appendRequestPermission(tbPageContext.getPageActivity(), "android.permission.RECORD_AUDIO");
+        permissionJudgePolicy.appendRequestPermission(tbPageContext.getPageActivity(), PermissionRequest.RESOURCE_VIDEO_CAPTURE);
+        permissionJudgePolicy.appendRequestPermission(tbPageContext.getPageActivity(), PermissionRequest.RESOURCE_AUDIO_CAPTURE);
         permissionJudgePolicy.setOnPermissionsGrantedListener(new b(tbPageContext, frsViewData));
         permissionJudgePolicy.startRequestPermission(tbPageContext.getPageActivity());
     }
@@ -135,14 +136,14 @@ public class sp6 {
                 return;
             }
             if (Build.VERSION.SDK_INT < 21) {
-                cr4 cr4Var = new cr4(tbPageContext.getPageActivity());
-                cr4Var.setAutoNight(false);
-                cr4Var.setTitle(R.string.obfuscated_res_0x7f0f0f14);
-                cr4Var.setMessage(tbPageContext.getResources().getString(R.string.obfuscated_res_0x7f0f04e9));
-                cr4Var.setTitleShowCenter(true);
-                cr4Var.setMessageShowCenter(true);
-                cr4Var.setPositiveButton(R.string.obfuscated_res_0x7f0f099e, new a());
-                cr4Var.create(tbPageContext).show();
+                dr4 dr4Var = new dr4(tbPageContext.getPageActivity());
+                dr4Var.setAutoNight(false);
+                dr4Var.setTitle(R.string.obfuscated_res_0x7f0f0efd);
+                dr4Var.setMessage(tbPageContext.getResources().getString(R.string.obfuscated_res_0x7f0f04e5));
+                dr4Var.setTitleShowCenter(true);
+                dr4Var.setMessageShowCenter(true);
+                dr4Var.setPositiveButton(R.string.obfuscated_res_0x7f0f0989, new a());
+                dr4Var.create(tbPageContext).show();
             } else if (!TbadkCoreApplication.isLogin()) {
                 if (frsViewData != null && frsViewData.getAnti() != null) {
                     frsViewData.getAnti().setIfpost(1);

@@ -124,8 +124,8 @@ public class j27 {
             byte[] bArr;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                br4.f();
-                te<byte[]> e = br4.e("tb.video_tab", TbadkCoreApplication.getCurrentAccount());
+                cr4.f();
+                te<byte[]> e = cr4.e("tb.video_tab", TbadkCoreApplication.getCurrentAccount());
                 if (e != null && (bArr = e.get(TbadkCoreApplication.getCurrentAccount())) != null && bArr.length != 0) {
                     try {
                         return (DataRes) new Wire(new Class[0]).parseFrom(bArr, DataRes.class);
@@ -140,7 +140,7 @@ public class j27 {
     }
 
     /* loaded from: classes6.dex */
-    public class c implements jd5<DataRes> {
+    public class c implements kd5<DataRes> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ j27 a;
@@ -164,7 +164,7 @@ public class j27 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.jd5
+        @Override // com.repackage.kd5
         /* renamed from: a */
         public void onReturnDataInUI(DataRes dataRes) {
             Interceptable interceptable = $ic;
@@ -255,9 +255,9 @@ public class j27 {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
                 DataRes.Builder builder = new DataRes.Builder(this.a.build(true));
-                br4.f();
+                cr4.f();
                 try {
-                    br4.e("tb.video_tab", TbadkCoreApplication.getCurrentAccount()).g(TbadkCoreApplication.getCurrentAccount(), builder.build(true).toByteArray());
+                    cr4.e("tb.video_tab", TbadkCoreApplication.getCurrentAccount()).g(TbadkCoreApplication.getCurrentAccount(), builder.build(true).toByteArray());
                     return null;
                 } catch (Exception e) {
                     BdLog.e(e);
@@ -297,10 +297,10 @@ public class j27 {
         this.c = new LinkedList();
         this.d = new LinkedList();
         this.e = new LinkedList();
-        ma5 ma5Var = new ma5(309648);
-        ma5Var.setResponsedClass(VideoTabSocketResMessage.class);
-        ma5Var.g(true);
-        MessageManager.getInstance().registerTask(ma5Var);
+        na5 na5Var = new na5(309648);
+        na5Var.setResponsedClass(VideoTabSocketResMessage.class);
+        na5Var.g(true);
+        MessageManager.getInstance().registerTask(na5Var);
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_VIDEO_TAB, wh8.a(TbConfig.URL_VIDEO_TAB, 309648));
         tbHttpMessageTask.setIsNeedAddCommenParam(true);
         tbHttpMessageTask.setResponsedClass(VideoTabHttpResMessage.class);

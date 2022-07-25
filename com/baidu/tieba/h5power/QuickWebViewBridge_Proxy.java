@@ -8,6 +8,7 @@ import com.baidu.tbadk.browser.SearchJsBridge;
 import com.baidu.tbadk.core.atomData.TbTitleActivityConfig;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.TbEnum;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.quickWebView.QuickWebViewBridge;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -387,7 +388,7 @@ public class QuickWebViewBridge_Proxy extends fj8 {
                 hj8Var2.y(0);
             } else if (b.equals("system/closeNativeMask")) {
                 hj8Var2.r(true);
-                hj8 closeNativeMask = this.mJsBridge.closeNativeMask(e.optInt("result"));
+                hj8 closeNativeMask = this.mJsBridge.closeNativeMask(e.optInt(TiebaStatic.LogFields.RESULT));
                 if (closeNativeMask != null) {
                     hj8Var2.x(closeNativeMask.f());
                     hj8Var2.t(closeNativeMask.b());

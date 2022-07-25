@@ -26,7 +26,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.cr4;
+import com.repackage.dr4;
 import java.util.Date;
 /* loaded from: classes7.dex */
 public class zh8 {
@@ -35,7 +35,7 @@ public class zh8 {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes7.dex */
-    public static class a implements cr4.e {
+    public static class a implements dr4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ TbPageContext a;
@@ -58,11 +58,11 @@ public class zh8 {
             this.a = tbPageContext;
         }
 
-        @Override // com.repackage.cr4.e
-        public void onClick(cr4 cr4Var) {
+        @Override // com.repackage.dr4.e
+        public void onClick(dr4 dr4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, cr4Var) == null) {
-                cr4Var.dismiss();
+            if (interceptable == null || interceptable.invokeL(1048576, this, dr4Var) == null) {
+                dr4Var.dismiss();
                 MemberPayActivityConfig memberPayActivityConfig = new MemberPayActivityConfig((Context) this.a.getPageActivity(), true, 23004, "remind");
                 memberPayActivityConfig.setReferPageClickZone(MemberPayStatistic.REFER_PAGE_POSTING, MemberPayStatistic.CLICK_ZONE_BUBBLE_POP_UPS_OPENDE_RENEWALFEE_BUTTON);
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002001, memberPayActivityConfig));
@@ -71,7 +71,7 @@ public class zh8 {
     }
 
     /* loaded from: classes7.dex */
-    public static class b implements cr4.e {
+    public static class b implements dr4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -89,11 +89,11 @@ public class zh8 {
             }
         }
 
-        @Override // com.repackage.cr4.e
-        public void onClick(cr4 cr4Var) {
+        @Override // com.repackage.dr4.e
+        public void onClick(dr4 dr4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, cr4Var) == null) {
-                cr4Var.dismiss();
+            if (interceptable == null || interceptable.invokeL(1048576, this, dr4Var) == null) {
+                dr4Var.dismiss();
                 TiebaStatic.log(TbadkCoreStatisticKey.REMIND_EXPIRED);
             }
         }
@@ -188,12 +188,12 @@ public class zh8 {
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, layoutInflater)) == null) {
                 TextView textView = new TextView(this.a.getPageActivity());
                 if (this.b) {
-                    textView.setBackgroundResource(R.drawable.obfuscated_res_0x7f080f28);
+                    textView.setBackgroundResource(R.drawable.obfuscated_res_0x7f080f2f);
                 } else {
-                    textView.setBackgroundResource(R.drawable.obfuscated_res_0x7f080f26);
+                    textView.setBackgroundResource(R.drawable.obfuscated_res_0x7f080f2d);
                 }
                 int dimensionPixelSize = this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070207);
-                int dimensionPixelSize2 = this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07027b);
+                int dimensionPixelSize2 = this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070279);
                 if (this.b) {
                     textView.setPadding(dimensionPixelSize, dimensionPixelSize, dimensionPixelSize, dimensionPixelSize2);
                 } else {
@@ -316,28 +316,28 @@ public class zh8 {
                 if (fVar != null) {
                     fVar.onRefresh();
                 }
-                cr4 cr4Var = new cr4(tbPageContext.getPageActivity());
-                cr4Var.setCanceledOnTouchOutside(false);
+                dr4 dr4Var = new dr4(tbPageContext.getPageActivity());
+                dr4Var.setCanceledOnTouchOutside(false);
                 View inflate = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0161, (ViewGroup) null);
-                TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092097);
-                TextView textView2 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092098);
+                TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09209b);
+                TextView textView2 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09209c);
                 SkinManager.setViewTextColor(textView, R.color.CAM_X0105, 1);
                 SkinManager.setViewTextColor(textView2, R.color.CAM_X0105, 1);
                 textView.setText(tbPageContext.getPageActivity().getString(R.string.obfuscated_res_0x7f0f0349));
                 textView2.setText(tbPageContext.getPageActivity().getString(R.string.obfuscated_res_0x7f0f034a));
                 textView2.setTextSize(0, tbPageContext.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702b7));
-                cr4Var.setContentView(inflate);
-                cr4Var.setPositiveButton(R.string.obfuscated_res_0x7f0f0ce3, new a(tbPageContext));
-                cr4Var.setNegativeButton(R.string.obfuscated_res_0x7f0f07ee, new b());
-                cr4Var.create(tbPageContext);
-                cr4Var.show();
+                dr4Var.setContentView(inflate);
+                dr4Var.setPositiveButton(R.string.obfuscated_res_0x7f0f0ccf, new a(tbPageContext));
+                dr4Var.setNegativeButton(R.string.obfuscated_res_0x7f0f07ea, new b());
+                dr4Var.create(tbPageContext);
+                dr4Var.show();
                 return;
             }
             long j = (defaultBubbleEndTime - currentTimeMillis) / 86400;
             if (j > 3 || j < 0) {
                 return;
             }
-            if (System.currentTimeMillis() / 86400000 == xt4.k().m("bubble_time@" + TbadkCoreApplication.getCurrentAccount(), 0L)) {
+            if (System.currentTimeMillis() / 86400000 == yt4.k().m("bubble_time@" + TbadkCoreApplication.getCurrentAccount(), 0L)) {
                 return;
             }
             if (i == 0) {
@@ -368,7 +368,7 @@ public class zh8 {
             gfVar.h(r12);
             a = gfVar.b();
             new Handler().postDelayed(new d(tbPageContext, z), 1000L);
-            xt4.k().x("bubble_time@" + TbadkCoreApplication.getCurrentAccount(), System.currentTimeMillis() / 86400000);
+            yt4.k().x("bubble_time@" + TbadkCoreApplication.getCurrentAccount(), System.currentTimeMillis() / 86400000);
         }
     }
 

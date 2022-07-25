@@ -4,27 +4,17 @@ import com.kwai.filedownloader.a;
 import com.kwai.filedownloader.message.MessageSnapshot;
 /* loaded from: classes5.dex */
 public interface t {
-    void a(a.InterfaceC0555a interfaceC0555a, a.c cVar);
+    boolean CL();
 
-    void a(MessageSnapshot messageSnapshot);
+    void CM();
 
-    boolean a();
+    boolean CN();
 
-    void b();
+    boolean CO();
 
-    void b(MessageSnapshot messageSnapshot);
+    void CP();
 
-    void c(MessageSnapshot messageSnapshot);
-
-    boolean c();
-
-    void d(MessageSnapshot messageSnapshot);
-
-    boolean d();
-
-    void e();
-
-    void e(MessageSnapshot messageSnapshot);
+    void b(a.InterfaceC0403a interfaceC0403a, a.c cVar);
 
     void f(MessageSnapshot messageSnapshot);
 
@@ -33,4 +23,14 @@ public interface t {
     void h(MessageSnapshot messageSnapshot);
 
     void i(MessageSnapshot messageSnapshot);
+
+    void j(MessageSnapshot messageSnapshot);
+
+    void k(MessageSnapshot messageSnapshot);
+
+    void l(MessageSnapshot messageSnapshot);
+
+    void m(MessageSnapshot messageSnapshot);
+
+    void n(MessageSnapshot messageSnapshot);
 }

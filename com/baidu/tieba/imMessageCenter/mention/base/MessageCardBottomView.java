@@ -31,8 +31,8 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.ei8;
 import com.repackage.oa7;
 import com.repackage.oi;
-import com.repackage.tn4;
-import com.repackage.ur4;
+import com.repackage.un4;
+import com.repackage.vr4;
 import tbclient.Agree;
 /* loaded from: classes3.dex */
 public class MessageCardBottomView extends LinearLayout {
@@ -182,9 +182,9 @@ public class MessageCardBottomView extends LinearLayout {
     public final void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            tn4 tn4Var = new tn4();
-            tn4Var.b = 27;
-            this.f.setStatisticData(tn4Var);
+            un4 un4Var = new un4();
+            un4Var.b = 27;
+            this.f.setStatisticData(un4Var);
         }
     }
 
@@ -236,14 +236,14 @@ public class MessageCardBottomView extends LinearLayout {
     public final void g(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, context) == null) {
-            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d054f, (ViewGroup) this, true);
-            this.a = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09146d);
-            this.b = (ViewGroup) inflate.findViewById(R.id.obfuscated_res_0x7f09146f);
-            this.c = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091470);
-            this.d = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09146e);
-            this.e = (ViewGroup) inflate.findViewById(R.id.obfuscated_res_0x7f09146a);
-            this.g = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09146b);
-            AgreeView agreeView = (AgreeView) inflate.findViewById(R.id.obfuscated_res_0x7f09146c);
+            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0559, (ViewGroup) this, true);
+            this.a = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091449);
+            this.b = (ViewGroup) inflate.findViewById(R.id.obfuscated_res_0x7f09144b);
+            this.c = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f09144c);
+            this.d = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09144a);
+            this.e = (ViewGroup) inflate.findViewById(R.id.obfuscated_res_0x7f091446);
+            this.g = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091447);
+            AgreeView agreeView = (AgreeView) inflate.findViewById(R.id.obfuscated_res_0x7f091448);
             this.f = agreeView;
             agreeView.getAgreeNumView().setVisibility(8);
             this.f.H(true);
@@ -271,7 +271,7 @@ public class MessageCardBottomView extends LinearLayout {
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             SkinManager.setViewTextColor(this.a, (int) R.color.CAM_X0109);
             WebPManager.setPureDrawable(this.c, R.drawable.obfuscated_res_0x7f0808f7, R.color.CAM_X0107, null);
-            ur4 d = ur4.d(this.d);
+            vr4 d = vr4.d(this.d);
             d.A(R.string.F_X01);
             d.z(R.dimen.T_X08);
             d.v(R.color.CAM_X0107);
@@ -290,14 +290,14 @@ public class MessageCardBottomView extends LinearLayout {
         }
         if (agreeData.hasAgree && agreeData.agreeType == 2) {
             this.g.setText(getContext().getString(R.string.obfuscated_res_0x7f0f0276));
-            ur4 d = ur4.d(this.g);
+            vr4 d = vr4.d(this.g);
             d.A(R.string.F_X01);
             d.z(R.dimen.T_X08);
             d.v(R.color.CAM_X0301);
             return;
         }
-        this.g.setText(getContext().getString(R.string.obfuscated_res_0x7f0f1439));
-        ur4 d2 = ur4.d(this.g);
+        this.g.setText(getContext().getString(R.string.obfuscated_res_0x7f0f13e8));
+        vr4 d2 = vr4.d(this.g);
         d2.A(R.string.F_X01);
         d2.z(R.dimen.T_X08);
         d2.v(R.color.CAM_X0107);

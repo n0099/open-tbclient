@@ -3,6 +3,7 @@ package com.kwad.components.ad;
 import android.os.SystemClock;
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,8 +13,10 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.components.ad.adbit.c;
 import com.kwad.components.core.a.d;
+import com.kwad.components.core.a.f;
 import com.kwad.components.core.response.model.AdResultData;
 import com.kwad.sdk.core.response.model.AdTemplate;
+import java.util.List;
 /* loaded from: classes5.dex */
 public final class KsAdLoadManager {
     public static /* synthetic */ Interceptable $ic;
@@ -98,29 +101,49 @@ public final class KsAdLoadManager {
         this();
     }
 
-    public static KsAdLoadManager a() {
-        InterceptResult invokeV;
+    public static void a(@NonNull com.kwad.components.core.k.kwai.a aVar) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? Holder.INSTANCE.mInstance : (KsAdLoadManager) invokeV.objValue;
-    }
-
-    public static void a(@NonNull com.kwad.components.core.j.kwai.a aVar) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65539, null, aVar) == null) || c.a(aVar)) {
+        if (!(interceptable == null || interceptable.invokeL(65538, null, aVar) == null) || c.b(aVar)) {
             return;
         }
-        d.a().a(aVar);
+        d.lS().c(aVar);
     }
 
     public static void a(AdResultData adResultData, long j) {
         AdTemplate adTemplate;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(InputDeviceCompat.SOURCE_TRACKBALL, null, adResultData, j) == null) {
+        if (interceptable == null || interceptable.invokeLJ(65539, null, adResultData, j) == null) {
             long elapsedRealtime = SystemClock.elapsedRealtime();
             if (adResultData.getAdTemplateList().size() <= 0 || (adTemplate = adResultData.getAdTemplateList().get(0)) == null) {
                 return;
             }
-            com.kwad.components.core.i.a.a().a(adTemplate, elapsedRealtime - j);
+            com.kwad.components.core.j.a.og().c(adTemplate, elapsedRealtime - j);
+        }
+    }
+
+    public static KsAdLoadManager ab() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? Holder.INSTANCE.mInstance : (KsAdLoadManager) invokeV.objValue;
+    }
+
+    public final synchronized <T> void a(T t) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, t) == null) {
+            synchronized (this) {
+                f.mb().add(t);
+            }
+        }
+    }
+
+    public final synchronized <T> void b(List<T> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
+            synchronized (this) {
+                for (T t : list) {
+                    f.mb().add(t);
+                }
+            }
         }
     }
 }

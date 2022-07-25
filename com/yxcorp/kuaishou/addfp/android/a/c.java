@@ -12,12 +12,12 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.aideviceperformance.utils.HardwareInfoUtils;
-import com.baidu.sofire.utility.PermissionChecker;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.kuaishou.weapon.p0.h;
 import com.yxcorp.kuaishou.addfp.KWEGIDDFP;
 import com.yxcorp.kuaishou.addfp.ResponseDfpCallback;
 import com.yxcorp.kuaishou.addfp.android.Orange;
@@ -95,7 +95,7 @@ public class c {
                             return gSer;
                         }
                     }
-                    String[] strArr = {PermissionChecker.READ_PHONE_STATE};
+                    String[] strArr = {h.c};
                     for (i = 0; i <= 0; i++) {
                         if (context.checkPermission(strArr[0], Process.myPid(), Process.myUid()) == -1) {
                             z2 = false;
@@ -115,7 +115,7 @@ public class c {
             z = false;
             if (!z) {
             }
-            String[] strArr2 = {PermissionChecker.READ_PHONE_STATE};
+            String[] strArr2 = {h.c};
             while (i <= 0) {
             }
             if (z2) {

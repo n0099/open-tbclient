@@ -2,110 +2,134 @@ package com.repackage;
 
 import android.content.Context;
 import android.os.Build;
-import com.baidu.android.imsdk.internal.Constants;
+import android.telephony.SubscriptionInfo;
+import android.telephony.SubscriptionManager;
+import android.text.TextUtils;
+import android.util.Pair;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.cmic.sso.sdk.auth.AuthnHelper;
+import java.util.List;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class bg1 implements cg1 {
+public class bg1 {
     public static /* synthetic */ Interceptable $ic;
-    public static bg1 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public cg1 a;
-    public boolean b;
 
-    public bg1() {
+    public static int a(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
+            try {
+                if (he1.f(context).d()) {
+                    if (Build.VERSION.SDK_INT < 24) {
+                        return -1001;
+                    }
+                    if (tf1.n(context)) {
+                        return SubscriptionManager.getDefaultDataSubscriptionId();
+                    }
+                    return -1002;
+                }
+                return -1000;
+            } catch (Throwable th) {
+                tf1.d(th);
+                return -1001;
             }
         }
-        this.a = null;
-        this.b = false;
+        return invokeL.intValue;
     }
 
-    public static bg1 b() {
-        InterceptResult invokeV;
+    public static String b(String str, boolean z) {
+        InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (c == null) {
-                synchronized (bg1.class) {
-                    if (c == null) {
-                        c = new bg1();
+        return (interceptable == null || (invokeLZ = interceptable.invokeLZ(65537, null, str, z)) == null) ? z ? str : "" : (String) invokeLZ.objValue;
+    }
+
+    public static Pair<Integer, Integer> c(Context context) {
+        InterceptResult invokeL;
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
+            int i2 = -1;
+            Pair<Integer, Integer> pair = new Pair<>(-1, -1);
+            try {
+                JSONObject networkType = AuthnHelper.getInstance(context).getNetworkType(context);
+                if (networkType == null) {
+                    return pair;
+                }
+                if (networkType.has("networktype")) {
+                    i2 = Integer.parseInt(networkType.optString("networktype", "-1"));
+                    i = Integer.parseInt(networkType.optString("operatortype", "-1"));
+                } else if (networkType.has("networkType")) {
+                    i2 = Integer.parseInt(networkType.optString("networkType", "-1"));
+                    i = Integer.parseInt(networkType.optString("operatorType", "-1"));
+                } else {
+                    i = -1;
+                }
+                return Pair.create(Integer.valueOf(i2), Integer.valueOf(i));
+            } catch (Throwable th) {
+                tf1.d(th);
+                return pair;
+            }
+        }
+        return (Pair) invokeL.objValue;
+    }
+
+    public static Pair<Integer, String[]> d(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
+            try {
+                if (!he1.f(context).d()) {
+                    return new Pair<>(-1, new String[]{String.valueOf(-1000), String.valueOf(-1000), String.valueOf(-1000), String.valueOf(-1000)});
+                }
+                if (Build.VERSION.SDK_INT < 22) {
+                    return new Pair<>(-2, new String[]{String.valueOf(-1001), String.valueOf(-1001), String.valueOf(-1001), String.valueOf(-1001)});
+                }
+                if (!yf1.a(context, com.kuaishou.weapon.p0.h.c)) {
+                    return new Pair<>(-1, new String[]{String.valueOf(-1001), String.valueOf(-1001), String.valueOf(-1001), String.valueOf(-1001)});
+                }
+                if (!tf1.n(context)) {
+                    return new Pair<>(-1, new String[]{String.valueOf(-1002), String.valueOf(-1002), String.valueOf(-1002), String.valueOf(-1002)});
+                }
+                List<SubscriptionInfo> activeSubscriptionInfoList = ((SubscriptionManager) context.getSystemService("telephony_subscription_service")).getActiveSubscriptionInfoList();
+                if (activeSubscriptionInfoList == null) {
+                    return new Pair<>(0, new String[]{String.valueOf(-1003), String.valueOf(-1003), String.valueOf(-1003), String.valueOf(-1003)});
+                }
+                String[] strArr = new String[4];
+                int i = 0;
+                for (SubscriptionInfo subscriptionInfo : activeSubscriptionInfoList) {
+                    int i2 = i * 2;
+                    int simSlotIndex = subscriptionInfo.getSimSlotIndex();
+                    int subscriptionId = subscriptionInfo.getSubscriptionId();
+                    String iccId = subscriptionInfo.getIccId();
+                    if (TextUtils.isEmpty(iccId)) {
+                        iccId = String.valueOf(-1003);
+                    }
+                    strArr[i2] = simSlotIndex + "_" + subscriptionId + "_" + iccId;
+                    CharSequence carrierName = subscriptionInfo.getCarrierName();
+                    if (carrierName != null) {
+                        strArr[i2 + 1] = carrierName.toString();
+                    } else {
+                        strArr[i2 + 1] = String.valueOf(-1003);
+                    }
+                    i++;
+                    if (i >= 2) {
+                        break;
                     }
                 }
-            }
-            return c;
-        }
-        return (bg1) invokeV.objValue;
-    }
-
-    @Override // com.repackage.cg1
-    public String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            cg1 cg1Var = this.a;
-            if (cg1Var == null) {
-                return null;
-            }
-            try {
-                return cg1Var.a();
-            } catch (Throwable unused) {
-                return null;
-            }
-        }
-        return (String) invokeV.objValue;
-    }
-
-    /* JADX WARN: Removed duplicated region for block: B:25:0x0044 A[Catch: all -> 0x0049, TRY_LEAVE, TryCatch #0 {all -> 0x0049, blocks: (B:4:0x0004, B:7:0x0009, B:23:0x0040, B:25:0x0044, B:17:0x0024, B:18:0x0029, B:19:0x002c, B:20:0x0032, B:21:0x0038), top: B:31:0x0004 }] */
-    /* JADX WARN: Removed duplicated region for block: B:33:? A[RETURN, SYNTHETIC] */
-    @Override // com.repackage.cg1
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public void a(Context context, dg1 dg1Var) {
-        cg1 cg1Var;
-        Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, dg1Var) != null) {
-            return;
-        }
-        try {
-            if (this.b) {
-                return;
-            }
-            this.b = true;
-            int ordinal = com.baidu.sso.s.a.a(Build.MANUFACTURER).ordinal();
-            if (ordinal == 0) {
-                cg1Var = null;
-            } else if (ordinal == 1) {
-                cg1Var = new fg1();
-            } else if (ordinal == 2) {
-                cg1Var = new ng1();
-            } else if (ordinal == 3) {
-                cg1Var = new lg1();
-            } else if (ordinal != 4) {
-                if (this.a == null) {
-                    this.a.a(context, dg1Var);
-                    return;
+                for (int i3 = 0; i3 < 4; i3++) {
+                    if (TextUtils.isEmpty(strArr[i3])) {
+                        strArr[i3] = String.valueOf(-1003);
+                    }
                 }
-                return;
-            } else {
-                cg1Var = new hg1();
+                return new Pair<>(Integer.valueOf(i), strArr);
+            } catch (Throwable th) {
+                tf1.d(th);
+                return new Pair<>(-1, new String[]{String.valueOf(-1001), String.valueOf(-1001), String.valueOf(-1001), String.valueOf(-1001)});
             }
-            this.a = cg1Var;
-            if (this.a == null) {
-            }
-        } catch (Throwable unused) {
         }
+        return (Pair) invokeL.objValue;
     }
 }

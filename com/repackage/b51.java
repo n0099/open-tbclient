@@ -133,7 +133,7 @@ public class b51 extends d51 {
                 return;
             }
         }
-        this.j = (SimpleFeedAdInfoView) view2.findViewById(R.id.obfuscated_res_0x7f09095f);
+        this.j = (SimpleFeedAdInfoView) view2.findViewById(R.id.obfuscated_res_0x7f090958);
         m();
     }
 
@@ -162,7 +162,7 @@ public class b51 extends d51 {
         SimpleFeedAdInfoView simpleFeedAdInfoView;
         View findViewById;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, adBaseModel) == null) || adBaseModel == null || (simpleFeedAdInfoView = this.j) == null || (findViewById = simpleFeedAdInfoView.findViewById(R.id.obfuscated_res_0x7f091513)) == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, adBaseModel) == null) || adBaseModel == null || (simpleFeedAdInfoView = this.j) == null || (findViewById = simpleFeedAdInfoView.findViewById(R.id.obfuscated_res_0x7f0914ee)) == null) {
             return;
         }
         r31.a(this.j, findViewById, k);

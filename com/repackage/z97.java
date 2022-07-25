@@ -50,7 +50,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.fu4;
+import com.repackage.gu4;
 import com.repackage.va7;
 import com.repackage.xm6;
 import java.io.Serializable;
@@ -73,7 +73,7 @@ public class z97 extends b9 {
     public BdTypeRecyclerView f;
     public NavigationBarShadowView g;
     public ViewGroup h;
-    public gu4 i;
+    public hu4 i;
     public va7 j;
     public boolean k;
     public ReplyPrivacyCheckController l;
@@ -81,11 +81,11 @@ public class z97 extends b9 {
     public int n;
     public boolean o;
     public View.OnClickListener p;
-    public final fu4.g q;
+    public final gu4.g q;
     public RecyclerView.OnScrollListener r;
     public va7.b s;
     public final RecyclerView.OnScrollListener t;
-    public r35 u;
+    public s35 u;
     public oa7 v;
     public String w;
     public String x;
@@ -297,9 +297,9 @@ public class z97 extends b9 {
         }
 
         @Override // com.baidu.tieba.tbadkCore.writeModel.NewWriteModel.e
-        public void callback(boolean z, PostWriteCallBackData postWriteCallBackData, fy4 fy4Var, WriteData writeData, AntiData antiData) {
+        public void callback(boolean z, PostWriteCallBackData postWriteCallBackData, gy4 gy4Var, WriteData writeData, AntiData antiData) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), postWriteCallBackData, fy4Var, writeData, antiData}) == null) || this.a.a.getBaseFragmentActivity() == null) {
+            if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), postWriteCallBackData, gy4Var, writeData, antiData}) == null) || this.a.a.getBaseFragmentActivity() == null) {
                 return;
             }
             this.a.a.getBaseFragmentActivity().hideProgressBar();
@@ -309,7 +309,7 @@ public class z97 extends b9 {
                 this.a.l.showAttentionDialog(postWriteCallBackData.getReplyPrivacyTip());
                 return;
             }
-            if (postWriteCallBackData != null && fy4Var == null && !AntiHelper.m(postWriteCallBackData.getErrorCode(), postWriteCallBackData.getErrorString()) && postWriteCallBackData.getErrorCode() != 230277 && postWriteCallBackData.getErrorCode() != 230278) {
+            if (postWriteCallBackData != null && gy4Var == null && !AntiHelper.m(postWriteCallBackData.getErrorCode(), postWriteCallBackData.getErrorString()) && postWriteCallBackData.getErrorCode() != 230277 && postWriteCallBackData.getErrorCode() != 230278) {
                 this.a.a.showToast(postWriteCallBackData.getErrorString());
             }
             if (!z || postWriteCallBackData == null) {
@@ -319,7 +319,7 @@ public class z97 extends b9 {
             statisticItem.param("tid", postWriteCallBackData.getPostId());
             statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
             statisticItem.param("obj_locate", 8);
-            p85 currentVisiblePageExtra = TbPageExtraHelper.getCurrentVisiblePageExtra(this.a.mContext.getPageActivity());
+            q85 currentVisiblePageExtra = TbPageExtraHelper.getCurrentVisiblePageExtra(this.a.mContext.getPageActivity());
             if (currentVisiblePageExtra != null) {
                 statisticItem.param(TiebaStatic.Params.OBJ_CUR_PAGE, currentVisiblePageExtra.a());
             }
@@ -331,7 +331,7 @@ public class z97 extends b9 {
     }
 
     /* loaded from: classes7.dex */
-    public class c implements l35 {
+    public class c implements m35 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ z97 a;
@@ -354,7 +354,7 @@ public class z97 extends b9 {
             this.a = z97Var;
         }
 
-        @Override // com.repackage.l35
+        @Override // com.repackage.m35
         public void a() {
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.a.a.getBaseFragmentActivity() == null) {
@@ -565,7 +565,7 @@ public class z97 extends b9 {
     }
 
     /* loaded from: classes7.dex */
-    public class i implements fu4.g {
+    public class i implements gu4.g {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ z97 a;
@@ -588,7 +588,7 @@ public class z97 extends b9 {
             this.a = z97Var;
         }
 
-        @Override // com.repackage.fu4.g
+        @Override // com.repackage.gu4.g
         public void e(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
@@ -677,11 +677,11 @@ public class z97 extends b9 {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeLL(1048576, this, view2, baseCardInfo) == null) && view2 != null && (baseCardInfo instanceof oa7)) {
                 oa7 oa7Var = (oa7) baseCardInfo;
-                if (oa7Var.F() && view2.getId() != R.id.obfuscated_res_0x7f0918ce && view2.getId() != R.id.obfuscated_res_0x7f09232d) {
+                if (oa7Var.F() && view2.getId() != R.id.obfuscated_res_0x7f0918a9 && view2.getId() != R.id.obfuscated_res_0x7f09232f) {
                     oa7Var.J(false);
                     this.b.U();
                 }
-                if (view2.getId() == R.id.obfuscated_res_0x7f09146f) {
+                if (view2.getId() == R.id.obfuscated_res_0x7f09144b) {
                     this.b.v = oa7Var;
                     if (oa7Var.G()) {
                         g = ng.g(oa7Var.u(), 0L);
@@ -697,7 +697,7 @@ public class z97 extends b9 {
                             String userName = UtilHelper.getUserName(oa7Var.A());
                             if (oa7Var.m().size() <= 2) {
                                 if (oa7Var.m().size() <= 1 || oa7Var.m().get(1) == null) {
-                                    spannableStringBuilder = this.b.mContext.getString(R.string.obfuscated_res_0x7f0f13ca);
+                                    spannableStringBuilder = this.b.mContext.getString(R.string.obfuscated_res_0x7f0f1379);
                                     i2 = 1;
                                 } else {
                                     spannableStringBuilder = rg5.E(oa7Var.m().get(1).content).toString();
@@ -705,8 +705,8 @@ public class z97 extends b9 {
                             } else {
                                 spannableStringBuilder = oa7Var.m().get(2) != null ? rg5.E(oa7Var.m().get(2).content).toString() : null;
                             }
-                            r35 r35Var = this.b.u;
-                            r35Var.p(this.b.mContext.getString(R.string.obfuscated_res_0x7f0f0fc2) + userName + this.b.mContext.getString(R.string.obfuscated_res_0x7f0f13c8) + spannableStringBuilder);
+                            s35 s35Var = this.b.u;
+                            s35Var.p(this.b.mContext.getString(R.string.obfuscated_res_0x7f0f0fab) + userName + this.b.mContext.getString(R.string.obfuscated_res_0x7f0f1377) + spannableStringBuilder);
                         }
                         this.b.u.T(this.b.v.t());
                         this.b.u.b0(oa7Var.G() ? this.b.v.t() : null);
@@ -720,7 +720,7 @@ public class z97 extends b9 {
                     }
                     this.b.D.D(j, i, oa7Var.c(), oa7Var.E(), this.b.v != null ? this.b.v.getBaijiahaoData() : null);
                 } else if (view2.getId() == R.id.obfuscated_res_0x7f09053a) {
-                    Object tag = view2.getTag(R.id.obfuscated_res_0x7f090f31);
+                    Object tag = view2.getTag(R.id.obfuscated_res_0x7f090f2a);
                     if (tag instanceof Boolean) {
                         String u = oa7Var.u();
                         if (((Boolean) tag).booleanValue()) {
@@ -999,7 +999,7 @@ public class z97 extends b9 {
             }
             return;
         }
-        long m2 = xt4.k().m("key_im_open_notification_close_time", 0L);
+        long m2 = yt4.k().m("key_im_open_notification_close_time", 0L);
         if (this.o) {
             return;
         }
@@ -1027,9 +1027,9 @@ public class z97 extends b9 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             qg.a().removeCallbacks(this.E);
-            r35 r35Var = this.u;
-            if (r35Var != null) {
-                r35Var.D();
+            s35 s35Var = this.u;
+            if (s35Var != null) {
+                s35Var.D();
             }
             ReplyPrivacyCheckController replyPrivacyCheckController = this.l;
             if (replyPrivacyCheckController != null) {
@@ -1054,7 +1054,7 @@ public class z97 extends b9 {
     }
 
     public final void Q(int i2, Intent intent) {
-        v15 v15Var;
+        w15 w15Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048580, this, i2, intent) == null) {
             this.u.a().q();
@@ -1071,9 +1071,9 @@ public class z97 extends b9 {
                 writeData.setSubPbReplyPrefix(pbEditorData.getSubPbReplyPrefix());
                 this.u.B(writeData);
                 this.u.d0(pbEditorData.getVoiceModel());
-                u15 n2 = this.u.a().n(6);
-                if (n2 != null && (v15Var = n2.m) != null) {
-                    v15Var.C(new j15(52, 0, pbEditorData.getVoiceModel()));
+                v15 n2 = this.u.a().n(6);
+                if (n2 != null && (w15Var = n2.m) != null) {
+                    w15Var.C(new k15(52, 0, pbEditorData.getVoiceModel()));
                 }
                 if (i2 == -1) {
                     this.u.F();
@@ -1085,13 +1085,13 @@ public class z97 extends b9 {
     public final void R(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-            r35 r35Var = this.u;
-            if (r35Var != null && r35Var.a() != null && this.u.a().getParent() != null) {
+            s35 s35Var = this.u;
+            if (s35Var != null && s35Var.a() != null && this.u.a().getParent() != null) {
                 ((ViewGroup) this.u.a().getParent()).removeView(this.u.a());
             }
-            r35 r35Var2 = (r35) new s35(z).a(this.a.getPageContext().getPageActivity());
-            this.u = r35Var2;
-            r35Var2.N(this.a.getPageContext());
+            s35 s35Var2 = (s35) new t35(z).a(this.a.getPageContext().getPageActivity());
+            this.u = s35Var2;
+            s35Var2.N(this.a.getPageContext());
             this.u.a0(this.B);
             this.u.O(3);
             this.u.z(this.a.getPageContext());
@@ -1139,10 +1139,10 @@ public class z97 extends b9 {
         InterceptResult invokeIIL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIIL = interceptable.invokeIIL(1048585, this, i2, i3, intent)) == null) {
-            r35 r35Var = this.u;
-            if (r35Var != null) {
+            s35 s35Var = this.u;
+            if (s35Var != null) {
                 if (i2 == 12005) {
-                    r35Var.k0();
+                    s35Var.k0();
                     qg.a().postDelayed(this.E, 300L);
                 }
                 this.u.C(i2, i3, intent);
@@ -1164,11 +1164,11 @@ public class z97 extends b9 {
                 return null;
             }
             this.h = viewGroup;
-            this.g = (NavigationBarShadowView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091577);
+            this.g = (NavigationBarShadowView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091552);
             if (this.i == null) {
-                gu4 gu4Var = new gu4(this.a.getPageContext());
-                this.i = gu4Var;
-                gu4Var.f(this.q);
+                hu4 hu4Var = new hu4(this.a.getPageContext());
+                this.i = hu4Var;
+                hu4Var.f(this.q);
             }
             this.i.b0(this.a.getUniqueId());
             if (this.b == null) {
@@ -1238,12 +1238,12 @@ public class z97 extends b9 {
         } else {
             this.b.L(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
             this.b.f();
-            this.b.C(this.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f09e7));
+            this.b.C(this.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f09d3));
             this.b.B(null);
         }
         if (ListUtils.isEmpty(arrayList)) {
             if (this.c == null) {
-                this.c = NoDataViewFactory.a(this.mContext.getContext(), null, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.CREATE, (int) this.mContext.getResources().getDimension(R.dimen.obfuscated_res_0x7f070275)), NoDataViewFactory.e.d(null, this.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f0ab6)), null);
+                this.c = NoDataViewFactory.a(this.mContext.getContext(), null, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.CREATE, (int) this.mContext.getResources().getDimension(R.dimen.obfuscated_res_0x7f070275)), NoDataViewFactory.e.d(null, this.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f0aa2)), null);
                 this.c.setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
                 SkinManager.setBackgroundColor(this.c, R.color.CAM_X0201);
             }
@@ -1280,8 +1280,8 @@ public class z97 extends b9 {
         if (interceptable == null || interceptable.invokeLJ(1048590, this, str, j2) == null) {
             oa7 oa7Var2 = this.v;
             if (oa7Var2 != null && oa7Var2.getBaijiahaoData() != null && this.v.isBjh()) {
-                r35 r35Var = this.u;
-                if (r35Var == null || !r35Var.s) {
+                s35 s35Var = this.u;
+                if (s35Var == null || !s35Var.s) {
                     R(true);
                 }
                 if (this.u == null || (oa7Var = this.v) == null) {
@@ -1343,8 +1343,8 @@ public class z97 extends b9 {
     public void onChangeSkinType(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048595, this, i2) == null) {
-            r35 r35Var = this.u;
-            if (r35Var != null && r35Var.a() != null) {
+            s35 s35Var = this.u;
+            if (s35Var != null && s35Var.a() != null) {
                 this.u.a().w(i2);
             }
             PbListView pbListView = this.b;
@@ -1352,9 +1352,9 @@ public class z97 extends b9 {
                 pbListView.E(SkinManager.getColor(R.color.CAM_X0109));
                 this.b.d(i2);
             }
-            gu4 gu4Var = this.i;
-            if (gu4Var != null) {
-                gu4Var.H(i2);
+            hu4 hu4Var = this.i;
+            if (hu4Var != null) {
+                hu4Var.H(i2);
             }
             NoDataView noDataView = this.c;
             if (noDataView != null) {

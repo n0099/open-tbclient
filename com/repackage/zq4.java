@@ -2,19 +2,21 @@ package com.repackage;
 
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.atomData.AlaPersonCenterFansActivityConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-import tbclient.FrsPage.Yule;
+import tbclient.FrsPage.YuleActivity;
 /* loaded from: classes7.dex */
 public class zq4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public yq4 b;
+    public String a;
+    public String b;
+    public String c;
 
     public zq4() {
         Interceptable interceptable = $ic;
@@ -26,44 +28,53 @@ public class zq4 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = 0;
-        this.b = new yq4();
     }
 
-    public boolean a() {
+    public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a != 0 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (String) invokeV.objValue;
     }
 
-    public yq4 b() {
+    public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : (yq4) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.c : (String) invokeV.objValue;
     }
 
-    public void c(JSONObject jSONObject) {
+    public String c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) || jSONObject == null) {
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : (String) invokeV.objValue;
+    }
+
+    public void d(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, jSONObject) == null) || jSONObject == null) {
             return;
         }
         try {
-            this.a = jSONObject.optInt("activity_show");
-            this.b.d(jSONObject.optJSONObject("yule_activity"));
+            jSONObject.optLong("activity_id");
+            jSONObject.optInt(AlaPersonCenterFansActivityConfig.ACTIVITY_TYPE);
+            this.a = jSONObject.optString("activity_url");
+            this.b = jSONObject.optString("activity_all_icon");
+            this.c = jSONObject.optString("activity_half_icon");
         } catch (Exception e) {
-            BdLog.e(e.getMessage());
+            BdLog.e(e.toString());
         }
     }
 
-    public void d(Yule yule) {
+    public void e(YuleActivity yuleActivity) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, yule) == null) || yule == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, yuleActivity) == null) || yuleActivity == null) {
             return;
         }
-        this.a = yule.activity_show.intValue();
-        this.b.e(yule.yule_activity);
+        yuleActivity.activity_id.longValue();
+        yuleActivity.activity_type.intValue();
+        this.a = yuleActivity.activity_url;
+        this.b = yuleActivity.activity_all_icon;
+        this.c = yuleActivity.activity_half_icon;
     }
 }

@@ -1,6 +1,8 @@
 package com.repackage;
 
 import android.graphics.Canvas;
+import android.graphics.Path;
+import android.graphics.RectF;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -8,10 +10,10 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONArray;
 /* loaded from: classes5.dex */
-public class av1 extends nt1 {
+public class av1 extends ot1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public vt1 a;
+    public Path a;
 
     public av1() {
         Interceptable interceptable = $ic;
@@ -27,27 +29,37 @@ public class av1 extends nt1 {
         }
     }
 
-    @Override // com.repackage.nt1
-    public void a(ot1 ot1Var, Canvas canvas) {
-        vt1 vt1Var;
+    @Override // com.repackage.ot1
+    public void a(pt1 pt1Var, Canvas canvas) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048576, this, ot1Var, canvas) == null) && (vt1Var = this.a) != null && vt1Var.d()) {
-            if (this.a.c()) {
-                ot1Var.c.setShader(this.a.b());
-                return;
-            }
-            ot1Var.m = this.a.a();
-            ot1Var.c.setColor(this.a.a());
-            ot1Var.b.setShader(null);
-        }
-    }
-
-    @Override // com.repackage.nt1
-    public void b(JSONArray jSONArray) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) || jSONArray.length() <= 0) {
+        if (!(interceptable == null || interceptable.invokeLL(1048576, this, pt1Var, canvas) == null) || this.a == null) {
             return;
         }
-        this.a = new vt1(jSONArray);
+        int alpha = pt1Var.c.getAlpha();
+        pt1Var.c(pt1Var.c);
+        canvas.drawPath(this.a, pt1Var.c);
+        pt1Var.c.setAlpha(alpha);
+    }
+
+    @Override // com.repackage.ot1
+    public void b(JSONArray jSONArray) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) {
+            try {
+                if (jSONArray.length() == 4) {
+                    int g = zd3.g((float) jSONArray.optDouble(0));
+                    int g2 = zd3.g((float) jSONArray.optDouble(1));
+                    int g3 = zd3.g((float) jSONArray.optDouble(2));
+                    int g4 = zd3.g((float) jSONArray.optDouble(3));
+                    Path path = new Path();
+                    this.a = path;
+                    path.addRect(new RectF(g, g2, g + g3, g2 + g4), Path.Direction.CW);
+                }
+            } catch (Exception e) {
+                if (sg1.a) {
+                    e.printStackTrace();
+                }
+            }
+        }
     }
 }

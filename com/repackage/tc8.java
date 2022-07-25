@@ -111,23 +111,23 @@ public class tc8 extends b9<PrivacyMarkActivity> {
     public final void n(Context context, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, i) == null) {
-            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0704, (ViewGroup) null);
+            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d070e, (ViewGroup) null);
             this.b = inflate;
-            NavigationBar navigationBar = (NavigationBar) inflate.findViewById(R.id.obfuscated_res_0x7f09158d);
+            NavigationBar navigationBar = (NavigationBar) inflate.findViewById(R.id.obfuscated_res_0x7f091568);
             this.c = navigationBar;
-            navigationBar.setCenterTextTitle(context.getString(R.string.obfuscated_res_0x7f0f0ee2));
+            navigationBar.setCenterTextTitle(context.getString(R.string.obfuscated_res_0x7f0f0ecb));
             this.c.showBottomLine();
             this.c.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-            this.d = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090ed9);
-            this.e = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090ed6);
-            this.f = (BdSwitchView) this.b.findViewById(R.id.obfuscated_res_0x7f090ed7);
-            this.g = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0916a4);
-            this.h = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0916a1);
-            this.i = (BdSwitchView) this.b.findViewById(R.id.obfuscated_res_0x7f0916a2);
-            this.d.setText(R.string.obfuscated_res_0x7f0f0a89);
-            this.e.setText(R.string.obfuscated_res_0x7f0f0a88);
-            this.g.setText(R.string.obfuscated_res_0x7f0f0a8a);
-            this.h.setText(R.string.obfuscated_res_0x7f0f0a8b);
+            this.d = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090ed2);
+            this.e = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090ecf);
+            this.f = (BdSwitchView) this.b.findViewById(R.id.obfuscated_res_0x7f090ed0);
+            this.g = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f09167f);
+            this.h = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f09167c);
+            this.i = (BdSwitchView) this.b.findViewById(R.id.obfuscated_res_0x7f09167d);
+            this.d.setText(R.string.obfuscated_res_0x7f0f0a75);
+            this.e.setText(R.string.obfuscated_res_0x7f0f0a74);
+            this.g.setText(R.string.obfuscated_res_0x7f0f0a76);
+            this.h.setText(R.string.obfuscated_res_0x7f0f0a77);
             int i2 = i & 3;
             int i3 = (i >> 2) & 3;
             if (i2 == 3) {

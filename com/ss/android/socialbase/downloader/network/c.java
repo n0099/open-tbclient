@@ -26,7 +26,7 @@ public class c {
 
     /* renamed from: com.ss.android.socialbase.downloader.network.c$c  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public static class C0838c {
+    public static class C0687c {
         public static final c a = new c();
     }
 
@@ -99,7 +99,7 @@ public class c {
     }
 
     public static c a() {
-        return C0838c.a;
+        return C0687c.a;
     }
 
     public void a(final String str, final a aVar, final long j) {

@@ -1260,13 +1260,13 @@ public class BdSwipeRefreshLayout extends ViewGroup implements NestedScrollingPa
         this.D = getResources().getDisplayMetrics().widthPixels;
         ViewCompat.setChildrenDrawingOrderEnabled(this, true);
         if ("baidu".equals(LiveFeedPageSdk.f().e())) {
-            this.z = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07060e);
+            this.z = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070609);
         } else if ("haokan".equals(LiveFeedPageSdk.f().e())) {
-            this.z = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07060f);
+            this.z = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07060a);
         } else if ("quanmin".equals(LiveFeedPageSdk.f().e())) {
-            this.z = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070610);
+            this.z = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07060b);
         } else if ("tieba".equals(LiveFeedPageSdk.f().e())) {
-            this.z = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07060e);
+            this.z = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070609);
         }
         this.f = this.z;
         this.h = new NestedScrollingParentHelper(this);

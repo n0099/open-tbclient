@@ -7,65 +7,66 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public final class w implements com.kwad.sdk.core.webview.kwai.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public com.kwad.sdk.core.webview.kwai.c a;
+    public a ME;
 
-    public w() {
+    /* loaded from: classes5.dex */
+    public interface a {
+        void a(com.kwad.components.core.webview.a.b bVar);
+    }
+
+    public w(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {aVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.ME = aVar;
+    }
+
+    @Override // com.kwad.sdk.core.webview.kwai.a
+    public final void a(String str, @NonNull com.kwad.sdk.core.webview.kwai.c cVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, str, cVar) == null) {
+            com.kwad.components.core.webview.a.b bVar = new com.kwad.components.core.webview.a.b();
+            try {
+                bVar.parseJson(new JSONObject(str));
+                if (this.ME != null) {
+                    this.ME.a(bVar);
+                }
+            } catch (Exception e) {
+                cVar.onError(-1, "");
+                com.kwad.sdk.core.e.b.printStackTrace(e);
             }
         }
     }
 
     @Override // com.kwad.sdk.core.webview.kwai.a
     @NonNull
-    public final String a() {
+    public final String getKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "registerDeeplinkListener" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "openNewPage" : (String) invokeV.objValue;
     }
 
     @Override // com.kwad.sdk.core.webview.kwai.a
-    public final void a(String str, @NonNull com.kwad.sdk.core.webview.kwai.c cVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, cVar) == null) {
-            this.a = cVar;
-        }
-    }
-
-    @Override // com.kwad.sdk.core.webview.kwai.a
-    public final void b() {
+    public final void onDestroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.a = null;
+            this.ME = null;
         }
-    }
-
-    public final void c() {
-        com.kwad.sdk.core.webview.kwai.c cVar;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (cVar = this.a) == null) {
-            return;
-        }
-        cVar.a(null);
-    }
-
-    public final void d() {
-        com.kwad.sdk.core.webview.kwai.c cVar;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (cVar = this.a) == null) {
-            return;
-        }
-        cVar.a(-1, "deep link error");
     }
 }

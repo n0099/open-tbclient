@@ -26,7 +26,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.fu4;
+import com.repackage.gu4;
 /* loaded from: classes6.dex */
 public class ly6 extends cn implements BigdaySwipeRefreshLayout.k, PersonalizePageView.j0 {
     public static /* synthetic */ Interceptable $ic;
@@ -35,15 +35,15 @@ public class ly6 extends cn implements BigdaySwipeRefreshLayout.k, PersonalizePa
     public LottieAnimationView h;
     public ImageView i;
     public TextView j;
-    public in4 k;
+    public jn4 k;
     public String l;
     public String m;
     public String n;
     public String o;
-    public fu4.g p;
-    public fu4.f q;
-    public fu4.h r;
-    public fu4.e s;
+    public gu4.g p;
+    public gu4.f q;
+    public gu4.h r;
+    public gu4.e s;
 
     /* loaded from: classes6.dex */
     public class a implements TbImageView.h {
@@ -116,10 +116,10 @@ public class ly6 extends cn implements BigdaySwipeRefreshLayout.k, PersonalizePa
         }
     }
 
-    public in4 F() {
+    public jn4 F() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.k : (in4) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.k : (jn4) invokeV.objValue;
     }
 
     public void G() {
@@ -129,15 +129,15 @@ public class ly6 extends cn implements BigdaySwipeRefreshLayout.k, PersonalizePa
     }
 
     public final void H(float f) {
-        in4 in4Var;
+        jn4 jn4Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(Constants.METHOD_SEND_USER_MSG, this, f) == null) {
             this.j.setAlpha(f);
             this.i.setAlpha(f);
-            if (this.i.getBackground() != null || (in4Var = this.k) == null) {
+            if (this.i.getBackground() != null || (jn4Var = this.k) == null) {
                 return;
             }
-            if (in4Var.c == 1) {
+            if (jn4Var.c == 1) {
                 this.i.setBackgroundResource(R.drawable.obfuscated_res_0x7f080309);
             } else {
                 this.i.setBackgroundResource(R.drawable.obfuscated_res_0x7f08030a);
@@ -145,13 +145,13 @@ public class ly6 extends cn implements BigdaySwipeRefreshLayout.k, PersonalizePa
         }
     }
 
-    public void I(in4 in4Var) {
+    public void I(jn4 jn4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, in4Var) == null) {
-            if (in4Var.a()) {
-                this.k = in4Var;
+        if (interceptable == null || interceptable.invokeL(1048579, this, jn4Var) == null) {
+            if (jn4Var.a()) {
+                this.k = jn4Var;
             }
-            if (in4Var.c == 1) {
+            if (jn4Var.c == 1) {
                 this.j.setTextColor(getContext().getResources().getColor(R.color.CAM_X0101));
                 this.i.setBackgroundResource(R.drawable.obfuscated_res_0x7f080309);
                 this.h.setAnimation(R.raw.obfuscated_res_0x7f11004b);
@@ -161,7 +161,7 @@ public class ly6 extends cn implements BigdaySwipeRefreshLayout.k, PersonalizePa
                 this.h.setAnimation(R.raw.obfuscated_res_0x7f11004a);
             }
             this.h.setFrame(0);
-            this.g.J(in4Var.a, 41, false);
+            this.g.J(jn4Var.a, 41, false);
             this.g.setOnDrawListener(new a(this));
         }
     }
@@ -190,7 +190,7 @@ public class ly6 extends cn implements BigdaySwipeRefreshLayout.k, PersonalizePa
     }
 
     @Override // com.baidu.tieba.homepage.personalize.PersonalizePageView.j0
-    public void f(fu4.g gVar) {
+    public void f(gu4.g gVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, gVar) == null) {
             this.p = gVar;
@@ -198,7 +198,7 @@ public class ly6 extends cn implements BigdaySwipeRefreshLayout.k, PersonalizePa
     }
 
     @Override // com.baidu.tieba.homepage.personalize.PersonalizePageView.j0
-    public void g(fu4.h hVar) {
+    public void g(gu4.h hVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, hVar) == null) {
             this.r = hVar;
@@ -215,13 +215,13 @@ public class ly6 extends cn implements BigdaySwipeRefreshLayout.k, PersonalizePa
 
     @Override // com.baidu.tieba.homepage.personalize.bigday.BigdaySwipeRefreshLayout.k
     public void i() {
-        in4 in4Var;
+        jn4 jn4Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) && (in4Var = this.k) != null && in4Var.a()) {
+        if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) && (jn4Var = this.k) != null && jn4Var.a()) {
             MessageManager messageManager = MessageManager.getInstance();
             Context context = getContext();
-            in4 in4Var2 = this.k;
-            messageManager.sendMessage(new CustomMessage(2002001, new BigdayActivityConfig(context, in4Var2.a, in4Var2.b, in4Var2.d)));
+            jn4 jn4Var2 = this.k;
+            messageManager.sendMessage(new CustomMessage(2002001, new BigdayActivityConfig(context, jn4Var2.a, jn4Var2.b, jn4Var2.d)));
         }
     }
 
@@ -233,7 +233,7 @@ public class ly6 extends cn implements BigdaySwipeRefreshLayout.k, PersonalizePa
     }
 
     @Override // com.baidu.tieba.homepage.personalize.PersonalizePageView.j0
-    public void k(fu4.e eVar) {
+    public void k(gu4.e eVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, eVar) == null) {
             this.s = eVar;
@@ -251,7 +251,7 @@ public class ly6 extends cn implements BigdaySwipeRefreshLayout.k, PersonalizePa
     }
 
     @Override // com.baidu.tieba.homepage.personalize.PersonalizePageView.j0
-    public void m(fu4.f fVar) {
+    public void m(gu4.f fVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, fVar) == null) {
             this.q = fVar;
@@ -264,13 +264,13 @@ public class ly6 extends cn implements BigdaySwipeRefreshLayout.k, PersonalizePa
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
             View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0156, (ViewGroup) null, false);
-            this.g = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f0919fe);
+            this.g = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f0919d8);
             ImageView imageView = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f09036e);
             this.h = (LottieAnimationView) inflate.findViewById(R.id.obfuscated_res_0x7f090370);
-            this.i = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091fce);
-            this.j = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091e30);
+            this.i = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091fd2);
+            this.j = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091e36);
             if (UtilHelper.canUseStyleImmersiveSticky() && (imageView.getLayoutParams() instanceof RelativeLayout.LayoutParams)) {
-                ((RelativeLayout.LayoutParams) imageView.getLayoutParams()).topMargin = (int) (UtilHelper.getStatusBarHeight() + TbadkCoreApplication.getInst().getResources().getDimension(R.dimen.obfuscated_res_0x7f070289));
+                ((RelativeLayout.LayoutParams) imageView.getLayoutParams()).topMargin = (int) (UtilHelper.getStatusBarHeight() + TbadkCoreApplication.getInst().getResources().getDimension(R.dimen.obfuscated_res_0x7f070287));
             }
             this.g.setAutoChangeStyle(false);
             this.j.setText(this.l);
@@ -286,11 +286,11 @@ public class ly6 extends cn implements BigdaySwipeRefreshLayout.k, PersonalizePa
             H(1.0f);
             this.h.setAlpha(1.0f);
             this.j.setText(this.l);
-            fu4.e eVar = this.s;
+            gu4.e eVar = this.s;
             if (eVar != null) {
                 eVar.a();
             }
-            fu4.f fVar = this.q;
+            gu4.f fVar = this.q;
             if (fVar != null) {
                 fVar.a(getView(), z);
             }
@@ -309,7 +309,7 @@ public class ly6 extends cn implements BigdaySwipeRefreshLayout.k, PersonalizePa
 
     @Override // com.repackage.cn
     public void u(boolean z) {
-        fu4.g gVar;
+        gu4.g gVar;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeZ(1048592, this, z) == null) || (gVar = this.p) == null) {
             return;
@@ -323,7 +323,7 @@ public class ly6 extends cn implements BigdaySwipeRefreshLayout.k, PersonalizePa
         if (interceptable == null || interceptable.invokeZ(1048593, this, z) == null) {
             H(1.0f);
             this.j.setText(this.l);
-            fu4.h hVar = this.r;
+            gu4.h hVar = this.r;
             if (hVar != null) {
                 hVar.a(z);
             }

@@ -110,7 +110,7 @@ public class fr0 extends wq0 {
             verticalVolumeBar.setLayoutParams(w(false));
             this.b.setProgressDrawable(ContextCompat.getDrawable(getContext(), R.drawable.obfuscated_res_0x7f080db7));
             this.b.setBackgroundResource(R.drawable.obfuscated_res_0x7f080db8);
-            int dimension = (int) getContext().getResources().getDimension(R.dimen.obfuscated_res_0x7f07059e);
+            int dimension = (int) getContext().getResources().getDimension(R.dimen.obfuscated_res_0x7f07059c);
             int i = dimension / 2;
             this.b.setPadding(i, dimension, i, dimension);
             this.b.setVisibility(8);
@@ -268,7 +268,7 @@ public class fr0 extends wq0 {
         float dimension2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048582, this, z)) == null) {
-            int dimension3 = (int) getContext().getResources().getDimension(R.dimen.obfuscated_res_0x7f07059e);
+            int dimension3 = (int) getContext().getResources().getDimension(R.dimen.obfuscated_res_0x7f07059c);
             int min = Math.min(q01.c.e(getContext()), q01.c.c(getContext()));
             if (!z) {
                 i = ((min / 16) * 9) / 2;
@@ -276,7 +276,7 @@ public class fr0 extends wq0 {
                 i = min / 2;
             }
             int i2 = i + dimension3;
-            int dimension4 = (dimension3 * 2) + ((int) getContext().getResources().getDimension(R.dimen.obfuscated_res_0x7f07059c));
+            int dimension4 = (dimension3 * 2) + ((int) getContext().getResources().getDimension(R.dimen.obfuscated_res_0x7f07059a));
             FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.b.getLayoutParams();
             if (layoutParams == null) {
                 layoutParams = new FrameLayout.LayoutParams(i2, dimension4);
@@ -284,16 +284,16 @@ public class fr0 extends wq0 {
             layoutParams.width = i2;
             layoutParams.height = dimension4;
             if (!z) {
-                dimension = getContext().getResources().getDimension(R.dimen.obfuscated_res_0x7f07059d);
-            } else {
                 dimension = getContext().getResources().getDimension(R.dimen.obfuscated_res_0x7f07059b);
+            } else {
+                dimension = getContext().getResources().getDimension(R.dimen.obfuscated_res_0x7f070599);
             }
             layoutParams.leftMargin = ((int) dimension) - dimension3;
             layoutParams.gravity = 80;
             if (!z) {
-                dimension2 = getContext().getResources().getDimension(R.dimen.obfuscated_res_0x7f070599);
+                dimension2 = getContext().getResources().getDimension(R.dimen.obfuscated_res_0x7f070596);
             } else {
-                dimension2 = getContext().getResources().getDimension(R.dimen.obfuscated_res_0x7f07059a);
+                dimension2 = getContext().getResources().getDimension(R.dimen.obfuscated_res_0x7f070598);
             }
             layoutParams.bottomMargin = ((int) dimension2) - dimension3;
             return layoutParams;

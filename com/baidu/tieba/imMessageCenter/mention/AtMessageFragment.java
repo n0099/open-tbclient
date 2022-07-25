@@ -535,7 +535,7 @@ public class AtMessageFragment extends BaseFragment implements NoNetworkView.b {
                 if (!StringUtils.isNull(errorData.error_msg)) {
                     showToast(errorData.error_msg);
                 } else {
-                    showToast(R.string.obfuscated_res_0x7f0f08bb);
+                    showToast(R.string.obfuscated_res_0x7f0f08a6);
                 }
             }
             z97 z97Var = this.b;

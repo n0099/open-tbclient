@@ -170,7 +170,7 @@ public class q86 {
                         sb.append(rn7Var.e);
                         sb.append(",");
                         String str2 = SmallTailInfo.EMOTION_PREFIX + sb.toString() + vi.c(sb.toString() + UploadedImageInfo.MD5_KEY).toLowerCase() + SmallTailInfo.EMOTION_SUFFIX;
-                        boolean isGifImage = FileHelper.isGifImage(z55.b.e(qn7Var.a, rn7Var.c));
+                        boolean isGifImage = FileHelper.isGifImage(a65.b.e(qn7Var.a, rn7Var.c));
                         r86.g(qn7Var.a, rn7Var.d, r86.c(str2, true, false));
                         r86.g(qn7Var.a, rn7Var.c, r86.c(str2, false, isGifImage));
                         if (o.f(str2, qn7Var.a, i2 + 1)) {

@@ -34,8 +34,8 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.fj5;
-import com.repackage.ki4;
 import com.repackage.li4;
+import com.repackage.mi4;
 import com.repackage.oi;
 import com.repackage.pi;
 import com.repackage.ve5;
@@ -159,7 +159,7 @@ public class VideoPlayActivity extends BaseFragmentActivity {
             super.onCreate(bundle);
             BdTracesManager.INSTANCE.getFpsTracer().endFpsCollect(VideoPlayActivityConfig.KEY_FPS_VIDEO_HOME_PAGE);
             BdTracesManager.INSTANCE.getFpsTracer().endFpsCollect(VideoPlayActivityConfig.KEY_FPS_VIDEO_FRS_PAGE);
-            setContentView(R.layout.obfuscated_res_0x7f0d0889);
+            setContentView(R.layout.obfuscated_res_0x7f0d0893);
             this.e = new fj5(getPageContext(), "client_videomiddle");
             s0();
             t0();
@@ -237,7 +237,7 @@ public class VideoPlayActivity extends BaseFragmentActivity {
                 videoMiddleFragment.setPrimary(false);
                 this.d.setUserVisibleHint(false);
             }
-            li4.w().E();
+            mi4.w().E();
         }
     }
 
@@ -250,7 +250,7 @@ public class VideoPlayActivity extends BaseFragmentActivity {
             if (videoMiddleFragment != null) {
                 videoMiddleFragment.setPrimary(true);
                 this.d.setUserVisibleHint(true);
-                li4.w().P(ki4.c0, this.d.G0());
+                mi4.w().P(li4.c0, this.d.G0());
             }
         }
     }
@@ -288,7 +288,7 @@ public class VideoPlayActivity extends BaseFragmentActivity {
                 arrayList.addAll(VideoPlayActivityConfig.bigDataList);
             }
             if (ListUtils.isEmpty(this.c)) {
-                pi.N(this, R.string.obfuscated_res_0x7f0f0c28);
+                pi.N(this, R.string.obfuscated_res_0x7f0f0c14);
                 finish();
                 return;
             }
@@ -304,7 +304,7 @@ public class VideoPlayActivity extends BaseFragmentActivity {
             videoMiddleFragment.U1(getUniqueId());
             this.d.setArguments(getIntent().getExtras());
             FragmentTransaction beginTransaction = getSupportFragmentManager().beginTransaction();
-            beginTransaction.add(R.id.obfuscated_res_0x7f092406, this.d);
+            beginTransaction.add(R.id.obfuscated_res_0x7f092408, this.d);
             beginTransaction.commitAllowingStateLoss();
             getSupportFragmentManager().executePendingTransactions();
         }

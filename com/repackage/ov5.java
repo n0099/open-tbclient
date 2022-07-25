@@ -283,13 +283,13 @@ public class ov5 extends BaseAdapter {
         SkinManager.setViewTextColor(eVar.j, R.color.CAM_X0305, 1, TbadkApplication.getInst().getSkinType());
         SkinManager.setViewTextColor(eVar.o, R.color.CAM_X0305, 1, TbadkApplication.getInst().getSkinType());
         if (TbadkApplication.getInst().getSkinType() == 1) {
-            eVar.b.setDefaultResource(R.drawable.obfuscated_res_0x7f080ecc);
-            eVar.g.setDefaultResource(R.drawable.obfuscated_res_0x7f080ecc);
-            eVar.l.setDefaultResource(R.drawable.obfuscated_res_0x7f080ecc);
+            eVar.b.setDefaultResource(R.drawable.obfuscated_res_0x7f080ed3);
+            eVar.g.setDefaultResource(R.drawable.obfuscated_res_0x7f080ed3);
+            eVar.l.setDefaultResource(R.drawable.obfuscated_res_0x7f080ed3);
         } else {
-            eVar.b.setDefaultResource(R.drawable.obfuscated_res_0x7f080ecb);
-            eVar.g.setDefaultResource(R.drawable.obfuscated_res_0x7f080ecb);
-            eVar.l.setDefaultResource(R.drawable.obfuscated_res_0x7f080ecb);
+            eVar.b.setDefaultResource(R.drawable.obfuscated_res_0x7f080ed2);
+            eVar.g.setDefaultResource(R.drawable.obfuscated_res_0x7f080ed2);
+            eVar.l.setDefaultResource(R.drawable.obfuscated_res_0x7f080ed2);
         }
         SkinManager.setBackgroundColor(eVar.p, R.color.CAM_X0204);
     }

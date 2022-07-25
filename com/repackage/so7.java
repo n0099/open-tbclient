@@ -113,7 +113,7 @@ public class so7 extends an<bp7, InterestedForumStyleATitleViewHolder> {
     public final void c0(InterestedForumStyleATitleViewHolder interestedForumStyleATitleViewHolder) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, interestedForumStyleATitleViewHolder) == null) {
-            ur4 d = ur4.d(interestedForumStyleATitleViewHolder.c);
+            vr4 d = vr4.d(interestedForumStyleATitleViewHolder.c);
             d.v(R.color.CAM_X0105);
             d.z(R.dimen.T_X06);
             d.A(R.string.F_X02);

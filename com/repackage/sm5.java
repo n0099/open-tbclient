@@ -32,9 +32,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.kh3;
-import com.repackage.oh3;
-import com.repackage.zi3;
+import com.repackage.aj3;
+import com.repackage.lh3;
+import com.repackage.ph3;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONException;
@@ -46,7 +46,7 @@ public class sm5 {
     public static final boolean e;
     public transient /* synthetic */ FieldHolder $fh;
     public tm5 a;
-    public List<vg1> b;
+    public List<wg1> b;
     public final CustomMessageListener c;
 
     /* loaded from: classes7.dex */
@@ -163,7 +163,7 @@ public class sm5 {
     public class c extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ tg1 a;
+        public final /* synthetic */ ug1 a;
         public final /* synthetic */ sm5 b;
 
         /* loaded from: classes7.dex */
@@ -232,11 +232,11 @@ public class sm5 {
                     this.a.b.a.a = getUserInfoResult.displayname;
                     this.a.b.a.g = getUserInfoResult.uid;
                     this.a.b.a.f = getUserInfoResult.portraitHttps;
-                    v83.a().putString("bd_box_display_name", this.a.b.a.a);
-                    v83.a().putString("bd_box_uid", this.a.b.a.g);
-                    v83.a().putString("bd_box_avatar_url", this.a.b.a.f);
-                    v83.a().putString("bd_box_bduss", this.a.b.a.b);
-                    v83.a().putString("bd_box_ptoken", this.a.b.a.h);
+                    w83.a().putString("bd_box_display_name", this.a.b.a.a);
+                    w83.a().putString("bd_box_uid", this.a.b.a.g);
+                    w83.a().putString("bd_box_avatar_url", this.a.b.a.f);
+                    w83.a().putString("bd_box_bduss", this.a.b.a.b);
+                    w83.a().putString("bd_box_ptoken", this.a.b.a.h);
                     this.a.a.onResult(0);
                     this.a.b.v(true);
                 }
@@ -244,13 +244,13 @@ public class sm5 {
         }
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public c(sm5 sm5Var, int i, tg1 tg1Var) {
+        public c(sm5 sm5Var, int i, ug1 ug1Var) {
             super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {sm5Var, Integer.valueOf(i), tg1Var};
+                Object[] objArr = {sm5Var, Integer.valueOf(i), ug1Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -262,7 +262,7 @@ public class sm5 {
                 }
             }
             this.b = sm5Var;
-            this.a = tg1Var;
+            this.a = ug1Var;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -282,15 +282,15 @@ public class sm5 {
     public class d extends GetUserInfoCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ tg1 a;
+        public final /* synthetic */ ug1 a;
         public final /* synthetic */ sm5 b;
 
-        public d(sm5 sm5Var, tg1 tg1Var) {
+        public d(sm5 sm5Var, ug1 ug1Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {sm5Var, tg1Var};
+                Object[] objArr = {sm5Var, ug1Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -301,7 +301,7 @@ public class sm5 {
                 }
             }
             this.b = sm5Var;
-            this.a = tg1Var;
+            this.a = ug1Var;
         }
 
         @Override // com.baidu.sapi2.callback.SapiCallback
@@ -346,11 +346,11 @@ public class sm5 {
                 this.b.a.a = getUserInfoResult.displayname;
                 this.b.a.g = getUserInfoResult.uid;
                 this.b.a.f = getUserInfoResult.portraitHttps;
-                v83.a().putString("bd_box_display_name", this.b.a.a);
-                v83.a().putString("bd_box_uid", this.b.a.g);
-                v83.a().putString("bd_box_avatar_url", this.b.a.f);
-                v83.a().putString("bd_box_bduss", this.b.a.b);
-                v83.a().putString("bd_box_ptoken", this.b.a.h);
+                w83.a().putString("bd_box_display_name", this.b.a.a);
+                w83.a().putString("bd_box_uid", this.b.a.g);
+                w83.a().putString("bd_box_avatar_url", this.b.a.f);
+                w83.a().putString("bd_box_bduss", this.b.a.b);
+                w83.a().putString("bd_box_ptoken", this.b.a.h);
                 this.b.m();
                 this.a.onResult(0);
                 this.b.v(true);
@@ -422,11 +422,11 @@ public class sm5 {
                 this.a.a.a = getUserInfoResult.displayname;
                 this.a.a.g = getUserInfoResult.uid;
                 this.a.a.f = getUserInfoResult.portraitHttps;
-                v83.a().putString("bd_box_display_name", this.a.a.a);
-                v83.a().putString("bd_box_uid", this.a.a.g);
-                v83.a().putString("bd_box_avatar_url", this.a.a.f);
-                v83.a().putString("bd_box_bduss", this.a.a.b);
-                v83.a().putString("bd_box_ptoken", this.a.a.h);
+                w83.a().putString("bd_box_display_name", this.a.a.a);
+                w83.a().putString("bd_box_uid", this.a.a.g);
+                w83.a().putString("bd_box_avatar_url", this.a.a.f);
+                w83.a().putString("bd_box_bduss", this.a.a.b);
+                w83.a().putString("bd_box_ptoken", this.a.a.h);
             }
         }
     }
@@ -436,9 +436,9 @@ public class sm5 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ String a;
-        public final /* synthetic */ kh3.d b;
+        public final /* synthetic */ lh3.d b;
 
-        public f(sm5 sm5Var, String str, kh3.d dVar) {
+        public f(sm5 sm5Var, String str, lh3.d dVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -482,9 +482,9 @@ public class sm5 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ String a;
-        public final /* synthetic */ zi3.d b;
+        public final /* synthetic */ aj3.d b;
 
-        public g(sm5 sm5Var, String str, zi3.d dVar) {
+        public g(sm5 sm5Var, String str, aj3.d dVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -527,10 +527,10 @@ public class sm5 {
     public class h extends GetOpenBdussCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ oh3.c a;
+        public final /* synthetic */ ph3.c a;
         public final /* synthetic */ sm5 b;
 
-        public h(sm5 sm5Var, oh3.c cVar) {
+        public h(sm5 sm5Var, ph3.c cVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -567,9 +567,9 @@ public class sm5 {
                 this.b.a.c = openBdussResult.openBduss;
                 this.b.a.d = openBdussResult.unionid;
                 this.b.a.e = openBdussResult.tplStokenMap;
-                v83.a().putString("bd_box_open_bduss", this.b.a.c);
-                v83.a().putString("bd_box_union_id", this.b.a.d);
-                v83.a().putString("bd_box_stoken", zd3.s(this.b.a.e));
+                w83.a().putString("bd_box_open_bduss", this.b.a.c);
+                w83.a().putString("bd_box_union_id", this.b.a.d);
+                w83.a().putString("bd_box_stoken", ae3.s(this.b.a.e));
                 JSONObject jSONObject = new JSONObject();
                 try {
                     jSONObject.put(OpenBdussResult.PARAMS_OPEN_BDUSS, this.b.a.c);
@@ -640,7 +640,7 @@ public class sm5 {
                 return;
             }
         }
-        e = rg1.a;
+        e = sg1.a;
     }
 
     public /* synthetic */ sm5(a aVar) {
@@ -653,14 +653,14 @@ public class sm5 {
         return (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) ? i.a : (sm5) invokeV.objValue;
     }
 
-    public void f(vg1 vg1Var) {
+    public void f(wg1 wg1Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, vg1Var) == null) {
-            this.b.add(vg1Var);
+        if (interceptable == null || interceptable.invokeL(1048576, this, wg1Var) == null) {
+            this.b.add(wg1Var);
         }
     }
 
-    public void g(Context context, String str, kh3.d dVar) {
+    public void g(Context context, String str, lh3.d dVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str, dVar) == null) {
             AddressManageDTO addressManageDTO = new AddressManageDTO();
@@ -670,7 +670,7 @@ public class sm5 {
         }
     }
 
-    public void h(Context context, String str, zi3.d dVar) {
+    public void h(Context context, String str, aj3.d dVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, context, str, dVar) == null) {
             InvoiceBuildDTO invoiceBuildDTO = new InvoiceBuildDTO();
@@ -742,7 +742,7 @@ public class sm5 {
         }
     }
 
-    public void n(String str, ArrayList<String> arrayList, oh3.c cVar) {
+    public void n(String str, ArrayList<String> arrayList, ph3.c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048583, this, str, arrayList, cVar) == null) {
             if (this.a == null) {
@@ -808,14 +808,14 @@ public class sm5 {
         if ((interceptable == null || interceptable.invokeL(1048587, this, context) == null) && this.a == null) {
             tm5 tm5Var = new tm5();
             this.a = tm5Var;
-            tm5Var.f = v83.a().getString("bd_box_avatar_url", "");
-            this.a.b = v83.a().getString("bd_box_bduss", "");
-            this.a.h = v83.a().getString("bd_box_ptoken", "");
-            this.a.g = v83.a().getString("bd_box_uid", "");
-            this.a.c = v83.a().getString("bd_box_open_bduss", "");
-            this.a.d = v83.a().getString("bd_box_union_id", "");
-            this.a.e = zd3.t(v83.a().getString("bd_box_stoken", ""));
-            this.a.a = v83.a().getString("bd_box_display_name", "");
+            tm5Var.f = w83.a().getString("bd_box_avatar_url", "");
+            this.a.b = w83.a().getString("bd_box_bduss", "");
+            this.a.h = w83.a().getString("bd_box_ptoken", "");
+            this.a.g = w83.a().getString("bd_box_uid", "");
+            this.a.c = w83.a().getString("bd_box_open_bduss", "");
+            this.a.d = w83.a().getString("bd_box_union_id", "");
+            this.a.e = ae3.t(w83.a().getString("bd_box_stoken", ""));
+            this.a.a = w83.a().getString("bd_box_display_name", "");
         }
     }
 
@@ -832,10 +832,10 @@ public class sm5 {
         return invokeV.booleanValue;
     }
 
-    public void t(Context context, Bundle bundle, tg1 tg1Var) {
+    public void t(Context context, Bundle bundle, ug1 ug1Var) {
         int i2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048589, this, context, bundle, tg1Var) == null) {
+        if (interceptable == null || interceptable.invokeLLL(1048589, this, context, bundle, ug1Var) == null) {
             if (this.a == null) {
                 this.a = new tm5();
             }
@@ -849,23 +849,23 @@ public class sm5 {
                 loginActivityConfig.setThirdPartyLoginForResult(i2, "");
             }
             TbadkCoreApplication.getInst().login(null, new CustomMessage<>(2002001, loginActivityConfig));
-            MessageManager.getInstance().registerListener(new c(this, 2921362, tg1Var));
+            MessageManager.getInstance().registerListener(new c(this, 2921362, ug1Var));
         }
     }
 
-    public void u(tg1 tg1Var) {
+    public void u(ug1 ug1Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, tg1Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048590, this, ug1Var) == null) {
             SapiAccountManager.getInstance().logout();
             v(false);
             this.a = new tm5();
-            v83.a().putString("bd_box_display_name", "");
-            v83.a().putString("bd_box_uid", "");
-            v83.a().putString("bd_box_avatar_url", "");
-            v83.a().putString("bd_box_bduss", "");
-            v83.a().putString("bd_box_ptoken", "");
-            if (tg1Var != null) {
-                tg1Var.onResult(0);
+            w83.a().putString("bd_box_display_name", "");
+            w83.a().putString("bd_box_uid", "");
+            w83.a().putString("bd_box_avatar_url", "");
+            w83.a().putString("bd_box_bduss", "");
+            w83.a().putString("bd_box_ptoken", "");
+            if (ug1Var != null) {
+                ug1Var.onResult(0);
             }
         }
     }
@@ -873,9 +873,9 @@ public class sm5 {
     public final void v(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048591, this, z) == null) {
-            for (vg1 vg1Var : this.b) {
-                if (vg1Var != null) {
-                    vg1Var.a(z);
+            for (wg1 wg1Var : this.b) {
+                if (wg1Var != null) {
+                    wg1Var.a(z);
                 }
             }
         }
@@ -888,10 +888,10 @@ public class sm5 {
         }
     }
 
-    public void x(tg1 tg1Var) {
+    public void x(ug1 ug1Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048593, this, tg1Var) == null) {
-            SapiAccountManager.getInstance().getAccountService().getUserInfo(new d(this, tg1Var), SapiAccountManager.getInstance().getSession().bduss);
+        if (interceptable == null || interceptable.invokeL(1048593, this, ug1Var) == null) {
+            SapiAccountManager.getInstance().getAccountService().getUserInfo(new d(this, ug1Var), SapiAccountManager.getInstance().getSession().bduss);
         }
     }
 
@@ -900,7 +900,7 @@ public class sm5 {
         if (interceptable == null || interceptable.invokeL(1048594, this, getUserInfoResult) == null) {
             if (getUserInfoResult != null) {
                 try {
-                    v83.a().putString("host_account_info_string", getUserInfoResult.toString());
+                    w83.a().putString("host_account_info_string", getUserInfoResult.toString());
                     if (this.a == null) {
                         this.a = new tm5();
                     }
@@ -909,11 +909,11 @@ public class sm5 {
                     this.a.a = getUserInfoResult.displayname;
                     this.a.g = getUserInfoResult.uid;
                     this.a.f = getUserInfoResult.portraitHttps;
-                    v83.a().putString("bd_box_display_name", this.a.a);
-                    v83.a().putString("bd_box_uid", this.a.g);
-                    v83.a().putString("bd_box_avatar_url", this.a.f);
-                    v83.a().putString("bd_box_bduss", this.a.b);
-                    v83.a().putString("bd_box_ptoken", this.a.h);
+                    w83.a().putString("bd_box_display_name", this.a.a);
+                    w83.a().putString("bd_box_uid", this.a.g);
+                    w83.a().putString("bd_box_avatar_url", this.a.f);
+                    w83.a().putString("bd_box_bduss", this.a.b);
+                    w83.a().putString("bd_box_ptoken", this.a.h);
                     SapiAccountManager.getInstance().getAccountService().getUserInfo(new b(this), this.a.b);
                     return;
                 } catch (Exception e2) {

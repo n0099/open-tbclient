@@ -4,6 +4,7 @@ import android.text.TextUtils;
 import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mobstat.Config;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.config.AppConfig;
 import com.baidu.tbadk.TbConfig;
@@ -172,7 +173,7 @@ public class qb9 {
                 JSONObject jSONObject = new JSONObject(a2);
                 this.b = jSONObject;
                 this.a.p(jSONObject.optString(TbConfig.SW_APID));
-                this.a.m(this.b.optString("cl"));
+                this.a.m(this.b.optString(Config.CELL_LOCATION));
                 this.a.w((float) this.b.optDouble("tosize"));
                 this.a.s((float) this.b.optDouble("sisize"));
                 this.a.u((float) this.b.optDouble("spsize"));

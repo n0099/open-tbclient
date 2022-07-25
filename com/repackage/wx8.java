@@ -58,11 +58,11 @@ public class wx8 implements xx8 {
         }
 
         @Override // com.baidu.tieba.tbadkCore.writeModel.NewWriteModel.e
-        public void callback(boolean z, PostWriteCallBackData postWriteCallBackData, fy4 fy4Var, WriteData writeData, AntiData antiData) {
+        public void callback(boolean z, PostWriteCallBackData postWriteCallBackData, gy4 gy4Var, WriteData writeData, AntiData antiData) {
             String str;
             String str2;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), postWriteCallBackData, fy4Var, writeData, antiData}) == null) || this.a.a == null) {
+            if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), postWriteCallBackData, gy4Var, writeData, antiData}) == null) || this.a.a == null) {
                 return;
             }
             this.a.a.showPostThreadLoadingView(false);
@@ -70,20 +70,20 @@ public class wx8 implements xx8 {
                 this.a.d = postWriteCallBackData;
                 this.a.c = true;
                 String str3 = null;
-                if (fy4Var == null || fy4Var.a() == null) {
+                if (gy4Var == null || gy4Var.a() == null) {
                     str = null;
                     str2 = null;
                 } else {
-                    String str4 = fy4Var.a().endPoint;
-                    String str5 = fy4Var.a().successImg;
-                    str2 = fy4Var.a().slideEndPoint;
+                    String str4 = gy4Var.a().endPoint;
+                    String str5 = gy4Var.a().successImg;
+                    str2 = gy4Var.a().slideEndPoint;
                     str = str4;
                     str3 = str5;
                 }
                 this.a.a.runJsMethod("success", str3 + "," + str + "," + str2);
             } else if (postWriteCallBackData == null || postWriteCallBackData.getErrorCode() != 227001) {
                 if (this.a.f != null) {
-                    this.a.f.callback(false, postWriteCallBackData, fy4Var, writeData, antiData);
+                    this.a.f.callback(false, postWriteCallBackData, gy4Var, writeData, antiData);
                 }
             } else {
                 this.a.a.getContext().setVisible(false);
@@ -146,12 +146,12 @@ public class wx8 implements xx8 {
             } else if (str.contains("objc:finish")) {
                 if (V != null && V.getVideoReviewType() == 1) {
                     NewVcodeView newVcodeView = this.a;
-                    newVcodeView.showToast(true, newVcodeView.getContext().getResources().getString(R.string.obfuscated_res_0x7f0f153a));
+                    newVcodeView.showToast(true, newVcodeView.getContext().getResources().getString(R.string.obfuscated_res_0x7f0f14e9));
                 } else if (V != null && V.getVideoReviewType() == 2) {
                     NewVcodeView newVcodeView2 = this.a;
-                    newVcodeView2.showToast(true, newVcodeView2.getContext().getResources().getString(R.string.obfuscated_res_0x7f0f1539));
+                    newVcodeView2.showToast(true, newVcodeView2.getContext().getResources().getString(R.string.obfuscated_res_0x7f0f14e8));
                 } else {
-                    String string = this.a.getContext().getResources().getString(R.string.obfuscated_res_0x7f0f1119);
+                    String string = this.a.getContext().getResources().getString(R.string.obfuscated_res_0x7f0f10d5);
                     PostWriteCallBackData postWriteCallBackData = this.d;
                     String str3 = null;
                     if (postWriteCallBackData != null) {
@@ -212,7 +212,7 @@ public class wx8 implements xx8 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
             if (!pi.D()) {
-                this.a.getContext().showToast(R.string.obfuscated_res_0x7f0f0c2b);
+                this.a.getContext().showToast(R.string.obfuscated_res_0x7f0f0c17);
                 this.a.getContext().finish();
             } else if (!StringUtils.isNull(str)) {
                 this.a.showPostThreadLoadingView(true);
@@ -220,7 +220,7 @@ public class wx8 implements xx8 {
                 this.b.V().setVcodeType("5");
                 this.b.h0();
             } else {
-                this.a.getContext().showToast(R.string.obfuscated_res_0x7f0f0c2b);
+                this.a.getContext().showToast(R.string.obfuscated_res_0x7f0f0c17);
                 this.a.getContext().finish();
             }
         }

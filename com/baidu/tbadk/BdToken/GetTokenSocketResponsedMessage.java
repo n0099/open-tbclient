@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ij4;
+import com.repackage.jj4;
 import com.squareup.wire.Wire;
 import tbclient.Error;
 import tbclient.GetToken.GetTokenResIdl;
@@ -16,7 +16,7 @@ import tbclient.GetToken.GetTokenResIdl;
 public class GetTokenSocketResponsedMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ij4 mData;
+    public jj4 mData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public GetTokenSocketResponsedMessage() {
@@ -52,18 +52,18 @@ public class GetTokenSocketResponsedMessage extends SocketResponsedMessage {
                 setErrorString(getTokenResIdl.error.usermsg);
             }
             if (getTokenResIdl.data != null) {
-                ij4 ij4Var = new ij4();
-                this.mData = ij4Var;
-                ij4Var.d(getTokenResIdl.data);
+                jj4 jj4Var = new jj4();
+                this.mData = jj4Var;
+                jj4Var.d(getTokenResIdl.data);
             }
             return null;
         }
         return invokeIL.objValue;
     }
 
-    public ij4 getData() {
+    public jj4 getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mData : (ij4) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mData : (jj4) invokeV.objValue;
     }
 }

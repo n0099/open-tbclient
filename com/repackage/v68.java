@@ -2,7 +2,6 @@ package com.repackage;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.sofire.rp.service.Service;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.util.StatisticItem;
@@ -51,7 +50,7 @@ public class v68 {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             long j = this.c;
             float f = ((float) this.a) / ((float) j);
-            return j <= 60000 ? ((double) f) >= 0.9d : j <= Service.TRIGGER_INTERVAL ? ((double) f) >= 0.8d : j <= 600000 ? ((double) f) >= 0.7d : ((double) f) >= 0.6d;
+            return j <= 60000 ? ((double) f) >= 0.9d : j <= 180000 ? ((double) f) >= 0.8d : j <= 600000 ? ((double) f) >= 0.7d : ((double) f) >= 0.6d;
         }
         return invokeV.booleanValue;
     }

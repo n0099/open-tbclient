@@ -13,14 +13,14 @@ public class FixedMultiPartBodyProvider extends UploadDataProvider {
     public int b;
 
     @Override // com.baidu.turbonet.net.UploadDataProvider
-    public long c() {
+    public long a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a.getBytes().length : invokeV.longValue;
     }
 
     @Override // com.baidu.turbonet.net.UploadDataProvider
-    public void d(UploadDataSink uploadDataSink, ByteBuffer byteBuffer) {
+    public void b(UploadDataSink uploadDataSink, ByteBuffer byteBuffer) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, uploadDataSink, byteBuffer) == null) {
             if (byteBuffer.hasRemaining()) {
@@ -38,7 +38,7 @@ public class FixedMultiPartBodyProvider extends UploadDataProvider {
     }
 
     @Override // com.baidu.turbonet.net.UploadDataProvider
-    public void e(UploadDataSink uploadDataSink) {
+    public void c(UploadDataSink uploadDataSink) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, uploadDataSink) == null) {
             this.b = 0;

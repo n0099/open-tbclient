@@ -87,13 +87,13 @@ public class gy extends xw {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.repackage.gx
     /* renamed from: t */
-    public void a(nn4 nn4Var) {
+    public void a(on4 on4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, nn4Var) == null) {
-            if (nn4Var != null && nn4Var.getThreadData() != null && nn4Var.getThreadData().originalThreadData != null && nn4Var.getThreadData().originalThreadData.C != null) {
-                if (!nn4Var.getThreadData().originalThreadData.m && !nn4Var.getThreadData().shouldShowBlockedState()) {
+        if (interceptable == null || interceptable.invokeL(1048579, this, on4Var) == null) {
+            if (on4Var != null && on4Var.getThreadData() != null && on4Var.getThreadData().originalThreadData != null && on4Var.getThreadData().originalThreadData.C != null) {
+                if (!on4Var.getThreadData().originalThreadData.m && !on4Var.getThreadData().shouldShowBlockedState()) {
                     this.h.setVisibility(0);
-                    this.i.setData(nn4Var.getThreadData().originalThreadData.D, 13, nn4Var.getThreadData().originalThreadData.f);
+                    this.i.setData(on4Var.getThreadData().originalThreadData.D, 13, on4Var.getThreadData().originalThreadData.f);
                     return;
                 }
                 this.h.setVisibility(8);

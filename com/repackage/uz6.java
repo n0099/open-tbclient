@@ -48,22 +48,22 @@ public class uz6 {
                 statisticItem3.param("obj_locate", i);
                 statisticItem3.param("uid", ((MetaData) obj).getUserIdLong());
                 statisticItem3.eventStat();
-            } else if (obj instanceof cq4) {
+            } else if (obj instanceof dq4) {
                 StatisticItem statisticItem4 = new StatisticItem(str);
                 statisticItem4.param("obj_type", 2);
                 statisticItem4.param("obj_locate", i);
-                statisticItem4.param("fid", ((cq4) obj).i());
+                statisticItem4.param("fid", ((dq4) obj).i());
                 statisticItem4.param("uid", TbadkCoreApplication.getCurrentAccount());
                 statisticItem4.eventStat();
-            } else if (obj instanceof ao4) {
-                ao4 ao4Var = (ao4) obj;
+            } else if (obj instanceof bo4) {
+                bo4 bo4Var = (bo4) obj;
                 StatisticItem statisticItem5 = new StatisticItem(str);
                 statisticItem5.param("obj_type", 2);
                 statisticItem5.param("uid", TbadkCoreApplication.getCurrentAccount());
                 statisticItem5.param("obj_locate", i);
-                statisticItem5.param("obj_param1", ao4Var.c());
+                statisticItem5.param("obj_param1", bo4Var.c());
                 statisticItem5.param("obj_source", str2);
-                d(statisticItem5, ao4Var.c());
+                d(statisticItem5, bo4Var.c());
                 statisticItem5.eventStat();
             } else if (obj instanceof Boolean) {
                 StatisticItem statisticItem6 = new StatisticItem(str);
@@ -92,22 +92,22 @@ public class uz6 {
                 statisticItem2.param("obj_locate", i);
                 statisticItem2.param("uid", ((MetaData) obj).getUserIdLong());
                 cy5.b().a(statisticItem2);
-            } else if (obj instanceof cq4) {
+            } else if (obj instanceof dq4) {
                 StatisticItem statisticItem3 = new StatisticItem(str);
                 statisticItem3.param("obj_type", 1);
                 statisticItem3.param("obj_locate", i);
-                statisticItem3.param("fid", ((cq4) obj).i());
+                statisticItem3.param("fid", ((dq4) obj).i());
                 statisticItem3.param("uid", TbadkCoreApplication.getCurrentAccount());
                 cy5.b().a(statisticItem3);
-            } else if (obj instanceof ao4) {
-                ao4 ao4Var = (ao4) obj;
+            } else if (obj instanceof bo4) {
+                bo4 bo4Var = (bo4) obj;
                 StatisticItem statisticItem4 = new StatisticItem(str);
                 statisticItem4.param("obj_type", 1);
                 statisticItem4.param("uid", TbadkCoreApplication.getCurrentAccount());
                 statisticItem4.param("obj_locate", i);
-                statisticItem4.param("obj_param1", ao4Var.c());
+                statisticItem4.param("obj_param1", bo4Var.c());
                 statisticItem4.param("obj_source", str2);
-                d(statisticItem4, ao4Var.c());
+                d(statisticItem4, bo4Var.c());
                 cy5.b().a(statisticItem4);
             }
         }
@@ -218,26 +218,26 @@ public class uz6 {
         return (StatisticItem) invokeCommon.objValue;
     }
 
-    public static void m(View view2, nn4 nn4Var, String str) {
+    public static void m(View view2, on4 on4Var, String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(65548, null, view2, nn4Var, str) == null) || nn4Var == null || nn4Var.getThreadData() == null) {
+        if (!(interceptable == null || interceptable.invokeLLL(65548, null, view2, on4Var, str) == null) || on4Var == null || on4Var.getThreadData() == null) {
             return;
         }
-        ThreadData threadData = nn4Var.getThreadData();
+        ThreadData threadData = on4Var.getThreadData();
         int id = view2.getId();
-        if (view2.getId() == R.id.obfuscated_res_0x7f09202a || id == R.id.obfuscated_res_0x7f09203e) {
+        if (view2.getId() == R.id.obfuscated_res_0x7f09202e || id == R.id.obfuscated_res_0x7f092042) {
             TiebaStatic.log(FeedTabCardStatisticHelper.clickThreadTitleStatisticLog(threadData, str));
-        } else if (id == R.id.obfuscated_res_0x7f09230c) {
+        } else if (id == R.id.obfuscated_res_0x7f09230e) {
             TiebaStatic.log(FeedTabCardStatisticHelper.clickThreadPotraitStatisticLog(threadData, str));
-        } else if (id == R.id.obfuscated_res_0x7f09232d) {
+        } else if (id == R.id.obfuscated_res_0x7f09232f) {
             TiebaStatic.log(FeedTabCardStatisticHelper.clickThreadPotraitStatisticLog(threadData, str));
-        } else if (id == R.id.obfuscated_res_0x7f090a40 || id == R.id.obfuscated_res_0x7f090a18) {
+        } else if (id == R.id.obfuscated_res_0x7f090a39 || id == R.id.obfuscated_res_0x7f090a11) {
             TiebaStatic.log(FeedTabCardStatisticHelper.clickThreadEnterForumStatisticLog(threadData, str));
-        } else if (id == R.id.obfuscated_res_0x7f09203e) {
+        } else if (id == R.id.obfuscated_res_0x7f092042) {
             TiebaStatic.log(FeedTabCardStatisticHelper.clickThreadTitleStatisticLog(threadData, str));
         } else if (view2 instanceof TbImageView) {
             TiebaStatic.log(FeedTabCardStatisticHelper.clickThreadBigPictureStatisticLog(threadData, str));
-        } else if (id == R.id.obfuscated_res_0x7f09166e || id == R.id.obfuscated_res_0x7f0906b9) {
+        } else if (id == R.id.obfuscated_res_0x7f091649 || id == R.id.obfuscated_res_0x7f0906b8) {
             TiebaStatic.log(FeedTabCardStatisticHelper.clickThreadVideoAreaStatisticLog(threadData, str));
         }
     }
@@ -301,15 +301,15 @@ public class uz6 {
         }
     }
 
-    public static void t(nn4 nn4Var, String str) {
+    public static void t(on4 on4Var, String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65555, null, nn4Var, str) == null) || nn4Var == null || nn4Var.getThreadData() == null) {
+        if (!(interceptable == null || interceptable.invokeLL(65555, null, on4Var, str) == null) || on4Var == null || on4Var.getThreadData() == null) {
             return;
         }
-        if (nn4Var.getThreadData().isVideoThreadType()) {
-            cy5.b().a(FeedTabCardStatisticHelper.showVideoThreadStatisticLog(nn4Var.getThreadData(), str));
+        if (on4Var.getThreadData().isVideoThreadType()) {
+            cy5.b().a(FeedTabCardStatisticHelper.showVideoThreadStatisticLog(on4Var.getThreadData(), str));
         } else {
-            cy5.b().a(FeedTabCardStatisticHelper.showPictureTextThreadStatisticLog(nn4Var.getThreadData(), str));
+            cy5.b().a(FeedTabCardStatisticHelper.showPictureTextThreadStatisticLog(on4Var.getThreadData(), str));
         }
     }
 }

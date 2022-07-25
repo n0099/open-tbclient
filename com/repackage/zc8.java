@@ -106,7 +106,7 @@ public class zc8 extends yc8 {
             } else if (!StringUtils.isNull(shareEntity.getContent())) {
                 bundle.putString("summary", shareEntity.getContent());
             } else {
-                bundle.putString("summary", this.b.getString(R.string.obfuscated_res_0x7f0f115d));
+                bundle.putString("summary", this.b.getString(R.string.obfuscated_res_0x7f0f110c));
             }
             bundle.putString("targetUrl", shareEntity.getLinkUrl());
             ArrayList<String> arrayList = new ArrayList<>();

@@ -88,14 +88,14 @@ public class gu5 extends an<wu5, CardViewHolder<bw5>> {
         } else {
             TiebaStatic.log("c11857");
         }
-        String q = xt4.k().q("ala_personal_exp_detail_url", "https://sv.baidu.com/cashliveui/userLevel.html#/level");
+        String q = yt4.k().q("ala_personal_exp_detail_url", "https://sv.baidu.com/cashliveui/userLevel.html#/level");
         if (q == null) {
             return;
         }
         if (q.endsWith("/")) {
             q = q.substring(0, q.length() - 1);
         }
-        rl4.o(this.i.getPageActivity(), q);
+        sl4.o(this.i.getPageActivity(), q);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -114,13 +114,13 @@ public class gu5 extends an<wu5, CardViewHolder<bw5>> {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view2, viewGroup, wu5Var, cardViewHolder})) == null) {
-            if (cardViewHolder.c() == null) {
+            if (cardViewHolder.b() == null) {
                 return null;
             }
-            cardViewHolder.c().i(wu5Var);
-            cardViewHolder.c().j(this.i, TbadkCoreApplication.getInst().getSkinType());
-            cardViewHolder.c().k.setOnClickListener(new a(this, wu5Var));
-            return cardViewHolder.c().h();
+            cardViewHolder.b().i(wu5Var);
+            cardViewHolder.b().j(this.i, TbadkCoreApplication.getInst().getSkinType());
+            cardViewHolder.b().k.setOnClickListener(new a(this, wu5Var));
+            return cardViewHolder.b().h();
         }
         return (View) invokeCommon.objValue;
     }

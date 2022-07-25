@@ -33,12 +33,12 @@ public class lt7 {
 
         /* renamed from: com.repackage.lt7$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class RunnableC0674a implements Runnable {
+        public class RunnableC0521a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public RunnableC0674a(a aVar) {
+            public RunnableC0521a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -124,7 +124,7 @@ public class lt7 {
             }
             this.a.g(true);
             this.a.h(true);
-            this.a.c.k().t(new RunnableC0674a(this));
+            this.a.c.k().t(new RunnableC0521a(this));
         }
 
         @Override // com.repackage.v36.b

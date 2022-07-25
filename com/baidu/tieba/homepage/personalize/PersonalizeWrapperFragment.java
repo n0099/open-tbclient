@@ -31,11 +31,11 @@ import com.repackage.ku6;
 import com.repackage.lu6;
 import com.repackage.ni;
 import com.repackage.nu6;
-import com.repackage.rx4;
 import com.repackage.rz6;
-import com.repackage.s95;
+import com.repackage.sx4;
+import com.repackage.t95;
 import com.repackage.vk8;
-import com.repackage.wc5;
+import com.repackage.xc5;
 import java.util.List;
 import tbclient.Personalized.DataRes;
 /* loaded from: classes3.dex */
@@ -183,10 +183,10 @@ public class PersonalizeWrapperFragment extends BaseFragment implements ge6 {
         }
 
         @Override // com.repackage.lu6
-        public void c(int i, wc5 wc5Var, int i2) {
+        public void c(int i, xc5 xc5Var, int i2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), wc5Var, Integer.valueOf(i2)}) == null) {
-                this.a.b.i(1, i, wc5Var, 1, i2);
+            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), xc5Var, Integer.valueOf(i2)}) == null) {
+                this.a.b.i(1, i, xc5Var, 1, i2);
                 if (ni.A()) {
                     TiebaStatic.log(new StatisticItem("c11032").param("obj_source", 1));
                 }
@@ -194,10 +194,10 @@ public class PersonalizeWrapperFragment extends BaseFragment implements ge6 {
         }
 
         @Override // com.repackage.lu6
-        public void d(int i, int i2, wc5 wc5Var, int i3) {
+        public void d(int i, int i2, xc5 xc5Var, int i3) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), wc5Var, Integer.valueOf(i3)}) == null) {
-                this.a.b.i(2, i2, wc5Var, i, i3);
+            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), xc5Var, Integer.valueOf(i3)}) == null) {
+                this.a.b.i(2, i2, xc5Var, i, i3);
                 if (ni.A()) {
                     TiebaStatic.log(new StatisticItem("c11032").param("obj_source", 2));
                 }
@@ -205,7 +205,7 @@ public class PersonalizeWrapperFragment extends BaseFragment implements ge6 {
         }
     }
 
-    public PersonalizeWrapperFragment(Context context, List<rx4> list) {
+    public PersonalizeWrapperFragment(Context context, List<sx4> list) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -239,7 +239,7 @@ public class PersonalizeWrapperFragment extends BaseFragment implements ge6 {
         }
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragment, com.repackage.v85
+    @Override // com.baidu.tbadk.core.BaseFragment, com.repackage.w85
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -389,7 +389,7 @@ public class PersonalizeWrapperFragment extends BaseFragment implements ge6 {
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.HOME_FRAGMENT_SHOW_CONCERN_TAB_TIPS_START_STAMP_KEY);
         ku6.d().h(System.currentTimeMillis() - ku6.d().a(1));
-        s95.b().C(System.currentTimeMillis() - ku6.d().a(1));
+        t95.b().C(System.currentTimeMillis() - ku6.d().a(1));
         SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.HOME_FRAGMENT_SHOW_CONCERN_TAB_TIPS_END_STAMP_KEY);
         SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.HOME_FRAGMENT_ON_ACTIVITY_CREATED_END_STAMP_KEY);
     }

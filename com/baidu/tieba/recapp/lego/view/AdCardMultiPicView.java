@@ -23,12 +23,12 @@ public class AdCardMultiPicView extends AdCardBaseView {
     public transient /* synthetic */ FieldHolder $fh;
     public XfremodeRoundLayout V;
     public AdImageView W;
-    public XfremodeRoundLayout g0;
-    public AdImageView h0;
-    public XfremodeRoundLayout i0;
-    public AdImageView j0;
-    public float k0;
-    public float l0;
+    public XfremodeRoundLayout a0;
+    public AdImageView b0;
+    public XfremodeRoundLayout c0;
+    public AdImageView d0;
+    public float e0;
+    public float f0;
 
     /* loaded from: classes3.dex */
     public class a implements View.OnClickListener {
@@ -81,7 +81,7 @@ public class AdCardMultiPicView extends AdCardBaseView {
                 return;
             }
         }
-        this.l0 = 0.0f;
+        this.f0 = 0.0f;
     }
 
     @Override // com.baidu.tieba.recapp.lego.view.AdCardBaseView
@@ -97,14 +97,14 @@ public class AdCardMultiPicView extends AdCardBaseView {
                 int i3 = sa8Var.d;
                 int max = (int) (dimensionPixelSize * Math.max(Math.min((i2 == 0 || i3 == 0) ? 1.0f : i2 / i3, 1.0f), 0.0f));
                 this.W.setVisibility(4);
-                this.h0.setVisibility(4);
-                this.j0.setVisibility(4);
+                this.b0.setVisibility(4);
+                this.d0.setVisibility(4);
                 o0(this.V, 1);
-                o0(this.g0, 2);
-                o0(this.i0, 3);
+                o0(this.a0, 2);
+                o0(this.c0, 3);
                 n0(this.W, dimensionPixelSize, max);
-                n0(this.h0, dimensionPixelSize, max);
-                n0(this.j0, dimensionPixelSize, max);
+                n0(this.b0, dimensionPixelSize, max);
+                n0(this.d0, dimensionPixelSize, max);
                 if (i == 1) {
                     this.W.g((String) gd7.d(list, 0));
                     this.W.setVisibility(0);
@@ -112,16 +112,16 @@ public class AdCardMultiPicView extends AdCardBaseView {
                 } else if (i == 2) {
                     this.W.g((String) gd7.d(list, 0));
                     this.W.setVisibility(0);
-                    this.h0.g((String) gd7.d(list, 1));
-                    this.h0.setVisibility(0);
-                    o0(this.g0, 3);
+                    this.b0.g((String) gd7.d(list, 1));
+                    this.b0.setVisibility(0);
+                    o0(this.a0, 3);
                 } else if (i >= 3) {
                     this.W.g((String) gd7.d(list, 0));
                     this.W.setVisibility(0);
-                    this.h0.g((String) gd7.d(list, 1));
-                    this.h0.setVisibility(0);
-                    this.j0.g((String) gd7.d(list, 2));
-                    this.j0.setVisibility(0);
+                    this.b0.g((String) gd7.d(list, 1));
+                    this.b0.setVisibility(0);
+                    this.d0.g((String) gd7.d(list, 2));
+                    this.d0.setVisibility(0);
                 }
                 this.o.setVisibility(0);
                 this.o.setOnClickListener(new a(this));
@@ -135,16 +135,16 @@ public class AdCardMultiPicView extends AdCardBaseView {
     public void U(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) {
-            this.V = (XfremodeRoundLayout) view2.findViewById(R.id.obfuscated_res_0x7f091b51);
+            this.V = (XfremodeRoundLayout) view2.findViewById(R.id.obfuscated_res_0x7f091b2b);
             this.W = (AdImageView) view2.findViewById(R.id.obfuscated_res_0x7f090141);
-            this.g0 = (XfremodeRoundLayout) view2.findViewById(R.id.obfuscated_res_0x7f091b50);
-            this.h0 = (AdImageView) view2.findViewById(R.id.obfuscated_res_0x7f090140);
-            this.i0 = (XfremodeRoundLayout) view2.findViewById(R.id.obfuscated_res_0x7f091b52);
-            this.j0 = (AdImageView) view2.findViewById(R.id.obfuscated_res_0x7f090142);
-            this.k0 = P(R.string.J_X05);
+            this.a0 = (XfremodeRoundLayout) view2.findViewById(R.id.obfuscated_res_0x7f091b2a);
+            this.b0 = (AdImageView) view2.findViewById(R.id.obfuscated_res_0x7f090140);
+            this.c0 = (XfremodeRoundLayout) view2.findViewById(R.id.obfuscated_res_0x7f091b2c);
+            this.d0 = (AdImageView) view2.findViewById(R.id.obfuscated_res_0x7f090142);
+            this.e0 = P(R.string.J_X05);
             this.W.setPlaceHolderDrawable(SkinManager.getDrawable(SkinManager.getResourceId(R.drawable.pic_use_header_40_n)));
-            this.h0.setPlaceHolderDrawable(SkinManager.getDrawable(SkinManager.getResourceId(R.drawable.pic_use_header_40_n)));
-            this.j0.setPlaceHolderDrawable(SkinManager.getDrawable(SkinManager.getResourceId(R.drawable.pic_use_header_40_n)));
+            this.b0.setPlaceHolderDrawable(SkinManager.getDrawable(SkinManager.getResourceId(R.drawable.pic_use_header_40_n)));
+            this.d0.setPlaceHolderDrawable(SkinManager.getDrawable(SkinManager.getResourceId(R.drawable.pic_use_header_40_n)));
         }
     }
 
@@ -177,18 +177,18 @@ public class AdCardMultiPicView extends AdCardBaseView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048581, this, xfremodeRoundLayout, i) == null) {
             if (i == 1) {
-                float f = this.k0;
-                float f2 = this.l0;
+                float f = this.e0;
+                float f2 = this.f0;
                 xfremodeRoundLayout.setRoundLayoutRadius(new float[]{f, f, f2, f2, f2, f2, f, f});
             } else if (i == 2) {
-                float f3 = this.l0;
+                float f3 = this.f0;
                 xfremodeRoundLayout.setRoundLayoutRadius(new float[]{f3, f3, f3, f3, f3, f3, f3, f3});
             } else if (i != 3) {
-                float f4 = this.k0;
+                float f4 = this.e0;
                 xfremodeRoundLayout.setRoundLayoutRadius(new float[]{f4, f4, f4, f4, f4, f4, f4, f4});
             } else {
-                float f5 = this.l0;
-                float f6 = this.k0;
+                float f5 = this.f0;
+                float f6 = this.e0;
                 xfremodeRoundLayout.setRoundLayoutRadius(new float[]{f5, f5, f6, f6, f6, f6, f5, f5});
             }
         }

@@ -21,7 +21,7 @@ import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.zip.GZIPInputStream;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class HttpURLExecutorRunnable implements Runnable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG = false;

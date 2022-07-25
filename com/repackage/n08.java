@@ -57,7 +57,7 @@ public class n08 extends xk5<p08, PersonInfoUserPicsHolder> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            PersonInfoUserPicsHolder personInfoUserPicsHolder = new PersonInfoUserPicsHolder(LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d06ca, viewGroup, false), this.j);
+            PersonInfoUserPicsHolder personInfoUserPicsHolder = new PersonInfoUserPicsHolder(LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d06d4, viewGroup, false), this.j);
             personInfoUserPicsHolder.e.d(this.i);
             return personInfoUserPicsHolder;
         }
@@ -69,8 +69,8 @@ public class n08 extends xk5<p08, PersonInfoUserPicsHolder> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, p08Var, personInfoUserPicsHolder})) == null) {
             if (p08Var != null && personInfoUserPicsHolder != null) {
-                personInfoUserPicsHolder.d();
-                personInfoUserPicsHolder.c(p08Var);
+                personInfoUserPicsHolder.c();
+                personInfoUserPicsHolder.b(p08Var);
             }
             return view2;
         }

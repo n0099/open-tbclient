@@ -76,7 +76,7 @@ public class ag5 implements bg5 {
             if (i2 > 0) {
                 int i3 = i + 3;
                 List<MediaData> subList = ListUtils.subList(list, i, i3);
-                constrainImageLayout.setExtraCenterText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0434, new Object[]{Integer.valueOf(i2)}));
+                constrainImageLayout.setExtraCenterText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0433, new Object[]{Integer.valueOf(i2)}));
                 constrainImageLayout.setUrls(subList, i, true);
                 return i3;
             }

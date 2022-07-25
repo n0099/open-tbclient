@@ -233,12 +233,12 @@ public class FrsAdCommentScrollView extends LinearLayout {
             this.g = new LinkedList();
             setOrientation(1);
             LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d02ea, this);
-            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f090704);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f0915e4);
-            FrameLayout frameLayout = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f090703);
+            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f090703);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f0915bf);
+            FrameLayout frameLayout = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f090702);
             this.c = frameLayout;
             frameLayout.setTag(this.a);
-            FrameLayout frameLayout2 = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0915e3);
+            FrameLayout frameLayout2 = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0915be);
             this.d = frameLayout2;
             frameLayout2.setTag(this.b);
         }
@@ -285,7 +285,7 @@ public class FrsAdCommentScrollView extends LinearLayout {
             if ((this.c.getTag() instanceof TextView) && zg8Var2 != null) {
                 String a2 = zg8Var2.a();
                 if (zg8Var2.b()) {
-                    a2 = getContext().getString(R.string.obfuscated_res_0x7f0f074c, a2);
+                    a2 = getContext().getString(R.string.obfuscated_res_0x7f0f0748, a2);
                 }
                 ((TextView) this.c.getTag()).setText(a2);
             }
@@ -294,7 +294,7 @@ public class FrsAdCommentScrollView extends LinearLayout {
             }
             String a3 = zg8Var.a();
             if (zg8Var.b()) {
-                a3 = getContext().getString(R.string.obfuscated_res_0x7f0f074c, a3);
+                a3 = getContext().getString(R.string.obfuscated_res_0x7f0f0748, a3);
             }
             ((TextView) this.d.getTag()).setText(a3);
         }

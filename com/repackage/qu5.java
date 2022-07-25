@@ -43,7 +43,7 @@ public class qu5 implements kv5, jv5 {
     public BdTypeListView f;
     public View g;
     public NoNetworkView h;
-    public j55 i;
+    public k55 i;
     public boolean j;
     public boolean k;
     public int l;
@@ -51,7 +51,7 @@ public class qu5 implements kv5, jv5 {
     public TextView n;
     public boolean o;
     public String p;
-    public k55 q;
+    public l55 q;
     public boolean r;
     public boolean s;
 
@@ -225,7 +225,7 @@ public class qu5 implements kv5, jv5 {
         new b(this, AlaCmdConfigCustom.CMD_ALA_LIVE_USER_AUTHENT_UPLOAD_FINISH);
         this.d = tbPageContext;
         this.o = z;
-        this.l = (int) tbPageContext.getResources().getDimension(R.dimen.obfuscated_res_0x7f0702bd);
+        this.l = (int) tbPageContext.getResources().getDimension(R.dimen.obfuscated_res_0x7f0702bb);
         AlaPersonCenterModel alaPersonCenterModel = new AlaPersonCenterModel(tbPageContext);
         this.a = alaPersonCenterModel;
         alaPersonCenterModel.B(this);
@@ -244,9 +244,9 @@ public class qu5 implements kv5, jv5 {
     public void b(int i, String str, Object obj) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str, obj) == null) {
-            j55 j55Var = this.i;
-            if (j55Var != null) {
-                j55Var.dettachView(this.g);
+            k55 k55Var = this.i;
+            if (k55Var != null) {
+                k55Var.dettachView(this.g);
             }
             this.f.setVisibility(0);
             BdTypeListView bdTypeListView = this.f;
@@ -337,8 +337,8 @@ public class qu5 implements kv5, jv5 {
     public final void j() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            k55 k55Var = this.q;
-            if (k55Var != null && k55Var.b().getParent() != null) {
+            l55 l55Var = this.q;
+            if (l55Var != null && l55Var.b().getParent() != null) {
                 ((ViewGroup) this.q.b().getParent()).removeView(this.q.b());
             }
             this.r = false;
@@ -366,15 +366,15 @@ public class qu5 implements kv5, jv5 {
             this.e.onChangeSkinType(this.d, i);
             this.e.getBackground().mutate().setAlpha(0);
             SkinManager.setNavbarTitleColor(this.e.mTextTitle, R.color.CAM_X0101, R.color.CAM_X0101);
-            SkinManager.setNavbarIconSrc(this.m, R.drawable.selector_topbar_return_white, R.drawable.obfuscated_res_0x7f08103b);
+            SkinManager.setNavbarIconSrc(this.m, R.drawable.selector_topbar_return_white, R.drawable.obfuscated_res_0x7f08103f);
             this.f.setDivider(SkinManager.getDrawable(i, (int) R.color.CAM_X0204));
             this.f.setDividerHeight(this.d.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701d4));
             SkinManager.setBackgroundColor(this.g, R.color.CAM_X0201);
             if (this.f.getAdapter2() instanceof en) {
                 this.f.getAdapter2().notifyDataSetChanged();
-                j55 j55Var = this.i;
-                if (j55Var != null) {
-                    j55Var.onChangeSkinType();
+                k55 k55Var = this.i;
+                if (k55Var != null) {
+                    k55Var.onChangeSkinType();
                 }
                 this.h.d(this.d, i);
                 if (i == 1) {
@@ -405,7 +405,7 @@ public class qu5 implements kv5, jv5 {
                 this.n = this.e.setCenterTextTitle(this.d.getString(R.string.obfuscated_res_0x7f0f0221));
             } else {
                 StringBuilder sb = new StringBuilder();
-                sb.append(UtilHelper.getFixedBarText(this.p, 5, true, true) + this.d.getResources().getString(R.string.obfuscated_res_0x7f0f0650));
+                sb.append(UtilHelper.getFixedBarText(this.p, 5, true, true) + this.d.getResources().getString(R.string.obfuscated_res_0x7f0f064c));
                 this.n = this.e.setCenterTextTitle(sb.toString());
             }
             this.h = (NoNetworkView) this.g.findViewById(R.id.obfuscated_res_0x7f090208);
@@ -419,9 +419,9 @@ public class qu5 implements kv5, jv5 {
             if (this.o) {
                 this.g.setPadding(0, 0, 0, TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
             }
-            j55 j55Var = new j55(this.d.getPageActivity());
-            this.i = j55Var;
-            j55Var.attachView(this.g, false);
+            k55 k55Var = new k55(this.d.getPageActivity());
+            this.i = k55Var;
+            k55Var.attachView(this.g, false);
             this.f.setOnScrollListener(new d(this));
         }
     }
@@ -429,9 +429,9 @@ public class qu5 implements kv5, jv5 {
     public void o() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            j55 j55Var = this.i;
-            if (j55Var != null) {
-                j55Var.n();
+            k55 k55Var = this.i;
+            if (k55Var != null) {
+                k55Var.n();
                 this.i.dettachView(this.g);
             }
             AlaPersonCenterModel alaPersonCenterModel = this.a;
@@ -486,7 +486,7 @@ public class qu5 implements kv5, jv5 {
                 return;
             }
             StringBuilder sb = new StringBuilder();
-            sb.append(UtilHelper.getFixedBarText(this.p, 5, true, true) + this.d.getResources().getString(R.string.obfuscated_res_0x7f0f0650));
+            sb.append(UtilHelper.getFixedBarText(this.p, 5, true, true) + this.d.getResources().getString(R.string.obfuscated_res_0x7f0f064c));
             this.n = this.e.setCenterTextTitle(sb.toString());
         }
     }
@@ -548,16 +548,16 @@ public class qu5 implements kv5, jv5 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
             if (this.q == null) {
-                k55 k55Var = new k55(this.d.getPageActivity(), new a(this));
-                this.q = k55Var;
-                k55Var.n(null);
+                l55 l55Var = new l55(this.d.getPageActivity(), new a(this));
+                this.q = l55Var;
+                l55Var.n(null);
                 this.q.g(null);
-                this.q.k(this.d.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702a7));
+                this.q.k(this.d.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702a5));
                 this.q.p();
                 this.q.b().setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
             }
             this.q.m(null);
-            this.q.n(this.d.getResources().getString(R.string.obfuscated_res_0x7f0f0f9b));
+            this.q.n(this.d.getResources().getString(R.string.obfuscated_res_0x7f0f0f84));
             this.q.onChangeSkinType();
             if (!this.r) {
                 ((ViewGroup) this.g).addView(this.q.b(), 0);

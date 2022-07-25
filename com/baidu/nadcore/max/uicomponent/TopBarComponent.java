@@ -150,10 +150,10 @@ public final class TopBarComponent extends AbsComponentPlugin {
             gm0 a2 = hm0.a();
             Intrinsics.checkNotNullExpressionValue(a2, "NadMaxRuntime.getUIProvider()");
             a2.b();
-            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d05be, viewGroup, true);
+            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d05c8, viewGroup, true);
             Intrinsics.checkNotNullExpressionValue(inflate, "LayoutInflater.from(cont…e(layoutId, parent, true)");
-            this.d = inflate != null ? (FrameLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091427) : null;
-            AdImageView adImageView = inflate != null ? (AdImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091428) : null;
+            this.d = inflate != null ? (FrameLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091403) : null;
+            AdImageView adImageView = inflate != null ? (AdImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091404) : null;
             this.e = adImageView;
             if (adImageView != null) {
                 adImageView.setOnClickListener(new a(this));

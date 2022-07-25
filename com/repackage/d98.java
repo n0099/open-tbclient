@@ -98,18 +98,18 @@ public class d98 implements pi5 {
                 if (a2 != null && oi5Var.c() == 3 && (a2 instanceof AdvertAppInfo)) {
                     AdvertAppInfo advertAppInfo = (AdvertAppInfo) a2;
                     if (advertAppInfo.i == null) {
-                        sn4 sn4Var = new sn4();
-                        advertAppInfo.i = sn4Var;
-                        sn4Var.a = "FRS";
+                        tn4 tn4Var = new tn4();
+                        advertAppInfo.i = tn4Var;
+                        tn4Var.a = "FRS";
                         String.valueOf(z);
-                        sn4 sn4Var2 = advertAppInfo.i;
-                        sn4Var2.b = i;
-                        sn4Var2.c = str;
-                        sn4Var2.d = str2;
-                        sn4Var2.e = str3;
-                        sn4Var2.f = str4;
-                        sn4Var2.g = advertAppInfo.g;
-                        sn4Var2.h = false;
+                        tn4 tn4Var2 = advertAppInfo.i;
+                        tn4Var2.b = i;
+                        tn4Var2.c = str;
+                        tn4Var2.d = str2;
+                        tn4Var2.e = str3;
+                        tn4Var2.f = str4;
+                        tn4Var2.g = advertAppInfo.g;
+                        tn4Var2.h = false;
                         hashSet.add(advertAppInfo);
                     }
                 }

@@ -10,28 +10,28 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.kwad.sdk.utils.bc;
+import com.kwad.sdk.utils.bg;
 import com.kwad.sdk.widget.KSFrameLayout;
 @SuppressLint({"ViewConstructor"})
 /* loaded from: classes5.dex */
-public final class a extends KSFrameLayout implements bc.a {
+public final class a extends KSFrameLayout implements bg.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public InterfaceC0527a a;
-    public final View b;
-    public boolean c;
-    public boolean d;
-    public final bc e;
-    public int f;
-    public boolean g;
-    public long h;
-    public final float i;
-    public final int j;
+    public final View Kr;
+    public final bg Ks;
+    public final int OA;
+    public InterfaceC0375a Ot;
+    public boolean Ou;
+    public boolean Ov;
+    public int Ow;
+    public boolean Ox;
+    public long Oy;
+    public final float Oz;
 
     /* renamed from: com.kwad.components.core.widget.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public interface InterfaceC0527a {
-        void a();
+    public interface InterfaceC0375a {
+        void em();
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -53,47 +53,47 @@ public final class a extends KSFrameLayout implements bc.a {
                 return;
             }
         }
-        this.e = new bc(this);
-        this.f = 5;
-        this.b = view2;
+        this.Ks = new bg(this);
+        this.Ow = 5;
+        this.Kr = view2;
         setLayoutParams(new ViewGroup.LayoutParams(1, 1));
-        float W = com.kwad.sdk.core.config.d.W();
-        this.i = W;
-        setVisiblePercent(W);
-        float X = com.kwad.sdk.core.config.d.X();
-        this.j = (int) ((X < 0.0f ? 1.0f : X) * 1000.0f);
+        float sk = com.kwad.sdk.core.config.d.sk();
+        this.Oz = sk;
+        setVisiblePercent(sk);
+        float sl = com.kwad.sdk.core.config.d.sl();
+        this.OA = (int) ((sl < 0.0f ? 1.0f : sl) * 1000.0f);
     }
 
-    private void d() {
+    private void pT() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65537, this) == null) {
-            Message obtainMessage = this.e.obtainMessage();
+            Message obtainMessage = this.Ks.obtainMessage();
             obtainMessage.what = 2;
-            this.e.sendMessageDelayed(obtainMessage, this.j);
+            this.Ks.sendMessageDelayed(obtainMessage, this.OA);
         }
     }
 
-    private void e() {
+    private void pU() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, this) == null) {
-            this.e.removeCallbacksAndMessages(null);
-            this.d = false;
+            this.Ks.removeCallbacksAndMessages(null);
+            this.Ov = false;
         }
     }
 
-    private void f() {
+    private void pV() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65539, this) == null) || this.d) {
+        if (!(interceptable == null || interceptable.invokeV(65539, this) == null) || this.Ov) {
             return;
         }
-        this.d = true;
-        this.e.sendEmptyMessage(1);
+        this.Ov = true;
+        this.Ks.sendEmptyMessage(1);
     }
 
-    @Override // com.kwad.sdk.utils.bc.a
+    @Override // com.kwad.sdk.utils.bg.a
     public final void a(Message message) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, message) == null) || this.c) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, message) == null) || this.Ou) {
             return;
         }
         int i = message.what;
@@ -101,105 +101,105 @@ public final class a extends KSFrameLayout implements bc.a {
             if (i != 2) {
                 return;
             }
-            if (!com.kwad.sdk.b.kwai.a.a(this.b, (int) (this.i * 100.0f), false)) {
-                this.f = 5;
-                this.e.sendEmptyMessage(1);
+            if (!com.kwad.sdk.b.kwai.a.a(this.Kr, (int) (this.Oz * 100.0f), false)) {
+                this.Ow = 5;
+                this.Ks.sendEmptyMessage(1);
                 return;
             }
-            InterfaceC0527a interfaceC0527a = this.a;
-            if (interfaceC0527a != null) {
-                interfaceC0527a.a();
+            InterfaceC0375a interfaceC0375a = this.Ot;
+            if (interfaceC0375a != null) {
+                interfaceC0375a.em();
                 return;
             }
             return;
         }
-        com.kwad.sdk.core.d.b.a("AdExposureView", "handleMsg MSG_CHECKING");
-        if (!com.kwad.sdk.b.kwai.a.a(this.b, (int) (this.i * 100.0f), false)) {
-            bc bcVar = this.e;
-            int i2 = this.f;
-            this.f = i2 - 1;
-            bcVar.sendEmptyMessageDelayed(1, i2 > 0 ? 100L : 500L);
+        com.kwad.sdk.core.e.b.d("AdExposureView", "handleMsg MSG_CHECKING");
+        if (!com.kwad.sdk.b.kwai.a.a(this.Kr, (int) (this.Oz * 100.0f), false)) {
+            bg bgVar = this.Ks;
+            int i2 = this.Ow;
+            this.Ow = i2 - 1;
+            bgVar.sendEmptyMessageDelayed(1, i2 > 0 ? 100L : 500L);
             return;
         }
-        e();
-        if (this.j != 0 && !this.g) {
-            this.g = true;
-            this.h = System.currentTimeMillis();
-            d();
+        pU();
+        if (this.OA != 0 && !this.Ox) {
+            this.Ox = true;
+            this.Oy = System.currentTimeMillis();
+            pT();
             return;
         }
-        InterfaceC0527a interfaceC0527a2 = this.a;
-        if (interfaceC0527a2 != null) {
-            interfaceC0527a2.a();
+        InterfaceC0375a interfaceC0375a2 = this.Ot;
+        if (interfaceC0375a2 != null) {
+            interfaceC0375a2.em();
+        }
+    }
+
+    @Override // com.kwad.sdk.widget.KSFrameLayout
+    public final void am() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            super.am();
+            this.Ow = 5;
+            this.Ou = false;
+            this.Ox = false;
+            pV();
+        }
+    }
+
+    @Override // com.kwad.sdk.widget.KSFrameLayout
+    public final void an() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            super.an();
+            pU();
+            this.Ow = 0;
+            this.Oy = 0L;
+            this.Ou = true;
         }
     }
 
     @Override // com.kwad.sdk.widget.KSFrameLayout, com.kwad.sdk.widget.i
-    public final void a(View view2) {
-        InterfaceC0527a interfaceC0527a;
-        InterfaceC0527a interfaceC0527a2;
+    public final void k(View view2) {
+        InterfaceC0375a interfaceC0375a;
+        InterfaceC0375a interfaceC0375a2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) {
-            super.a(view2);
-            if (this.j == 0 && (interfaceC0527a2 = this.a) != null) {
-                interfaceC0527a2.a();
-            } else if (!this.g) {
-                this.g = true;
-                this.h = System.currentTimeMillis();
-                e();
-                d();
-            } else if (System.currentTimeMillis() - this.h <= this.j || (interfaceC0527a = this.a) == null) {
+        if (interceptable == null || interceptable.invokeL(1048579, this, view2) == null) {
+            super.k(view2);
+            if (this.OA == 0 && (interfaceC0375a2 = this.Ot) != null) {
+                interfaceC0375a2.em();
+            } else if (!this.Ox) {
+                this.Ox = true;
+                this.Oy = System.currentTimeMillis();
+                pU();
+                pT();
+            } else if (System.currentTimeMillis() - this.Oy <= this.OA || (interfaceC0375a = this.Ot) == null) {
             } else {
-                interfaceC0527a.a();
-                e();
+                interfaceC0375a.em();
+                pU();
             }
-        }
-    }
-
-    @Override // com.kwad.sdk.widget.KSFrameLayout
-    public final void a_() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            super.a_();
-            e();
-            this.f = 0;
-            this.h = 0L;
-            this.c = true;
-        }
-    }
-
-    @Override // com.kwad.sdk.widget.KSFrameLayout
-    public final void b_() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            super.b_();
-            this.f = 5;
-            this.c = false;
-            this.g = false;
-            f();
-        }
-    }
-
-    public final void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            f();
         }
     }
 
     @Override // android.view.View
     public final void onWindowFocusChanged(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
             super.onWindowFocusChanged(z);
-            com.kwad.sdk.core.d.b.a("AdExposureView", "onWindowFocusChanged hasWindowFocus:" + z);
+            com.kwad.sdk.core.e.b.d("AdExposureView", "onWindowFocusChanged hasWindowFocus:" + z);
         }
     }
 
-    public final void setViewCallback(InterfaceC0527a interfaceC0527a) {
+    public final void pW() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, interfaceC0527a) == null) {
-            this.a = interfaceC0527a;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            pV();
+        }
+    }
+
+    public final void setViewCallback(InterfaceC0375a interfaceC0375a) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, interfaceC0375a) == null) {
+            this.Ot = interfaceC0375a;
         }
     }
 }

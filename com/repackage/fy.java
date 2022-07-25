@@ -20,7 +20,7 @@ public class fy extends xw {
     public transient /* synthetic */ FieldHolder $fh;
     public LinearLayout h;
     public BjhArticleLayout i;
-    public nn4 j;
+    public on4 j;
     public int k;
 
     /* loaded from: classes6.dex */
@@ -110,7 +110,7 @@ public class fy extends xw {
     }
 
     @Override // com.repackage.qw
-    public void m(jy5<nn4> jy5Var) {
+    public void m(jy5<on4> jy5Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jy5Var) == null) {
             super.m(jy5Var);
@@ -138,13 +138,13 @@ public class fy extends xw {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.repackage.gx
     /* renamed from: u */
-    public void a(nn4 nn4Var) {
+    public void a(on4 on4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, nn4Var) == null) {
-            this.j = nn4Var;
+        if (interceptable == null || interceptable.invokeL(1048580, this, on4Var) == null) {
+            this.j = on4Var;
             BjhArticleLayout bjhArticleLayout = this.i;
             if (bjhArticleLayout != null) {
-                bjhArticleLayout.a(nn4Var);
+                bjhArticleLayout.a(on4Var);
             }
         }
     }

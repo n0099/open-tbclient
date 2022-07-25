@@ -50,7 +50,7 @@ public class VideoPbEnterForumAndTopicViewHolder extends TypeAdapter.ViewHolder 
         this.b = (FlowLabelLayout) ((ViewGroup) view2).getChildAt(0);
     }
 
-    public void c() {
+    public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             ThreadForumEnterButton threadForumEnterButton = this.c;

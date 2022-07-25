@@ -193,7 +193,7 @@ public class Cubemap extends o3 {
         }
         this.i = l3Var;
         y(l3Var);
-        if (l3Var.b()) {
+        if (l3Var.a()) {
             s(e1.a, this);
         }
     }
@@ -282,7 +282,7 @@ public class Cubemap extends o3 {
             return;
         }
         delete();
-        if (!this.i.b() || k.get(e1.a) == null) {
+        if (!this.i.a() || k.get(e1.a) == null) {
             return;
         }
         k.get(e1.a).j(this, true);
@@ -297,20 +297,20 @@ public class Cubemap extends o3 {
     public boolean x() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.i.b() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.i.a() : invokeV.booleanValue;
     }
 
     public void y(l3 l3Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, l3Var) == null) {
-            if (!l3Var.a()) {
+            if (!l3Var.isPrepared()) {
                 l3Var.prepare();
             }
             a();
             o(this.c, this.d, true);
             p(this.e, this.f, true);
             n(this.g, true);
-            l3Var.f();
+            l3Var.e();
             e1.e.N(this.a, 0);
         }
     }

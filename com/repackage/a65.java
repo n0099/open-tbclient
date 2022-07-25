@@ -1,68 +1,32 @@
 package com.repackage;
 
-import android.content.Context;
+import androidx.annotation.NonNull;
+import com.baidu.pyramid.runtime.service.ServiceManager;
 import com.baidu.pyramid.runtime.service.ServiceReference;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.module.frs.Frs$From;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
 public interface a65 {
-    public static final a a = a.a;
+    @NonNull
+    public static final ServiceReference a;
+    @NonNull
+    public static final a65 b;
 
-    /* loaded from: classes5.dex */
-    public static final class a {
-        public static /* synthetic */ Interceptable $ic;
-        public static final /* synthetic */ a a;
-        public static final ServiceReference b;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-575073228, "Lcom/repackage/a65$a;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-575073228, "Lcom/repackage/a65$a;");
-                    return;
-                }
-            }
-            a = new a();
-            b = new ServiceReference("Frs", "FrsService");
-        }
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                }
-            }
-        }
-
-        public final ServiceReference a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? b : (ServiceReference) invokeV.objValue;
-        }
+    static {
+        ServiceReference serviceReference = new ServiceReference("tbBaseEmotion", "EmotionService");
+        a = serviceReference;
+        b = (a65) ServiceManager.getService(serviceReference);
     }
 
-    void a(TbPageContext<?> tbPageContext, long j);
+    boolean a(@NonNull String str);
 
-    void b(Context context, Frs$From frs$From, Long l, String str);
+    @NonNull
+    String b(@NonNull String str);
 
-    void c(Long l, String str);
+    @NonNull
+    String c();
+
+    @NonNull
+    String d(@NonNull String str, boolean z);
+
+    @NonNull
+    String e(@NonNull String str, @NonNull String str2);
 }

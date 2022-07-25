@@ -227,7 +227,7 @@ public class SelectMusicModel extends BdBaseModel {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             if (!ni.z()) {
-                this.b.showToast(R.string.obfuscated_res_0x7f0f0c63);
+                this.b.showToast(R.string.obfuscated_res_0x7f0f0c4f);
             } else {
                 sendMessage(new HttpMessage(CmdConfigHttp.CMD_VIDEO_SUG_MUSIC));
             }

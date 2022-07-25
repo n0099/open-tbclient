@@ -215,15 +215,15 @@ public class PortraitVideoTailView extends FrameLayout implements View.OnClickLi
             String str2 = adBaseModel.j.f.c;
             String str3 = adBaseModel.f.c;
             int id = view2.getId();
-            if (id == R.id.obfuscated_res_0x7f091f56) {
+            if (id == R.id.obfuscated_res_0x7f091f5a) {
                 str = "tail_avatar";
-            } else if (id == R.id.obfuscated_res_0x7f091f60) {
+            } else if (id == R.id.obfuscated_res_0x7f091f64) {
                 str = "tail_name";
-            } else if (id == R.id.obfuscated_res_0x7f09064c) {
+            } else if (id == R.id.obfuscated_res_0x7f09064b) {
                 str2 = adBaseModel.j.f.d;
                 str = NativeConstants.ID_BUTTON;
             } else {
-                str = id == R.id.obfuscated_res_0x7f091f61 ? "tail_tag" : id == R.id.obfuscated_res_0x7f0900d1 ? "tail_score" : id == R.id.obfuscated_res_0x7f091f5f ? "tail_title" : id == R.id.obfuscated_res_0x7f091f5b ? "tail_popularity" : "hot";
+                str = id == R.id.obfuscated_res_0x7f091f65 ? "tail_tag" : id == R.id.obfuscated_res_0x7f0900d1 ? "tail_score" : id == R.id.obfuscated_res_0x7f091f63 ? "tail_title" : id == R.id.obfuscated_res_0x7f091f5f ? "tail_popularity" : "hot";
             }
             if ((TextUtils.isEmpty(str2) || "__BTN_SCHEME__".equals(str2)) ? false : true) {
                 str3 = str2;
@@ -240,7 +240,7 @@ public class PortraitVideoTailView extends FrameLayout implements View.OnClickLi
     public void d() {
         View findViewById;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (findViewById = findViewById(R.id.obfuscated_res_0x7f091f5d)) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (findViewById = findViewById(R.id.obfuscated_res_0x7f091f61)) == null) {
             return;
         }
         findViewById.setVisibility(8);
@@ -257,27 +257,27 @@ public class PortraitVideoTailView extends FrameLayout implements View.OnClickLi
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, context) == null) {
             removeAllViews();
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d05c9, this);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d05d3, this);
             setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f06082b));
             ViewGroup.LayoutParams layoutParams = getLayoutParams();
             layoutParams.height = -1;
             layoutParams.width = -1;
             setLayoutParams(layoutParams);
-            this.a = (AdImageView) findViewById(R.id.obfuscated_res_0x7f091f56);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f091f60);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f091f61);
+            this.a = (AdImageView) findViewById(R.id.obfuscated_res_0x7f091f5a);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f091f64);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f091f65);
             this.e = findViewById(R.id.obfuscated_res_0x7f0900d1);
-            this.m = (TextView) findViewById(R.id.obfuscated_res_0x7f091f5e);
-            this.d = (AppCompatRatingBar) findViewById(R.id.obfuscated_res_0x7f091f5c);
-            this.n = (TextView) findViewById(R.id.obfuscated_res_0x7f091f5b);
-            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f091f5f);
-            View findViewById = findViewById(R.id.obfuscated_res_0x7f091f5d);
-            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f091f58);
-            this.o = findViewById(R.id.obfuscated_res_0x7f091f57);
-            this.p = findViewById(R.id.obfuscated_res_0x7f09064c);
-            this.q = (AdImageView) findViewById(R.id.obfuscated_res_0x7f090669);
+            this.m = (TextView) findViewById(R.id.obfuscated_res_0x7f091f62);
+            this.d = (AppCompatRatingBar) findViewById(R.id.obfuscated_res_0x7f091f60);
+            this.n = (TextView) findViewById(R.id.obfuscated_res_0x7f091f5f);
+            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f091f63);
+            View findViewById = findViewById(R.id.obfuscated_res_0x7f091f61);
+            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f091f5c);
+            this.o = findViewById(R.id.obfuscated_res_0x7f091f5b);
+            this.p = findViewById(R.id.obfuscated_res_0x7f09064b);
+            this.q = (AdImageView) findViewById(R.id.obfuscated_res_0x7f090668);
             this.r = (AdImageView) findViewById(R.id.obfuscated_res_0x7f0902f5);
-            NadMiniVideoDownloadView nadMiniVideoDownloadView = (NadMiniVideoDownloadView) findViewById(R.id.obfuscated_res_0x7f091f5a);
+            NadMiniVideoDownloadView nadMiniVideoDownloadView = (NadMiniVideoDownloadView) findViewById(R.id.obfuscated_res_0x7f091f5e);
             this.h = nadMiniVideoDownloadView;
             nadMiniVideoDownloadView.setTextSize(12.0f);
             this.h.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f06082c));
@@ -296,9 +296,9 @@ public class PortraitVideoTailView extends FrameLayout implements View.OnClickLi
             this.p.setOnClickListener(this);
             this.n.setOnClickListener(this);
             this.h.setOnClickListener(this);
-            this.u = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0914a8);
-            this.v = (AdImageView) findViewById(R.id.obfuscated_res_0x7f0914a9);
-            this.w = (TextView) findViewById(R.id.obfuscated_res_0x7f0914aa);
+            this.u = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091483);
+            this.v = (AdImageView) findViewById(R.id.obfuscated_res_0x7f091484);
+            this.w = (TextView) findViewById(R.id.obfuscated_res_0x7f091485);
             setOnClickListener(null);
         }
     }
@@ -413,7 +413,7 @@ public class PortraitVideoTailView extends FrameLayout implements View.OnClickLi
                     if (TextUtils.isEmpty(on0Var.e)) {
                         this.g.setText(on0Var.e);
                     } else {
-                        this.g.setText(getResources().getText(R.string.obfuscated_res_0x7f0f0b67));
+                        this.g.setText(getResources().getText(R.string.obfuscated_res_0x7f0f0b53));
                     }
                     this.q.setImageDrawable(ContextCompat.getDrawable(getContext(), R.drawable.obfuscated_res_0x7f080d5f));
                     this.h.setVisibility(8);
@@ -426,8 +426,8 @@ public class PortraitVideoTailView extends FrameLayout implements View.OnClickLi
                 } else {
                     Resources resources = getContext().getResources();
                     FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.t.getLayoutParams();
-                    layoutParams.leftMargin = resources.getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f070537);
-                    layoutParams.rightMargin = resources.getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f070537);
+                    layoutParams.leftMargin = resources.getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f070535);
+                    layoutParams.rightMargin = resources.getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f070535);
                     this.t.setLayoutParams(layoutParams);
                     this.t.setAdInfo(this.s);
                     this.t.setVisibility(0);
@@ -448,12 +448,12 @@ public class PortraitVideoTailView extends FrameLayout implements View.OnClickLi
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, view2) == null) {
             AdBaseModel adBaseModel = (AdBaseModel) getTag();
-            if (view2.getId() == R.id.obfuscated_res_0x7f091f5d) {
+            if (view2.getId() == R.id.obfuscated_res_0x7f091f61) {
                 View.OnClickListener onClickListener = this.j;
                 if (onClickListener != null) {
                     onClickListener.onClick(view2);
                 }
-            } else if (view2.getId() == R.id.obfuscated_res_0x7f091f5a) {
+            } else if (view2.getId() == R.id.obfuscated_res_0x7f091f5e) {
                 ej0 ej0Var = this.i;
                 if (ej0Var != null) {
                     ej0Var.m();

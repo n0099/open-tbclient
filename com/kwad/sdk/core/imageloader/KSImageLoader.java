@@ -178,7 +178,11 @@ public class KSImageLoader {
     }
 
     public static Context getSDKContext() {
-        return ((d) ServiceProvider.a(d.class)).a();
+        d dVar = (d) ServiceProvider.get(d.class);
+        if (dVar != null) {
+            return dVar.getContext();
+        }
+        return null;
     }
 
     public static void init(Context context, OnRenderResultListener<AdTemplate> onRenderResultListener, Executor executor) {
@@ -190,7 +194,7 @@ public class KSImageLoader {
     }
 
     public static void loadAppIcon(ImageView imageView, @Nullable String str, AdTemplate adTemplate, int i) {
-        if (imageView == null || TextUtils.isEmpty(str)) {
+        if (imageView == null || TextUtils.isEmpty(str) || getSDKContext() == null) {
             return;
         }
         checkInit();
@@ -198,7 +202,7 @@ public class KSImageLoader {
     }
 
     public static void loadCircleIcon(ImageView imageView, String str, Drawable drawable) {
-        if (imageView == null) {
+        if (imageView == null || getSDKContext() == null) {
             return;
         }
         checkInit();
@@ -206,7 +210,7 @@ public class KSImageLoader {
     }
 
     public static void loadCircleIcon(ImageView imageView, String str, Drawable drawable, @ColorInt int i) {
-        if (imageView == null) {
+        if (imageView == null || getSDKContext() == null) {
             return;
         }
         checkInit();
@@ -214,7 +218,7 @@ public class KSImageLoader {
     }
 
     public static void loadCircleIconWithBorder(ImageView imageView, String str, Drawable drawable, Integer num, float f) {
-        if (imageView == null) {
+        if (imageView == null || getSDKContext() == null) {
             return;
         }
         checkInit();
@@ -222,7 +226,7 @@ public class KSImageLoader {
     }
 
     public static void loadCircleIconWithoutStroke(ImageView imageView, String str, Drawable drawable) {
-        if (imageView == null) {
+        if (imageView == null || getSDKContext() == null) {
             return;
         }
         checkInit();
@@ -234,7 +238,7 @@ public class KSImageLoader {
     }
 
     public static void loadFeeImage(ImageView imageView, @Nullable String str, AdTemplate adTemplate, ImageLoadingListener imageLoadingListener) {
-        if (imageView == null || TextUtils.isEmpty(str)) {
+        if (imageView == null || TextUtils.isEmpty(str) || getSDKContext() == null) {
             return;
         }
         checkInit();
@@ -246,7 +250,7 @@ public class KSImageLoader {
     }
 
     public static void loadImage(ImageView imageView, @Nullable String str, AdTemplate adTemplate, DisplayImageOptionsCompat displayImageOptionsCompat) {
-        if (imageView == null) {
+        if (imageView == null || getSDKContext() == null) {
             return;
         }
         checkInit();
@@ -257,7 +261,7 @@ public class KSImageLoader {
     }
 
     public static void loadImage(ImageView imageView, @Nullable String str, AdTemplate adTemplate, DisplayImageOptionsCompat displayImageOptionsCompat, ImageLoadingListener imageLoadingListener) {
-        if (imageView == null || TextUtils.isEmpty(str)) {
+        if (imageView == null || TextUtils.isEmpty(str) || getSDKContext() == null) {
             return;
         }
         checkInit();
@@ -268,7 +272,7 @@ public class KSImageLoader {
     }
 
     public static void loadImage(ImageView imageView, @Nullable String str, AdTemplate adTemplate, ImageLoadingListener imageLoadingListener) {
-        if (imageView == null || TextUtils.isEmpty(str)) {
+        if (imageView == null || TextUtils.isEmpty(str) || getSDKContext() == null) {
             return;
         }
         checkInit();
@@ -284,7 +288,7 @@ public class KSImageLoader {
     }
 
     public static void loadWithRadius(ImageView imageView, @Nullable String str, AdTemplate adTemplate, int i) {
-        if (imageView == null || TextUtils.isEmpty(str)) {
+        if (imageView == null || TextUtils.isEmpty(str) || getSDKContext() == null) {
             return;
         }
         checkInit();

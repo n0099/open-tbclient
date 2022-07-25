@@ -37,7 +37,7 @@ public class ql5 {
     public WeakReference<SplashAdView> c;
 
     /* loaded from: classes7.dex */
-    public class a implements CustomMessageTask.CustomRunnable<cx4> {
+    public class a implements CustomMessageTask.CustomRunnable<dx4> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ql5 a;
@@ -61,7 +61,7 @@ public class ql5 {
         }
 
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage<?> run(CustomMessage<cx4> customMessage) {
+        public CustomResponsedMessage<?> run(CustomMessage<dx4> customMessage) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
@@ -274,18 +274,18 @@ public class ql5 {
         this.b = null;
     }
 
-    public final View f(cx4 cx4Var) {
+    public final View f(dx4 dx4Var) {
         InterceptResult invokeL;
         boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, cx4Var)) == null) {
-            if (cx4Var == null || !cx4Var.c()) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, dx4Var)) == null) {
+            if (dx4Var == null || !dx4Var.c()) {
                 return null;
             }
-            Activity pageActivity = cx4Var.getContext().getPageActivity();
-            int a2 = cx4Var.a();
-            int b2 = cx4Var.b();
-            SplashAdView splashAdView = new SplashAdView(cx4Var.getContext(), "1481698145541", AdType.SPLASH, a2, b2, RedirectType.APPMANAGE);
+            Activity pageActivity = dx4Var.getContext().getPageActivity();
+            int a2 = dx4Var.a();
+            int b2 = dx4Var.b();
+            SplashAdView splashAdView = new SplashAdView(dx4Var.getContext(), "1481698145541", AdType.SPLASH, a2, b2, RedirectType.APPMANAGE);
             splashAdView.setLayoutParams(new RelativeLayout.LayoutParams(b2, a2));
             this.c = new WeakReference<>(splashAdView);
             splashAdView.setBCAdCallBack(new b(this, splashAdView));
@@ -296,20 +296,20 @@ public class ql5 {
             }
             if (z) {
                 try {
-                    int dimension = (int) pageActivity.getResources().getDimension(R.dimen.obfuscated_res_0x7f07027b);
+                    int dimension = (int) pageActivity.getResources().getDimension(R.dimen.obfuscated_res_0x7f070279);
                     int dimension2 = (int) pageActivity.getResources().getDimension(R.dimen.obfuscated_res_0x7f070215);
-                    Activity pageActivity2 = cx4Var.getContext().getPageActivity();
+                    Activity pageActivity2 = dx4Var.getContext().getPageActivity();
                     if (UtilHelper.isNotchScreen(pageActivity2) || UtilHelper.isCutoutScreen(pageActivity2)) {
                         dimension2 += pi.s(pageActivity2);
                     }
                     int dimension3 = (int) pageActivity.getResources().getDimension(R.dimen.obfuscated_res_0x7f070207);
-                    int dimension4 = (int) pageActivity.getResources().getDimension(R.dimen.obfuscated_res_0x7f070235);
-                    int dimension5 = (int) pageActivity.getResources().getDimension(R.dimen.obfuscated_res_0x7f0702d9);
+                    int dimension4 = (int) pageActivity.getResources().getDimension(R.dimen.obfuscated_res_0x7f070232);
+                    int dimension5 = (int) pageActivity.getResources().getDimension(R.dimen.obfuscated_res_0x7f0702d7);
                     CountDownTextView countDownTextView = new CountDownTextView(pageActivity);
                     this.a = new e(countDownTextView, null);
                     String str = this.b;
                     if (TextUtils.isEmpty(str)) {
-                        str = pageActivity.getResources().getString(R.string.obfuscated_res_0x7f0f11b6);
+                        str = pageActivity.getResources().getString(R.string.obfuscated_res_0x7f0f1165);
                     }
                     if (splashAdView.n) {
                         countDownTextView.d(str, 6);
@@ -333,7 +333,7 @@ public class ql5 {
                     layoutParams.addRule(10);
                     layoutParams.addRule(11);
                     layoutParams.setMargins(0, dimension2, dimension3, 0);
-                    int f2 = pi.f(pageActivity, R.dimen.obfuscated_res_0x7f070309);
+                    int f2 = pi.f(pageActivity, R.dimen.obfuscated_res_0x7f070307);
                     countDownTextView.setPadding(f2, f2, f2, f2);
                     splashAdView.addView(countDownTextView, layoutParams);
                     int dimension6 = (int) pageActivity.getResources().getDimension(R.dimen.obfuscated_res_0x7f0701f9);

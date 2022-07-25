@@ -4,7 +4,7 @@ import androidx.annotation.Keep;
 import androidx.annotation.Nullable;
 import com.kwad.sdk.collector.AppStatusNative;
 import com.kwad.sdk.collector.model.d;
-import com.kwad.sdk.core.d.b;
+import com.kwad.sdk.core.e.b;
 import com.kwad.sdk.service.a;
 import com.kwad.sdk.utils.r;
 import java.util.Arrays;
@@ -49,16 +49,16 @@ public class RulesTargetNative extends NativeObject implements d {
                 AppStatusNative.rulesTargetSetPaths(this, strArr);
             }
         } catch (Exception e) {
-            a.a(e);
-            b.a(e);
+            a.gatherException(e);
+            b.printStackTrace(e);
         }
     }
 
     @Override // com.kwad.sdk.core.b
     public JSONObject toJson() {
         JSONObject jSONObject = new JSONObject();
-        r.a(jSONObject, "packageName", AppStatusNative.rulesTargetGetPackageName(this));
-        r.a(jSONObject, "paths", Arrays.asList(AppStatusNative.rulesTargetGetPaths(this)));
+        r.putValue(jSONObject, "packageName", AppStatusNative.rulesTargetGetPackageName(this));
+        r.putValue(jSONObject, "paths", Arrays.asList(AppStatusNative.rulesTargetGetPaths(this)));
         return jSONObject;
     }
 }

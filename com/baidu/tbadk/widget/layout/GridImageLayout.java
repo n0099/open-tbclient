@@ -29,11 +29,11 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.eg;
 import com.repackage.jg;
-import com.repackage.l45;
+import com.repackage.m45;
 import com.repackage.ng5;
 import com.repackage.oi;
 import com.repackage.pi;
-import com.repackage.ur4;
+import com.repackage.vr4;
 import com.repackage.ym;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
@@ -148,7 +148,7 @@ public class GridImageLayout extends RelativeLayout {
             if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbImageView, canvas) == null) || tbImageView == null || tbImageView.getImageMatrix() == null) {
                 return;
             }
-            ym m = l45.k().m(jg.h().g(tbImageView.getUrl(), this.a.n));
+            ym m = m45.k().m(jg.h().g(tbImageView.getUrl(), this.a.n));
             int i2 = 0;
             if (m != null) {
                 i2 = m.r();
@@ -198,7 +198,7 @@ public class GridImageLayout extends RelativeLayout {
         this.a = null;
         this.b = null;
         this.m = true;
-        this.q = new int[]{R.id.obfuscated_res_0x7f090c94, R.id.obfuscated_res_0x7f090c95, R.id.obfuscated_res_0x7f090c96, R.id.obfuscated_res_0x7f090c97, R.id.obfuscated_res_0x7f090c98, R.id.obfuscated_res_0x7f090c99, R.id.obfuscated_res_0x7f090c9a, R.id.obfuscated_res_0x7f090c9b, R.id.obfuscated_res_0x7f090c9c};
+        this.q = new int[]{R.id.obfuscated_res_0x7f090c8d, R.id.obfuscated_res_0x7f090c8e, R.id.obfuscated_res_0x7f090c8f, R.id.obfuscated_res_0x7f090c90, R.id.obfuscated_res_0x7f090c91, R.id.obfuscated_res_0x7f090c92, R.id.obfuscated_res_0x7f090c93, R.id.obfuscated_res_0x7f090c94, R.id.obfuscated_res_0x7f090c95};
         this.t = new a(this);
         this.v = new b(this);
         m();
@@ -240,7 +240,7 @@ public class GridImageLayout extends RelativeLayout {
             eMTextView.setPadding(f, 0, f, 0);
             eMTextView.setGravity(16);
             eMTextView.setText(this.h);
-            ur4 d = ur4.d(eMTextView);
+            vr4 d = vr4.d(eMTextView);
             d.z(R.dimen.T_X09);
             d.v(R.color.CAM_X0101);
             d.A(R.string.F_X02);
@@ -585,7 +585,7 @@ public class GridImageLayout extends RelativeLayout {
         this.d = arrayList;
         int size = arrayList.size();
         this.e = size;
-        this.h = size > 9 ? TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0434, new Object[]{Integer.valueOf(this.e - 9)}) : "";
+        this.h = size > 9 ? TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0433, new Object[]{Integer.valueOf(this.e - 9)}) : "";
         s();
     }
 
@@ -765,7 +765,7 @@ public class GridImageLayout extends RelativeLayout {
         this.a = null;
         this.b = null;
         this.m = true;
-        this.q = new int[]{R.id.obfuscated_res_0x7f090c94, R.id.obfuscated_res_0x7f090c95, R.id.obfuscated_res_0x7f090c96, R.id.obfuscated_res_0x7f090c97, R.id.obfuscated_res_0x7f090c98, R.id.obfuscated_res_0x7f090c99, R.id.obfuscated_res_0x7f090c9a, R.id.obfuscated_res_0x7f090c9b, R.id.obfuscated_res_0x7f090c9c};
+        this.q = new int[]{R.id.obfuscated_res_0x7f090c8d, R.id.obfuscated_res_0x7f090c8e, R.id.obfuscated_res_0x7f090c8f, R.id.obfuscated_res_0x7f090c90, R.id.obfuscated_res_0x7f090c91, R.id.obfuscated_res_0x7f090c92, R.id.obfuscated_res_0x7f090c93, R.id.obfuscated_res_0x7f090c94, R.id.obfuscated_res_0x7f090c95};
         this.t = new a(this);
         this.v = new b(this);
         m();
@@ -793,7 +793,7 @@ public class GridImageLayout extends RelativeLayout {
         this.a = null;
         this.b = null;
         this.m = true;
-        this.q = new int[]{R.id.obfuscated_res_0x7f090c94, R.id.obfuscated_res_0x7f090c95, R.id.obfuscated_res_0x7f090c96, R.id.obfuscated_res_0x7f090c97, R.id.obfuscated_res_0x7f090c98, R.id.obfuscated_res_0x7f090c99, R.id.obfuscated_res_0x7f090c9a, R.id.obfuscated_res_0x7f090c9b, R.id.obfuscated_res_0x7f090c9c};
+        this.q = new int[]{R.id.obfuscated_res_0x7f090c8d, R.id.obfuscated_res_0x7f090c8e, R.id.obfuscated_res_0x7f090c8f, R.id.obfuscated_res_0x7f090c90, R.id.obfuscated_res_0x7f090c91, R.id.obfuscated_res_0x7f090c92, R.id.obfuscated_res_0x7f090c93, R.id.obfuscated_res_0x7f090c94, R.id.obfuscated_res_0x7f090c95};
         this.t = new a(this);
         this.v = new b(this);
         m();

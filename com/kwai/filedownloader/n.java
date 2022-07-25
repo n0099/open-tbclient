@@ -16,12 +16,12 @@ import com.kwai.filedownloader.services.e;
 public final class n implements u {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final u a;
+    public final u att;
 
     /* loaded from: classes5.dex */
     public static final class a {
         public static /* synthetic */ Interceptable $ic;
-        public static final n a;
+        public static final n atu;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -37,7 +37,7 @@ public final class n implements u {
                     return;
                 }
             }
-            a = new n((byte) 0);
+            atu = new n((byte) 0);
         }
     }
 
@@ -54,25 +54,25 @@ public final class n implements u {
                 return;
             }
         }
-        this.a = com.kwai.filedownloader.e.e.a().d ? new o() : new p(((com.kwad.sdk.service.kwai.e) ServiceProvider.a(com.kwad.sdk.service.kwai.e.class)).a(FileDownloadServiceProxy.SeparateProcessServiceProxy.class));
+        this.att = com.kwai.filedownloader.e.e.EL().awP ? new o() : new p(((com.kwad.sdk.service.kwai.e) ServiceProvider.get(com.kwad.sdk.service.kwai.e.class)).getProxyRealClass(FileDownloadServiceProxy.SeparateProcessServiceProxy.class));
     }
 
     public /* synthetic */ n(byte b) {
         this();
     }
 
-    public static n a() {
+    public static n CR() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.a : (n) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.atu : (n) invokeV.objValue;
     }
 
-    public static e.a b() {
+    public static e.a CS() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (a().a instanceof o) {
-                return (e.a) a().a;
+            if (CR().att instanceof o) {
+                return (e.a) CR().att;
             }
             return null;
         }
@@ -80,45 +80,45 @@ public final class n implements u {
     }
 
     @Override // com.kwai.filedownloader.u
-    public final void a(Context context) {
+    public final boolean a(String str, String str2, boolean z, int i, int i2, int i3, boolean z2, com.kwai.filedownloader.c.b bVar, boolean z3) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            this.a.a(context);
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{str, str2, Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z2), bVar, Boolean.valueOf(z3)})) == null) ? this.att.a(str, str2, z, i, i2, i3, z2, bVar, z3) : invokeCommon.booleanValue;
+    }
+
+    @Override // com.kwai.filedownloader.u
+    public final boolean bW(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) ? this.att.bW(i) : invokeI.booleanValue;
+    }
+
+    @Override // com.kwai.filedownloader.u
+    public final byte bX(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) ? this.att.bX(i) : invokeI.byteValue;
+    }
+
+    @Override // com.kwai.filedownloader.u
+    public final boolean bY(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) ? this.att.bY(i) : invokeI.booleanValue;
+    }
+
+    @Override // com.kwai.filedownloader.u
+    public final void dC(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, context) == null) {
+            this.att.dC(context);
         }
     }
 
     @Override // com.kwai.filedownloader.u
-    public final boolean a(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) ? this.a.a(i) : invokeI.booleanValue;
-    }
-
-    @Override // com.kwai.filedownloader.u
-    public final boolean a(String str, String str2, boolean z, int i, int i2, int i3, boolean z2, com.kwai.filedownloader.c.b bVar, boolean z3) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, str2, Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z2), bVar, Boolean.valueOf(z3)})) == null) ? this.a.a(str, str2, z, i, i2, i3, z2, bVar, z3) : invokeCommon.booleanValue;
-    }
-
-    @Override // com.kwai.filedownloader.u
-    public final byte b(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) ? this.a.b(i) : invokeI.byteValue;
-    }
-
-    @Override // com.kwai.filedownloader.u
-    public final boolean c() {
+    public final boolean isConnected() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.a.c() : invokeV.booleanValue;
-    }
-
-    @Override // com.kwai.filedownloader.u
-    public final boolean c(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) ? this.a.c(i) : invokeI.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.att.isConnected() : invokeV.booleanValue;
     }
 }

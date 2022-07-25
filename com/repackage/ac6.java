@@ -28,7 +28,7 @@ public class ac6 {
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext<?> a;
     public RelativeLayout b;
-    public j55 c;
+    public k55 c;
     public RecyclerView d;
     public LinearLayoutManager e;
     public LeftAdapter f;
@@ -125,12 +125,12 @@ public class ac6 {
     }
 
     public void f() {
-        j55 j55Var;
+        k55 k55Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (j55Var = this.c) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (k55Var = this.c) == null) {
             return;
         }
-        j55Var.dettachView(this.b);
+        k55Var.dettachView(this.b);
         this.c = null;
     }
 
@@ -166,9 +166,9 @@ public class ac6 {
     public final void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.b = (RelativeLayout) this.m.findViewById(R.id.obfuscated_res_0x7f091b31);
-            this.d = (RecyclerView) this.m.findViewById(R.id.obfuscated_res_0x7f091b8c);
-            this.g = (BdTypeRecyclerView) this.m.findViewById(R.id.obfuscated_res_0x7f091b8e);
+            this.b = (RelativeLayout) this.m.findViewById(R.id.obfuscated_res_0x7f091b0b);
+            this.d = (RecyclerView) this.m.findViewById(R.id.obfuscated_res_0x7f091b66);
+            this.g = (BdTypeRecyclerView) this.m.findViewById(R.id.obfuscated_res_0x7f091b68);
         }
     }
 
@@ -176,9 +176,9 @@ public class ac6 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            j55 j55Var = this.c;
-            if (j55Var != null) {
-                return j55Var.isViewAttached();
+            k55 k55Var = this.c;
+            if (k55Var != null) {
+                return k55Var.isViewAttached();
             }
             return false;
         }
@@ -191,7 +191,7 @@ public class ac6 {
             this.g.setNextPage(this.i);
             this.i.j();
             this.i.b().setPadding(0, pi.f(this.a.getPageActivity(), R.dimen.tbds62), 0, pi.f(this.a.getPageActivity(), R.dimen.tbds362));
-            this.i.C(this.a.getPageActivity().getString(R.string.obfuscated_res_0x7f0f06b5));
+            this.i.C(this.a.getPageActivity().getString(R.string.obfuscated_res_0x7f0f06b1));
             this.i.f();
         }
     }
@@ -212,7 +212,7 @@ public class ac6 {
             this.g.setNextPage(this.i);
             this.i.j();
             this.i.b().setPadding(0, 0, 0, 0);
-            this.i.C(this.a.getPageActivity().getString(R.string.obfuscated_res_0x7f0f0dc1));
+            this.i.C(this.a.getPageActivity().getString(R.string.obfuscated_res_0x7f0f0daa));
             this.i.f();
         }
     }
@@ -233,9 +233,9 @@ public class ac6 {
                 pbListView.E(SkinManager.getColor(R.color.CAM_X0107));
                 this.i.d(i);
             }
-            j55 j55Var = this.c;
-            if (j55Var != null) {
-                j55Var.onChangeSkinType();
+            k55 k55Var = this.c;
+            if (k55Var != null) {
+                k55Var.onChangeSkinType();
             }
         }
     }
@@ -295,7 +295,7 @@ public class ac6 {
         if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
             ArrayList arrayList = new ArrayList();
             wn wnVar = new wn();
-            wnVar.a = this.a.getString(R.string.obfuscated_res_0x7f0f06b6);
+            wnVar.a = this.a.getString(R.string.obfuscated_res_0x7f0f06b2);
             wnVar.b = R.drawable.new_pic_emotion_06;
             arrayList.add(wnVar);
             this.j.c(arrayList);
@@ -359,9 +359,9 @@ public class ac6 {
             return;
         }
         if (this.c == null) {
-            j55 j55Var = new j55(this.a.getPageActivity());
-            this.c = j55Var;
-            j55Var.s(this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070290));
+            k55 k55Var = new k55(this.a.getPageActivity());
+            this.c = k55Var;
+            k55Var.s(this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07028e));
         }
         this.c.onChangeSkinType();
         this.c.attachView(this.b, z);

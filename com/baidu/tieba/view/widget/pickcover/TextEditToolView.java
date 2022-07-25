@@ -29,8 +29,8 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.n99;
 import com.repackage.p99;
-import com.repackage.ur4;
-import com.repackage.uu4;
+import com.repackage.vr4;
+import com.repackage.vu4;
 import com.repackage.xv8;
 /* loaded from: classes4.dex */
 public class TextEditToolView extends FrameLayout implements View.OnClickListener {
@@ -233,7 +233,7 @@ public class TextEditToolView extends FrameLayout implements View.OnClickListene
             setLayoutParams(layoutParams);
         }
         this.m = false;
-        if (!TextUtils.equals(str, n99.l(R.string.obfuscated_res_0x7f0f14a7))) {
+        if (!TextUtils.equals(str, n99.l(R.string.obfuscated_res_0x7f0f1456))) {
             this.b.setText(str);
         }
         setVisibility(0);
@@ -349,21 +349,21 @@ public class TextEditToolView extends FrameLayout implements View.OnClickListene
         this.m = true;
         this.n = new a(this);
         this.a = context;
-        FrameLayout.inflate(context, R.layout.obfuscated_res_0x7f0d04ec, this);
-        this.e = findViewById(R.id.obfuscated_res_0x7f091232);
-        View findViewById = findViewById(R.id.obfuscated_res_0x7f09123e);
+        FrameLayout.inflate(context, R.layout.obfuscated_res_0x7f0d04f6, this);
+        this.e = findViewById(R.id.obfuscated_res_0x7f09120e);
+        View findViewById = findViewById(R.id.obfuscated_res_0x7f09121a);
         this.d = findViewById;
-        ur4 d = ur4.d(findViewById);
+        vr4 d = vr4.d(findViewById);
         d.n(R.string.J_X01);
         d.f(R.color.CAM_X0106);
-        this.f = (TBSpecificationBtn) findViewById(R.id.obfuscated_res_0x7f091fd4);
-        uu4 uu4Var = new uu4();
-        uu4Var.p(R.color.CAM_X0302, R.color.CAM_X0101);
-        this.f.setConfig(uu4Var);
+        this.f = (TBSpecificationBtn) findViewById(R.id.obfuscated_res_0x7f091fd8);
+        vu4 vu4Var = new vu4();
+        vu4Var.p(R.color.CAM_X0302, R.color.CAM_X0101);
+        this.f.setConfig(vu4Var);
         this.f.setTextSize(R.dimen.T_X08);
-        this.f.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0dd8));
-        this.b = (EditText) findViewById(R.id.obfuscated_res_0x7f090838);
-        this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f090e76);
+        this.f.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0dc1));
+        this.b = (EditText) findViewById(R.id.obfuscated_res_0x7f090836);
+        this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f090e6f);
         this.f.setOnClickListener(this);
         if (getContext() instanceof Activity) {
             ((Activity) getContext()).getWindow().getDecorView().getViewTreeObserver().addOnGlobalLayoutListener(this.n);

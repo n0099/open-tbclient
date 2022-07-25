@@ -56,11 +56,11 @@ public class ItemHeaderView extends RelativeLayout {
             this.a = context;
             LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d02a1, (ViewGroup) this, true);
             setVisibility(8);
-            this.b = (BarImageView) findViewById(R.id.obfuscated_res_0x7f090cc2);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f090cc1);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f0909fb);
-            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f090cc0);
-            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f090cc3);
+            this.b = (BarImageView) findViewById(R.id.obfuscated_res_0x7f090cbb);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f090cba);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f0909f4);
+            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f090cb9);
+            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f090cbc);
             this.b.setPlaceHolder(1);
         }
     }

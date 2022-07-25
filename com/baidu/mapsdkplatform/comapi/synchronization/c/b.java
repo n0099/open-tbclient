@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes2.dex */
-public class b extends a.AbstractRunnableC0111a {
+public class b extends a.AbstractRunnableC0112a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final /* synthetic */ e a;
@@ -36,7 +36,7 @@ public class b extends a.AbstractRunnableC0111a {
         this.b = str;
     }
 
-    @Override // com.baidu.mapsdkplatform.comapi.synchronization.c.a.AbstractRunnableC0111a
+    @Override // com.baidu.mapsdkplatform.comapi.synchronization.c.a.AbstractRunnableC0112a
     public void a() {
         int i;
         int i2;

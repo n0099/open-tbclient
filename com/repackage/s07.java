@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class s07 extends nn4 {
+public class s07 extends on4 {
     public static /* synthetic */ Interceptable $ic;
     public static final BdUniqueId a;
     public transient /* synthetic */ FieldHolder $fh;
@@ -46,17 +46,17 @@ public class s07 extends nn4 {
         }
     }
 
-    @Override // com.repackage.nn4
-    public kp4 getNegFeedBackData() {
+    @Override // com.repackage.on4
+    public lp4 getNegFeedBackData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return null;
         }
-        return (kp4) invokeV.objValue;
+        return (lp4) invokeV.objValue;
     }
 
-    @Override // com.repackage.nn4
+    @Override // com.repackage.on4
     public ThreadData getThreadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

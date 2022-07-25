@@ -35,7 +35,7 @@ import com.repackage.jw8;
 import com.repackage.qw8;
 import com.repackage.sw8;
 import tbclient.ItemInfo;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class pw8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -54,11 +54,11 @@ public class pw8 {
     public int m;
     public boolean n;
     @Nullable
-    public final hy4 o;
+    public final iy4 o;
     public qw8.a p;
     public ItemInfo q;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class a implements qw8.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -88,12 +88,12 @@ public class pw8 {
             if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
                 if (i == 1) {
                     this.a.d = true;
-                    j65.b().c();
+                    k65.b().c();
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921401, 0));
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921467, 0));
                 } else if (i == 4) {
                     this.a.d = false;
-                    j65.b().o();
+                    k65.b().o();
                     if (this.a.c.a.getParent() == this.a.b && this.a.b != null && this.a.c.a != null && this.a.b.indexOfChild(this.a.c.a) > 0) {
                         this.a.b.removeView(this.a.c.a);
                     }
@@ -104,19 +104,19 @@ public class pw8 {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ cr4 a;
+        public final /* synthetic */ dr4 a;
         public final /* synthetic */ pw8 b;
 
-        public b(pw8 pw8Var, cr4 cr4Var) {
+        public b(pw8 pw8Var, dr4 dr4Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {pw8Var, cr4Var};
+                Object[] objArr = {pw8Var, dr4Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -127,25 +127,25 @@ public class pw8 {
                 }
             }
             this.b = pw8Var;
-            this.a = cr4Var;
+            this.a = dr4Var;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
-            cr4 cr4Var;
+            dr4 dr4Var;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || (cr4Var = this.a) == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || (dr4Var = this.a) == null) {
                 return;
             }
-            cr4Var.dismiss();
-            xt4.k().u("commodity_goods_show_first_dialog", true);
+            dr4Var.dismiss();
+            yt4.k().u("commodity_goods_show_first_dialog", true);
             TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_WRITE_GOODS_NEW_DIALOG_CLICK).param("obj_locate", 1).param("fid", this.b.f.forumId).param("fname", this.b.f.forumName));
             String uk = TbadkCoreApplication.getCurrentAccountInfo().getUk();
             MessageManager.getInstance().sendMessage(new CustomMessage(2921361, "tiebaclient://swan/NazEnRDQ6crg3NRNiNtrB4uWEi6EFy4U/pages/shop-manage/index?subentry=3_2_1&uk=" + uk + "&max=10"));
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class c implements sw8.d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -188,19 +188,19 @@ public class pw8 {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public pw8(TbPageContext tbPageContext, ViewGroup viewGroup, String str, @Nullable hy4 hy4Var) {
-        this(tbPageContext, viewGroup, str, 1, hy4Var);
+    public pw8(TbPageContext tbPageContext, ViewGroup viewGroup, String str, @Nullable iy4 iy4Var) {
+        this(tbPageContext, viewGroup, str, 1, iy4Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, viewGroup, str, hy4Var};
+            Object[] objArr = {tbPageContext, viewGroup, str, iy4Var};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                this((TbPageContext) objArr2[0], (ViewGroup) objArr2[1], (String) objArr2[2], ((Integer) objArr2[3]).intValue(), (hy4) objArr2[4]);
+                this((TbPageContext) objArr2[0], (ViewGroup) objArr2[1], (String) objArr2[2], ((Integer) objArr2[3]).intValue(), (iy4) objArr2[4]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -280,16 +280,16 @@ public class pw8 {
             return;
         }
         if (this.c.a.getParent() == null) {
-            h55.a(this.b).a(this.b, this.c.a, z);
+            i55.a(this.b).a(this.b, this.c.a, z);
         }
         this.e.a(view2, view3);
         this.e.f();
         TiebaStatic.log(new StatisticItem("c12052").param("obj_locate", this.l));
         if (ni.x()) {
-            String q = xt4.k().q("key_baidu_sim_card_writting_tip", "");
+            String q = yt4.k().q("key_baidu_sim_card_writting_tip", "");
             if (!oi.isEmpty(q)) {
                 BdToast.b(this.a.getContext(), q).h();
-                xt4.k().D("key_baidu_sim_card_writting_tip");
+                yt4.k().D("key_baidu_sim_card_writting_tip");
             }
         }
         ForumWriteData forumWriteData = this.f;
@@ -319,14 +319,14 @@ public class pw8 {
     }
 
     @NonNull
-    public hy4 j() {
+    public iy4 j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            hy4 hy4Var = this.o;
-            return hy4Var != null ? hy4Var : hy4.b;
+            iy4 iy4Var = this.o;
+            return iy4Var != null ? iy4Var : iy4.b;
         }
-        return (hy4) invokeV.objValue;
+        return (iy4) invokeV.objValue;
     }
 
     public String k() {
@@ -419,11 +419,11 @@ public class pw8 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048598, this) == null) {
             if (!l()) {
-                BdToast b2 = BdToast.b(this.a.getPageActivity(), this.a.getString(R.string.obfuscated_res_0x7f0f0ec3));
+                BdToast b2 = BdToast.b(this.a.getPageActivity(), this.a.getString(R.string.obfuscated_res_0x7f0f0eac));
                 b2.f(BdToast.ToastIcon.FAILURE);
                 b2.h();
             } else if (!this.n) {
-                BdToast b3 = BdToast.b(this.a.getPageActivity(), this.a.getString(R.string.obfuscated_res_0x7f0f0ec4));
+                BdToast b3 = BdToast.b(this.a.getPageActivity(), this.a.getString(R.string.obfuscated_res_0x7f0f0ead));
                 b3.f(BdToast.ToastIcon.FAILURE);
                 b3.h();
             } else {
@@ -431,19 +431,19 @@ public class pw8 {
                     TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_COMMODITY_ENTRANCE_CLICK).param("obj_locate", 1).param("fid", this.f.forumId).param("fname", this.f.forumName));
                 }
                 m(false);
-                if (!xt4.k().h("commodity_goods_show_first_dialog", false)) {
-                    cr4 cr4Var = new cr4(this.a.getPageActivity());
-                    cr4Var.setContentViewSize(2);
-                    cr4Var.setCanceledOnTouchOutside(false);
+                if (!yt4.k().h("commodity_goods_show_first_dialog", false)) {
+                    dr4 dr4Var = new dr4(this.a.getPageActivity());
+                    dr4Var.setContentViewSize(2);
+                    dr4Var.setCanceledOnTouchOutside(false);
                     FrsPublishFineGoodsDialogView frsPublishFineGoodsDialogView = new FrsPublishFineGoodsDialogView(this.a.getPageActivity());
-                    frsPublishFineGoodsDialogView.setConfirmButtonListener(new b(this, cr4Var));
-                    cr4Var.setContentView(frsPublishFineGoodsDialogView);
+                    frsPublishFineGoodsDialogView.setConfirmButtonListener(new b(this, dr4Var));
+                    dr4Var.setContentView(frsPublishFineGoodsDialogView);
                     StatisticItem param = new StatisticItem(TbadkCoreStatisticKey.KEY_WRITE_GOODS_NEW_DIALOG_SHOW).param("obj_locate", 1);
                     ForumWriteData forumWriteData = this.f;
                     StatisticItem param2 = param.param("fid", forumWriteData != null ? forumWriteData.forumId : "");
                     ForumWriteData forumWriteData2 = this.f;
                     TiebaStatic.log(param2.param("fname", forumWriteData2 != null ? forumWriteData2.forumName : ""));
-                    cr4Var.create(this.a).show();
+                    dr4Var.create(this.a).show();
                     return;
                 }
                 String uk = TbadkCoreApplication.getCurrentAccountInfo().getUk();
@@ -512,12 +512,12 @@ public class pw8 {
         jw8Var.a();
     }
 
-    public pw8(TbPageContext tbPageContext, ViewGroup viewGroup, String str, int i, @Nullable hy4 hy4Var) {
+    public pw8(TbPageContext tbPageContext, ViewGroup viewGroup, String str, int i, @Nullable iy4 iy4Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, viewGroup, str, Integer.valueOf(i), hy4Var};
+            Object[] objArr = {tbPageContext, viewGroup, str, Integer.valueOf(i), iy4Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -545,7 +545,7 @@ public class pw8 {
         }
         this.k = i4;
         this.h = new sw8(tbPageContext, str);
-        this.o = hy4Var;
+        this.o = iy4Var;
         if (i == 3) {
             jw8.b bVar = new jw8.b(this.a, this);
             this.c = bVar;

@@ -87,7 +87,7 @@ public class ju5 extends an<yu5, CardViewHolder<aw5>> {
     public final void b0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            rl4.y(this.i.getPageActivity(), true, xt4.k().q("ala_personal_income_detail_url", "https://tieba.baidu.com/mo/q/ala/getUserLives"), this.a.getResources().getString(R.string.obfuscated_res_0x7f0f021c));
+            sl4.y(this.i.getPageActivity(), true, yt4.k().q("ala_personal_income_detail_url", "https://tieba.baidu.com/mo/q/ala/getUserLives"), this.a.getResources().getString(R.string.obfuscated_res_0x7f0f021c));
         }
     }
 
@@ -107,12 +107,12 @@ public class ju5 extends an<yu5, CardViewHolder<aw5>> {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i), view2, viewGroup, yu5Var, cardViewHolder})) == null) {
-            if (cardViewHolder.c() == null) {
+            if (cardViewHolder.b() == null) {
                 return null;
             }
-            a0(yu5Var, cardViewHolder.c());
-            cardViewHolder.c().h().setOnClickListener(new a(this));
-            return cardViewHolder.c().h();
+            a0(yu5Var, cardViewHolder.b());
+            cardViewHolder.b().h().setOnClickListener(new a(this));
+            return cardViewHolder.b().h();
         }
         return (View) invokeCommon.objValue;
     }

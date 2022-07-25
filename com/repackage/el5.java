@@ -20,7 +20,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.cl5;
-import com.repackage.fu4;
+import com.repackage.gu4;
 import java.util.List;
 /* loaded from: classes6.dex */
 public class el5 extends b9<NewFriendsActivity> {
@@ -32,7 +32,7 @@ public class el5 extends b9<NewFriendsActivity> {
     public ImageView d;
     public BdListView e;
     public cl5 f;
-    public gu4 g;
+    public hu4 g;
     public NoDataView h;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -54,34 +54,34 @@ public class el5 extends b9<NewFriendsActivity> {
             }
         }
         this.a = newFriendsActivity;
-        this.b = newFriendsActivity.findViewById(R.id.obfuscated_res_0x7f0915b9);
-        NavigationBar navigationBar = (NavigationBar) this.a.findViewById(R.id.obfuscated_res_0x7f092437);
+        this.b = newFriendsActivity.findViewById(R.id.obfuscated_res_0x7f091594);
+        NavigationBar navigationBar = (NavigationBar) this.a.findViewById(R.id.obfuscated_res_0x7f092439);
         this.c = navigationBar;
-        navigationBar.setTitleText(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f0c30));
+        navigationBar.setTitleText(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f0c1c));
         this.c.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        ImageView imageView = (ImageView) this.c.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.obfuscated_res_0x7f0d0076, this.a).findViewById(R.id.obfuscated_res_0x7f0915bb);
+        ImageView imageView = (ImageView) this.c.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.obfuscated_res_0x7f0d0076, this.a).findViewById(R.id.obfuscated_res_0x7f091596);
         this.d = imageView;
         imageView.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f0809e3, SkinManager.getColor(R.color.CAM_X0105), WebPManager.ResourceStateType.NORMAL_PRESS));
-        this.e = (BdListView) this.a.findViewById(R.id.obfuscated_res_0x7f0915ba);
+        this.e = (BdListView) this.a.findViewById(R.id.obfuscated_res_0x7f091595);
         cl5 cl5Var = new cl5(this.a);
         this.f = cl5Var;
         this.e.setAdapter((ListAdapter) cl5Var);
         this.e.setOnItemClickListener(this.a);
         this.e.setOnItemLongClickListener(this.a);
-        gu4 gu4Var = new gu4(newFriendsActivity.getPageContext());
-        this.g = gu4Var;
-        this.e.setPullRefresh(gu4Var);
+        hu4 hu4Var = new hu4(newFriendsActivity.getPageContext());
+        this.g = hu4Var;
+        this.e.setPullRefresh(hu4Var);
         BdListViewHelper.d(this.a.getActivity(), this.e, BdListViewHelper.HeadType.DEFAULT);
-        this.h = NoDataViewFactory.a(this.a.getPageContext().getPageActivity(), this.b, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NODATA, pi.f(this.a.getActivity(), R.dimen.obfuscated_res_0x7f0702a0)), NoDataViewFactory.e.a(R.string.obfuscated_res_0x7f0f0c6a), null);
+        this.h = NoDataViewFactory.a(this.a.getPageContext().getPageActivity(), this.b, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NODATA, pi.f(this.a.getActivity(), R.dimen.obfuscated_res_0x7f07029e)), NoDataViewFactory.e.a(R.string.obfuscated_res_0x7f0f0c56), null);
     }
 
-    public void a(rm4 rm4Var, int i) {
+    public void a(sm4 sm4Var, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048576, this, rm4Var, i) == null) {
-            rm4Var.k(i == 1);
+        if (interceptable == null || interceptable.invokeLI(1048576, this, sm4Var, i) == null) {
+            sm4Var.k(i == 1);
             this.c.onChangeSkinType(this.a.getPageContext(), i);
             this.g.H(i);
-            rm4Var.j(this.b);
+            sm4Var.j(this.b);
             this.h.f(this.a.getPageContext(), i);
             this.d.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f0809e3, SkinManager.getColor(R.color.CAM_X0105), WebPManager.ResourceStateType.NORMAL_PRESS));
         }
@@ -117,7 +117,7 @@ public class el5 extends b9<NewFriendsActivity> {
         }
     }
 
-    public void m(fu4.g gVar) {
+    public void m(gu4.g gVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, gVar) == null) {
             this.g.f(gVar);

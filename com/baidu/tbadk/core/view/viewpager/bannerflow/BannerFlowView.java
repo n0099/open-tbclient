@@ -14,11 +14,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.aw4;
-import com.repackage.cw4;
+import com.repackage.bw4;
 import com.repackage.dw4;
+import com.repackage.ew4;
 import com.repackage.nn;
 import com.repackage.pi;
-import com.repackage.zv4;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class BannerFlowView extends FrameLayout {
@@ -26,8 +26,8 @@ public class BannerFlowView extends FrameLayout {
     public transient /* synthetic */ FieldHolder $fh;
     public ViewPager a;
     public IndicatorView b;
-    public zv4 c;
-    public dw4 d;
+    public aw4 c;
+    public ew4 d;
     public View e;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -67,8 +67,8 @@ public class BannerFlowView extends FrameLayout {
             this.b = indicatorView;
             indicatorView.setSpacing(0);
             a();
-            this.c = new zv4(context, this.a, this.b, null);
-            this.d = new dw4(context, cw4.a);
+            this.c = new aw4(context, this.a, this.b, null);
+            this.d = new ew4(context, dw4.a);
             this.c.j(5000L);
             this.c.i(context, this.d);
             addView(this.a, new FrameLayout.LayoutParams(-1, -1));
@@ -100,13 +100,13 @@ public class BannerFlowView extends FrameLayout {
         }
     }
 
-    public void setOnItemClickListener(aw4.a<cw4, dw4.a> aVar) {
-        dw4 dw4Var;
+    public void setOnItemClickListener(bw4.a<dw4, ew4.a> aVar) {
+        ew4 ew4Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) || (dw4Var = this.d) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) || (ew4Var = this.d) == null) {
             return;
         }
-        dw4Var.e(aVar);
+        ew4Var.e(aVar);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */

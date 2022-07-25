@@ -17,6 +17,7 @@ import com.baidu.android.pushservice.message.PublicMsg;
 import com.baidu.android.pushservice.message.a.k;
 import com.baidu.down.retry.HttpRetryStrategyDataParse;
 import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.frs.itemtab.gamecode.GameCodeGetResponseMsg;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -495,7 +496,7 @@ public abstract class PushMessageReceiver extends BroadcastReceiver {
                             while (i < jSONArray.length()) {
                                 JSONObject jSONObject4 = jSONArray.getJSONObject(i);
                                 String string6 = jSONObject4.getString("tag");
-                                if (jSONObject4.getInt("result") == 0) {
+                                if (jSONObject4.getInt(TiebaStatic.LogFields.RESULT) == 0) {
                                     arrayList.add(string6);
                                 } else {
                                     arrayList2.add(string6);
@@ -522,7 +523,7 @@ public abstract class PushMessageReceiver extends BroadcastReceiver {
                             while (i < jSONArray2.length()) {
                                 JSONObject jSONObject7 = jSONArray2.getJSONObject(i);
                                 String string8 = jSONObject7.getString("tag");
-                                if (jSONObject7.getInt("result") == 0) {
+                                if (jSONObject7.getInt(TiebaStatic.LogFields.RESULT) == 0) {
                                     arrayList3.add(string8);
                                 } else {
                                     arrayList4.add(string8);

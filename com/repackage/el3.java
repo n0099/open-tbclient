@@ -1,11 +1,9 @@
 package com.repackage;
 
-import android.os.Build;
-import android.text.TextUtils;
-import android.util.SparseArray;
-import android.util.SparseIntArray;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.swan.cpu.booster.utils.CpuType;
+import android.content.Context;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,62 +11,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileFilter;
-import java.io.FileInputStream;
-import java.io.FileReader;
-import java.io.InputStreamReader;
-import java.util.ArrayList;
-import java.util.Collections;
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Method;
 /* loaded from: classes6.dex */
 public class el3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final SparseArray<wk3> a;
-    public static CpuType b;
-    public static int c;
-    public static xk3 d;
+    public static final String[] d;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* loaded from: classes6.dex */
-    public static class a implements FileFilter {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // java.io.FileFilter
-        public boolean accept(File file) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, file)) == null) {
-                String name = file.getName();
-                if (name.startsWith("cpu")) {
-                    int length = name.length();
-                    for (int i = 3; i < length; i++) {
-                        if (!Character.isDigit(name.charAt(i))) {
-                            return false;
-                        }
-                    }
-                    return true;
-                }
-                return false;
-            }
-            return invokeL.booleanValue;
-        }
-    }
+    public Method a;
+    public Method b;
+    public Object c;
 
     static {
         InterceptResult invokeClinit;
@@ -83,286 +35,145 @@ public class el3 {
                 return;
             }
         }
-        a = new SparseArray<>();
-        c = -1;
+        d = new String[]{"android.util.BoostFramework", "com.qualcomm.qti.Performance", "org.codeaurora.Performance"};
     }
 
-    public static wk3 a(int i) {
-        InterceptResult invokeI;
+    public el3(Class<?> cls, Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) {
-            wk3 wk3Var = a.get(i);
-            if (wk3Var != null) {
-                return wk3Var;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {cls, context};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
+        }
+        if (cls == null) {
+            return;
+        }
+        try {
+            this.c = a(context, cls);
+            Method i3 = l44.i(cls, "perfLockAcquire", Integer.TYPE, int[].class);
+            this.a = i3;
+            if (i3 != null) {
+                i3.setAccessible(true);
+            }
+            Method i4 = l44.i(cls, "perfLockRelease", new Class[0]);
+            this.b = i4;
+            if (i4 != null) {
+                i4.setAccessible(true);
+            }
+        } catch (Throwable unused) {
+        }
+    }
+
+    public static el3 b(@NonNull Context context) {
+        Class<?> cls;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
             try {
-                wk3 wk3Var2 = new wk3(i, k("/sys/devices/system/cpu/cpu" + i + "/cpufreq/cpuinfo_min_freq"), k("/sys/devices/system/cpu/cpu" + i + "/cpufreq/cpuinfo_max_freq"));
-                a.put(i, wk3Var2);
-                return wk3Var2;
-            } catch (Exception unused) {
-                return new wk3(i, -1, -1);
-            }
-        }
-        return (wk3) invokeI.objValue;
-    }
-
-    public static int b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            File[] listFiles = new File("/sys/devices/system/cpu").listFiles(new a());
-            if (listFiles == null || listFiles.length <= 0) {
-                return -1;
-            }
-            return listFiles.length;
-        }
-        return invokeV.intValue;
-    }
-
-    public static int c(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            try {
-                FileInputStream fileInputStream = new FileInputStream(str);
-                BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(fileInputStream));
-                String readLine = bufferedReader.readLine();
-                bufferedReader.close();
-                int d2 = d(readLine);
-                fileInputStream.close();
-                return d2;
-            } catch (Exception unused) {
-                return -1;
-            }
-        }
-        return invokeL.intValue;
-    }
-
-    public static int d(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return -1;
-            }
-            int indexOf = str.indexOf(45);
-            if (indexOf == -1) {
-                if (TextUtils.isDigitsOnly(str)) {
-                    return m(str) + 1;
-                }
-                return -1;
-            }
-            int m = m(str.substring(indexOf + 1));
-            if (m != -1) {
-                return m + 1;
-            }
-            return -1;
-        }
-        return invokeL.intValue;
-    }
-
-    public static int e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            int i = c;
-            if (i != -1) {
-                return i;
-            }
-            int c2 = c("/sys/devices/system/cpu/possible");
-            if (c2 != -1) {
-                c = c2;
-                return c2;
-            }
-            int c3 = c("/sys/devices/system/cpu/present");
-            if (c3 != -1) {
-                c = c3;
-                return c3;
-            }
-            int b2 = b();
-            if (b2 == -1) {
-                b2 = Math.max(Runtime.getRuntime().availableProcessors(), 1);
-            }
-            c = b2;
-            return b2;
-        }
-        return invokeV.intValue;
-    }
-
-    public static xk3 f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            xk3 xk3Var = d;
-            if (xk3Var != null) {
-                return xk3Var;
-            }
-            int e = e();
-            if (e <= 0) {
-                return new xk3();
-            }
-            if (e == 1) {
-                xk3 xk3Var2 = new xk3();
-                xk3Var2.h = false;
-                xk3Var2.a = e;
-                xk3Var2.l = a(0);
-                d = xk3Var2;
-                return xk3Var2;
-            }
-            ArrayList<wk3> arrayList = new ArrayList(e);
-            for (int i = 0; i < e; i++) {
-                arrayList.add(a(i));
-            }
-            SparseArray sparseArray = new SparseArray();
-            SparseIntArray sparseIntArray = new SparseIntArray();
-            ArrayList arrayList2 = new ArrayList();
-            for (wk3 wk3Var : arrayList) {
-                int i2 = wk3Var.c;
-                if (sparseArray.get(i2) != null) {
-                    sparseIntArray.put(i2, sparseIntArray.get(i2) + 1);
-                } else {
-                    sparseArray.put(i2, wk3Var);
-                    arrayList2.add(wk3Var);
-                    sparseIntArray.put(i2, 1);
-                }
-            }
-            Collections.sort(arrayList2);
-            xk3 xk3Var3 = new xk3();
-            xk3Var3.a = e;
-            boolean z = arrayList2.size() > 1;
-            xk3Var3.h = z;
-            if (!z) {
-                xk3Var3.l = (wk3) (arrayList2.size() <= 0 ? arrayList.get(0) : arrayList2.get(0));
-                d = xk3Var3;
-                return xk3Var3;
-            }
-            xk3Var3.j = (wk3) arrayList2.get(0);
-            xk3Var3.c = ((wk3) arrayList2.get(0)).a;
-            xk3Var3.b = sparseIntArray.get(xk3Var3.j.c);
-            xk3Var3.i = (wk3) arrayList2.get(1);
-            xk3Var3.e = ((wk3) arrayList2.get(1)).a;
-            xk3Var3.d = sparseIntArray.get(xk3Var3.i.c);
-            if (arrayList2.size() > 2) {
-                xk3Var3.k = (wk3) arrayList2.get(2);
-                xk3Var3.g = ((wk3) arrayList2.get(2)).a;
-                xk3Var3.f = sparseIntArray.get(xk3Var3.k.c);
-            }
-            d = xk3Var3;
-            return xk3Var3;
-        }
-        return (xk3) invokeV.objValue;
-    }
-
-    public static String g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            String a2 = gl3.a("ro.board.platform");
-            if (TextUtils.isEmpty(a2)) {
-                a2 = Build.HARDWARE;
-            }
-            return a2 != null ? a2.trim() : a2;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static CpuType h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
-            CpuType cpuType = b;
-            return cpuType != null ? cpuType : i(g());
-        }
-        return (CpuType) invokeV.objValue;
-    }
-
-    public static CpuType i(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                CpuType cpuType = CpuType.Unknown;
-                b = cpuType;
-                return cpuType;
-            }
-            String lowerCase = str.toLowerCase();
-            if (!lowerCase.startsWith("kirin") && !lowerCase.startsWith("hi")) {
-                if (!lowerCase.startsWith("qcom") && !lowerCase.startsWith("kona") && !lowerCase.startsWith("lahaina") && !lowerCase.startsWith("msm") && !lowerCase.startsWith("sdm") && !lowerCase.startsWith("apq") && !lowerCase.startsWith("sm")) {
-                    if (lowerCase.startsWith("mt")) {
-                        CpuType cpuType2 = CpuType.Mtk;
-                        b = cpuType2;
-                        return cpuType2;
-                    }
-                    CpuType cpuType3 = CpuType.Unknown;
-                    b = cpuType3;
-                    return cpuType3;
-                }
-                CpuType cpuType4 = CpuType.QualComm;
-                b = cpuType4;
-                return cpuType4;
-            }
-            CpuType cpuType5 = CpuType.Hisilicon;
-            b = cpuType5;
-            return cpuType5;
-        }
-        return (CpuType) invokeL.objValue;
-    }
-
-    public static int j(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65546, null, i)) == null) {
-            return k("/sys/devices/system/cpu/cpu" + i + "/cpufreq/scaling_cur_freq");
-        }
-        return invokeI.intValue;
-    }
-
-    public static int k(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, str)) == null) {
-            File file = new File(str);
-            if (file.exists() && file.canRead()) {
+                cls = d();
                 try {
-                    BufferedReader bufferedReader = new BufferedReader(new FileReader(file));
-                    String readLine = bufferedReader.readLine();
-                    bufferedReader.close();
-                    return m(l(readLine));
-                } catch (Exception unused) {
+                    j44.c(cls);
+                } catch (Throwable unused) {
+                }
+            } catch (Throwable unused2) {
+                cls = null;
+            }
+            return new el3(cls, context);
+        }
+        return (el3) invokeL.objValue;
+    }
+
+    public static Class<?> d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            String[] strArr = d;
+            for (int i = 0; i < strArr.length; i++) {
+                try {
+                    return l44.a(strArr[i]);
+                } catch (Throwable unused) {
+                }
+            }
+            return null;
+        }
+        return (Class) invokeV.objValue;
+    }
+
+    public final Object a(@Nullable Context context, @NonNull Class<?> cls) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, context, cls)) == null) {
+            Object obj = null;
+            try {
+                Constructor c = l44.c(cls, Context.class);
+                if (c != null) {
+                    obj = c.newInstance(context);
+                }
+            } catch (Throwable unused) {
+            }
+            if (obj == null) {
+                try {
+                    return l44.m(cls);
+                } catch (Throwable unused2) {
+                    return obj;
+                }
+            }
+            return obj;
+        }
+        return invokeLL.objValue;
+    }
+
+    public boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? (this.c == null || this.a == null || this.b == null) ? false : true : invokeV.booleanValue;
+    }
+
+    public int e(int i, int... iArr) {
+        InterceptResult invokeIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, iArr)) == null) {
+            if (c()) {
+                try {
+                    Object invoke = this.a.invoke(this.c, Integer.valueOf(i), iArr);
+                    if (invoke == null) {
+                        return -1;
+                    }
+                    return ((Integer) invoke).intValue();
+                } catch (Throwable unused) {
+                    return -1;
                 }
             }
             return -1;
         }
-        return invokeL.intValue;
+        return invokeIL.intValue;
     }
 
-    public static String l(String str) {
-        InterceptResult invokeL;
+    public int f() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, str)) == null) {
-            if (str == null) {
-                return str;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if (c()) {
+                try {
+                    Object invoke = this.b.invoke(this.c, new Object[0]);
+                    if (invoke == null) {
+                        return -1;
+                    }
+                    return ((Integer) invoke).intValue();
+                } catch (Throwable unused) {
+                    return -1;
+                }
             }
-            int length = str.length();
-            int i = 0;
-            while (i < length && Character.isDigit(str.charAt(i))) {
-                i++;
-            }
-            return str.substring(0, i);
+            return -1;
         }
-        return (String) invokeL.objValue;
-    }
-
-    public static int m(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65549, null, str)) == null) {
-            try {
-                return Integer.parseInt(str);
-            } catch (Exception unused) {
-                return -1;
-            }
-        }
-        return invokeL.intValue;
+        return invokeV.intValue;
     }
 }

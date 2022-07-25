@@ -6,19 +6,19 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class xq2 extends yq2 {
+public class xq2 extends zq2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean e;
+    public fz2 e;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public xq2(boolean z) {
-        super(4);
+    public xq2(fz2 fz2Var) {
+        super(5);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Boolean.valueOf(z)};
+            Object[] objArr = {fz2Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -29,12 +29,16 @@ public class xq2 extends yq2 {
                 return;
             }
         }
-        this.e = z;
+        this.e = fz2Var;
     }
 
     public boolean e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.e : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            fz2 fz2Var = this.e;
+            return fz2Var != null && "show".equals(fz2Var.a());
+        }
+        return invokeV.booleanValue;
     }
 }

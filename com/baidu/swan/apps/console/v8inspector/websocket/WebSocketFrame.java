@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.yunjiasu.ping.Ping;
-import com.repackage.rg1;
+import com.repackage.sg1;
 import java.io.EOFException;
 import java.io.IOException;
 import java.io.InputStream;
@@ -326,7 +326,7 @@ public class WebSocketFrame {
                 return;
             }
         }
-        g = rg1.a;
+        g = sg1.a;
         h = Charset.forName("UTF-8");
     }
 

@@ -1,7 +1,6 @@
 package com.google.gson.internal.reflect;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.sofire.sharedpreferences.SharedPreferenceManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -84,7 +83,7 @@ public final class UnsafeReflectionAccessor extends ReflectionAccessor {
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, accessibleObject)) == null) {
             if (this.theUnsafe != null && this.overrideField != null) {
                 try {
-                    unsafeClass.getMethod(SharedPreferenceManager.OPERATION_PUT_BOOLEAN, Object.class, Long.TYPE, Boolean.TYPE).invoke(this.theUnsafe, accessibleObject, Long.valueOf(((Long) unsafeClass.getMethod("objectFieldOffset", Field.class).invoke(this.theUnsafe, this.overrideField)).longValue()), Boolean.TRUE);
+                    unsafeClass.getMethod("putBoolean", Object.class, Long.TYPE, Boolean.TYPE).invoke(this.theUnsafe, accessibleObject, Long.valueOf(((Long) unsafeClass.getMethod("objectFieldOffset", Field.class).invoke(this.theUnsafe, this.overrideField)).longValue()), Boolean.TRUE);
                     return true;
                 } catch (Exception unused) {
                 }

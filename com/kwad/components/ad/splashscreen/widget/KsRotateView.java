@@ -24,16 +24,16 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
 public class KsRotateView extends b {
     public static /* synthetic */ Interceptable $ic = null;
-    public static int c = 50;
-    public static int d = -12;
-    public static int e = -25;
-    public static int f = 12;
-    public static int g = 25;
+    public static int Al = 50;
+    public static int Am = -12;
+    public static int An = -25;
+    public static int Ao = 12;
+    public static int Ap = 25;
     public transient /* synthetic */ FieldHolder $fh;
-    public ImageView a;
-    public ImageView b;
+    public ImageView Ak;
     @DrawableRes
-    public int h;
+    public int Aq;
+    public ImageView nC;
 
     static {
         InterceptResult invokeClinit;
@@ -117,66 +117,19 @@ public class KsRotateView extends b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLI(1048576, this, context, attributeSet, i) == null) {
             TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f040369, R.attr.obfuscated_res_0x7f04036a, R.attr.obfuscated_res_0x7f04036b, R.attr.obfuscated_res_0x7f040372, R.attr.obfuscated_res_0x7f040373, R.attr.obfuscated_res_0x7f040379, R.attr.obfuscated_res_0x7f04037a, R.attr.obfuscated_res_0x7f04037d}, i, 0);
-            this.h = obtainStyledAttributes.getResourceId(5, R.drawable.obfuscated_res_0x7f080bd5);
+            this.Aq = obtainStyledAttributes.getResourceId(5, R.drawable.obfuscated_res_0x7f080bd5);
             obtainStyledAttributes.recycle();
             ImageView imageView = new ImageView(getContext());
-            this.b = imageView;
+            this.Ak = imageView;
             imageView.setImageResource(R.drawable.obfuscated_res_0x7f080bd4);
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
             layoutParams.gravity = 49;
-            addView(this.b, layoutParams);
-            this.a = new ImageView(getContext());
+            addView(this.Ak, layoutParams);
+            this.nC = new ImageView(getContext());
             FrameLayout.LayoutParams layoutParams2 = new FrameLayout.LayoutParams(-2, -2);
             layoutParams2.topMargin = com.kwad.sdk.b.kwai.a.a(context, 22.0f);
             layoutParams2.gravity = 1;
-            addView(this.a, layoutParams2);
-        }
-    }
-
-    @Override // com.kwad.components.ad.splashscreen.widget.b
-    public final void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.a.setImageResource(this.h);
-        }
-    }
-
-    @Override // com.kwad.components.ad.splashscreen.widget.b
-    public final Animator e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            View interactionView = getInteractionView();
-            if (interactionView == null) {
-                return null;
-            }
-            AnimatorSet animatorSet = new AnimatorSet();
-            interactionView.setPivotX(interactionView.getWidth() / 2.0f);
-            interactionView.setPivotY(interactionView.getHeight() / 2.0f);
-            ObjectAnimator duration = ObjectAnimator.ofFloat(interactionView, "rotation", 0.0f, e).setDuration(500L);
-            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(interactionView, "alpha", 1.0f, 1.0f);
-            ofFloat.setDuration(340L);
-            ObjectAnimator duration2 = ObjectAnimator.ofFloat(interactionView, "rotation", e, 0.0f).setDuration(c);
-            ObjectAnimator duration3 = ObjectAnimator.ofFloat(interactionView, "rotation", 0.0f, f).setDuration(c);
-            ObjectAnimator duration4 = ObjectAnimator.ofFloat(interactionView, "rotation", f, 0.0f).setDuration(c);
-            ObjectAnimator duration5 = ObjectAnimator.ofFloat(interactionView, "rotation", 0.0f, d).setDuration(c);
-            ObjectAnimator duration6 = ObjectAnimator.ofFloat(interactionView, "rotation", d, 0.0f).setDuration(c);
-            ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(interactionView, "alpha", 1.0f, 1.0f);
-            ofFloat2.setDuration(500L);
-            ObjectAnimator duration7 = ObjectAnimator.ofFloat(interactionView, "rotation", 0.0f, g).setDuration(500L);
-            ObjectAnimator ofFloat3 = ObjectAnimator.ofFloat(interactionView, "alpha", 1.0f, 1.0f);
-            ofFloat.setDuration(340L);
-            animatorSet.playSequentially(duration, ofFloat, duration2, duration3, duration4, duration5, duration6, ofFloat2, duration7, ofFloat3, ObjectAnimator.ofFloat(interactionView, "rotation", g, 0.0f).setDuration(c), ObjectAnimator.ofFloat(interactionView, "rotation", 0.0f, d).setDuration(c), ObjectAnimator.ofFloat(interactionView, "rotation", d, 0.0f).setDuration(c), ObjectAnimator.ofFloat(interactionView, "rotation", 0.0f, f).setDuration(c), ObjectAnimator.ofFloat(interactionView, "rotation", f, 0.0f).setDuration(c));
-            return animatorSet;
-        }
-        return (Animator) invokeV.objValue;
-    }
-
-    @Override // com.kwad.components.ad.splashscreen.widget.b
-    public final void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            getInteractionView().setRotation(0.0f);
+            addView(this.nC, layoutParams2);
         }
     }
 
@@ -184,7 +137,7 @@ public class KsRotateView extends b {
     public int getAnimationDelayTime() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return 500;
         }
         return invokeV.intValue;
@@ -194,6 +147,53 @@ public class KsRotateView extends b {
     public View getInteractionView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.a : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.nC : (View) invokeV.objValue;
+    }
+
+    @Override // com.kwad.components.ad.splashscreen.widget.b
+    public final Animator kD() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            View interactionView = getInteractionView();
+            if (interactionView == null) {
+                return null;
+            }
+            AnimatorSet animatorSet = new AnimatorSet();
+            interactionView.setPivotX(interactionView.getWidth() / 2.0f);
+            interactionView.setPivotY(interactionView.getHeight() / 2.0f);
+            ObjectAnimator duration = ObjectAnimator.ofFloat(interactionView, "rotation", 0.0f, An).setDuration(500L);
+            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(interactionView, "alpha", 1.0f, 1.0f);
+            ofFloat.setDuration(340L);
+            ObjectAnimator duration2 = ObjectAnimator.ofFloat(interactionView, "rotation", An, 0.0f).setDuration(Al);
+            ObjectAnimator duration3 = ObjectAnimator.ofFloat(interactionView, "rotation", 0.0f, Ao).setDuration(Al);
+            ObjectAnimator duration4 = ObjectAnimator.ofFloat(interactionView, "rotation", Ao, 0.0f).setDuration(Al);
+            ObjectAnimator duration5 = ObjectAnimator.ofFloat(interactionView, "rotation", 0.0f, Am).setDuration(Al);
+            ObjectAnimator duration6 = ObjectAnimator.ofFloat(interactionView, "rotation", Am, 0.0f).setDuration(Al);
+            ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(interactionView, "alpha", 1.0f, 1.0f);
+            ofFloat2.setDuration(500L);
+            ObjectAnimator duration7 = ObjectAnimator.ofFloat(interactionView, "rotation", 0.0f, Ap).setDuration(500L);
+            ObjectAnimator ofFloat3 = ObjectAnimator.ofFloat(interactionView, "alpha", 1.0f, 1.0f);
+            ofFloat.setDuration(340L);
+            animatorSet.playSequentially(duration, ofFloat, duration2, duration3, duration4, duration5, duration6, ofFloat2, duration7, ofFloat3, ObjectAnimator.ofFloat(interactionView, "rotation", Ap, 0.0f).setDuration(Al), ObjectAnimator.ofFloat(interactionView, "rotation", 0.0f, Am).setDuration(Al), ObjectAnimator.ofFloat(interactionView, "rotation", Am, 0.0f).setDuration(Al), ObjectAnimator.ofFloat(interactionView, "rotation", 0.0f, Ao).setDuration(Al), ObjectAnimator.ofFloat(interactionView, "rotation", Ao, 0.0f).setDuration(Al));
+            return animatorSet;
+        }
+        return (Animator) invokeV.objValue;
+    }
+
+    @Override // com.kwad.components.ad.splashscreen.widget.b
+    public final void kE() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            getInteractionView().setRotation(0.0f);
+        }
+    }
+
+    @Override // com.kwad.components.ad.splashscreen.widget.b
+    public final void kp() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            this.nC.setImageResource(this.Aq);
+        }
     }
 }

@@ -19,16 +19,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ko4;
+import com.repackage.lo4;
 import com.repackage.oi;
-import com.repackage.pv4;
+import com.repackage.qv4;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public class TbLinkSpanGroup extends pv4<TbLinkSpanGroup> {
+public class TbLinkSpanGroup extends qv4<TbLinkSpanGroup> {
     public static /* synthetic */ Interceptable $ic;
     public static final String r;
     public transient /* synthetic */ FieldHolder $fh;
-    public ko4 i;
+    public lo4 i;
     public LINK_TYPE j;
     public int k;
     public CharSequence l;
@@ -117,7 +117,7 @@ public class TbLinkSpanGroup extends pv4<TbLinkSpanGroup> {
                 return;
             }
         }
-        r = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f159d);
+        r = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f154c);
     }
 
     public TbLinkSpanGroup() {
@@ -205,7 +205,7 @@ public class TbLinkSpanGroup extends pv4<TbLinkSpanGroup> {
         l(new SpanGroupForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0304)), f() + 3, c(), 33);
     }
 
-    @Override // com.repackage.pv4
+    @Override // com.repackage.qv4
     public void a(Editable editable, int i, int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLIII(1048581, this, editable, i, i2, i3) == null) {
@@ -220,13 +220,13 @@ public class TbLinkSpanGroup extends pv4<TbLinkSpanGroup> {
         }
     }
 
-    @Override // com.repackage.pv4
+    @Override // com.repackage.qv4
     public void p(Editable editable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, editable) == null) {
-            ko4 ko4Var = this.i;
-            if (ko4Var != null && ko4Var.b == 2) {
-                if (ko4Var.h != null) {
+            lo4 lo4Var = this.i;
+            if (lo4Var != null && lo4Var.b == 2) {
+                if (lo4Var.h != null) {
                     StringBuilder sb = new StringBuilder();
                     sb.append("#(commodity,commo_");
                     sb.append(this.i.h);
@@ -243,7 +243,7 @@ public class TbLinkSpanGroup extends pv4<TbLinkSpanGroup> {
         }
     }
 
-    @Override // com.repackage.pv4
+    @Override // com.repackage.qv4
     public void q(Editable editable, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, editable, i) == null) {
@@ -322,7 +322,7 @@ public class TbLinkSpanGroup extends pv4<TbLinkSpanGroup> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.pv4
+    @Override // com.repackage.qv4
     /* renamed from: s */
     public void b(TbLinkSpanGroup tbLinkSpanGroup) {
         Interceptable interceptable = $ic;
@@ -339,10 +339,10 @@ public class TbLinkSpanGroup extends pv4<TbLinkSpanGroup> {
         }
     }
 
-    public ko4 t() {
+    public lo4 t() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.i : (ko4) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.i : (lo4) invokeV.objValue;
     }
 
     public LINK_TYPE u() {
@@ -363,10 +363,10 @@ public class TbLinkSpanGroup extends pv4<TbLinkSpanGroup> {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.q : invokeV.intValue;
     }
 
-    public void y(ko4 ko4Var) {
+    public void y(lo4 lo4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, ko4Var) == null) {
-            this.i = ko4Var;
+        if (interceptable == null || interceptable.invokeL(1048591, this, lo4Var) == null) {
+            this.i = lo4Var;
         }
     }
 

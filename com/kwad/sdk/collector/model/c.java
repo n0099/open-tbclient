@@ -19,7 +19,12 @@ import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public final class c {
     public static AppRunningInfoNative a(InstalledAppInfoManager.AppPackageInfo appPackageInfo, @Nullable AppStatusRules.Strategy strategy) {
-        return new AppRunningInfoNative(strategy == null ? -1L : strategy.getHistoryGranularity(), appPackageInfo.appName, appPackageInfo.packageName);
+        try {
+            return new AppRunningInfoNative(strategy == null ? -1L : strategy.getHistoryGranularity(), appPackageInfo.appName, appPackageInfo.packageName);
+        } catch (Throwable th) {
+            com.kwad.sdk.core.e.b.printStackTraceOnly(th);
+            return null;
+        }
     }
 
     public static String a(b bVar) {
@@ -36,13 +41,6 @@ public final class c {
         return null;
     }
 
-    public static ArrayList<d> a(JSONArray jSONArray) {
-        if (jSONArray == null) {
-            return null;
-        }
-        return b(jSONArray);
-    }
-
     public static void a(@NonNull AppStatusRules.Strategy strategy, @NonNull Map<String, InstalledAppInfoManager.AppPackageInfo> map, @NonNull List<a> list) {
         InstalledAppInfoManager.AppPackageInfo appPackageInfo;
         ArrayList<d> target = strategy.getTarget();
@@ -51,7 +49,12 @@ public final class c {
         }
         for (d dVar : target) {
             if (b(dVar) != null && b(dVar).size() != 0 && (appPackageInfo = map.get(a(dVar))) != null) {
-                list.add(new AnalyseTaskNative(a(appPackageInfo, strategy), new HashSet(b(dVar)), strategy.getStartTimeWithMS()));
+                HashSet hashSet = new HashSet(b(dVar));
+                long startTimeWithMS = strategy.getStartTimeWithMS();
+                AppRunningInfoNative a = a(appPackageInfo, strategy);
+                if (a != null) {
+                    list.add(new AnalyseTaskNative(a, hashSet, startTimeWithMS));
+                }
             }
         }
     }
@@ -67,7 +70,28 @@ public final class c {
         return null;
     }
 
-    public static ArrayList<d> b(@NonNull JSONArray jSONArray) {
+    public static List<String> b(d dVar) {
+        if (dVar instanceof RulesTargetNative) {
+            return Arrays.asList(AppStatusNative.rulesTargetGetPaths((RulesTargetNative) dVar));
+        }
+        return null;
+    }
+
+    public static long c(b bVar) {
+        if (bVar instanceof AppRunningInfoNative) {
+            return AppStatusNative.appRunningInfoGetLastRunningTime((AppRunningInfoNative) bVar);
+        }
+        return 0L;
+    }
+
+    public static ArrayList<d> d(JSONArray jSONArray) {
+        if (jSONArray == null) {
+            return null;
+        }
+        return e(jSONArray);
+    }
+
+    public static ArrayList<d> e(@NonNull JSONArray jSONArray) {
         ArrayList<d> arrayList = new ArrayList<>();
         int length = jSONArray.length();
         for (int i = 0; i < length; i++) {
@@ -83,19 +107,5 @@ public final class c {
             }
         }
         return arrayList;
-    }
-
-    public static List<String> b(d dVar) {
-        if (dVar instanceof RulesTargetNative) {
-            return Arrays.asList(AppStatusNative.rulesTargetGetPaths((RulesTargetNative) dVar));
-        }
-        return null;
-    }
-
-    public static long c(b bVar) {
-        if (bVar instanceof AppRunningInfoNative) {
-            return AppStatusNative.appRunningInfoGetLastRunningTime((AppRunningInfoNative) bVar);
-        }
-        return 0L;
     }
 }

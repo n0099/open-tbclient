@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.l45;
+import com.repackage.m45;
 import com.repackage.ng;
 import com.repackage.ym;
 /* loaded from: classes3.dex */
@@ -81,14 +81,14 @@ public class LocalPicDrawableLoaderProc extends AbstractImageLoaderProc {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{str, str2, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z), objArr})) == null) {
             String str3 = str + (TbadkCoreApplication.getInst().getSkinType() == 1 ? SkinManager.nightSufix : "");
-            ym m = l45.k().m(str3);
+            ym m = m45.k().m(str3);
             if (m == null) {
                 Bitmap bitmap = SkinManager.getBitmap(ng.e(str2, 0));
                 if (bitmap == null) {
                     return null;
                 }
                 ym ymVar = new ym(bitmap, false, str2);
-                l45.k().d(str3, ymVar);
+                m45.k().d(str3, ymVar);
                 return ymVar;
             }
             return m;

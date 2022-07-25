@@ -13,16 +13,16 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.cr4;
+import com.repackage.dr4;
 /* loaded from: classes6.dex */
-public class oc8 extends cr4 {
+public class oc8 extends dr4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public LinearLayout a;
     public EditText b;
 
     /* loaded from: classes6.dex */
-    public class a implements cr4.e {
+    public class a implements dr4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ Activity a;
@@ -47,10 +47,10 @@ public class oc8 extends cr4 {
             this.a = activity;
         }
 
-        @Override // com.repackage.cr4.e
-        public void onClick(cr4 cr4Var) {
+        @Override // com.repackage.dr4.e
+        public void onClick(dr4 dr4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, cr4Var) == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, dr4Var) == null) {
                 if (!oi.isEmpty(this.b.b.getText().toString())) {
                     TbSingleton.getInstance().setVisitPreviewServer(true);
                     String obj = this.b.b.getText().toString();
@@ -64,7 +64,7 @@ public class oc8 extends cr4 {
     }
 
     /* loaded from: classes6.dex */
-    public class b implements cr4.e {
+    public class b implements dr4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ oc8 a;
@@ -87,10 +87,10 @@ public class oc8 extends cr4 {
             this.a = oc8Var;
         }
 
-        @Override // com.repackage.cr4.e
-        public void onClick(cr4 cr4Var) {
+        @Override // com.repackage.dr4.e
+        public void onClick(dr4 dr4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, cr4Var) == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, dr4Var) == null) {
                 this.a.dismiss();
             }
         }
@@ -117,8 +117,8 @@ public class oc8 extends cr4 {
         LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(this.mActivity).inflate(R.layout.obfuscated_res_0x7f0d022e, (ViewGroup) null);
         this.a = linearLayout;
         setContentView(linearLayout);
-        this.b = (EditText) this.a.findViewById(R.id.obfuscated_res_0x7f0908ef);
-        setPositiveButton(R.string.obfuscated_res_0x7f0f0427, new a(this, activity));
+        this.b = (EditText) this.a.findViewById(R.id.obfuscated_res_0x7f0908e8);
+        setPositiveButton(R.string.obfuscated_res_0x7f0f0426, new a(this, activity));
         setNegativeButton(R.string.obfuscated_res_0x7f0f036a, new b(this));
     }
 }

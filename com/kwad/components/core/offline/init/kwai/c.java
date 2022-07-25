@@ -1,22 +1,16 @@
 package com.kwad.components.core.offline.init.kwai;
 
-import android.content.Context;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.kwad.components.offline.api.BuildConfig;
-import com.kwad.components.offline.api.core.api.IEnvironment;
-import com.kwad.sdk.KsAdSDKImpl;
-import com.kwad.sdk.core.network.n;
-import com.kwad.sdk.utils.AbiUtil;
-import com.kwad.sdk.utils.SystemUtil;
-import com.kwad.sdk.utils.av;
+import com.kwad.components.offline.api.core.api.IEncrypt;
+import java.io.File;
+import java.io.IOException;
 /* loaded from: classes5.dex */
-public final class c implements IEnvironment {
+public final class c implements IEncrypt {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -34,83 +28,31 @@ public final class c implements IEnvironment {
         }
     }
 
-    @Override // com.kwad.components.offline.api.core.api.IEnvironment
-    public final String getAppId() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? KsAdSDKImpl.get().getAppId() : (String) invokeV.objValue;
-    }
-
-    @Override // com.kwad.components.offline.api.core.api.IEnvironment
-    public final Context getContext() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? KsAdSDKImpl.get().getContext() : (Context) invokeV.objValue;
-    }
-
-    @Override // com.kwad.components.offline.api.core.api.IEnvironment
-    public final String getDeviceId() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? av.u() : (String) invokeV.objValue;
-    }
-
-    @Override // com.kwad.components.offline.api.core.api.IEnvironment
-    public final String getProcessName(Context context) {
+    @Override // com.kwad.components.offline.api.core.api.IEncrypt
+    public final String getFileMD5(File file) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, context)) == null) ? SystemUtil.b(context) : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, file)) == null) ? com.kwad.sdk.utils.a.getFileMD5(file) : (String) invokeL.objValue;
     }
 
-    @Override // com.kwad.components.offline.api.core.api.IEnvironment
-    public final String getSdkVersion() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? BuildConfig.VERSION_NAME : (String) invokeV.objValue;
-    }
-
-    @Override // com.kwad.components.offline.api.core.api.IEnvironment
-    public final String getUserAgent() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? n.c() : (String) invokeV.objValue;
-    }
-
-    @Override // com.kwad.components.offline.api.core.api.IEnvironment
-    public final boolean isArm64(Context context) {
+    @Override // com.kwad.components.offline.api.core.api.IEncrypt
+    public final byte[] getFileMD5Digest(File file) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, context)) == null) ? AbiUtil.b(context) : invokeL.booleanValue;
-    }
-
-    @Override // com.kwad.components.offline.api.core.api.IEnvironment
-    public final boolean isDebug() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, file)) == null) {
+            try {
+                return com.kwad.sdk.utils.a.getFileMD5Digest(file);
+            } catch (IOException unused) {
+                return null;
+            }
         }
-        return invokeV.booleanValue;
+        return (byte[]) invokeL.objValue;
     }
 
-    @Override // com.kwad.components.offline.api.core.api.IEnvironment
-    public final boolean isDevelopEnable() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? com.kwad.components.core.a.c.booleanValue() : invokeV.booleanValue;
-    }
-
-    @Override // com.kwad.components.offline.api.core.api.IEnvironment
-    public final boolean isInMainProcess(Context context) {
+    @Override // com.kwad.components.offline.api.core.api.IEncrypt
+    public final String getResponseData(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, context)) == null) ? SystemUtil.c(context) : invokeL.booleanValue;
-    }
-
-    @Override // com.kwad.components.offline.api.core.api.IEnvironment
-    public final String localIpAddress() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? "10.244.143.8" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) ? com.kwad.sdk.core.a.d.getResponseData(str) : (String) invokeL.objValue;
     }
 }

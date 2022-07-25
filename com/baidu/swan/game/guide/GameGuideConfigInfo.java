@@ -10,8 +10,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.rg1;
-import com.repackage.yq3;
+import com.repackage.sg1;
+import com.repackage.zq3;
 import java.io.Serializable;
 import java.util.ArrayList;
 import org.json.JSONArray;
@@ -340,7 +340,7 @@ public class GameGuideConfigInfo implements Serializable {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
             if (jSONObject == null) {
-                if (rg1.a) {
+                if (sg1.a) {
                     Log.d(TAG, "data 为空");
                 }
                 return null;
@@ -348,7 +348,7 @@ public class GameGuideConfigInfo implements Serializable {
             GameGuideConfigInfo gameGuideConfigInfo = new GameGuideConfigInfo();
             int optInt = jSONObject.optInt("status", 0);
             gameGuideConfigInfo.status = optInt;
-            yq3.p(Boolean.valueOf(jSONObject.optBoolean(KEY_OPEN_INSTALL_BOOT, false)).booleanValue());
+            zq3.p(Boolean.valueOf(jSONObject.optBoolean(KEY_OPEN_INSTALL_BOOT, false)).booleanValue());
             gameGuideConfigInfo.expirationTime = jSONObject.optLong(KEY_EXPIRATION_TIME, 0L);
             gameGuideConfigInfo.packageExpire = jSONObject.optLong(KEY_PACKAGE_EXPIRE, 0L);
             gameGuideConfigInfo.install_result = jSONObject.optBoolean(KEY_INSTALL_RESULT, true);
@@ -362,7 +362,7 @@ public class GameGuideConfigInfo implements Serializable {
             }
             gameGuideConfigInfo.popupSelection = jSONObject.optInt(KEY_POPUP_SELECTION, 0);
             if (optInt == 0) {
-                if (rg1.a) {
+                if (sg1.a) {
                     Log.d(TAG, "配置数据标明不展示");
                 }
                 return gameGuideConfigInfo;

@@ -36,7 +36,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.sg;
-import com.repackage.st4;
+import com.repackage.tt4;
 import com.repackage.uj5;
 import com.repackage.wj5;
 import java.io.File;
@@ -125,7 +125,7 @@ public class UpdateDialog extends BaseActivity<UpdateDialog> {
             public void run() {
                 Interceptable interceptable = $ic;
                 if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.a.g.forceUpdate()) {
-                    st4.e(this.a.a.getPageContext().getPageActivity(), 200);
+                    tt4.e(this.a.a.getPageContext().getPageActivity(), 200);
                 }
             }
         }
@@ -263,7 +263,7 @@ public class UpdateDialog extends BaseActivity<UpdateDialog> {
                 UpdateDialog updateDialog = this.a;
                 if (updateDialog.R1(true, false, z && wj5.c(updateDialog.getPageContext().getPageActivity(), this.a.h))) {
                     this.a.j.t(false);
-                    this.a.showToast(R.string.obfuscated_res_0x7f0f04f5);
+                    this.a.showToast(R.string.obfuscated_res_0x7f0f04f1);
                     if (this.a.f) {
                         return;
                     }
@@ -363,7 +363,7 @@ public class UpdateDialog extends BaseActivity<UpdateDialog> {
                 } else if (intent.getBooleanExtra("action_update_progress_interrupted", false)) {
                     this.this$0.j.dismiss();
                     UpdateDialog updateDialog = this.this$0;
-                    updateDialog.showToast(updateDialog.getPageContext().getString(R.string.obfuscated_res_0x7f0f14d2));
+                    updateDialog.showToast(updateDialog.getPageContext().getString(R.string.obfuscated_res_0x7f0f1481));
                     this.this$0.finish();
                     this.this$0.S1();
                 } else {
@@ -477,7 +477,7 @@ public class UpdateDialog extends BaseActivity<UpdateDialog> {
             if (versionData3 != null) {
                 this.f = versionData3.forceUpdate();
             }
-            uj5 uj5Var = new uj5(getPageContext().getPageActivity(), R.style.obfuscated_res_0x7f1003a0);
+            uj5 uj5Var = new uj5(getPageContext().getPageActivity(), R.style.obfuscated_res_0x7f1003a3);
             this.j = uj5Var;
             uj5Var.setCancelable(false);
             this.j.q(this.g, this.h, new e(this, null));

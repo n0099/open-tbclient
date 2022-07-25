@@ -1,14 +1,15 @@
 package com.repackage;
 
+import android.text.TextUtils;
 import android.view.View;
-import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mapapi.map.BaiduMap;
 import com.baidu.mapapi.map.MapPoi;
 import com.baidu.mapapi.map.MapStatus;
 import com.baidu.mapapi.map.Marker;
 import com.baidu.mapapi.model.LatLng;
+import com.baidu.searchbox.crius.constants.CriusAttrConstants;
+import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,12 +17,64 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class m54 implements BaiduMap.OnMapLoadedCallback, BaiduMap.OnMapClickListener, BaiduMap.OnMapRenderCallback, BaiduMap.OnMarkerClickListener, View.OnClickListener, BaiduMap.OnMapStatusChangeListener, BaiduMap.OnMyLocationClickListener {
+public class m54 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public q54 b;
+
+    /* loaded from: classes6.dex */
+    public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public JSONObject a;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = new JSONObject();
+        }
+
+        public static a a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? new a() : (a) invokeV.objValue;
+        }
+
+        public JSONObject b() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (JSONObject) invokeV.objValue;
+        }
+
+        public a c(String str, Object obj) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, obj)) == null) {
+                if (!TextUtils.isEmpty(str)) {
+                    try {
+                        this.a.put(str, obj);
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                }
+                return this;
+            }
+            return (a) invokeLL.objValue;
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -36,131 +89,180 @@ public class m54 implements BaiduMap.OnMapLoadedCallback, BaiduMap.OnMapClickLis
                 return;
             }
         }
-        boolean z = rg1.a;
+        a = sg1.a;
     }
 
-    public m54(@NonNull q54 q54Var) {
+    public static void a(r54 r54Var, cn2 cn2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {q54Var};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || interceptable.invokeLL(65537, null, r54Var, cn2Var) == null) {
+            a a2 = a.a();
+            a2.c("mapId", r54Var.j);
+            a2.c("markerId", cn2Var.a);
+            JSONObject b = a2.b();
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("vtype", "callouttap");
+                jSONObject.put("data", b.toString());
+                jSONObject.put(PrefetchEvent.EVENT_DATA_WEBVIEW_ID, r54Var.i);
+            } catch (JSONException e) {
+                if (a) {
+                    e.printStackTrace();
+                }
             }
-        }
-        this.a = 0;
-        this.b = q54Var;
-    }
-
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-            l54.b(view2, this.b);
-            hx1.i("map", "Control View click");
+            pf3.d(r54Var.i, r54Var.j, "map", "callouttap", jSONObject);
         }
     }
 
-    @Override // com.baidu.mapapi.map.BaiduMap.OnMapClickListener
-    public void onMapClick(LatLng latLng) {
+    public static void b(View view2, r54 r54Var) {
+        an2 an2Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, latLng) == null) {
-            l54.d(this.b, latLng);
-            hx1.i("map", "onMapClick LatLng " + latLng);
-        }
-    }
-
-    @Override // com.baidu.mapapi.map.BaiduMap.OnMapLoadedCallback
-    public void onMapLoaded() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            hx1.i("map", "onMapLoaded");
-        }
-    }
-
-    @Override // com.baidu.mapapi.map.BaiduMap.OnMapClickListener
-    public boolean onMapPoiClick(MapPoi mapPoi) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, mapPoi)) == null) {
-            l54.c(this.b, mapPoi);
-            hx1.i("map", "onMapPoiClick MapPoi " + mapPoi.getPosition());
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // com.baidu.mapapi.map.BaiduMap.OnMapRenderCallback
-    public void onMapRenderFinished() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            l54.e(this.b);
-            hx1.i("map", "onMapRenderFinished");
-        }
-    }
-
-    @Override // com.baidu.mapapi.map.BaiduMap.OnMapStatusChangeListener
-    public void onMapStatusChange(MapStatus mapStatus) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, mapStatus) == null) {
-            hx1.i("map", "onMapStatusChange");
-        }
-    }
-
-    @Override // com.baidu.mapapi.map.BaiduMap.OnMapStatusChangeListener
-    public void onMapStatusChangeFinish(MapStatus mapStatus) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, mapStatus) == null) {
-            l54.g(this.b, mapStatus, this.a);
-            hx1.i("map", "onMapStatusChangeFinish");
-        }
-    }
-
-    @Override // com.baidu.mapapi.map.BaiduMap.OnMapStatusChangeListener
-    public void onMapStatusChangeStart(MapStatus mapStatus) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, mapStatus) == null) {
-        }
-    }
-
-    @Override // com.baidu.mapapi.map.BaiduMap.OnMapStatusChangeListener
-    public void onMapStatusChangeStart(MapStatus mapStatus, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, mapStatus, i) == null) {
-            this.a = i;
-        }
-    }
-
-    @Override // com.baidu.mapapi.map.BaiduMap.OnMarkerClickListener
-    public boolean onMarkerClick(Marker marker) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, marker)) == null) {
-            p54 H = this.b.H(marker);
-            if (H != null) {
-                l54.f(marker, this.b);
-                H.b(this.b);
-                hx1.i("map", "onMarkerClick marker id " + marker.getId());
-                return true;
+        if (interceptable == null || interceptable.invokeLL(65538, null, view2, r54Var) == null) {
+            p54 G = r54Var.G(view2);
+            String str = (G == null || (an2Var = G.a) == null) ? "" : an2Var.a;
+            a a2 = a.a();
+            a2.c("mapId", r54Var.j);
+            a2.c("controlId", str);
+            JSONObject b = a2.b();
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("vtype", "controltap");
+                jSONObject.put("data", b.toString());
+                jSONObject.put(PrefetchEvent.EVENT_DATA_WEBVIEW_ID, r54Var.i);
+            } catch (JSONException e) {
+                if (a) {
+                    e.printStackTrace();
+                }
             }
-            return false;
+            pf3.d(r54Var.i, r54Var.j, "map", "controltap", jSONObject);
         }
-        return invokeL.booleanValue;
     }
 
-    @Override // com.baidu.mapapi.map.BaiduMap.OnMyLocationClickListener
-    public boolean onMyLocationClick() {
-        InterceptResult invokeV;
+    public static void c(r54 r54Var, MapPoi mapPoi) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return false;
+        if (interceptable == null || interceptable.invokeLL(65539, null, r54Var, mapPoi) == null) {
+            LatLng position = mapPoi.getPosition();
+            a a2 = a.a();
+            a2.c("latitude", Double.valueOf(position.latitude));
+            a2.c("longitude", Double.valueOf(position.longitude));
+            a2.b();
+            a a3 = a.a();
+            a3.c("mapId", r54Var.j);
+            a3.c("name", mapPoi.getName());
+            a3.c("latitude", Double.valueOf(position.latitude));
+            a3.c("longitude", Double.valueOf(position.longitude));
+            JSONObject b = a3.b();
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("vtype", "poitap");
+                jSONObject.put("data", b.toString());
+                jSONObject.put(PrefetchEvent.EVENT_DATA_WEBVIEW_ID, r54Var.i);
+            } catch (JSONException e) {
+                if (a) {
+                    e.printStackTrace();
+                }
+            }
+            pf3.d(r54Var.i, r54Var.j, "map", "poitap", jSONObject);
         }
-        return invokeV.booleanValue;
+    }
+
+    public static void d(r54 r54Var, LatLng latLng) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, r54Var, latLng) == null) {
+            a a2 = a.a();
+            a2.c("latitude", Double.valueOf(latLng.latitude));
+            a2.c("longitude", Double.valueOf(latLng.longitude));
+            JSONObject b = a2.b();
+            a a3 = a.a();
+            a3.c("mapId", r54Var.j);
+            a3.c(CriusAttrConstants.POSITION, b);
+            JSONObject b2 = a3.b();
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("vtype", "tap");
+                jSONObject.put("data", b2.toString());
+                jSONObject.put(PrefetchEvent.EVENT_DATA_WEBVIEW_ID, r54Var.i);
+            } catch (JSONException e) {
+                if (a) {
+                    e.printStackTrace();
+                }
+            }
+            pf3.d(r54Var.i, r54Var.j, "map", "tap", jSONObject);
+        }
+    }
+
+    public static void e(r54 r54Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65541, null, r54Var) == null) {
+            a a2 = a.a();
+            a2.c("mapId", r54Var.j);
+            JSONObject b = a2.b();
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("vtype", "updated");
+                jSONObject.put("data", b.toString());
+                jSONObject.put(PrefetchEvent.EVENT_DATA_WEBVIEW_ID, r54Var.i);
+            } catch (JSONException e) {
+                if (a) {
+                    e.printStackTrace();
+                }
+            }
+            pf3.d(r54Var.i, r54Var.j, "map", "updated", jSONObject);
+        }
+    }
+
+    public static void f(Marker marker, r54 r54Var) {
+        cn2 cn2Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65542, null, marker, r54Var) == null) {
+            q54 H = r54Var.H(marker);
+            String str = (H == null || (cn2Var = H.a) == null) ? "" : cn2Var.a;
+            a a2 = a.a();
+            a2.c("mapId", r54Var.j);
+            a2.c("markerId", str);
+            JSONObject b = a2.b();
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("vtype", "markertap");
+                jSONObject.put("data", b.toString());
+                jSONObject.put(PrefetchEvent.EVENT_DATA_WEBVIEW_ID, r54Var.i);
+            } catch (JSONException e) {
+                if (a) {
+                    e.printStackTrace();
+                }
+            }
+            pf3.d(r54Var.i, r54Var.j, "map", "markertap", jSONObject);
+        }
+    }
+
+    public static void g(r54 r54Var, MapStatus mapStatus, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLI(65543, null, r54Var, mapStatus, i) == null) {
+            a a2 = a.a();
+            a2.c("latitude", Double.valueOf(mapStatus.bound.northeast.latitude));
+            a2.c("longitude", Double.valueOf(mapStatus.bound.northeast.longitude));
+            JSONObject b = a2.b();
+            a a3 = a.a();
+            a3.c("latitude", Double.valueOf(mapStatus.bound.southwest.latitude));
+            a3.c("longitude", Double.valueOf(mapStatus.bound.southwest.longitude));
+            JSONObject b2 = a3.b();
+            a a4 = a.a();
+            a4.c("mapId", r54Var.j);
+            a4.c("northeast", b);
+            a4.c("southwest", b2);
+            a4.c("scale", Float.valueOf(mapStatus.zoom));
+            a4.c("reason", Integer.valueOf(i));
+            JSONObject b3 = a4.b();
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("vtype", "regionchange");
+                jSONObject.put("data", b3.toString());
+                jSONObject.put(PrefetchEvent.EVENT_DATA_WEBVIEW_ID, r54Var.i);
+            } catch (JSONException e) {
+                if (a) {
+                    e.printStackTrace();
+                }
+            }
+            pf3.d(r54Var.i, r54Var.j, "map", "regionchange", jSONObject);
+        }
     }
 }

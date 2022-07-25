@@ -59,12 +59,12 @@ public class m67 {
     public TextView m;
     public String n;
     public String o;
-    public k55 p;
+    public l55 p;
     public RelativeLayout q;
     public boolean r;
     public ScreenTopToast s;
     public BdListView.p t;
-    public jm4<l67> u;
+    public km4<l67> u;
     public View.OnClickListener v;
     public View.OnClickListener w;
     public View.OnClickListener x;
@@ -107,7 +107,7 @@ public class m67 {
     }
 
     /* loaded from: classes6.dex */
-    public class b implements jm4<l67> {
+    public class b implements km4<l67> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ m67 a;
@@ -131,7 +131,7 @@ public class m67 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.jm4
+        @Override // com.repackage.km4
         /* renamed from: a */
         public void d(View view2, l67 l67Var, int i, long j) {
             Interceptable interceptable = $ic;
@@ -140,7 +140,7 @@ public class m67 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.jm4
+        @Override // com.repackage.km4
         /* renamed from: b */
         public void c(View view2, l67 l67Var, int i, long j) {
             Interceptable interceptable = $ic;
@@ -149,8 +149,8 @@ public class m67 {
             }
             TiebaStatic.log(new StatisticItem("c13875").param("uid", TbadkCoreApplication.getCurrentAccountId()).param("fid", this.a.n).param("tid", l67Var.j() != null ? l67Var.j().tid.longValue() : 0L));
             String str = "";
-            if (view2.getId() == R.id.obfuscated_res_0x7f090a1d) {
-                if (gd5.a()) {
+            if (view2.getId() == R.id.obfuscated_res_0x7f090a16) {
+                if (hd5.a()) {
                     return;
                 }
                 if (this.a.r) {
@@ -173,8 +173,8 @@ public class m67 {
             } else {
                 BdTopToast bdTopToast = new BdTopToast(this.a.a.getPageActivity());
                 bdTopToast.i(false);
-                bdTopToast.h(this.a.a.getPageActivity().getString(R.string.obfuscated_res_0x7f0f065a));
-                bdTopToast.j((ViewGroup) this.a.c.findViewById(R.id.obfuscated_res_0x7f090a3a));
+                bdTopToast.h(this.a.a.getPageActivity().getString(R.string.obfuscated_res_0x7f0f0656));
+                bdTopToast.j((ViewGroup) this.a.c.findViewById(R.id.obfuscated_res_0x7f090a33));
             }
         }
     }
@@ -275,7 +275,7 @@ public class m67 {
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || gd5.a()) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || hd5.a()) {
                 return;
             }
             ForumBroadcastHelper forumBroadcastHelper = new ForumBroadcastHelper(this.a.a.getPageActivity());
@@ -314,7 +314,7 @@ public class m67 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 TiebaStatic.log(new StatisticItem("c13874").param("uid", TbadkCoreApplication.getCurrentAccountId()));
-                if (gd5.a()) {
+                if (hd5.a()) {
                     return;
                 }
                 this.a.q();
@@ -404,14 +404,14 @@ public class m67 {
     public class i implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ cr4 a;
+        public final /* synthetic */ dr4 a;
 
-        public i(m67 m67Var, cr4 cr4Var) {
+        public i(m67 m67Var, dr4 dr4Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {m67Var, cr4Var};
+                Object[] objArr = {m67Var, dr4Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -421,17 +421,17 @@ public class m67 {
                     return;
                 }
             }
-            this.a = cr4Var;
+            this.a = dr4Var;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
-            cr4 cr4Var;
+            dr4 dr4Var;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || (cr4Var = this.a) == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || (dr4Var = this.a) == null) {
                 return;
             }
-            cr4Var.dismiss();
+            dr4Var.dismiss();
         }
     }
 
@@ -466,12 +466,12 @@ public class m67 {
     }
 
     public void k() {
-        k55 k55Var;
+        l55 l55Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (k55Var = this.p) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (l55Var = this.p) == null) {
             return;
         }
-        k55Var.dettachView(this.q);
+        l55Var.dettachView(this.q);
         this.p = null;
     }
 
@@ -479,8 +479,8 @@ public class m67 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, str) == null) {
             this.c = view2;
-            this.d = (NavigationBar) view2.findViewById(R.id.obfuscated_res_0x7f091572);
-            this.q = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f090a39);
+            this.d = (NavigationBar) view2.findViewById(R.id.obfuscated_res_0x7f09154d);
+            this.q = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f090a32);
             this.d.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
             this.j = (ImageView) this.d.getCenterImgBox();
             LinearLayout linearLayout = (LinearLayout) this.d.getCenterImgBoxLayout();
@@ -490,7 +490,7 @@ public class m67 {
             int f3 = pi.f(TbadkCoreApplication.getInst(), R.dimen.tbds42);
             SkinManager.setNavbarIconSrc(this.j, R.drawable.obfuscated_res_0x7f0805d0, R.drawable.obfuscated_res_0x7f0805d0);
             this.d.showBottomLine();
-            this.m = this.d.setCenterTextTitle(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f122b));
+            this.m = this.d.setCenterTextTitle(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f11da));
             this.j.setPadding(f2, f2, f2, f2);
             LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.m.getLayoutParams();
             LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.j.getLayoutParams();
@@ -597,7 +597,7 @@ public class m67 {
                 this.b.b();
                 return;
             }
-            this.f.C(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f09e5));
+            this.f.C(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f09cf));
             this.f.f();
             return;
         }
@@ -610,11 +610,11 @@ public class m67 {
             ScreenTopToast screenTopToast = this.s;
             if (screenTopToast == null || !screenTopToast.g()) {
                 ScreenTopToast screenTopToast2 = new ScreenTopToast(this.a.getPageActivity());
-                screenTopToast2.m(this.a.getPageActivity().getString(R.string.obfuscated_res_0x7f0f065d));
-                screenTopToast2.k(this.a.getPageActivity().getString(R.string.obfuscated_res_0x7f0f0733));
+                screenTopToast2.m(this.a.getPageActivity().getString(R.string.obfuscated_res_0x7f0f0659));
+                screenTopToast2.k(this.a.getPageActivity().getString(R.string.obfuscated_res_0x7f0f072f));
                 screenTopToast2.j(new c(this));
                 this.s = screenTopToast2;
-                screenTopToast2.n((ViewGroup) this.c.findViewById(R.id.obfuscated_res_0x7f090a3a));
+                screenTopToast2.n((ViewGroup) this.c.findViewById(R.id.obfuscated_res_0x7f090a33));
             }
         }
     }
@@ -622,13 +622,13 @@ public class m67 {
     public void r(String str, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(1048583, this, str, z) == null) {
-            k55 k55Var = this.p;
-            if (k55Var == null || !k55Var.isViewAttached()) {
+            l55 l55Var = this.p;
+            if (l55Var == null || !l55Var.isViewAttached()) {
                 if (this.p == null) {
-                    this.p = new k55(this.a.getPageActivity(), new h(this));
+                    this.p = new l55(this.a.getPageActivity(), new h(this));
                 }
                 this.p.m(null);
-                this.p.k(this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070291));
+                this.p.k(this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07028f));
                 this.p.attachView(this.q, false);
                 this.p.p();
             }
@@ -642,20 +642,20 @@ public class m67 {
         }
         BdTopToast bdTopToast = new BdTopToast(this.a.getPageActivity());
         bdTopToast.i(true);
-        bdTopToast.h(this.a.getPageActivity().getString(R.string.obfuscated_res_0x7f0f06d4));
-        bdTopToast.j((ViewGroup) this.c.findViewById(R.id.obfuscated_res_0x7f090a3a));
+        bdTopToast.h(this.a.getPageActivity().getString(R.string.obfuscated_res_0x7f0f06d0));
+        bdTopToast.j((ViewGroup) this.c.findViewById(R.id.obfuscated_res_0x7f090a33));
     }
 
     public final void t() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            cr4 cr4Var = new cr4(this.a.getPageActivity());
-            cr4Var.setContentViewSize(2);
-            cr4Var.setCanceledOnTouchOutside(false);
+            dr4 dr4Var = new dr4(this.a.getPageActivity());
+            dr4Var.setContentViewSize(2);
+            dr4Var.setCanceledOnTouchOutside(false);
             ForumBroadcastMajorQuestionDialogView forumBroadcastMajorQuestionDialogView = new ForumBroadcastMajorQuestionDialogView(this.a.getPageActivity());
-            forumBroadcastMajorQuestionDialogView.setConfirmButtonListener(new i(this, cr4Var));
-            cr4Var.setContentView(forumBroadcastMajorQuestionDialogView);
-            cr4Var.create(this.a).show();
+            forumBroadcastMajorQuestionDialogView.setConfirmButtonListener(new i(this, dr4Var));
+            dr4Var.setContentView(forumBroadcastMajorQuestionDialogView);
+            dr4Var.create(this.a).show();
         }
     }
 
@@ -663,17 +663,17 @@ public class m67 {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048586, this, forumBroadcastMajorResidueData) == null) && this.l == null) {
             if (forumBroadcastMajorResidueData == null) {
-                TextView addTextButton = this.d.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, this.a.getString(R.string.obfuscated_res_0x7f0f0516), this.w);
+                TextView addTextButton = this.d.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, this.a.getString(R.string.obfuscated_res_0x7f0f0512), this.w);
                 this.l = addTextButton;
                 SkinManager.setViewTextColorSelector(addTextButton, R.color.CAM_X0302, R.color.cp_link_tip_a_alpha50, 0);
             } else if (forumBroadcastMajorResidueData.B() >= forumBroadcastMajorResidueData.A()) {
                 this.r = true;
-                TextView addTextButton2 = this.d.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, this.a.getString(R.string.obfuscated_res_0x7f0f0516), this.x);
+                TextView addTextButton2 = this.d.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, this.a.getString(R.string.obfuscated_res_0x7f0f0512), this.x);
                 this.l = addTextButton2;
                 SkinManager.setViewTextColorSelector(addTextButton2, R.color.CAM_X0302, R.color.cp_link_tip_a_alpha50, 0);
                 this.l.setAlpha(0.33f);
             } else {
-                TextView addTextButton3 = this.d.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, this.a.getString(R.string.obfuscated_res_0x7f0f0516), this.w);
+                TextView addTextButton3 = this.d.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, this.a.getString(R.string.obfuscated_res_0x7f0f0512), this.w);
                 this.l = addTextButton3;
                 SkinManager.setViewTextColorSelector(addTextButton3, R.color.CAM_X0302, R.color.cp_link_tip_a_alpha50, 0);
             }

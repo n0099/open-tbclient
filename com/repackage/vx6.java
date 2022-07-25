@@ -58,8 +58,8 @@ public class vx6 extends an<vy5, ThreadCardViewHolder<vy5>> {
                 if (vy5Var == null || vy5Var.getThreadData() == null || (threadCardViewHolder = (ThreadCardViewHolder) view2.getTag()) == null) {
                     return;
                 }
-                ThreadCardUtils.jumpToPB((nn4) vy5Var.getThreadData(), view2.getContext(), 2, false);
-                threadCardViewHolder.c().o(new ny.a(1));
+                ThreadCardUtils.jumpToPB((on4) vy5Var.getThreadData(), view2.getContext(), 2, false);
+                threadCardViewHolder.b().o(new ny.a(1));
             }
         }
     }
@@ -95,7 +95,7 @@ public class vx6 extends an<vy5, ThreadCardViewHolder<vy5>> {
                 ThreadCardViewHolder threadCardViewHolder = (ThreadCardViewHolder) view2.getTag();
                 vy5 vy5Var = (vy5) nnVar;
                 if (this.a.l != null) {
-                    this.a.l.a(threadCardViewHolder.b(), vy5Var);
+                    this.a.l.a(threadCardViewHolder.a(), vy5Var);
                 }
             }
         }
@@ -136,7 +136,7 @@ public class vx6 extends an<vy5, ThreadCardViewHolder<vy5>> {
             cy k = bVar.k(BaseCardInfo.SupportType.EXTEND, viewGroup, this.k);
             k.r(2);
             ThreadCardViewHolder<vy5> threadCardViewHolder = new ThreadCardViewHolder<>(k);
-            threadCardViewHolder.k(this.i);
+            threadCardViewHolder.j(this.i);
             V(new b(this));
             return threadCardViewHolder;
         }
@@ -150,15 +150,15 @@ public class vx6 extends an<vy5, ThreadCardViewHolder<vy5>> {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, vy5Var, threadCardViewHolder})) == null) {
-            if (vy5Var == null || threadCardViewHolder == null || threadCardViewHolder.b() == null || vy5Var.a == null) {
+            if (vy5Var == null || threadCardViewHolder == null || threadCardViewHolder.a() == null || vy5Var.a == null) {
                 return null;
             }
             vy5Var.I(vy5Var.position + 1);
             vy5Var.a.statFloor = vy5Var.m();
-            threadCardViewHolder.c().q(i);
-            threadCardViewHolder.g(vy5Var);
-            threadCardViewHolder.c().onChangeSkinType(this.j, TbadkCoreApplication.getInst().getSkinType());
-            return threadCardViewHolder.b();
+            threadCardViewHolder.b().q(i);
+            threadCardViewHolder.f(vy5Var);
+            threadCardViewHolder.b().onChangeSkinType(this.j, TbadkCoreApplication.getInst().getSkinType());
+            return threadCardViewHolder.a();
         }
         return (View) invokeCommon.objValue;
     }

@@ -22,7 +22,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.fu4;
+import com.repackage.gu4;
 import com.repackage.j27;
 import java.util.ArrayList;
 import org.json.JSONObject;
@@ -35,7 +35,7 @@ public class a27 {
     public TbPageContext c;
     public CustomMessageListener d;
     public NEGFeedBackView.b e;
-    public fu4.g f;
+    public gu4.g f;
     public BdListView.p g;
     public j27.f h;
     public View.OnClickListener i;
@@ -105,9 +105,9 @@ public class a27 {
         }
 
         @Override // com.baidu.tieba.NEGFeedBack.NEGFeedBackView.b
-        public void a(ArrayList<Integer> arrayList, String str, kp4 kp4Var) {
+        public void a(ArrayList<Integer> arrayList, String str, lp4 lp4Var) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLLL(1048576, this, arrayList, str, kp4Var) == null) || arrayList == null || kp4Var == null) {
+            if (!(interceptable == null || interceptable.invokeLLL(1048576, this, arrayList, str, lp4Var) == null) || arrayList == null || lp4Var == null) {
                 return;
             }
             StringBuilder sb = new StringBuilder();
@@ -119,7 +119,7 @@ public class a27 {
             if (sb.length() > 0) {
                 sb.deleteCharAt(sb.length() - 1);
             }
-            int i2 = kp4Var.n;
+            int i2 = lp4Var.n;
             if (i2 != 0 && i2 == 40) {
             }
             if (this.a.b != null) {
@@ -128,22 +128,22 @@ public class a27 {
         }
 
         @Override // com.baidu.tieba.NEGFeedBack.NEGFeedBackView.b
-        public void b(kp4 kp4Var, CompoundButton compoundButton, boolean z) {
+        public void b(lp4 lp4Var, CompoundButton compoundButton, boolean z) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, kp4Var, compoundButton, z) == null) {
+            if (interceptable == null || interceptable.invokeLLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, lp4Var, compoundButton, z) == null) {
             }
         }
 
         @Override // com.baidu.tieba.NEGFeedBack.NEGFeedBackView.b
-        public void c(kp4 kp4Var) {
+        public void c(lp4 lp4Var) {
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, kp4Var) != null) || kp4Var == null) {
+            if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, lp4Var) != null) || lp4Var == null) {
             }
         }
     }
 
     /* loaded from: classes5.dex */
-    public class c implements fu4.g {
+    public class c implements gu4.g {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ a27 a;
@@ -166,7 +166,7 @@ public class a27 {
             this.a = a27Var;
         }
 
-        @Override // com.repackage.fu4.g
+        @Override // com.repackage.gu4.g
         public void e(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
@@ -177,7 +177,7 @@ public class a27 {
                     return;
                 }
                 this.a.b.Z(null);
-                this.a.c.showToast(R.string.obfuscated_res_0x7f0f0c2b);
+                this.a.c.showToast(R.string.obfuscated_res_0x7f0f0c17);
             }
         }
     }
@@ -310,7 +310,7 @@ public class a27 {
                     this.a.b.R(this.a.i);
                 }
                 if (StringUtils.isNull(str)) {
-                    this.a.c.showToast(R.string.obfuscated_res_0x7f0f153f);
+                    this.a.c.showToast(R.string.obfuscated_res_0x7f0f14ee);
                 } else {
                     this.a.c.showToast(str);
                 }
@@ -403,19 +403,19 @@ public class a27 {
         }
     }
 
-    public final fu4.i i(int i) {
+    public final gu4.i i(int i) {
         InterceptResult invokeI;
         String string;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
             if (i <= 0) {
-                string = this.c.getResources().getString(R.string.obfuscated_res_0x7f0f1540);
+                string = this.c.getResources().getString(R.string.obfuscated_res_0x7f0f14ef);
             } else {
-                string = this.c.getResources().getString(R.string.obfuscated_res_0x7f0f153e, Integer.valueOf(i));
+                string = this.c.getResources().getString(R.string.obfuscated_res_0x7f0f14ed, Integer.valueOf(i));
             }
-            return new fu4.i(string, 1000);
+            return new gu4.i(string, 1000);
         }
-        return (fu4.i) invokeI.objValue;
+        return (gu4.i) invokeI.objValue;
     }
 
     public View j() {

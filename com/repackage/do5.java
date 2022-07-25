@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 @Singleton
 @Service
 /* loaded from: classes5.dex */
-public class do5 implements kk2 {
+public class do5 implements lk2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -35,18 +35,18 @@ public class do5 implements kk2 {
         }
     }
 
-    @Override // com.repackage.kk2
-    public boolean a(Context context, String str, ac3 ac3Var) {
+    @Override // com.repackage.lk2
+    public boolean a(Context context, String str, bc3 bc3Var) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, context, str, ac3Var)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, context, str, bc3Var)) == null) {
             StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_AIAPPS_START_FAIL);
             statisticItem.param("uid", sm5.l().p() == null ? "" : sm5.l().p());
-            statisticItem.param("obj_param1", ac3Var.h());
-            statisticItem.param(TiebaStatic.Params.OBJ_PARAM2, ac3Var.e());
+            statisticItem.param("obj_param1", bc3Var.h());
+            statisticItem.param(TiebaStatic.Params.OBJ_PARAM2, bc3Var.e());
             TiebaStatic.log(statisticItem);
-            if (ac3Var.j() == 10 && ac3Var.h() == 1013) {
-                b(context, ac3Var);
+            if (bc3Var.j() == 10 && bc3Var.h() == 1013) {
+                b(context, bc3Var);
                 return true;
             }
             return false;
@@ -54,22 +54,22 @@ public class do5 implements kk2 {
         return invokeLLL.booleanValue;
     }
 
-    public final void b(Context context, ac3 ac3Var) {
+    public final void b(Context context, bc3 bc3Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, ac3Var) == null) {
-            h03 b0 = h03.b0();
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, bc3Var) == null) {
+            i03 b0 = i03.b0();
             if (context == null || b0 == null) {
                 return;
             }
-            String i = m93.i(ul2.U().M(), b0.Y().G());
-            long h = ac3Var.h();
-            String r = ac3Var.r();
+            String i = n93.i(vl2.U().M(), b0.Y().G());
+            long h = bc3Var.h();
+            String r = bc3Var.r();
             if (!(1020 == h && !TextUtils.isEmpty(r))) {
-                r = dc4.b().a(h);
+                r = ec4.b().a(h);
             }
-            ForbiddenInfo forbiddenInfo = new ForbiddenInfo(b0.W(), r, "v" + be3.D() + "/" + i + "/" + ac3Var.a());
+            ForbiddenInfo forbiddenInfo = new ForbiddenInfo(b0.W(), r, "v" + ce3.D() + "/" + i + "/" + bc3Var.a());
             forbiddenInfo.enableSlidingFlag = -1;
-            bl2.l(context, "type_need_update_sdk", ac3Var, forbiddenInfo, b0.Y().D());
+            cl2.l(context, "type_need_update_sdk", bc3Var, forbiddenInfo, b0.Y().D());
         }
     }
 }

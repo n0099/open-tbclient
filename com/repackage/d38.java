@@ -58,11 +58,11 @@ public class d38 extends an<n48, CardViewHolder<p58>> {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, n48Var, cardViewHolder})) == null) {
-            p58 c = cardViewHolder.c();
-            c.i(n48Var);
-            c.j(this.i, TbadkCoreApplication.getInst().getSkinType());
-            c.t(this.j);
-            return cardViewHolder.b();
+            p58 b = cardViewHolder.b();
+            b.i(n48Var);
+            b.j(this.i, TbadkCoreApplication.getInst().getSkinType());
+            b.t(this.j);
+            return cardViewHolder.a();
         }
         return (View) invokeCommon.objValue;
     }

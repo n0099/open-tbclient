@@ -1,11 +1,11 @@
 package com.kwad.components.core.g.kwai;
 /* loaded from: classes5.dex */
 public interface a {
-    void g();
+    void iK();
 
-    void h();
+    void iL();
 
-    void j();
+    void iM();
 
-    void k();
+    void iN();
 }

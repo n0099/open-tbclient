@@ -1,71 +1,32 @@
 package com.repackage;
 
-import com.baidu.android.imsdk.IMConstants;
+import android.content.Context;
+import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mapapi.UIMsg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ge1;
-import java.util.ArrayList;
-import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class re1 {
+public class re1 extends qe1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes7.dex */
-    public static class a implements Runnable {
+    public class a extends of1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ge1.a a;
-        public final /* synthetic */ String b;
-        public final /* synthetic */ int c;
-        public final /* synthetic */ ArrayList d;
+        public final /* synthetic */ int b;
+        public final /* synthetic */ re1 c;
 
-        /* renamed from: com.repackage.re1$a$a  reason: collision with other inner class name */
-        /* loaded from: classes7.dex */
-        public class C0721a extends nf1 {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ ge1.a b;
-            public final /* synthetic */ a c;
-
-            public C0721a(a aVar, ge1.a aVar2) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar, aVar2};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.c = aVar;
-                this.b = aVar2;
-            }
-
-            @Override // com.repackage.nf1
-            public void b() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.b.onFinish(this.c.b);
-                }
-            }
-        }
-
-        public a(ge1.a aVar, String str, int i, ArrayList arrayList) {
+        public a(re1 re1Var, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {aVar, str, Integer.valueOf(i), arrayList};
+                Object[] objArr = {re1Var, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -75,89 +36,141 @@ public class re1 {
                     return;
                 }
             }
-            this.a = aVar;
-            this.b = str;
-            this.c = i;
-            this.d = arrayList;
+            this.c = re1Var;
+            this.b = i;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        @Override // com.repackage.of1
+        public void b() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.onFinish(this.b);
-                if (this.c != 1 || this.d == null) {
+                try {
+                    this.c.b(this.b);
+                } catch (Throwable th) {
+                    tf1.d(th);
+                    re1 re1Var = this.c;
+                    re1Var.d(this.b, 3, UIMsg.m_AppUI.MSG_APP_VERSION_COMMEND_NAV_MODULE, re1Var.c, "cu on getToken unknown error.");
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class b extends of1 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ int b;
+        public final /* synthetic */ re1 c;
+
+        public b(re1 re1Var, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {re1Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
-                for (int i = 0; i < this.d.size(); i++) {
-                    ge1.a aVar = (ge1.a) this.d.get(i);
-                    if (aVar != null) {
-                        pf1.c().b(new C0721a(this, aVar));
-                    }
+            }
+            this.c = re1Var;
+            this.b = i;
+        }
+
+        @Override // com.repackage.of1
+        public void b() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                try {
+                    this.c.g(this.b, this.c.c, this.c.h);
+                } catch (Throwable th) {
+                    tf1.d(th);
+                    re1 re1Var = this.c;
+                    re1Var.n(this.b, 3, UIMsg.m_AppUI.MSG_APP_VERSION_COMMEND_NAV_MODULE, re1Var.c, "cu on getToken unknown error.");
                 }
             }
         }
     }
 
-    public static int a(int i) {
-        InterceptResult invokeI;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public re1(Context context) {
+        super(context);
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65536, null, i)) == null) {
-            if (i == 1) {
-                return 2010;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            if (i == 2) {
-                return IMConstants.IM_MSG_TYPE_SHIELD;
-            }
-            if (i == 3) {
-                return IMConstants.IM_MSG_TYPE_SHIELD_ME;
-            }
-            if (i == 4) {
-                return IMConstants.IM_MSG_TYPE_UNSUBSCRIBE_ME;
-            }
-            if (i == 5) {
-                return IMConstants.IM_MSG_TYPE_UNSUBSCRIBE_ME_SEND_FAIL;
-            }
-            if (i == 6) {
-                return 2015;
-            }
-            return UIMsg.m_AppUI.MSG_APP_VERSION_COMMEND_NAV_MODULE;
         }
-        return invokeI.intValue;
     }
 
-    public static void b(ge1.a aVar, oe1 oe1Var, int i, ArrayList<ge1.a> arrayList, boolean z) {
+    @Override // com.repackage.qe1
+    public void j(Context context, int i, long j) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{aVar, oe1Var, Integer.valueOf(i), arrayList, Boolean.valueOf(z)}) == null) || oe1Var == null) {
-            return;
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{context, Integer.valueOf(i), Long.valueOf(j)}) == null) {
+            super.j(context, i, j);
+            c(i, 2);
+            qf1.c().b(new a(this, i));
         }
-        try {
-            JSONObject jSONObject = new JSONObject();
-            jSONObject.put("0", oe1Var.a);
-            jSONObject.put("1", oe1Var.b);
-            jSONObject.put("2", String.valueOf(oe1Var.c));
-            jSONObject.put("3", oe1Var.d);
-            String jSONObject2 = jSONObject.toString();
-            if (aVar != null) {
-                if (i == 1) {
-                    if (z) {
-                        le1.c().f(false);
-                    }
-                } else if (i == 2) {
-                    if (z) {
-                        le1.c().d(false);
-                    }
-                } else if (i == 3) {
-                    if (z) {
-                        le1.c().j(false);
-                    }
-                } else if (z) {
-                    le1.c().n(false);
-                }
-                new Thread(new a(aVar, jSONObject2, i, arrayList)).start();
+    }
+
+    @Override // com.repackage.qe1
+    public boolean l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (TextUtils.isEmpty(this.e)) {
+                this.g = null;
+                this.f = 0L;
+                return true;
+            } else if (this.f - System.currentTimeMillis() < sf1.a) {
+                this.g = null;
+                this.f = 0L;
+                return true;
+            } else {
+                return false;
             }
-        } catch (Throwable th) {
-            sf1.d(th);
         }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.repackage.qe1
+    public void p(Context context, int i, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{context, Integer.valueOf(i), Long.valueOf(j)}) == null) {
+            super.p(context, i, j);
+            c(i, 4);
+            qf1.c().b(new b(this, i));
+        }
+    }
+
+    @Override // com.repackage.qe1
+    public boolean q() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if (TextUtils.isEmpty(this.h)) {
+                this.i = 0L;
+                return true;
+            } else if (this.i - System.currentTimeMillis() < sf1.a) {
+                this.i = 0L;
+                return true;
+            } else {
+                return false;
+            }
+        }
+        return invokeV.booleanValue;
     }
 }

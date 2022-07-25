@@ -10,14 +10,14 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.fr6;
 import com.repackage.pi;
-import com.repackage.t75;
-import com.repackage.td5;
-import com.repackage.vc5;
+import com.repackage.u75;
+import com.repackage.ud5;
+import com.repackage.wc5;
 import java.util.HashMap;
 import tbclient.GeneralTabList.DataReq;
 import tbclient.GeneralTabList.GeneralTabListReqIdl;
 /* loaded from: classes3.dex */
-public class FrsCommonTabRequestData extends OrmObject implements t75 {
+public class FrsCommonTabRequestData extends OrmObject implements u75 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String adExtParams;
@@ -52,7 +52,7 @@ public class FrsCommonTabRequestData extends OrmObject implements t75 {
         this.sortType = 0;
     }
 
-    @Override // com.repackage.v75
+    @Override // com.repackage.w75
     public Object h(boolean z) {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
@@ -68,9 +68,9 @@ public class FrsCommonTabRequestData extends OrmObject implements t75 {
             builder.sort_type = Integer.valueOf(this.sortType);
             String d = fr6.e().d("frs_feed");
             builder.ad_bear_sid = d;
-            builder.ad_bear_context = vc5.g(d, vc5.f());
-            builder.ad_bear_sid_price = Double.valueOf(vc5.i());
-            builder.has_ad_bear = Integer.valueOf(vc5.n(builder.ad_bear_sid) ? 1 : 0);
+            builder.ad_bear_context = wc5.g(d, wc5.f());
+            builder.ad_bear_sid_price = Double.valueOf(wc5.i());
+            builder.has_ad_bear = Integer.valueOf(wc5.n(builder.ad_bear_sid) ? 1 : 0);
             long j = this.lastThreadId;
             if (j >= 0) {
                 builder.last_thread_id = Long.valueOf(j);
@@ -80,7 +80,7 @@ public class FrsCommonTabRequestData extends OrmObject implements t75 {
             builder.scr_dip = Integer.valueOf((int) pi.h(TbadkCoreApplication.getInst()));
             builder.is_default_navtab = Integer.valueOf(this.isDefaultNavTab);
             builder.ad_ext_params = this.adExtParams;
-            td5.c(builder, true, false, true);
+            ud5.c(builder, true, false, true);
             GeneralTabListReqIdl.Builder builder2 = new GeneralTabListReqIdl.Builder();
             builder2.data = builder.build(false);
             return builder2.build(false);
@@ -88,7 +88,7 @@ public class FrsCommonTabRequestData extends OrmObject implements t75 {
         return invokeZ.objValue;
     }
 
-    @Override // com.repackage.s75
+    @Override // com.repackage.t75
     public HashMap<String, Object> w() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -98,7 +98,7 @@ public class FrsCommonTabRequestData extends OrmObject implements t75 {
         return (HashMap) invokeV.objValue;
     }
 
-    @Override // com.repackage.s75
+    @Override // com.repackage.t75
     public HashMap<String, String> y() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

@@ -31,20 +31,20 @@ public final class c extends b<h> {
         }
     }
 
-    public static h i(String str) {
+    public static h ff(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) ? new h(str) : (h) invokeL.objValue;
     }
 
     @Override // com.kwai.sodler.lib.b.b, com.kwai.sodler.lib.a.f
-    public final /* synthetic */ com.kwai.sodler.lib.a.a g(String str) {
-        return i(str);
+    public final /* synthetic */ com.kwai.sodler.lib.a.a fb(String str) {
+        return ff(str);
     }
 
     /* JADX DEBUG: Return type fixed from 'com.kwai.sodler.lib.g' to match base method */
     @Override // com.kwai.sodler.lib.b.b
-    public final /* synthetic */ h h(String str) {
-        return i(str);
+    public final /* synthetic */ h fe(String str) {
+        return ff(str);
     }
 }

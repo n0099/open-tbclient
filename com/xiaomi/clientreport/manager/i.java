@@ -12,7 +12,7 @@ public class i implements Runnable {
     public final /* synthetic */ a a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final /* synthetic */ br f749a;
+    public final /* synthetic */ br f29a;
 
     public i(a aVar, br brVar) {
         Interceptable interceptable = $ic;
@@ -30,14 +30,14 @@ public class i implements Runnable {
             }
         }
         this.a = aVar;
-        this.f749a = brVar;
+        this.f29a = brVar;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f749a.run();
+            this.f29a.run();
         }
     }
 }

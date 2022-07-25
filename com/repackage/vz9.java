@@ -118,12 +118,12 @@ public class vz9 extends BaseAdapter {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeILL = interceptable.invokeILL(1048582, this, i, view2, viewGroup)) == null) {
             if (view2 == null) {
-                view2 = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0663, viewGroup, false);
+                view2 = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d066d, viewGroup, false);
                 aVar = new a(this);
                 aVar.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0924c4);
-                aVar.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090ea4);
-                aVar.b = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091a7c);
-                aVar.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0922a0);
+                aVar.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090e9d);
+                aVar.b = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091a56);
+                aVar.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0922a2);
                 view2.setTag(aVar);
             } else {
                 aVar = (a) view2.getTag();
@@ -132,23 +132,23 @@ public class vz9 extends BaseAdapter {
             aVar.a.setText(item.a());
             PayType payType = item.a;
             if (PayType.ALI_PAY.equals(payType)) {
-                aVar.b.setBackgroundResource(R.drawable.obfuscated_res_0x7f080e3c);
+                aVar.b.setBackgroundResource(R.drawable.obfuscated_res_0x7f080e43);
             } else if (PayType.WECHAT_PAY.equals(payType)) {
-                aVar.b.setBackgroundResource(R.drawable.obfuscated_res_0x7f080e3b);
+                aVar.b.setBackgroundResource(R.drawable.obfuscated_res_0x7f080e42);
             } else if (PayType.DXM_PAY.equals(payType)) {
-                aVar.b.setBackgroundResource(R.drawable.obfuscated_res_0x7f080e37);
+                aVar.b.setBackgroundResource(R.drawable.obfuscated_res_0x7f080e3e);
             } else if (PayType.DXM_PAY_KJ.equals(payType)) {
-                aVar.b.setBackgroundResource(R.drawable.obfuscated_res_0x7f080e38);
+                aVar.b.setBackgroundResource(R.drawable.obfuscated_res_0x7f080e3f);
             } else if (PayType.UNION_PAY.equals(payType)) {
-                aVar.b.setBackgroundResource(R.drawable.obfuscated_res_0x7f080e3a);
+                aVar.b.setBackgroundResource(R.drawable.obfuscated_res_0x7f080e41);
             } else if (PayType.QQ_PAY.equals(payType)) {
-                aVar.b.setBackgroundResource(R.drawable.obfuscated_res_0x7f080e39);
+                aVar.b.setBackgroundResource(R.drawable.obfuscated_res_0x7f080e40);
             }
-            aVar.a.setTextColor(this.a.getResources().getColor(R.color.obfuscated_res_0x7f0608b1));
+            aVar.a.setTextColor(this.a.getResources().getColor(R.color.obfuscated_res_0x7f0608af));
             if (this.b == i) {
-                aVar.c.setBackgroundResource(nz9.a.b(this.d) ? R.drawable.obfuscated_res_0x7f080e44 : R.drawable.obfuscated_res_0x7f080e45);
+                aVar.c.setBackgroundResource(nz9.a.b(this.d) ? R.drawable.obfuscated_res_0x7f080e4b : R.drawable.obfuscated_res_0x7f080e4c);
             } else {
-                aVar.c.setBackgroundResource(R.drawable.obfuscated_res_0x7f080e46);
+                aVar.c.setBackgroundResource(R.drawable.obfuscated_res_0x7f080e4d);
             }
             if (TextUtils.isEmpty(item.c)) {
                 aVar.d.setVisibility(8);

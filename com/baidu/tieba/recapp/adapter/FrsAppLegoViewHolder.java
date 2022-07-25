@@ -38,7 +38,7 @@ public class FrsAppLegoViewHolder extends TypeAdapter.ViewHolder implements c68 
         }
     }
 
-    public void c() {
+    public void b() {
         i98 i98Var;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (i98Var = this.a) == null) {
@@ -47,7 +47,7 @@ public class FrsAppLegoViewHolder extends TypeAdapter.ViewHolder implements c68 
         i98Var.release();
     }
 
-    public void d(i98 i98Var) {
+    public void c(i98 i98Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i98Var) == null) {
             this.a = i98Var;

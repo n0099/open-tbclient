@@ -77,7 +77,7 @@ public class ff7 extends BaseAdapter {
         this.a = context;
         this.b = arrayList;
         this.d = true;
-        this.c = context.getText(R.string.obfuscated_res_0x7f0f0650).toString();
+        this.c = context.getText(R.string.obfuscated_res_0x7f0f064c).toString();
     }
 
     public void a(ArrayList<String> arrayList) {
@@ -139,8 +139,8 @@ public class ff7 extends BaseAdapter {
             if (view2 == null) {
                 view2 = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0388, (ViewGroup) null);
                 bVar = new b(this, null);
-                bVar.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090d37);
-                bVar.b = view2.findViewById(R.id.obfuscated_res_0x7f090d2e);
+                bVar.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090d30);
+                bVar.b = view2.findViewById(R.id.obfuscated_res_0x7f090d27);
                 view2.setTag(bVar);
             } else {
                 bVar = (b) view2.getTag();

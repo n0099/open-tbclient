@@ -3,24 +3,26 @@ package com.kwai.adclient.kscommerciallogger.model;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
 public final class b extends d {
     public static /* synthetic */ Interceptable $ic;
-    public static final d a;
-    public static final d b;
-    public static final d c;
-    public static final d d;
-    public static final d e;
-    public static final d f;
-    public static final d g;
-    public static final d h;
-    public static final d i;
-    public static final d j;
-    public static final d k;
-    public static final d l;
-    public static final d m;
+    public static final d arR;
+    public static final d arS;
+    public static final d arT;
+    public static final d arU;
+    public static final d arV;
+    public static final d arW;
+    public static final d arX;
+    public static final d arY;
+    public static final d arZ;
+    public static final d asa;
+    public static final d asb;
+    public static final d asc;
+    public static final d asd;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -36,18 +38,38 @@ public final class b extends d {
                 return;
             }
         }
-        a = new d("NETWORK_NO_BODY");
-        b = new d("NETWORK_FORMAT_ERROR");
-        c = new d("NETWORK_INFO_INCOMPLETE");
-        d = new d("NETWORK_BUSINESS_ERROR");
-        e = new d("NETWORK_ERROR");
-        f = new d("METHOD_PARAM_ILLEGAL");
-        g = new d("METHOD_LONG_TIME");
-        h = new d("METHOD_ERROR");
-        i = new d("PAGE_RENDER_FAIL");
-        j = new d("VIEW_RENDER_FAIL");
-        k = new d("RENDER_ERROR");
-        l = new d("MATERIAL_LOAD_FAIL");
-        m = new d("EXCEPTION");
+        arR = new d("NETWORK_NO_BODY");
+        arS = new d("NETWORK_FORMAT_ERROR");
+        arT = new d("NETWORK_INFO_INCOMPLETE");
+        arU = new d("NETWORK_BUSINESS_ERROR");
+        arV = new d("NETWORK_ERROR");
+        arW = new d("METHOD_PARAM_ILLEGAL");
+        arX = new d("METHOD_LONG_TIME");
+        arY = new d("METHOD_ERROR");
+        arZ = new d("PAGE_RENDER_FAIL");
+        asa = new d("VIEW_RENDER_FAIL");
+        asb = new d("RENDER_ERROR");
+        asc = new d("MATERIAL_LOAD_FAIL");
+        asd = new d("EXCEPTION");
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public b(String str) {
+        super(str);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((String) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
     }
 }

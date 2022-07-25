@@ -41,13 +41,13 @@ public class dq6 {
     public List<String> g;
     public int h;
     public boolean i;
-    public kv4 j;
-    public jv4 k;
-    public iv4 l;
+    public lv4 j;
+    public kv4 k;
+    public jv4 l;
     public Runnable m;
 
     /* loaded from: classes5.dex */
-    public class a implements kv4 {
+    public class a implements lv4 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -67,7 +67,7 @@ public class dq6 {
             }
         }
 
-        @Override // com.repackage.kv4
+        @Override // com.repackage.lv4
         public void a(int i, float f) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Float.valueOf(f)}) == null) {
@@ -76,7 +76,7 @@ public class dq6 {
     }
 
     /* loaded from: classes5.dex */
-    public class b implements jv4 {
+    public class b implements kv4 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ dq6 a;
@@ -99,14 +99,14 @@ public class dq6 {
             this.a = dq6Var;
         }
 
-        @Override // com.repackage.jv4
+        @Override // com.repackage.kv4
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             }
         }
 
-        @Override // com.repackage.jv4
+        @Override // com.repackage.kv4
         public void onLoadingStart() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -118,7 +118,7 @@ public class dq6 {
     }
 
     /* loaded from: classes5.dex */
-    public class c implements iv4 {
+    public class c implements jv4 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ dq6 a;
@@ -141,28 +141,28 @@ public class dq6 {
             this.a = dq6Var;
         }
 
-        @Override // com.repackage.iv4
+        @Override // com.repackage.jv4
         public void a(int i, float f) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Float.valueOf(f)}) == null) {
             }
         }
 
-        @Override // com.repackage.iv4
+        @Override // com.repackage.jv4
         public void b(int i, float f) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), Float.valueOf(f)}) == null) {
             }
         }
 
-        @Override // com.repackage.iv4
+        @Override // com.repackage.jv4
         public void c(int i, float f) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), Float.valueOf(f)}) == null) {
             }
         }
 
-        @Override // com.repackage.iv4
+        @Override // com.repackage.jv4
         public void d(int i, float f) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), Float.valueOf(f)}) == null) {
@@ -254,26 +254,26 @@ public class dq6 {
         this.m = new d(this);
         this.a = frsFragment;
         View C3 = frsFragment.C3();
-        AdvancedAdSlideLoadingLayout advancedAdSlideLoadingLayout = (AdvancedAdSlideLoadingLayout) C3.findViewById(R.id.obfuscated_res_0x7f090ac2);
+        AdvancedAdSlideLoadingLayout advancedAdSlideLoadingLayout = (AdvancedAdSlideLoadingLayout) C3.findViewById(R.id.obfuscated_res_0x7f090abb);
         this.b = advancedAdSlideLoadingLayout;
         advancedAdSlideLoadingLayout.k(this.j);
         this.b.j(this.k);
         this.b.i(this.l);
         this.b.n();
-        this.c = (AppBarLayout) C3.findViewById(R.id.obfuscated_res_0x7f090aa3);
-        this.d = (BdTypeRecyclerView) C3.findViewById(R.id.obfuscated_res_0x7f090b5a);
+        this.c = (AppBarLayout) C3.findViewById(R.id.obfuscated_res_0x7f090a9c);
+        this.d = (BdTypeRecyclerView) C3.findViewById(R.id.obfuscated_res_0x7f090b53);
     }
 
-    public void f(qn4 qn4Var) {
+    public void f(rn4 rn4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, qn4Var) == null) {
-            if (qn4Var != null && !oi.isEmpty(qn4Var.b) && !oi.isEmpty(qn4Var.a) && qn4Var.c >= 0) {
+        if (interceptable == null || interceptable.invokeL(1048576, this, rn4Var) == null) {
+            if (rn4Var != null && !oi.isEmpty(rn4Var.b) && !oi.isEmpty(rn4Var.a) && rn4Var.c >= 0) {
                 if (this.b.v()) {
                     this.b.o();
                 }
-                this.b.X(qn4Var, (ViewGroup) this.a.getActivity().getWindow().getDecorView());
+                this.b.X(rn4Var, (ViewGroup) this.a.getActivity().getWindow().getDecorView());
                 this.b.setAdvancedAdStyle(true);
-                this.b.setNavigationBar((NavigationBar) this.a.getActivity().findViewById(R.id.obfuscated_res_0x7f092437));
+                this.b.setNavigationBar((NavigationBar) this.a.getActivity().findViewById(R.id.obfuscated_res_0x7f092439));
                 return;
             }
             this.b.setAdvancedAdStyle(false);
@@ -286,13 +286,13 @@ public class dq6 {
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             boolean z = false;
             if (this.b.getData() != null && this.b.b0()) {
-                qn4 data = this.b.getData();
+                rn4 data = this.b.getData();
                 String currentAccount = TbadkCoreApplication.getCurrentAccount();
                 if (currentAccount == null) {
                     currentAccount = this.f;
                 }
                 String str = currentAccount + data.i;
-                List<String> list = (List) new Gson().fromJson(xt4.k().q("key_uid_adid", ""), new e(this).getType());
+                List<String> list = (List) new Gson().fromJson(yt4.k().q("key_uid_adid", ""), new e(this).getType());
                 this.g = list;
                 if (list == null) {
                     this.g = new ArrayList();
@@ -300,17 +300,17 @@ public class dq6 {
                 Iterator<String> it = this.g.iterator();
                 while (it.hasNext()) {
                     String next = it.next();
-                    if (!StringHelper.isTaday(xt4.k().m(next, 0L))) {
-                        xt4.k().D(next);
+                    if (!StringHelper.isTaday(yt4.k().m(next, 0L))) {
+                        yt4.k().D(next);
                         it.remove();
                     }
                 }
-                if (!StringHelper.isTaday(xt4.k().m(str, 0L))) {
+                if (!StringHelper.isTaday(yt4.k().m(str, 0L))) {
                     this.g.add(str);
-                    xt4.k().x(str, System.currentTimeMillis());
+                    yt4.k().x(str, System.currentTimeMillis());
                     z = true;
                 }
-                xt4.k().y("key_uid_adid", this.g.toString());
+                yt4.k().y("key_uid_adid", this.g.toString());
             }
             return z;
         }
@@ -365,13 +365,13 @@ public class dq6 {
     public void n() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            View findViewById = this.a.C3().findViewById(R.id.obfuscated_res_0x7f090cdf);
-            TbImageView tbImageView = (TbImageView) this.a.getActivity().findViewById(R.id.obfuscated_res_0x7f090cde);
+            View findViewById = this.a.C3().findViewById(R.id.obfuscated_res_0x7f090cd8);
+            TbImageView tbImageView = (TbImageView) this.a.getActivity().findViewById(R.id.obfuscated_res_0x7f090cd7);
             tbImageView.setPlaceHolder(2);
-            TbVideoView tbVideoView = (TbVideoView) this.a.getActivity().findViewById(R.id.obfuscated_res_0x7f0923aa);
-            TbImageView tbImageView2 = (TbImageView) this.a.getActivity().findViewById(R.id.obfuscated_res_0x7f0923a4);
-            View findViewById2 = this.a.getActivity().findViewById(R.id.obfuscated_res_0x7f0923a9);
-            View findViewById3 = this.a.getActivity().findViewById(R.id.obfuscated_res_0x7f090cf8);
+            TbVideoView tbVideoView = (TbVideoView) this.a.getActivity().findViewById(R.id.obfuscated_res_0x7f0923ac);
+            TbImageView tbImageView2 = (TbImageView) this.a.getActivity().findViewById(R.id.obfuscated_res_0x7f0923a6);
+            View findViewById2 = this.a.getActivity().findViewById(R.id.obfuscated_res_0x7f0923ab);
+            View findViewById3 = this.a.getActivity().findViewById(R.id.obfuscated_res_0x7f090cf1);
             if (findViewById == null) {
                 return;
             }
@@ -393,7 +393,7 @@ public class dq6 {
     public void o() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            this.b.m(this.a.C3().findViewById(R.id.obfuscated_res_0x7f090b02), 0);
+            this.b.m(this.a.C3().findViewById(R.id.obfuscated_res_0x7f090afb), 0);
         }
     }
 

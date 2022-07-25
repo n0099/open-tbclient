@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
 /* loaded from: classes6.dex */
-public class j46 extends dc1<z55> {
+public class j46 extends dc1<a65> {
     public static /* synthetic */ Interceptable $ic;
     public static final String a;
     public static final String b;
@@ -21,7 +21,7 @@ public class j46 extends dc1<z55> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes6.dex */
-    public class a implements z55 {
+    public class a implements a65 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -41,14 +41,14 @@ public class j46 extends dc1<z55> {
             }
         }
 
-        @Override // com.repackage.z55
+        @Override // com.repackage.a65
         public boolean a(@NonNull String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) ? q46.k().m(str) : invokeL.booleanValue;
         }
 
-        @Override // com.repackage.z55
+        @Override // com.repackage.a65
         @NonNull
         public String b(@NonNull String str) {
             InterceptResult invokeL;
@@ -56,7 +56,7 @@ public class j46 extends dc1<z55> {
             return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) ? q46.k().j(str) : (String) invokeL.objValue;
         }
 
-        @Override // com.repackage.z55
+        @Override // com.repackage.a65
         @NonNull
         public String c() {
             InterceptResult invokeV;
@@ -64,7 +64,7 @@ public class j46 extends dc1<z55> {
             return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? j46.c : (String) invokeV.objValue;
         }
 
-        @Override // com.repackage.z55
+        @Override // com.repackage.a65
         @NonNull
         public String d(@NonNull String str, boolean z) {
             InterceptResult invokeLZ;
@@ -82,7 +82,7 @@ public class j46 extends dc1<z55> {
             return (String) invokeLZ.objValue;
         }
 
-        @Override // com.repackage.z55
+        @Override // com.repackage.a65
         @NonNull
         public String e(@NonNull String str, @NonNull String str2) {
             InterceptResult invokeLL;
@@ -129,9 +129,9 @@ public class j46 extends dc1<z55> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.repackage.dc1
     /* renamed from: c */
-    public z55 createService() throws ServiceNotFoundException {
+    public a65 createService() throws ServiceNotFoundException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new a(this) : (z55) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new a(this) : (a65) invokeV.objValue;
     }
 }

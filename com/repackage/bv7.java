@@ -16,9 +16,9 @@ public class bv7 extends PostData {
     public static /* synthetic */ Interceptable $ic;
     public static final BdUniqueId L0;
     public transient /* synthetic */ FieldHolder $fh;
-    public rp4 I0;
-    public rp4 J0;
-    public rp4 K0;
+    public sp4 I0;
+    public sp4 J0;
+    public sp4 K0;
 
     static {
         InterceptResult invokeClinit;
@@ -54,12 +54,12 @@ public class bv7 extends PostData {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            rp4 rp4Var = this.I0;
-            if (rp4Var == null || StringUtils.isNull(rp4Var.b)) {
-                rp4 rp4Var2 = this.J0;
-                if (rp4Var2 == null || StringUtils.isNull(rp4Var2.b)) {
-                    rp4 rp4Var3 = this.K0;
-                    return (rp4Var3 == null || StringUtils.isNull(rp4Var3.b)) ? false : true;
+            sp4 sp4Var = this.I0;
+            if (sp4Var == null || StringUtils.isNull(sp4Var.b)) {
+                sp4 sp4Var2 = this.J0;
+                if (sp4Var2 == null || StringUtils.isNull(sp4Var2.b)) {
+                    sp4 sp4Var3 = this.K0;
+                    return (sp4Var3 == null || StringUtils.isNull(sp4Var3.b)) ? false : true;
                 }
                 return true;
             }

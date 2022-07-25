@@ -3,6 +3,7 @@ package com.kwad.components.ad.splashscreen.b;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.os.Vibrator;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,14 +13,14 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.core.response.model.AdInfo;
 import com.kwad.sdk.core.response.model.AdTemplate;
-import com.kwad.sdk.utils.az;
+import com.kwad.sdk.utils.bd;
 /* loaded from: classes5.dex */
 public abstract class h extends e {
     public static /* synthetic */ Interceptable $ic = null;
-    public static long b = 400;
+    public static long gO = 400;
     public transient /* synthetic */ FieldHolder $fh;
-    public Vibrator c;
-    public com.kwad.components.ad.splashscreen.d.a d;
+    public Vibrator eO;
+    public com.kwad.components.ad.splashscreen.d.a yM;
 
     static {
         InterceptResult invokeClinit;
@@ -50,18 +51,18 @@ public abstract class h extends e {
         }
     }
 
-    private void e() {
+    private void km() {
         com.kwad.components.ad.splashscreen.h hVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65538, this) == null) || (hVar = ((e) this).a) == null) {
+        if (!(interceptable == null || interceptable.invokeV(65538, this) == null) || (hVar = this.yF) == null) {
             return;
         }
-        com.kwad.components.ad.splashscreen.d.a aVar = this.d;
+        com.kwad.components.ad.splashscreen.d.a aVar = this.yM;
         if (aVar == null) {
-            this.d = new com.kwad.components.ad.splashscreen.d.a(this, u(), ((e) this).a.c) { // from class: com.kwad.components.ad.splashscreen.b.h.1
+            this.yM = new com.kwad.components.ad.splashscreen.d.a(this, getContext(), this.yF.mAdTemplate) { // from class: com.kwad.components.ad.splashscreen.b.h.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ h a;
+                public final /* synthetic */ h yN;
 
                 /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                 {
@@ -82,91 +83,93 @@ public abstract class h extends e {
                             return;
                         }
                     }
-                    this.a = this;
+                    this.yN = this;
                 }
 
                 @Override // com.kwad.components.ad.splashscreen.d.a
                 @SuppressLint({"SetTextI18n"})
-                public final void a(String str) {
+                public final void Z(String str) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, str) == null) {
-                        this.a.a(str);
+                        this.yN.Y(str);
                     }
                 }
             };
         } else {
-            aVar.a(hVar.c);
+            aVar.setAdTemplate(hVar.mAdTemplate);
         }
-        com.kwad.components.core.c.a.b bVar = ((e) this).a.f;
-        if (bVar != null) {
-            bVar.a(this.d);
+        com.kwad.components.core.c.a.c cVar = this.yF.mApkDownloadHelper;
+        if (cVar != null) {
+            cVar.b(this.yM);
         }
     }
+
+    public abstract void Y(String str);
 
     @Override // com.kwad.components.ad.splashscreen.b.e, com.kwad.sdk.mvp.Presenter
-    public void a() {
+    public void aq() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            super.a();
-            com.kwad.components.ad.splashscreen.h hVar = ((e) this).a;
-            if (hVar == null) {
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            super.aq();
+            if (this.yF == null) {
                 return;
             }
-            AdInfo i = com.kwad.sdk.core.response.a.d.i(hVar.c);
-            j();
-            g();
-            if (com.kwad.sdk.core.response.a.a.I(i)) {
-                e();
+            kl();
+            AdInfo bQ = com.kwad.sdk.core.response.a.d.bQ(this.yF.mAdTemplate);
+            ki();
+            kf();
+            if (com.kwad.sdk.core.response.a.a.am(bQ)) {
+                km();
             }
-            h();
-            k();
-            l();
-            i();
+            kg();
+            kj();
+            kk();
+            kh();
         }
     }
 
-    public abstract void a(String str);
+    public abstract void initView();
 
-    public abstract void d();
+    public abstract void kf();
 
-    public abstract void g();
+    public abstract void kg();
 
-    public abstract void h();
+    public abstract void kh();
 
-    public abstract void i();
+    public abstract void ki();
+
+    public abstract void kj();
+
+    public abstract void kk();
+
+    public abstract void kl();
+
+    public final void kn() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+            Context context = getContext();
+            if (context != null) {
+                this.eO = (Vibrator) context.getSystemService("vibrator");
+            }
+            bd.a(getContext(), this.eO);
+        }
+    }
 
     @Override // com.kwad.sdk.mvp.Presenter
-    public final void i_() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            super.i_();
-            d();
-        }
-    }
-
-    public abstract void j();
-
-    public abstract void k();
-
-    @Override // com.kwad.sdk.mvp.Presenter
-    public void k_() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            super.k_();
-            az.b(u(), this.c);
-        }
-    }
-
-    public abstract void l();
-
-    public final void m() {
+    public final void onCreate() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            Context u = u();
-            if (u != null) {
-                this.c = (Vibrator) u.getSystemService("vibrator");
-            }
-            az.a(u(), this.c);
+            super.onCreate();
+            initView();
+        }
+    }
+
+    @Override // com.kwad.sdk.mvp.Presenter
+    public void onUnbind() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
+            super.onUnbind();
+            bd.b(getContext(), this.eO);
         }
     }
 }

@@ -14,14 +14,14 @@ public abstract class BaseRealData extends BaseResultData {
             return;
         }
         try {
-            String b = com.kwad.sdk.core.a.d.b(jSONObject.optString("data"));
-            if (b == null || b.isEmpty()) {
+            String responseData = com.kwad.sdk.core.a.d.getResponseData(jSONObject.optString("data"));
+            if (responseData == null || responseData.isEmpty()) {
                 this.result = 0;
             } else {
-                parseData(new JSONObject(b));
+                parseData(new JSONObject(responseData));
             }
         } catch (Exception e) {
-            com.kwad.sdk.core.d.b.a(e);
+            com.kwad.sdk.core.e.b.printStackTrace(e);
             this.result = 0;
             this.errorMsg = e.getMessage();
         }

@@ -106,7 +106,7 @@ public class vu7 {
             if (paramPair != null) {
                 this.a = 5;
                 StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_SCHEME_JUMP_CALL_NATIVE);
-                ej4.b(statisticItem, paramPair);
+                fj4.b(statisticItem, paramPair);
                 statisticItem.param("obj_locate", paramPair.get("obj_locate"));
                 statisticItem.param("obj_type", 1);
                 statisticItem.param("tid", paramPair.get("tid"));

@@ -4,7 +4,6 @@ import android.app.Application;
 import android.os.Environment;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.sofire.d.D;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -125,7 +124,7 @@ public final class c {
     public static String b(String str, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(65543, null, str, i)) == null) ? new File(a(str, "version-".concat(String.valueOf(i)), D.COLUMU_PLUGIN_DEX_PATH), "base-1.apk").getPath() : (String) invokeLI.objValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(65543, null, str, i)) == null) ? new File(a(str, "version-".concat(String.valueOf(i)), "apk"), "base-1.apk").getPath() : (String) invokeLI.objValue;
     }
 
     public static String c(String str, int i) {

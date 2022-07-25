@@ -16,7 +16,9 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes2.dex */
 public class WebAuthResult extends SapiResult {
     public static /* synthetic */ Interceptable $ic = null;
+    public static final int ERROR_CODE_CONTEXT_ERROR = 13;
     public static final int ERROR_CODE_NEED_BACK_PHONE_NO_REG = 12;
+    public static final String ERROR_MSG_CONTEXT_ERROR = "请先进行登录";
     public static final String ERROR_MSG_NEED_BACK_PHONE_NO_REG = "手机号未注册";
     public transient /* synthetic */ FieldHolder $fh;
     public AccountType accountType;

@@ -228,7 +228,7 @@ public class LiveFeedPageConcernAdapter extends RecyclerView.Adapter<ViewHolder>
         LiveHostInfo liveHostInfo3 = k80Var.e;
         if (liveHostInfo3 != null) {
             if (ta0.a(liveHostInfo3.name)) {
-                viewHolder.a.setText(R.string.obfuscated_res_0x7f0f09f8);
+                viewHolder.a.setText(R.string.obfuscated_res_0x7f0f09e4);
             } else {
                 viewHolder.a.setText(k80Var.e.name);
             }
@@ -262,11 +262,11 @@ public class LiveFeedPageConcernAdapter extends RecyclerView.Adapter<ViewHolder>
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, viewGroup, i)) == null) {
-            View inflate = this.b.inflate(R.layout.obfuscated_res_0x7f0d050f, viewGroup, false);
+            View inflate = this.b.inflate(R.layout.obfuscated_res_0x7f0d0519, viewGroup, false);
             ViewHolder viewHolder = new ViewHolder(inflate);
-            viewHolder.a = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092247);
+            viewHolder.a = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092249);
             viewHolder.d = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0902f2);
-            viewHolder.e = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f0909de);
+            viewHolder.e = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f0909d7);
             viewHolder.b = (LottieAnimationView) inflate.findViewById(R.id.obfuscated_res_0x7f0902ed);
             viewHolder.c = (SimpleDraweeView) inflate.findViewById(R.id.obfuscated_res_0x7f0902ec);
             viewHolder.f = this.f;

@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public final class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Animator a;
+    public Animator cG;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -48,23 +48,23 @@ public final class b {
         return (Animator) invokeL.objValue;
     }
 
-    public final void a() {
+    public final void a(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+            if (this.cG == null) {
+                this.cG = b(view2);
+            }
+            this.cG.start();
+        }
+    }
+
+    public final void aX() {
         Animator animator;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (animator = this.a) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (animator = this.cG) == null) {
             return;
         }
         animator.removeAllListeners();
-        this.a.cancel();
-    }
-
-    public final void a(View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) {
-            if (this.a == null) {
-                this.a = b(view2);
-            }
-            this.a.start();
-        }
+        this.cG.cancel();
     }
 }

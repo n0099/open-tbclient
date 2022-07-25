@@ -38,7 +38,7 @@ public class CardAppLegoViewHolder extends TypeAdapter.ViewHolder implements c68
         }
     }
 
-    public void c(int i) {
+    public void b(int i) {
         i98 i98Var;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeI(1048576, this, i) == null) || (i98Var = this.a) == null) {
@@ -47,7 +47,7 @@ public class CardAppLegoViewHolder extends TypeAdapter.ViewHolder implements c68
         i98Var.autoPlay(i);
     }
 
-    public boolean d() {
+    public boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -57,7 +57,7 @@ public class CardAppLegoViewHolder extends TypeAdapter.ViewHolder implements c68
         return invokeV.booleanValue;
     }
 
-    public int e() {
+    public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
@@ -70,7 +70,7 @@ public class CardAppLegoViewHolder extends TypeAdapter.ViewHolder implements c68
         return invokeV.intValue;
     }
 
-    public void f(i98 i98Var) {
+    public void e(i98 i98Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, i98Var) == null) {
             this.a = i98Var;

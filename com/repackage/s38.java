@@ -65,11 +65,11 @@ public class s38 extends an<wy5, AutoVideoCardViewHolder<wy5>> implements ck5 {
                 return;
             }
             int id = view2.getId();
-            if (id == R.id.obfuscated_res_0x7f09202a || id == R.id.obfuscated_res_0x7f0923dd) {
+            if (id == R.id.obfuscated_res_0x7f09202e || id == R.id.obfuscated_res_0x7f0923df) {
                 s28.a(view2, wy5Var, 2);
-            } else if (id == R.id.obfuscated_res_0x7f09166e) {
+            } else if (id == R.id.obfuscated_res_0x7f091649) {
                 s28.a(view2, wy5Var, 4);
-            } else if (id == R.id.obfuscated_res_0x7f090a40) {
+            } else if (id == R.id.obfuscated_res_0x7f090a39) {
                 s28.a(view2, wy5Var, 7);
             }
         }
@@ -97,14 +97,14 @@ public class s38 extends an<wy5, AutoVideoCardViewHolder<wy5>> implements ck5 {
         }
 
         @Override // com.repackage.tw.b
-        public void a(nn4 nn4Var, View view2) {
+        public void a(on4 on4Var, View view2) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLL(1048576, this, nn4Var, view2) == null) || view2 == null || nn4Var == null || view2.getId() == -1) {
+            if (!(interceptable == null || interceptable.invokeLL(1048576, this, on4Var, view2) == null) || view2 == null || on4Var == null || view2.getId() == -1) {
                 return;
             }
             int id = view2.getId();
-            if (id == R.id.obfuscated_res_0x7f09232d || id == R.id.obfuscated_res_0x7f09230c) {
-                s28.a(view2, nn4Var, 1);
+            if (id == R.id.obfuscated_res_0x7f09232f || id == R.id.obfuscated_res_0x7f09230e) {
+                s28.a(view2, on4Var, 1);
             }
         }
     }
@@ -141,10 +141,10 @@ public class s38 extends an<wy5, AutoVideoCardViewHolder<wy5>> implements ck5 {
                 wy5 wy5Var = (wy5) nnVar;
                 wy5Var.f = 1;
                 if (this.a.o != null) {
-                    this.a.o.a(threadCardViewHolder.b(), wy5Var);
+                    this.a.o.a(threadCardViewHolder.a(), wy5Var);
                 }
-                ThreadCardUtils.jumpToPB((nn4) wy5Var, view2.getContext(), 4, false, uw.a((tn) viewGroup, view2, i));
-                threadCardViewHolder.c().o(new ny.a(1));
+                ThreadCardUtils.jumpToPB((on4) wy5Var, view2.getContext(), 4, false, uw.a((tn) viewGroup, view2, i));
+                threadCardViewHolder.b().o(new ny.a(1));
             }
         }
     }
@@ -215,7 +215,7 @@ public class s38 extends an<wy5, AutoVideoCardViewHolder<wy5>> implements ck5 {
     public final void a0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            vy5.n0 = "c13542";
+            vy5.h0 = "c13542";
         }
     }
 
@@ -254,10 +254,10 @@ public class s38 extends an<wy5, AutoVideoCardViewHolder<wy5>> implements ck5 {
             ey eyVar = new ey(this.j.getPageActivity());
             eyVar.c(32);
             eyVar.x(false);
-            tn4 tn4Var = new tn4();
-            tn4Var.b = 3;
-            tn4Var.h = 3;
-            eyVar.w(tn4Var);
+            un4 un4Var = new un4();
+            un4Var.b = 3;
+            un4Var.h = 3;
+            eyVar.w(un4Var);
             eyVar.y(8);
             eyVar.E("personalize_page");
             eyVar.D(6);
@@ -265,10 +265,10 @@ public class s38 extends an<wy5, AutoVideoCardViewHolder<wy5>> implements ck5 {
             bVar.m(eyVar);
             cy i2 = bVar.i();
             AutoVideoCardViewHolder<wy5> autoVideoCardViewHolder = new AutoVideoCardViewHolder<>(i2);
-            autoVideoCardViewHolder.k(this.i);
+            autoVideoCardViewHolder.j(this.i);
             i2.p(this.o);
             i2.r(4);
-            autoVideoCardViewHolder.s(this.m);
+            autoVideoCardViewHolder.r(this.m);
             V(new c(this));
             return autoVideoCardViewHolder;
         }
@@ -283,26 +283,26 @@ public class s38 extends an<wy5, AutoVideoCardViewHolder<wy5>> implements ck5 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view2, viewGroup, wy5Var, autoVideoCardViewHolder})) == null) {
             if (wy5Var == null) {
-                return autoVideoCardViewHolder.b();
+                return autoVideoCardViewHolder.a();
             }
             if (autoVideoCardViewHolder == null) {
                 return null;
             }
             wy5Var.I(wy5Var.position + 1);
-            if (autoVideoCardViewHolder.c() != null) {
-                autoVideoCardViewHolder.c().b(this.k);
+            if (autoVideoCardViewHolder.b() != null) {
+                autoVideoCardViewHolder.b().b(this.k);
             }
             if (!this.n) {
-                autoVideoCardViewHolder.t();
+                autoVideoCardViewHolder.s();
             }
-            if (autoVideoCardViewHolder.c().f() instanceof ey) {
-                ((ey) autoVideoCardViewHolder.c().f()).C(new d(this, viewGroup, view2, i));
+            if (autoVideoCardViewHolder.b().f() instanceof ey) {
+                ((ey) autoVideoCardViewHolder.b().f()).C(new d(this, viewGroup, view2, i));
             }
-            autoVideoCardViewHolder.g(wy5Var);
-            autoVideoCardViewHolder.c().onChangeSkinType(this.j, TbadkCoreApplication.getInst().getSkinType());
-            autoVideoCardViewHolder.c().p(this.o);
+            autoVideoCardViewHolder.f(wy5Var);
+            autoVideoCardViewHolder.b().onChangeSkinType(this.j, TbadkCoreApplication.getInst().getSkinType());
+            autoVideoCardViewHolder.b().p(this.o);
             s28.b(wy5Var);
-            return autoVideoCardViewHolder.b();
+            return autoVideoCardViewHolder.a();
         }
         return (View) invokeCommon.objValue;
     }

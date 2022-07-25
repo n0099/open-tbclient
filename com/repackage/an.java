@@ -86,7 +86,7 @@ public abstract class an<T, V extends TypeAdapter.ViewHolder> {
             if (F(view2)) {
                 V v = (V) N(viewGroup, t);
                 this.g = v;
-                view2 = v.b();
+                view2 = v.a();
                 if (BdBaseApplication.getInst().isDebugMode()) {
                     BdLog.i("convertView is creating" + this.g.getClass().getName());
                 }
@@ -192,7 +192,7 @@ public abstract class an<T, V extends TypeAdapter.ViewHolder> {
     public void T(int i, ViewGroup viewGroup, V v, T t) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048594, this, new Object[]{Integer.valueOf(i), viewGroup, v, t}) == null) {
-            S(i, v.b(), viewGroup, t, v);
+            S(i, v.a(), viewGroup, t, v);
         }
     }
 

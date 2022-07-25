@@ -2,31 +2,32 @@ package com.repackage;
 
 import android.content.Context;
 import android.text.TextUtils;
-import androidx.annotation.NonNull;
+import android.widget.Toast;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
+import java.io.File;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public abstract class g13 extends e23 {
+public class g13 extends f23 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public g13(e13 e13Var, String str) {
-        super(e13Var, str);
+    public g13(f13 f13Var) {
+        super(f13Var, "/swanAPI/abTestConfig");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {e13Var, str};
+            Object[] objArr = {f13Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -40,88 +41,75 @@ public abstract class g13 extends e23 {
         }
     }
 
-    @Override // com.repackage.e23
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, h03 h03Var) {
+    public static String k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            File a = xc3.a();
+            if (a == null) {
+                return null;
+            }
+            String path = a.getPath();
+            if (TextUtils.isEmpty(path)) {
+                return null;
+            }
+            return path + "/debug_abtest_config.json";
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.repackage.f23
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, i03 i03Var) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, h03Var)) == null) {
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, i03Var)) == null) {
+            if (f23.b) {
+                JSONObject a = f23.a(unitedSchemeEntity, "params");
+                if (a != null && context != null) {
+                    JSONObject optJSONObject = a.optJSONObject("abtest");
+                    if (optJSONObject != null) {
+                        Toast.makeText(context, l(optJSONObject) ? R.string.obfuscated_res_0x7f0f1268 : R.string.obfuscated_res_0x7f0f1266, 1).show();
+                    } else {
+                        j();
+                        Toast.makeText(context, (int) R.string.obfuscated_res_0x7f0f1269, 1).show();
+                    }
+                    return true;
+                }
+                Toast.makeText(context, (int) R.string.obfuscated_res_0x7f0f1267, 1).show();
+                return false;
+            }
             return false;
         }
         return invokeLLLL.booleanValue;
     }
 
-    @Override // com.repackage.e23
-    public boolean i(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str, h03 h03Var) {
-        InterceptResult invokeLLLLL;
-        boolean n;
+    public final void j() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, unitedSchemeEntity, callbackHandler, str, h03Var)) == null) {
-            String l = l("insert");
-            String l2 = l("update");
-            String l3 = l("remove");
-            if (TextUtils.equals(l, str)) {
-                n = m(context, unitedSchemeEntity, callbackHandler, str, h03Var);
-            } else if (TextUtils.equals(l2, str)) {
-                n = p(context, unitedSchemeEntity, callbackHandler, str, h03Var);
-            } else if (TextUtils.equals(l3, str)) {
-                n = o(context, unitedSchemeEntity, callbackHandler, str, h03Var);
-            } else {
-                n = n(context, unitedSchemeEntity, callbackHandler, str, h03Var);
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            String k = k();
+            if (TextUtils.isEmpty(k)) {
+                return;
             }
-            hx1.b("AbsSwanAppWidget", "subAction = " + str + " ; handle result = " + n);
-            return n;
+            File file = new File(k);
+            if (file.exists()) {
+                file.delete();
+            }
         }
-        return invokeLLLLL.booleanValue;
     }
 
-    @NonNull
-    public abstract String j();
-
-    public JSONObject k(UnitedSchemeEntity unitedSchemeEntity) {
+    public final boolean l(JSONObject jSONObject) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, unitedSchemeEntity)) == null) {
-            if (unitedSchemeEntity == null) {
-                hx1.c("AbsSwanAppWidget", "getParamsJSONObject entity is null");
-                return null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject)) == null) {
+            if (jSONObject == null) {
+                return false;
             }
-            String param = unitedSchemeEntity.getParam("params");
-            if (TextUtils.isEmpty(param)) {
-                hx1.c("AbsSwanAppWidget", "getParamsJSONObject paramsJson is empty");
-                return null;
+            String k = k();
+            if (TextUtils.isEmpty(k)) {
+                return false;
             }
-            try {
-                return new JSONObject(param);
-            } catch (JSONException e) {
-                hx1.c("AbsSwanAppWidget", "getParamsJSONObject exception = " + e.getMessage());
-                if (e23.b) {
-                    e.printStackTrace();
-                    return null;
-                }
-                return null;
-            }
+            return lj2.b(k, jSONObject.toString(), false);
         }
-        return (JSONObject) invokeL.objValue;
+        return invokeL.booleanValue;
     }
-
-    public final String l(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            return j() + "/" + str;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public abstract boolean m(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str, h03 h03Var);
-
-    public boolean n(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str, h03 h03Var) {
-        InterceptResult invokeLLLLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048582, this, context, unitedSchemeEntity, callbackHandler, str, h03Var)) == null) ? super.i(context, unitedSchemeEntity, callbackHandler, str, h03Var) : invokeLLLLL.booleanValue;
-    }
-
-    public abstract boolean o(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str, h03 h03Var);
-
-    public abstract boolean p(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str, h03 h03Var);
 }

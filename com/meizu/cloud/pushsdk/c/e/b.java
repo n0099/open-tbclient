@@ -3,11 +3,10 @@ package com.meizu.cloud.pushsdk.c.e;
 import android.content.Context;
 import android.location.Location;
 import android.os.Build;
-import com.baidu.sofire.d.D;
 import com.baidu.tbadk.browser.SearchJsBridge;
 import com.google.android.exoplayer2.text.ttml.TtmlNode;
 import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
-import com.kuaishou.weapon.p0.C0400;
+import com.kuaishou.weapon.p0.u;
 import com.meizu.cloud.pushsdk.c.f.e;
 import java.util.HashMap;
 import java.util.Map;
@@ -69,7 +68,7 @@ public class b {
     }
 
     private void f() {
-        a(C0400.f418, Build.MODEL);
+        a(u.A, Build.MODEL);
     }
 
     private void g() {
@@ -95,7 +94,7 @@ public class b {
             com.meizu.cloud.pushsdk.c.f.c.a(a, "Location information not available.", new Object[0]);
             return;
         }
-        a(D.COLUMN_PLUGIN_PLUGIN_NOT_EXIST_LAST_POINT, Double.valueOf(c.getLatitude()));
+        a("la", Double.valueOf(c.getLatitude()));
         a(WebvttCueParser.ENTITY_LESS_THAN, Double.valueOf(c.getLongitude()));
         a("al", Double.valueOf(c.getAltitude()));
         a("lla", Float.valueOf(c.getAccuracy()));

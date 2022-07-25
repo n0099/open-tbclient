@@ -108,10 +108,10 @@ public class mh6 implements ai6 {
                 if (threadData.getIs_top() != 0) {
                     threadData.parser_title();
                 }
-            } else if (nnVar instanceof qq4) {
-                qq4 qq4Var = (qq4) nnVar;
-                if (qq4Var.s.getIs_top() != 0) {
-                    qq4Var.s.parser_title();
+            } else if (nnVar instanceof rq4) {
+                rq4 rq4Var = (rq4) nnVar;
+                if (rq4Var.s.getIs_top() != 0) {
+                    rq4Var.s.parser_title();
                 }
             }
         }
@@ -123,7 +123,7 @@ public class mh6 implements ai6 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             if (this.j != null) {
-                return R.id.obfuscated_res_0x7f090acd;
+                return R.id.obfuscated_res_0x7f090ac6;
             }
             return 0;
         }
@@ -188,7 +188,7 @@ public class mh6 implements ai6 {
             Iterator<nn> it = arrayList.iterator();
             while (it.hasNext()) {
                 nn next = it.next();
-                if ((next instanceof qq4) && ((qq4) next).s.isTop()) {
+                if ((next instanceof rq4) && ((rq4) next).s.isTop()) {
                     it.remove();
                 }
             }
@@ -213,7 +213,7 @@ public class mh6 implements ai6 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
             if (this.j != null) {
-                return R.id.obfuscated_res_0x7f090aa8;
+                return R.id.obfuscated_res_0x7f090aa1;
             }
             return 0;
         }
@@ -226,7 +226,7 @@ public class mh6 implements ai6 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
             if (this.j != null) {
-                return R.id.obfuscated_res_0x7f090b72;
+                return R.id.obfuscated_res_0x7f090b6b;
             }
             return 0;
         }
@@ -389,7 +389,7 @@ public class mh6 implements ai6 {
             ph6 ph6Var = new ph6(frsFragment.getPageContext(), ThreadData.TYPE_GOD_NORMAL, this.a.getUniqueId());
             this.w = ph6Var;
             ph6Var.h0(tnVar);
-            an<? extends qq4, ? extends TypeAdapter.ViewHolder> a = wc6.e().a(frsFragment.getPageContext(), this.a.getUniqueId(), true);
+            an<? extends rq4, ? extends TypeAdapter.ViewHolder> a = wc6.e().a(frsFragment.getPageContext(), this.a.getUniqueId(), true);
             an<? extends ThreadData, ? extends TypeAdapter.ViewHolder> d = wc6.e().d(frsFragment.getPageContext(), ThreadData.TYPE_LOTTERY, this.a.getUniqueId());
             jd6 jd6Var = new jd6(frsFragment.getPageContext(), kd6.b);
             eh6 eh6Var = new eh6(frsFragment.getPageContext(), md6.a);
@@ -494,8 +494,8 @@ public class mh6 implements ai6 {
             for (int i = 0; i < count; i++) {
                 nn nnVar = (nn) ListUtils.getItem(arrayList, i - 1);
                 nn nnVar2 = (nn) ListUtils.getItem(arrayList, i);
-                if (nnVar2 instanceof qq4) {
-                    ThreadData threadData = ((qq4) nnVar2).s;
+                if (nnVar2 instanceof rq4) {
+                    ThreadData threadData = ((rq4) nnVar2).s;
                     if (i == 0) {
                         threadData.isFirstFloor = true;
                     } else {
@@ -506,7 +506,7 @@ public class mh6 implements ai6 {
                         threadData.needTopMargin = false;
                     } else if (nnVar != null && !q(nnVar)) {
                         threadData.needTopMargin = false;
-                    } else if ((nnVar instanceof qq4) && q(nnVar) && !TextUtils.isEmpty(((qq4) nnVar).s.getRecomReason())) {
+                    } else if ((nnVar instanceof rq4) && q(nnVar) && !TextUtils.isEmpty(((rq4) nnVar).s.getRecomReason())) {
                         threadData.needTopMargin = true;
                     } else if (q(nnVar2) && !TextUtils.isEmpty(recomReason)) {
                         threadData.needTopMargin = true;

@@ -32,7 +32,7 @@ import com.google.android.material.appbar.AppBarLayout;
 import com.google.android.material.appbar.CollapsingToolbarLayout;
 import java.util.List;
 /* loaded from: classes7.dex */
-public class yw6 implements iw6, View.OnClickListener, jm4 {
+public class yw6 implements iw6, View.OnClickListener, km4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext a;
@@ -191,7 +191,7 @@ public class yw6 implements iw6, View.OnClickListener, jm4 {
         }
     }
 
-    @Override // com.repackage.jm4
+    @Override // com.repackage.km4
     public void c(View view2, Object obj, int i, long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{view2, obj, Integer.valueOf(i), Long.valueOf(j)}) == null) {
@@ -199,7 +199,7 @@ public class yw6 implements iw6, View.OnClickListener, jm4 {
         }
     }
 
-    @Override // com.repackage.jm4
+    @Override // com.repackage.km4
     public void d(View view2, Object obj, int i, long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{view2, obj, Integer.valueOf(i), Long.valueOf(j)}) == null) {
@@ -252,20 +252,20 @@ public class yw6 implements iw6, View.OnClickListener, jm4 {
             return;
         }
         this.a.getPageActivity().setContentView(k());
-        this.j = (ImageView) k().findViewById(R.id.obfuscated_res_0x7f090cf3);
-        this.k = (ImageView) k().findViewById(R.id.obfuscated_res_0x7f090cf9);
-        this.l = (NavigationBar) k().findViewById(R.id.obfuscated_res_0x7f0912a1);
-        BdTypeRecyclerView bdTypeRecyclerView = (BdTypeRecyclerView) k().findViewById(R.id.obfuscated_res_0x7f0914ba);
+        this.j = (ImageView) k().findViewById(R.id.obfuscated_res_0x7f090cec);
+        this.k = (ImageView) k().findViewById(R.id.obfuscated_res_0x7f090cf2);
+        this.l = (NavigationBar) k().findViewById(R.id.obfuscated_res_0x7f09127d);
+        BdTypeRecyclerView bdTypeRecyclerView = (BdTypeRecyclerView) k().findViewById(R.id.obfuscated_res_0x7f091495);
         this.m = bdTypeRecyclerView;
         bdTypeRecyclerView.setLayoutManager(new LinearLayoutManager(this.a.getPageActivity()));
         this.m.setFadingEdgeLength(0);
         o(this.e);
-        AppBarLayout appBarLayout = (AppBarLayout) k().findViewById(R.id.obfuscated_res_0x7f09129e);
+        AppBarLayout appBarLayout = (AppBarLayout) k().findViewById(R.id.obfuscated_res_0x7f09127a);
         this.t = appBarLayout;
         appBarLayout.addOnOffsetChangedListener(this.w);
-        this.q = (CollapsingToolbarLayout) k().findViewById(R.id.obfuscated_res_0x7f09129f);
-        this.r = k().findViewById(R.id.obfuscated_res_0x7f0915ab);
-        this.s = k().findViewById(R.id.obfuscated_res_0x7f0915b1);
+        this.q = (CollapsingToolbarLayout) k().findViewById(R.id.obfuscated_res_0x7f09127b);
+        this.r = k().findViewById(R.id.obfuscated_res_0x7f091586);
+        this.s = k().findViewById(R.id.obfuscated_res_0x7f09158c);
         m();
         mw6 mw6Var = new mw6(this.a, this.m);
         this.d = mw6Var;
@@ -289,7 +289,7 @@ public class yw6 implements iw6, View.OnClickListener, jm4 {
         RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams(-2, -2);
         layoutParams2.addRule(13);
         this.u.setLayoutParams(layoutParams2);
-        this.u.setText(R.string.obfuscated_res_0x7f0f09db);
+        this.u.setText(R.string.obfuscated_res_0x7f0f09c5);
         this.u.setBackgroundColor(0);
         this.v.addView(this.u);
     }
@@ -323,7 +323,7 @@ public class yw6 implements iw6, View.OnClickListener, jm4 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
             if (this.h != i) {
-                ur4 d = ur4.d(this.p);
+                vr4 d = vr4.d(this.p);
                 d.A(R.string.F_X02);
                 d.z(R.dimen.T_X05);
                 d.v(R.color.CAM_X0105);
@@ -335,7 +335,7 @@ public class yw6 implements iw6, View.OnClickListener, jm4 {
                     this.k.setImageDrawable(a2[1]);
                 }
                 this.v.setBackgroundColor(SkinManager.getColor(R.color.CAM_X0209));
-                ur4 d2 = ur4.d(this.u);
+                vr4 d2 = vr4.d(this.u);
                 d2.z(R.dimen.T_X08);
                 d2.v(R.color.CAM_X0109);
                 mw6 mw6Var = this.d;
@@ -350,7 +350,7 @@ public class yw6 implements iw6, View.OnClickListener, jm4 {
     @Override // android.view.View.OnClickListener
     public void onClick(View view2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048588, this, view2) == null) || this.a == null || view2.getId() != R.id.obfuscated_res_0x7f091585 || this.a.getPageActivity() == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048588, this, view2) == null) || this.a == null || view2.getId() != R.id.obfuscated_res_0x7f091560 || this.a.getPageActivity() == null) {
             return;
         }
         this.a.getPageActivity().finish();
@@ -385,8 +385,8 @@ public class yw6 implements iw6, View.OnClickListener, jm4 {
                 this.k.setVisibility(0);
             }
             for (nn nnVar : list) {
-                if (nnVar instanceof qq4) {
-                    ((qq4) nnVar).getThreadData().mTabCode = this.e;
+                if (nnVar instanceof rq4) {
+                    ((rq4) nnVar).getThreadData().mTabCode = this.e;
                 }
             }
             mw6 mw6Var = this.d;

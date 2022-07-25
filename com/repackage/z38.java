@@ -232,7 +232,7 @@ public class z38 extends x38 implements b58 {
             } else {
                 this.i.o();
                 this.i.t(8);
-                this.i.y(this.c.getString(R.string.obfuscated_res_0x7f0f0c2b), true);
+                this.i.y(this.c.getString(R.string.obfuscated_res_0x7f0f0c17), true);
             }
         }
     }
@@ -246,7 +246,7 @@ public class z38 extends x38 implements b58 {
                 this.j.M(this.g, this.h);
             } else {
                 this.i.o();
-                pi.O(this.d.getContext(), this.d.getString(R.string.obfuscated_res_0x7f0f047b));
+                pi.O(this.d.getContext(), this.d.getString(R.string.obfuscated_res_0x7f0f047a));
                 ArrayList arrayList = new ArrayList();
                 m48 m48Var = new m48();
                 m48Var.a = this.a;
@@ -310,7 +310,7 @@ public class z38 extends x38 implements b58 {
             if (postWriteCallBackData == null || postWriteCallBackData.getVideoEasterEggData() == null || oi.isEmpty(postWriteCallBackData.getVideoEasterEggData().getVideoUrl())) {
                 return false;
             }
-            if (xt4.k().h(xt4.o(postWriteCallBackData.getVideoEasterEggData().getActivityID()), true)) {
+            if (yt4.k().h(yt4.o(postWriteCallBackData.getVideoEasterEggData().getActivityID()), true)) {
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new VideoEasterEggActivityConfig(this.b).createNormalConfig("from_person", postWriteCallBackData.getVideoEasterEggData())));
                 return true;
             }
@@ -428,7 +428,7 @@ public class z38 extends x38 implements b58 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048592, this, postWriteCallBackData) == null) {
             if (this.n == null) {
-                this.n = new a06(this.b.getPageContext(), (NavigationBarCoverTip) this.b.findViewById(R.id.obfuscated_res_0x7f091598));
+                this.n = new a06(this.b.getPageContext(), (NavigationBarCoverTip) this.b.findViewById(R.id.obfuscated_res_0x7f091573));
             }
             this.n.l(postWriteCallBackData);
         }

@@ -5,66 +5,51 @@ import java.io.ByteArrayInputStream;
 import java.util.zip.CRC32;
 /* loaded from: classes5.dex */
 public final class d {
-    public final int a;
-    public final byte[] b;
-    public final String c;
-    public CRC32 g;
-    public byte[] d = null;
-    public long f = 0;
-    public byte[] e = new byte[4];
+    public final byte[] alA;
+    public final String alB;
+    public CRC32 alE;
+    public final int len;
+    public byte[] data = null;
+    public long alC = 0;
+    public byte[] alD = new byte[4];
 
     public d(int i, String str, boolean z) {
-        this.a = i;
-        this.c = str;
-        this.b = b.a(str);
+        this.len = i;
+        this.alB = str;
+        this.alA = b.dq(str);
         for (int i2 = 0; i2 < 4; i2++) {
-            byte[] bArr = this.b;
+            byte[] bArr = this.alA;
             if (bArr[i2] < 65 || bArr[i2] > 122 || (bArr[i2] > 90 && bArr[i2] < 97)) {
-                com.kwad.sdk.core.d.b.a(new PngjException("Bad id chunk: must be ascii letters " + str));
+                com.kwad.sdk.core.e.b.printStackTrace(new PngjException("Bad id chunk: must be ascii letters " + str));
             }
         }
         if (z) {
-            c();
+            yE();
         }
     }
 
-    private void c() {
-        byte[] bArr = this.d;
-        if (bArr == null || bArr.length < this.a) {
-            this.d = new byte[this.a];
+    private void yE() {
+        byte[] bArr = this.data;
+        if (bArr == null || bArr.length < this.len) {
+            this.data = new byte[this.len];
         }
     }
 
-    public final ByteArrayInputStream a() {
-        return new ByteArrayInputStream(this.d);
+    public final void R(long j) {
+        this.alC = j;
     }
 
-    public final void a(long j) {
-        this.f = j;
-    }
-
-    public final void a(boolean z) {
-        int value = (int) this.g.getValue();
-        int c = com.kwad.sdk.pngencrypt.n.c(this.e, 0);
-        if (value != c) {
-            String format = String.format("Bad CRC in chunk: %s (offset:%d). Expected:%x Got:%x", this.c, Long.valueOf(this.f), Integer.valueOf(c), Integer.valueOf(value));
+    public final void aY(boolean z) {
+        int value = (int) this.alE.getValue();
+        int g = com.kwad.sdk.pngencrypt.n.g(this.alD, 0);
+        if (value != g) {
+            String format = String.format("Bad CRC in chunk: %s (offset:%d). Expected:%x Got:%x", this.alB, Long.valueOf(this.alC), Integer.valueOf(g), Integer.valueOf(value));
             if (z) {
-                com.kwad.sdk.core.d.b.a(new PngjException(format));
+                com.kwad.sdk.core.e.b.printStackTrace(new PngjException(format));
             } else {
-                com.kwad.sdk.core.d.b.a("PNG_ENCRYPT", format);
+                com.kwad.sdk.core.e.b.d("PNG_ENCRYPT", format);
             }
         }
-    }
-
-    public final void a(byte[] bArr, int i, int i2) {
-        if (this.g == null) {
-            this.g = new CRC32();
-        }
-        this.g.update(bArr, i, i2);
-    }
-
-    public final long b() {
-        return this.f;
     }
 
     public final boolean equals(Object obj) {
@@ -73,27 +58,42 @@ public final class d {
         }
         if (obj != null && d.class == obj.getClass()) {
             d dVar = (d) obj;
-            String str = this.c;
+            String str = this.alB;
             if (str == null) {
-                if (dVar.c != null) {
+                if (dVar.alB != null) {
                     return false;
                 }
-            } else if (!str.equals(dVar.c)) {
+            } else if (!str.equals(dVar.alB)) {
                 return false;
             }
-            return this.f == dVar.f;
+            return this.alC == dVar.alC;
         }
         return false;
     }
 
+    public final void f(byte[] bArr, int i, int i2) {
+        if (this.alE == null) {
+            this.alE = new CRC32();
+        }
+        this.alE.update(bArr, i, i2);
+    }
+
     public final int hashCode() {
-        String str = this.c;
+        String str = this.alB;
         int hashCode = str == null ? 0 : str.hashCode();
-        long j = this.f;
+        long j = this.alC;
         return ((hashCode + 31) * 31) + ((int) (j ^ (j >>> 32)));
     }
 
     public final String toString() {
-        return "chunkid=" + b.a(this.b) + " len=" + this.a;
+        return "chunkid=" + b.i(this.alA) + " len=" + this.len;
+    }
+
+    public final ByteArrayInputStream yF() {
+        return new ByteArrayInputStream(this.data);
+    }
+
+    public final long yG() {
+        return this.alC;
     }
 }

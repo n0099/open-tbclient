@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.td5;
+import com.repackage.ud5;
 import tbclient.FinishMemberTask.DataReq;
 import tbclient.FinishMemberTask.FinishMemberTaskReqIdl;
 /* loaded from: classes3.dex */
@@ -45,7 +45,7 @@ public class FinishMemberTaskReqMessage extends NetMessage {
             DataReq.Builder builder = new DataReq.Builder();
             builder.task_id = Long.valueOf(this.taskId);
             if (z || SocketAddCommonParamSwitch.getIsOn()) {
-                td5.a(builder, true);
+                ud5.a(builder, true);
             }
             FinishMemberTaskReqIdl.Builder builder2 = new FinishMemberTaskReqIdl.Builder();
             builder2.data = builder.build(false);

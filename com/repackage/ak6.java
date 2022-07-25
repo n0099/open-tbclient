@@ -123,13 +123,13 @@ public class ak6 extends an<y26, CardViewHolder<lx5>> {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view2, viewGroup, y26Var, cardViewHolder})) == null) {
-            if (cardViewHolder.c() == null) {
+            if (cardViewHolder.b() == null) {
                 return null;
             }
-            cardViewHolder.c().i(y26Var);
-            cardViewHolder.c().j(this.i, TbadkCoreApplication.getInst().getSkinType());
-            cardViewHolder.c().n(new a(this));
-            return cardViewHolder.c().h();
+            cardViewHolder.b().i(y26Var);
+            cardViewHolder.b().j(this.i, TbadkCoreApplication.getInst().getSkinType());
+            cardViewHolder.b().n(new a(this));
+            return cardViewHolder.b().h();
         }
         return (View) invokeCommon.objValue;
     }

@@ -163,7 +163,7 @@ public class uz7 {
         public void onAnimationUpdate(ValueAnimator valueAnimator) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, valueAnimator) == null) {
-                int i = (iz4.c() > 0L ? 1 : (iz4.c() == 0L ? 0 : -1));
+                int i = (jz4.c() > 0L ? 1 : (jz4.c() == 0L ? 0 : -1));
                 uz7 uz7Var = this.a;
                 View view2 = i > 0 ? uz7Var.b : uz7Var.a;
                 if (view2 != null) {
@@ -236,8 +236,8 @@ public class uz7 {
     public void j() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && this.d && TbSingleton.getInstance().getSharePanelConfData() != null && TbSingleton.getInstance().getSharePanelConfData().c()) {
-            int b2 = iz4.b();
-            if (iz4.c() > 0) {
+            int b2 = jz4.b();
+            if (jz4.c() > 0) {
                 WebPManager.setPureDrawable(this.a, R.drawable.obfuscated_res_0x7f080944, R.color.CAM_X0107, WebPManager.ResourceStateType.NORMAL);
             } else if (b2 > 0) {
                 SvgManager.getInstance().setMaskDrawableWithDayNightModeAutoChange(this.a, b2, SvgManager.SvgResourceStateType.NORMAL_PRESS);
@@ -285,10 +285,10 @@ public class uz7 {
         if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
             this.d = true;
             this.e = i;
-            int b2 = iz4.b();
+            int b2 = jz4.b();
             if (b2 > 0) {
                 SvgManager.getInstance().setMaskDrawableWithDayNightModeAutoChange(this.a, b2, SvgManager.SvgResourceStateType.NORMAL_PRESS);
-                long c2 = iz4.c();
+                long c2 = jz4.c();
                 if (c2 > 0) {
                     this.a.setVisibility(4);
                     HeadImageView headImageView = this.b;

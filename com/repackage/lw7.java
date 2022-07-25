@@ -153,12 +153,12 @@ public class lw7 implements QueryMatchEmotionModel.b, kw7.b, EmotionView.c {
         }
 
         @Override // com.baidu.tbadk.img.GetEmotionPidModel.b
-        public void a(p45 p45Var) {
+        public void a(q45 q45Var) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, p45Var) == null) || p45Var == null || TextUtils.isEmpty(p45Var.a)) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, q45Var) == null) || q45Var == null || TextUtils.isEmpty(q45Var.a)) {
                 return;
             }
-            this.a.setPicId(p45Var.a);
+            this.a.setPicId(q45Var.a);
             this.b.n(this.a);
         }
 
@@ -209,12 +209,12 @@ public class lw7 implements QueryMatchEmotionModel.b, kw7.b, EmotionView.c {
                     HListView hListView2 = new HListView(this.a.getContext());
                     this.c = hListView2;
                     SkinManager.setBackgroundColor(hListView2, R.color.CAM_X0201);
-                    this.c.setDividerWidth(pi.f(this.a.getPageActivity(), R.dimen.obfuscated_res_0x7f0702f8));
+                    this.c.setDividerWidth(pi.f(this.a.getPageActivity(), R.dimen.obfuscated_res_0x7f0702f6));
                     this.c.setClipToPadding(false);
-                    int f = pi.f(this.a.getPageActivity(), R.dimen.obfuscated_res_0x7f070232);
+                    int f = pi.f(this.a.getPageActivity(), R.dimen.obfuscated_res_0x7f070230);
                     this.c.setPadding(f, f, f, f);
                     this.c.setSelector(R.drawable.obfuscated_res_0x7f080c9c);
-                    this.i.height = pi.f(this.a.getPageActivity(), R.dimen.obfuscated_res_0x7f070247);
+                    this.i.height = pi.f(this.a.getPageActivity(), R.dimen.obfuscated_res_0x7f070245);
                     this.h.addView(this.c, this.i);
                     if (this.d == null) {
                         kw7 kw7Var = new kw7();
@@ -317,7 +317,7 @@ public class lw7 implements QueryMatchEmotionModel.b, kw7.b, EmotionView.c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, emotionImageData) == null) {
             TiebaStatic.log("c12489");
-            lx4 lx4Var = new lx4();
+            mx4 mx4Var = new mx4();
             StringBuilder sb = new StringBuilder();
             sb.append(emotionImageData.getPicId());
             sb.append(",");
@@ -326,12 +326,12 @@ public class lw7 implements QueryMatchEmotionModel.b, kw7.b, EmotionView.c {
             sb.append(emotionImageData.getHeight());
             sb.append(",");
             String lowerCase = vi.c(EmotionUtil.NEW_EMOTION_SHARPTEXT_PREFIX_SHORT + sb.toString() + UploadedImageInfo.MD5_KEY).toLowerCase();
-            lx4Var.n("#(meme,net_" + Uri.encode(emotionImageData.getPicUrl()) + "," + sb.toString() + lowerCase + SmallTailInfo.EMOTION_SUFFIX);
-            lx4Var.q(EmotionGroupType.NET_SUG);
-            lx4Var.s(emotionImageData.getWidth());
-            lx4Var.l(emotionImageData.getHeight());
-            lx4Var.r(emotionImageData.getPicUrl());
-            this.j.A(new j15(24, -1, lx4Var));
+            mx4Var.n("#(meme,net_" + Uri.encode(emotionImageData.getPicUrl()) + "," + sb.toString() + lowerCase + SmallTailInfo.EMOTION_SUFFIX);
+            mx4Var.q(EmotionGroupType.NET_SUG);
+            mx4Var.s(emotionImageData.getWidth());
+            mx4Var.l(emotionImageData.getHeight());
+            mx4Var.r(emotionImageData.getPicUrl());
+            this.j.A(new k15(24, -1, mx4Var));
         }
     }
 

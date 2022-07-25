@@ -383,24 +383,24 @@ public class PasswordView extends RelativeLayout {
     public final void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            RelativeLayout.inflate(getContext(), R.layout.obfuscated_res_0x7f0d0899, this);
-            this.a = (EditText) findViewById(R.id.obfuscated_res_0x7f09082b);
-            this.b = (EditText) findViewById(R.id.obfuscated_res_0x7f09082c);
-            this.c = (EditText) findViewById(R.id.obfuscated_res_0x7f09082d);
-            this.d = (EditText) findViewById(R.id.obfuscated_res_0x7f09082e);
+            RelativeLayout.inflate(getContext(), R.layout.obfuscated_res_0x7f0d08a3, this);
+            this.a = (EditText) findViewById(R.id.obfuscated_res_0x7f090829);
+            this.b = (EditText) findViewById(R.id.obfuscated_res_0x7f09082a);
+            this.c = (EditText) findViewById(R.id.obfuscated_res_0x7f09082b);
+            this.d = (EditText) findViewById(R.id.obfuscated_res_0x7f09082c);
             this.k.add(this.a);
             this.k.add(this.b);
             this.k.add(this.c);
             this.k.add(this.d);
-            this.f = (ImageView) findViewById(R.id.obfuscated_res_0x7f090823);
-            this.g = (ImageView) findViewById(R.id.obfuscated_res_0x7f090824);
-            this.h = (ImageView) findViewById(R.id.obfuscated_res_0x7f090825);
-            this.i = (ImageView) findViewById(R.id.obfuscated_res_0x7f090826);
+            this.f = (ImageView) findViewById(R.id.obfuscated_res_0x7f090821);
+            this.g = (ImageView) findViewById(R.id.obfuscated_res_0x7f090822);
+            this.h = (ImageView) findViewById(R.id.obfuscated_res_0x7f090823);
+            this.i = (ImageView) findViewById(R.id.obfuscated_res_0x7f090824);
             this.l.add(this.f);
             this.l.add(this.g);
             this.l.add(this.h);
             this.l.add(this.i);
-            FrameLayout frameLayout = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0916d4);
+            FrameLayout frameLayout = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0916af);
             this.j = frameLayout;
             frameLayout.setOnClickListener(new c(this));
             l();

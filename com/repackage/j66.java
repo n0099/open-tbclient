@@ -1,9 +1,9 @@
 package com.repackage;
 
 import com.baidu.tbadk.core.data.ErrorData;
-import com.repackage.fu4;
+import com.repackage.gu4;
 /* loaded from: classes6.dex */
-public interface j66 extends fu4.g {
+public interface j66 extends gu4.g {
     void f(ErrorData errorData);
 
     void i();

@@ -1,121 +1,60 @@
 package com.repackage;
 
-import android.text.TextUtils;
-import androidx.collection.ArrayMap;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.launch.SmartLaunchStats;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
-import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class yx4 {
     public static /* synthetic */ Interceptable $ic;
-    public static final yx4 d;
     public transient /* synthetic */ FieldHolder $fh;
-    public final boolean a;
-    public Map<String, zx4> b;
-    public int c;
+    public String a;
+    public long b;
+    public long c;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755126436, "Lcom/repackage/yx4;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755126436, "Lcom/repackage/yx4;");
-                return;
-            }
-        }
-        d = new yx4(false);
-    }
-
-    public yx4(boolean z) {
+    public yx4() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        this.a = z;
     }
 
-    public static yx4 e(JSONObject jSONObject) {
-        InterceptResult invokeL;
+    public long a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, jSONObject)) == null) {
-            if (jSONObject == null) {
-                return d;
-            }
-            JSONObject optJSONObject = jSONObject.optJSONObject("push_strategy");
-            yx4 yx4Var = new yx4(true);
-            yx4Var.a(optJSONObject);
-            return yx4Var;
-        }
-        return (yx4) invokeL.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.c : invokeV.longValue;
     }
 
-    public final void a(JSONObject jSONObject) {
+    public String b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (String) invokeV.objValue;
+    }
+
+    public long c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.b : invokeV.longValue;
+    }
+
+    public void d(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, jSONObject) == null) || jSONObject == null) {
             return;
         }
-        JSONArray optJSONArray = jSONObject.optJSONArray("scene");
-        int length = optJSONArray == null ? 0 : optJSONArray.length();
-        this.b = new ArrayMap(length);
-        for (int i = 0; i < length; i++) {
-            JSONObject optJSONObject = optJSONArray.optJSONObject(i);
-            if (optJSONObject != null) {
-                zx4 d2 = zx4.d(optJSONObject);
-                if (!TextUtils.isEmpty(d2.a())) {
-                    this.b.put(d2.a(), d2);
-                }
-            }
-        }
-        try {
-            this.c = Integer.parseInt(jSONObject.optString("freq"));
-        } catch (Exception unused) {
-            this.c = 0;
-        }
-    }
-
-    public int b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.c : invokeV.intValue;
-    }
-
-    public zx4 c(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            if (this.b == null || TextUtils.isEmpty(str)) {
-                return null;
-            }
-            return this.b.get(str);
-        }
-        return (zx4) invokeL.objValue;
-    }
-
-    public boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a : invokeV.booleanValue;
+        this.a = jSONObject.optString("link_url", "");
+        this.b = jSONObject.optLong(SmartLaunchStats.UBC_BUSINESS_START_TIME_KEY, 0L);
+        this.c = jSONObject.optLong("end_time", 0L);
     }
 }

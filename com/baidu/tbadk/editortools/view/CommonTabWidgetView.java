@@ -16,8 +16,8 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.j15;
-import com.repackage.x35;
+import com.repackage.k15;
+import com.repackage.y35;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
 public class CommonTabWidgetView extends LinearLayout {
@@ -57,7 +57,7 @@ public class CommonTabWidgetView extends LinearLayout {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || this.a.c == null) {
                 return;
             }
-            this.a.c.A(new j15(3, 3, null));
+            this.a.c.A(new k15(3, 3, null));
         }
     }
 
@@ -88,7 +88,7 @@ public class CommonTabWidgetView extends LinearLayout {
         c(context);
     }
 
-    public void b(x35.b bVar) {
+    public void b(y35.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
             this.a.b(bVar);
@@ -101,8 +101,8 @@ public class CommonTabWidgetView extends LinearLayout {
             setVisibility(8);
             removeAllViews();
             LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d01e5, (ViewGroup) this, true);
-            this.a = (CommonTabHorizonScrollView) findViewById(R.id.obfuscated_res_0x7f0919ae);
-            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f0919ac);
+            this.a = (CommonTabHorizonScrollView) findViewById(R.id.obfuscated_res_0x7f091989);
+            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f091987);
             this.b = imageView;
             imageView.setOnClickListener(new a(this));
         }
@@ -132,7 +132,7 @@ public class CommonTabWidgetView extends LinearLayout {
         }
     }
 
-    public void setDatas(ArrayList<x35> arrayList) {
+    public void setDatas(ArrayList<y35> arrayList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, arrayList) == null) {
             this.a.setDatas(arrayList);

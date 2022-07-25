@@ -129,10 +129,10 @@ public class AlbumActivity extends BaseFragmentActivity implements View.OnClickL
             super.onCreate(bundle);
             setSwipeBackEnabled(false);
             setContentView(R.layout.obfuscated_res_0x7f0d010f);
-            this.b = findViewById(R.id.obfuscated_res_0x7f091e32);
+            this.b = findViewById(R.id.obfuscated_res_0x7f091e38);
             this.c = UtilHelper.canUseStyleImmersiveSticky();
             n0();
-            this.a = new ax8(this, bundle, R.id.obfuscated_res_0x7f090a7c, R.id.obfuscated_res_0x7f090a7c);
+            this.a = new ax8(this, bundle, R.id.obfuscated_res_0x7f090a75, R.id.obfuscated_res_0x7f090a75);
         }
     }
 

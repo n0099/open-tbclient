@@ -1,18 +1,83 @@
 package com.repackage;
 
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayDeque;
-import java.util.Queue;
 /* loaded from: classes6.dex */
 public class ke3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Queue<Runnable> a;
-    public Runnable b;
+    public int a;
+
+    /* loaded from: classes6.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes6.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public static final ke3 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-245435782, "Lcom/repackage/ke3$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-245435782, "Lcom/repackage/ke3$b;");
+                    return;
+                }
+            }
+            a = new ke3(null);
+        }
+    }
+
+    public /* synthetic */ ke3(a aVar) {
+        this();
+    }
+
+    public static ke3 b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b.a : (ke3) invokeV.objValue;
+    }
+
+    public int a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? c() ? 1 : 0 : invokeV.intValue;
+    }
+
+    public boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a != 0 : invokeV.booleanValue;
+    }
+
+    public void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.a = 0;
+        }
+    }
+
+    public void e(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            this.a = i;
+        }
+    }
 
     public ke3() {
         Interceptable interceptable = $ic;
@@ -27,36 +92,6 @@ public class ke3 {
                 return;
             }
         }
-        this.a = new ArrayDeque();
-        this.b = null;
-    }
-
-    public synchronized boolean a(Runnable runnable) {
-        InterceptResult invokeL;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, runnable)) == null) {
-            synchronized (this) {
-                z = true;
-                boolean z2 = runnable == null;
-                if (!z2) {
-                    this.a.offer(runnable);
-                }
-                boolean z3 = this.b == null && !this.a.isEmpty();
-                if (z3) {
-                    while (!this.a.isEmpty()) {
-                        Runnable poll = this.a.poll();
-                        this.b = poll;
-                        if (poll != null) {
-                            poll.run();
-                        }
-                        this.b = null;
-                    }
-                }
-                z = (z2 || !z3) ? false : false;
-            }
-            return z;
-        }
-        return invokeL.booleanValue;
+        this.a = 0;
     }
 }

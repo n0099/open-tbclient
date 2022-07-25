@@ -15,21 +15,21 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.be3;
-import com.repackage.lv2;
-import com.repackage.oj2;
-import com.repackage.rg1;
-import com.repackage.w53;
-import com.repackage.xw2;
-import com.repackage.zk2;
-import com.repackage.zw2;
+import com.repackage.al2;
+import com.repackage.ax2;
+import com.repackage.ce3;
+import com.repackage.mv2;
+import com.repackage.pj2;
+import com.repackage.sg1;
+import com.repackage.x53;
+import com.repackage.yw2;
 /* loaded from: classes2.dex */
 public class SwanAppBaseActivity extends FragmentActivity {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean l;
     public transient /* synthetic */ FieldHolder $fh;
-    public w53 j;
-    public lv2 k;
+    public x53 j;
+    public mv2 k;
 
     static {
         InterceptResult invokeClinit;
@@ -44,7 +44,7 @@ public class SwanAppBaseActivity extends FragmentActivity {
                 return;
             }
         }
-        l = rg1.a;
+        l = sg1.a;
     }
 
     public SwanAppBaseActivity() {
@@ -63,13 +63,13 @@ public class SwanAppBaseActivity extends FragmentActivity {
         this.j = null;
     }
 
-    @Override // com.baidu.swan.support.v4.app.FragmentActivity, com.repackage.vd4, android.app.Activity
+    @Override // com.baidu.swan.support.v4.app.FragmentActivity, com.repackage.wd4, android.app.Activity
     public void onCreate(@Nullable Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
-            int c0 = be3.c0(this);
+            int c0 = ce3.c0(this);
             super.onCreate(bundle);
-            be3.g(this, c0);
+            ce3.g(this, c0);
         }
     }
 
@@ -78,29 +78,29 @@ public class SwanAppBaseActivity extends FragmentActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
             super.onPostCreate(bundle);
-            boolean a = oj2.M().a();
-            zk2.e(Boolean.valueOf(a));
+            boolean a = pj2.M().a();
+            al2.e(Boolean.valueOf(a));
             x(a, false);
         }
     }
 
-    @Override // com.baidu.swan.support.v4.app.FragmentActivity, android.app.Activity, com.repackage.pd4.b
+    @Override // com.baidu.swan.support.v4.app.FragmentActivity, android.app.Activity, com.repackage.qd4.b
     public void onRequestPermissionsResult(int i, @NonNull String[] strArr, @NonNull int[] iArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeILL(Constants.METHOD_SEND_USER_MSG, this, i, strArr, iArr) == null) {
-            lv2 lv2Var = this.k;
-            if (lv2Var != null) {
-                lv2Var.f(this, i, strArr, iArr);
+            mv2 mv2Var = this.k;
+            if (mv2Var != null) {
+                mv2Var.f(this, i, strArr, iArr);
             } else {
                 z(i, strArr, iArr);
             }
         }
     }
 
-    public w53 w() {
+    public x53 w() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.j : (w53) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.j : (x53) invokeV.objValue;
     }
 
     public void x(boolean z, boolean z2) {
@@ -115,7 +115,7 @@ public class SwanAppBaseActivity extends FragmentActivity {
                 return;
             }
             if (this.j == null) {
-                this.j = new w53();
+                this.j = new x53();
             }
             ViewGroup viewGroup = (ViewGroup) window.getDecorView();
             if (z) {
@@ -124,18 +124,18 @@ public class SwanAppBaseActivity extends FragmentActivity {
                 this.j.b(viewGroup);
             }
             if (z2) {
-                xw2 e = xw2.e();
-                zw2 zw2Var = new zw2(5);
-                zw2Var.f(true);
-                e.h(zw2Var);
+                yw2 e = yw2.e();
+                ax2 ax2Var = new ax2(5);
+                ax2Var.f(true);
+                e.h(ax2Var);
             }
         }
     }
 
-    public void y(int i, @NonNull String[] strArr, lv2.a aVar) {
+    public void y(int i, @NonNull String[] strArr, mv2.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeILL(1048581, this, i, strArr, aVar) == null) {
-            lv2 c = lv2.c();
+            mv2 c = mv2.c();
             this.k = c;
             c.requestPermissions(this, i, strArr, aVar);
         }

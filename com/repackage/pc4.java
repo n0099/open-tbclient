@@ -1,100 +1,80 @@
 package com.repackage;
 
 import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.concurrent.TimeUnit;
-import org.json.JSONException;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class pc4 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static int a = -1;
+    public static /* synthetic */ Interceptable $ic;
+    public static volatile pc4 b;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755414736, "Lcom/repackage/pc4;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
+    public pc4() {
+        Interceptable interceptable = $ic;
         if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(-755414736, "Lcom/repackage/pc4;");
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
         }
     }
 
-    public static int a(String str) {
-        InterceptResult invokeL;
+    public static pc4 b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            int i = 5;
-            if (c() <= 0) {
-                return 5;
-            }
-            String string = q74.b().i().getString("expire_time", "");
-            if (TextUtils.isEmpty(string)) {
-                return 5;
-            }
-            try {
-                JSONObject jSONObject = new JSONObject(string);
-                i = jSONObject.optInt("time", 5);
-                JSONObject optJSONObject = jSONObject.optJSONObject("appkeys");
-                if (optJSONObject == null) {
-                    return i;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (b == null) {
+                synchronized (pc4.class) {
+                    if (b == null) {
+                        b = new pc4();
+                    }
                 }
-                int optInt = optJSONObject.optInt(str, -1);
-                return optInt < 0 ? i : optInt;
-            } catch (JSONException unused) {
-                return i;
             }
+            return b;
         }
-        return invokeL.intValue;
+        return (pc4) invokeV.objValue;
     }
 
-    public static long b(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? TimeUnit.HOURS.toMillis(a(str)) : invokeL.longValue;
-    }
-
-    public static int c() {
+    public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (a < 0) {
-                q74.b().F("swan_update_expired_time", 0);
-                a = 0;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (TextUtils.isEmpty(this.a)) {
+                this.a = r74.b().i().getString("extract_js_url", null);
             }
-            return a;
+            return this.a;
         }
-        return invokeV.intValue;
+        return (String) invokeV.objValue;
     }
 
-    public static String d() {
+    public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? q74.b().i().getString("expire_time_version", "0") : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? r74.b().i().getString("tts_node_version", "0") : (String) invokeV.objValue;
     }
 
-    public static void e(JSONObject jSONObject) {
+    public void d(JSONObject jSONObject) {
         JSONObject optJSONObject;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65541, null, jSONObject) == null) || jSONObject == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) || jSONObject == null) {
             return;
         }
         String optString = jSONObject.optString("version");
-        if (TextUtils.isEmpty(optString) || (optJSONObject = jSONObject.optJSONObject("data")) == null) {
+        if (TextUtils.isEmpty(optString) || (optJSONObject = jSONObject.optJSONObject("data")) == null || !optJSONObject.has("extract_js_url")) {
             return;
         }
-        q74.b().i().putString("expire_time_version", optString);
-        q74.b().i().putString("expire_time", optJSONObject.toString());
+        String optString2 = optJSONObject.optString("extract_js_url");
+        r74.b().i().putString("tts_node_version", optString);
+        r74.b().i().putString("extract_js_url", optString2);
     }
 }

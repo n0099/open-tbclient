@@ -21,9 +21,9 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.material.tabs.TabLayout;
 import com.repackage.cw6;
-import com.repackage.jm4;
+import com.repackage.km4;
 import com.repackage.kv6;
-import com.repackage.ur4;
+import com.repackage.vr4;
 import com.repackage.yx5;
 import com.repackage.zv6;
 import tbclient.HotThreadList.DataRes;
@@ -40,7 +40,7 @@ public class HotTopicHeaderView extends LinearLayout {
     public EMTextView f;
     public cw6 g;
     public yx5 h;
-    public jm4 i;
+    public km4 i;
     public LinearLayout j;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -84,21 +84,21 @@ public class HotTopicHeaderView extends LinearLayout {
             int dimenPixelSize6 = UtilHelper.getDimenPixelSize(R.dimen.M_H_X004);
             EMTextView eMTextView = new EMTextView(getContext());
             this.d = eMTextView;
-            eMTextView.setId(R.id.obfuscated_res_0x7f0920d2);
-            ur4 d = ur4.d(this.d);
+            eMTextView.setId(R.id.obfuscated_res_0x7f0920d4);
+            vr4 d = vr4.d(this.d);
             d.v(R.color.CAM_X0105);
             d.z(R.dimen.T_X07);
             d.A(R.string.F_X02);
-            this.d.setText(a(R.string.obfuscated_res_0x7f0f0895));
+            this.d.setText(a(R.string.obfuscated_res_0x7f0f0880));
             this.d.setMaxLines(1);
             this.d.setEllipsize(TextUtils.TruncateAt.END);
             this.d.setPadding(dimenPixelSize4, dimenPixelSize5, dimenPixelSize4, dimenPixelSize6);
             this.b.addView(this.d, new RelativeLayout.LayoutParams(-1, -2));
             this.c = new HotTopicTabRankListLayout(getContext());
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, -2);
-            layoutParams.addRule(3, R.id.obfuscated_res_0x7f0920d2);
+            layoutParams.addRule(3, R.id.obfuscated_res_0x7f0920d4);
             this.b.addView(this.c, layoutParams);
-            ur4 d2 = ur4.d(this.b);
+            vr4 d2 = vr4.d(this.b);
             d2.n(R.string.J_X06);
             d2.f(R.color.CAM_X0205);
             LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(-1, -2);
@@ -116,22 +116,22 @@ public class HotTopicHeaderView extends LinearLayout {
             this.j = linearLayout;
             linearLayout.setOrientation(0);
             EMTextView eMTextView2 = new EMTextView(getContext());
-            ur4 d3 = ur4.d(eMTextView2);
+            vr4 d3 = vr4.d(eMTextView2);
             d3.z(R.dimen.T_X07);
             d3.v(R.color.CAM_X0105);
             d3.A(R.string.F_X02);
-            eMTextView2.setText(a(R.string.obfuscated_res_0x7f0f0885));
+            eMTextView2.setText(a(R.string.obfuscated_res_0x7f0f0870));
             eMTextView2.setMaxLines(1);
             eMTextView2.setEllipsize(TextUtils.TruncateAt.END);
             eMTextView2.setPadding(dimenPixelSize3 - dimenPixelSize2, 0, dimenPixelSize, 0);
             this.j.addView(eMTextView2);
             this.e = eMTextView2;
             EMTextView eMTextView3 = new EMTextView(getContext());
-            ur4 d4 = ur4.d(eMTextView3);
+            vr4 d4 = vr4.d(eMTextView3);
             d4.z(R.dimen.T_X09);
             d4.v(R.color.CAM_X0109);
             d4.A(R.string.F_X01);
-            eMTextView3.setText(a(R.string.obfuscated_res_0x7f0f0884));
+            eMTextView3.setText(a(R.string.obfuscated_res_0x7f0f086f));
             eMTextView3.setMaxLines(1);
             eMTextView3.setEllipsize(TextUtils.TruncateAt.END);
             eMTextView3.setPadding(0, UtilHelper.getDimenPixelSize(R.dimen.M_H_X006) - dimenPixelSize5, 0, 0);
@@ -160,7 +160,7 @@ public class HotTopicHeaderView extends LinearLayout {
         SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0105);
         SkinManager.setViewTextColor(this.e, (int) R.color.CAM_X0105);
         SkinManager.setViewTextColor(this.f, (int) R.color.CAM_X0109);
-        ur4 d = ur4.d(this.b);
+        vr4 d = vr4.d(this.b);
         d.n(R.string.J_X06);
         d.f(R.color.CAM_X0205);
         HotTopicTabRankListLayout hotTopicTabRankListLayout = this.c;
@@ -202,10 +202,10 @@ public class HotTopicHeaderView extends LinearLayout {
         }
     }
 
-    public void setOnItemCoverListener(jm4 jm4Var) {
+    public void setOnItemCoverListener(km4 km4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, jm4Var) == null) {
-            this.i = jm4Var;
+        if (interceptable == null || interceptable.invokeL(1048580, this, km4Var) == null) {
+            this.i = km4Var;
         }
     }
 

@@ -62,7 +62,7 @@ public class tt7 extends ng5 {
                 return;
             }
             Matrix imageMatrix = tbImageView.getImageMatrix();
-            ym m = l45.k().m(jg.h().g(tbImageView.getUrl(), this.a.s ? 17 : 18));
+            ym m = m45.k().m(jg.h().g(tbImageView.getUrl(), this.a.s ? 17 : 18));
             int i2 = 0;
             if (m != null) {
                 i2 = m.r();

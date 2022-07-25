@@ -34,21 +34,21 @@ public class de {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
-    public int f921a;
+    public int f201a;
     @SuppressLint({"SimpleDateFormat"})
 
     /* renamed from: a  reason: collision with other field name */
-    public final SimpleDateFormat f922a;
+    public final SimpleDateFormat f202a;
 
     /* renamed from: a  reason: collision with other field name */
-    public ArrayList<File> f923a;
+    public ArrayList<File> f203a;
 
     /* renamed from: a  reason: collision with other field name */
-    public boolean f924a;
+    public boolean f204a;
     public int b;
 
     /* renamed from: b  reason: collision with other field name */
-    public String f925b;
+    public String f205b;
     public String c;
 
     static {
@@ -79,9 +79,9 @@ public class de {
                 return;
             }
         }
-        this.f922a = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        this.f202a = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         this.b = 2097152;
-        this.f923a = new ArrayList<>();
+        this.f203a = new ArrayList<>();
     }
 
     private void a(BufferedReader bufferedReader, BufferedWriter bufferedWriter, Pattern pattern) {
@@ -100,28 +100,28 @@ public class de {
                         break;
                     }
                     int start = matcher.start();
-                    String substring = str.substring(start, this.f925b.length() + start);
-                    if (this.f924a) {
+                    String substring = str.substring(start, this.f205b.length() + start);
+                    if (this.f204a) {
                         if (substring.compareTo(this.c) > 0) {
                             read = start;
                             z = true;
                             break;
                         }
-                    } else if (substring.compareTo(this.f925b) >= 0) {
-                        this.f924a = true;
+                    } else if (substring.compareTo(this.f205b) >= 0) {
+                        this.f204a = true;
                         i2 = start;
                     }
                     int indexOf = str.indexOf(10, start);
                     if (indexOf == -1) {
-                        indexOf = this.f925b.length();
+                        indexOf = this.f205b.length();
                     }
                     i = start + indexOf;
                 }
-                if (this.f924a) {
+                if (this.f204a) {
                     int i3 = read - i2;
-                    this.f921a += i3;
+                    this.f201a += i3;
                     bufferedWriter.write(cArr, i2, i3);
-                    if (z || this.f921a > this.b) {
+                    if (z || this.f201a > this.b) {
                         return;
                     }
                 }
@@ -143,9 +143,9 @@ public class de {
             try {
                 BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(file)));
                 try {
-                    bufferedWriter.write("model :" + Build.MODEL + "; os :" + Build.VERSION.INCREMENTAL + "; uid :" + com.xiaomi.push.service.bv.m1586a() + "; lng :" + Locale.getDefault().toString() + "; sdk :48; andver :" + Build.VERSION.SDK_INT + "\n");
-                    this.f921a = 0;
-                    Iterator<File> it = this.f923a.iterator();
+                    bufferedWriter.write("model :" + Build.MODEL + "; os :" + Build.VERSION.INCREMENTAL + "; uid :" + com.xiaomi.push.service.bv.m648a() + "; lng :" + Locale.getDefault().toString() + "; sdk :48; andver :" + Build.VERSION.SDK_INT + "\n");
+                    this.f201a = 0;
+                    Iterator<File> it = this.f203a.iterator();
                     while (it.hasNext()) {
                         bufferedReader = new BufferedReader(new InputStreamReader(new FileInputStream(it.next())));
                         try {
@@ -205,12 +205,12 @@ public class de {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public de m1200a(File file) {
+    public de m262a(File file) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, file)) == null) {
             if (file.exists()) {
-                this.f923a.add(file);
+                this.f203a.add(file);
             }
             return this;
         }
@@ -223,11 +223,11 @@ public class de {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, date, date2)) == null) {
             if (date.after(date2)) {
-                this.f925b = this.f922a.format(date2);
-                format = this.f922a.format(date);
+                this.f205b = this.f202a.format(date2);
+                format = this.f202a.format(date);
             } else {
-                this.f925b = this.f922a.format(date);
-                format = this.f922a.format(date2);
+                this.f205b = this.f202a.format(date);
+                format = this.f202a.format(date2);
             }
             this.c = format;
             return this;
@@ -249,14 +249,14 @@ public class de {
                 if (!file2.exists()) {
                     file2 = context.getFilesDir();
                 }
-                m1200a(new File(file2, "xmsf.log.1"));
+                m262a(new File(file2, "xmsf.log.1"));
                 file3 = new File(file2, "xmsf.log");
             } else {
                 file2 = new File(context.getExternalFilesDir(null) + a);
-                m1200a(new File(file2, "log0.txt"));
+                m262a(new File(file2, "log0.txt"));
                 file3 = new File(file2, "log1.txt");
             }
-            m1200a(file3);
+            m262a(file3);
             if (file2.isDirectory()) {
                 File file4 = new File(file, date.getTime() + "-" + date2.getTime() + ".zip");
                 if (file4.exists()) {

@@ -322,28 +322,28 @@ public class rq5 implements cp5 {
     public final void j(TbPageContext<?> tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, tbPageContext) == null) {
-            View inflate = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d08e8, (ViewGroup) null, false);
+            View inflate = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d08f2, (ViewGroup) null, false);
             this.c = inflate;
-            TbImageView tbImageView = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090e7a);
+            TbImageView tbImageView = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090e73);
             this.d = tbImageView;
             tbImageView.setDrawCorner(true);
             this.d.setConrers(3);
             this.d.setRadiusById(R.string.J_X13);
             this.d.setPlaceHolder(2);
-            this.e = this.c.findViewById(R.id.obfuscated_res_0x7f090e8d);
-            this.f = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f091fd1);
-            this.g = (EMTextView) this.c.findViewById(R.id.obfuscated_res_0x7f091fb4);
-            EMTextView eMTextView = (EMTextView) this.c.findViewById(R.id.obfuscated_res_0x7f091fe1);
+            this.e = this.c.findViewById(R.id.obfuscated_res_0x7f090e86);
+            this.f = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f091fd5);
+            this.g = (EMTextView) this.c.findViewById(R.id.obfuscated_res_0x7f091fb8);
+            EMTextView eMTextView = (EMTextView) this.c.findViewById(R.id.obfuscated_res_0x7f091fe5);
             this.h = eMTextView;
-            ur4.d(eMTextView).A(R.string.F_X02);
-            this.i = (EMTextView) this.c.findViewById(R.id.obfuscated_res_0x7f091fcb);
+            vr4.d(eMTextView).A(R.string.F_X02);
+            this.i = (EMTextView) this.c.findViewById(R.id.obfuscated_res_0x7f091fcf);
             this.c.setLayoutParams(new ViewGroup.LayoutParams(-2, -2));
-            TbImageView tbImageView2 = (TbImageView) this.c.findViewById(R.id.obfuscated_res_0x7f091ddd);
+            TbImageView tbImageView2 = (TbImageView) this.c.findViewById(R.id.obfuscated_res_0x7f091de3);
             this.j = tbImageView2;
             tbImageView2.setDrawCorner(true);
             this.j.setConrers(1);
             this.j.setRadius((int) tbPageContext.getResources().getDimension(R.dimen.tbds21));
-            ur4 d = ur4.d(this.c);
+            vr4 d = vr4.d(this.c);
             d.m(0);
             d.n(R.string.J_X05);
             d.f(R.color.CAM_X0201);
@@ -361,7 +361,7 @@ public class rq5 implements cp5 {
         SkinManager.setViewTextColor(this.g, (int) R.color.CAM_X0101);
         SkinManager.setViewTextColor(this.h, (int) R.color.CAM_X0105);
         SkinManager.setViewTextColor(this.i, (int) R.color.CAM_X0109);
-        ur4 d = ur4.d(this.c);
+        vr4 d = vr4.d(this.c);
         d.m(0);
         d.n(R.string.J_X05);
         d.f(R.color.CAM_X0201);

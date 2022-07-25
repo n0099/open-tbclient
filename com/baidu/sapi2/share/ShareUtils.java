@@ -44,6 +44,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.kuaishou.weapon.p0.h;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -53,6 +54,8 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public final class ShareUtils {
     public static /* synthetic */ Interceptable $ic = null;
@@ -463,7 +466,7 @@ public final class ShareUtils {
                     callbackShareModels(shareModelWithCheckCallback, shareModelsFromSP, S_SHARE_MODEL_FROM_SP);
                     return;
                 }
-                if (SapiUtils.checkRequestPermission("android.permission.READ_EXTERNAL_STORAGE", context)) {
+                if (SapiUtils.checkRequestPermission(h.i, context)) {
                     List<ShareStorage.StorageModel> shareModelsFromSdCard = getShareModelsFromSdCard(ordinal, installedApps);
                     if (shareModelsFromSdCard.size() > 0) {
                         ShareLoginStat.GetShareListStat.statExtMap.put("from", "sd");
@@ -878,22 +881,32 @@ public final class ShareUtils {
                     SapiAccount sapiAccount = (SapiAccount) intent.getParcelableExtra("share_account");
                     if (sapiAccount != null) {
                         sapiAccount.fromType = FromType.LOGIN.getValue();
-                        if (intent.getIntExtra("SDK_VERSION", 0) >= 190) {
-                            ShareAccountAccessor.getAccessor().setAccountPkg(sapiAccount, intent.getStringExtra("PKG"));
-                        } else {
-                            sapiAccount.app = "";
+                        int intExtra = intent.getIntExtra("SDK_VERSION", 0);
+                        JSONObject jSONObject = new JSONObject();
+                        try {
+                            if (intExtra >= 190) {
+                                String stringExtra = intent.getStringExtra("PKG");
+                                ShareAccountAccessor.getAccessor().setAccountPkg(sapiAccount, stringExtra);
+                                jSONObject.put(ShareLoginStat.MakeShareLoginStat.KEY_FROM_PKG, stringExtra);
+                                jSONObject.put(ShareLoginStat.MakeShareLoginStat.KEY_FROM_TPL, "");
+                            } else {
+                                sapiAccount.app = "";
+                            }
+                        } catch (JSONException e) {
+                            e.printStackTrace();
                         }
-                        String str11 = sapiAccount.uid;
+                        str9 = sapiAccount.uid;
                         SapiContext sapiContext = SapiContext.getInstance();
                         sapiContext.setCurrentAccount(sapiAccount);
                         sapiContext.addLoginAccount(sapiAccount);
                         shareCallPacking.asyncMarkLoginState(2);
                         sapiContext.setAccountActionType(ShareCallPacking.LOGIN_TYPE_SHARE_V2_CHOICE);
+                        SapiAccountManager.getInstance().getUserInfoAndRefershAccount(sapiAccount, Enums.LastLoginType.CHOICE_SHARE_V2.getValue(), jSONObject.toString());
                         if (sapiContext.shareLivingunameEnable()) {
                             ArrayList arrayList = new ArrayList();
-                            String stringExtra = intent.getStringExtra("V2_FACE_LOGIN_UIDS_TIMES");
-                            if (!TextUtils.isEmpty(stringExtra)) {
-                                arrayList.addAll(new FaceLoginService().str2ShareModelV2List(stringExtra));
+                            String stringExtra2 = intent.getStringExtra("V2_FACE_LOGIN_UIDS_TIMES");
+                            if (!TextUtils.isEmpty(stringExtra2)) {
+                                arrayList.addAll(new FaceLoginService().str2ShareModelV2List(stringExtra2));
                             }
                             if (!arrayList.isEmpty()) {
                                 new FaceLoginService().syncFaceLoginUidList(context, arrayList);
@@ -902,7 +915,6 @@ public final class ShareUtils {
                         SapiContext.getInstance().setPreLoginType(Enums.LastLoginType.CHOICE_SHARE_V2.getName());
                         shareLoginCallBack.onSuccess();
                         ShareLoginStat.MakeShareLoginStat.statExtMap.put(ShareLoginStat.MakeShareLoginStat.KEY_SUCCESS, "1");
-                        str9 = str11;
                         str8 = "";
                         c = 0;
                     } else {
@@ -954,14 +966,24 @@ public final class ShareUtils {
 
     public static List<Intent> queryShareActivitys(Context context) {
         InterceptResult invokeL;
-        List<ResolveInfo> list;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65563, null, context)) == null) {
+            SapiAccountManager sapiAccountManager = SapiAccountManager.getInstance();
+            if (sapiAccountManager == null) {
+                return new ArrayList();
+            }
+            SapiConfiguration confignation = sapiAccountManager.getConfignation();
+            if (confignation == null) {
+                return new ArrayList();
+            }
+            if (!confignation.isAgreeDangerousProtocol()) {
+                return new ArrayList();
+            }
+            List<ResolveInfo> list = null;
             try {
                 list = context.getPackageManager().queryIntentActivities(new Intent(ACTION_SHARE_ACTIVITY), 32);
             } catch (Exception e) {
                 Log.e(e);
-                list = null;
             }
             return queryShareIntent(context, list, ACTION_SHARE_ACTIVITY);
         }
@@ -1054,7 +1076,7 @@ public final class ShareUtils {
                 int ordinal = SapiAccountManager.getInstance().getConfignation().environment.ordinal();
                 int i = 1;
                 Log.d(TAG, "current login env is " + ordinal);
-                if (!SapiUtils.checkRequestPermission("android.permission.READ_EXTERNAL_STORAGE", context)) {
+                if (!SapiUtils.checkRequestPermission(h.i, context)) {
                     StatService.onEventAutoStat(ShareStatKey.SHARE_V2_LOGIN_NOT_STORAGE_PERM);
                 }
                 StringBuilder sb = new StringBuilder();

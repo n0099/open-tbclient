@@ -11,8 +11,13 @@ import org.json.JSONObject;
 public class ex4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public fx4 b;
+    public String a;
+    public String b;
+    public String c;
+    public String d;
+    public String e;
+    public String f;
+    public String g;
 
     public ex4() {
         Interceptable interceptable = $ic;
@@ -28,31 +33,70 @@ public class ex4 {
         }
     }
 
-    public int a() {
+    public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.c : (String) invokeV.objValue;
     }
 
-    public fx4 b() {
+    public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : (fx4) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : (String) invokeV.objValue;
     }
 
-    public void c(JSONObject jSONObject) {
+    public String c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) {
-            JSONObject optJSONObject = jSONObject.optJSONObject("common");
-            if (optJSONObject != null) {
-                this.a = optJSONObject.optInt("version");
-            }
-            JSONObject optJSONObject2 = jSONObject.optJSONObject("special");
-            if (optJSONObject2 != null) {
-                fx4 fx4Var = new fx4();
-                this.b = fx4Var;
-                fx4Var.f(optJSONObject2);
-            }
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.d : (String) invokeV.objValue;
+    }
+
+    public String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.e : (String) invokeV.objValue;
+    }
+
+    public String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f : (String) invokeV.objValue;
+    }
+
+    public String f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.a : (String) invokeV.objValue;
+    }
+
+    public String g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.g : (String) invokeV.objValue;
+    }
+
+    public void h(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048583, this, jSONObject) == null) || jSONObject == null) {
+            return;
+        }
+        try {
+            jSONObject.optString("splash_bear_sid_ios", "");
+            jSONObject.optString("homepage_bear_sid_ios", "");
+            jSONObject.optString("frs_bear_sid_ios", "");
+            jSONObject.optString("pb_banner_bear_sid_ios", "");
+            jSONObject.optString("pb_comment_bear_sid_ios", "");
+            jSONObject.optString("picpage_bear_sid_ios", "");
+            jSONObject.optString("videoflow_bear_sid_ios", "");
+            this.a = jSONObject.optString("splash_bear_sid_android", "");
+            this.b = jSONObject.optString("homepage_bear_sid_android", "");
+            this.c = jSONObject.optString("frs_bear_sid_android", "");
+            this.d = jSONObject.optString("pb_banner_bear_sid_android", "");
+            this.e = jSONObject.optString("pb_comment_bear_sid_android", "");
+            this.f = jSONObject.optString("picpage_bear_sid_android", "");
+            this.g = jSONObject.optString("videoflow_bear_sid_android", "");
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 }

@@ -12,7 +12,7 @@ import org.json.JSONObject;
 public class km7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<p05> a;
+    public List<q05> a;
     public boolean b;
 
     public km7() {
@@ -38,9 +38,9 @@ public class km7 {
         if (optJSONArray != null && optJSONArray.length() != 0) {
             this.a = new ArrayList();
             for (int i = 0; i < optJSONArray.length(); i++) {
-                p05 p05Var = new p05();
-                p05Var.a(optJSONArray.optJSONObject(i));
-                this.a.add(p05Var);
+                q05 q05Var = new q05();
+                q05Var.a(optJSONArray.optJSONObject(i));
+                this.a.add(q05Var);
             }
         }
         this.b = jSONObject.optInt("has_more", 0) == 1;

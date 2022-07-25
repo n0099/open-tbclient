@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class u44 extends s44<tm2> {
+public class u44 extends t44<um2> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -28,7 +28,7 @@ public class u44 extends s44<tm2> {
                 return;
             }
         }
-        boolean z = rg1.a;
+        boolean z = sg1.a;
     }
 
     public u44() {
@@ -45,27 +45,27 @@ public class u44 extends s44<tm2> {
         }
     }
 
-    public static u44 d() {
+    public static u44 e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? new u44() : (u44) invokeV.objValue;
     }
 
-    @Override // com.repackage.s44
-    public boolean b(Context context, tm2 tm2Var, qm2 qm2Var, h03 h03Var, JSONObject jSONObject) {
+    @Override // com.repackage.t44
+    public boolean b(Context context, um2 um2Var, rm2 rm2Var, i03 i03Var, JSONObject jSONObject) {
         InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048576, this, context, tm2Var, qm2Var, h03Var, jSONObject)) == null) ? e(context, tm2Var, qm2Var, h03Var) : invokeLLLLL.booleanValue;
+        return (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048576, this, context, um2Var, rm2Var, i03Var, jSONObject)) == null) ? d(context, um2Var, rm2Var, i03Var) : invokeLLLLL.booleanValue;
     }
 
-    public final boolean e(Context context, tm2 tm2Var, qm2 qm2Var, h03 h03Var) {
+    public final boolean d(Context context, um2 um2Var, rm2 rm2Var, i03 i03Var) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, tm2Var, qm2Var, h03Var)) == null) {
-            hx1.i("map", "MapRemoveAction start");
-            boolean g = p44.b().g(tm2Var);
-            hx1.i("map", "MapRemoveAction end");
-            return g;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, um2Var, rm2Var, i03Var)) == null) {
+            ix1.i("map", "MapCreateAction start");
+            boolean a = q44.b().a(context, um2Var);
+            ix1.i("map", "MapCreateAction end");
+            return a;
         }
         return invokeLLLL.booleanValue;
     }

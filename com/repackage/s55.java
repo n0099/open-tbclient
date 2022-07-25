@@ -1,118 +1,64 @@
 package com.repackage;
 
+import android.content.Context;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.switchs.PreInitMainTabViewSwitch;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
+import java.util.ArrayList;
+import java.util.Iterator;
 /* loaded from: classes7.dex */
 public class s55 {
     public static /* synthetic */ Interceptable $ic;
-    public static s55 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public final HashMap<Integer, Object> a;
-    public final wp4 b;
+    public ArrayList<q55> a;
+    public Context b;
 
-    /* loaded from: classes7.dex */
-    public interface a {
-        Object build();
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755369538, "Lcom/repackage/s55;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(-755369538, "Lcom/repackage/s55;");
-        }
-    }
-
-    public s55() {
+    public s55(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new HashMap<>();
-        this.b = new wp4();
+        this.a = new ArrayList<>();
+        this.b = context;
     }
 
-    public static s55 e() {
+    public void a(q55 q55Var) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, q55Var) == null) || q55Var == null || q55Var.b() == null) {
+            return;
+        }
+        Iterator<q55> it = this.a.iterator();
+        while (it.hasNext()) {
+            q55 next = it.next();
+            if (next != null && next.b() != null && next.b().e == q55Var.b().e) {
+                return;
+            }
+        }
+        this.a.add(q55Var);
+    }
+
+    public ArrayList<q55> b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (c == null) {
-                synchronized (s55.class) {
-                    if (c == null) {
-                        c = new s55();
-                    }
-                }
-            }
-            return c;
-        }
-        return (s55) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (ArrayList) invokeV.objValue;
     }
 
-    public void a(int i, Object obj) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048576, this, i, obj) == null) {
-            this.a.put(Integer.valueOf(i), obj);
-        }
-    }
-
-    public void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.b.a();
-            this.a.clear();
-        }
-    }
-
-    public Object c(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) ? this.a.get(Integer.valueOf(i)) : invokeI.objValue;
-    }
-
-    public Object d(int i, a aVar) {
-        InterceptResult invokeIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048579, this, i, aVar)) == null) {
-            Object obj = this.a.get(Integer.valueOf(i));
-            if ((!PreInitMainTabViewSwitch.getIsOn() || obj == null) && aVar != null) {
-                obj = aVar.build();
-            }
-            this.a.remove(Integer.valueOf(i));
-            if (obj == null && TbadkCoreApplication.getInst().isDebugMode()) {
-                throw new RuntimeException("ViewCache must have return value.");
-            }
-            return obj;
-        }
-        return invokeIL.objValue;
-    }
-
-    public wp4 f() {
+    public Context getContext() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.b : (wp4) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.b : (Context) invokeV.objValue;
     }
 }

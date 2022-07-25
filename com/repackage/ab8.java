@@ -42,7 +42,7 @@ public class ab8 {
                 return;
             }
         }
-        this.e = xt4.k().q("asp_shown_info", "");
+        this.e = yt4.k().q("asp_shown_info", "");
     }
 
     public static ab8 e() {
@@ -128,7 +128,7 @@ public class ab8 {
             builder.latitude = str;
             builder.longitude = this.a;
             if (oi.isEmpty(str) || oi.isEmpty(this.a)) {
-                String q = xt4.k().q("key_last_receive_location_latitude_and_longitude", "");
+                String q = yt4.k().q("key_last_receive_location_latitude_and_longitude", "");
                 if (!oi.isEmpty(q)) {
                     String[] split = q.split(",");
                     if (split.length >= 2) {
@@ -190,7 +190,7 @@ public class ab8 {
     public void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            xt4.k().y("asp_shown_info", this.e);
+            yt4.k().y("asp_shown_info", this.e);
         }
     }
 

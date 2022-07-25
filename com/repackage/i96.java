@@ -95,7 +95,7 @@ public class i96 {
                         lVar.onResult(4, 0, 0);
                         return;
                     } else {
-                        pi.N(TbadkCoreApplication.getInst(), R.string.obfuscated_res_0x7f0f1092);
+                        pi.N(TbadkCoreApplication.getInst(), R.string.obfuscated_res_0x7f0f104e);
                         return;
                     }
                 }
@@ -146,7 +146,7 @@ public class i96 {
             if (interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) {
                 l lVar = this.a;
                 if (lVar == null) {
-                    pi.N(TbadkCoreApplication.getInst(), R.string.obfuscated_res_0x7f0f1091);
+                    pi.N(TbadkCoreApplication.getInst(), R.string.obfuscated_res_0x7f0f104d);
                 } else {
                     lVar.onResult(4, 0, 0);
                 }
@@ -154,21 +154,21 @@ public class i96 {
         }
 
         @Override // com.baidu.tbadk.img.GetEmotionInfosModel.b
-        public void onSuccess(List<p45> list) {
+        public void onSuccess(List<q45> list) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
                 if (list == null || list.isEmpty()) {
                     l lVar = this.a;
                     if (lVar == null) {
-                        pi.N(TbadkCoreApplication.getInst(), R.string.obfuscated_res_0x7f0f1091);
+                        pi.N(TbadkCoreApplication.getInst(), R.string.obfuscated_res_0x7f0f104d);
                     } else {
                         lVar.onResult(4, 0, 0);
                     }
                 }
-                for (p45 p45Var : list) {
-                    if (!j96.e().f(p45Var.a)) {
-                        p45Var.f = (String) this.b.get(p45Var.g);
-                        this.c.add(p45Var);
+                for (q45 q45Var : list) {
+                    if (!j96.e().f(q45Var.a)) {
+                        q45Var.f = (String) this.b.get(q45Var.g);
+                        this.c.add(q45Var);
                     }
                 }
                 this.e.n(this.c, this.a, this.d);
@@ -181,18 +181,18 @@ public class i96 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ List a;
-        public final /* synthetic */ p45 b;
+        public final /* synthetic */ q45 b;
         public final /* synthetic */ AtomicInteger c;
         public final /* synthetic */ l d;
         public final /* synthetic */ boolean e;
         public final /* synthetic */ i96 f;
 
-        public c(i96 i96Var, List list, p45 p45Var, AtomicInteger atomicInteger, l lVar, boolean z) {
+        public c(i96 i96Var, List list, q45 q45Var, AtomicInteger atomicInteger, l lVar, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {i96Var, list, p45Var, atomicInteger, lVar, Boolean.valueOf(z)};
+                Object[] objArr = {i96Var, list, q45Var, atomicInteger, lVar, Boolean.valueOf(z)};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -204,7 +204,7 @@ public class i96 {
             }
             this.f = i96Var;
             this.a = list;
-            this.b = p45Var;
+            this.b = q45Var;
             this.c = atomicInteger;
             this.d = lVar;
             this.e = z;
@@ -288,7 +288,7 @@ public class i96 {
                 }
                 l lVar2 = this.b;
                 if (lVar2 == null) {
-                    pi.N(TbadkCoreApplication.getInst(), R.string.obfuscated_res_0x7f0f1091);
+                    pi.N(TbadkCoreApplication.getInst(), R.string.obfuscated_res_0x7f0f104d);
                 } else {
                     lVar2.onResult(4, 0, 0);
                 }
@@ -350,7 +350,7 @@ public class i96 {
                 }
                 for (int i2 = 0; i2 < q.size(); i2++) {
                     CollectEmotionData collectEmotionData3 = q.get(i2);
-                    if (!m45.f.equals(collectEmotionData3.getSharpText())) {
+                    if (!n45.f.equals(collectEmotionData3.getSharpText())) {
                         collectEmotionData3.setOrderId(size);
                         y86.o().v(collectEmotionData3);
                         size--;
@@ -425,7 +425,7 @@ public class i96 {
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, voidArr)) == null) {
                 int i = 0;
                 for (CollectEmotionData collectEmotionData : this.a) {
-                    if (collectEmotionData != null && !"setting_icon".equals(collectEmotionData.pid) && !m45.f.equals(collectEmotionData.getSharpText())) {
+                    if (collectEmotionData != null && !"setting_icon".equals(collectEmotionData.pid) && !n45.f.equals(collectEmotionData.getSharpText())) {
                         y86.o().i(collectEmotionData);
                         ImageFileInfo imageFileInfo = collectEmotionData.imageFileInfo;
                         if (imageFileInfo != null && !TextUtils.isEmpty(imageFileInfo.getFilePath())) {
@@ -449,7 +449,7 @@ public class i96 {
                 List<CollectEmotionData> q = y86.o().q(TbadkCoreApplication.getCurrentAccount());
                 for (int i2 = 0; i2 < q.size(); i2++) {
                     CollectEmotionData collectEmotionData2 = q.get(i2);
-                    if (!m45.f.equals(collectEmotionData2.getSharpText())) {
+                    if (!n45.f.equals(collectEmotionData2.getSharpText())) {
                         collectEmotionData2.setOrderId((q.size() - i2) - 1);
                         y86.o().v(collectEmotionData2);
                     }
@@ -601,15 +601,15 @@ public class i96 {
             }
             for (CollectEmotionData collectEmotionData : list) {
                 if (collectEmotionData != null) {
-                    p45 p45Var = new p45();
-                    p45Var.a = collectEmotionData.pid;
-                    p45Var.f = collectEmotionData.pkgId;
-                    p45Var.d = collectEmotionData.picUrl;
-                    p45Var.e = collectEmotionData.thumbnail;
-                    p45Var.b = collectEmotionData.width;
-                    p45Var.c = collectEmotionData.height;
-                    kn7.a("【表情云同步】：4 - 开始：重新下载数据库中有数据但是没文件的表情，" + p45Var.d);
-                    new k(this.a, null).execute(p45Var);
+                    q45 q45Var = new q45();
+                    q45Var.a = collectEmotionData.pid;
+                    q45Var.f = collectEmotionData.pkgId;
+                    q45Var.d = collectEmotionData.picUrl;
+                    q45Var.e = collectEmotionData.thumbnail;
+                    q45Var.b = collectEmotionData.width;
+                    q45Var.c = collectEmotionData.height;
+                    kn7.a("【表情云同步】：4 - 开始：重新下载数据库中有数据但是没文件的表情，" + q45Var.d);
+                    new k(this.a, null).execute(q45Var);
                 }
             }
         }
@@ -652,10 +652,10 @@ public class i96 {
     }
 
     /* loaded from: classes6.dex */
-    public class k extends BdAsyncTask<p45, Void, Boolean> {
+    public class k extends BdAsyncTask<q45, Void, Boolean> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public p45 a;
+        public q45 a;
         public j b;
         public final /* synthetic */ i96 c;
 
@@ -681,12 +681,12 @@ public class i96 {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: b */
-        public Boolean doInBackground(p45[] p45VarArr) {
+        public Boolean doInBackground(q45[] q45VarArr) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, p45VarArr)) == null) {
-                if (p45VarArr != null && p45VarArr.length > 0) {
-                    this.a = p45VarArr[0];
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, q45VarArr)) == null) {
+                if (q45VarArr != null && q45VarArr.length > 0) {
+                    this.a = q45VarArr[0];
                     WebClient webClient = new WebClient();
                     byte[] downloadImageBytes = webClient.downloadImageBytes(this.a.d, false);
                     if (downloadImageBytes != null && webClient.IsRequestSuccess()) {
@@ -768,7 +768,7 @@ public class i96 {
         InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65542, null, str, z)) == null) {
-            String str2 = TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath() + "/.collect/" + m45.d() + "/" + str + "_s.jpg";
+            String str2 = TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath() + "/.collect/" + n45.d() + "/" + str + "_s.jpg";
             if (z) {
                 String replace = str2.replace("_s.jpg", "_b.jpg");
                 if (new File(replace).exists()) {
@@ -812,33 +812,33 @@ public class i96 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, str, str2, str3, str4) == null) {
             if (nn7.o().p()) {
-                pi.N(BdBaseApplication.getInst().getApp(), R.string.obfuscated_res_0x7f0f05da);
+                pi.N(BdBaseApplication.getInst().getApp(), R.string.obfuscated_res_0x7f0f05d6);
                 return;
             }
-            p45 p45Var = new p45();
-            p45Var.d = str;
-            p45Var.e = str2;
-            p45Var.f = str3;
-            p45Var.a = str4;
+            q45 q45Var = new q45();
+            q45Var.d = str;
+            q45Var.e = str2;
+            q45Var.f = str3;
+            q45Var.a = str4;
             ArrayList arrayList = new ArrayList();
-            arrayList.add(p45Var);
+            arrayList.add(q45Var);
             i(arrayList, true, null);
         }
     }
 
-    public void i(List<p45> list, boolean z, l lVar) {
+    public void i(List<q45> list, boolean z, l lVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{list, Boolean.valueOf(z), lVar}) == null) {
             new a(this, lVar, list, z).execute(new Void[0]);
         }
     }
 
-    public void j(List<p45> list, boolean z, l lVar) {
+    public void j(List<q45> list, boolean z, l lVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{list, Boolean.valueOf(z), lVar}) == null) {
             if (list == null || list.isEmpty()) {
                 if (lVar == null) {
-                    pi.N(TbadkCoreApplication.getInst(), R.string.obfuscated_res_0x7f0f1091);
+                    pi.N(TbadkCoreApplication.getInst(), R.string.obfuscated_res_0x7f0f104d);
                 } else {
                     lVar.onResult(4, 0, 0);
                 }
@@ -846,17 +846,17 @@ public class i96 {
                 ArrayList arrayList = new ArrayList();
                 ArrayList arrayList2 = new ArrayList();
                 HashMap hashMap = new HashMap();
-                for (p45 p45Var : list) {
-                    String str = p45Var.a;
+                for (q45 q45Var : list) {
+                    String str = q45Var.a;
                     if (str != null && !TextUtils.isEmpty(str)) {
-                        if (!j96.e().f(p45Var.a)) {
-                            arrayList.add(p45Var);
+                        if (!j96.e().f(q45Var.a)) {
+                            arrayList.add(q45Var);
                         }
                     } else {
-                        arrayList2.add(p45Var.d);
-                        String str2 = p45Var.f;
+                        arrayList2.add(q45Var.d);
+                        String str2 = q45Var.f;
                         if (str2 != null) {
-                            hashMap.put(p45Var.d, str2);
+                            hashMap.put(q45Var.d, str2);
                         }
                     }
                 }
@@ -883,15 +883,15 @@ public class i96 {
                 lVar.onResult(4, 0, 0);
             }
             if (nn7.o().p() && lVar != null) {
-                pi.N(BdBaseApplication.getInst().getApp(), R.string.obfuscated_res_0x7f0f05da);
+                pi.N(BdBaseApplication.getInst().getApp(), R.string.obfuscated_res_0x7f0f05d6);
                 lVar.onResult(4, 0, 0);
                 return;
             }
             ArrayList arrayList = new ArrayList();
             for (String str : list) {
-                p45 p45Var = new p45();
-                p45Var.d = str;
-                arrayList.add(p45Var);
+                q45 q45Var = new q45();
+                q45Var.d = str;
+                arrayList.add(q45Var);
             }
             i(arrayList, true, lVar);
         }
@@ -925,7 +925,7 @@ public class i96 {
         }
     }
 
-    public final void n(List<p45> list, l lVar, boolean z) {
+    public final void n(List<q45> list, l lVar, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, list, lVar, z) == null) {
             if (list.size() == 0) {
@@ -939,8 +939,8 @@ public class i96 {
             }
             AtomicInteger atomicInteger = new AtomicInteger(list.size());
             CopyOnWriteArrayList copyOnWriteArrayList = new CopyOnWriteArrayList();
-            for (p45 p45Var : list) {
-                new k(this, new c(this, copyOnWriteArrayList, p45Var, atomicInteger, lVar, z)).execute(p45Var);
+            for (q45 q45Var : list) {
+                new k(this, new c(this, copyOnWriteArrayList, q45Var, atomicInteger, lVar, z)).execute(q45Var);
             }
         }
     }
@@ -970,12 +970,12 @@ public class i96 {
         return (List) invokeV.objValue;
     }
 
-    public final String r(p45 p45Var, boolean z) {
+    public final String r(q45 q45Var, boolean z) {
         InterceptResult invokeLZ;
         String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048587, this, p45Var, z)) == null) {
-            if (p45Var == null || TextUtils.isEmpty(p45Var.d) || TextUtils.isEmpty(p45Var.a)) {
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048587, this, q45Var, z)) == null) {
+            if (q45Var == null || TextUtils.isEmpty(q45Var.d) || TextUtils.isEmpty(q45Var.a)) {
                 return "";
             }
             if (z) {
@@ -983,7 +983,7 @@ public class i96 {
             } else {
                 str = "_s.jpg";
             }
-            return TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath() + "/.collect/" + m45.d() + "/" + p45Var.a + str;
+            return TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath() + "/.collect/" + n45.d() + "/" + q45Var.a + str;
         }
         return (String) invokeLZ.objValue;
     }
@@ -1117,7 +1117,7 @@ public class i96 {
             }
             int i2 = 0;
             for (CollectEmotionData collectEmotionData : list) {
-                if (collectEmotionData != null && !"setting_icon".equals(collectEmotionData.pid) && !m45.f.equals(collectEmotionData.getSharpText())) {
+                if (collectEmotionData != null && !"setting_icon".equals(collectEmotionData.pid) && !n45.f.equals(collectEmotionData.getSharpText())) {
                     y86.o().i(collectEmotionData);
                     ImageFileInfo imageFileInfo = collectEmotionData.imageFileInfo;
                     if (imageFileInfo != null && !TextUtils.isEmpty(imageFileInfo.getFilePath())) {
@@ -1141,7 +1141,7 @@ public class i96 {
             List<CollectEmotionData> q = y86.o().q(TbadkCoreApplication.getCurrentAccount());
             for (int i3 = 0; i3 < q.size(); i3++) {
                 CollectEmotionData collectEmotionData2 = q.get(i3);
-                if (!m45.f.equals(collectEmotionData2.getSharpText())) {
+                if (!n45.f.equals(collectEmotionData2.getSharpText())) {
                     collectEmotionData2.setOrderId((q.size() - i3) - 1);
                     y86.o().v(collectEmotionData2);
                 }
@@ -1168,34 +1168,34 @@ public class i96 {
         }
     }
 
-    public final CollectEmotionData y(p45 p45Var) {
+    public final CollectEmotionData y(q45 q45Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048593, this, p45Var)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048593, this, q45Var)) == null) {
             CollectEmotionData collectEmotionData = new CollectEmotionData();
-            StringBuilder sb = new StringBuilder(m45.h);
-            if (TextUtils.isEmpty(p45Var.f)) {
-                sb.append(p45Var.a);
+            StringBuilder sb = new StringBuilder(n45.h);
+            if (TextUtils.isEmpty(q45Var.f)) {
+                sb.append(q45Var.a);
                 sb.append(",");
             } else {
-                sb.append(p45Var.f);
+                sb.append(q45Var.f);
                 sb.append("_");
-                sb.append(p45Var.a);
+                sb.append(q45Var.a);
                 sb.append(",");
             }
-            sb.append(p45Var.b);
+            sb.append(q45Var.b);
             sb.append(",");
-            sb.append(p45Var.c);
+            sb.append(q45Var.c);
             sb.append(",");
             String lowerCase = vi.c(sb.toString().replace("collect_", "") + UploadedImageInfo.MD5_KEY).toLowerCase();
-            collectEmotionData.pid = p45Var.a;
+            collectEmotionData.pid = q45Var.a;
             collectEmotionData.uid = TbadkCoreApplication.getCurrentAccount();
             collectEmotionData.setSharpText(SmallTailInfo.EMOTION_PREFIX + sb.toString() + lowerCase + SmallTailInfo.EMOTION_SUFFIX);
             collectEmotionData.setOrderId(y86.o().l(collectEmotionData.uid) + 1);
-            collectEmotionData.width = p45Var.b;
-            collectEmotionData.height = p45Var.c;
-            collectEmotionData.picUrl = p45Var.d;
-            collectEmotionData.thumbnail = p45Var.e;
+            collectEmotionData.width = q45Var.b;
+            collectEmotionData.height = q45Var.c;
+            collectEmotionData.picUrl = q45Var.d;
+            collectEmotionData.thumbnail = q45Var.e;
             collectEmotionData.backup = "";
             return collectEmotionData;
         }

@@ -83,7 +83,7 @@ public class ql8 {
                 this.a.putExtra("sub_locate_type", str);
                 this.a.putExtra("sub_tab_name", str2);
                 this.a.putExtra("sub_tab_code", str3);
-                st4.b = intValue;
+                tt4.b = intValue;
                 Object obj5 = hashMap.get(BdUniDispatchSchemeController.PARAM_NEW_GOD_FROM);
                 String str4 = obj5 instanceof String ? (String) obj5 : null;
                 Object obj6 = hashMap.get(BdUniDispatchSchemeController.PARAM_FIELD_ID);
@@ -91,9 +91,9 @@ public class ql8 {
                 this.a.putExtra(BdUniDispatchSchemeController.PARAM_NEW_GOD_FROM, str4);
                 this.a.putExtra(BdUniDispatchSchemeController.PARAM_FIELD_ID, str5);
             }
-            li4.w().L(true);
+            mi4.w().L(true);
             if (intValue == 1 && "ForumSquare".equals(str)) {
-                st4.c = st4.e;
+                tt4.c = tt4.e;
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921528));
             }
         }
@@ -165,7 +165,7 @@ public class ql8 {
             String decode = Uri.decode(intent.getData().getEncodedPath());
             if (StringUtils.isNull(decode)) {
                 StatisticItem param = new StatisticItem(TbadkCoreStatisticKey.KEY_SCHEME_JUMP_CALL_NATIVE).param("obj_type", 1).param(TiebaStatic.Params.OBJ_TO, 1).param("obj_name", TbadkCoreApplication.getInst().getStartType()).param(TiebaStatic.Params.OBJ_PARAM3, 1);
-                ej4.a(param, decode);
+                fj4.a(param, decode);
                 TiebaStatic.log(param);
                 return;
             }
@@ -178,7 +178,7 @@ public class ql8 {
             }
             if ("bpush".equals(paramPair.get("fr"))) {
                 StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_SCHEME_JUMP_CALL_NATIVE);
-                ej4.b(statisticItem, paramPair);
+                fj4.b(statisticItem, paramPair);
                 statisticItem.param("obj_locate", paramPair.get("obj_locate"));
                 statisticItem.param("obj_type", 1);
                 statisticItem.param("obj_source", paramPair.get("obj_source"));
@@ -204,12 +204,12 @@ public class ql8 {
                 httpMessage.addParam("call_url", dataString);
                 MessageManager.getInstance().sendMessage(httpMessage);
             }
-            li4.w().L(true);
+            mi4.w().L(true);
         } else if (!StringUtils.isNull(dataString) && (dataString.startsWith(UrlSchemaHelper.SCHEMA_TYPE_TB_CLIENT) || dataString.startsWith(UrlSchemaHelper.SCHEMA_TYPE_TB_CLIENT_ZM) || dataString.startsWith(UrlSchemaHelper.SCHEMA_LIVE_SDK) || dataString.startsWith(UrlSchemaHelper.SCHEMA_CHUSHOU_LIVE_SDK))) {
             String dataString2 = intent.getDataString();
             if (!StringUtils.isNull(dataString2) && PermissionUtil.isAgreePrivacyPolicy()) {
                 UrlManager.getInstance().dealOneLink(this.a.getPageContext(), new String[]{dataString2});
-                li4.w().L(true);
+                mi4.w().L(true);
             }
         } else if (!StringUtils.isNULL(dataString) && dataString.startsWith(BdUniDispatchSchemeController.SCHEME)) {
             BdUniDispatchSchemeController.getInstance().parseMainTabScheme(intent.getData(), new a(this, intent));

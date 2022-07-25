@@ -16,16 +16,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.y15;
+import com.repackage.z15;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes6.dex */
-public class j96 extends y15 {
+public class j96 extends z15 {
     public static /* synthetic */ Interceptable $ic;
     public static j96 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public LinkedList<b25> a;
+    public LinkedList<c25> a;
     public final CustomMessageListener b;
 
     /* loaded from: classes6.dex */
@@ -36,12 +36,12 @@ public class j96 extends y15 {
 
         /* renamed from: com.repackage.j96$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class RunnableC0659a implements Runnable {
+        public class RunnableC0506a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public RunnableC0659a(a aVar) {
+            public RunnableC0506a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -95,7 +95,7 @@ public class j96 extends y15 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
                 this.a.d();
-                new Thread(new RunnableC0659a(this)).start();
+                new Thread(new RunnableC0506a(this)).start();
             }
         }
     }
@@ -133,15 +133,15 @@ public class j96 extends y15 {
         return (j96) invokeV.objValue;
     }
 
-    @Override // com.repackage.y15
-    public void b(y15.a aVar) {
+    @Override // com.repackage.z15
+    public void b(z15.a aVar) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) && FileHelper.checkSD()) {
-            LinkedList<b25> linkedList = this.a;
+            LinkedList<c25> linkedList = this.a;
             if (linkedList != null && !linkedList.isEmpty()) {
-                Iterator<b25> it = this.a.iterator();
+                Iterator<c25> it = this.a.iterator();
                 while (it.hasNext()) {
-                    b25 next = it.next();
+                    c25 next = it.next();
                     if (aVar != null) {
                         aVar.a(next);
                     }
@@ -157,7 +157,7 @@ public class j96 extends y15 {
         }
     }
 
-    @Override // com.repackage.y15
+    @Override // com.repackage.z15
     public int c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -167,7 +167,7 @@ public class j96 extends y15 {
         return invokeV.intValue;
     }
 
-    @Override // com.repackage.y15
+    @Override // com.repackage.z15
     public void d() {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || TextUtils.isEmpty(TbadkCoreApplication.getCurrentAccount())) {
@@ -185,11 +185,11 @@ public class j96 extends y15 {
         CollectEmotionData collectEmotionData = new CollectEmotionData();
         collectEmotionData.pid = "setting_icon";
         collectEmotionData.setOrderId(301);
-        collectEmotionData.setSharpText(m45.f);
+        collectEmotionData.setSharpText(n45.f);
         collectEmotionData.uid = TbadkCoreApplication.getCurrentAccount();
         y86.o().a(collectEmotionData);
         EmotionGroupData emotionGroupData = new EmotionGroupData();
-        emotionGroupData.groupId = m45.a();
+        emotionGroupData.groupId = n45.a();
         emotionGroupData.groupName = "用户收藏表情";
         emotionGroupData.groupDesc = "用户收藏表情";
         emotionGroupData.emotionsCount = 301;
@@ -203,13 +203,13 @@ public class j96 extends y15 {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            LinkedList<b25> linkedList = this.a;
+            LinkedList<c25> linkedList = this.a;
             if (linkedList == null) {
                 return false;
             }
-            Iterator<b25> it = linkedList.iterator();
+            Iterator<c25> it = linkedList.iterator();
             while (it.hasNext()) {
-                b25 next = it.next();
+                c25 next = it.next();
                 if (next instanceof h96) {
                     return ((h96) next).v(str);
                 }
@@ -226,9 +226,9 @@ public class j96 extends y15 {
                 if (this.a == null) {
                     return;
                 }
-                Iterator<b25> it = this.a.iterator();
+                Iterator<c25> it = this.a.iterator();
                 while (it.hasNext()) {
-                    b25 next = it.next();
+                    c25 next = it.next();
                     if (next instanceof h96) {
                         ((h96) next).x();
                     }

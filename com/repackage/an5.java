@@ -25,7 +25,7 @@ import java.util.List;
 @Singleton
 @Service
 /* loaded from: classes5.dex */
-public class an5 implements el1 {
+public class an5 implements fl1 {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
@@ -44,7 +44,7 @@ public class an5 implements el1 {
                 return;
             }
         }
-        b = rg1.a;
+        b = sg1.a;
     }
 
     public an5() {
@@ -61,46 +61,46 @@ public class an5 implements el1 {
         }
     }
 
-    @Override // com.repackage.el1
+    @Override // com.repackage.fl1
     public void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
             if (b) {
                 Log.e("DefaultSwanAppLifecycle", "onAppBackground");
             }
-            long m = xt4.k().m("smart_app_tid", 0L);
-            String q = xt4.k().q("smart_app_id", "");
-            String q2 = xt4.k().q("smart_app_name", "");
+            long m = yt4.k().m("smart_app_tid", 0L);
+            String q = yt4.k().q("smart_app_id", "");
+            String q2 = yt4.k().q("smart_app_name", "");
             if (this.a == 0 || m == 0) {
                 return;
             }
             long currentTimeMillis = System.currentTimeMillis() - this.a;
-            y85 y85Var = new y85();
-            y85Var.y(currentTimeMillis);
-            y85Var.s(g());
-            y85Var.C(m);
-            y85Var.i = q;
-            y85Var.j = q2;
-            y85Var.x(h());
-            z85.b().j(true);
-            z85.b().k(TbadkApplication.getInst().getApplicationContext(), y85Var, i());
-            xt4.k().x("smart_app_tid", 0L);
+            z85 z85Var = new z85();
+            z85Var.y(currentTimeMillis);
+            z85Var.s(g());
+            z85Var.C(m);
+            z85Var.i = q;
+            z85Var.j = q2;
+            z85Var.x(h());
+            a95.b().j(true);
+            a95.b().k(TbadkApplication.getInst().getApplicationContext(), z85Var, i());
+            yt4.k().x("smart_app_tid", 0L);
         }
     }
 
-    @Override // com.repackage.el1
+    @Override // com.repackage.fl1
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
         }
     }
 
-    @Override // com.repackage.el1
+    @Override // com.repackage.fl1
     public void c(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
             if (b) {
-                Log.e("DefaultSwanAppLifecycle", "onAppForeground" + h03.M().b);
+                Log.e("DefaultSwanAppLifecycle", "onAppForeground" + i03.M().b);
             }
             File file = new File(em.b("libBaiduMapSDK_map_v5_4_4.so"));
             if (file.exists() && file.isFile() && BdBaseApplication.getInst().getResHashMap().get("libBaiduMapSDK_map_v5_4_4.so") == null && gm.a(BdBaseApplication.getInst().getContext(), em.a("libBaiduMapSDK_map_v5_4_4.so"))) {
@@ -110,14 +110,14 @@ public class an5 implements el1 {
         }
     }
 
-    @Override // com.repackage.el1
-    public void d(@NonNull SwanAppActivity swanAppActivity, int i, @Nullable el2 el2Var) {
+    @Override // com.repackage.fl1
+    public void d(@NonNull SwanAppActivity swanAppActivity, int i, @Nullable fl2 fl2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(1048579, this, swanAppActivity, i, el2Var) == null) {
+        if (interceptable == null || interceptable.invokeLIL(1048579, this, swanAppActivity, i, fl2Var) == null) {
             if (b) {
                 Log.e("DefaultSwanAppLifecycle", "onAppExit");
             }
-            if (xt4.k().h("key_ai_app_guide_display", true)) {
+            if (yt4.k().h("key_ai_app_guide_display", true)) {
                 Intent intent = new Intent(swanAppActivity, DealIntentService.class);
                 intent.putExtra(DealIntentService.KEY_CLASS, 38);
                 swanAppActivity.startService(intent);
@@ -125,14 +125,14 @@ public class an5 implements el1 {
         }
     }
 
-    @Override // com.repackage.el1
+    @Override // com.repackage.fl1
     public void e(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
         }
     }
 
-    @Override // com.repackage.el1
+    @Override // com.repackage.fl1
     public void f(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
@@ -156,12 +156,12 @@ public class an5 implements el1 {
         return (List) invokeV.objValue;
     }
 
-    public w85 i() {
+    public x85 i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
             return null;
         }
-        return (w85) invokeV.objValue;
+        return (x85) invokeV.objValue;
     }
 }

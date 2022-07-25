@@ -282,7 +282,7 @@ public class DetailInfoFragment extends BaseFragment implements py7 {
     public final void D1(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, view2) == null) {
-            BdTypeRecyclerView bdTypeRecyclerView = (BdTypeRecyclerView) view2.findViewById(R.id.obfuscated_res_0x7f09170e);
+            BdTypeRecyclerView bdTypeRecyclerView = (BdTypeRecyclerView) view2.findViewById(R.id.obfuscated_res_0x7f0916e9);
             this.c = bdTypeRecyclerView;
             bdTypeRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
             this.c.addOnScrollListener(this.j);
@@ -334,7 +334,7 @@ public class DetailInfoFragment extends BaseFragment implements py7 {
             N1();
         } else {
             C1();
-            this.d.C(getString(R.string.obfuscated_res_0x7f0f0f8d));
+            this.d.C(getString(R.string.obfuscated_res_0x7f0f0f76));
         }
     }
 
@@ -422,7 +422,7 @@ public class DetailInfoFragment extends BaseFragment implements py7 {
         if (!(interceptable == null || interceptable.invokeV(1048591, this) == null) || (pbListView = this.d) == null) {
             return;
         }
-        pbListView.I(getString(R.string.obfuscated_res_0x7f0f0c72), R.drawable.new_pic_emotion_08, pi.f(TbadkApplication.getInst(), R.dimen.tbds256));
+        pbListView.I(getString(R.string.obfuscated_res_0x7f0f0c5e), R.drawable.new_pic_emotion_08, pi.f(TbadkApplication.getInst(), R.dimen.tbds256));
     }
 
     @Override // com.repackage.py7
@@ -499,7 +499,7 @@ public class DetailInfoFragment extends BaseFragment implements py7 {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048597, this, layoutInflater, viewGroup, bundle)) == null) {
-            View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d0677, viewGroup, false);
+            View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d0681, viewGroup, false);
             this.e = (VideoPbViewModel) ViewModelProviders.of(getFragmentActivity()).get(VideoPbViewModel.class);
             D1(inflate);
             return inflate;

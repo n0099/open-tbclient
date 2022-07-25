@@ -7,13 +7,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.ksad.annotation.invoker.InvokeBy;
 import com.kwad.sdk.core.config.d;
-import com.kwad.sdk.core.config.item.i;
+import com.kwad.sdk.core.config.item.j;
 /* loaded from: classes5.dex */
 public final class a {
     public static /* synthetic */ Interceptable $ic;
-    public static i a;
-    public static i b;
-    public static i c;
+    public static j ej;
+    public static j ek;
+    public static j el;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -29,13 +29,13 @@ public final class a {
                 return;
             }
         }
-        a = new i("fullscreenSkipType", 0);
-        b = new i("fullscreenSkipShowTime", 5);
-        c = new i("fullScreenShakeMaxCount", 0);
+        ej = new j("fullscreenSkipType", 0);
+        ek = new j("fullscreenSkipShowTime", 5);
+        el = new j("fullScreenShakeMaxCount", 0);
     }
 
     @InvokeBy(invokerClass = d.class, methodId = "initConfigList")
-    public static void a() {
+    public static void init() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65537, null) == null) {
         }

@@ -33,12 +33,12 @@ public class a implements Cloneable {
 
     /* renamed from: com.cmic.sso.sdk.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public static class C0274a {
+    public static class C0288a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final a a;
 
-        public C0274a() {
+        public C0288a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -54,124 +54,124 @@ public class a implements Cloneable {
             this.a = new a(null);
         }
 
-        public C0274a a(String str) {
+        public C0288a a(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
                 this.a.a = str;
                 return this;
             }
-            return (C0274a) invokeL.objValue;
+            return (C0288a) invokeL.objValue;
         }
 
-        public C0274a b(String str) {
+        public C0288a b(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
                 this.a.b = str;
                 return this;
             }
-            return (C0274a) invokeL.objValue;
+            return (C0288a) invokeL.objValue;
         }
 
-        public C0274a c(String str) {
+        public C0288a c(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
                 this.a.c = str;
                 return this;
             }
-            return (C0274a) invokeL.objValue;
+            return (C0288a) invokeL.objValue;
         }
 
-        public C0274a d(String str) {
+        public C0288a d(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, str)) == null) {
                 this.a.d = str;
                 return this;
             }
-            return (C0274a) invokeL.objValue;
+            return (C0288a) invokeL.objValue;
         }
 
-        public C0274a e(boolean z) {
+        public C0288a e(boolean z) {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeZ = interceptable.invokeZ(1048587, this, z)) == null) {
                 this.a.i = z;
                 return this;
             }
-            return (C0274a) invokeZ.objValue;
+            return (C0288a) invokeZ.objValue;
         }
 
-        public C0274a f(boolean z) {
+        public C0288a f(boolean z) {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeZ = interceptable.invokeZ(1048588, this, z)) == null) {
                 this.a.j = z;
                 return this;
             }
-            return (C0274a) invokeZ.objValue;
+            return (C0288a) invokeZ.objValue;
         }
 
-        public C0274a a(boolean z) {
+        public C0288a a(boolean z) {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z)) == null) {
                 this.a.e = z;
                 return this;
             }
-            return (C0274a) invokeZ.objValue;
+            return (C0288a) invokeZ.objValue;
         }
 
-        public C0274a b(boolean z) {
+        public C0288a b(boolean z) {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeZ = interceptable.invokeZ(1048582, this, z)) == null) {
                 this.a.f = z;
                 return this;
             }
-            return (C0274a) invokeZ.objValue;
+            return (C0288a) invokeZ.objValue;
         }
 
-        public C0274a c(boolean z) {
+        public C0288a c(boolean z) {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeZ = interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z)) == null) {
                 this.a.g = z;
                 return this;
             }
-            return (C0274a) invokeZ.objValue;
+            return (C0288a) invokeZ.objValue;
         }
 
-        public C0274a d(boolean z) {
+        public C0288a d(boolean z) {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeZ = interceptable.invokeZ(1048586, this, z)) == null) {
                 this.a.h = z;
                 return this;
             }
-            return (C0274a) invokeZ.objValue;
+            return (C0288a) invokeZ.objValue;
         }
 
-        public C0274a a(int i) {
+        public C0288a a(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
                 this.a.k = i;
                 return this;
             }
-            return (C0274a) invokeI.objValue;
+            return (C0288a) invokeI.objValue;
         }
 
-        public C0274a b(int i) {
+        public C0288a b(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
                 this.a.l = i;
                 return this;
             }
-            return (C0274a) invokeI.objValue;
+            return (C0288a) invokeI.objValue;
         }
 
         public a a() {

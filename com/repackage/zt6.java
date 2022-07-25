@@ -16,7 +16,7 @@ import java.util.List;
 import tbclient.User;
 import tbclient.Userlike.ConcernData;
 /* loaded from: classes7.dex */
-public class zt6 extends hq4 {
+public class zt6 extends iq4 {
     public static /* synthetic */ Interceptable $ic;
     public static final Integer h;
     public transient /* synthetic */ FieldHolder $fh;
@@ -67,14 +67,14 @@ public class zt6 extends hq4 {
         return invokeL.booleanValue;
     }
 
-    @Override // com.repackage.hq4
+    @Override // com.repackage.iq4
     public List<MetaData> c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.g : (List) invokeV.objValue;
     }
 
-    @Override // com.repackage.hq4
+    @Override // com.repackage.iq4
     public void d(List<User> list) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) || list == null) {
@@ -94,14 +94,14 @@ public class zt6 extends hq4 {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f : invokeV.booleanValue;
     }
 
-    @Override // com.repackage.hq4, com.repackage.nn4
-    public kp4 getNegFeedBackData() {
+    @Override // com.repackage.iq4, com.repackage.on4
+    public lp4 getNegFeedBackData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? new kp4() : (kp4) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? new lp4() : (lp4) invokeV.objValue;
     }
 
-    @Override // com.repackage.hq4, com.repackage.nn4
+    @Override // com.repackage.iq4, com.repackage.on4
     public ThreadData getThreadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -111,11 +111,11 @@ public class zt6 extends hq4 {
         return (ThreadData) invokeV.objValue;
     }
 
-    @Override // com.repackage.hq4, com.baidu.tieba.card.data.BaseCardInfo, com.repackage.nn
+    @Override // com.repackage.iq4, com.baidu.tieba.card.data.BaseCardInfo, com.repackage.nn
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? hq4.e : (BdUniqueId) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? iq4.e : (BdUniqueId) invokeV.objValue;
     }
 
     public void k(boolean z) {

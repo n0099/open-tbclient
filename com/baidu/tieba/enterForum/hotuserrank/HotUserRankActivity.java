@@ -163,7 +163,7 @@ public class HotUserRankActivity extends BaseFragmentActivity {
                     return;
                 }
                 HotUserRankActivity hotUserRankActivity2 = this.a;
-                hotUserRankActivity2.showNetRefreshView(hotUserRankActivity2.a.i(), this.a.getString(R.string.obfuscated_res_0x7f0f0c2b), true);
+                hotUserRankActivity2.showNetRefreshView(hotUserRankActivity2.a.i(), this.a.getString(R.string.obfuscated_res_0x7f0f0c17), true);
             }
         }
 
@@ -217,7 +217,7 @@ public class HotUserRankActivity extends BaseFragmentActivity {
         this.h = getIntent().getBooleanExtra(HotUserRankActivityConfig.KEY_IS_GOD, false);
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.repackage.v85
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.repackage.w85
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -247,7 +247,7 @@ public class HotUserRankActivity extends BaseFragmentActivity {
             if (!TextUtils.isEmpty(this.c)) {
                 this.b.i(this.c);
             } else if (this.d > 0) {
-                this.a.n(getString(R.string.obfuscated_res_0x7f0f0675));
+                this.a.n(getString(R.string.obfuscated_res_0x7f0f0671));
                 this.b.h(this.d);
             }
             this.a.m(this.h);

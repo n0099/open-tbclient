@@ -34,19 +34,20 @@ import java.util.List;
 public abstract class a extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public View a;
-    public ImageView b;
-    public TextView c;
-    public AppScoreView d;
-    public TextView e;
-    public TextView f;
-    public TextProgressBar g;
-    public KsAppTagsView h;
-    public View i;
-    public Button j;
-    public Button k;
-    public ValueAnimator l;
-    public com.kwad.components.ad.g.a m;
+    public View BA;
+    public TextView CI;
+    public TextView cz;
+    public ImageView hF;
+    public TextView hG;
+    public ValueAnimator ju;
+    public View un;
+    public Button uo;
+    public Button up;
+    public KsAppTagsView uu;
+    public com.kwad.components.ad.g.a ux;
+    public Runnable uy;
+    public AppScoreView wH;
+    public TextProgressBar wZ;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public a(Context context) {
@@ -109,44 +110,44 @@ public abstract class a extends LinearLayout {
                 return;
             }
         }
-        b();
+        initView();
     }
 
-    private void b() {
+    private void initView() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
-            this.a = LinearLayout.inflate(getContext(), getLayoutId(), this);
-            this.b = (ImageView) findViewById(R.id.obfuscated_res_0x7f090ff5);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f090ff7);
-            this.d = (AppScoreView) findViewById(R.id.obfuscated_res_0x7f090ff8);
-            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f090ff4);
-            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f090ff6);
-            TextProgressBar textProgressBar = (TextProgressBar) findViewById(R.id.obfuscated_res_0x7f09102b);
-            this.g = textProgressBar;
+            this.BA = LinearLayout.inflate(getContext(), getLayoutId(), this);
+            this.hF = (ImageView) findViewById(R.id.obfuscated_res_0x7f090fec);
+            this.hG = (TextView) findViewById(R.id.obfuscated_res_0x7f090fee);
+            this.wH = (AppScoreView) findViewById(R.id.obfuscated_res_0x7f090fef);
+            this.cz = (TextView) findViewById(R.id.obfuscated_res_0x7f090feb);
+            this.CI = (TextView) findViewById(R.id.obfuscated_res_0x7f090fed);
+            TextProgressBar textProgressBar = (TextProgressBar) findViewById(R.id.obfuscated_res_0x7f091022);
+            this.wZ = textProgressBar;
             textProgressBar.setTextDimen(com.kwad.sdk.b.kwai.a.a(getContext(), 16.0f));
-            this.g.setTextColor(-1);
-            this.h = (KsAppTagsView) findViewById(R.id.obfuscated_res_0x7f0910f3);
-            this.j = (Button) findViewById(R.id.obfuscated_res_0x7f0910ed);
-            this.k = (Button) findViewById(R.id.obfuscated_res_0x7f0910ef);
-            this.i = findViewById(R.id.obfuscated_res_0x7f0910ee);
-            this.m = new com.kwad.components.ad.g.a(this.a);
+            this.wZ.setTextColor(-1);
+            this.uu = (KsAppTagsView) findViewById(R.id.obfuscated_res_0x7f0910ea);
+            this.uo = (Button) findViewById(R.id.obfuscated_res_0x7f0910e4);
+            this.up = (Button) findViewById(R.id.obfuscated_res_0x7f0910e6);
+            this.un = findViewById(R.id.obfuscated_res_0x7f0910e5);
+            this.ux = new com.kwad.components.ad.g.a(this.BA);
         }
     }
 
-    private void c() {
+    private void ld() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
-            ValueAnimator valueAnimator = this.l;
+            ValueAnimator valueAnimator = this.ju;
             if (valueAnimator == null || !valueAnimator.isRunning()) {
                 ValueAnimator ofFloat = ValueAnimator.ofFloat(1.0f, 1.2f, 1.0f);
-                this.l = ofFloat;
+                this.ju = ofFloat;
                 ofFloat.setDuration(IMLikeRequest.TIME_INTERVAL);
-                this.l.setRepeatCount(-1);
-                this.l.setRepeatMode(1);
-                this.l.addUpdateListener(new ValueAnimator.AnimatorUpdateListener(this) { // from class: com.kwad.components.ad.widget.tailframe.appbar.a.2
+                this.ju.setRepeatCount(-1);
+                this.ju.setRepeatMode(1);
+                this.ju.addUpdateListener(new ValueAnimator.AnimatorUpdateListener(this) { // from class: com.kwad.components.ad.widget.tailframe.appbar.a.2
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
-                    public final /* synthetic */ a a;
+                    public final /* synthetic */ a CJ;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -163,7 +164,7 @@ public abstract class a extends LinearLayout {
                                 return;
                             }
                         }
-                        this.a = this;
+                        this.CJ = this;
                     }
 
                     @Override // android.animation.ValueAnimator.AnimatorUpdateListener
@@ -171,127 +172,111 @@ public abstract class a extends LinearLayout {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, valueAnimator2) == null) {
                             float floatValue = ((Float) valueAnimator2.getAnimatedValue()).floatValue();
-                            this.a.g.setScaleY(floatValue);
-                            this.a.g.setScaleX(floatValue);
+                            this.CJ.wZ.setScaleY(floatValue);
+                            this.CJ.wZ.setScaleX(floatValue);
                         }
                     }
                 });
-                this.l.start();
+                this.ju.start();
             }
         }
     }
 
-    public final void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            ValueAnimator valueAnimator = this.l;
-            if (valueAnimator != null && valueAnimator.isRunning()) {
-                this.l.cancel();
-                this.l.end();
-            }
-            this.m.b();
-        }
-    }
-
-    public final void a(@NonNull AdInfo adInfo) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, adInfo) == null) {
-            int i = adInfo.status;
-            if (i == 1 || i == 2 || i == 3) {
-                a();
-            } else {
-                c();
-            }
-        }
-    }
-
-    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: int : 0x0095: INVOKE  (r5v1 int A[REMOVE]) =  type: STATIC call: com.kwad.sdk.core.config.d.R():int)] */
-    public void a(@NonNull AdTemplate adTemplate) {
+    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: int : 0x0095: INVOKE  (r5v1 int A[REMOVE]) =  type: STATIC call: com.kwad.sdk.core.config.d.sf():int)] */
+    public void c(@NonNull AdTemplate adTemplate) {
         ImageView imageView;
-        String aE;
+        String bn;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, adTemplate) == null) {
-            AdInfo i = d.i(adTemplate);
-            if (d.q(adTemplate)) {
-                imageView = this.b;
-                aE = com.kwad.sdk.core.response.a.a.aZ(i);
+        if (interceptable == null || interceptable.invokeL(1048576, this, adTemplate) == null) {
+            AdInfo bQ = d.bQ(adTemplate);
+            if (d.p(adTemplate)) {
+                imageView = this.hF;
+                bn = com.kwad.sdk.core.response.a.a.bI(bQ);
             } else {
-                imageView = this.b;
-                aE = com.kwad.sdk.core.response.a.a.aE(i);
+                imageView = this.hF;
+                bn = com.kwad.sdk.core.response.a.a.bn(bQ);
             }
-            KSImageLoader.loadAppIcon(imageView, aE, adTemplate, 12);
-            this.c.setText(com.kwad.sdk.core.response.a.a.aC(i));
-            if (!d.q(adTemplate)) {
-                float E = com.kwad.sdk.core.response.a.a.E(i);
-                if (E >= 3.0f) {
-                    this.d.setScore(E);
-                    this.d.setVisibility(0);
+            KSImageLoader.loadAppIcon(imageView, bn, adTemplate, 12);
+            this.hG.setText(com.kwad.sdk.core.response.a.a.bl(bQ));
+            if (!d.p(adTemplate)) {
+                float ai = com.kwad.sdk.core.response.a.a.ai(bQ);
+                if (ai >= 3.0f) {
+                    this.wH.setScore(ai);
+                    this.wH.setVisibility(0);
                 } else {
-                    this.d.setVisibility(8);
+                    this.wH.setVisibility(8);
                 }
-                String D = com.kwad.sdk.core.response.a.a.D(i);
-                if (TextUtils.isEmpty(D)) {
-                    this.e.setVisibility(8);
+                String ah = com.kwad.sdk.core.response.a.a.ah(bQ);
+                if (TextUtils.isEmpty(ah)) {
+                    this.cz.setVisibility(8);
                 } else {
-                    this.e.setText(D);
-                    this.e.setVisibility(0);
+                    this.cz.setText(ah);
+                    this.cz.setVisibility(0);
                 }
             }
-            this.f.setText(com.kwad.sdk.core.response.a.a.z(i));
-            if (d.q(adTemplate)) {
-                this.g.setVisibility(8);
-                this.i.setVisibility(0);
-                this.k.setText("查看详情");
-                Button button = this.j;
+            this.CI.setText(com.kwad.sdk.core.response.a.a.ad(bQ));
+            if (d.p(adTemplate)) {
+                this.wZ.setVisibility(8);
+                this.un.setVisibility(0);
+                this.up.setText("查看详情");
+                Button button = this.uo;
                 StringBuilder sb = new StringBuilder();
-                sb.append(com.kwad.sdk.core.config.d.R());
+                sb.append(com.kwad.sdk.core.config.d.sf());
                 button.setText(String.format("浏览详情页%s秒，领取奖励", sb.toString()));
                 if (!adTemplate.mRewardVerifyCalled) {
-                    this.i.postDelayed(new Runnable(this) { // from class: com.kwad.components.ad.widget.tailframe.appbar.a.1
-                        public static /* synthetic */ Interceptable $ic;
-                        public transient /* synthetic */ FieldHolder $fh;
-                        public final /* synthetic */ a a;
+                    if (this.uy == null) {
+                        this.uy = new Runnable(this) { // from class: com.kwad.components.ad.widget.tailframe.appbar.a.1
+                            public static /* synthetic */ Interceptable $ic;
+                            public transient /* synthetic */ FieldHolder $fh;
+                            public final /* synthetic */ a CJ;
 
-                        {
-                            Interceptable interceptable2 = $ic;
-                            if (interceptable2 != null) {
-                                InitContext newInitContext = TitanRuntime.newInitContext();
-                                newInitContext.initArgs = r2;
-                                Object[] objArr = {this};
-                                interceptable2.invokeUnInit(65536, newInitContext);
-                                int i2 = newInitContext.flag;
-                                if ((i2 & 1) != 0) {
-                                    int i3 = i2 & 2;
-                                    newInitContext.thisArg = this;
-                                    interceptable2.invokeInitBody(65536, newInitContext);
-                                    return;
+                            {
+                                Interceptable interceptable2 = $ic;
+                                if (interceptable2 != null) {
+                                    InitContext newInitContext = TitanRuntime.newInitContext();
+                                    newInitContext.initArgs = r2;
+                                    Object[] objArr = {this};
+                                    interceptable2.invokeUnInit(65536, newInitContext);
+                                    int i = newInitContext.flag;
+                                    if ((i & 1) != 0) {
+                                        int i2 = i & 2;
+                                        newInitContext.thisArg = this;
+                                        interceptable2.invokeInitBody(65536, newInitContext);
+                                        return;
+                                    }
+                                }
+                                this.CJ = this;
+                            }
+
+                            @Override // java.lang.Runnable
+                            public final void run() {
+                                Interceptable interceptable2 = $ic;
+                                if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                                    this.CJ.ux.kL();
                                 }
                             }
-                            this.a = this;
-                        }
-
-                        @Override // java.lang.Runnable
-                        public final void run() {
-                            Interceptable interceptable2 = $ic;
-                            if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                                this.a.m.a();
-                            }
-                        }
-                    }, 1600L);
+                        };
+                    }
+                    this.un.postDelayed(this.uy, 1600L);
                 }
             } else {
-                this.g.setVisibility(0);
-                this.i.setVisibility(8);
-                a(d.i(adTemplate));
-            }
-            if (d.q(adTemplate)) {
-                List<String> f = c.f(adTemplate);
-                if (f.size() > 0) {
-                    this.h.setVisibility(0);
-                } else {
-                    this.h.setVisibility(8);
+                this.wZ.setVisibility(0);
+                this.un.setVisibility(8);
+                Runnable runnable = this.uy;
+                if (runnable != null) {
+                    this.un.removeCallbacks(runnable);
+                    this.uy = null;
                 }
-                this.h.setAppTags(f);
+                u(d.bQ(adTemplate));
+            }
+            if (d.p(adTemplate)) {
+                List<String> bH = c.bH(adTemplate);
+                if (bH.size() > 0) {
+                    this.uu.setVisibility(0);
+                } else {
+                    this.uu.setVisibility(8);
+                }
+                this.uu.setAppTags(bH);
             }
         }
     }
@@ -299,7 +284,7 @@ public abstract class a extends LinearLayout {
     public View getBtnInstallContainer() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.i : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.un : (View) invokeV.objValue;
     }
 
     @LayoutRes
@@ -308,6 +293,35 @@ public abstract class a extends LinearLayout {
     public TextProgressBar getTextProgressBar() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.g : (TextProgressBar) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.wZ : (TextProgressBar) invokeV.objValue;
+    }
+
+    public final void jl() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            ValueAnimator valueAnimator = this.ju;
+            if (valueAnimator != null && valueAnimator.isRunning()) {
+                this.ju.cancel();
+                this.ju.end();
+            }
+            Runnable runnable = this.uy;
+            if (runnable != null) {
+                this.un.removeCallbacks(runnable);
+                this.uy = null;
+            }
+            this.ux.kM();
+        }
+    }
+
+    public final void u(@NonNull AdInfo adInfo) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, adInfo) == null) {
+            int i = adInfo.status;
+            if (i == 1 || i == 2 || i == 3) {
+                jl();
+            } else {
+                ld();
+            }
+        }
     }
 }

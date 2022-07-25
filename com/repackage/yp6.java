@@ -30,7 +30,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.cr4;
+import com.repackage.dr4;
 import com.repackage.yh8;
 import java.util.ArrayList;
 import java.util.List;
@@ -70,17 +70,17 @@ public class yp6 {
         }
 
         @Override // com.baidu.tieba.tbadkCore.util.AntiHelper.k
-        public void onNavigationButtonClick(cr4 cr4Var) {
+        public void onNavigationButtonClick(dr4 dr4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, cr4Var) == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, dr4Var) == null) {
                 TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_ANTI_DIALOG_NEG_CLICK).param("obj_locate", TbadkCoreStatisticKey.AntiLocateValue.LOCATE_LIKE_BAR));
             }
         }
 
         @Override // com.baidu.tieba.tbadkCore.util.AntiHelper.k
-        public void onPositiveButtonClick(cr4 cr4Var) {
+        public void onPositiveButtonClick(dr4 dr4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cr4Var) == null) {
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dr4Var) == null) {
                 TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_ANTI_DIALOG_POS_CLICK).param("obj_locate", TbadkCoreStatisticKey.AntiLocateValue.LOCATE_LIKE_BAR));
             }
         }
@@ -217,7 +217,7 @@ public class yp6 {
     }
 
     /* loaded from: classes7.dex */
-    public class e implements cr4.e {
+    public class e implements dr4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ yp6 a;
@@ -240,11 +240,11 @@ public class yp6 {
             this.a = yp6Var;
         }
 
-        @Override // com.repackage.cr4.e
-        public void onClick(cr4 cr4Var) {
+        @Override // com.repackage.dr4.e
+        public void onClick(dr4 dr4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, cr4Var) == null) {
-                cr4Var.dismiss();
+            if (interceptable == null || interceptable.invokeL(1048576, this, dr4Var) == null) {
+                dr4Var.dismiss();
                 if (this.a.a == null || this.a.d == null) {
                     return;
                 }
@@ -263,7 +263,7 @@ public class yp6 {
     }
 
     /* loaded from: classes7.dex */
-    public class f implements cr4.e {
+    public class f implements dr4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -283,11 +283,11 @@ public class yp6 {
             }
         }
 
-        @Override // com.repackage.cr4.e
-        public void onClick(cr4 cr4Var) {
+        @Override // com.repackage.dr4.e
+        public void onClick(dr4 dr4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, cr4Var) == null) {
-                cr4Var.dismiss();
+            if (interceptable == null || interceptable.invokeL(1048576, this, dr4Var) == null) {
+                dr4Var.dismiss();
             }
         }
     }
@@ -326,7 +326,7 @@ public class yp6 {
             StatisticItem statisticItem = new StatisticItem("c13605");
             FrsFragment frsFragment = this.a;
             if (frsFragment != null) {
-                u85.b(frsFragment.getContext(), statisticItem);
+                v85.b(frsFragment.getContext(), statisticItem);
                 kn6.b(statisticItem, this.a.d(), this.a.c());
             }
             kn6.a(statisticItem);
@@ -391,7 +391,7 @@ public class yp6 {
             e();
         } else if (this.c.getErrorCode() == 22) {
             FrsFragment frsFragment4 = this.a;
-            frsFragment4.showToast(frsFragment4.getString(R.string.obfuscated_res_0x7f0f0819));
+            frsFragment4.showToast(frsFragment4.getString(R.string.obfuscated_res_0x7f0f0815));
         } else {
             this.a.showToast(this.c.getErrorString());
         }
@@ -521,16 +521,16 @@ public class yp6 {
         if (!(interceptable == null || interceptable.invokeV(1048588, this) == null) || (frsFragment = this.a) == null) {
             return;
         }
-        cr4 cr4Var = new cr4(frsFragment.getActivity());
+        dr4 dr4Var = new dr4(frsFragment.getActivity());
         FrsViewData Q0 = this.a.Q0();
         String name = (Q0 == null || Q0.getForum() == null || Q0.getForum().getName() == null) ? "" : Q0.getForum().getName();
         if (!StringUtils.isNull(name)) {
-            cr4Var.setMessage(String.format(this.a.getString(R.string.obfuscated_res_0x7f0f02ac), name));
+            dr4Var.setMessage(String.format(this.a.getString(R.string.obfuscated_res_0x7f0f02ac), name));
         } else {
-            cr4Var.setMessage(this.a.getString(R.string.obfuscated_res_0x7f0f02ad));
+            dr4Var.setMessage(this.a.getString(R.string.obfuscated_res_0x7f0f02ad));
         }
-        cr4Var.setPositiveButton(this.a.getString(R.string.obfuscated_res_0x7f0f0528), new e(this));
-        cr4Var.setNegativeButton(this.a.getString(R.string.obfuscated_res_0x7f0f0527), new f(this));
-        cr4Var.create(this.a.o()).show();
+        dr4Var.setPositiveButton(this.a.getString(R.string.obfuscated_res_0x7f0f0524), new e(this));
+        dr4Var.setNegativeButton(this.a.getString(R.string.obfuscated_res_0x7f0f0523), new f(this));
+        dr4Var.create(this.a.o()).show();
     }
 }

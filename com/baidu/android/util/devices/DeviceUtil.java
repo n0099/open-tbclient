@@ -19,7 +19,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.kuaishou.weapon.p0.C0294;
+import com.kuaishou.weapon.p0.k1;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -181,7 +181,7 @@ public class DeviceUtil implements IDevices {
                 }
                 CPUInfo cPUInfo2 = new CPUInfo();
                 try {
-                    FileReader fileReader = new FileReader(C0294.f19);
+                    FileReader fileReader = new FileReader(k1.a);
                     BufferedReader bufferedReader = new BufferedReader(fileReader);
                     for (String readLine = bufferedReader.readLine(); readLine != null; readLine = bufferedReader.readLine()) {
                         String lowerCase = readLine.trim().toLowerCase(Locale.getDefault());
@@ -285,7 +285,7 @@ public class DeviceUtil implements IDevices {
         public static boolean supportMips() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) ? supportABI("mips") : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) ? supportABI(IDevices.ABI_MIPS) : invokeV.booleanValue;
         }
 
         public static boolean supportX86() {

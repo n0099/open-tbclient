@@ -150,12 +150,12 @@ public class b extends Handler {
 
     /* renamed from: com.baidu.mapsdkplatform.comapi.synchronization.render.b$b  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public class RunnableC0112b implements Runnable {
+    public class RunnableC0113b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ b a;
 
-        public RunnableC0112b(b bVar) {
+        public RunnableC0113b(b bVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -173,7 +173,7 @@ public class b extends Handler {
             this.a = bVar;
         }
 
-        public /* synthetic */ RunnableC0112b(b bVar, com.baidu.mapsdkplatform.comapi.synchronization.render.c cVar) {
+        public /* synthetic */ RunnableC0113b(b bVar, com.baidu.mapsdkplatform.comapi.synchronization.render.c cVar) {
             this(bVar);
         }
 
@@ -512,7 +512,7 @@ public class b extends Handler {
         this.W = 0;
         this.X = false;
         this.Y = 0.0d;
-        this.q = new Thread(new RunnableC0112b(this, null), "Car moving");
+        this.q = new Thread(new RunnableC0113b(this, null), "Car moving");
         this.x = new Thread(new c(this, null), "Passenger marker");
         this.B = new Thread(new a(this, null), "Adjust visible span");
     }
@@ -1468,7 +1468,7 @@ public class b extends Handler {
                 }
                 if (Thread.State.TERMINATED == this.q.getState()) {
                     this.q = null;
-                    Thread thread = new Thread(new RunnableC0112b(this, null), "Car moving");
+                    Thread thread = new Thread(new RunnableC0113b(this, null), "Car moving");
                     this.q = thread;
                     thread.start();
                 }

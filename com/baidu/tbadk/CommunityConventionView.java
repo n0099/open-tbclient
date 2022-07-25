@@ -51,7 +51,7 @@ public class CommunityConventionView extends LinearLayout {
             this.mContext = context;
             LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d01e6, this);
             this.mWarningImage = (ImageView) findViewById(R.id.obfuscated_res_0x7f0924c3);
-            this.mConventionTitle = (TextView) findViewById(R.id.obfuscated_res_0x7f0906ca);
+            this.mConventionTitle = (TextView) findViewById(R.id.obfuscated_res_0x7f0906c9);
             onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         }
     }

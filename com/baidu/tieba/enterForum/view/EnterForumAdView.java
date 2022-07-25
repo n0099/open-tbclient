@@ -27,9 +27,9 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.ng8;
 import com.repackage.pg8;
-import com.repackage.rl4;
-import com.repackage.x75;
+import com.repackage.sl4;
 import com.repackage.y46;
+import com.repackage.y75;
 import com.repackage.z46;
 /* loaded from: classes3.dex */
 public class EnterForumAdView extends FrameLayout {
@@ -164,7 +164,7 @@ public class EnterForumAdView extends FrameLayout {
             return;
         }
         if (context != null) {
-            rl4.o(context, str);
+            sl4.o(context, str);
         }
         if (bdUniqueId == null || (i = ng8.i(true, "a025", "common_click", 3, 1, true, String.valueOf(F.b), String.valueOf(F.b), 5)) == null) {
             return;
@@ -228,7 +228,7 @@ public class EnterForumAdView extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             if (this.f == null) {
-                TbImageView tbImageView = (TbImageView) findViewById(R.id.obfuscated_res_0x7f0908b5);
+                TbImageView tbImageView = (TbImageView) findViewById(R.id.obfuscated_res_0x7f0908b3);
                 this.f = tbImageView;
                 tbImageView.setPlaceHolder(3);
                 this.f.setEvent(new b(this));
@@ -243,9 +243,9 @@ public class EnterForumAdView extends FrameLayout {
                     z46Var.a = true;
                     z46Var.b = getBottom();
                     z46Var.c = this.i;
-                    x75 x75Var = new x75(16, null, null, null);
-                    x75Var.h(z46Var);
-                    this.g.dispatchMvcEvent(x75Var);
+                    y75 y75Var = new y75(16, null, null, null);
+                    y75Var.h(z46Var);
+                    this.g.dispatchMvcEvent(y75Var);
                 }
                 setVisibility(0);
                 if (this.l != F && (i = ng8.i(false, "a025", "common_exp", 0, 1, true, String.valueOf(F.b), String.valueOf(F.b), 5)) != null) {
@@ -260,9 +260,9 @@ public class EnterForumAdView extends FrameLayout {
                     z46Var2.a = false;
                     z46Var2.b = getBottom();
                     z46Var2.c = this.i;
-                    x75 x75Var2 = new x75(16, null, null, null);
-                    x75Var2.h(z46Var2);
-                    this.g.dispatchMvcEvent(x75Var2);
+                    y75 y75Var2 = new y75(16, null, null, null);
+                    y75Var2.h(z46Var2);
+                    this.g.dispatchMvcEvent(y75Var2);
                 }
                 setVisibility(8);
             }
@@ -290,9 +290,9 @@ public class EnterForumAdView extends FrameLayout {
             z46Var.a = true;
             z46Var.b = i4;
             z46Var.c = this.i;
-            x75 x75Var = new x75(16, null, null, null);
-            x75Var.h(z46Var);
-            this.g.dispatchMvcEvent(x75Var);
+            y75 y75Var = new y75(16, null, null, null);
+            y75Var.h(z46Var);
+            this.g.dispatchMvcEvent(y75Var);
         }
     }
 

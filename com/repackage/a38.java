@@ -57,14 +57,14 @@ public class a38 extends an<l48, CardViewHolder<n58>> {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, l48Var, cardViewHolder})) == null) {
-            if (cardViewHolder == null || cardViewHolder.c() == null || l48Var == null) {
+            if (cardViewHolder == null || cardViewHolder.b() == null || l48Var == null) {
                 return null;
             }
-            cardViewHolder.c().i(l48Var);
-            if (cardViewHolder.c().h() != null) {
-                cardViewHolder.c().h().setOnClickListener(this.j);
+            cardViewHolder.b().i(l48Var);
+            if (cardViewHolder.b().h() != null) {
+                cardViewHolder.b().h().setOnClickListener(this.j);
             }
-            return cardViewHolder.c().h();
+            return cardViewHolder.b().h();
         }
         return (View) invokeCommon.objValue;
     }

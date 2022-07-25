@@ -30,7 +30,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.fu4;
+import com.repackage.gu4;
 import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes7.dex */
@@ -39,7 +39,7 @@ public class zo5 {
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext a;
     public BdTypeListView b;
-    public gu4 c;
+    public hu4 c;
     public FrameLayout d;
     public LinearLayout e;
     public NoNetworkView f;
@@ -123,9 +123,9 @@ public class zo5 {
         this.b = bdTypeListView;
         bdTypeListView.setDivider(null);
         this.d.addView(this.b, new FrameLayout.LayoutParams(-1, -1));
-        gu4 gu4Var = new gu4(this.a);
-        this.c = gu4Var;
-        gu4Var.b0(bdUniqueId);
+        hu4 hu4Var = new hu4(this.a);
+        this.c = hu4Var;
+        hu4Var.b0(bdUniqueId);
         this.b.setPullRefresh(this.c);
         PbListView pbListView = new PbListView(tbPageContext.getPageActivity());
         this.g = pbListView;
@@ -215,7 +215,7 @@ public class zo5 {
         }
     }
 
-    public void k(fu4.g gVar) {
+    public void k(gu4.g gVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, gVar) == null) {
             this.c.f(gVar);
@@ -272,7 +272,7 @@ public class zo5 {
         if (pbListView.b().getParent() == null) {
             this.b.setNextPage(this.g);
         }
-        this.g.C(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f09e7));
+        this.g.C(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f09d3));
         this.g.f();
     }
 }

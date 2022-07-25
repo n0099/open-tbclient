@@ -1,48 +1,65 @@
 package com.repackage;
 
-import android.app.Activity;
-import android.content.Context;
-import android.os.Bundle;
-import androidx.annotation.NonNull;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public interface ek1 {
+    boolean A();
 
-    /* loaded from: classes6.dex */
-    public interface a {
-        void onFinish();
-    }
+    boolean B();
 
-    /* loaded from: classes6.dex */
-    public interface b {
-        void a(boolean z);
+    boolean C();
 
-        void b(Exception exc);
-    }
+    JSONObject D();
 
-    /* loaded from: classes6.dex */
-    public interface c {
-        void a(boolean z);
+    boolean E();
 
-        void b();
-    }
+    void F();
 
-    void a(a aVar);
+    long G();
 
-    void b(Activity activity, Bundle bundle, tg1 tg1Var);
+    boolean H();
 
-    void c(vg1 vg1Var);
+    long I();
 
-    String d(@NonNull Context context);
+    JSONObject getRawSwitch();
 
-    boolean e(Context context);
+    int getSwitch(String str, int i);
 
-    String f(@NonNull Context context);
+    String getSwitch(String str, String str2);
 
-    void g(c cVar);
+    boolean getSwitch(String str, boolean z);
 
-    String h(Context context);
+    boolean j();
 
-    String i(@NonNull Context context);
+    String k();
 
-    void j(tg1 tg1Var);
+    boolean l();
+
+    boolean m();
+
+    long n();
+
+    boolean o();
+
+    String p();
+
+    boolean q();
+
+    int r();
+
+    boolean s();
+
+    boolean t();
+
+    boolean u();
+
+    int v();
+
+    boolean w();
+
+    boolean x();
+
+    boolean y();
+
+    int z();
 }

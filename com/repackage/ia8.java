@@ -69,7 +69,7 @@ public class ia8 {
                     return;
                 }
                 this.a.setStatus(2);
-                this.a.setStatusMsg(TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f04fd));
+                this.a.setStatusMsg(TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f04f9));
                 if (this.a.getCallback() != null) {
                     this.a.getCallback().onFileUpdateProgress(this.a);
                 }
@@ -359,17 +359,17 @@ public class ia8 {
                     String str = null;
                     int intValue = num.intValue();
                     if (intValue == 1) {
-                        str = TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f04fa);
+                        str = TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f04f6);
                     } else if (intValue == 2) {
-                        str = TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f04fa);
+                        str = TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f04f6);
                     } else if (intValue == 3) {
-                        str = TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f04fb);
+                        str = TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f04f7);
                     } else if (intValue == 4) {
-                        str = TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f04fa);
+                        str = TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f04f6);
                     } else if (intValue == 6) {
-                        str = TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f04fa);
+                        str = TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f04f6);
                     } else if (intValue == 7) {
-                        str = TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f04fa);
+                        str = TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f04f6);
                     }
                     this.a.setStatusMsg(str);
                     this.a.setErrorCode(num.intValue());
@@ -451,7 +451,7 @@ public class ia8 {
             return;
         }
         if (!FileHelper.checkSD()) {
-            downloadData.setStatusMsg(TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f04fc));
+            downloadData.setStatusMsg(TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f04f8));
             downloadData.setStatus(2);
         }
         if (downloadData.getStatus() == 2) {

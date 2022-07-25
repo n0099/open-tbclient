@@ -27,13 +27,13 @@ public final class c {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65536, null, file, str, file2)) == null) {
-            String a = a.a();
+            String FH = a.FH();
             File file3 = null;
-            if (TextUtils.isEmpty(a)) {
-                com.kwai.sodler.lib.a.b("plugin.so", "Cpu abis is null.");
+            if (TextUtils.isEmpty(FH)) {
+                com.kwai.sodler.lib.a.w("plugin.so", "Cpu abis is null.");
             } else {
-                new StringBuilder("Try install soLib, supported abi = ").append(a);
-                File file4 = new File(file, "lib" + File.separator + a + File.separator + str);
+                new StringBuilder("Try install soLib, supported abi = ").append(FH);
+                File file4 = new File(file, "lib" + File.separator + FH + File.separator + str);
                 if (file4.exists()) {
                     File file5 = new File(file2, str);
                     if (!file4.renameTo(file5)) {
@@ -61,7 +61,7 @@ public final class c {
     /* JADX WARN: Type inference failed for: r7v11 */
     /* JADX WARN: Type inference failed for: r7v12 */
     /* JADX WARN: Type inference failed for: r7v13, types: [java.io.BufferedInputStream, java.io.InputStream] */
-    public static Set<String> a(File file, File file2) {
+    public static Set<String> h(File file, File file2) {
         InterceptResult invokeLL;
         ZipFile zipFile;
         OutputStream outputStream;
@@ -76,7 +76,7 @@ public final class c {
             throw new IOException("Apk file not found.");
         }
         HashSet hashSet = new HashSet(4);
-        o.i(file2);
+        o.U(file2);
         StringBuilder sb = new StringBuilder("copy so file to ");
         sb.append(file2.getAbsolutePath());
         sb.append(", apk = ");
@@ -97,11 +97,11 @@ public final class c {
                             } else if (nextElement.isDirectory()) {
                                 File file3 = new File(file2, name);
                                 new StringBuilder("create dir ").append(file3.getAbsolutePath());
-                                o.i(file3);
+                                o.U(file3);
                             } else {
                                 File file4 = new File(file2, name);
                                 new StringBuilder("unzip soLib file ").append(file4.getAbsolutePath());
-                                o.j(file4);
+                                o.V(file4);
                                 byte[] bArr = new byte[4096];
                                 FileOutputStream fileOutputStream = new FileOutputStream(file4);
                                 try {
@@ -122,24 +122,24 @@ public final class c {
                                                 outputStream = bufferedOutputStream;
                                                 zipFile2 = r7;
                                                 try {
-                                                    com.kwai.sodler.lib.a.a("plugin.so", e);
+                                                    com.kwai.sodler.lib.a.e("plugin.so", e);
                                                     throw new IOException("Unzip soLibs fail:" + e.getMessage(), e);
                                                 } catch (Throwable th) {
                                                     th = th;
                                                     zipFile = zipFile4;
                                                     zipFile4 = zipFile2;
-                                                    com.kwad.sdk.crash.utils.b.a((Closeable) zipFile4);
-                                                    com.kwad.sdk.crash.utils.b.a(outputStream);
-                                                    com.kwad.sdk.crash.utils.b.a(zipFile);
+                                                    com.kwad.sdk.crash.utils.b.closeQuietly((Closeable) zipFile4);
+                                                    com.kwad.sdk.crash.utils.b.closeQuietly(outputStream);
+                                                    com.kwad.sdk.crash.utils.b.closeQuietly(zipFile);
                                                     throw th;
                                                 }
                                             } catch (Throwable th2) {
                                                 th = th2;
                                                 zipFile4 = r7;
                                                 outputStream = bufferedOutputStream;
-                                                com.kwad.sdk.crash.utils.b.a((Closeable) zipFile4);
-                                                com.kwad.sdk.crash.utils.b.a(outputStream);
-                                                com.kwad.sdk.crash.utils.b.a(zipFile);
+                                                com.kwad.sdk.crash.utils.b.closeQuietly((Closeable) zipFile4);
+                                                com.kwad.sdk.crash.utils.b.closeQuietly(outputStream);
+                                                com.kwad.sdk.crash.utils.b.closeQuietly(zipFile);
                                                 throw th;
                                             }
                                         }
@@ -160,7 +160,7 @@ public final class c {
                                     zipFile3 = zipFile4;
                                     zipFile4 = zipFile;
                                     zipFile2 = zipFile3;
-                                    com.kwai.sodler.lib.a.a("plugin.so", e);
+                                    com.kwai.sodler.lib.a.e("plugin.so", e);
                                     throw new IOException("Unzip soLibs fail:" + e.getMessage(), e);
                                 } catch (Throwable th4) {
                                     th = th4;
@@ -174,9 +174,9 @@ public final class c {
                         th = th5;
                     }
                 }
-                com.kwad.sdk.crash.utils.b.a((Closeable) zipFile4);
-                com.kwad.sdk.crash.utils.b.a(outputStream);
-                com.kwad.sdk.crash.utils.b.a(zipFile);
+                com.kwad.sdk.crash.utils.b.closeQuietly((Closeable) zipFile4);
+                com.kwad.sdk.crash.utils.b.closeQuietly(outputStream);
+                com.kwad.sdk.crash.utils.b.closeQuietly(zipFile);
                 return hashSet;
             } catch (IOException e5) {
                 e = e5;

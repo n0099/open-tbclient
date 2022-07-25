@@ -3,7 +3,6 @@ package okhttp3.internal.platform;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.sapi2.ecommerce.activity.InvoiceBuildActivity;
 import com.baidu.searchbox.websocket.WebSocketRequest;
-import com.baidu.sofire.sharedpreferences.SharedPreferenceManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -128,7 +127,7 @@ public class JdkWithJettyBootPlatform extends Platform {
                 Class<?> cls = Class.forName("org.eclipse.jetty.alpn.ALPN");
                 Class<?> cls2 = Class.forName("org.eclipse.jetty.alpn.ALPN$Provider");
                 Class<?> cls3 = Class.forName("org.eclipse.jetty.alpn.ALPN$ClientProvider");
-                return new JdkWithJettyBootPlatform(cls.getMethod(SharedPreferenceManager.OPERATION_PUT_PERFIX, SSLSocket.class, cls2), cls.getMethod(SharedPreferenceManager.OPERATION_GET_PERFIX, SSLSocket.class), cls.getMethod("remove", SSLSocket.class), cls3, Class.forName("org.eclipse.jetty.alpn.ALPN$ServerProvider"));
+                return new JdkWithJettyBootPlatform(cls.getMethod("put", SSLSocket.class, cls2), cls.getMethod("get", SSLSocket.class), cls.getMethod("remove", SSLSocket.class), cls3, Class.forName("org.eclipse.jetty.alpn.ALPN$ServerProvider"));
             } catch (ClassNotFoundException | NoSuchMethodException unused) {
                 return null;
             }

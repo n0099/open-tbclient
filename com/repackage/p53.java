@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class p53 extends s53<JSONObject> {
+public class p53 extends t53<JSONObject> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Context m;
@@ -36,20 +36,20 @@ public class p53 extends s53<JSONObject> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.e53
+    @Override // com.repackage.f53
     /* renamed from: P */
     public JSONObject m(JSONObject jSONObject) throws JSONException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jSONObject)) == null) ? f53.c(jSONObject) : (JSONObject) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jSONObject)) == null) ? g53.c(jSONObject) : (JSONObject) invokeL.objValue;
     }
 
-    @Override // com.repackage.e53
+    @Override // com.repackage.f53
     public boolean j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            h03 M = h03.M();
+            i03 M = i03.M();
             if (M != null) {
                 JSONObject jSONObject = new JSONObject();
                 try {
@@ -65,17 +65,17 @@ public class p53 extends s53<JSONObject> {
         return invokeV.booleanValue;
     }
 
-    @Override // com.repackage.s53
-    public HttpRequest w(s53 s53Var) {
+    @Override // com.repackage.t53
+    public HttpRequest w(t53 t53Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, s53Var)) == null) ? oj2.o().g(this.m, s53Var.B()) : (HttpRequest) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, t53Var)) == null) ? pj2.o().M(this.m, t53Var.B()) : (HttpRequest) invokeL.objValue;
     }
 
-    @Override // com.repackage.s53
+    @Override // com.repackage.t53
     public SwanInterfaceType z() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? SwanInterfaceType.SWAN_ID : (SwanInterfaceType) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? SwanInterfaceType.OPEN_ID : (SwanInterfaceType) invokeV.objValue;
     }
 }

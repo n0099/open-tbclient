@@ -24,9 +24,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.fu4;
+import com.repackage.gu4;
 import com.repackage.ni;
-import com.repackage.st4;
+import com.repackage.tt4;
 import com.repackage.uf8;
 import com.repackage.wf8;
 /* loaded from: classes4.dex */
@@ -45,7 +45,7 @@ public class SquareActivity extends BaseActivity<Object> implements SwipeBackLay
     public final SquareModel.a i;
     public final NoNetworkView.b j;
     public final View.OnKeyListener k;
-    public final fu4.g l;
+    public final gu4.g l;
 
     /* loaded from: classes4.dex */
     public class a implements View.OnClickListener {
@@ -133,9 +133,9 @@ public class SquareActivity extends BaseActivity<Object> implements SwipeBackLay
                     }
                     if (!this.a.c) {
                         if (ni.z()) {
-                            this.a.a.r(R.string.obfuscated_res_0x7f0f0c45);
+                            this.a.a.r(R.string.obfuscated_res_0x7f0f0c31);
                         } else {
-                            this.a.a.r(R.string.obfuscated_res_0x7f0f0792);
+                            this.a.a.r(R.string.obfuscated_res_0x7f0f078e);
                         }
                     }
                 }
@@ -237,7 +237,7 @@ public class SquareActivity extends BaseActivity<Object> implements SwipeBackLay
     }
 
     /* loaded from: classes4.dex */
-    public class e implements fu4.g {
+    public class e implements gu4.g {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ SquareActivity a;
@@ -260,7 +260,7 @@ public class SquareActivity extends BaseActivity<Object> implements SwipeBackLay
             this.a = squareActivity;
         }
 
-        @Override // com.repackage.fu4.g
+        @Override // com.repackage.gu4.g
         public void e(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
@@ -338,7 +338,7 @@ public class SquareActivity extends BaseActivity<Object> implements SwipeBackLay
             wf8 wf8Var = new wf8(getPageContext(), this.h, this.k);
             this.a = wf8Var;
             wf8Var.q(this.l);
-            NavigationBar navigationBar = (NavigationBar) this.g.getPageActivity().findViewById(R.id.obfuscated_res_0x7f092437);
+            NavigationBar navigationBar = (NavigationBar) this.g.getPageActivity().findViewById(R.id.obfuscated_res_0x7f092439);
             this.f = navigationBar;
             navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new a(this));
             this.f.setTitleText(this.g.getString(R.string.obfuscated_res_0x7f0f02c4));
@@ -399,9 +399,9 @@ public class SquareActivity extends BaseActivity<Object> implements SwipeBackLay
             }
             String currentAccount = TbadkCoreApplication.getCurrentAccount();
             if (currentAccount != null && currentAccount.length() > 0) {
-                st4.e(getActivity(), 1);
+                tt4.e(getActivity(), 1);
             } else {
-                st4.e(getActivity(), 2);
+                tt4.e(getActivity(), 2);
             }
         }
     }
@@ -437,7 +437,7 @@ public class SquareActivity extends BaseActivity<Object> implements SwipeBackLay
             super.onCreate(bundle);
             this.g = getPageContext();
             this.e = System.currentTimeMillis();
-            this.h = LayoutInflater.from(getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d07b1, (ViewGroup) null);
+            this.h = LayoutInflater.from(getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d07bb, (ViewGroup) null);
             getPageContext().getPageActivity().setContentView(this.h);
             O1();
             initData();

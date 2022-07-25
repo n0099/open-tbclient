@@ -138,14 +138,14 @@ public class ux5 {
                         if (bitmap != null) {
                             bitmapDrawable.setBounds(0, 0, bitmap.getWidth(), bitmap.getHeight());
                         }
-                        ju4 ju4Var = new ju4(bitmapDrawable);
+                        ku4 ku4Var = new ku4(bitmapDrawable);
                         int i3 = aVar.e;
                         if (i3 != 0) {
-                            ju4Var.b(i3);
+                            ku4Var.b(i3);
                         }
                         int length2 = spannableStringBuilder.length();
                         spannableStringBuilder.append((CharSequence) " ");
-                        spannableStringBuilder.setSpan(ju4Var, length2, spannableStringBuilder.length(), 17);
+                        spannableStringBuilder.setSpan(ku4Var, length2, spannableStringBuilder.length(), 17);
                     } else {
                         continue;
                     }

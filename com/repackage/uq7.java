@@ -40,8 +40,8 @@ public class uq7 implements CustomMessageTask.CustomRunnable<Object> {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
             tq7 tq7Var = null;
             if (customMessage != null && customMessage.getCmd() == 2001314) {
-                br4.f();
-                byte[] bArr = br4.d("tb.pb_normal").get("chosen_pb_page_cache");
+                cr4.f();
+                byte[] bArr = cr4.d("tb.pb_normal").get("chosen_pb_page_cache");
                 if (bArr != null) {
                     try {
                         excPbPageResIdl = (ExcPbPageResIdl) new Wire(new Class[0]).parseFrom(bArr, ExcPbPageResIdl.class);

@@ -103,8 +103,8 @@ public class s77 extends p77 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            br4.f();
-            return br4.g("tb.im_official_chat_setting");
+            cr4.f();
+            return cr4.g("tb.im_official_chat_setting");
         }
         return (te) invokeV.objValue;
     }
@@ -131,9 +131,9 @@ public class s77 extends p77 {
     }
 
     @Override // com.repackage.p77
-    public void i(ChatSetting chatSetting, jd5<Void> jd5Var) {
+    public void i(ChatSetting chatSetting, kd5<Void> kd5Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048579, this, chatSetting, jd5Var) == null) && chatSetting != null && (chatSetting instanceof OfficialSettingItemData)) {
+        if ((interceptable == null || interceptable.invokeLL(1048579, this, chatSetting, kd5Var) == null) && chatSetting != null && (chatSetting instanceof OfficialSettingItemData)) {
             OfficialSettingItemData officialSettingItemData = (OfficialSettingItemData) chatSetting;
             String myUid = officialSettingItemData.getMyUid();
             String toUid = officialSettingItemData.getToUid();
@@ -142,7 +142,7 @@ public class s77 extends p77 {
                 synchronized (this.a) {
                     this.a.put(str, officialSettingItemData);
                 }
-                he5.c(new a(this, officialSettingItemData, str), jd5Var);
+                he5.c(new a(this, officialSettingItemData, str), kd5Var);
             } else if (TbConfig.getDebugSwitch()) {
                 throw new RuntimeException("key param is null");
             }

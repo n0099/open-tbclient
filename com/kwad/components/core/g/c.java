@@ -15,9 +15,9 @@ import com.kwad.sdk.mvp.a;
 public abstract class c<T extends com.kwad.sdk.mvp.a> extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Presenter a;
-    public T b;
-    public ViewGroup c;
+    public T EH;
+    public ViewGroup iB;
+    public Presenter mPresenter;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public c(Context context) {
@@ -37,53 +37,56 @@ public abstract class c<T extends com.kwad.sdk.mvp.a> extends FrameLayout {
                 return;
             }
         }
-        this.c = (ViewGroup) FrameLayout.inflate(getContext(), getLayoutId(), this);
     }
 
-    private void c() {
+    private void onActivityDestroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65537, this) == null) {
-            Presenter presenter = this.a;
+            Presenter presenter = this.mPresenter;
             if (presenter != null) {
-                presenter.p();
+                presenter.destroy();
             }
-            this.c = null;
+            this.iB = null;
         }
     }
 
-    @NonNull
-    public abstract Presenter a();
-
-    public abstract T b();
-
     @LayoutRes
     public abstract int getLayoutId();
+
+    public abstract ViewGroup jt();
+
+    public abstract T jv();
 
     @Override // android.view.ViewGroup, android.view.View
     public void onAttachedToWindow() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             super.onAttachedToWindow();
-            this.b = b();
-            if (this.a == null) {
-                Presenter a = a();
-                this.a = a;
-                a.c(this.c);
+            this.EH = jv();
+            if (this.mPresenter == null) {
+                this.mPresenter = onCreatePresenter();
+                if (this.iB == null) {
+                    this.iB = jt();
+                }
+                this.mPresenter.B(this.iB);
             }
-            this.a.a(this.b);
+            this.mPresenter.e(this.EH);
         }
     }
+
+    @NonNull
+    public abstract Presenter onCreatePresenter();
 
     @Override // android.view.ViewGroup, android.view.View
     public void onDetachedFromWindow() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             super.onDetachedFromWindow();
-            T t = this.b;
+            T t = this.EH;
             if (t != null) {
-                t.a();
+                t.release();
             }
-            c();
+            onActivityDestroy();
         }
     }
 }

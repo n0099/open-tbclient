@@ -1,10 +1,6 @@
 package com.repackage;
 
 import android.graphics.Canvas;
-import android.graphics.Paint;
-import android.graphics.PorterDuff;
-import android.graphics.PorterDuffXfermode;
-import android.graphics.Rect;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -12,12 +8,16 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONArray;
 /* loaded from: classes7.dex */
-public class st1 extends nt1 {
+public class st1 extends ot1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Rect a;
-    public Paint b;
-    public PorterDuffXfermode c;
+    public float a;
+    public float b;
+    public float c;
+    public float d;
+    public float e;
+    public float f;
+    public boolean g;
 
     public st1() {
         Interceptable interceptable = $ic;
@@ -32,35 +32,29 @@ public class st1 extends nt1 {
                 return;
             }
         }
-        this.b = new Paint();
-        this.c = new PorterDuffXfermode(PorterDuff.Mode.CLEAR);
+        this.g = false;
     }
 
-    @Override // com.repackage.nt1
-    public void a(ot1 ot1Var, Canvas canvas) {
+    @Override // com.repackage.ot1
+    public void a(pt1 pt1Var, Canvas canvas) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048576, this, ot1Var, canvas) == null) || this.a == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, pt1Var, canvas) == null) && this.g) {
+            pt1Var.f.cubicTo(this.a, this.b, this.c, this.d, this.e, this.f);
         }
-        this.b.setXfermode(this.c);
-        canvas.drawRect(this.a, this.b);
     }
 
-    @Override // com.repackage.nt1
+    @Override // com.repackage.ot1
     public void b(JSONArray jSONArray) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) {
-            try {
-                if (jSONArray.length() == 4) {
-                    int g = yd3.g((float) jSONArray.optDouble(0));
-                    int g2 = yd3.g((float) jSONArray.optDouble(1));
-                    this.a = new Rect(g, g2, yd3.g((float) jSONArray.optDouble(2)) + g, yd3.g((float) jSONArray.optDouble(3)) + g2);
-                }
-            } catch (Exception e) {
-                if (rg1.a) {
-                    e.printStackTrace();
-                }
-            }
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) || jSONArray.length() <= 5) {
+            return;
         }
+        this.a = zd3.g((float) jSONArray.optDouble(0));
+        this.b = zd3.g((float) jSONArray.optDouble(1));
+        this.c = zd3.g((float) jSONArray.optDouble(2));
+        this.d = zd3.g((float) jSONArray.optDouble(3));
+        this.e = zd3.g((float) jSONArray.optDouble(4));
+        this.f = zd3.g((float) jSONArray.optDouble(5));
+        this.g = true;
     }
 }

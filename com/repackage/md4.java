@@ -1,379 +1,160 @@
 package com.repackage;
 
+import android.content.Context;
 import android.text.TextUtils;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.searchbox.pms.db.PackageTable;
-import com.baidu.swan.apps.model.SwanAppBearInfo;
-import com.baidu.swan.game.guide.GameGuideConfigInfo;
-import com.baidu.swan.pms.PMSConstants;
-import com.baidu.swan.pms.model.PMSAppInfo;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.webkit.internal.ETAG;
-import com.repackage.za4;
-import com.xiaomi.mipush.sdk.Constants;
-import java.util.ArrayList;
+import java.io.File;
+import java.io.IOException;
 import java.util.List;
-import org.json.JSONArray;
-import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class md4 {
     public static /* synthetic */ Interceptable $ic;
+    public static final id4 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static PMSAppInfo a(JSONObject jSONObject) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, jSONObject)) == null) {
-            if (jSONObject == null) {
-                return null;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755503148, "Lcom/repackage/md4;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            PMSAppInfo pMSAppInfo = new PMSAppInfo();
-            pMSAppInfo.appKey = jSONObject.optString(GameGuideConfigInfo.KEY_APP_KEY);
-            pMSAppInfo.appName = jSONObject.optString("app_name");
-            pMSAppInfo.description = jSONObject.optString("app_desc");
-            pMSAppInfo.appStatus = jSONObject.optInt("app_status");
-            pMSAppInfo.statusDetail = jSONObject.optString("status_detail");
-            pMSAppInfo.statusDesc = jSONObject.optString("status_desc");
-            pMSAppInfo.resumeDate = jSONObject.optString("resume_date");
-            pMSAppInfo.subjectInfo = jSONObject.optString("subject_info");
-            pMSAppInfo.maxAge = jSONObject.optLong("max_age");
-            pMSAppInfo.appCategory = jSONObject.optInt("sub_category");
-            pMSAppInfo.iconUrl = jSONObject.optString("icon_url");
-            pMSAppInfo.serviceCategory = jSONObject.optString("service_category");
-            pMSAppInfo.webViewDomains = jSONObject.optString("webview_domains");
-            pMSAppInfo.domainConfig = jSONObject.optString("domain_config");
-            pMSAppInfo.webAction = jSONObject.optString("web_action");
-            pMSAppInfo.domains = jSONObject.optString("domains");
-            pMSAppInfo.serverExt = jSONObject.optString("ext");
-            pMSAppInfo.appSign = jSONObject.optLong("app_sign");
-            pMSAppInfo.payProtected = jSONObject.optInt("pay_protected", PMSConstants.PayProtected.NO_PAY_PROTECTED.type);
-            pMSAppInfo.customerService = jSONObject.optInt("customer_service", PMSConstants.CustomerService.NO_CUSTOMER_SERVICE.type);
-            pMSAppInfo.globalNotice = jSONObject.optInt("global_notice", PMSConstants.CloudSwitch.NO_DISPLAY.value);
-            pMSAppInfo.globalPrivate = jSONObject.optInt("global_private", PMSConstants.CloudSwitch.NO_DISPLAY.value);
-            pMSAppInfo.paNumber = jSONObject.optString("pa_number");
-            String optString = p(pMSAppInfo.serverExt).optString("quick_app_key");
-            if (!TextUtils.isEmpty(optString)) {
-                pMSAppInfo.quickAppKey = optString;
-            }
-            JSONObject optJSONObject = p(pMSAppInfo.serverExt).optJSONObject(SwanAppBearInfo.BEAR_INFO);
-            if (optJSONObject != null) {
-                pMSAppInfo.bearInfo = optJSONObject.toString();
-            }
-            JSONArray optJSONArray = jSONObject.optJSONArray("plugins");
-            if (optJSONArray != null) {
-                pMSAppInfo.pluginInfo = optJSONArray.toString();
-            }
-            JSONObject optJSONObject2 = jSONObject.optJSONObject(Constants.PHONE_BRAND);
-            if (optJSONObject2 != null) {
-                pMSAppInfo.brandsInfo = optJSONObject2.toString();
-            }
-            q74.b().k(jSONObject.optJSONArray("ban_page"), jSONObject.optString("ban_tips"), pMSAppInfo.appKey);
-            q74.b().s(pMSAppInfo, jSONObject.optJSONObject("scope_list"), jSONObject.optInt("service_degrade", 0) != 0);
-            pMSAppInfo.webUrl = jSONObject.optString("web_url");
-            pMSAppInfo.rank = jSONObject.optInt("rank");
-            pMSAppInfo.webPermit = jSONObject.optInt("web_permit");
-            pMSAppInfo.csProtocolVersion = PMSConstants.a.a();
-            pMSAppInfo.userActionApis = jSONObject.optString("user_action_apis");
-            return pMSAppInfo;
-        }
-        return (PMSAppInfo) invokeL.objValue;
-    }
-
-    public static boolean b(JSONObject jSONObject) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) ? jSONObject != null && 1 == jSONObject.optInt("reset_env", 0) : invokeL.booleanValue;
-    }
-
-    public static a94 c(JSONObject jSONObject) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, jSONObject)) == null) {
-            if (jSONObject == null) {
-                return null;
-            }
-            return (a94) j(jSONObject, new a94());
-        }
-        return (a94) invokeL.objValue;
-    }
-
-    public static c94 d(JSONObject jSONObject) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, jSONObject)) == null) {
-            if (jSONObject == null) {
-                return null;
-            }
-            return (c94) j(jSONObject, new c94());
-        }
-        return (c94) invokeL.objValue;
-    }
-
-    public static ya4 e(JSONObject jSONObject) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, jSONObject)) == null) {
-            if (jSONObject == null) {
-                return null;
-            }
-            ya4 ya4Var = new ya4();
-            JSONArray optJSONArray = jSONObject.optJSONArray("list");
-            List<g94> l = l(optJSONArray);
-            ya4Var.c = l;
-            if (l != null && l.contains(null)) {
-                k(ya4Var, optJSONArray);
-            } else {
-                ya4Var.a = 0;
-            }
-            return ya4Var;
-        }
-        return (ya4) invokeL.objValue;
-    }
-
-    public static za4 f(JSONObject jSONObject) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, jSONObject)) == null) {
-            if (jSONObject == null) {
-                return null;
-            }
-            za4 za4Var = new za4();
-            ArrayList arrayList = new ArrayList();
-            JSONArray optJSONArray = jSONObject.optJSONArray("list");
-            if (optJSONArray != null && optJSONArray.length() > 0) {
-                for (int i = 0; i < optJSONArray.length(); i++) {
-                    JSONObject optJSONObject = optJSONArray.optJSONObject(i);
-                    za4.a aVar = new za4.a();
-                    aVar.a = optJSONObject.optInt("errno");
-                    aVar.b = optJSONObject.optString("bundle_id");
-                    aVar.c = optJSONObject.optInt("category");
-                    aVar.d = m(optJSONObject.optJSONObject("main"));
-                    aVar.e = n(optJSONObject.optJSONArray("sub"));
-                    aVar.f = l(optJSONObject.optJSONArray("dep"));
-                    aVar.g = a(optJSONObject.optJSONObject("app_info"));
-                    q74.b().p(aVar.b, optJSONObject, aVar.d, aVar.e);
-                    arrayList.add(aVar);
-                }
-            }
-            za4Var.a = arrayList;
-            return za4Var;
-        }
-        return (za4) invokeL.objValue;
-    }
-
-    public static ab4 g(String str, JSONObject jSONObject) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, str, jSONObject)) == null) {
-            if (jSONObject == null) {
-                return null;
-            }
-            ab4 ab4Var = new ab4();
-            JSONObject optJSONObject = jSONObject.optJSONObject("pkg");
-            if (optJSONObject != null) {
-                ab4Var.a = m(optJSONObject.optJSONObject("main"));
-                ab4Var.b = n(optJSONObject.optJSONArray("sub"));
-                ab4Var.c = l(optJSONObject.optJSONArray("dep"));
-                q74.b().p(str, optJSONObject, ab4Var.a, ab4Var.b);
-            }
-            ab4Var.d = d(jSONObject.optJSONObject("framework"));
-            ab4Var.f = c(jSONObject.optJSONObject(ETAG.KEY_EXTENSION));
-            ab4Var.e = a(jSONObject.optJSONObject("app_info"));
-            return ab4Var;
-        }
-        return (ab4) invokeLL.objValue;
-    }
-
-    public static bb4 h(JSONObject jSONObject) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, jSONObject)) == null) {
-            if (jSONObject == null) {
-                return null;
-            }
-            bb4 bb4Var = new bb4();
-            bb4Var.a = o(jSONObject);
-            return bb4Var;
-        }
-        return (bb4) invokeL.objValue;
-    }
-
-    public static cb4 i(String str, JSONObject jSONObject) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, str, jSONObject)) == null) {
-            if (jSONObject == null) {
-                return null;
-            }
-            cb4 cb4Var = new cb4();
-            JSONObject optJSONObject = jSONObject.optJSONObject("pkg");
-            if (optJSONObject != null) {
-                cb4Var.a = n(optJSONObject.optJSONArray("sub"));
-                q74.b().p(str, optJSONObject, null, cb4Var.a);
-            }
-            return cb4Var;
-        }
-        return (cb4) invokeLL.objValue;
-    }
-
-    public static <T extends d94> T j(JSONObject jSONObject, T t) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65545, null, jSONObject, t)) == null) {
-            if (jSONObject == null || t == null) {
-                return null;
-            }
-            t.g = jSONObject.optString("bundle_id");
-            t.h = jSONObject.optInt("category");
-            t.j = jSONObject.optString("version_name");
-            t.i = jSONObject.optLong("version_code");
-            t.k = jSONObject.optLong("size");
-            t.l = jSONObject.optString(PackageTable.MD5);
-            t.m = jSONObject.optString("sign");
-            t.n = jSONObject.optString("download_url");
-            return t;
-        }
-        return (T) invokeLL.objValue;
-    }
-
-    public static void k(ya4 ya4Var, JSONArray jSONArray) {
-        int optInt;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65546, null, ya4Var, jSONArray) == null) || jSONArray == null) {
-            return;
-        }
-        int length = jSONArray.length();
-        for (int i = 0; i < length; i++) {
-            JSONObject optJSONObject = jSONArray.optJSONObject(i);
-            if (optJSONObject != null && (optInt = optJSONObject.optInt("errno", 0)) != 0) {
-                String optString = optJSONObject.optString("bundle_id");
-                ya4Var.a = optInt;
-                ya4Var.b = String.format("%s : Not Exist.", optString);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755503148, "Lcom/repackage/md4;");
                 return;
             }
         }
+        a = id4.d();
     }
 
-    public static List<g94> l(JSONArray jSONArray) {
+    public static String a(String... strArr) {
         InterceptResult invokeL;
-        int length;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, jSONArray)) == null) {
-            if (jSONArray != null && (length = jSONArray.length()) > 0) {
-                ArrayList arrayList = new ArrayList();
-                for (int i = 0; i < length; i++) {
-                    JSONObject optJSONObject = jSONArray.optJSONObject(i);
-                    if (optJSONObject != null) {
-                        JSONObject optJSONObject2 = optJSONObject.optJSONObject("main");
-                        JSONObject optJSONObject3 = optJSONObject.optJSONObject("app_info");
-                        g94 o = o(optJSONObject2);
-                        if (o != null && optJSONObject3 != null) {
-                            o.r = optJSONObject3.optString(GameGuideConfigInfo.KEY_APP_KEY);
-                            o.s = optJSONObject3.optString("app_name");
-                            o.q = optJSONObject3.optString("domains");
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, strArr)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            if (strArr != null) {
+                try {
+                    if (strArr.length > 0 && strArr.length % 2 == 0) {
+                        for (int i = 0; i < strArr.length; i += 2) {
+                            String str = strArr[i];
+                            String str2 = strArr[i + 1];
+                            if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
+                                jSONObject.put(str, str2);
+                            }
                         }
-                        arrayList.add(o);
+                    }
+                } catch (Exception e) {
+                    r74.b().G("PMSFileUtil", "#createErrorJson put异常", e);
+                }
+            }
+            return "errmsg:" + jSONObject.toString();
+        }
+        return (String) invokeL.objValue;
+    }
+
+    @Nullable
+    public static h94 b(String str, long j, long j2, @Nullable List<h94> list) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{str, Long.valueOf(j), Long.valueOf(j2), list})) == null) {
+            List<h94> s = d84.i().s(str, j, j2);
+            if (s != null) {
+                while (!s.isEmpty()) {
+                    h94 remove = s.remove(0);
+                    if (r74.b().r(remove)) {
+                        return remove;
+                    }
+                    if (list != null) {
+                        list.add(remove);
                     }
                 }
-                return arrayList;
+                return null;
             }
             return null;
         }
-        return (List) invokeL.objValue;
+        return (h94) invokeCommon.objValue;
     }
 
-    public static e94 m(JSONObject jSONObject) {
-        InterceptResult invokeL;
+    public static File c(String str, String str2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, jSONObject)) == null) {
-            if (jSONObject == null) {
-                return null;
-            }
-            e94 e94Var = (e94) j(jSONObject, new e94());
-            e94Var.o = jSONObject.optInt("pkg_type");
-            e94Var.p = jSONObject.optString("ext");
-            return e94Var;
-        }
-        return (e94) invokeL.objValue;
-    }
-
-    public static List<f94> n(JSONArray jSONArray) {
-        InterceptResult invokeL;
-        int length;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65549, null, jSONArray)) == null) {
-            if (jSONArray != null && (length = jSONArray.length()) > 0) {
-                ArrayList arrayList = new ArrayList();
-                for (int i = 0; i < length; i++) {
-                    JSONObject optJSONObject = jSONArray.optJSONObject(i);
-                    f94 f94Var = (f94) j(optJSONObject, new f94());
-                    f94Var.q = optJSONObject.optInt("pkg_type");
-                    f94Var.p = optJSONObject.optString("sub_path");
-                    f94Var.r = optJSONObject.optBoolean("independent");
-                    f94Var.s = optJSONObject.optString("ext");
-                    arrayList.add(f94Var);
-                }
-                return arrayList;
-            }
-            return null;
-        }
-        return (List) invokeL.objValue;
-    }
-
-    public static g94 o(JSONObject jSONObject) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65550, null, jSONObject)) == null) {
-            if (jSONObject == null) {
-                return null;
-            }
-            g94 g94Var = new g94();
-            j(jSONObject, g94Var);
-            long optLong = jSONObject.optLong("max_age");
-            if (optLong < 0) {
-                optLong = 0;
-            }
-            g94Var.o = optLong;
-            return g94Var;
-        }
-        return (g94) invokeL.objValue;
-    }
-
-    public static JSONObject p(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65551, null, str)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, str2)) == null) {
             if (TextUtils.isEmpty(str)) {
-                return new JSONObject();
-            }
-            try {
-                return new JSONObject(str);
-            } catch (JSONException unused) {
-                return new JSONObject();
-            }
-        }
-        return (JSONObject) invokeL.objValue;
-    }
-
-    public static db4 q(JSONObject jSONObject) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65552, null, jSONObject)) == null) {
-            if (jSONObject == null) {
+                a.i("PMSFileUtil", "#generateFilePath parentDir为空 fileName=" + str2);
                 return null;
             }
-            db4 db4Var = new db4();
-            db4Var.a = jSONObject.optLong("max_age");
-            long optLong = jSONObject.optLong("lastsynctime");
-            if (optLong > 0) {
-                lc4.c = optLong;
+            File file = new File(str);
+            if (!file.exists() && !file.mkdirs()) {
+                r74.b().y("PMSFileUtil", "cannot mkdir in : " + file);
+                return null;
             }
-            db4Var.b = jSONObject;
-            return db4Var;
+            String e = e(str, str2);
+            String str3 = e;
+            for (int i = 0; i < 1000; i++) {
+                File file2 = new File(str3);
+                try {
+                    if (!file2.exists() && file2.createNewFile()) {
+                        return file2;
+                    }
+                } catch (IOException e2) {
+                    a.g("PMSFileUtil", "#generateFilePath 失败", e2);
+                }
+                str3 = e + "_" + i;
+            }
+            a.i("PMSFileUtil", "#generateFilePath 创建临时路径失败");
+            return null;
         }
-        return (db4) invokeL.objValue;
+        return (File) invokeLL.objValue;
+    }
+
+    public static File d(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
+            File dir = context.getDir("pms_dir", 0);
+            if (!dir.exists()) {
+                dir.mkdir();
+            }
+            return dir;
+        }
+        return (File) invokeL.objValue;
+    }
+
+    public static String e(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, str, str2)) == null) ? f(str, str2, File.separator) : (String) invokeLL.objValue;
+    }
+
+    public static String f(String str, String str2, String str3) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65542, null, str, str2, str3)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return str2;
+            }
+            if (TextUtils.isEmpty(str2)) {
+                return str;
+            }
+            if (str.endsWith(str3)) {
+                if (str2.startsWith(str3)) {
+                    return str.concat(str2.substring(str3.length()));
+                }
+                return str.concat(str2);
+            } else if (str2.startsWith(str3)) {
+                return str.concat(str2);
+            } else {
+                return str.concat(str3).concat(str2);
+            }
+        }
+        return (String) invokeLLL.objValue;
     }
 }

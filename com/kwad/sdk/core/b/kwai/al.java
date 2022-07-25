@@ -8,8 +8,8 @@ public final class al implements com.kwad.sdk.core.d<com.kwad.components.ad.rewa
         if (jSONObject == null) {
             return;
         }
-        bVar.a = jSONObject.optLong("lastShowCardTimeStamp");
-        bVar.b = jSONObject.optInt("cardShowCount");
+        bVar.pg = jSONObject.optLong("lastShowCardTimeStamp");
+        bVar.ph = jSONObject.optInt("cardShowCount");
     }
 
     /* renamed from: b  reason: avoid collision after fix types in other method */
@@ -17,8 +17,14 @@ public final class al implements com.kwad.sdk.core.d<com.kwad.components.ad.rewa
         if (jSONObject == null) {
             jSONObject = new JSONObject();
         }
-        com.kwad.sdk.utils.r.a(jSONObject, "lastShowCardTimeStamp", bVar.a);
-        com.kwad.sdk.utils.r.a(jSONObject, "cardShowCount", bVar.b);
+        long j = bVar.pg;
+        if (j != 0) {
+            com.kwad.sdk.utils.r.putValue(jSONObject, "lastShowCardTimeStamp", j);
+        }
+        int i = bVar.ph;
+        if (i != 0) {
+            com.kwad.sdk.utils.r.putValue(jSONObject, "cardShowCount", i);
+        }
         return jSONObject;
     }
 

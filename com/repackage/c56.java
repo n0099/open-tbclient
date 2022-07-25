@@ -15,7 +15,7 @@ import tbclient.ForumGuide.LikeForum;
 import tbclient.PrivateForumInfo;
 import tbclient.ThemeColorInfo;
 /* loaded from: classes5.dex */
-public class c56 extends lo4 implements n75 {
+public class c56 extends mo4 implements o75 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String d;

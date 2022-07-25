@@ -15,9 +15,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.fy4;
+import com.repackage.gy4;
 import com.repackage.ng;
-import com.repackage.st4;
+import com.repackage.tt4;
 import com.repackage.wx8;
 import com.repackage.xx8;
 import com.repackage.yx8;
@@ -72,9 +72,9 @@ public class NewVcodeActivity extends BaseActivity<NewVcodeActivity> {
             }
 
             @Override // com.baidu.tieba.tbadkCore.writeModel.NewWriteModel.e
-            public void callback(boolean z, PostWriteCallBackData postWriteCallBackData, fy4 fy4Var, WriteData writeData, AntiData antiData) {
+            public void callback(boolean z, PostWriteCallBackData postWriteCallBackData, gy4 gy4Var, WriteData writeData, AntiData antiData) {
                 Interceptable interceptable2 = $ic;
-                if (!(interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), postWriteCallBackData, fy4Var, writeData, antiData}) == null) || postWriteCallBackData == null || z) {
+                if (!(interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), postWriteCallBackData, gy4Var, writeData, antiData}) == null) || postWriteCallBackData == null || z) {
                     return;
                 }
                 if (postWriteCallBackData.getErrorCode() == 220015) {
@@ -92,15 +92,15 @@ public class NewVcodeActivity extends BaseActivity<NewVcodeActivity> {
                     intent2.putExtras(bundle2);
                     this.a.setResult(0, intent2);
                     this.a.finish();
-                } else if (fy4Var == null || writeData == null) {
+                } else if (gy4Var == null || writeData == null) {
                 } else {
                     this.a.e = ng.e("4", 0);
                     this.a.c.d();
                     this.a.c.onDestroy();
                     this.a.d = writeData;
-                    this.a.d.setVcodeMD5(fy4Var.b());
-                    this.a.d.setVcodeUrl(fy4Var.c());
-                    this.a.d.setVcodeExtra(fy4Var.a());
+                    this.a.d.setVcodeMD5(gy4Var.b());
+                    this.a.d.setVcodeUrl(gy4Var.c());
+                    this.a.d.setVcodeExtra(gy4Var.a());
                     this.a.a.setWriteData(this.a.d);
                     NewVcodeActivity newVcodeActivity = this.a;
                     newVcodeActivity.c = newVcodeActivity.J1();
@@ -132,7 +132,7 @@ public class NewVcodeActivity extends BaseActivity<NewVcodeActivity> {
         WriteData writeData;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (writeData = this.d) != null && writeData.getType() == 3) {
-            st4.g(getPageContext().getPageActivity(), 200, false);
+            tt4.g(getPageContext().getPageActivity(), 200, false);
         }
     }
 

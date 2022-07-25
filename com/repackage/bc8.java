@@ -165,11 +165,11 @@ public class bc8 {
     public final void i() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            ma5 ma5Var = new ma5(309692);
-            ma5Var.setResponsedClass(ForbiddenForumSocketResMsg.class);
-            ma5Var.g(true);
-            ma5Var.setPriority(4);
-            MessageManager.getInstance().registerTask(ma5Var);
+            na5 na5Var = new na5(309692);
+            na5Var.setResponsedClass(ForbiddenForumSocketResMsg.class);
+            na5Var.g(true);
+            na5Var.setPriority(4);
+            MessageManager.getInstance().registerTask(na5Var);
         }
     }
 

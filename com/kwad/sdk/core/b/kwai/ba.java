@@ -1,14 +1,15 @@
 package com.kwad.sdk.core.b.kwai;
 
 import com.ksad.annotation.invoker.InvokeBy;
-import com.kwad.components.ad.reward.m;
-import com.kwad.components.ad.reward.monitor.RewardMonitorInfo;
+import com.kwad.components.ad.f.kwai.kwai.b;
+import com.kwad.components.ad.interstitial.monitor.InterstitialMonitorInfo;
 /* loaded from: classes5.dex */
 public final class ba {
-    @InvokeBy(invokerClass = cz.class, methodId = "registerHolder")
-    public static void a() {
-        cz.a().put(RewardMonitorInfo.class, new ei());
-        cz.a().put(com.kwad.components.ad.reward.model.b.class, new al());
-        cz.a().put(m.c.class, new av());
+    @InvokeBy(invokerClass = dd.class, methodId = "registerHolder")
+    public static void tl() {
+        dd.tm().put(com.kwad.components.ad.interstitial.a.a.class, new cv());
+        dd.tm().put(InterstitialMonitorInfo.class, new cy());
+        dd.tm().put(com.kwad.components.ad.interstitial.a.b.class, new cx());
+        dd.tm().put(b.a.class, new ft());
     }
 }

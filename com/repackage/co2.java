@@ -1,9 +1,9 @@
 package com.repackage;
 
-import java.util.List;
+import java.io.File;
 /* loaded from: classes5.dex */
-public interface co2<T> {
-    void f(String str);
+public interface co2 {
+    void a(File file);
 
-    void g(List<T> list);
+    void b(String str);
 }

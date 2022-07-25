@@ -12,6 +12,7 @@ import android.os.Message;
 import android.os.Messenger;
 import android.os.RemoteException;
 import android.support.v4.media.session.PlaybackStateCompat;
+import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresPermission;
@@ -35,27 +36,26 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public final class f {
-    public static Handler a;
-    public static Messenger b;
-    public static ServiceConnection c = new ServiceConnection() { // from class: com.kwad.sdk.utils.f.1
+    public static Handler MX;
+    public static ServiceConnection Zq = new ServiceConnection() { // from class: com.kwad.sdk.utils.f.1
         @Override // android.content.ServiceConnection
         public final void onServiceConnected(ComponentName componentName, IBinder iBinder) {
             try {
                 Messenger messenger = new Messenger(iBinder);
                 Message obtain = Message.obtain();
                 obtain.what = 100;
-                if (!f.k()) {
-                    com.kwad.sdk.core.d.b.d("AppStatusHelper", "clientMessenger init error");
+                if (!f.yW()) {
+                    com.kwad.sdk.core.e.b.w("AppStatusHelper", "clientMessenger init error");
                     return;
                 }
-                obtain.replyTo = f.b;
+                obtain.replyTo = f.amL;
                 try {
                     messenger.send(obtain);
                 } catch (RemoteException unused) {
                 }
-            } catch (SecurityException e2) {
-                com.kwad.sdk.core.d.b.b(e2);
-                com.kwad.sdk.service.a.a(e2);
+            } catch (SecurityException e) {
+                com.kwad.sdk.core.e.b.printStackTraceOnly(e);
+                com.kwad.sdk.service.a.gatherException(e);
             }
         }
 
@@ -63,62 +63,63 @@ public final class f {
         public final void onServiceDisconnected(ComponentName componentName) {
         }
     };
-    public static volatile ExecutorService d;
-    public static volatile AppStatusRules e;
-    public static WeakReference<Context> f;
-    public static com.kwad.sdk.collector.h g;
+    public static Messenger amL;
+    public static volatile ExecutorService amM;
+    public static volatile AppStatusRules amN;
+    public static WeakReference<Context> amO;
+    public static com.kwad.sdk.collector.h amP;
 
     /* renamed from: com.kwad.sdk.utils.f$2  reason: invalid class name */
     /* loaded from: classes5.dex */
     public static class AnonymousClass2 implements Runnable {
-        public final /* synthetic */ Context a;
+        public final /* synthetic */ Context gC;
 
         public AnonymousClass2(Context context) {
-            this.a = context;
+            this.gC = context;
         }
 
         @Override // java.lang.Runnable
         public final void run() {
-            com.kwad.sdk.collector.c.a(this.a, new c.a() { // from class: com.kwad.sdk.utils.f.2.1
+            com.kwad.sdk.collector.c.a(this.gC, new c.a() { // from class: com.kwad.sdk.utils.f.2.1
                 @Override // com.kwad.sdk.collector.c.a
-                public final void a(int i, String str) {
-                    com.kwad.sdk.core.d.b.e("AppStatusHelper", "fetchAppStatusConfig onFetchError: " + str + ", code: " + i);
-                }
-
-                @Override // com.kwad.sdk.collector.c.a
-                public final void a(AppStatusRules appStatusRules) {
-                    appStatusRules.initStatus(AnonymousClass2.this.a);
-                    AppStatusRules unused = f.e = appStatusRules;
-                    f.b(AnonymousClass2.this.a, f.e);
-                    f.a(AnonymousClass2.this.a);
-                    boolean p = av.p(AnonymousClass2.this.a);
-                    boolean isAppStatusTargetNotEmpty = AppStatusRules.isAppStatusTargetNotEmpty(f.e);
-                    com.kwad.sdk.core.d.b.a("AppStatusHelper", "appStatusTargetNotEmpty: " + isAppStatusTargetNotEmpty + ", permissionGranted: " + p);
-                    if (p && isAppStatusTargetNotEmpty) {
-                        long obtainDefaultScanInterval = f.e.obtainDefaultScanInterval();
+                public final void b(AppStatusRules appStatusRules) {
+                    appStatusRules.initStatus(AnonymousClass2.this.gC);
+                    AppStatusRules unused = f.amN = appStatusRules;
+                    f.b(AnonymousClass2.this.gC, f.amN);
+                    f.bS(AnonymousClass2.this.gC);
+                    boolean dy = az.dy(AnonymousClass2.this.gC);
+                    boolean isAppStatusTargetNotEmpty = AppStatusRules.isAppStatusTargetNotEmpty(f.amN);
+                    com.kwad.sdk.core.e.b.d("AppStatusHelper", "appStatusTargetNotEmpty: " + isAppStatusTargetNotEmpty + ", permissionGranted: " + dy);
+                    if (dy && isAppStatusTargetNotEmpty) {
+                        long obtainDefaultScanInterval = f.amN.obtainDefaultScanInterval();
                         if (obtainDefaultScanInterval > 0) {
-                            f.a(AnonymousClass2.this.a, obtainDefaultScanInterval);
+                            f.e(AnonymousClass2.this.gC, obtainDefaultScanInterval);
                         } else {
-                            f.e(AnonymousClass2.this.a);
+                            f.bU(AnonymousClass2.this.gC);
                         }
                     }
-                    boolean isUploadTargetNotEmpty = AppStatusRules.isUploadTargetNotEmpty(f.e);
-                    boolean z = f.e.obtainUploadConfigFileMaxSize() > 0;
-                    com.kwad.sdk.core.d.b.a("AppStatusHelper", "uploadTargetNotEmpty: " + isUploadTargetNotEmpty + ", enableUpload: " + z);
-                    if (isUploadTargetNotEmpty && z && p) {
-                        f.l();
-                        f.d.submit(new Runnable() { // from class: com.kwad.sdk.utils.f.2.1.1
+                    boolean isUploadTargetNotEmpty = AppStatusRules.isUploadTargetNotEmpty(f.amN);
+                    boolean z = f.amN.obtainUploadConfigFileMaxSize() > 0;
+                    com.kwad.sdk.core.e.b.d("AppStatusHelper", "uploadTargetNotEmpty: " + isUploadTargetNotEmpty + ", enableUpload: " + z);
+                    if (isUploadTargetNotEmpty && z && dy) {
+                        f.yX();
+                        f.amM.submit(new Runnable() { // from class: com.kwad.sdk.utils.f.2.1.1
                             @Override // java.lang.Runnable
                             public final void run() {
                                 try {
-                                    com.kwad.sdk.collector.j.a(AnonymousClass2.this.a, f.e);
+                                    com.kwad.sdk.collector.j.a(AnonymousClass2.this.gC, f.amN);
                                 } catch (Throwable th) {
-                                    com.kwad.sdk.service.a.a(th);
-                                    com.kwad.sdk.core.d.b.b(th);
+                                    com.kwad.sdk.service.a.gatherException(th);
+                                    com.kwad.sdk.core.e.b.printStackTraceOnly(th);
                                 }
                             }
                         });
                     }
+                }
+
+                @Override // com.kwad.sdk.collector.c.a
+                public final void g(int i, String str) {
+                    com.kwad.sdk.core.e.b.e("AppStatusHelper", "fetchAppStatusConfig onFetchError: " + str + ", code: " + i);
                 }
             });
         }
@@ -126,25 +127,29 @@ public final class f {
 
     /* loaded from: classes5.dex */
     public static class a implements com.kwad.sdk.core.b {
-        public String a;
-        public String b;
-        public List<Long> c = new ArrayList();
+        public List<Long> amV = new ArrayList();
+        public String appName;
+        public String packageName;
 
         public a() {
         }
 
         public a(String str, String str2) {
-            this.a = str;
-            this.b = str2;
+            this.appName = str;
+            this.packageName = str2;
+        }
+
+        private void S(long j) {
+            this.amV.add(Long.valueOf(j));
         }
 
         @Nullable
-        public static JSONArray a(List<com.kwad.sdk.collector.model.b> list) {
+        public static JSONArray y(List<com.kwad.sdk.collector.model.b> list) {
             List<a> list2;
             try {
-                list2 = b(list);
+                list2 = z(list);
             } catch (Exception e) {
-                com.kwad.sdk.service.a.a(e);
+                com.kwad.sdk.service.a.gatherException(e);
                 list2 = null;
             }
             if (list2 == null) {
@@ -157,12 +162,8 @@ public final class f {
             return jSONArray;
         }
 
-        private void a(long j) {
-            this.c.add(Long.valueOf(j));
-        }
-
         @Nullable
-        public static List<a> b(List<com.kwad.sdk.collector.model.b> list) {
+        public static List<a> z(List<com.kwad.sdk.collector.model.b> list) {
             a aVar;
             if (list != null && list.size() != 0) {
                 HashMap hashMap = new HashMap();
@@ -178,12 +179,12 @@ public final class f {
                         }
                         long c = com.kwad.sdk.collector.model.c.c(bVar) / 1000;
                         if (aVar != null) {
-                            aVar.a(c);
+                            aVar.S(c);
                         }
                     }
                     return new ArrayList(hashMap.values());
                 } catch (ClassCastException e) {
-                    com.kwad.sdk.core.d.b.b(e);
+                    com.kwad.sdk.core.e.b.printStackTraceOnly(e);
                 }
             }
             return null;
@@ -194,17 +195,17 @@ public final class f {
             if (jSONObject == null) {
                 return;
             }
-            this.a = jSONObject.optString("appName");
-            this.b = jSONObject.optString("packageName");
+            this.appName = jSONObject.optString("appName");
+            this.packageName = jSONObject.optString("packageName");
             JSONArray optJSONArray = jSONObject.optJSONArray("runningTimes");
             if (optJSONArray != null) {
-                this.c.clear();
+                this.amV.clear();
                 int length = optJSONArray.length();
                 for (int i = 0; i < length; i++) {
                     try {
-                        this.c.add(Long.valueOf(optJSONArray.getLong(i)));
+                        this.amV.add(Long.valueOf(optJSONArray.getLong(i)));
                     } catch (JSONException e) {
-                        com.kwad.sdk.core.d.b.b(e);
+                        com.kwad.sdk.core.e.b.printStackTraceOnly(e);
                     }
                 }
             }
@@ -213,20 +214,20 @@ public final class f {
         @Override // com.kwad.sdk.core.b
         public final JSONObject toJson() {
             JSONObject jSONObject = new JSONObject();
-            r.a(jSONObject, "appName", this.a);
-            r.a(jSONObject, "packageName", this.b);
+            r.putValue(jSONObject, "appName", this.appName);
+            r.putValue(jSONObject, "packageName", this.packageName);
             JSONArray jSONArray = new JSONArray();
-            for (Long l : this.c) {
+            for (Long l : this.amV) {
                 jSONArray.put(l.longValue());
             }
-            r.a(jSONObject, "runningTimes", jSONArray);
+            r.putValue(jSONObject, "runningTimes", jSONArray);
             return jSONObject;
         }
     }
 
     /* loaded from: classes5.dex */
     public interface b {
-        void a(List<com.kwad.sdk.collector.model.b> list);
+        void m(List<com.kwad.sdk.collector.model.b> list);
     }
 
     /* loaded from: classes5.dex */
@@ -235,7 +236,22 @@ public final class f {
             super(looper);
         }
 
-        private void a(Message message) {
+        public static void A(List<a> list) {
+            if (list == null) {
+                return;
+            }
+            f.amP.c(r.B(list));
+        }
+
+        public static void a(ArrayList<com.kwad.sdk.collector.model.b> arrayList) {
+            JSONArray y;
+            if (arrayList == null || (y = a.y(arrayList)) == null) {
+                return;
+            }
+            f.amP.c(y);
+        }
+
+        private void b(Message message) {
             ArrayList arrayList;
             List list;
             Bundle data = message.getData();
@@ -244,14 +260,14 @@ public final class f {
                 try {
                     if (data.containsKey("resultJson")) {
                         list = r.a(data.getString("resultJson"), new com.kwad.sdk.core.c<a>() { // from class: com.kwad.sdk.utils.f.c.1
-                            public static a b() {
+                            public static a zg() {
                                 return new a();
                             }
 
                             /* JADX DEBUG: Return type fixed from 'com.kwad.sdk.core.b' to match base method */
                             @Override // com.kwad.sdk.core.c
-                            public final /* synthetic */ a a() {
-                                return b();
+                            public final /* synthetic */ a qt() {
+                                return zg();
                             }
                         });
                         arrayList = null;
@@ -264,26 +280,26 @@ public final class f {
                     list = null;
                 }
                 if (arrayList != null) {
-                    com.kwad.sdk.core.d.b.a("AppStatusHelper", "ClientHandler: handleMessage data size: " + arrayList.size());
-                    a((ArrayList<com.kwad.sdk.collector.model.b>) arrayList);
+                    com.kwad.sdk.core.e.b.d("AppStatusHelper", "ClientHandler: handleMessage data size: " + arrayList.size());
+                    a(arrayList);
                 }
                 if (list != null) {
-                    a(list);
+                    A(list);
                 }
             }
-            if (f.f != null && f.f.get() != null && data != null) {
+            if (f.amO != null && f.amO.get() != null && data != null) {
                 if (data.containsKey("allStrategyJson")) {
                     String string = data.getString("allStrategyJson");
                     if (string != null) {
                         list2 = r.a(string, new com.kwad.sdk.core.c<AppStatusRules.Strategy>() { // from class: com.kwad.sdk.utils.f.c.2
-                            public static AppStatusRules.Strategy b() {
+                            public static AppStatusRules.Strategy zh() {
                                 return new AppStatusRules.Strategy();
                             }
 
                             /* JADX DEBUG: Return type fixed from 'com.kwad.sdk.core.b' to match base method */
                             @Override // com.kwad.sdk.core.c
-                            public final /* synthetic */ AppStatusRules.Strategy a() {
-                                return b();
+                            public final /* synthetic */ AppStatusRules.Strategy qt() {
+                                return zh();
                             }
                         });
                     }
@@ -294,31 +310,16 @@ public final class f {
                     for (AppStatusRules.Strategy strategy : list2) {
                         long needSaveLaunchTime = strategy.getNeedSaveLaunchTime();
                         if (needSaveLaunchTime >= 0) {
-                            com.kwad.sdk.collector.i.a((Context) f.f.get(), strategy, needSaveLaunchTime);
+                            com.kwad.sdk.collector.i.a((Context) f.amO.get(), strategy, needSaveLaunchTime);
                         }
                     }
                 }
             }
-            if (f.f == null || f.c == null) {
+            if (f.amO == null || f.Zq == null) {
                 return;
             }
-            com.kwad.sdk.core.d.b.a("AppStatusHelper", "unbindASService");
-            com.kwad.sdk.collector.a.a.b((Context) f.f.get(), f.c);
-        }
-
-        public static void a(ArrayList<com.kwad.sdk.collector.model.b> arrayList) {
-            JSONArray a;
-            if (arrayList == null || (a = a.a(arrayList)) == null) {
-                return;
-            }
-            f.g.a(a);
-        }
-
-        public static void a(List<a> list) {
-            if (list == null) {
-                return;
-            }
-            f.g.a(r.b(list));
+            com.kwad.sdk.core.e.b.d("AppStatusHelper", "unbindASService");
+            com.kwad.sdk.collector.a.a.b((Context) f.amO.get(), f.Zq);
         }
 
         @Override // android.os.Handler
@@ -328,109 +329,81 @@ public final class f {
                 return;
             }
             try {
-                a(message);
+                b(message);
             } catch (Throwable th) {
-                com.kwad.sdk.core.d.b.b(th);
+                com.kwad.sdk.core.e.b.printStackTraceOnly(th);
             }
         }
     }
 
     /* loaded from: classes5.dex */
     public static class d implements b {
-        public b a = null;
+        public b amX = null;
 
         public d(b bVar) {
         }
 
         @Override // com.kwad.sdk.utils.f.b
-        public final void a(List<com.kwad.sdk.collector.model.b> list) {
-            JSONArray a = a.a(list);
-            if (a != null) {
-                f.g.a(a);
+        public final void m(List<com.kwad.sdk.collector.model.b> list) {
+            JSONArray y = a.y(list);
+            if (y != null) {
+                f.amP.c(y);
             }
-            b bVar = this.a;
+            b bVar = this.amX;
             if (bVar != null) {
-                bVar.a(list);
+                bVar.m(list);
             }
         }
-    }
-
-    public static AppStatusRules a() {
-        return e;
     }
 
     @NonNull
     public static List<com.kwad.sdk.collector.model.b> a(AppStatusRules.Strategy strategy, Map<String, InstalledAppInfoManager.AppPackageInfo> map) {
         boolean isNeedLaunch = strategy.isNeedLaunch();
-        com.kwad.sdk.core.d.b.a("AppStatusHelper", "analysisByFile, strategy: " + strategy.getName() + ", needLaunch: " + isNeedLaunch);
-        return !isNeedLaunch ? new ArrayList() : com.kwad.sdk.collector.b.a().a(strategy, map);
-    }
-
-    public static List<com.kwad.sdk.collector.model.b> a(List<com.kwad.sdk.collector.model.b> list) {
-        return list.isEmpty() ? list : new ArrayList(new LinkedHashSet(list));
-    }
-
-    @WorkerThread
-    public static void a(Context context) {
-        if (e == null) {
-            e = d(context);
-        }
-    }
-
-    public static void a(final Context context, final long j) {
-        if (a == null) {
-            a = new Handler(Looper.getMainLooper());
-        }
-        a.post(new Runnable() { // from class: com.kwad.sdk.utils.f.3
-            @Override // java.lang.Runnable
-            public final void run() {
-                f.e(context);
-                f.a.postDelayed(this, j);
-            }
-        });
+        com.kwad.sdk.core.e.b.d("AppStatusHelper", "analysisByFile, strategy: " + strategy.getName() + ", needLaunch: " + isNeedLaunch);
+        return !isNeedLaunch ? new ArrayList() : com.kwad.sdk.collector.b.rp().a(strategy, map);
     }
 
     public static void a(Context context, long j, com.kwad.sdk.collector.h hVar) {
-        if (an.l() || com.kwad.sdk.core.config.d.a((long) PlaybackStateCompat.ACTION_PLAY_FROM_URI) || context == null || com.kwad.sdk.utils.c.a(context)) {
+        if (aq.Ae() || com.kwad.sdk.core.config.d.i(PlaybackStateCompat.ACTION_PLAY_FROM_URI) || context == null || com.kwad.sdk.utils.c.bQ(context)) {
             return;
         }
-        g = hVar;
-        boolean c2 = SystemUtil.c(context);
-        com.kwad.sdk.core.d.b.a("AppStatusHelper", "isMainProcess: " + c2);
-        if (c2) {
-            f = new WeakReference<>(context);
-            if (a == null) {
-                a = new Handler(Looper.getMainLooper());
+        amP = hVar;
+        boolean isInMainProcess = SystemUtil.isInMainProcess(context);
+        com.kwad.sdk.core.e.b.d("AppStatusHelper", "isMainProcess: " + isInMainProcess);
+        if (isInMainProcess) {
+            amO = new WeakReference<>(context);
+            if (MX == null) {
+                MX = new Handler(Looper.getMainLooper());
             }
-            a.postDelayed(new AnonymousClass2(context), 30000L);
+            MX.postDelayed(new AnonymousClass2(context), 30000L);
         }
     }
 
     public static void a(final Context context, final b bVar) {
-        if (context == null || an.l() || com.kwad.sdk.core.config.d.a((long) PlaybackStateCompat.ACTION_PLAY_FROM_URI) || com.kwad.sdk.utils.c.a(context)) {
+        if (context == null || aq.Ae() || com.kwad.sdk.core.config.d.i(PlaybackStateCompat.ACTION_PLAY_FROM_URI) || com.kwad.sdk.utils.c.bQ(context)) {
             return;
         }
-        l();
-        d.submit(new Runnable() { // from class: com.kwad.sdk.utils.f.4
+        yX();
+        amM.submit(new Runnable() { // from class: com.kwad.sdk.utils.f.4
             @Override // java.lang.Runnable
             public final void run() {
-                List f2;
+                List bV;
                 try {
                     HashSet hashSet = new HashSet();
-                    if (!av.p(context) || (f2 = f.f(context)) == null) {
+                    if (!az.dy(context) || (bV = f.bV(context)) == null) {
                         return;
                     }
-                    Iterator it = f2.iterator();
+                    Iterator it = bV.iterator();
                     while (it.hasNext()) {
-                        com.kwad.sdk.core.d.b.a("AppStatusHelper", "AppRunningInfo: " + ((com.kwad.sdk.collector.model.b) it.next()));
+                        com.kwad.sdk.core.e.b.d("AppStatusHelper", "AppRunningInfo: " + ((com.kwad.sdk.collector.model.b) it.next()));
                     }
-                    hashSet.addAll(f2);
+                    hashSet.addAll(bV);
                     if (bVar != null) {
-                        bVar.a(new ArrayList(hashSet));
+                        bVar.m(new ArrayList(hashSet));
                     }
                 } catch (Throwable th) {
-                    com.kwad.sdk.core.d.b.b(th);
-                    com.kwad.sdk.service.a.a(th);
+                    com.kwad.sdk.core.e.b.printStackTraceOnly(th);
+                    com.kwad.sdk.service.a.gatherException(th);
                 }
             }
         });
@@ -439,16 +412,34 @@ public final class f {
     @WorkerThread
     public static void b(Context context, AppStatusRules appStatusRules) {
         File file = new File(context.getFilesDir(), "LOCAL_APP_STATUS_RULES_JSON");
-        com.kwad.sdk.crash.utils.g.a(file.getAbsolutePath(), appStatusRules.toJson().toString(), false);
+        String jSONObject = appStatusRules.toJson().toString();
+        if (TextUtils.isEmpty(jSONObject)) {
+            return;
+        }
+        com.kwad.sdk.crash.utils.g.g(file.getAbsolutePath(), com.kwad.sdk.core.a.c.bN(jSONObject), false);
+    }
+
+    @WorkerThread
+    public static void bS(Context context) {
+        if (amN == null) {
+            amN = bT(context);
+        }
     }
 
     @Nullable
     @WorkerThread
-    public static AppStatusRules d(Context context) {
+    public static AppStatusRules bT(Context context) {
         File file = new File(context.getFilesDir(), "LOCAL_APP_STATUS_RULES_JSON");
         if (file.exists()) {
             try {
-                JSONObject jSONObject = new JSONObject(com.kwad.sdk.crash.utils.g.a(file));
+                String F = com.kwad.sdk.crash.utils.g.F(file);
+                if (TextUtils.isEmpty(F)) {
+                    return null;
+                }
+                if (com.kwad.sdk.core.a.c.bP(F)) {
+                    F = com.kwad.sdk.core.a.c.bO(F);
+                }
+                JSONObject jSONObject = new JSONObject(F);
                 AppStatusRules appStatusRules = new AppStatusRules();
                 appStatusRules.parseJson(jSONObject);
                 return appStatusRules;
@@ -459,76 +450,97 @@ public final class f {
         return null;
     }
 
-    public static void e(Context context) {
+    public static void bU(Context context) {
         if (context == null) {
             return;
         }
-        boolean m = m();
-        com.kwad.sdk.core.d.b.a("AppStatusHelper", "isServiceAvailable: " + m);
-        if (m) {
-            com.kwad.sdk.collector.a.a.a(context, c);
+        boolean yY = yY();
+        com.kwad.sdk.core.e.b.d("AppStatusHelper", "isServiceAvailable: " + yY);
+        if (yY) {
+            com.kwad.sdk.collector.a.a.a(context, Zq);
         } else {
             a(context, new d(null));
         }
     }
 
     @WorkerThread
-    public static List<com.kwad.sdk.collector.model.b> f(Context context) {
-        if (av.p(context)) {
-            if (e == null) {
-                e = d(context);
+    public static List<com.kwad.sdk.collector.model.b> bV(Context context) {
+        if (az.dy(context)) {
+            if (amN == null) {
+                amN = bT(context);
             }
-            return g(context);
+            return bW(context);
         }
         return new ArrayList();
     }
 
     @RequiresPermission("android.permission.WRITE_EXTERNAL_STORAGE")
-    public static List<com.kwad.sdk.collector.model.b> g(Context context) {
+    public static List<com.kwad.sdk.collector.model.b> bW(Context context) {
         ArrayList arrayList = new ArrayList();
-        if (an.l() || com.kwad.sdk.core.config.d.a((long) PlaybackStateCompat.ACTION_PLAY_FROM_URI) || com.kwad.sdk.utils.c.a(context)) {
+        if (aq.Ae() || com.kwad.sdk.core.config.d.i(PlaybackStateCompat.ACTION_PLAY_FROM_URI) || com.kwad.sdk.utils.c.bQ(context)) {
             return arrayList;
         }
-        AppStatusRules a2 = a();
-        Map<String, InstalledAppInfoManager.AppPackageInfo> k = ao.k(context);
-        for (AppStatusRules.Strategy strategy : com.kwad.sdk.collector.i.a(a2)) {
-            arrayList.addAll(a(strategy, k));
+        AppStatusRules yV = yV();
+        Map<String, InstalledAppInfoManager.AppPackageInfo> cT = ar.cT(context);
+        for (AppStatusRules.Strategy strategy : com.kwad.sdk.collector.i.c(yV)) {
+            arrayList.addAll(a(strategy, cT));
             strategy.setNeedSaveLaunchTime(System.currentTimeMillis());
         }
-        AppStatusRules.Strategy b2 = com.kwad.sdk.collector.i.b(a2);
-        arrayList.addAll(a(b2, k));
-        b2.setNeedSaveLaunchTime(System.currentTimeMillis());
-        return a(arrayList);
+        AppStatusRules.Strategy d2 = com.kwad.sdk.collector.i.d(yV);
+        arrayList.addAll(a(d2, cT));
+        d2.setNeedSaveLaunchTime(System.currentTimeMillis());
+        return x(arrayList);
     }
 
-    public static boolean k() {
-        if (b == null) {
+    public static void e(final Context context, final long j) {
+        if (MX == null) {
+            MX = new Handler(Looper.getMainLooper());
+        }
+        MX.post(new Runnable() { // from class: com.kwad.sdk.utils.f.3
+            @Override // java.lang.Runnable
+            public final void run() {
+                f.bU(context);
+                f.MX.postDelayed(this, j);
+            }
+        });
+    }
+
+    public static List<com.kwad.sdk.collector.model.b> x(List<com.kwad.sdk.collector.model.b> list) {
+        return list.isEmpty() ? list : new ArrayList(new LinkedHashSet(list));
+    }
+
+    public static AppStatusRules yV() {
+        return amN;
+    }
+
+    public static boolean yW() {
+        if (amL == null) {
             try {
-                b = new Messenger(new c(Looper.getMainLooper()));
+                amL = new Messenger(new c(Looper.getMainLooper()));
             } catch (Throwable unused) {
             }
         }
-        return b != null;
+        return amL != null;
     }
 
-    public static synchronized void l() {
+    public static synchronized void yX() {
         synchronized (f.class) {
-            if (d != null) {
+            if (amM != null) {
                 return;
             }
-            d = com.kwad.sdk.core.threads.b.i();
+            amM = com.kwad.sdk.core.threads.b.vp();
         }
     }
 
-    public static boolean m() {
+    public static boolean yY() {
         try {
             Class<?> cls = Class.forName("com.kwad.sdk.api.proxy.app.ServiceProxyRemote");
             if (cls != null) {
                 Context context = KsAdSDK.getContext();
                 return context.getPackageManager().queryIntentServices(new Intent(context, cls), 65536).size() > 0;
             }
-        } catch (ClassNotFoundException e2) {
-            com.kwad.sdk.core.d.b.b(e2);
+        } catch (ClassNotFoundException e) {
+            com.kwad.sdk.core.e.b.printStackTraceOnly(e);
         }
         return false;
     }

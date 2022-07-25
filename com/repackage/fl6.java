@@ -60,7 +60,7 @@ public class fl6 extends cd6<ul6, ThreadCardViewHolder<ul6>> {
             bVar.l().i(0);
             bVar.l().h(0);
             ThreadCardViewHolder<ul6> threadCardViewHolder = new ThreadCardViewHolder<>(bVar.k(BaseCardInfo.SupportType.FULL, viewGroup, this.m));
-            threadCardViewHolder.k(this.e);
+            threadCardViewHolder.j(this.e);
             return threadCardViewHolder;
         }
         return (ThreadCardViewHolder) invokeL.objValue;
@@ -73,11 +73,11 @@ public class fl6 extends cd6<ul6, ThreadCardViewHolder<ul6>> {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, ul6Var, threadCardViewHolder})) == null) {
-            threadCardViewHolder.c().q(i);
-            threadCardViewHolder.g(ul6Var);
-            threadCardViewHolder.c().onChangeSkinType(this.k, TbadkCoreApplication.getInst().getSkinType());
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, new dv4(13)));
-            return threadCardViewHolder.b();
+            threadCardViewHolder.b().q(i);
+            threadCardViewHolder.f(ul6Var);
+            threadCardViewHolder.b().onChangeSkinType(this.k, TbadkCoreApplication.getInst().getSkinType());
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, new ev4(13)));
+            return threadCardViewHolder.a();
         }
         return (View) invokeCommon.objValue;
     }

@@ -182,11 +182,11 @@ public class ez6 extends jx5<fz6> {
         this.i = tbPageContext;
         View h = h();
         this.j = h;
-        TextView textView = (TextView) h.findViewById(R.id.obfuscated_res_0x7f091a63);
+        TextView textView = (TextView) h.findViewById(R.id.obfuscated_res_0x7f091a3d);
         this.k = textView;
         int i3 = p;
         textView.setPadding(0, i3, 0, i3 - o);
-        this.m = this.i.getResources().getString(R.string.obfuscated_res_0x7f0f0860);
+        this.m = this.i.getResources().getString(R.string.obfuscated_res_0x7f0f084b);
         this.j.setOnClickListener(new a(this));
     }
 

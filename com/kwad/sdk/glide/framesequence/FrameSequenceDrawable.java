@@ -58,24 +58,24 @@ public class FrameSequenceDrawable extends Drawable implements Animatable, Runna
     public static final Object sLock = new Object();
     public static a sAllocatingBitmapProvider = new a() { // from class: com.kwad.sdk.glide.framesequence.FrameSequenceDrawable.1
         @Override // com.kwad.sdk.glide.framesequence.FrameSequenceDrawable.a
-        public final Bitmap a(int i, int i2) {
-            return Bitmap.createBitmap(i, i2, Bitmap.Config.ARGB_8888);
-        }
-
-        @Override // com.kwad.sdk.glide.framesequence.FrameSequenceDrawable.a
         public final void a(Bitmap bitmap) {
             if (bitmap == null || bitmap.isRecycled()) {
                 return;
             }
             bitmap.recycle();
         }
+
+        @Override // com.kwad.sdk.glide.framesequence.FrameSequenceDrawable.a
+        public final Bitmap p(int i, int i2) {
+            return Bitmap.createBitmap(i, i2, Bitmap.Config.ARGB_8888);
+        }
     };
 
     /* loaded from: classes5.dex */
     public interface a {
-        Bitmap a(int i, int i2);
-
         void a(Bitmap bitmap);
+
+        Bitmap p(int i, int i2);
     }
 
     /* loaded from: classes5.dex */
@@ -184,11 +184,11 @@ public class FrameSequenceDrawable extends Drawable implements Animatable, Runna
     }
 
     public static Bitmap acquireAndValidateBitmap(a aVar, int i, int i2) {
-        Bitmap a2 = aVar.a(i, i2);
-        if (a2.getWidth() < i || a2.getHeight() < i2 || a2.getConfig() != Bitmap.Config.ARGB_8888) {
+        Bitmap p = aVar.p(i, i2);
+        if (p.getWidth() < i || p.getHeight() < i2 || p.getConfig() != Bitmap.Config.ARGB_8888) {
             throw new IllegalArgumentException("Invalid bitmap provided");
         }
-        return a2;
+        return p;
     }
 
     private void checkDestroyedLocked() {

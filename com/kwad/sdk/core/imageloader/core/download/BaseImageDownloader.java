@@ -167,7 +167,7 @@ public class BaseImageDownloader implements ImageDownloader {
             if (shouldBeProcessed(createConnection)) {
                 return new ContentLengthInputStream(new BufferedInputStream(inputStream, 32768), createConnection.getContentLength());
             }
-            b.a(inputStream);
+            b.closeQuietly(inputStream);
             throw new IOException("Image request failed with response code " + createConnection.getResponseCode());
         } catch (IOException e) {
             IoUtils.readAndCloseStream(createConnection.getErrorStream());

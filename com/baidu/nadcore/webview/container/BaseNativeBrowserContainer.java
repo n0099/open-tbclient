@@ -190,7 +190,7 @@ public class BaseNativeBrowserContainer extends AbsContainer {
             if (interceptable == null || interceptable.invokeLL(1048576, this, webView, str) == null) {
                 super.onPageFinished(webView, str);
                 this.d.q0(webView.getTitle());
-                Object tag = webView.getTag(R.id.obfuscated_res_0x7f09155d);
+                Object tag = webView.getTag(R.id.obfuscated_res_0x7f091538);
                 int intValue = tag == null ? 0 : ((Integer) tag).intValue();
                 if (TextUtils.equals(str, this.d.h) || TextUtils.equals(webView.getOriginalUrl(), this.d.h) || (str != null && str.contains(this.d.h))) {
                     if (intValue != 0 && intValue != -1) {
@@ -210,7 +210,7 @@ public class BaseNativeBrowserContainer extends AbsContainer {
             if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, str, bitmap) == null) {
                 super.onPageStarted(webView, str, bitmap);
                 if (this.d.o) {
-                    webView.setTag(R.id.obfuscated_res_0x7f09155d, 0);
+                    webView.setTag(R.id.obfuscated_res_0x7f091538, 0);
                 }
                 this.d.o = false;
                 WebView webView2 = this.d.g;
@@ -226,7 +226,7 @@ public class BaseNativeBrowserContainer extends AbsContainer {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLILL(Constants.METHOD_SEND_USER_MSG, this, webView, i, str, str2) == null) {
                 super.onReceivedError(webView, i, str, str2);
-                webView.setTag(R.id.obfuscated_res_0x7f09155d, Integer.valueOf(i));
+                webView.setTag(R.id.obfuscated_res_0x7f091538, Integer.valueOf(i));
                 this.d.j.A(webView, i, str, str2);
             }
         }
@@ -591,7 +591,7 @@ public class BaseNativeBrowserContainer extends AbsContainer {
             if (this.b) {
                 Y();
             } else {
-                this.e.findViewById(R.id.obfuscated_res_0x7f0920f2).setVisibility(8);
+                this.e.findViewById(R.id.obfuscated_res_0x7f0920f4).setVisibility(8);
             }
         }
     }
@@ -632,8 +632,8 @@ public class BaseNativeBrowserContainer extends AbsContainer {
         int[] c2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048596, this) == null) {
-            this.e.findViewById(R.id.obfuscated_res_0x7f0920f2).setVisibility(0);
-            LinearLayout linearLayout = (LinearLayout) this.e.findViewById(R.id.obfuscated_res_0x7f0920f6);
+            this.e.findViewById(R.id.obfuscated_res_0x7f0920f4).setVisibility(0);
+            LinearLayout linearLayout = (LinearLayout) this.e.findViewById(R.id.obfuscated_res_0x7f0920f8);
             for (int i : h21.i().a()) {
                 ImageView imageView = new ImageView(new ContextThemeWrapper(getActivity(), (int) R.style.obfuscated_res_0x7f100134), null, R.style.obfuscated_res_0x7f100134);
                 imageView.setImageResource(i);
@@ -641,7 +641,7 @@ public class BaseNativeBrowserContainer extends AbsContainer {
                 h21.i().b(imageView, this);
                 linearLayout.addView(imageView);
             }
-            LinearLayout linearLayout2 = (LinearLayout) this.e.findViewById(R.id.obfuscated_res_0x7f0920fe);
+            LinearLayout linearLayout2 = (LinearLayout) this.e.findViewById(R.id.obfuscated_res_0x7f092100);
             for (int i2 : h21.i().c()) {
                 ImageView imageView2 = new ImageView(new ContextThemeWrapper(getActivity(), (int) R.style.obfuscated_res_0x7f100134), null, R.style.obfuscated_res_0x7f100134);
                 imageView2.setImageResource(i2);
@@ -940,7 +940,7 @@ public class BaseNativeBrowserContainer extends AbsContainer {
         if (interceptable == null || interceptable.invokeV(1048618, this) == null) {
             this.j.v();
             super.m();
-            u(View.inflate(getActivity(), R.layout.obfuscated_res_0x7f0d05b7, null));
+            u(View.inflate(getActivity(), R.layout.obfuscated_res_0x7f0d05c1, null));
             V();
             c0();
             b0();
@@ -1071,7 +1071,7 @@ public class BaseNativeBrowserContainer extends AbsContainer {
     public void q0(String str) {
         TextView textView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048630, this, str) == null) || (textView = (TextView) this.f.findViewById(R.id.obfuscated_res_0x7f0922a1)) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048630, this, str) == null) || (textView = (TextView) this.f.findViewById(R.id.obfuscated_res_0x7f0922a3)) == null) {
             return;
         }
         textView.setText(str);
@@ -1100,7 +1100,7 @@ public class BaseNativeBrowserContainer extends AbsContainer {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048633, this, view2) == null) {
             super.u(view2);
-            this.e = (FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f091b73);
+            this.e = (FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f091b4d);
             this.f = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f0924cc);
         }
     }

@@ -3,7 +3,6 @@ package com.repackage;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.sofire.utility.LocalConstant;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -379,10 +378,10 @@ public class j8 implements Appendable, CharSequence {
                     q(c[(i % 1000000000) / 100000000]);
                 }
                 if (i >= 10000000) {
-                    q(c[(i % 100000000) / LocalConstant.NEXTSUFFIX]);
+                    q(c[(i % 100000000) / 10000000]);
                 }
                 if (i >= 1000000) {
-                    q(c[(i % LocalConstant.NEXTSUFFIX) / 1000000]);
+                    q(c[(i % 10000000) / 1000000]);
                 }
                 if (i >= 100000) {
                     q(c[(i % 1000000) / 100000]);

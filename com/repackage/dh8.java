@@ -72,7 +72,7 @@ import tbclient.ThreadInfo;
 import tbclient.User;
 import tbclient.WindowToast;
 /* loaded from: classes5.dex */
-public class dh8 implements o75, u75 {
+public class dh8 implements p75, v75 {
     public static /* synthetic */ Interceptable $ic;
     public static final Wire WIRE;
     public transient /* synthetic */ FieldHolder $fh;
@@ -87,15 +87,15 @@ public class dh8 implements o75, u75 {
     public int baWuNoticeNum;
     public String bawuCenterUrl;
     public AddBawuPopInfo bawuPopInfo;
-    public no4 bookInfoData;
+    public oo4 bookInfoData;
     public List<BottomMenu> bottomMenuList;
     public vc6 brandAdData;
     public yg8 businessPromot;
     public ThreadData cardVideoInfo;
-    public ho4 carrierEnterData;
+    public io4 carrierEnterData;
     public List<CategoryInfo> categoryInfos;
     public rg8 chatGroup;
-    public ArrayList<jo4> color_eggs;
+    public ArrayList<ko4> color_eggs;
     public int defaultShowTab;
     public PopInfo enterFrsDialogInfo;
     public boolean fortuneBag;
@@ -114,8 +114,8 @@ public class dh8 implements o75, u75 {
     public String gameUrl;
     public jh8 gconAccount;
     public boolean hasGame;
-    public vo4 headSdkData;
-    public qo4 headlineImgInfoData;
+    public wo4 headSdkData;
+    public ro4 headlineImgInfoData;
     public boolean isBrandForum;
     public boolean isFromCache;
     public boolean isFrsVideoAutoPlay;
@@ -125,7 +125,7 @@ public class dh8 implements o75, u75 {
     public List<FeedForumData> likeFeedForumDataList;
     public List<LiveFuseForumData> liveFuseForumDataList;
     public AlaLiveNotify liveNotify;
-    public mo4 mActivityHeadData;
+    public no4 mActivityHeadData;
     public List<nn> mCardShipinNew;
     public List<Integer> mCardShipinPos;
     public long mDataParseTime;
@@ -146,14 +146,14 @@ public class dh8 implements o75, u75 {
     public NebulaHotThreads nebulaHotThreads;
     public int needLog;
     public List<OriForumInfo> oriForumInfoList;
-    public op4 page;
+    public pp4 page;
     public int photoLivePos;
     public RecomPostTopic postTopic;
-    public to4 presentInfoData;
-    public xp4 privateForumTotalData;
+    public uo4 presentInfoData;
+    public yp4 privateForumTotalData;
     public List<RecmForumInfo> recm_forum_list;
-    public wo4 recommendBookData;
-    public fq4 schoolRecommendInfo;
+    public xo4 recommendBookData;
+    public gq4 schoolRecommendInfo;
     public int schoolRecommendPos;
     public th8 serviceAreaData;
     public List<Map<String, Object>> serviceAreaFlutterData;
@@ -172,9 +172,9 @@ public class dh8 implements o75, u75 {
     public HashMap<String, MetaData> userMap;
     public od6 userRecommend;
     @Nullable
-    public hy4 voiceRoomConfig;
+    public iy4 voiceRoomConfig;
     @Nullable
-    public iy4 voiceRoomData;
+    public jy4 voiceRoomData;
 
     static {
         InterceptResult invokeClinit;
@@ -259,13 +259,13 @@ public class dh8 implements o75, u75 {
             this.threadList = new ArrayList<>();
             this.topThreadList = new ArrayList();
             this.userMap = new HashMap<>();
-            this.page = new op4();
+            this.page = new pp4();
             this.star = new eh8();
             this.userData = new UserData();
             this.gconAccount = new jh8();
             setAnti(new AntiData());
             setChatGroup(new rg8());
-            this.privateForumTotalData = new xp4();
+            this.privateForumTotalData = new yp4();
             this.mCardShipinNew = new ArrayList();
             this.mCardShipinPos = new ArrayList();
         }
@@ -297,9 +297,9 @@ public class dh8 implements o75, u75 {
                 threadData.parseStyle_flag(this.color_eggs);
                 threadData.isFromBrandForum = this.forum.isBrandForum;
                 if (!TextUtils.isEmpty(threadData.getLegoCard())) {
-                    dp4 dp4Var = new dp4();
-                    dp4Var.g(threadData.getLegoCard());
-                    this.threadList.add(dp4Var);
+                    ep4 ep4Var = new ep4();
+                    ep4Var.g(threadData.getLegoCard());
+                    this.threadList.add(ep4Var);
                 } else {
                     this.threadList.add(threadData);
                     JSONObject c = db8.c(threadInfo, threadData.getForum_name());
@@ -332,10 +332,10 @@ public class dh8 implements o75, u75 {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.accessFlag : invokeV.intValue;
     }
 
-    public mo4 getActivityHeadData() {
+    public no4 getActivityHeadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mActivityHeadData : (mo4) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mActivityHeadData : (no4) invokeV.objValue;
     }
 
     public AgreeBanner getAgreeBanner() {
@@ -368,10 +368,10 @@ public class dh8 implements o75, u75 {
         return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.bawuCenterUrl : (String) invokeV.objValue;
     }
 
-    public no4 getBookInfo() {
+    public oo4 getBookInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.bookInfoData : (no4) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.bookInfoData : (oo4) invokeV.objValue;
     }
 
     public yg8 getBusinessPromot() {
@@ -380,7 +380,7 @@ public class dh8 implements o75, u75 {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.businessPromot : (yg8) invokeV.objValue;
     }
 
-    @Override // com.repackage.p75
+    @Override // com.repackage.q75
     public String getCacheKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -408,10 +408,10 @@ public class dh8 implements o75, u75 {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.cardVideoInfo : (ThreadData) invokeV.objValue;
     }
 
-    public ho4 getCarrierEnterData() {
+    public io4 getCarrierEnterData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.carrierEnterData : (ho4) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.carrierEnterData : (io4) invokeV.objValue;
     }
 
     public List<CategoryInfo> getCategoryInfos() {
@@ -522,16 +522,16 @@ public class dh8 implements o75, u75 {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048609, this)) == null) ? this.gconAccount : (jh8) invokeV.objValue;
     }
 
-    public vo4 getHeadSdkData() {
+    public wo4 getHeadSdkData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048610, this)) == null) ? this.headSdkData : (vo4) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048610, this)) == null) ? this.headSdkData : (wo4) invokeV.objValue;
     }
 
-    public qo4 getHeadlineImgInfoData() {
+    public ro4 getHeadlineImgInfoData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048611, this)) == null) ? this.headlineImgInfoData : (qo4) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048611, this)) == null) ? this.headlineImgInfoData : (ro4) invokeV.objValue;
     }
 
     public HotUserRankEntry getHotUserRankData() {
@@ -564,10 +564,10 @@ public class dh8 implements o75, u75 {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048616, this)) == null) ? this.mangaReadRecordChapterId : (Integer) invokeV.objValue;
     }
 
-    public op4 getPage() {
+    public pp4 getPage() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048617, this)) == null) ? this.page : (op4) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048617, this)) == null) ? this.page : (pp4) invokeV.objValue;
     }
 
     public int getPhotoLivePos() {
@@ -582,10 +582,10 @@ public class dh8 implements o75, u75 {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048619, this)) == null) ? this.mPrivateForumPopInfoData : (PrivateForumPopInfoData) invokeV.objValue;
     }
 
-    public xp4 getPrivateForumTotalInfo() {
+    public yp4 getPrivateForumTotalInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048620, this)) == null) ? this.privateForumTotalData : (xp4) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048620, this)) == null) ? this.privateForumTotalData : (yp4) invokeV.objValue;
     }
 
     public List<RecmForumInfo> getRecm_forum_list() {
@@ -600,10 +600,10 @@ public class dh8 implements o75, u75 {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048622, this)) == null) ? this.schoolRecommendPos : invokeV.intValue;
     }
 
-    public fq4 getSchoolRecommendUserInfo() {
+    public gq4 getSchoolRecommendUserInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048623, this)) == null) ? this.schoolRecommendInfo : (fq4) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048623, this)) == null) ? this.schoolRecommendInfo : (gq4) invokeV.objValue;
     }
 
     public int getSortType() {
@@ -661,23 +661,23 @@ public class dh8 implements o75, u75 {
     }
 
     @NonNull
-    public hy4 getVoiceRoomConfig() {
+    public iy4 getVoiceRoomConfig() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048633, this)) == null) {
-            hy4 hy4Var = this.voiceRoomConfig;
-            return hy4Var != null ? hy4Var : hy4.b;
+            iy4 iy4Var = this.voiceRoomConfig;
+            return iy4Var != null ? iy4Var : iy4.b;
         }
-        return (hy4) invokeV.objValue;
+        return (iy4) invokeV.objValue;
     }
 
-    public iy4 getVoiceRoomData() {
+    public jy4 getVoiceRoomData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048634, this)) == null) ? this.voiceRoomData : (iy4) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048634, this)) == null) ? this.voiceRoomData : (jy4) invokeV.objValue;
     }
 
-    @Override // com.repackage.o75
+    @Override // com.repackage.p75
     public boolean initByByteArray(byte[] bArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -687,14 +687,14 @@ public class dh8 implements o75, u75 {
         return invokeL.booleanValue;
     }
 
-    @Override // com.repackage.u75
+    @Override // com.repackage.v75
     public void initByJson(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048636, this, jSONObject) == null) {
         }
     }
 
-    @Override // com.repackage.u75
+    @Override // com.repackage.v75
     public void initByProtobuf(Message message) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048637, this, message) == null) {
@@ -755,10 +755,10 @@ public class dh8 implements o75, u75 {
         }
     }
 
-    public void setActivityHeadData(mo4 mo4Var) {
+    public void setActivityHeadData(no4 no4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048644, this, mo4Var) == null) {
-            this.mActivityHeadData = mo4Var;
+        if (interceptable == null || interceptable.invokeL(1048644, this, no4Var) == null) {
+            this.mActivityHeadData = no4Var;
         }
     }
 
@@ -797,10 +797,10 @@ public class dh8 implements o75, u75 {
         }
     }
 
-    public void setBookInfo(no4 no4Var) {
+    public void setBookInfo(oo4 oo4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048650, this, no4Var) == null) {
-            this.bookInfoData = no4Var;
+        if (interceptable == null || interceptable.invokeL(1048650, this, oo4Var) == null) {
+            this.bookInfoData = oo4Var;
         }
     }
 
@@ -832,10 +832,10 @@ public class dh8 implements o75, u75 {
         }
     }
 
-    public void setCarrierEnterData(ho4 ho4Var) {
+    public void setCarrierEnterData(io4 io4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048655, this, ho4Var) == null) {
-            this.carrierEnterData = ho4Var;
+        if (interceptable == null || interceptable.invokeL(1048655, this, io4Var) == null) {
+            this.carrierEnterData = io4Var;
         }
     }
 
@@ -972,17 +972,17 @@ public class dh8 implements o75, u75 {
         }
     }
 
-    public void setHeadSdkData(vo4 vo4Var) {
+    public void setHeadSdkData(wo4 wo4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048675, this, vo4Var) == null) {
-            this.headSdkData = vo4Var;
+        if (interceptable == null || interceptable.invokeL(1048675, this, wo4Var) == null) {
+            this.headSdkData = wo4Var;
         }
     }
 
-    public void setHeadlineImgInfoData(qo4 qo4Var) {
+    public void setHeadlineImgInfoData(ro4 ro4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048676, this, qo4Var) == null) {
-            this.headlineImgInfoData = qo4Var;
+        if (interceptable == null || interceptable.invokeL(1048676, this, ro4Var) == null) {
+            this.headlineImgInfoData = ro4Var;
         }
     }
 
@@ -1028,10 +1028,10 @@ public class dh8 implements o75, u75 {
         }
     }
 
-    public void setPage(op4 op4Var) {
+    public void setPage(pp4 pp4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048683, this, op4Var) == null) {
-            this.page = op4Var;
+        if (interceptable == null || interceptable.invokeL(1048683, this, pp4Var) == null) {
+            this.page = pp4Var;
         }
     }
 
@@ -1049,17 +1049,17 @@ public class dh8 implements o75, u75 {
         }
     }
 
-    public void setPrivateForumTotalInfo(xp4 xp4Var) {
+    public void setPrivateForumTotalInfo(yp4 yp4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048686, this, xp4Var) == null) {
-            this.privateForumTotalData = xp4Var;
+        if (interceptable == null || interceptable.invokeL(1048686, this, yp4Var) == null) {
+            this.privateForumTotalData = yp4Var;
         }
     }
 
-    public void setSchoolRecommendInfo(fq4 fq4Var) {
+    public void setSchoolRecommendInfo(gq4 gq4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048687, this, fq4Var) == null) {
-            this.schoolRecommendInfo = fq4Var;
+        if (interceptable == null || interceptable.invokeL(1048687, this, gq4Var) == null) {
+            this.schoolRecommendInfo = gq4Var;
         }
     }
 
@@ -1126,21 +1126,21 @@ public class dh8 implements o75, u75 {
         }
     }
 
-    public void setVoiceRoomConfig(@Nullable hy4 hy4Var) {
+    public void setVoiceRoomConfig(@Nullable iy4 iy4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048697, this, hy4Var) == null) {
-            this.voiceRoomConfig = hy4Var;
+        if (interceptable == null || interceptable.invokeL(1048697, this, iy4Var) == null) {
+            this.voiceRoomConfig = iy4Var;
         }
     }
 
-    public iy4 setVoiceRoomData(iy4 iy4Var) {
+    public jy4 setVoiceRoomData(jy4 jy4Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048698, this, iy4Var)) == null) {
-            this.voiceRoomData = iy4Var;
-            return iy4Var;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048698, this, jy4Var)) == null) {
+            this.voiceRoomData = jy4Var;
+            return jy4Var;
         }
-        return (iy4) invokeL.objValue;
+        return (jy4) invokeL.objValue;
     }
 
     public ArrayList<nn> switchThreadDataToThreadCardInfo() {
@@ -1154,7 +1154,7 @@ public class dh8 implements o75, u75 {
         return (ArrayList) invokeV.objValue;
     }
 
-    @Override // com.repackage.o75
+    @Override // com.repackage.p75
     public byte[] toCacheByteArray() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -1175,11 +1175,11 @@ public class dh8 implements o75, u75 {
             int i2 = 0;
             while (it.hasNext()) {
                 nn next = it.next();
-                if (next instanceof bp4) {
-                    ((bp4) next).setPosition(i - i2);
+                if (next instanceof cp4) {
+                    ((cp4) next).setPosition(i - i2);
                     arrayList2.add(next);
-                } else if (next instanceof dp4) {
-                    ((dp4) next).position = i;
+                } else if (next instanceof ep4) {
+                    ((ep4) next).position = i;
                     arrayList2.add(next);
                 } else if (next instanceof ThreadData) {
                     ThreadData threadData = (ThreadData) next;
@@ -1189,189 +1189,189 @@ public class dh8 implements o75, u75 {
                     AbsGroupUbsABTest.setCardInfoUbsABTest(threadData);
                     int[] imageWidthAndHeight = threadData.getImageWidthAndHeight();
                     if (threadData.getType() == ThreadData.TYPE_NORMAL && !threadData.isTop()) {
-                        qq4 qq4Var = new qq4();
-                        qq4Var.s = threadData;
-                        qq4Var.position = i;
-                        qq4Var.a = true;
-                        qq4Var.setSupportType(BaseCardInfo.SupportType.TOP);
-                        arrayList2.add(qq4Var);
-                        qq4 qq4Var2 = new qq4();
-                        qq4Var2.s = threadData;
-                        qq4Var2.position = i;
+                        rq4 rq4Var = new rq4();
+                        rq4Var.s = threadData;
+                        rq4Var.position = i;
+                        rq4Var.a = true;
+                        rq4Var.setSupportType(BaseCardInfo.SupportType.TOP);
+                        arrayList2.add(rq4Var);
+                        rq4 rq4Var2 = new rq4();
+                        rq4Var2.s = threadData;
+                        rq4Var2.position = i;
                         if (threadData.isBJHNormalThreadType()) {
-                            qq4Var2.f = true;
+                            rq4Var2.f = true;
                         } else if (threadData.picCount() == 1) {
-                            qq4Var2.d = true;
-                            qq4Var2.t = imageWidthAndHeight[0];
-                            qq4Var2.u = imageWidthAndHeight[1];
+                            rq4Var2.d = true;
+                            rq4Var2.t = imageWidthAndHeight[0];
+                            rq4Var2.u = imageWidthAndHeight[1];
                         } else if (threadData.picCount() >= 2) {
-                            qq4Var2.e = true;
+                            rq4Var2.e = true;
                         } else {
-                            qq4Var2.b = true;
+                            rq4Var2.b = true;
                         }
-                        qq4Var2.setSupportType(BaseCardInfo.SupportType.CONTENT);
-                        arrayList2.add(qq4Var2);
+                        rq4Var2.setSupportType(BaseCardInfo.SupportType.CONTENT);
+                        arrayList2.add(rq4Var2);
                         if (threadData.getPollData() != null) {
-                            qq4 qq4Var3 = new qq4();
-                            qq4Var3.o = true;
-                            qq4Var3.s = threadData;
-                            qq4Var3.position = i;
-                            qq4Var3.setSupportType(BaseCardInfo.SupportType.EXTEND);
-                            arrayList2.add(qq4Var3);
+                            rq4 rq4Var3 = new rq4();
+                            rq4Var3.o = true;
+                            rq4Var3.s = threadData;
+                            rq4Var3.position = i;
+                            rq4Var3.setSupportType(BaseCardInfo.SupportType.EXTEND);
+                            arrayList2.add(rq4Var3);
                         }
                         if (threadData.getSmartApp() != null) {
-                            qq4 qq4Var4 = new qq4();
-                            qq4Var4.l = true;
-                            qq4Var4.s = threadData;
-                            qq4Var4.position = i;
-                            qq4Var4.setSupportType(BaseCardInfo.SupportType.EXTEND);
-                            arrayList2.add(qq4Var4);
+                            rq4 rq4Var4 = new rq4();
+                            rq4Var4.l = true;
+                            rq4Var4.s = threadData;
+                            rq4Var4.position = i;
+                            rq4Var4.setSupportType(BaseCardInfo.SupportType.EXTEND);
+                            arrayList2.add(rq4Var4);
                         }
                         if (!ListUtils.isEmpty(threadData.getLinkDataList()) || !ListUtils.isEmpty(threadData.getGoodsDataList())) {
-                            qq4 qq4Var5 = new qq4();
+                            rq4 rq4Var5 = new rq4();
                             if (ListUtils.getCount(threadData.getLinkDataList()) + ListUtils.getCount(threadData.getGoodsDataList()) == 1) {
-                                qq4Var5.p = true;
+                                rq4Var5.p = true;
                             } else if (ListUtils.getCount(threadData.getLinkDataList()) + ListUtils.getCount(threadData.getGoodsDataList()) > 1) {
-                                qq4Var5.q = true;
+                                rq4Var5.q = true;
                             }
-                            qq4Var5.s = threadData;
-                            qq4Var5.position = i;
-                            qq4Var5.setSupportType(BaseCardInfo.SupportType.EXTEND);
-                            arrayList2.add(qq4Var5);
+                            rq4Var5.s = threadData;
+                            rq4Var5.position = i;
+                            rq4Var5.setSupportType(BaseCardInfo.SupportType.EXTEND);
+                            arrayList2.add(rq4Var5);
                         }
                         if (threadData.getTopAgreePost() != null) {
-                            qq4 qq4Var6 = new qq4();
-                            qq4Var6.h = true;
-                            qq4Var6.s = threadData;
-                            qq4Var6.position = i;
-                            qq4Var6.setSupportType(BaseCardInfo.SupportType.EXTEND);
-                            arrayList2.add(qq4Var6);
+                            rq4 rq4Var6 = new rq4();
+                            rq4Var6.h = true;
+                            rq4Var6.s = threadData;
+                            rq4Var6.position = i;
+                            rq4Var6.setSupportType(BaseCardInfo.SupportType.EXTEND);
+                            arrayList2.add(rq4Var6);
                         }
                         if (threadData.getItem() != null && !threadData.isVoteThreadType()) {
-                            qq4 qq4Var7 = new qq4();
-                            qq4Var7.n = true;
-                            qq4Var7.s = threadData;
-                            qq4Var7.setSupportType(BaseCardInfo.SupportType.EXTEND);
-                            arrayList2.add(qq4Var7);
+                            rq4 rq4Var7 = new rq4();
+                            rq4Var7.n = true;
+                            rq4Var7.s = threadData;
+                            rq4Var7.setSupportType(BaseCardInfo.SupportType.EXTEND);
+                            arrayList2.add(rq4Var7);
                         }
-                        qq4 qq4Var8 = new qq4();
-                        qq4Var8.g = true;
-                        qq4Var8.s = threadData;
-                        qq4Var8.position = i;
-                        qq4Var8.setSupportType(BaseCardInfo.SupportType.BOTTOM);
-                        arrayList2.add(qq4Var8);
+                        rq4 rq4Var8 = new rq4();
+                        rq4Var8.g = true;
+                        rq4Var8.s = threadData;
+                        rq4Var8.position = i;
+                        rq4Var8.setSupportType(BaseCardInfo.SupportType.BOTTOM);
+                        arrayList2.add(rq4Var8);
                     } else if ((threadData.getType() == ThreadData.TYPE_VIDEO || threadData.getType() == ThreadData.TYPE_FAKE_VIDEO) && !threadData.isTop()) {
-                        qq4 qq4Var9 = new qq4();
-                        qq4Var9.s = threadData;
-                        qq4Var9.position = i;
-                        qq4Var9.a = true;
-                        qq4Var9.setSupportType(BaseCardInfo.SupportType.TOP);
-                        arrayList2.add(qq4Var9);
-                        qq4 qq4Var10 = new qq4();
-                        qq4Var10.s = threadData;
-                        qq4Var10.position = i;
-                        if (threadData instanceof lp4) {
-                            qq4Var10.j = true;
+                        rq4 rq4Var9 = new rq4();
+                        rq4Var9.s = threadData;
+                        rq4Var9.position = i;
+                        rq4Var9.a = true;
+                        rq4Var9.setSupportType(BaseCardInfo.SupportType.TOP);
+                        arrayList2.add(rq4Var9);
+                        rq4 rq4Var10 = new rq4();
+                        rq4Var10.s = threadData;
+                        rq4Var10.position = i;
+                        if (threadData instanceof mp4) {
+                            rq4Var10.j = true;
                         } else {
-                            qq4Var10.i = true;
+                            rq4Var10.i = true;
                         }
-                        qq4Var10.setSupportType(BaseCardInfo.SupportType.CONTENT);
-                        arrayList2.add(qq4Var10);
+                        rq4Var10.setSupportType(BaseCardInfo.SupportType.CONTENT);
+                        arrayList2.add(rq4Var10);
                         if (threadData.getPollData() != null) {
-                            qq4 qq4Var11 = new qq4();
-                            qq4Var11.o = true;
-                            qq4Var11.s = threadData;
-                            qq4Var11.position = i;
-                            qq4Var11.setSupportType(BaseCardInfo.SupportType.EXTEND);
-                            arrayList2.add(qq4Var11);
+                            rq4 rq4Var11 = new rq4();
+                            rq4Var11.o = true;
+                            rq4Var11.s = threadData;
+                            rq4Var11.position = i;
+                            rq4Var11.setSupportType(BaseCardInfo.SupportType.EXTEND);
+                            arrayList2.add(rq4Var11);
                         }
                         if (threadData.getSmartApp() != null) {
-                            qq4 qq4Var12 = new qq4();
-                            qq4Var12.l = true;
-                            qq4Var12.s = threadData;
-                            qq4Var12.position = i;
-                            qq4Var12.setSupportType(BaseCardInfo.SupportType.EXTEND);
-                            arrayList2.add(qq4Var12);
+                            rq4 rq4Var12 = new rq4();
+                            rq4Var12.l = true;
+                            rq4Var12.s = threadData;
+                            rq4Var12.position = i;
+                            rq4Var12.setSupportType(BaseCardInfo.SupportType.EXTEND);
+                            arrayList2.add(rq4Var12);
                         }
                         if (threadData.getTopAgreePost() != null) {
-                            qq4 qq4Var13 = new qq4();
-                            qq4Var13.h = true;
-                            qq4Var13.s = threadData;
-                            qq4Var13.position = i;
-                            qq4Var13.setSupportType(BaseCardInfo.SupportType.EXTEND);
-                            arrayList2.add(qq4Var13);
+                            rq4 rq4Var13 = new rq4();
+                            rq4Var13.h = true;
+                            rq4Var13.s = threadData;
+                            rq4Var13.position = i;
+                            rq4Var13.setSupportType(BaseCardInfo.SupportType.EXTEND);
+                            arrayList2.add(rq4Var13);
                         }
                         if (threadData.getItem() != null && !threadData.isVoteThreadType()) {
-                            qq4 qq4Var14 = new qq4();
-                            qq4Var14.n = true;
-                            qq4Var14.s = threadData;
-                            qq4Var14.setSupportType(BaseCardInfo.SupportType.EXTEND);
-                            arrayList2.add(qq4Var14);
+                            rq4 rq4Var14 = new rq4();
+                            rq4Var14.n = true;
+                            rq4Var14.s = threadData;
+                            rq4Var14.setSupportType(BaseCardInfo.SupportType.EXTEND);
+                            arrayList2.add(rq4Var14);
                         }
-                        qq4 qq4Var15 = new qq4();
-                        qq4Var15.g = true;
-                        qq4Var15.s = threadData;
-                        qq4Var15.position = i;
-                        qq4Var15.setSupportType(BaseCardInfo.SupportType.BOTTOM);
-                        arrayList2.add(qq4Var15);
+                        rq4 rq4Var15 = new rq4();
+                        rq4Var15.g = true;
+                        rq4Var15.s = threadData;
+                        rq4Var15.position = i;
+                        rq4Var15.setSupportType(BaseCardInfo.SupportType.BOTTOM);
+                        arrayList2.add(rq4Var15);
                     } else if (threadData.getThreadVideoInfo() != null && !threadData.isLiveInterviewLiveType() && threadData.isGodThread()) {
-                        qq4 qq4Var16 = new qq4();
-                        qq4Var16.s = threadData;
-                        qq4Var16.position = i;
-                        qq4Var16.a = true;
-                        qq4Var16.setSupportType(BaseCardInfo.SupportType.TOP);
-                        arrayList2.add(qq4Var16);
-                        qq4 qq4Var17 = new qq4();
-                        qq4Var17.s = threadData;
-                        qq4Var17.position = i;
-                        qq4Var17.k = true;
-                        qq4Var17.setSupportType(BaseCardInfo.SupportType.CONTENT);
-                        arrayList2.add(qq4Var17);
+                        rq4 rq4Var16 = new rq4();
+                        rq4Var16.s = threadData;
+                        rq4Var16.position = i;
+                        rq4Var16.a = true;
+                        rq4Var16.setSupportType(BaseCardInfo.SupportType.TOP);
+                        arrayList2.add(rq4Var16);
+                        rq4 rq4Var17 = new rq4();
+                        rq4Var17.s = threadData;
+                        rq4Var17.position = i;
+                        rq4Var17.k = true;
+                        rq4Var17.setSupportType(BaseCardInfo.SupportType.CONTENT);
+                        arrayList2.add(rq4Var17);
                         if (threadData.getPollData() != null) {
-                            qq4 qq4Var18 = new qq4();
-                            qq4Var18.o = true;
-                            qq4Var18.s = threadData;
-                            qq4Var18.position = i;
-                            qq4Var18.setSupportType(BaseCardInfo.SupportType.EXTEND);
-                            arrayList2.add(qq4Var18);
+                            rq4 rq4Var18 = new rq4();
+                            rq4Var18.o = true;
+                            rq4Var18.s = threadData;
+                            rq4Var18.position = i;
+                            rq4Var18.setSupportType(BaseCardInfo.SupportType.EXTEND);
+                            arrayList2.add(rq4Var18);
                         }
                         if (threadData.getSmartApp() != null) {
-                            qq4 qq4Var19 = new qq4();
-                            qq4Var19.l = true;
-                            qq4Var19.s = threadData;
-                            qq4Var19.position = i;
-                            qq4Var19.setSupportType(BaseCardInfo.SupportType.EXTEND);
-                            arrayList2.add(qq4Var19);
+                            rq4 rq4Var19 = new rq4();
+                            rq4Var19.l = true;
+                            rq4Var19.s = threadData;
+                            rq4Var19.position = i;
+                            rq4Var19.setSupportType(BaseCardInfo.SupportType.EXTEND);
+                            arrayList2.add(rq4Var19);
                         }
                         if (threadData.getTopAgreePost() != null) {
-                            qq4 qq4Var20 = new qq4();
-                            qq4Var20.h = true;
-                            qq4Var20.s = threadData;
-                            qq4Var20.position = i;
-                            qq4Var20.setSupportType(BaseCardInfo.SupportType.EXTEND);
-                            arrayList2.add(qq4Var20);
+                            rq4 rq4Var20 = new rq4();
+                            rq4Var20.h = true;
+                            rq4Var20.s = threadData;
+                            rq4Var20.position = i;
+                            rq4Var20.setSupportType(BaseCardInfo.SupportType.EXTEND);
+                            arrayList2.add(rq4Var20);
                         }
                         if (threadData.getItem() != null && !threadData.isVoteThreadType()) {
-                            qq4 qq4Var21 = new qq4();
-                            qq4Var21.n = true;
-                            qq4Var21.s = threadData;
-                            qq4Var21.setSupportType(BaseCardInfo.SupportType.EXTEND);
-                            arrayList2.add(qq4Var21);
+                            rq4 rq4Var21 = new rq4();
+                            rq4Var21.n = true;
+                            rq4Var21.s = threadData;
+                            rq4Var21.setSupportType(BaseCardInfo.SupportType.EXTEND);
+                            arrayList2.add(rq4Var21);
                         }
-                        qq4 qq4Var22 = new qq4();
-                        qq4Var22.g = true;
-                        qq4Var22.s = threadData;
-                        qq4Var22.position = i;
-                        qq4Var22.setSupportType(BaseCardInfo.SupportType.BOTTOM);
-                        arrayList2.add(qq4Var22);
+                        rq4 rq4Var22 = new rq4();
+                        rq4Var22.g = true;
+                        rq4Var22.s = threadData;
+                        rq4Var22.position = i;
+                        rq4Var22.setSupportType(BaseCardInfo.SupportType.BOTTOM);
+                        arrayList2.add(rq4Var22);
                     } else if (threadData.getType() == ThreadData.TYPE_ARTICLE && threadData.isBJHArticleThreadType()) {
                         threadData.position = i;
                         arrayList2.add(threadData);
                     } else {
-                        qq4 qq4Var23 = new qq4();
-                        qq4Var23.s = threadData;
-                        qq4Var23.position = i;
-                        arrayList2.add(qq4Var23);
+                        rq4 rq4Var23 = new rq4();
+                        rq4Var23.s = threadData;
+                        rq4Var23.position = i;
+                        arrayList2.add(rq4Var23);
                     }
                     i++;
                     threadData.setSupportType(BaseCardInfo.SupportType.TOP);
@@ -1404,9 +1404,9 @@ public class dh8 implements o75, u75 {
             if (!ListUtils.isEmpty(dataRes.color_egg)) {
                 for (ColorEgg colorEgg : dataRes.color_egg) {
                     if (colorEgg != null && !ListUtils.isEmpty(colorEgg.holiday_words)) {
-                        jo4 jo4Var = new jo4();
-                        if (jo4Var.c(colorEgg)) {
-                            this.color_eggs.add(jo4Var);
+                        ko4 ko4Var = new ko4();
+                        if (ko4Var.c(colorEgg)) {
+                            this.color_eggs.add(ko4Var);
                         }
                     }
                 }
@@ -1419,9 +1419,9 @@ public class dh8 implements o75, u75 {
                 this.isBrandForum = dataRes.forum.is_brand_forum.intValue() == 1;
             }
             if (this.isBrandForum && dataRes.brand_forum_info != null) {
-                mo4 mo4Var = new mo4();
-                this.mActivityHeadData = mo4Var;
-                mo4Var.e(dataRes.brand_forum_info.head_imgs);
+                no4 no4Var = new no4();
+                this.mActivityHeadData = no4Var;
+                no4Var.e(dataRes.brand_forum_info.head_imgs);
                 vc6 vc6Var = new vc6();
                 this.brandAdData = vc6Var;
                 vc6Var.a(dataRes.brand_forum_info);
@@ -1435,13 +1435,13 @@ public class dh8 implements o75, u75 {
                 }
             } else if (dataRes.activityhead != null) {
                 long longValue = dataRes.forum != null ? dataRes.forum.id.longValue() : 0L;
-                mo4 mo4Var2 = new mo4();
-                this.mActivityHeadData = mo4Var2;
-                mo4Var2.d(dataRes.activityhead, longValue);
+                no4 no4Var2 = new no4();
+                this.mActivityHeadData = no4Var2;
+                no4Var2.d(dataRes.activityhead, longValue);
             } else if (dataRes.private_forum_info != null && dataRes.private_forum_info.head_imgs != null && !oi.isEmpty(dataRes.private_forum_info.head_imgs.img_url)) {
-                mo4 mo4Var3 = new mo4();
-                this.mActivityHeadData = mo4Var3;
-                mo4Var3.e(dataRes.private_forum_info.head_imgs);
+                no4 no4Var3 = new no4();
+                this.mActivityHeadData = no4Var3;
+                no4Var3.e(dataRes.private_forum_info.head_imgs);
             }
             this.bottomMenuList = dataRes.bottom_menu;
             this.adMixFloor = dataRes.ad_mix_list;
@@ -1518,29 +1518,29 @@ public class dh8 implements o75, u75 {
                 this.bawuCenterUrl = dataRes.bawu_enter_url;
             }
             if (dataRes.head_sdk != null) {
-                vo4 vo4Var = new vo4();
-                this.headSdkData = vo4Var;
-                vo4Var.a(dataRes.head_sdk);
+                wo4 wo4Var = new wo4();
+                this.headSdkData = wo4Var;
+                wo4Var.a(dataRes.head_sdk);
             }
             if (dataRes.recommend_book != null) {
-                wo4 wo4Var = new wo4();
-                this.recommendBookData = wo4Var;
-                wo4Var.c(dataRes.recommend_book);
+                xo4 xo4Var = new xo4();
+                this.recommendBookData = xo4Var;
+                xo4Var.c(dataRes.recommend_book);
             }
             if (dataRes.book_info != null) {
-                no4 no4Var = new no4();
-                this.bookInfoData = no4Var;
-                no4Var.c(dataRes.book_info);
+                oo4 oo4Var = new oo4();
+                this.bookInfoData = oo4Var;
+                oo4Var.c(dataRes.book_info);
             }
             if (dataRes.forum_present_info != null) {
-                to4 to4Var = new to4();
-                this.presentInfoData = to4Var;
-                to4Var.a(dataRes.forum_present_info);
+                uo4 uo4Var = new uo4();
+                this.presentInfoData = uo4Var;
+                uo4Var.a(dataRes.forum_present_info);
             }
             if (dataRes.forum_headline_img_info != null) {
-                qo4 qo4Var = new qo4();
-                this.headlineImgInfoData = qo4Var;
-                qo4Var.b(dataRes.forum_headline_img_info);
+                ro4 ro4Var = new ro4();
+                this.headlineImgInfoData = ro4Var;
+                ro4Var.b(dataRes.forum_headline_img_info);
             }
             if (dataRes.business_promot != null) {
                 yg8 yg8Var = new yg8();
@@ -1598,14 +1598,14 @@ public class dh8 implements o75, u75 {
             }
             if (dataRes.school_recom_info != null) {
                 this.schoolRecommendPos = dataRes.school_recom_pos.intValue();
-                fq4 fq4Var = new fq4();
-                this.schoolRecommendInfo = fq4Var;
-                fq4Var.d(dataRes.school_recom_info);
+                gq4 gq4Var = new gq4();
+                this.schoolRecommendInfo = gq4Var;
+                gq4Var.d(dataRes.school_recom_info);
             }
             if (dataRes.carrier_enter != null) {
-                ho4 ho4Var = new ho4();
-                this.carrierEnterData = ho4Var;
-                ho4Var.a(dataRes.carrier_enter);
+                io4 io4Var = new io4();
+                this.carrierEnterData = io4Var;
+                io4Var.a(dataRes.carrier_enter);
             }
             if (dataRes.vitality_info != null && dataRes.vitality_info.frequently_forum_info != null) {
                 this.forumState = dataRes.vitality_info.frequently_forum_info.forum_state.intValue();
@@ -1708,7 +1708,7 @@ public class dh8 implements o75, u75 {
                         uh8Var.e = serviceArea.schema;
                         uh8Var.i = serviceArea.third_statistics_url;
                         String str2 = serviceArea.version;
-                        String q = xt4.k().q("frs_service_version_" + this.forum.getName() + uh8Var.c, "");
+                        String q = yt4.k().q("frs_service_version_" + this.forum.getName() + uh8Var.c, "");
                         if (!TextUtils.isEmpty(q)) {
                             q.equals(serviceArea.version);
                         }
@@ -1734,10 +1734,10 @@ public class dh8 implements o75, u75 {
             this.forumRule = dataRes.forum_rule;
             this.showAdsense = dataRes.show_adsense;
             this.frsMaskPopInfo = dataRes.frsmask_pop_info;
-            this.voiceRoomConfig = hy4.c(dataRes);
-            iy4 iy4Var = new iy4();
-            this.voiceRoomData = iy4Var;
-            iy4Var.d(dataRes);
+            this.voiceRoomConfig = iy4.c(dataRes);
+            jy4 jy4Var = new jy4();
+            this.voiceRoomData = jy4Var;
+            jy4Var.d(dataRes);
         } catch (Exception e) {
             BdLog.detailException(e);
         }

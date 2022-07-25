@@ -44,8 +44,8 @@ public class v58 extends jx5<s48> {
         this.j = h;
         this.i = tbPageContext;
         h.setTag(this);
-        this.k = (TbImageView) this.j.findViewById(R.id.obfuscated_res_0x7f090c67);
-        this.l = (TextView) this.j.findViewById(R.id.obfuscated_res_0x7f090c65);
+        this.k = (TbImageView) this.j.findViewById(R.id.obfuscated_res_0x7f090c60);
+        this.l = (TextView) this.j.findViewById(R.id.obfuscated_res_0x7f090c5e);
     }
 
     @Override // com.repackage.jx5

@@ -34,7 +34,7 @@ public class LiveFeedBaseHolder extends RecyclerView.ViewHolder {
         this.a = liveBaseItemView;
     }
 
-    public void b() {
+    public void a() {
         LiveBaseItemView liveBaseItemView;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (liveBaseItemView = this.a) == null) {
@@ -43,7 +43,7 @@ public class LiveFeedBaseHolder extends RecyclerView.ViewHolder {
         liveBaseItemView.a();
     }
 
-    public void c() {
+    public void b() {
         LiveBaseItemView liveBaseItemView;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (liveBaseItemView = this.a) == null) {
@@ -52,7 +52,7 @@ public class LiveFeedBaseHolder extends RecyclerView.ViewHolder {
         liveBaseItemView.b();
     }
 
-    public void d() {
+    public void c() {
         LiveBaseItemView liveBaseItemView;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (liveBaseItemView = this.a) == null) {

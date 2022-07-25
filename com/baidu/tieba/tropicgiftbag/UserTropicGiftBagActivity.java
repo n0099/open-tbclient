@@ -99,16 +99,16 @@ public class UserTropicGiftBagActivity extends BaseActivity {
     public final void D1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            RoundRelativeLayout roundRelativeLayout = (RoundRelativeLayout) findViewById(R.id.obfuscated_res_0x7f0921d5);
+            RoundRelativeLayout roundRelativeLayout = (RoundRelativeLayout) findViewById(R.id.obfuscated_res_0x7f0921d7);
             this.a = roundRelativeLayout;
             roundRelativeLayout.setAllCornerRound(pi.f(this, R.dimen.tbds32));
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f0921d6);
-            this.f = (TbImageView) findViewById(R.id.obfuscated_res_0x7f09245f);
-            this.g = (TbImageView) findViewById(R.id.obfuscated_res_0x7f0912c1);
-            this.h = (TbImageView) findViewById(R.id.obfuscated_res_0x7f0912c2);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f091d2a);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f091d2b);
-            this.e = (Button) findViewById(R.id.obfuscated_res_0x7f0921d7);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f0921d8);
+            this.f = (TbImageView) findViewById(R.id.obfuscated_res_0x7f092461);
+            this.g = (TbImageView) findViewById(R.id.obfuscated_res_0x7f09129d);
+            this.h = (TbImageView) findViewById(R.id.obfuscated_res_0x7f09129e);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f091d30);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f091d31);
+            this.e = (Button) findViewById(R.id.obfuscated_res_0x7f0921d9);
             this.i = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090627);
         }
     }
@@ -125,7 +125,7 @@ public class UserTropicGiftBagActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
             StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_BACK_USER);
-            statisticItem.param("obj_name", getResources().getString(R.string.obfuscated_res_0x7f0f1203));
+            statisticItem.param("obj_name", getResources().getString(R.string.obfuscated_res_0x7f0f11b2));
             statisticItem.param("obj_type", i);
             statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
             TiebaStatic.log(statisticItem);

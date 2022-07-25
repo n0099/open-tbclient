@@ -211,10 +211,10 @@ public class vk6 {
             return;
         }
         for (nn nnVar : this.b.getData()) {
-            if (nnVar instanceof qq4) {
-                qq4 qq4Var = (qq4) nnVar;
-                if (qq4Var.s.getIs_top() != 0) {
-                    qq4Var.s.parser_title();
+            if (nnVar instanceof rq4) {
+                rq4 rq4Var = (rq4) nnVar;
+                if (rq4Var.s.getIs_top() != 0) {
+                    rq4Var.s.parser_title();
                 }
             }
         }
@@ -310,7 +310,7 @@ public class vk6 {
             ph6 ph6Var = new ph6(frsGoodFragment.getPageContext(), ThreadData.TYPE_GOD_NORMAL, this.a.getUniqueId());
             vh6 vh6Var2 = new vh6(frsGoodFragment.getPageContext(), ThreadData.TYPE_VIDEO_GOD, this.a.getUniqueId());
             jd6 jd6Var = new jd6(frsGoodFragment.getPageContext(), kd6.b);
-            an<? extends qq4, ? extends TypeAdapter.ViewHolder> a2 = wc6.e().a(frsGoodFragment.getPageContext(), this.a.getUniqueId(), true);
+            an<? extends rq4, ? extends TypeAdapter.ViewHolder> a2 = wc6.e().a(frsGoodFragment.getPageContext(), this.a.getUniqueId(), true);
             an<? extends ThreadData, ? extends TypeAdapter.ViewHolder> d = wc6.e().d(frsGoodFragment.getPageContext(), ThreadData.TYPE_LOTTERY, this.a.getUniqueId());
             an<?, ?> d2 = s98.l().d(this.a, AdvertAppInfo.t);
             an<?, ?> d3 = s98.l().d(this.a, AdvertAppInfo.w);

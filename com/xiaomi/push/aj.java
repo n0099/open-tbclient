@@ -41,7 +41,7 @@ public class aj {
         try {
             try {
                 File file = new File(new File(context.getExternalFilesDir(null), "/.vdevdir/"), "lcfp.lock");
-                ab.m1099a(file);
+                ab.m161a(file);
                 randomAccessFile = new RandomAccessFile(file, "rw");
                 try {
                     fileLock = randomAccessFile.getChannel().lock();
@@ -182,9 +182,9 @@ public class aj {
                 ab.a(bufferedReader);
                 closeable2 = closeable3;
             } else {
-                boolean m1099a = ab.m1099a(file);
-                closeable2 = m1099a;
-                if (m1099a == 0) {
+                boolean m161a = ab.m161a(file);
+                closeable2 = m161a;
+                if (m161a == 0) {
                     return true;
                 }
             }

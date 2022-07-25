@@ -37,12 +37,12 @@ public abstract class LazyBaseFragment extends BaseFragment {
 
         /* renamed from: com.baidu.tbadk.core.LazyBaseFragment$a$a  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        public class RunnableC0173a implements Runnable {
+        public class RunnableC0187a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public RunnableC0173a(a aVar) {
+            public RunnableC0187a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -99,7 +99,7 @@ public abstract class LazyBaseFragment extends BaseFragment {
                 if (lazyBaseFragment.d == null) {
                     lazyBaseFragment.c = true;
                 } else if (!qb.b().c()) {
-                    this.a.a.post(new RunnableC0173a(this));
+                    this.a.a.post(new RunnableC0187a(this));
                 } else {
                     this.a.u1();
                 }
@@ -144,8 +144,8 @@ public abstract class LazyBaseFragment extends BaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, layoutInflater, viewGroup, bundle)) == null) {
             if (MainTabFragmentIdleSwitch.isOn()) {
-                View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d0532, viewGroup, false);
-                ViewStub viewStub = (ViewStub) inflate.findViewById(R.id.obfuscated_res_0x7f0913eb);
+                View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d053c, viewGroup, false);
+                ViewStub viewStub = (ViewStub) inflate.findViewById(R.id.obfuscated_res_0x7f0913c7);
                 this.d = viewStub;
                 viewStub.setLayoutResource(t1());
                 if (this.c) {

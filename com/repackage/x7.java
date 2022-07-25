@@ -52,10 +52,10 @@ public class x7<T> implements Iterable<T> {
             }
             this.e = true;
             this.b = x7Var;
-            d();
+            c();
         }
 
-        public final void b() {
+        public final void a() {
             int i;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -73,18 +73,18 @@ public class x7<T> implements Iterable<T> {
             }
         }
 
-        public a<K> c() {
+        public a<K> b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this : (a) invokeV.objValue;
         }
 
-        public void d() {
+        public void c() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
                 this.d = -1;
                 this.c = -1;
-                b();
+                a();
             }
         }
 
@@ -103,7 +103,7 @@ public class x7<T> implements Iterable<T> {
 
         @Override // java.lang.Iterable
         public /* bridge */ /* synthetic */ Iterator iterator() {
-            c();
+            b();
             return this;
         }
 
@@ -118,7 +118,7 @@ public class x7<T> implements Iterable<T> {
                         int i = this.c;
                         K k = kArr[i];
                         this.d = i;
-                        b();
+                        a();
                         return k;
                     }
                     throw new GdxRuntimeException("#iterator() cannot be used nested.");
@@ -285,13 +285,13 @@ public class x7<T> implements Iterable<T> {
             }
             a aVar = this.g;
             if (!aVar.e) {
-                aVar.d();
+                aVar.c();
                 a<T> aVar2 = this.g;
                 aVar2.e = true;
                 this.h.e = false;
                 return aVar2;
             }
-            this.h.d();
+            this.h.c();
             a<T> aVar3 = this.h;
             aVar3.e = true;
             this.g.e = false;

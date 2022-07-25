@@ -81,12 +81,12 @@ public class MsgMultiImageTextViewItemAdapter extends MsgCommonItemAdapter<MsgMu
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), view2, viewGroup, chatMessage, msgViewHolder})) == null) {
             super.S(i, view2, viewGroup, chatMessage, msgViewHolder);
-            MsgMultiImageTextView c = msgViewHolder.c();
-            c.A(this.k);
-            c.B(i);
-            c.r(this.l);
-            c.x(chatMessage.getCacheData().getLastMsgTime());
-            c.R(this.i, chatMessage, viewGroup);
+            MsgMultiImageTextView b = msgViewHolder.b();
+            b.A(this.k);
+            b.B(i);
+            b.r(this.l);
+            b.x(chatMessage.getCacheData().getLastMsgTime());
+            b.R(this.i, chatMessage, viewGroup);
             this.i.getLayoutMode().k(false);
             this.i.getLayoutMode().j(view2);
             c87.c().d(chatMessage, this.i.getPageActivity());

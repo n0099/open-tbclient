@@ -112,13 +112,13 @@ public class FrsGameStrategyItemView extends jx5<hj6> {
     public final void r() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            TbImageView tbImageView = (TbImageView) this.j.findViewById(R.id.obfuscated_res_0x7f090ad5);
+            TbImageView tbImageView = (TbImageView) this.j.findViewById(R.id.obfuscated_res_0x7f090ace);
             this.k = tbImageView;
             tbImageView.setDefaultResource(R.drawable.obfuscated_res_0x7f080856);
-            this.l = (ImageView) this.j.findViewById(R.id.obfuscated_res_0x7f090ae8);
-            this.m = (TextView) this.j.findViewById(R.id.obfuscated_res_0x7f090ae4);
-            this.n = (TextView) this.j.findViewById(R.id.obfuscated_res_0x7f090ae3);
-            this.o = (TextView) this.j.findViewById(R.id.obfuscated_res_0x7f090ae2);
+            this.l = (ImageView) this.j.findViewById(R.id.obfuscated_res_0x7f090ae1);
+            this.m = (TextView) this.j.findViewById(R.id.obfuscated_res_0x7f090add);
+            this.n = (TextView) this.j.findViewById(R.id.obfuscated_res_0x7f090adc);
+            this.o = (TextView) this.j.findViewById(R.id.obfuscated_res_0x7f090adb);
             j(this.i, TbadkCoreApplication.getInst().getSkinType());
         }
     }
@@ -142,7 +142,7 @@ public class FrsGameStrategyItemView extends jx5<hj6> {
         String numberUniformFormat = StringHelper.numberUniformFormat(threadData.getView_num());
         String formatTimeShort = StringHelper.getFormatTimeShort(threadData.getAuditTime());
         if (!StringUtils.isNull(numberUniformFormat) && !StringUtils.isNull(formatTimeShort)) {
-            this.n.setText(String.format(this.c.getString(R.string.obfuscated_res_0x7f0f06f1), numberUniformFormat, formatTimeShort));
+            this.n.setText(String.format(this.c.getString(R.string.obfuscated_res_0x7f0f06ed), numberUniformFormat, formatTimeShort));
         }
         String str = null;
         if (threadData.getThreadType() == 40) {

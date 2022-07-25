@@ -1,9 +1,10 @@
 package com.baidu.sofire.rp;
 
 import android.content.Context;
+import android.os.Message;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.sofire.utility.CommonMethods;
-import com.baidu.sofire.utility.CtrlUtil;
+import com.baidu.sofire.k.a;
+import com.baidu.sofire.k.b;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -12,9 +13,9 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes2.dex */
 public class Report {
     public static /* synthetic */ Interceptable $ic;
-    public static Report mReporter;
+    public static Report b;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context mContext;
+    public Context a;
 
     public Report(Context context) {
         Interceptable interceptable = $ic;
@@ -31,7 +32,7 @@ public class Report {
                 return;
             }
         }
-        this.mContext = context.getApplicationContext();
+        this.a = context.getApplicationContext();
     }
 
     public static synchronized Report getInstance(Context context) {
@@ -40,10 +41,10 @@ public class Report {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
             synchronized (Report.class) {
-                if (mReporter == null) {
-                    mReporter = new Report(context);
+                if (b == null) {
+                    b = new Report(context);
                 }
-                report = mReporter;
+                report = b;
             }
             return report;
         }
@@ -54,9 +55,13 @@ public class Report {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             try {
-                CtrlUtil.getInstance(this.mContext).fr();
-            } catch (Throwable th) {
-                CommonMethods.handleNuLException(th);
+                b a = b.a(this.a);
+                a.getClass();
+                Message message = new Message();
+                message.what = 9;
+                a.b.a.sendMessage(message);
+            } catch (Throwable unused) {
+                int i = com.baidu.sofire.a.b.a;
             }
         }
     }
@@ -65,9 +70,9 @@ public class Report {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, str3, str4, str5) == null) {
             try {
-                CommonMethods.i(this.mContext, str, str2, str3, str4, str5);
-            } catch (Throwable th) {
-                CommonMethods.handleNuLException(th);
+                a.a(this.a, str, str2, str3, str4, str5);
+            } catch (Throwable unused) {
+                int i = com.baidu.sofire.a.b.a;
             }
         }
     }
@@ -76,9 +81,13 @@ public class Report {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             try {
-                CtrlUtil.getInstance(this.mContext).n();
-            } catch (Throwable th) {
-                CommonMethods.handleNuLException(th);
+                b a = b.a(this.a);
+                a.getClass();
+                Message message = new Message();
+                message.what = 6;
+                a.b.a.sendMessage(message);
+            } catch (Throwable unused) {
+                int i = com.baidu.sofire.a.b.a;
             }
         }
     }
@@ -87,9 +96,9 @@ public class Report {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
             try {
-                CtrlUtil.getInstance(this.mContext).s(z);
-            } catch (Throwable th) {
-                CommonMethods.handleNuLException(th);
+                b.a(this.a).a(z);
+            } catch (Throwable unused) {
+                int i = com.baidu.sofire.a.b.a;
             }
         }
     }
@@ -97,7 +106,7 @@ public class Report {
     public void s(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            s(str, CommonMethods.isMainThread());
+            s(str, a.d());
         }
     }
 
@@ -105,9 +114,14 @@ public class Report {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
             try {
-                CtrlUtil.getInstance(this.mContext).reportRealTime(str);
-            } catch (Throwable th) {
-                CommonMethods.handleNuLException(th);
+                b a = b.a(this.a);
+                a.getClass();
+                Message message = new Message();
+                message.what = 11;
+                message.obj = str;
+                a.b.a.sendMessage(message);
+            } catch (Throwable unused) {
+                int i = com.baidu.sofire.a.b.a;
             }
         }
     }
@@ -116,9 +130,9 @@ public class Report {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
             try {
-                CommonMethods.parserHostData(this.mContext, str);
-            } catch (Throwable th) {
-                CommonMethods.handleNuLException(th);
+                a.b(this.a, str);
+            } catch (Throwable unused) {
+                int i = com.baidu.sofire.a.b.a;
             }
         }
     }
@@ -127,9 +141,9 @@ public class Report {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(1048581, this, str, z) == null) {
             try {
-                CommonMethods.s(this.mContext, str, z);
-            } catch (Throwable th) {
-                CommonMethods.handleNuLException(th);
+                a.a(this.a, str, z);
+            } catch (Throwable unused) {
+                int i = com.baidu.sofire.a.b.a;
             }
         }
     }

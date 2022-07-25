@@ -204,14 +204,14 @@ public class c76 extends PopupWindow {
     public final void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d04e8, (ViewGroup) null);
+            View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d04f2, (ViewGroup) null);
             this.d = inflate;
-            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091dd1);
+            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091dd7);
             this.e = textView;
-            ur4.d(textView).A(R.string.F_X01);
-            TextView textView2 = (TextView) this.d.findViewById(R.id.obfuscated_res_0x7f091dd2);
+            vr4.d(textView).A(R.string.F_X01);
+            TextView textView2 = (TextView) this.d.findViewById(R.id.obfuscated_res_0x7f091dd8);
             this.f = textView2;
-            ur4.d(textView2).A(R.string.F_X01);
+            vr4.d(textView2).A(R.string.F_X01);
             this.e.setOnClickListener(this.h);
             this.f.setOnClickListener(this.h);
         }
@@ -243,7 +243,7 @@ public class c76 extends PopupWindow {
 
     public final void h() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || gd5.a()) {
+        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || hd5.a()) {
             return;
         }
         TranslateAnimation translateAnimation = new TranslateAnimation(1, 0.0f, 1, 0.0f, 1, 0.0f, 1, -1.0f);

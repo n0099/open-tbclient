@@ -14,7 +14,7 @@ import java.util.HashMap;
 public class se6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public mz4 a;
+    public nz4 a;
     public FrsActivity b;
 
     public se6(FrsActivity frsActivity) {
@@ -36,12 +36,12 @@ public class se6 {
     }
 
     public void a() {
-        mz4 mz4Var;
+        nz4 nz4Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (mz4Var = this.a) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (nz4Var = this.a) == null) {
             return;
         }
-        mz4Var.q();
+        nz4Var.q();
     }
 
     public void b() {
@@ -52,7 +52,7 @@ public class se6 {
         }
         boolean z = false;
         if (UbsABTestHelper.isPushOpenNewStyle()) {
-            if (NotificationManagerCompat.from(TbadkCoreApplication.getInst()).areNotificationsEnabled() || !nz4.g(TbadkCoreApplication.getInst(), 0)) {
+            if (NotificationManagerCompat.from(TbadkCoreApplication.getInst()).areNotificationsEnabled() || !oz4.g(TbadkCoreApplication.getInst(), 0)) {
                 return;
             }
             FrsActivity frsActivity2 = this.b;
@@ -63,13 +63,13 @@ public class se6 {
             if (z) {
                 hashMap.put("view_params_key_style", "short");
             }
-            mz4 mz4Var = this.a;
-            if (mz4Var != null) {
-                mz4Var.q();
+            nz4 nz4Var = this.a;
+            if (nz4Var != null) {
+                nz4Var.q();
             }
-            this.a = nz4.j(this.b.getPageContext(), "forum_follow", 2000L, hashMap);
-        } else if (kz4.g(this.b, 0)) {
-            kz4.i(this.b.getPageContext(), 4, 2000L);
+            this.a = oz4.j(this.b.getPageContext(), "forum_follow", 2000L, hashMap);
+        } else if (lz4.g(this.b, 0)) {
+            lz4.i(this.b.getPageContext(), 4, 2000L);
         }
     }
 }

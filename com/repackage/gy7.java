@@ -56,7 +56,7 @@ public class gy7 extends du7<hy7, GodReplyMoreViewHolder> {
     public GodReplyMoreViewHolder M(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) ? new GodReplyMoreViewHolder(LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d067c, viewGroup, false)) : (GodReplyMoreViewHolder) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) ? new GodReplyMoreViewHolder(LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0686, viewGroup, false)) : (GodReplyMoreViewHolder) invokeL.objValue;
     }
 
     public View c0(int i, View view2, ViewGroup viewGroup, hy7 hy7Var, GodReplyMoreViewHolder godReplyMoreViewHolder) {

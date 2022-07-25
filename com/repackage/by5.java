@@ -98,13 +98,13 @@ public class by5 extends jx5<az5> {
     public final void r(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, view2) == null) {
-            this.i = view2.findViewById(R.id.obfuscated_res_0x7f091b72);
-            this.j = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f0919da);
-            this.k = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0919dd);
-            this.l = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0919d9);
-            this.m = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f0919dc);
-            this.n = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0919db);
-            this.o = view2.findViewById(R.id.obfuscated_res_0x7f092148);
+            this.i = view2.findViewById(R.id.obfuscated_res_0x7f091b4c);
+            this.j = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f0919b4);
+            this.k = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0919b7);
+            this.l = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0919b3);
+            this.m = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f0919b6);
+            this.n = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0919b5);
+            this.o = view2.findViewById(R.id.obfuscated_res_0x7f09214a);
             this.j.setOnClickListener(this);
             this.k.setOnClickListener(this);
             this.n.setOnClickListener(this);
@@ -141,7 +141,7 @@ public class by5 extends jx5<az5> {
                 this.n.setText(az5Var.i);
             }
             this.l.setText(az5Var.e);
-            if (zm4.c().g()) {
+            if (an4.c().g()) {
                 this.m.setVisibility(0);
                 this.m.J(az5Var.f, 10, false);
                 return;

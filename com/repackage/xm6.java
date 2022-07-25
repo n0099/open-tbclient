@@ -20,7 +20,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.cr4;
+import com.repackage.dr4;
 /* loaded from: classes7.dex */
 public class xm6 implements NetModel.k {
     public static /* synthetic */ Interceptable $ic;
@@ -32,19 +32,19 @@ public class xm6 implements NetModel.k {
     public int e;
 
     /* loaded from: classes7.dex */
-    public class a implements cr4.e {
+    public class a implements dr4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ String a;
-        public final /* synthetic */ cr4 b;
+        public final /* synthetic */ dr4 b;
         public final /* synthetic */ xm6 c;
 
-        public a(xm6 xm6Var, String str, cr4 cr4Var) {
+        public a(xm6 xm6Var, String str, dr4 dr4Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {xm6Var, str, cr4Var};
+                Object[] objArr = {xm6Var, str, dr4Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -56,13 +56,13 @@ public class xm6 implements NetModel.k {
             }
             this.c = xm6Var;
             this.a = str;
-            this.b = cr4Var;
+            this.b = dr4Var;
         }
 
-        @Override // com.repackage.cr4.e
-        public void onClick(cr4 cr4Var) {
+        @Override // com.repackage.dr4.e
+        public void onClick(dr4 dr4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, cr4Var) == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, dr4Var) == null) {
                 MembercenterActivityConfig membercenterActivityConfig = new MembercenterActivityConfig(this.c.a.getPageActivity());
                 membercenterActivityConfig.setUrl("https://tieba.baidu.com/mo/q/prozone/view?fid=" + this.a);
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002001, membercenterActivityConfig));
@@ -72,17 +72,17 @@ public class xm6 implements NetModel.k {
     }
 
     /* loaded from: classes7.dex */
-    public class b implements cr4.e {
+    public class b implements dr4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ cr4 a;
+        public final /* synthetic */ dr4 a;
 
-        public b(xm6 xm6Var, cr4 cr4Var) {
+        public b(xm6 xm6Var, dr4 dr4Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {xm6Var, cr4Var};
+                Object[] objArr = {xm6Var, dr4Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -92,30 +92,30 @@ public class xm6 implements NetModel.k {
                     return;
                 }
             }
-            this.a = cr4Var;
+            this.a = dr4Var;
         }
 
-        @Override // com.repackage.cr4.e
-        public void onClick(cr4 cr4Var) {
+        @Override // com.repackage.dr4.e
+        public void onClick(dr4 dr4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, cr4Var) == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, dr4Var) == null) {
                 this.a.dismiss();
             }
         }
     }
 
     /* loaded from: classes7.dex */
-    public class c implements cr4.e {
+    public class c implements dr4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ cr4 a;
+        public final /* synthetic */ dr4 a;
 
-        public c(xm6 xm6Var, cr4 cr4Var) {
+        public c(xm6 xm6Var, dr4 dr4Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {xm6Var, cr4Var};
+                Object[] objArr = {xm6Var, dr4Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -125,13 +125,13 @@ public class xm6 implements NetModel.k {
                     return;
                 }
             }
-            this.a = cr4Var;
+            this.a = dr4Var;
         }
 
-        @Override // com.repackage.cr4.e
-        public void onClick(cr4 cr4Var) {
+        @Override // com.repackage.dr4.e
+        public void onClick(dr4 dr4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, cr4Var) == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, dr4Var) == null) {
                 this.a.dismiss();
             }
         }
@@ -189,7 +189,7 @@ public class xm6 implements NetModel.k {
         }
         if (wm6Var.b != 0) {
             if (StringUtils.isNull(wm6Var.c)) {
-                this.a.showToast((int) R.string.obfuscated_res_0x7f0f0c2b);
+                this.a.showToast((int) R.string.obfuscated_res_0x7f0f0c17);
                 return;
             } else {
                 this.a.showToast(wm6Var.c);
@@ -217,7 +217,7 @@ public class xm6 implements NetModel.k {
         }
         if (wm6Var.b != 0) {
             if (StringUtils.isNull(wm6Var.c)) {
-                this.a.showToast((int) R.string.obfuscated_res_0x7f0f0c2b);
+                this.a.showToast((int) R.string.obfuscated_res_0x7f0f0c17);
                 return;
             } else {
                 this.a.showToast(wm6Var.c);
@@ -296,27 +296,27 @@ public class xm6 implements NetModel.k {
     public final void k(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048585, this, str, str2) == null) {
-            cr4 cr4Var = new cr4(this.a.getPageActivity());
-            cr4Var.setCanceledOnTouchOutside(false);
-            cr4Var.setCancelable(false);
-            cr4Var.setMessage(str);
-            cr4Var.setPositiveButton(R.string.obfuscated_res_0x7f0f03fb, new a(this, str2, cr4Var));
-            cr4Var.setNegativeButton(R.string.obfuscated_res_0x7f0f03fa, new b(this, cr4Var));
-            cr4Var.create(this.a);
-            cr4Var.show();
+            dr4 dr4Var = new dr4(this.a.getPageActivity());
+            dr4Var.setCanceledOnTouchOutside(false);
+            dr4Var.setCancelable(false);
+            dr4Var.setMessage(str);
+            dr4Var.setPositiveButton(R.string.obfuscated_res_0x7f0f03fa, new a(this, str2, dr4Var));
+            dr4Var.setNegativeButton(R.string.obfuscated_res_0x7f0f03f9, new b(this, dr4Var));
+            dr4Var.create(this.a);
+            dr4Var.show();
         }
     }
 
     public void l(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
-            cr4 cr4Var = new cr4(this.a.getPageActivity());
-            cr4Var.setCanceledOnTouchOutside(false);
-            cr4Var.setCancelable(false);
-            cr4Var.setMessage(str);
-            cr4Var.setNegativeButton(R.string.obfuscated_res_0x7f0f099e, new c(this, cr4Var));
-            cr4Var.create(this.a);
-            cr4Var.show();
+            dr4 dr4Var = new dr4(this.a.getPageActivity());
+            dr4Var.setCanceledOnTouchOutside(false);
+            dr4Var.setCancelable(false);
+            dr4Var.setMessage(str);
+            dr4Var.setNegativeButton(R.string.obfuscated_res_0x7f0f0989, new c(this, dr4Var));
+            dr4Var.create(this.a);
+            dr4Var.show();
         }
     }
 

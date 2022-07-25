@@ -9,15 +9,15 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes5.dex */
 public final class a {
-    public static Map<String, WeakReference<C0545a>> a = new ConcurrentHashMap();
+    public static Map<String, WeakReference<C0391a>> adw = new ConcurrentHashMap();
 
     /* renamed from: com.kwad.sdk.core.threads.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public static class C0545a {
-        public HandlerThread a;
-        public Handler b;
+    public static class C0391a {
+        public HandlerThread adx;
+        public Handler mHandler;
 
-        public C0545a(String str) {
+        public C0391a(String str) {
             String str2;
             if (TextUtils.isEmpty(str)) {
                 str2 = "ksad-HT";
@@ -25,40 +25,40 @@ public final class a {
                 str2 = "ksad-" + str;
             }
             HandlerThread handlerThread = new HandlerThread(str2);
-            this.a = handlerThread;
+            this.adx = handlerThread;
             handlerThread.start();
-            this.b = new Handler(this.a.getLooper());
+            this.mHandler = new Handler(this.adx.getLooper());
         }
 
-        public final Handler a() {
-            return this.b;
+        public final Handler getHandler() {
+            return this.mHandler;
         }
-    }
-
-    public static synchronized Handler a() {
-        Handler a2;
-        synchronized (a.class) {
-            a2 = a("commonHT").a();
-        }
-        return a2;
     }
 
     @NonNull
-    public static C0545a a(String str) {
-        WeakReference<C0545a> weakReference = a.get(str);
+    public static C0391a cv(String str) {
+        WeakReference<C0391a> weakReference = adw.get(str);
         if (weakReference == null || weakReference.get() == null) {
-            C0545a c0545a = new C0545a(str);
-            a.put(str, new WeakReference<>(c0545a));
-            return c0545a;
+            C0391a c0391a = new C0391a(str);
+            adw.put(str, new WeakReference<>(c0391a));
+            return c0391a;
         }
         return weakReference.get();
     }
 
-    public static synchronized Handler b() {
-        Handler a2;
+    public static synchronized Handler vf() {
+        Handler handler;
         synchronized (a.class) {
-            a2 = a("reportHT").a();
+            handler = cv("commonHT").getHandler();
         }
-        return a2;
+        return handler;
+    }
+
+    public static synchronized Handler vg() {
+        Handler handler;
+        synchronized (a.class) {
+            handler = cv("reportHT").getHandler();
+        }
+        return handler;
     }
 }

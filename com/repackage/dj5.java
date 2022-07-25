@@ -104,7 +104,7 @@ public class dj5 {
             if (Build.VERSION.SDK_INT > 16) {
                 this.c.getWindow().getDecorView().setSystemUiVisibility(ARPMessageType.MSG_TYPE_VIDEO_STOP_RES);
             }
-            this.c.setContentView(R.layout.obfuscated_res_0x7f0d052c);
+            this.c.setContentView(R.layout.obfuscated_res_0x7f0d0536);
         }
     }
 
@@ -162,7 +162,7 @@ public class dj5 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             if (LogoActivityConfig.isFirst && this.a >= 0) {
-                s95.b().v(System.currentTimeMillis() - this.a);
+                t95.b().v(System.currentTimeMillis() - this.a);
             }
             ej5 ej5Var = this.b;
             if (ej5Var != null) {

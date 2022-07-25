@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ma5;
+import com.repackage.na5;
 import com.repackage.wh8;
 /* loaded from: classes3.dex */
 public class VideoTabStatic {
@@ -33,10 +33,10 @@ public class VideoTabStatic {
                 return;
             }
         }
-        ma5 ma5Var = new ma5(309648);
-        ma5Var.setResponsedClass(VideoTabSocketResMessage.class);
-        ma5Var.g(true);
-        MessageManager.getInstance().registerTask(ma5Var);
+        na5 na5Var = new na5(309648);
+        na5Var.setResponsedClass(VideoTabSocketResMessage.class);
+        na5Var.g(true);
+        MessageManager.getInstance().registerTask(na5Var);
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_VIDEO_TAB, wh8.a(TbConfig.URL_VIDEO_TAB, 309648));
         tbHttpMessageTask.setIsNeedAddCommenParam(true);
         tbHttpMessageTask.setResponsedClass(VideoTabHttpResMessage.class);

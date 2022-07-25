@@ -58,54 +58,54 @@ public class ak7 {
         this.e = baseActivity;
         Window window = baseActivity.getWindow();
         this.f = window;
-        this.d = (ViewGroup) window.findViewById(R.id.obfuscated_res_0x7f091f51);
-        this.a = (EditText) this.f.findViewById(R.id.obfuscated_res_0x7f091f4f);
-        ImageView imageView = (ImageView) this.f.findViewById(R.id.obfuscated_res_0x7f091f52);
+        this.d = (ViewGroup) window.findViewById(R.id.obfuscated_res_0x7f091f55);
+        this.a = (EditText) this.f.findViewById(R.id.obfuscated_res_0x7f091f53);
+        ImageView imageView = (ImageView) this.f.findViewById(R.id.obfuscated_res_0x7f091f56);
         this.b = imageView;
         imageView.setOnClickListener(onClickListener);
-        ImageView imageView2 = (ImageView) this.f.findViewById(R.id.obfuscated_res_0x7f091f4a);
+        ImageView imageView2 = (ImageView) this.f.findViewById(R.id.obfuscated_res_0x7f091f4e);
         this.g = imageView2;
         imageView2.setOnClickListener(onClickListener2);
-        this.c = (TextView) this.f.findViewById(R.id.obfuscated_res_0x7f091f53);
-        this.i = (FrameLayout) this.f.findViewById(R.id.obfuscated_res_0x7f091f4e);
-        this.j = (ProgressBar) this.f.findViewById(R.id.obfuscated_res_0x7f091f50);
+        this.c = (TextView) this.f.findViewById(R.id.obfuscated_res_0x7f091f57);
+        this.i = (FrameLayout) this.f.findViewById(R.id.obfuscated_res_0x7f091f52);
+        this.j = (ProgressBar) this.f.findViewById(R.id.obfuscated_res_0x7f091f54);
     }
 
-    public void a(k15 k15Var, String str) {
+    public void a(l15 l15Var, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, k15Var, str) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048576, this, l15Var, str) == null) {
             this.h = new EditorTools(this.e.getPageContext().getPageActivity());
             d();
-            c(k15Var);
-            b(k15Var, str);
+            c(l15Var);
+            b(l15Var, str);
             this.h.f();
-            this.h.A(new j15(35, 5, Boolean.FALSE));
+            this.h.A(new k15(35, 5, Boolean.FALSE));
             this.h.j();
             o(this.h);
         }
     }
 
-    public final void b(k15 k15Var, String str) {
+    public final void b(l15 l15Var, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, k15Var, str) == null) {
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, l15Var, str) == null) {
             this.h.d(new ek7(this.e.getPageContext(), 2, str));
-            this.h.setActionListener(26, k15Var);
-            this.h.setActionListener(3, k15Var);
+            this.h.setActionListener(26, l15Var);
+            this.h.setActionListener(3, l15Var);
         }
     }
 
-    public final void c(k15 k15Var) {
+    public final void c(l15 l15Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, k15Var) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, l15Var) == null) {
             ArrayList arrayList = new ArrayList();
             arrayList.add(5);
             this.h.h(arrayList);
-            u15 n = this.h.n(5);
+            v15 n = this.h.n(5);
             if (n != null) {
                 n.l = 1;
                 n.e(false);
             }
-            this.h.setActionListener(24, k15Var);
+            this.h.setActionListener(24, l15Var);
         }
     }
 
@@ -165,7 +165,7 @@ public class ak7 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             this.h.q();
-            this.h.A(new j15(5, -1, null));
+            this.h.A(new k15(5, -1, null));
         }
     }
 

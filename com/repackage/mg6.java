@@ -50,7 +50,7 @@ public class mg6 implements BottomMenuView.a {
         }
         this.a = tbPageContext;
         this.b = view2;
-        this.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091623);
+        this.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0915fe);
         BottomMenuView bottomMenuView = (BottomMenuView) view2.findViewById(R.id.obfuscated_res_0x7f0903cd);
         this.d = bottomMenuView;
         bottomMenuView.setOnMenuItemClickListener(this);

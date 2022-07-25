@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
-import com.baidu.sofire.sharedpreferences.SharedPreferenceManager;
 import com.ss.android.socialbase.downloader.depend.aa;
 import com.ss.android.socialbase.downloader.depend.ab;
 import com.ss.android.socialbase.downloader.depend.af;
@@ -90,13 +89,13 @@ public class c {
 
         /* renamed from: com.ss.android.socialbase.downloader.downloader.c$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public interface InterfaceC0830a {
+        public interface InterfaceC0679a {
             void a();
         }
 
         o a();
 
-        t a(InterfaceC0830a interfaceC0830a);
+        t a(InterfaceC0679a interfaceC0679a);
 
         m b();
     }
@@ -352,7 +351,7 @@ public class c {
             try {
                 com.ss.android.socialbase.downloader.network.i downloadWithConnection = d2.downloadWithConnection(i2, str, list);
                 if (z2) {
-                    com.ss.android.socialbase.downloader.d.a.a(downloadWithConnection, str, str2, System.currentTimeMillis() - j2, SharedPreferenceManager.OPERATION_GET_PERFIX, i3, null, downloadInfo);
+                    com.ss.android.socialbase.downloader.d.a.a(downloadWithConnection, str, str2, System.currentTimeMillis() - j2, "get", i3, null, downloadInfo);
                 }
                 return downloadWithConnection;
             } catch (IOException e3) {
@@ -364,7 +363,7 @@ public class c {
             th = th2;
             IOException iOException22 = iOException;
             if (z2) {
-                com.ss.android.socialbase.downloader.d.a.a(null, str, str2, System.currentTimeMillis() - j2, SharedPreferenceManager.OPERATION_GET_PERFIX, i3, iOException22, downloadInfo);
+                com.ss.android.socialbase.downloader.d.a.a(null, str, str2, System.currentTimeMillis() - j2, "get", i3, iOException22, downloadInfo);
             }
             throw th;
         }

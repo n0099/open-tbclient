@@ -25,8 +25,8 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.bb;
 import com.repackage.l09;
-import com.repackage.py4;
-import com.repackage.xt4;
+import com.repackage.qy4;
+import com.repackage.yt4;
 /* loaded from: classes4.dex */
 public class PushStatic {
     public static /* synthetic */ Interceptable $ic;
@@ -46,11 +46,11 @@ public class PushStatic {
 
         /* renamed from: com.baidu.tieba.yunpush.PushStatic$a$a  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        public class RunnableC0253a implements Runnable {
+        public class RunnableC0267a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
-            public RunnableC0253a(a aVar) {
+            public RunnableC0267a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -100,7 +100,7 @@ public class PushStatic {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && TbadkCoreApplication.getInst().isMainProcess(false) && PermissionUtil.isAgreePrivacyPolicy()) {
-                new Thread(new RunnableC0253a(this)).start();
+                new Thread(new RunnableC0267a(this)).start();
             }
         }
     }
@@ -423,7 +423,7 @@ public class PushStatic {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(65542, null) == null) && TbadkCoreApplication.getInst().isMainProcess(false)) {
             boolean areNotificationsEnabled = NotificationManagerCompat.from(TbadkCoreApplication.getInst()).areNotificationsEnabled();
-            boolean l = TbadkCoreApplication.isLogin() ? py4.d().l() : false;
+            boolean l = TbadkCoreApplication.isLogin() ? qy4.d().l() : false;
             if (areNotificationsEnabled && l) {
                 k(true);
             } else {
@@ -476,7 +476,7 @@ public class PushStatic {
     public static void j(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65547, null, context) == null) {
-            xt4 k = xt4.k();
+            yt4 k = yt4.k();
             if (k.h(TbConfig.getVersion() + BaiduYunPushMessageReceiver.KEY_SHAREDPRE_PUSH_STARTWORK, false)) {
                 PushManager.stopWork(context);
             }
@@ -504,7 +504,7 @@ public class PushStatic {
     public static void m() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(65550, null) == null) && TbadkCoreApplication.getInst().isMainProcess(false) && TbadkCoreApplication.isLogin()) {
-            boolean m = py4.d().m();
+            boolean m = qy4.d().m();
             PushManager.uploadNotifyStatus(TbadkCoreApplication.getInst(), m ? 1 : 0, new i());
         }
     }

@@ -1,5 +1,11 @@
 package com.repackage;
 /* loaded from: classes7.dex */
 public interface ul1 {
-    void a();
+    String a();
+
+    String b();
+
+    String getAppName();
+
+    String getSchemeHeader();
 }

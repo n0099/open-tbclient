@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class ky6 extends gu4 implements BigdaySwipeRefreshLayout.k, PersonalizePageView.j0 {
+public class ky6 extends hu4 implements BigdaySwipeRefreshLayout.k, PersonalizePageView.j0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -34,7 +34,7 @@ public class ky6 extends gu4 implements BigdaySwipeRefreshLayout.k, PersonalizeP
         }
     }
 
-    @Override // com.repackage.fu4
+    @Override // com.repackage.gu4
     public boolean O() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

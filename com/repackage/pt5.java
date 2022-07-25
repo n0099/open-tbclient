@@ -118,7 +118,7 @@ public class pt5 extends cd6<ThreadData, FrsPageAlaEmptyLiveViewHolder> implemen
             if (threadData != null) {
                 threadData.updateShowStatus();
             }
-            return frsPageAlaEmptyLiveViewHolder.b();
+            return frsPageAlaEmptyLiveViewHolder.a();
         }
         return (View) invokeCommon.objValue;
     }

@@ -1,41 +1,27 @@
 package com.repackage;
 
-import android.content.Context;
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.pyramid.annotation.Singleton;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-@Singleton
-@Service
 /* loaded from: classes6.dex */
-public class nn3 implements vj1 {
+public class nn3 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile mn3 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public nn3() {
+    public static synchronized mn3 a() {
+        InterceptResult invokeV;
+        mn3 mn3Var;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            synchronized (nn3.class) {
+                if (a == null) {
+                    a = new mn3();
+                }
+                mn3Var = a;
             }
+            return mn3Var;
         }
-    }
-
-    @Override // com.repackage.vj1
-    public String a(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
-            return context.getPackageName() + ".swan.fileprovider";
-        }
-        return (String) invokeL.objValue;
+        return (mn3) invokeV.objValue;
     }
 }

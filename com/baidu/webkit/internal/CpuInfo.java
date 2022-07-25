@@ -3,7 +3,7 @@ package com.baidu.webkit.internal;
 import android.os.Build;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.sofire.sharedpreferences.SharedPreferenceManager;
+import com.baidu.android.util.devices.IDevices;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.WebKitFactory;
-import com.kuaishou.weapon.p0.C0294;
+import com.kuaishou.weapon.p0.k1;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -62,7 +62,7 @@ public class CpuInfo implements INoProGuard {
     public static boolean checkCpuInfo(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? checkSysInfo(C0294.f19, str) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? checkSysInfo(k1.a, str) : invokeL.booleanValue;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:50:0x005f A[EXC_TOP_SPLITTER, SYNTHETIC] */
@@ -90,7 +90,7 @@ public class CpuInfo implements INoProGuard {
                                     if (readLine != null) {
                                         if (!readLine.contains("neon")) {
                                             if (!readLine.contains("Atom")) {
-                                                if (readLine.contains("mips")) {
+                                                if (readLine.contains(IDevices.ABI_MIPS)) {
                                                     i = 4;
                                                     break;
                                                 }
@@ -229,7 +229,7 @@ public class CpuInfo implements INoProGuard {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
             int cpuType = getCpuType();
-            return cpuType != 1 ? cpuType != 2 ? cpuType != 3 ? cpuType != 4 ? "" : "mips" : "x86" : "ar" : "neon";
+            return cpuType != 1 ? cpuType != 2 ? cpuType != 3 ? cpuType != 4 ? "" : IDevices.ABI_MIPS : "x86" : "ar" : "neon";
         }
         return (String) invokeV.objValue;
     }
@@ -248,7 +248,7 @@ public class CpuInfo implements INoProGuard {
                 if (!lowerCase.startsWith("arm")) {
                     if (lowerCase.startsWith("x86") || lowerCase.startsWith("i686")) {
                         i = 3;
-                    } else if (lowerCase.startsWith("mips")) {
+                    } else if (lowerCase.startsWith(IDevices.ABI_MIPS)) {
                         i = 4;
                     }
                     sCpuType = i;
@@ -271,7 +271,7 @@ public class CpuInfo implements INoProGuard {
         if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
             if (!sCheckedCpuInfo) {
                 sCheckedCpuInfo = true;
-                sCpuType = checkCpuType(C0294.f19);
+                sCpuType = checkCpuType(k1.a);
             }
             return sCpuType;
         }
@@ -286,7 +286,7 @@ public class CpuInfo implements INoProGuard {
             if (TextUtils.isEmpty(property) || !property.endsWith(WebKitFactory.OS_64)) {
                 try {
                     Class<?> cls = Class.forName("android.os.SystemProperties");
-                    String str = (String) cls.getMethod(SharedPreferenceManager.OPERATION_GET_PERFIX, String.class, String.class).invoke(cls, "ro.product.cpu.abilist64", "");
+                    String str = (String) cls.getMethod("get", String.class, String.class).invoke(cls, "ro.product.cpu.abilist64", "");
                     if (str != null) {
                         if (!str.isEmpty()) {
                             return true;

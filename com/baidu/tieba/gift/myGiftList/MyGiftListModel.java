@@ -14,9 +14,9 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.d9;
 import com.repackage.wh8;
-import com.repackage.yo4;
 import com.repackage.yr6;
 import com.repackage.za;
+import com.repackage.zo4;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
 public class MyGiftListModel extends BdBaseModel<MyGiftListActivity> {
@@ -190,11 +190,11 @@ public class MyGiftListModel extends BdBaseModel<MyGiftListActivity> {
         yr6Var2.h = yr6Var.h;
         yr6Var2.f = yr6Var.f;
         if (yr6Var.g != null) {
-            yr6Var2.g = new yo4();
-            yo4 yo4Var = this.h.g;
-            yo4 yo4Var2 = yr6Var.g;
-            yo4Var.a = yo4Var2.a;
-            yo4Var.b = yo4Var2.b;
+            yr6Var2.g = new zo4();
+            zo4 zo4Var = this.h.g;
+            zo4 zo4Var2 = yr6Var.g;
+            zo4Var.a = zo4Var2.a;
+            zo4Var.b = zo4Var2.b;
         }
         if (this.h.c() != null) {
             this.b = this.h.c().a;

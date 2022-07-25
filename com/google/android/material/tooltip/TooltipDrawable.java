@@ -43,9 +43,9 @@ public class TooltipDrawable extends MaterialShapeDrawable implements TextDrawab
     @StyleRes
 
     /* renamed from: DEFAULT_STYLE */
-    public static final int obfuscated_res_0x7f100392 = 2131755922;
+    public static final int obfuscated_res_0x7f100395 = 2131755925;
     @AttrRes
-    public static final int DEFAULT_THEME_ATTR = 2130970270;
+    public static final int DEFAULT_THEME_ATTR = 2130970272;
     public transient /* synthetic */ FieldHolder $fh;
     public int arrowSize;
     @NonNull
@@ -177,7 +177,7 @@ public class TooltipDrawable extends MaterialShapeDrawable implements TextDrawab
     public static TooltipDrawable create(@NonNull Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65542, null, context)) == null) ? createFromAttributes(context, null, DEFAULT_THEME_ATTR, obfuscated_res_0x7f100392) : (TooltipDrawable) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65542, null, context)) == null) ? createFromAttributes(context, null, DEFAULT_THEME_ATTR, obfuscated_res_0x7f100395) : (TooltipDrawable) invokeL.objValue;
     }
 
     @NonNull
@@ -234,7 +234,7 @@ public class TooltipDrawable extends MaterialShapeDrawable implements TextDrawab
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLII(65548, this, attributeSet, i, i2) == null) {
             TypedArray obtainStyledAttributes = ThemeEnforcement.obtainStyledAttributes(this.context, attributeSet, new int[]{16842804, 16842965, 16842998, 16843071, 16843072, 16843087, R.attr.backgroundTint}, i, i2, new int[0]);
-            this.arrowSize = this.context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0704e1);
+            this.arrowSize = this.context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0704df);
             setShapeAppearanceModel(getShapeAppearanceModel().toBuilder().setBottomEdge(createMarkerEdge()).build());
             setText(obtainStyledAttributes.getText(5));
             setTextAppearance(MaterialResources.getTextAppearance(this.context, obtainStyledAttributes, 0));
@@ -431,6 +431,6 @@ public class TooltipDrawable extends MaterialShapeDrawable implements TextDrawab
     public static TooltipDrawable createFromAttributes(@NonNull Context context, @Nullable AttributeSet attributeSet) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, context, attributeSet)) == null) ? createFromAttributes(context, attributeSet, DEFAULT_THEME_ATTR, obfuscated_res_0x7f100392) : (TooltipDrawable) invokeLL.objValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, context, attributeSet)) == null) ? createFromAttributes(context, attributeSet, DEFAULT_THEME_ATTR, obfuscated_res_0x7f100395) : (TooltipDrawable) invokeLL.objValue;
     }
 }

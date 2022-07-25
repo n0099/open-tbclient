@@ -12,7 +12,7 @@ public class dq {
     @Deprecated
 
     /* renamed from: a  reason: collision with other field name */
-    public static final String f949a;
+    public static final String f229a;
     @Deprecated
     public static final String b;
     public transient /* synthetic */ FieldHolder $fh;
@@ -31,7 +31,7 @@ public class dq {
             }
         }
         a = new Object();
-        f949a = String.valueOf(hl.o.a());
+        f229a = String.valueOf(hl.o.a());
         b = String.valueOf(hl.p.a());
     }
 }

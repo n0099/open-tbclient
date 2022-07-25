@@ -3,7 +3,7 @@ package com.kwai.sodler.lib.a;
 import androidx.annotation.NonNull;
 /* loaded from: classes5.dex */
 public interface d {
-    a a(String str);
+    a eQ(String str);
 
-    f a(@NonNull f fVar);
+    f f(@NonNull f fVar);
 }

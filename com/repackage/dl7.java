@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.fun.ad.sdk.FunAdSdk;
-import com.repackage.an4;
+import com.repackage.bn4;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.util.ArrayList;
@@ -90,7 +90,7 @@ public class dl7 {
         return (String) invokeLL.objValue;
     }
 
-    public static an4.b d(an4.b bVar) {
+    public static bn4.b d(bn4.b bVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, bVar)) == null) {
@@ -113,7 +113,7 @@ public class dl7 {
                 jSONObject.put(SapiAccount.SAPI_ACCOUNT_PTOKEN, bVar.b);
                 jSONObject.put("cuid", DeviceId.getDeviceID(TbadkCoreApplication.getInst().getApp()));
                 jSONObject.put("clientid", TbadkCoreApplication.getInst().getImei());
-                arrayList.add(new BasicNameValuePair(TableDefine.DB_TABLE_USERINFO, new dn4().a(a[1], jSONObject.toString())));
+                arrayList.add(new BasicNameValuePair(TableDefine.DB_TABLE_USERINFO, new en4().a(a[1], jSONObject.toString())));
                 arrayList.add(new BasicNameValuePair(FunAdSdk.PLATFORM_SIG, c(arrayList, TbConfig.PassConfig.ENC_KEY)));
                 NetWork netWork = new NetWork(TbConfig.PassConfig.LOGIN_BDUSS_URL);
                 netWork.getNetContext().getRequest().mIsNeedAddCommenParam = false;
@@ -127,7 +127,7 @@ public class dl7 {
                 }
                 JSONObject jSONObject2 = new JSONObject(postNetData);
                 if ("0".equals(jSONObject2.optString("errno"))) {
-                    an4.b bVar2 = new an4.b();
+                    bn4.b bVar2 = new bn4.b();
                     bVar2.a = jSONObject2.optString("bduss");
                     bVar2.b = jSONObject2.optString(SapiAccount.SAPI_ACCOUNT_PTOKEN);
                     jSONObject2.optString("uname");
@@ -139,6 +139,6 @@ public class dl7 {
                 return null;
             }
         }
-        return (an4.b) invokeL.objValue;
+        return (bn4.b) invokeL.objValue;
     }
 }

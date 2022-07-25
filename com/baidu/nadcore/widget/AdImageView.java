@@ -118,7 +118,7 @@ public class AdImageView extends AppCompatImageView implements IAdImageView {
         this.a.d = aVar;
         int i = obtainStyledAttributes.getInt(6, -1);
         if (i >= 0) {
-            setScaleType(IAdImageView.a0[i]);
+            setScaleType(IAdImageView.k0[i]);
         }
         obtainStyledAttributes.recycle();
     }

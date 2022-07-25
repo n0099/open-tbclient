@@ -77,7 +77,7 @@ public class x08 {
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.b.setCenterTextTitle(this.a.getString(R.string.obfuscated_res_0x7f0f0e0e));
+            this.b.setCenterTextTitle(this.a.getString(R.string.obfuscated_res_0x7f0f0df7));
             this.b.showBottomLine();
             this.b.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new a(this));
             this.b.onChangeSkinType(this.a, TbadkCoreApplication.getInst().getSkinType());
@@ -87,8 +87,8 @@ public class x08 {
     public void c(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) {
-            this.b = (NavigationBar) view2.findViewById(R.id.obfuscated_res_0x7f091898);
-            BdTypeListView bdTypeListView = (BdTypeListView) view2.findViewById(R.id.obfuscated_res_0x7f091897);
+            this.b = (NavigationBar) view2.findViewById(R.id.obfuscated_res_0x7f091873);
+            BdTypeListView bdTypeListView = (BdTypeListView) view2.findViewById(R.id.obfuscated_res_0x7f091872);
             this.c = bdTypeListView;
             this.d = new v08(this.a, bdTypeListView, this.e);
             b();

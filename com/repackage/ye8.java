@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class ye8 implements nl4 {
+public class ye8 implements ol4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     @NonNull
@@ -48,7 +48,7 @@ public class ye8 implements nl4 {
         this.c = ze8Var;
     }
 
-    @Override // com.repackage.nl4
+    @Override // com.repackage.ol4
     public void a(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
@@ -63,7 +63,7 @@ public class ye8 implements nl4 {
         }
     }
 
-    @Override // com.repackage.nl4
+    @Override // com.repackage.ol4
     public void b(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
@@ -71,14 +71,14 @@ public class ye8 implements nl4 {
             this.a.getRootView().removeView(this.c.j());
             this.c.m();
             this.b.a();
-            s95.b().k(System.currentTimeMillis() - this.c.i());
-            int l = xt4.k().l("ad_load_fail_count", 0);
+            t95.b().k(System.currentTimeMillis() - this.c.i());
+            int l = yt4.k().l("ad_load_fail_count", 0);
             SpeedStatsManager.getInstance().setAdFailCount(l);
-            xt4.k().w("ad_load_fail_count", l + 1);
+            yt4.k().w("ad_load_fail_count", l + 1);
         }
     }
 
-    @Override // com.repackage.nl4
+    @Override // com.repackage.ol4
     public void c(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
@@ -89,7 +89,7 @@ public class ye8 implements nl4 {
         }
     }
 
-    @Override // com.repackage.nl4
+    @Override // com.repackage.ol4
     public void d(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
@@ -97,7 +97,7 @@ public class ye8 implements nl4 {
         }
     }
 
-    @Override // com.repackage.nl4
+    @Override // com.repackage.ol4
     public void e(boolean z, boolean z2, int i, String str, String str2, String str3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), Integer.valueOf(i), str, str2, str3}) == null) {
@@ -140,7 +140,7 @@ public class ye8 implements nl4 {
         }
     }
 
-    @Override // com.repackage.nl4
+    @Override // com.repackage.ol4
     public void f(String str, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(1048581, this, str, z) == null) {
@@ -155,16 +155,16 @@ public class ye8 implements nl4 {
         }
     }
 
-    @Override // com.repackage.nl4
+    @Override // com.repackage.ol4
     public void g(boolean z, boolean z2, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), Integer.valueOf(i)}) == null) {
-            xt4.k().w("ad_load_fail_count", 0);
+            yt4.k().w("ad_load_fail_count", 0);
             this.c.n(true);
             SpeedStatsManager.getInstance().setAdSource(String.valueOf(i));
             this.a.c(i);
             if (this.c.k() > 0) {
-                mt4.a("homePage", -1L, 0, "logo_splash", 0, "", "internal", Long.valueOf(System.currentTimeMillis() - this.c.k()));
+                nt4.a("homePage", -1L, 0, "logo_splash", 0, "", "internal", Long.valueOf(System.currentTimeMillis() - this.c.k()));
             }
             this.c.m();
             if (z2) {
@@ -183,14 +183,14 @@ public class ye8 implements nl4 {
             if (this.a.i()) {
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016522, this.a.getActivity()));
             }
-            s95.b().m(System.currentTimeMillis());
-            s95.b().k(System.currentTimeMillis() - this.c.i());
+            t95.b().m(System.currentTimeMillis());
+            t95.b().k(System.currentTimeMillis() - this.c.i());
             SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.AD_SHOW_START_STAMP_KEY);
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921688, null));
         }
     }
 
-    @Override // com.repackage.nl4
+    @Override // com.repackage.ol4
     public void onAdDismiss() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {

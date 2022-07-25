@@ -144,7 +144,7 @@ public class d1 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, f1Var, str)) == null) {
             try {
-                this.b = e1.a(com.baidu.sofire.d.D.COLUMN_PLUGIN_ACTIVITY_INFO_LIST, f1Var);
+                this.b = e1.a("ac", f1Var);
                 a("msg", e1.a(str));
             } catch (JSONException unused) {
             }

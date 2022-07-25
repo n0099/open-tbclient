@@ -29,7 +29,7 @@ public class nj8 {
                 return;
             }
         }
-        this.c = xt4.k().h("no_longer_show_address", false);
+        this.c = yt4.k().h("no_longer_show_address", false);
     }
 
     public static nj8 a() {

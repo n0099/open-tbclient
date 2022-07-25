@@ -5,6 +5,7 @@ import android.webkit.JsPromptResult;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.browser.CommonTbJsBridge;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.quickWebView.data.QuickWebViewBridgeData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -105,8 +106,8 @@ public class SingleQuickWebViewBridge extends CommonTbJsBridge {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, hashMap)) == null) {
             hj8 hj8Var = new hj8();
-            if (hashMap != null && hashMap.get("result") != null) {
-                hj8Var.o(hashMap.get("result"));
+            if (hashMap != null && hashMap.get(TiebaStatic.LogFields.RESULT) != null) {
+                hj8Var.o(hashMap.get(TiebaStatic.LogFields.RESULT));
                 hj8Var.w(hashMap.get("NotificationKey"));
             }
             hj8Var.z(true);

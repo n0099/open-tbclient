@@ -10,9 +10,9 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ls4;
+import com.repackage.ms4;
 import com.repackage.qb;
-import com.repackage.qd5;
+import com.repackage.rd5;
 import com.repackage.ts7;
 import java.util.Set;
 import java.util.regex.Pattern;
@@ -36,18 +36,18 @@ public class TaskManagerLaunchFetchListener implements AppLaunchInfoFetcher.a {
     }
 
     @Override // com.baidu.tbadk.util.AppLaunchInfoFetcher.a
-    public void onFinish(qd5 qd5Var) {
+    public void onFinish(rd5 rd5Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, qd5Var) == null) || qd5Var == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, rd5Var) == null) || rd5Var == null) {
             return;
         }
-        Intent intent = qd5Var.b;
+        Intent intent = rd5Var.b;
         boolean z = false;
         if (intent != null) {
             String action = intent.getAction();
             Set<String> categories = intent.getCategories();
             if (action != null && categories != null && TextUtils.equals(action, "android.intent.action.MAIN") && categories.contains("android.intent.category.LAUNCHER")) {
-                ls4.a().b = true;
+                ms4.a().b = true;
                 z = true;
             }
             String className = intent.getComponent() != null ? intent.getComponent().getClassName() : "";
@@ -55,13 +55,13 @@ public class TaskManagerLaunchFetchListener implements AppLaunchInfoFetcher.a {
                 String dataString = intent.getDataString();
                 if (!TextUtils.isEmpty(dataString) && dataString.contains(PbModel.UNIDISPATCH_PB)) {
                     z = ts7.a().b();
-                    ls4.a().a = z;
+                    ms4.a().a = z;
                 }
             }
             if (TextUtils.equals(className, YunPushProxyActivity.class.getName())) {
                 if (Pattern.compile("http[s]?://tieba.baidu.com/p").matcher(intent.getDataString()).find()) {
                     z = ts7.a().b();
-                    ls4.a().a = z;
+                    ms4.a().a = z;
                 }
             }
         }

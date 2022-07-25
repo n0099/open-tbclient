@@ -36,9 +36,9 @@ public class SearchSuggestRankingViewHolder extends TypeAdapter.ViewHolder {
                 return;
             }
         }
-        this.a = view2.findViewById(R.id.obfuscated_res_0x7f091b73);
-        this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091cc6);
-        this.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091cc5);
-        this.d = view2.findViewById(R.id.obfuscated_res_0x7f091ccd);
+        this.a = view2.findViewById(R.id.obfuscated_res_0x7f091b4d);
+        this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091ccc);
+        this.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091ccb);
+        this.d = view2.findViewById(R.id.obfuscated_res_0x7f091cd3);
     }
 }

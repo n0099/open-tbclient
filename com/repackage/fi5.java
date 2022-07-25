@@ -13,19 +13,19 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.jl4;
+import com.repackage.kl4;
 /* loaded from: classes6.dex */
 public class fi5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
-    public jl4 b;
+    public kl4 b;
     public b c;
     public MarkData d;
-    public final jl4.a e;
+    public final kl4.a e;
 
     /* loaded from: classes6.dex */
-    public class a implements jl4.a {
+    public class a implements kl4.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ fi5 a;
@@ -48,7 +48,7 @@ public class fi5 {
             this.a = fi5Var;
         }
 
-        @Override // com.repackage.jl4.a
+        @Override // com.repackage.kl4.a
         public void a(boolean z, boolean z2, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), str}) == null) {
@@ -56,7 +56,7 @@ public class fi5 {
                     if (z2) {
                         pi.O(this.a.a, this.a.a.getString(R.string.obfuscated_res_0x7f0f00d0));
                     } else {
-                        pi.O(this.a.a, this.a.a.getString(R.string.obfuscated_res_0x7f0f0fb3));
+                        pi.O(this.a.a, this.a.a.getString(R.string.obfuscated_res_0x7f0f0f9c));
                     }
                     if (this.a.c != null) {
                         this.a.c.a(z2);
@@ -70,7 +70,7 @@ public class fi5 {
                     }
                     return;
                 }
-                pi.O(this.a.a, this.a.a.getString(R.string.obfuscated_res_0x7f0f14d3));
+                pi.O(this.a.a, this.a.a.getString(R.string.obfuscated_res_0x7f0f1482));
             }
         }
     }
@@ -99,30 +99,30 @@ public class fi5 {
         this.e = new a(this);
         this.a = context;
         if (context instanceof BaseActivity) {
-            this.b = jl4.b((BaseActivity) context);
+            this.b = kl4.b((BaseActivity) context);
         } else if (context instanceof BaseFragmentActivity) {
-            this.b = jl4.c((BaseFragmentActivity) context);
+            this.b = kl4.c((BaseFragmentActivity) context);
         }
-        jl4 jl4Var = this.b;
-        if (jl4Var != null) {
-            jl4Var.j(this.e);
+        kl4 kl4Var = this.b;
+        if (kl4Var != null) {
+            kl4Var.j(this.e);
         }
     }
 
     public void d() {
-        jl4 jl4Var;
+        kl4 kl4Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (jl4Var = this.b) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (kl4Var = this.b) == null) {
             return;
         }
-        jl4Var.a();
+        kl4Var.a();
         this.b.h(true);
     }
 
     public void e() {
-        jl4 jl4Var;
+        kl4 kl4Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (jl4Var = this.b) != null && jl4Var.e()) {
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (kl4Var = this.b) != null && kl4Var.e()) {
             this.b.d();
             this.b.h(false);
         }
@@ -132,9 +132,9 @@ public class fi5 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            jl4 jl4Var = this.b;
-            if (jl4Var != null) {
-                return jl4Var.e();
+            kl4 kl4Var = this.b;
+            if (kl4Var != null) {
+                return kl4Var.e();
             }
             return false;
         }
@@ -142,21 +142,21 @@ public class fi5 {
     }
 
     public void g(boolean z) {
-        jl4 jl4Var;
+        kl4 kl4Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048579, this, z) == null) || (jl4Var = this.b) == null) {
+        if (!(interceptable == null || interceptable.invokeZ(1048579, this, z) == null) || (kl4Var = this.b) == null) {
             return;
         }
-        jl4Var.h(z);
+        kl4Var.h(z);
     }
 
     public void h(MarkData markData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, markData) == null) {
             this.d = markData;
-            jl4 jl4Var = this.b;
-            if (jl4Var != null) {
-                jl4Var.i(markData);
+            kl4 kl4Var = this.b;
+            if (kl4Var != null) {
+                kl4Var.i(markData);
             }
         }
     }

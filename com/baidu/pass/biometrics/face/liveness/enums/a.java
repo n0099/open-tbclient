@@ -16,12 +16,12 @@ public class a extends TimerTask {
 
     /* renamed from: com.baidu.pass.biometrics.face.liveness.enums.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public class RunnableC0121a implements Runnable {
+    public class RunnableC0122a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ a a;
 
-        public RunnableC0121a(a aVar) {
+        public RunnableC0122a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -86,6 +86,6 @@ public class a extends TimerTask {
         if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (circleProgressView = this.a) == null) {
             return;
         }
-        circleProgressView.post(new RunnableC0121a(this));
+        circleProgressView.post(new RunnableC0122a(this));
     }
 }

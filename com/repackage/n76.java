@@ -20,7 +20,7 @@ public class n76 {
     public RecommendForumLayout b;
     public View.OnClickListener c;
     public PullLeftRefreshLayout.f d;
-    public jm4 e;
+    public km4 e;
 
     /* loaded from: classes6.dex */
     public class a implements View.OnClickListener {
@@ -89,7 +89,7 @@ public class n76 {
     }
 
     /* loaded from: classes6.dex */
-    public class c implements jm4<cq4> {
+    public class c implements km4<dq4> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ n76 a;
@@ -113,25 +113,25 @@ public class n76 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.jm4
+        @Override // com.repackage.km4
         /* renamed from: a */
-        public void d(View view2, cq4 cq4Var, int i, long j) {
+        public void d(View view2, dq4 dq4Var, int i, long j) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, cq4Var, Integer.valueOf(i), Long.valueOf(j)}) == null) {
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, dq4Var, Integer.valueOf(i), Long.valueOf(j)}) == null) {
             }
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.jm4
+        @Override // com.repackage.km4
         /* renamed from: b */
-        public void c(View view2, cq4 cq4Var, int i, long j) {
+        public void c(View view2, dq4 dq4Var, int i, long j) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{view2, cq4Var, Integer.valueOf(i), Long.valueOf(j)}) == null) {
-                if (cq4Var == null) {
+            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{view2, dq4Var, Integer.valueOf(i), Long.valueOf(j)}) == null) {
+                if (dq4Var == null) {
                     s46.b(this.a.a, null);
                     return;
                 }
-                String k = cq4Var.k();
+                String k = dq4Var.k();
                 if (oi.isForumName(k)) {
                     this.a.a.sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.a.a.getPageActivity()).createNormalCfg(k, FrsActivityConfig.FRS_FROM_ENTERFORUM_RECOMMEND).setCallFrom(3)));
                 }
@@ -169,10 +169,10 @@ public class n76 {
         this.b.setOnItemCoverListener(this.e);
     }
 
-    public void b(dq4 dq4Var) {
+    public void b(eq4 eq4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, dq4Var) == null) {
-            this.b.a(dq4Var);
+        if (interceptable == null || interceptable.invokeL(1048576, this, eq4Var) == null) {
+            this.b.a(eq4Var);
         }
     }
 

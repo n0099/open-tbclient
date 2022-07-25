@@ -13,16 +13,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.x35;
+import com.repackage.y35;
 import java.util.LinkedList;
 /* loaded from: classes6.dex */
-public class lk7 extends x35 {
+public class lk7 extends y35 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public LinkedList<q15> m;
+    public LinkedList<r15> m;
 
     /* loaded from: classes6.dex */
-    public class a implements x35.a {
+    public class a implements y35.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ lk7 a;
@@ -45,7 +45,7 @@ public class lk7 extends x35 {
             this.a = lk7Var;
         }
 
-        @Override // com.repackage.x35.a
+        @Override // com.repackage.y35.a
         public View getView(int i, View view2, ViewGroup viewGroup) {
             InterceptResult invokeILL;
             Interceptable interceptable = $ic;
@@ -74,7 +74,7 @@ public class lk7 extends x35 {
         }
     }
 
-    public void A(LinkedList<q15> linkedList) {
+    public void A(LinkedList<r15> linkedList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, linkedList) == null) {
             this.m = linkedList;
@@ -93,16 +93,16 @@ public class lk7 extends x35 {
         return (DLauncher) invokeI.objValue;
     }
 
-    @Override // com.repackage.k15
-    public void C(j15 j15Var) {
+    @Override // com.repackage.l15
+    public void C(k15 k15Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, j15Var) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, k15Var) == null) {
         }
     }
 
-    @Override // com.repackage.x35
+    @Override // com.repackage.y35
     public void a() {
-        LinkedList<q15> linkedList;
+        LinkedList<r15> linkedList;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (linkedList = this.m) == null) {
             return;
@@ -111,12 +111,12 @@ public class lk7 extends x35 {
         this.m = null;
     }
 
-    @Override // com.repackage.x35
+    @Override // com.repackage.y35
     public int c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            LinkedList<q15> linkedList = this.m;
+            LinkedList<r15> linkedList = this.m;
             if (linkedList != null) {
                 return linkedList.size();
             }
@@ -125,7 +125,7 @@ public class lk7 extends x35 {
         return invokeV.intValue;
     }
 
-    @Override // com.repackage.x35
+    @Override // com.repackage.y35
     public void n(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, context) == null) {

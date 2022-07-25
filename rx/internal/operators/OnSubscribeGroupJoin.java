@@ -436,14 +436,14 @@ public final class OnSubscribeGroupJoin<T1, T2, D1, D2, R> implements ur9.a<R> {
 
         /* renamed from: rx.internal.operators.OnSubscribeGroupJoin$a$a  reason: collision with other inner class name */
         /* loaded from: classes8.dex */
-        public final class C0862a extends as9<T> {
+        public final class C0711a extends as9<T> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final as9<? super T> e;
             public final bs9 f;
 
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-            public C0862a(a aVar, as9<? super T> as9Var, bs9 bs9Var) {
+            public C0711a(a aVar, as9<? super T> as9Var, bs9 bs9Var) {
                 super(as9Var);
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
@@ -519,9 +519,9 @@ public final class OnSubscribeGroupJoin<T1, T2, D1, D2, R> implements ur9.a<R> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, as9Var) == null) {
                 bs9 a = this.a.a();
-                C0862a c0862a = new C0862a(this, as9Var, a);
-                c0862a.b(a);
-                this.b.B(c0862a);
+                C0711a c0711a = new C0711a(this, as9Var, a);
+                c0711a.b(a);
+                this.b.B(c0711a);
             }
         }
     }

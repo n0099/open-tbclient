@@ -15,8 +15,8 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.pi;
-import com.repackage.vc5;
-import com.repackage.xt4;
+import com.repackage.wc5;
+import com.repackage.yt4;
 import com.repackage.zq6;
 /* loaded from: classes2.dex */
 public class InitBearTask extends LaunchTask {
@@ -42,9 +42,9 @@ public class InitBearTask extends LaunchTask {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) {
             if (UbsABTestHelper.newSplashStrategy()) {
-                return vc5.w();
+                return wc5.w();
             }
-            return xt4.k().l("splash_origin_ad_strategy_key", 1) != 0;
+            return yt4.k().l("splash_origin_ad_strategy_key", 1) != 0;
         }
         return invokeV.booleanValue;
     }
@@ -77,7 +77,7 @@ public class InitBearTask extends LaunchTask {
     public void initBearSdk() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && TbadkCoreApplication.getInst().isMainProcess(false) && PermissionUtil.isAgreePrivacyPolicy()) {
-            boolean q = vc5.q(xt4.k().l("splash_ad_strategy_key", 0));
+            boolean q = wc5.q(yt4.k().l("splash_ad_strategy_key", 0));
             SpeedStatsManager.getInstance().setIsNeedBear(q);
             SpeedStatsManager.getInstance().setIsNeedPlg(isNeedPlgSplash());
             if (q) {

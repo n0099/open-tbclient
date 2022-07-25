@@ -32,8 +32,8 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.ai5;
 import com.repackage.f68;
-import com.repackage.fu4;
 import com.repackage.ga8;
+import com.repackage.gu4;
 import com.repackage.kt8;
 import com.repackage.ls8;
 import com.repackage.lt8;
@@ -51,7 +51,7 @@ public class VideoPlayView implements ViewPager.OnPageChangeListener, View.OnCli
     public boolean b;
     public View c;
     public BdSwipeRefreshLayout d;
-    public fu4 e;
+    public gu4 e;
     public VerticalViewPager f;
     public VideoPlayFragmentAdapter g;
     public int h;
@@ -306,13 +306,13 @@ public class VideoPlayView implements ViewPager.OnPageChangeListener, View.OnCli
         this.a = i2;
         this.b = z;
         this.n = str;
-        this.m = (TBLottieAnimationView) baseFragment.getView().findViewById(R.id.obfuscated_res_0x7f090cb1);
-        this.c = baseFragment.getView().findViewById(R.id.obfuscated_res_0x7f091b6a);
-        VerticalViewPager verticalViewPager = (VerticalViewPager) baseFragment.getView().findViewById(R.id.obfuscated_res_0x7f0923d2);
+        this.m = (TBLottieAnimationView) baseFragment.getView().findViewById(R.id.obfuscated_res_0x7f090caa);
+        this.c = baseFragment.getView().findViewById(R.id.obfuscated_res_0x7f091b44);
+        VerticalViewPager verticalViewPager = (VerticalViewPager) baseFragment.getView().findViewById(R.id.obfuscated_res_0x7f0923d4);
         this.f = verticalViewPager;
         verticalViewPager.setStrictSlide(false);
         this.t = new rs8(this.m, this.f);
-        this.d = (BdSwipeRefreshLayout) baseFragment.getView().findViewById(R.id.obfuscated_res_0x7f091ac1);
+        this.d = (BdSwipeRefreshLayout) baseFragment.getView().findViewById(R.id.obfuscated_res_0x7f091a9b);
         if (UbsABTestHelper.isFeedVideoImmersionTransition()) {
             this.d.setBackground(null);
             this.f.setBackground(null);
@@ -320,9 +320,9 @@ public class VideoPlayView implements ViewPager.OnPageChangeListener, View.OnCli
         this.d.setUseSlideAngleToPullRefresh(true);
         this.d.setNoMoveTargetView(true);
         this.d.setLimitDragDistance(true);
-        fu4 fu4Var = new fu4(fragmentActivity);
-        this.e = fu4Var;
-        this.d.setProgressView(fu4Var);
+        gu4 gu4Var = new gu4(fragmentActivity);
+        this.e = gu4Var;
+        this.d.setProgressView(gu4Var);
         this.d.setOnChildScrollUpCallback(new a(this));
         if (this.g == null) {
             this.g = new VideoPlayFragmentAdapter(bdUniqueId, baseFragment, fragmentActivity, bdUniqueId2, i, this.a, this.b);
@@ -482,7 +482,7 @@ public class VideoPlayView implements ViewPager.OnPageChangeListener, View.OnCli
     public void P(BdSwipeRefreshLayout.k kVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048590, this, kVar) == null) {
-            this.e.J().findViewById(R.id.obfuscated_res_0x7f0906c5).setVisibility(4);
+            this.e.J().findViewById(R.id.obfuscated_res_0x7f0906c4).setVisibility(4);
             this.d.setProgressViewCallback(kVar);
         }
     }
@@ -578,7 +578,7 @@ public class VideoPlayView implements ViewPager.OnPageChangeListener, View.OnCli
     @Override // android.view.View.OnClickListener
     public void onClick(View view2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048602, this, view2) == null) && view2.getId() == R.id.obfuscated_res_0x7f090cb1) {
+        if ((interceptable == null || interceptable.invokeL(1048602, this, view2) == null) && view2.getId() == R.id.obfuscated_res_0x7f090caa) {
             this.t.onClick(view2);
         }
     }

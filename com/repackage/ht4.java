@@ -1,8 +1,9 @@
 package com.repackage;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import android.content.ClipboardManager;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.datacollector.growth.utils.GrowthConstant;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -11,23 +12,23 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class ht4 extends bt4 {
+public class ht4 extends ct4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ht4(zs4 zs4Var) {
-        super(zs4Var);
+    public ht4(at4 at4Var) {
+        super(at4Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {zs4Var};
+            Object[] objArr = {at4Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((zs4) newInitContext.callArgs[0]);
+                super((at4) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -35,26 +36,32 @@ public class ht4 extends bt4 {
         }
     }
 
-    @ct4("appointNotice")
-    public void appointNotice(JSONObject jSONObject) throws JSONException {
+    @dt4("copy")
+    public JSONObject copyToClipboard(JSONObject jSONObject) throws JSONException {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
-            return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jSONObject)) == null) {
+            JSONObject jSONObject2 = new JSONObject();
+            if (jSONObject != null) {
+                String optString = jSONObject.optString("message");
+                if (!StringUtils.isNull(optString)) {
+                    ((ClipboardManager) getContext().getSystemService(GrowthConstant.UBC_VALUE_TYPE_CLIP_BOARD)).setText(optString.trim());
+                    jSONObject2.put("status", 0);
+                    jSONObject2.put("message", "");
+                    return jSONObject2;
+                }
+            }
+            jSONObject2.put("status", -1);
+            jSONObject2.put("message", "无效内容");
+            return jSONObject2;
         }
-        int optInt = jSONObject.optInt("activityId");
-        int optInt2 = jSONObject.optInt("state");
-        String optString = jSONObject.optString("curNum");
-        r05 r05Var = new r05();
-        r05Var.a(optInt);
-        r05Var.c(optInt2);
-        r05Var.b(optString);
-        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016492, r05Var));
+        return (JSONObject) invokeL.objValue;
     }
 
-    @Override // com.repackage.bt4
+    @Override // com.repackage.ct4
     public String f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "TBHY_EXT_FocusFeed" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "TBHY_COMMON_Clipboard" : (String) invokeV.objValue;
     }
 }

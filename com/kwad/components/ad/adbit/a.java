@@ -14,9 +14,9 @@ public final class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     @NonNull
-    public JSONObject a;
+    public Map<String, String> aA;
     @NonNull
-    public Map<String, String> b;
+    public JSONObject az;
 
     public a(@NonNull JSONObject jSONObject, @NonNull Map<String, String> map) {
         Interceptable interceptable = $ic;
@@ -33,18 +33,18 @@ public final class a {
                 return;
             }
         }
-        this.a = jSONObject;
-        this.b = map;
+        this.az = jSONObject;
+        this.aA = map;
     }
 
-    public final String a() {
+    public final String ac() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            for (String str : this.b.keySet()) {
-                r.a(this.a, str, this.b.get(str));
+            for (String str : this.aA.keySet()) {
+                r.putValue(this.az, str, this.aA.get(str));
             }
-            return this.a.toString();
+            return this.az.toString();
         }
         return (String) invokeV.objValue;
     }

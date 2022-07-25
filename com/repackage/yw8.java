@@ -28,7 +28,7 @@ public class yw8 {
     public String e;
     public ImageFileInfo f;
     public List<ImageFileInfo> g;
-    public final List<yk4> h;
+    public final List<zk4> h;
 
     public yw8(d9 d9Var) {
         Interceptable interceptable = $ic;
@@ -122,9 +122,9 @@ public class yw8 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
             if (this.h != null && !StringUtils.isNull(str)) {
-                for (yk4 yk4Var : this.h) {
-                    if (yk4Var != null && TextUtils.equals(str, yk4Var.b())) {
-                        return yk4Var.d();
+                for (zk4 zk4Var : this.h) {
+                    if (zk4Var != null && TextUtils.equals(str, zk4Var.b())) {
+                        return zk4Var.d();
                     }
                 }
             }
@@ -133,7 +133,7 @@ public class yw8 {
         return (List) invokeL.objValue;
     }
 
-    public List<yk4> e() {
+    public List<zk4> e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.h : (List) invokeV.objValue;
@@ -260,7 +260,7 @@ public class yw8 {
     public boolean r() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? ListUtils.isEmpty(d(yk4.f)) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? ListUtils.isEmpty(d(zk4.f)) : invokeV.booleanValue;
     }
 
     public boolean s() {
@@ -276,48 +276,48 @@ public class yw8 {
         return invokeV.booleanValue;
     }
 
-    public yk4 t(List<MediaFileInfo> list) {
+    public zk4 t(List<MediaFileInfo> list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048599, this, list)) == null) {
-            yk4 yk4Var = new yk4();
-            yk4Var.h(yk4.f);
-            yk4Var.l(this.b.getString(R.string.obfuscated_res_0x7f0f024e));
+            zk4 zk4Var = new zk4();
+            zk4Var.h(zk4.f);
+            zk4Var.l(this.b.getString(R.string.obfuscated_res_0x7f0f024e));
             int count = ListUtils.getCount(list);
-            yk4Var.j(list);
-            yk4Var.i(String.valueOf(count));
+            zk4Var.j(list);
+            zk4Var.i(String.valueOf(count));
             MediaFileInfo mediaFileInfo = (MediaFileInfo) ListUtils.getItem(list, count - 1);
             if (mediaFileInfo instanceof ImageFileInfo) {
-                yk4Var.k((ImageFileInfo) mediaFileInfo);
+                zk4Var.k((ImageFileInfo) mediaFileInfo);
             } else if (mediaFileInfo instanceof VideoFileInfo) {
-                yk4Var.k((VideoFileInfo) mediaFileInfo);
+                zk4Var.k((VideoFileInfo) mediaFileInfo);
             }
-            return yk4Var;
+            return zk4Var;
         }
-        return (yk4) invokeL.objValue;
+        return (zk4) invokeL.objValue;
     }
 
-    public yk4 u(List<VideoFileInfo> list) {
+    public zk4 u(List<VideoFileInfo> list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048600, this, list)) == null) {
-            yk4 yk4Var = new yk4();
-            yk4Var.h(yk4.g);
-            yk4Var.l(this.b.getString(R.string.obfuscated_res_0x7f0f0250));
+            zk4 zk4Var = new zk4();
+            zk4Var.h(zk4.g);
+            zk4Var.l(this.b.getString(R.string.obfuscated_res_0x7f0f0250));
             int count = ListUtils.getCount(list);
-            yk4Var.i(String.valueOf(count));
+            zk4Var.i(String.valueOf(count));
             ArrayList arrayList = new ArrayList();
             if (!ListUtils.isEmpty(list)) {
                 arrayList.addAll(list);
             }
-            yk4Var.j(arrayList);
+            zk4Var.j(arrayList);
             VideoFileInfo videoFileInfo = (VideoFileInfo) ListUtils.getItem(list, count - 1);
             if (videoFileInfo != null) {
-                yk4Var.k(videoFileInfo);
+                zk4Var.k(videoFileInfo);
             }
-            return yk4Var;
+            return zk4Var;
         }
-        return (yk4) invokeL.objValue;
+        return (zk4) invokeL.objValue;
     }
 
     public final void v(String str) {
@@ -325,11 +325,11 @@ public class yw8 {
         if (!(interceptable == null || interceptable.invokeL(1048601, this, str) == null) || this.h == null || StringUtils.isNull(str)) {
             return;
         }
-        for (yk4 yk4Var : this.h) {
-            if (yk4Var != null && TextUtils.equals(str, yk4Var.b())) {
+        for (zk4 zk4Var : this.h) {
+            if (zk4Var != null && TextUtils.equals(str, zk4Var.b())) {
                 ArrayList arrayList = new ArrayList();
-                if (yk4Var.d() != null) {
-                    for (MediaFileInfo mediaFileInfo : yk4Var.d()) {
+                if (zk4Var.d() != null) {
+                    for (MediaFileInfo mediaFileInfo : zk4Var.d()) {
                         if (mediaFileInfo instanceof ImageFileInfo) {
                             arrayList.add((ImageFileInfo) mediaFileInfo);
                         }
@@ -362,19 +362,19 @@ public class yw8 {
         }
     }
 
-    public void z(el4 el4Var) {
+    public void z(fl4 fl4Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048605, this, el4Var) == null) || el4Var == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048605, this, fl4Var) == null) || fl4Var == null) {
             return;
         }
-        List<MediaFileInfo> list = el4Var.b;
+        List<MediaFileInfo> list = fl4Var.b;
         ArrayList arrayList = new ArrayList();
         arrayList.add(t(list));
-        if (!ListUtils.isEmpty(el4Var.c)) {
-            arrayList.add(u(el4Var.c));
+        if (!ListUtils.isEmpty(fl4Var.c)) {
+            arrayList.add(u(fl4Var.c));
         }
-        if (!ListUtils.isEmpty(el4Var.a)) {
-            arrayList.addAll(el4Var.a);
+        if (!ListUtils.isEmpty(fl4Var.a)) {
+            arrayList.addAll(fl4Var.a);
         }
         this.h.clear();
         this.h.addAll(arrayList);

@@ -1,25 +1,31 @@
 package com.kwad.sdk.utils;
 
-import android.content.Context;
-import androidx.annotation.Nullable;
+import android.text.TextUtils;
+import com.baidu.android.common.others.lang.StringUtil;
+import java.text.SimpleDateFormat;
+import java.util.Locale;
 /* loaded from: classes5.dex */
 public final class ax {
-    public static long a(@Nullable Context context) {
-        long currentTimeMillis = System.currentTimeMillis();
-        if (context != null) {
-            long j = context.getSharedPreferences("ksadsdk_pref", 0).getLong("key_time_diff_s2c", 0L);
-            if (j != 0) {
-                return currentTimeMillis + j;
-            }
-        }
-        return Math.abs(currentTimeMillis);
+    public static final SimpleDateFormat aon = new SimpleDateFormat("MM/dd", Locale.US);
+    public static final SimpleDateFormat aoo = new SimpleDateFormat("yyyy/MM/dd", Locale.US);
+    public static final SimpleDateFormat aop = new SimpleDateFormat("MM月dd日", Locale.US);
+    public static final SimpleDateFormat aoq = new SimpleDateFormat("yyyy年MM月dd日", Locale.US);
+    public static final SimpleDateFormat aor = new SimpleDateFormat("HH:mm", Locale.US);
+    public static final SimpleDateFormat aos = new SimpleDateFormat("MM-dd", Locale.US);
+    public static final SimpleDateFormat aot = new SimpleDateFormat("yyyy-MM-dd", Locale.US);
+
+    public static boolean V(String str, String str2) {
+        return !TextUtils.isEmpty(str) && str.equals(str2);
     }
 
-    public static void a(long j, int i, @Nullable Context context) {
-        if (j == 0 || context == null) {
-            return;
+    public static boolean dT(String str) {
+        return TextUtils.isEmpty(str) || StringUtil.NULL_STRING.equalsIgnoreCase(str);
+    }
+
+    public static boolean dU(String str) {
+        if (TextUtils.isEmpty(str)) {
+            return false;
         }
-        long currentTimeMillis = j - System.currentTimeMillis();
-        (Math.abs(currentTimeMillis) / 3600000 > ((long) i) ? context.getSharedPreferences("ksadsdk_pref", 0).edit().putLong("key_time_diff_s2c", currentTimeMillis) : context.getSharedPreferences("ksadsdk_pref", 0).edit().remove("key_time_diff_s2c")).apply();
+        return str.matches(".*\\.kpg.*");
     }
 }

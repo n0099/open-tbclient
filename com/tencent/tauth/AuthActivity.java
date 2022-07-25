@@ -20,7 +20,7 @@ import com.tencent.connect.common.UIListenerManager;
 import com.tencent.open.log.SLog;
 import com.tencent.open.utils.i;
 import com.tencent.open.utils.l;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class AuthActivity extends Activity {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ACTION_KEY = "action";

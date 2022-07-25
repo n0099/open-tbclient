@@ -232,7 +232,7 @@ public final class LiveSubTabAdapter extends RecyclerView.Adapter<LiveFeedBaseHo
                 if (this.b) {
                     LiveBaseItemView liveBaseItemView2 = liveFeedBaseHolder.a;
                     if (liveBaseItemView2 != null) {
-                        ((LiveLoadMoreView) liveBaseItemView2).setLoadMoreLabel(R.string.obfuscated_res_0x7f0f09fa);
+                        ((LiveLoadMoreView) liveBaseItemView2).setLoadMoreLabel(R.string.obfuscated_res_0x7f0f09e6);
                         LiveBaseItemView liveBaseItemView3 = liveFeedBaseHolder.a;
                         if (liveBaseItemView3 == null) {
                             throw new NullPointerException("null cannot be cast to non-null type com.baidu.live.business.LiveLoadMoreView");
@@ -249,13 +249,13 @@ public final class LiveSubTabAdapter extends RecyclerView.Adapter<LiveFeedBaseHo
                     if (liveBaseItemView4 == null) {
                         throw new NullPointerException("null cannot be cast to non-null type com.baidu.live.business.LiveLoadMoreView");
                     }
-                    ((LiveLoadMoreView) liveBaseItemView4).setLoadMoreLabel(R.string.obfuscated_res_0x7f0f09fc);
+                    ((LiveLoadMoreView) liveBaseItemView4).setLoadMoreLabel(R.string.obfuscated_res_0x7f0f09e8);
                 } else {
                     LiveBaseItemView liveBaseItemView5 = liveFeedBaseHolder.a;
                     if (liveBaseItemView5 == null) {
                         throw new NullPointerException("null cannot be cast to non-null type com.baidu.live.business.LiveLoadMoreView");
                     }
-                    ((LiveLoadMoreView) liveBaseItemView5).setLoadMoreLabel(R.string.obfuscated_res_0x7f0f09fb);
+                    ((LiveLoadMoreView) liveBaseItemView5).setLoadMoreLabel(R.string.obfuscated_res_0x7f0f09e7);
                 }
                 LiveBaseItemView liveBaseItemView6 = liveFeedBaseHolder.a;
                 if (liveBaseItemView6 == null) {
@@ -390,7 +390,7 @@ public final class LiveSubTabAdapter extends RecyclerView.Adapter<LiveFeedBaseHo
             if (layoutParams != null && (layoutParams instanceof StaggeredGridLayoutManager.LayoutParams) && getItemViewType(holder.getLayoutPosition()) == -1) {
                 ((StaggeredGridLayoutManager.LayoutParams) layoutParams).setFullSpan(true);
             }
-            holder.b();
+            holder.a();
         }
     }
 
@@ -402,7 +402,7 @@ public final class LiveSubTabAdapter extends RecyclerView.Adapter<LiveFeedBaseHo
         if (interceptable == null || interceptable.invokeL(1048585, this, holder) == null) {
             Intrinsics.checkNotNullParameter(holder, "holder");
             super.onViewDetachedFromWindow(holder);
-            holder.c();
+            holder.b();
         }
     }
 
@@ -414,7 +414,7 @@ public final class LiveSubTabAdapter extends RecyclerView.Adapter<LiveFeedBaseHo
         if (interceptable == null || interceptable.invokeL(1048586, this, holder) == null) {
             Intrinsics.checkNotNullParameter(holder, "holder");
             super.onViewRecycled(holder);
-            holder.d();
+            holder.c();
             a aVar = this.c;
             if (aVar != null) {
                 aVar.a(holder.getAdapterPosition());

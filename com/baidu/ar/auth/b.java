@@ -15,7 +15,6 @@ import com.baidu.ar.ihttp.HttpFactory;
 import com.baidu.ar.ihttp.IHttpRequest;
 import com.baidu.ar.ihttp.IHttpResponse;
 import com.baidu.mobstat.Config;
-import com.baidu.sofire.utility.PermissionChecker;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -294,7 +293,7 @@ public class b implements k {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65549, this, context)) == null) {
             int i = Build.VERSION.SDK_INT;
-            String cw = i > 28 ? cw() : (i <= 27 || context.checkSelfPermission(PermissionChecker.READ_PHONE_STATE) != 0) ? Build.SERIAL : Build.getSerial();
+            String cw = i > 28 ? cw() : (i <= 27 || context.checkSelfPermission(com.kuaishou.weapon.p0.h.c) != 0) ? Build.SERIAL : Build.getSerial();
             return "unknown".equals(cw) ? "" : cw;
         }
         return (String) invokeL.objValue;

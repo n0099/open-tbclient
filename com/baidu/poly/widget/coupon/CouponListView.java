@@ -306,12 +306,12 @@ public class CouponListView extends FrameLayout {
                 } else if (i == 1) {
                     View inflate = View.inflate(this.b.getContext(), R.layout.obfuscated_res_0x7f0d0209, null);
                     PopupWindow popupWindow = new PopupWindow(inflate, -1, -1, true);
-                    ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091941)).setText(aVar.b);
-                    ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09193c)).setOnClickListener(new a(this, popupWindow));
+                    ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09191c)).setText(aVar.b);
+                    ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091917)).setOnClickListener(new a(this, popupWindow));
                     popupWindow.A(new b(this));
                     popupWindow.D(this.b, 0, 0, 0);
                 } else {
-                    Toast.makeText(this.b.getContext(), this.b.getResources().getString(R.string.obfuscated_res_0x7f0f0458), 0).show();
+                    Toast.makeText(this.b.getContext(), this.b.getResources().getString(R.string.obfuscated_res_0x7f0f0457), 0).show();
                 }
             }
         }
@@ -523,9 +523,9 @@ public class CouponListView extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, context) == null) {
             LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d01f7, (ViewGroup) this, true);
-            this.c = (PolyFrameLayout) findViewById(R.id.obfuscated_res_0x7f091b6a);
-            this.d = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f0906d7);
-            this.b = (ListView) findViewById(R.id.obfuscated_res_0x7f0906d8);
+            this.c = (PolyFrameLayout) findViewById(R.id.obfuscated_res_0x7f091b44);
+            this.d = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f0906d6);
+            this.b = (ListView) findViewById(R.id.obfuscated_res_0x7f0906d7);
             View findViewById = findViewById(R.id.obfuscated_res_0x7f0902f4);
             this.a = findViewById;
             findViewById.setOnClickListener(new b(this));

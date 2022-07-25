@@ -9,49 +9,49 @@ import java.io.File;
 /* loaded from: classes5.dex */
 public final class b {
     public static /* synthetic */ Interceptable $ic;
-    public static boolean a;
-    public static Context b;
-    public static File c;
-    public static a d;
+    public static boolean aa;
+    public static Context ab;
+    public static File ac;
+    public static a ad;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static Context a() {
+    public static void D(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65536, null, context) == null) {
+            ab = context.getApplicationContext();
+        }
+    }
+
+    public static File M() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? b : (Context) invokeV.objValue;
-    }
-
-    public static void a(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, context) == null) {
-            b = context.getApplicationContext();
-        }
-    }
-
-    public static void a(DownloadTask downloadTask, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65538, null, downloadTask, str) == null) {
-            d.a(downloadTask, str);
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? ac : (File) invokeV.objValue;
     }
 
     public static void a(a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, null, aVar) == null) {
-            d = aVar;
+        if (interceptable == null || interceptable.invokeL(65538, null, aVar) == null) {
+            ad = aVar;
         }
     }
 
-    public static void a(File file) {
+    public static void b(DownloadTask downloadTask, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65539, null, downloadTask, str) == null) {
+            ad.a(downloadTask, str);
+        }
+    }
+
+    public static void b(File file) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, file) == null) {
-            c = file;
+            ac = file;
         }
     }
 
-    public static File b() {
+    public static Context getContext() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? c : (File) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? ab : (Context) invokeV.objValue;
     }
 }

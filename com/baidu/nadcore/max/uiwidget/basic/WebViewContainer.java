@@ -15,6 +15,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.q01;
+import com.yy.mobile.framework.revenuesdk.baseapi.ErrorCode;
 /* loaded from: classes2.dex */
 public class WebViewContainer extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
@@ -202,7 +203,7 @@ public class WebViewContainer extends FrameLayout {
             if (overScroller == null || this.f < this.g) {
                 return false;
             }
-            overScroller.fling(0, (int) this.b, 0, i, 0, 0, -500, 10000);
+            overScroller.fling(0, (int) this.b, 0, i, 0, 0, ErrorCode.SERVER_ERROR, 10000);
             invalidate();
             return true;
         }

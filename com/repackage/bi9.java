@@ -40,7 +40,7 @@ public class bi9 implements KsAppDownloadListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             if (TextUtils.isEmpty(this.b)) {
-                this.a.setText(R.string.obfuscated_res_0x7f0f076d);
+                this.a.setText(R.string.obfuscated_res_0x7f0f0769);
             } else {
                 this.a.setText(this.b);
             }
@@ -51,7 +51,7 @@ public class bi9 implements KsAppDownloadListener {
     public void onDownloadFinished() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.a.setText(R.string.obfuscated_res_0x7f0f0770);
+            this.a.setText(R.string.obfuscated_res_0x7f0f076c);
         }
     }
 
@@ -67,7 +67,7 @@ public class bi9 implements KsAppDownloadListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             if (TextUtils.isEmpty(this.b)) {
-                this.a.setText(R.string.obfuscated_res_0x7f0f076d);
+                this.a.setText(R.string.obfuscated_res_0x7f0f0769);
             } else {
                 this.a.setText(this.b);
             }
@@ -78,7 +78,7 @@ public class bi9 implements KsAppDownloadListener {
     public void onInstalled() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.a.setText(R.string.obfuscated_res_0x7f0f0771);
+            this.a.setText(R.string.obfuscated_res_0x7f0f076d);
         }
     }
 
@@ -87,7 +87,7 @@ public class bi9 implements KsAppDownloadListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
             Button button = this.a;
-            button.setText(button.getContext().getResources().getString(R.string.obfuscated_res_0x7f0f076e, String.format("%s/100", Integer.valueOf(i))));
+            button.setText(button.getContext().getResources().getString(R.string.obfuscated_res_0x7f0f076a, String.format("%s/100", Integer.valueOf(i))));
         }
     }
 }

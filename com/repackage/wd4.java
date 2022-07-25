@@ -1,16 +1,20 @@
 package com.repackage;
 
+import android.app.Activity;
 import android.content.Context;
 import android.os.Build;
+import android.os.Bundle;
 import android.util.AttributeSet;
 import android.view.View;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mytransformapp.util.LogUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public abstract class wd4 extends vd4 {
+public abstract class wd4 extends Activity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -28,14 +32,28 @@ public abstract class wd4 extends vd4 {
         }
     }
 
-    @Override // android.app.Activity, android.view.LayoutInflater.Factory2
-    public View onCreateView(View view2, String str, Context context, AttributeSet attributeSet) {
-        InterceptResult invokeLLLL;
+    public abstract View h(View view2, String str, Context context, AttributeSet attributeSet);
+
+    @Override // android.app.Activity
+    public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, view2, str, context, attributeSet)) == null) {
-            View h = h(view2, str, context, attributeSet);
-            return (h != null || Build.VERSION.SDK_INT < 11) ? h : super.onCreateView(view2, str, context, attributeSet);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
+            if (Build.VERSION.SDK_INT < 11 && getLayoutInflater().getFactory() == null) {
+                getLayoutInflater().setFactory(this);
+            }
+            super.onCreate(bundle);
+            LogUtil.logActivity(this, "onCreate");
         }
-        return (View) invokeLLLL.objValue;
+    }
+
+    @Override // android.app.Activity, android.view.LayoutInflater.Factory
+    public View onCreateView(String str, Context context, AttributeSet attributeSet) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, str, context, attributeSet)) == null) {
+            View h = h(null, str, context, attributeSet);
+            return h == null ? super.onCreateView(str, context, attributeSet) : h;
+        }
+        return (View) invokeLLL.objValue;
     }
 }

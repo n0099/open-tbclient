@@ -31,7 +31,7 @@ public class jy extends xw {
     public int i;
     public int j;
     public Context k;
-    public nn4 l;
+    public on4 l;
     public VideoImageNoPlayerLayout m;
     public int n;
     public String o;
@@ -99,9 +99,9 @@ public class jy extends xw {
         }
 
         @Override // com.repackage.oy
-        public void a(nn4 nn4Var) {
+        public void a(on4 on4Var) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, nn4Var) == null) || this.a.q == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, on4Var) == null) || this.a.q == null) {
                 return;
             }
             this.a.q.a(this.a.l);
@@ -171,7 +171,7 @@ public class jy extends xw {
     }
 
     @Override // com.repackage.qw
-    public void m(jy5<nn4> jy5Var) {
+    public void m(jy5<on4> jy5Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, jy5Var) == null) {
             super.m(jy5Var);
@@ -214,9 +214,9 @@ public class jy extends xw {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public void a(nn4 nn4Var) {
+    public void a(on4 on4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, nn4Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048582, this, on4Var) == null) {
             int k = pi.k(TbadkCoreApplication.getInst());
             if (k != this.n) {
                 s = pi.k(TbadkCoreApplication.getInst());
@@ -230,10 +230,10 @@ public class jy extends xw {
                 this.j = i / 3;
                 this.n = k;
             }
-            this.l = nn4Var;
-            if (nn4Var != null && nn4Var.getThreadData() != null && this.l.getThreadData().originalThreadData != null && !this.l.getThreadData().originalThreadData.m && !this.l.getThreadData().shouldShowBlockedState()) {
+            this.l = on4Var;
+            if (on4Var != null && on4Var.getThreadData() != null && this.l.getThreadData().originalThreadData != null && !this.l.getThreadData().originalThreadData.m && !this.l.getThreadData().shouldShowBlockedState()) {
                 this.m.setVisibility(0);
-                this.m.a(nn4Var);
+                this.m.a(on4Var);
                 ViewGroup.LayoutParams layoutParams = this.m.getLayoutParams();
                 ViewGroup.LayoutParams layoutParams2 = this.m.j.getLayoutParams();
                 int i2 = layoutParams.width;

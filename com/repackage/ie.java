@@ -63,7 +63,7 @@ public class ie extends ke<byte[]> {
         return invokeV.intValue;
     }
 
-    /* JADX WARN: Type inference failed for: r0v14, types: [T, byte[]] */
+    /* JADX WARN: Type inference failed for: r0v14, types: [byte[], T] */
     @Override // com.repackage.ke
     public oe<byte[]> i(SQLiteDatabase sQLiteDatabase, String str) throws Throwable {
         InterceptResult invokeLL;

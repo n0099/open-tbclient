@@ -8,9 +8,10 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONArray;
 /* loaded from: classes6.dex */
-public class iu1 extends nt1 {
+public class iu1 extends ot1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public float a;
 
     public iu1() {
         Interceptable interceptable = $ic;
@@ -26,25 +27,25 @@ public class iu1 extends nt1 {
         }
     }
 
-    @Override // com.repackage.nt1
-    public void a(ot1 ot1Var, Canvas canvas) {
+    @Override // com.repackage.ot1
+    public void a(pt1 pt1Var, Canvas canvas) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, ot1Var, canvas) == null) {
-            try {
-                ot1Var.f();
-                canvas.save();
-            } catch (CloneNotSupportedException e) {
-                if (rg1.a) {
-                    e.printStackTrace();
-                }
+        if (interceptable == null || interceptable.invokeLL(1048576, this, pt1Var, canvas) == null) {
+            if (pt1Var.a() == 0) {
+                pt1Var.b(canvas.save());
             }
+            canvas.rotate(this.a);
         }
     }
 
-    @Override // com.repackage.nt1
+    @Override // com.repackage.ot1
     public void b(JSONArray jSONArray) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) || jSONArray.length() <= 0) {
+            return;
         }
+        float optDouble = (float) jSONArray.optDouble(0);
+        this.a = optDouble;
+        this.a = (float) Math.toDegrees(optDouble);
     }
 }

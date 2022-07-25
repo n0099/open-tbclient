@@ -20,7 +20,7 @@ public class c58 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext a;
-    public cr4 b;
+    public dr4 b;
     public boolean c;
     public View d;
     public TbImageView e;
@@ -80,24 +80,24 @@ public class c58 {
         }
         this.i = new a(this);
         this.a = tbPageContext;
-        this.c = xt4.k().h("key_person_dynamic_tab_guide_has_shown", false);
+        this.c = yt4.k().h("key_person_dynamic_tab_guide_has_shown", false);
     }
 
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            View inflate = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d06af, (ViewGroup) null);
+            View inflate = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d06b9, (ViewGroup) null);
             this.d = inflate;
-            TbImageView tbImageView = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090dec);
+            TbImageView tbImageView = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090de5);
             this.e = tbImageView;
             e(tbImageView);
             this.e.setAutoChangeStyle(true);
             this.e.setRadius(pi.f(this.a.getPageActivity(), R.dimen.tbds24));
             this.e.setConrers(3);
             this.e.setIsBitmapPic(true);
-            this.f = (TextView) this.d.findViewById(R.id.obfuscated_res_0x7f090ded);
-            this.g = (TextView) this.d.findViewById(R.id.obfuscated_res_0x7f090dee);
-            TextView textView = (TextView) this.d.findViewById(R.id.obfuscated_res_0x7f090deb);
+            this.f = (TextView) this.d.findViewById(R.id.obfuscated_res_0x7f090de6);
+            this.g = (TextView) this.d.findViewById(R.id.obfuscated_res_0x7f090de7);
+            TextView textView = (TextView) this.d.findViewById(R.id.obfuscated_res_0x7f090de4);
             this.h = textView;
             textView.setOnClickListener(this.i);
             d();
@@ -113,7 +113,7 @@ public class c58 {
     public final void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            SkinManager.setImageResource(this.e, R.drawable.obfuscated_res_0x7f080ee7);
+            SkinManager.setImageResource(this.e, R.drawable.obfuscated_res_0x7f080eee);
             SkinManager.setViewTextColor(this.f, (int) R.color.CAM_X0107);
             SkinManager.setViewTextColor(this.g, (int) R.color.CAM_X0105);
             SkinManager.setViewTextColor(this.h, (int) R.color.CAM_X0302);
@@ -138,11 +138,11 @@ public class c58 {
             return;
         }
         this.c = true;
-        xt4.k().u("key_person_dynamic_tab_guide_has_shown", true);
+        yt4.k().u("key_person_dynamic_tab_guide_has_shown", true);
         b();
-        cr4 cr4Var = new cr4(this.a.getPageActivity());
-        this.b = cr4Var;
-        cr4Var.setContentViewSize(1);
+        dr4 dr4Var = new dr4(this.a.getPageActivity());
+        this.b = dr4Var;
+        dr4Var.setContentViewSize(1);
         this.b.setCancelable(true);
         this.b.setCanceledOnTouchOutside(false);
         this.b.setContentView(this.d);

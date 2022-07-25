@@ -1,6 +1,5 @@
 package com.kwad.sdk.api.loader;
 
-import android.content.Context;
 import android.text.TextUtils;
 import com.baidu.pass.biometrics.base.utils.PassBiometricUtil;
 import com.baidu.sapi2.activity.BaseActivity;
@@ -8,6 +7,7 @@ import com.baidu.searchbox.aperf.bosuploader.BOSTokenRequest;
 import com.baidu.searchbox.datacollector.growth.utils.GrowthConstant;
 import com.baidu.searchbox.live.interfaces.DI;
 import com.baidu.searchbox.pms.db.PackageTable;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidubce.http.Headers;
 import com.heytap.mcssdk.mode.CommandMessage;
 import com.kwad.components.offline.api.BuildConfig;
@@ -29,32 +29,32 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public final class f {
+    public Map<String, String> Sm = new HashMap();
+    public IKsAdSDK Sn;
     public String a;
     public String b;
     public int c;
-    public Map<String, String> d = new HashMap();
-    public IKsAdSDK e;
 
     /* loaded from: classes5.dex */
     public interface a {
         void a(a.b bVar);
+
+        void a(Exception exc);
     }
 
     public f(String str, IKsAdSDK iKsAdSDK) {
         this.b = str;
         this.a = str;
-        this.e = iKsAdSDK;
+        this.Sn = iKsAdSDK;
     }
 
     private String a() {
         int i;
-        Context context = Loader.get().getContext();
-        Loader.get();
-        String valueOf = String.valueOf(Loader.a(context));
+        String a2 = g.a(Loader.get().getContext());
         IKsAdSDK ksAdSDKImpl = Loader.get().getKsAdSDKImpl();
         if (ksAdSDKImpl != null) {
-            if (TextUtils.isEmpty(valueOf)) {
-                valueOf = ksAdSDKImpl.getSDKVersion();
+            if (TextUtils.isEmpty(a2)) {
+                a2 = ksAdSDKImpl.getSDKVersion();
             }
             i = ksAdSDKImpl.getSDKVersionCode();
         } else {
@@ -67,26 +67,26 @@ public final class f {
         try {
             jSONObject.put("sdkApiVersion", BuildConfig.VERSION_NAME);
             jSONObject.put("sdkApiVersionCode", BuildConfig.VERSION_CODE);
-            jSONObject.put(CommandMessage.SDK_VERSION, valueOf);
+            jSONObject.put(CommandMessage.SDK_VERSION, a2);
             jSONObject.put("SDKVersionCode", i);
             jSONObject.put("sdkType", 1);
             jSONObject.put(DI.APP_INFO_NAME, appInfo);
             jSONObject.put(GrowthConstant.UBC_VALUE_TYPE_DEVICE_INFO, deviceInfo);
             jSONObject.put("networkInfo", networkInfo);
-            jSONObject.put("sdkAbi", t.a() ? "arm64-v8a" : PassBiometricUtil.CPU_TYPE_ARMEABI_V7A);
+            jSONObject.put("sdkAbi", v.a() ? "arm64-v8a" : PassBiometricUtil.CPU_TYPE_ARMEABI_V7A);
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        if (this.e != null) {
+        if (this.Sn != null) {
             JSONObject jSONObject2 = new JSONObject();
             try {
                 jSONObject2.put("version", BuildConfig.VERSION_NAME);
                 jSONObject2.put(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID, appInfo.optString(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID));
-                jSONObject2.put("message", this.e.getRM(jSONObject.toString()));
+                jSONObject2.put("message", this.Sn.getRM(jSONObject.toString()));
             } catch (JSONException e2) {
                 e2.printStackTrace();
             }
-            this.e.sR(this.b, this.d, jSONObject2.toString());
+            this.Sn.sR(this.b, this.Sm, jSONObject2.toString());
             return jSONObject2.toString();
         }
         return jSONObject.toString();
@@ -153,94 +153,97 @@ public final class f {
     }
 
     private void a(String str, String str2) {
-        this.d.put(str, str2);
+        this.Sm.put(str, str2);
     }
 
     public final void a(a aVar) {
         HttpURLConnection httpURLConnection = null;
         try {
-            if (!TextUtils.isEmpty(this.a)) {
-                URLConnection openConnection = new URL(this.a).openConnection();
-                TLSConnectionUtils.wrapHttpURLConnection(openConnection);
-                a("Accept-Language", "zh-CN");
-                openConnection.setConnectTimeout(10000);
-                openConnection.setReadTimeout(30000);
-                openConnection.setUseCaches(false);
-                openConnection.setDoInput(true);
-                a(HTTP.CONN_DIRECTIVE, "keep-alive");
-                a(BOSTokenRequest.CHARSET, "UTF-8");
-                HttpURLConnection httpURLConnection2 = (HttpURLConnection) openConnection;
-                httpURLConnection2.setRequestMethod("POST");
-                httpURLConnection2.setDoOutput(true);
-                httpURLConnection2.setInstanceFollowRedirects(true);
-                a("Content-Type", "application/json; charset=UTF-8");
-                a("User-Agent", RequestParamsUtils.getUserAgent());
-                if (this.e != null) {
-                    this.e.addHp(this.d);
-                }
-                httpURLConnection = httpURLConnection2;
-            }
-            if (httpURLConnection != null) {
-                String a2 = a();
-                if (this.d != null) {
-                    for (Map.Entry<String, String> entry : this.d.entrySet()) {
-                        httpURLConnection.setRequestProperty(entry.getKey(), entry.getValue());
+            try {
+                if (!TextUtils.isEmpty(this.a)) {
+                    URLConnection openConnection = new URL(this.a).openConnection();
+                    TLSConnectionUtils.wrapHttpURLConnection(openConnection);
+                    a("Accept-Language", "zh-CN");
+                    openConnection.setConnectTimeout(10000);
+                    openConnection.setReadTimeout(30000);
+                    openConnection.setUseCaches(false);
+                    openConnection.setDoInput(true);
+                    a(HTTP.CONN_DIRECTIVE, "keep-alive");
+                    a(BOSTokenRequest.CHARSET, "UTF-8");
+                    HttpURLConnection httpURLConnection2 = (HttpURLConnection) openConnection;
+                    httpURLConnection2.setRequestMethod("POST");
+                    httpURLConnection2.setDoOutput(true);
+                    httpURLConnection2.setInstanceFollowRedirects(true);
+                    a("Content-Type", "application/json; charset=UTF-8");
+                    a("User-Agent", RequestParamsUtils.getUserAgent());
+                    if (this.Sn != null) {
+                        this.Sn.addHp(this.Sm);
                     }
+                    httpURLConnection = httpURLConnection2;
                 }
-                httpURLConnection.connect();
-                new DataOutputStream(httpURLConnection.getOutputStream()).write(a2.getBytes());
-                int responseCode = httpURLConnection.getResponseCode();
-                if (responseCode == 200) {
-                    String a3 = a(httpURLConnection.getInputStream());
-                    a.b bVar = new a.b();
-                    JSONObject jSONObject = new JSONObject(a3);
-                    if (this.e != null) {
-                        String optString = jSONObject.optString("data");
-                        if (!TextUtils.isEmpty(optString)) {
-                            jSONObject.put("data", new JSONObject(this.e.getRD(optString)));
+                if (httpURLConnection != null) {
+                    String a2 = a();
+                    if (this.Sm != null) {
+                        for (Map.Entry<String, String> entry : this.Sm.entrySet()) {
+                            httpURLConnection.setRequestProperty(entry.getKey(), entry.getValue());
                         }
                     }
-                    bVar.a = jSONObject.optLong("result");
-                    bVar.b = jSONObject.optString("errorMsg");
-                    a.C0531a c0531a = new a.C0531a();
-                    bVar.c = c0531a;
-                    JSONObject optJSONObject = jSONObject.optJSONObject("data");
-                    if (optJSONObject != null) {
-                        c0531a.a = optJSONObject.optInt("dynamicType");
-                        c0531a.b = optJSONObject.optString("dynamicUrl");
-                        c0531a.c = optJSONObject.optString(PackageTable.MD5);
-                        c0531a.d = optJSONObject.optLong("interval");
-                        c0531a.e = optJSONObject.optString(CommandMessage.SDK_VERSION);
-                    }
-                    aVar.a(bVar);
-                } else if (responseCode / 100 != 3) {
-                    throw new RuntimeException("response code = ".concat(String.valueOf(responseCode)));
-                } else {
-                    if (this.c < 21) {
-                        this.a = httpURLConnection.getHeaderField(Headers.LOCATION);
-                        this.c++;
-                        a(aVar);
+                    httpURLConnection.connect();
+                    new DataOutputStream(httpURLConnection.getOutputStream()).write(a2.getBytes());
+                    int responseCode = httpURLConnection.getResponseCode();
+                    if (responseCode == 200) {
+                        String a3 = a(httpURLConnection.getInputStream());
+                        a.b bVar = new a.b();
+                        JSONObject jSONObject = new JSONObject(a3);
+                        if (this.Sn != null) {
+                            String optString = jSONObject.optString("data");
+                            if (!TextUtils.isEmpty(optString)) {
+                                jSONObject.put("data", new JSONObject(this.Sn.getRD(optString)));
+                            }
+                        }
+                        bVar.a = jSONObject.optLong(TiebaStatic.LogFields.RESULT);
+                        bVar.b = jSONObject.optString("errorMsg");
+                        a.C0379a c0379a = new a.C0379a();
+                        bVar.Sg = c0379a;
+                        JSONObject optJSONObject = jSONObject.optJSONObject("data");
+                        if (optJSONObject != null) {
+                            c0379a.a = optJSONObject.optInt("dynamicType");
+                            c0379a.b = optJSONObject.optString("dynamicUrl");
+                            c0379a.c = optJSONObject.optString(PackageTable.MD5);
+                            c0379a.Se = optJSONObject.optLong("interval");
+                            c0379a.e = optJSONObject.optString(CommandMessage.SDK_VERSION);
+                        }
+                        aVar.a(bVar);
+                    } else if (responseCode / 100 != 3) {
+                        throw new RuntimeException("response code = ".concat(String.valueOf(responseCode)));
+                    } else {
+                        if (this.c < 21) {
+                            this.a = httpURLConnection.getHeaderField(Headers.LOCATION);
+                            this.c++;
+                            a(aVar);
+                        }
                     }
                 }
-            }
-            if (httpURLConnection != null) {
-                try {
-                    httpURLConnection.disconnect();
-                } catch (Exception unused) {
+                if (httpURLConnection != null) {
+                    try {
+                        httpURLConnection.disconnect();
+                    } catch (Exception unused) {
+                    }
                 }
-            }
-        } catch (Exception unused2) {
-            if (0 != 0) {
-                try {
-                    httpURLConnection.disconnect();
-                } catch (Exception unused3) {
+            } catch (Exception e) {
+                aVar.a(e);
+                if (0 != 0) {
+                    try {
+                        httpURLConnection.disconnect();
+                    } catch (Exception unused2) {
+                    }
                 }
             }
         } catch (Throwable th) {
             if (0 != 0) {
                 try {
                     httpURLConnection.disconnect();
-                } catch (Exception unused4) {
+                } catch (Exception unused3) {
                 }
             }
             throw th;

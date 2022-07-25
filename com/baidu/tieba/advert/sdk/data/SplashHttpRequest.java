@@ -5,7 +5,6 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.adp.framework.task.HttpMessageTask;
 import com.baidu.mobstat.Config;
-import com.baidu.sofire.d.D;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.browser.SearchJsBridge;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -84,7 +83,7 @@ public class SplashHttpRequest extends HttpMessage {
         addParam("fmt", "json");
         addParam("adw", adInfo.adWidth);
         addParam("adh", adInfo.adHeight);
-        addParam(D.COLUMN_PLUGIN_ACTIVITY_INFO_LIST, 1);
+        addParam("ac", 1);
         addParam("ad_ext_params", AdExtParam.a.b().a());
     }
 

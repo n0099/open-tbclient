@@ -3,7 +3,6 @@ package com.repackage;
 import android.view.View;
 import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.sofire.core.ForHostApp;
 import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tieba.homepage.tabfeed.HomePageTabFeedFragment;
@@ -140,7 +139,7 @@ public class tz6 {
             h07 h07Var = new h07(this.a.getPageContext(), ThreadData.TYPE_ENTER_FORUM, this.a.getUniqueId(), this.a.G1());
             this.j = h07Var;
             h07Var.d0(this.b);
-            if ("fashion".equals(this.a.F1()) || ForHostApp.KEY_NAME_LOCAL.equals(this.a.F1())) {
+            if ("fashion".equals(this.a.F1()) || "local".equals(this.a.F1())) {
                 this.w.add(this.j);
             }
             k07 k07Var = new k07(this.a.getPageContext(), ThreadData.TYPE_ITEM, this.a.getUniqueId(), this.a.G1());
@@ -166,11 +165,11 @@ public class tz6 {
             a07 a07Var = new a07(this.a.getPageContext(), uy5.N0, this.a.G1());
             this.r = a07Var;
             this.w.add(a07Var);
-            zz6 zz6Var = new zz6(this.a.getPageContext(), hq4.e);
+            zz6 zz6Var = new zz6(this.a.getPageContext(), iq4.e);
             this.p = zz6Var;
             zz6Var.c0(this.b);
             this.w.add(this.p);
-            yz6 yz6Var = new yz6(this.a.getPageContext(), lo4.b);
+            yz6 yz6Var = new yz6(this.a.getPageContext(), mo4.b);
             this.q = yz6Var;
             yz6Var.f0(this.b);
             this.w.add(this.q);

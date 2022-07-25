@@ -20,8 +20,8 @@ import java.io.IOException;
 public final class a extends h {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public b g;
-    public Resources h;
+    public b axy;
+    public Resources axz;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public a(String str) {
@@ -43,10 +43,21 @@ public final class a extends h {
         }
     }
 
-    private b a(File file, File file2) {
+    private File ah(File file) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, this, file)) == null) {
+            File file2 = new File(file.getParentFile(), this.axi.Fz());
+            o.U(file2);
+            return file2;
+        }
+        return (File) invokeL.objValue;
+    }
+
+    private b g(File file, File file2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, this, file, file2)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, this, file, file2)) == null) {
             if (Build.VERSION.SDK_INT < 26) {
                 if (!file.canRead()) {
                     file.setReadable(true);
@@ -58,46 +69,35 @@ public final class a extends h {
                     file = null;
                 }
             }
-            com.kwai.sodler.lib.kwai.kwai.a aVar = com.kwai.sodler.lib.kwai.kwai.a.a;
+            com.kwai.sodler.lib.kwai.kwai.a aVar = com.kwai.sodler.lib.kwai.kwai.a.axB;
             String absolutePath = file2.getAbsolutePath();
-            String absolutePath2 = this.a.getAbsolutePath();
-            com.kwai.sodler.lib.c.b bVar = this.f;
-            return new b(aVar, absolutePath, file, absolutePath2, bVar.k, bVar.j);
+            String absolutePath2 = this.axU.getAbsolutePath();
+            com.kwai.sodler.lib.c.b bVar = this.aya;
+            return new b(aVar, absolutePath, file, absolutePath2, bVar.ayH, bVar.ayG);
         }
         return (b) invokeLL.objValue;
     }
 
-    private File a(File file) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, this, file)) == null) {
-            File file2 = new File(file.getParentFile(), this.c.c());
-            o.i(file2);
-            return file2;
-        }
-        return (File) invokeL.objValue;
-    }
-
-    public final b a() {
+    public final b Ff() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.g : (b) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.axy : (b) invokeV.objValue;
     }
 
     @Override // com.kwai.sodler.lib.h, com.kwai.sodler.lib.g, com.kwai.sodler.lib.a.a
-    public final void a(Context context, String str) {
+    public final void ad(Context context, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str) == null) {
-            super.a(context, str);
+            super.ad(context, str);
             File file = new File(str);
             try {
-                this.g = a(a(file), file);
+                this.axy = g(ah(file), file);
                 try {
-                    this.h = com.kwai.sodler.lib.kwai.a.a.a(context, context.getResources(), str);
+                    this.axz = com.kwai.sodler.lib.kwai.a.a.c(context, context.getResources(), str);
                     StringBuilder sb = new StringBuilder("Install plugin mClassLoader: ");
-                    sb.append(this.g);
+                    sb.append(this.axy);
                     sb.append(", mResources: ");
-                    sb.append(this.h);
+                    sb.append(this.axz);
                 } catch (Exception e) {
                     Log.getStackTraceString(e);
                     throw new PluginError.LoadError(e, 4006);
@@ -108,9 +108,9 @@ public final class a extends h {
         }
     }
 
-    public final Resources b() {
+    public final Resources getResources() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.h : (Resources) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.axz : (Resources) invokeV.objValue;
     }
 }

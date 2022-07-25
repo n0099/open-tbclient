@@ -1,6 +1,5 @@
 package com.repackage;
 
-import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -8,7 +7,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class ei1 implements bk1 {
+public class ei1 implements zj1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -26,10 +25,13 @@ public class ei1 implements bk1 {
         }
     }
 
-    @Override // com.repackage.bk1
-    public String a(@NonNull String str, JSONObject jSONObject) {
-        InterceptResult invokeLL;
+    @Override // com.repackage.zj1
+    public boolean a(JSONObject jSONObject) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, jSONObject)) == null) ? str : (String) invokeLL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jSONObject)) == null) {
+            return true;
+        }
+        return invokeL.booleanValue;
     }
 }

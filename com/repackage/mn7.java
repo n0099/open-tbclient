@@ -69,7 +69,7 @@ public class mn7 {
     }
 
     /* loaded from: classes6.dex */
-    public class b implements e15 {
+    public class b implements f15 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ String a;
@@ -113,12 +113,12 @@ public class mn7 {
 
         /* renamed from: com.repackage.mn7$b$b  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class RunnableC0681b implements Runnable {
+        public class RunnableC0525b implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ b a;
 
-            public RunnableC0681b(b bVar) {
+            public RunnableC0525b(b bVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -198,7 +198,7 @@ public class mn7 {
             this.b = pn7Var;
         }
 
-        @Override // com.repackage.e15
+        @Override // com.repackage.f15
         public void onFileDownloadFailed(DownloadData downloadData, int i, String str) {
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeLIL(1048576, this, downloadData, i, str) == null) || this.b == null) {
@@ -207,7 +207,7 @@ public class mn7 {
             this.c.a.post(new c(this));
         }
 
-        @Override // com.repackage.e15
+        @Override // com.repackage.f15
         public void onFileDownloadSucceed(DownloadData downloadData) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, downloadData) == null) {
@@ -218,12 +218,12 @@ public class mn7 {
                         this.c.a.post(new a(this, str));
                     }
                 } else if (this.b != null) {
-                    this.c.a.post(new RunnableC0681b(this));
+                    this.c.a.post(new RunnableC0525b(this));
                 }
             }
         }
 
-        @Override // com.repackage.e15
+        @Override // com.repackage.f15
         public boolean onFileDownloaded(DownloadData downloadData) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
@@ -233,14 +233,14 @@ public class mn7 {
             return invokeL.booleanValue;
         }
 
-        @Override // com.repackage.e15
+        @Override // com.repackage.f15
         public void onFileUpdateProgress(DownloadData downloadData) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, downloadData) == null) {
             }
         }
 
-        @Override // com.repackage.e15
+        @Override // com.repackage.f15
         public boolean onPreDownload(DownloadData downloadData) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
@@ -406,7 +406,7 @@ public class mn7 {
             String nameMd5FromUrl = TbMd5.getNameMd5FromUrl(str);
             DownloadData downloadData = new DownloadData(nameMd5FromUrl, nameMd5FromUrl, str, new b(this, nameMd5FromUrl, pn7Var));
             downloadData.setPath((FileHelper.EXTERNAL_STORAGE_DIRECTORY + "/" + TbConfig.getTempDirName() + "/") + nameMd5FromUrl);
-            f15.k().l(downloadData);
+            g15.k().l(downloadData);
         }
     }
 

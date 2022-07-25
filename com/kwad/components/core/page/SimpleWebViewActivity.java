@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.kwad.components.core.l.p;
+import com.kwad.components.core.m.p;
 import com.kwad.components.core.webview.KsAdWebView;
 import com.kwad.sdk.KsAdSDKImpl;
 import com.kwad.sdk.api.core.KsAdSdkDynamicImpl;
@@ -25,7 +25,7 @@ import com.kwad.sdk.api.proxy.app.AdWebViewActivity;
 @KsAdSdkDynamicImpl(AdWebViewActivity.class)
 @Keep
 /* loaded from: classes5.dex */
-public class SimpleWebViewActivity extends com.kwad.components.core.h.a {
+public class SimpleWebViewActivity extends com.kwad.components.core.i.a {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY_PAGE_TITLE = "key_page_title";
     public static final String KEY_PAGE_URL = "key_page_url";
@@ -51,17 +51,17 @@ public class SimpleWebViewActivity extends com.kwad.components.core.h.a {
     private void initView() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, this) == null) {
-            this.mTitle = (TextView) findViewById(R.id.obfuscated_res_0x7f091078);
+            this.mTitle = (TextView) findViewById(R.id.obfuscated_res_0x7f09106f);
             String stringExtra = getIntent().getStringExtra("key_page_title");
             this.title = stringExtra;
             if (!TextUtils.isEmpty(stringExtra)) {
                 this.mTitle.setText(this.title);
             }
-            findViewById(R.id.obfuscated_res_0x7f09107a).setVisibility(8);
-            findViewById(R.id.obfuscated_res_0x7f091079).setOnClickListener(new View.OnClickListener(this) { // from class: com.kwad.components.core.page.SimpleWebViewActivity.1
+            findViewById(R.id.obfuscated_res_0x7f091071).setVisibility(8);
+            findViewById(R.id.obfuscated_res_0x7f091070).setOnClickListener(new View.OnClickListener(this) { // from class: com.kwad.components.core.page.SimpleWebViewActivity.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ SimpleWebViewActivity a;
+                public final /* synthetic */ SimpleWebViewActivity Gc;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -78,14 +78,14 @@ public class SimpleWebViewActivity extends com.kwad.components.core.h.a {
                             return;
                         }
                     }
-                    this.a = this;
+                    this.Gc = this;
                 }
 
                 @Override // android.view.View.OnClickListener
                 public final void onClick(View view2) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
-                        this.a.finish();
+                        this.Gc.finish();
                     }
                 }
             });
@@ -95,9 +95,9 @@ public class SimpleWebViewActivity extends com.kwad.components.core.h.a {
     private void initWebView() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
-            KsAdWebView ksAdWebView = (KsAdWebView) findViewById(R.id.obfuscated_res_0x7f0911e9);
+            KsAdWebView ksAdWebView = (KsAdWebView) findViewById(R.id.obfuscated_res_0x7f0911c5);
             this.mAdWebView = ksAdWebView;
-            p.a(ksAdWebView);
+            p.b(ksAdWebView);
         }
     }
 
@@ -120,7 +120,7 @@ public class SimpleWebViewActivity extends com.kwad.components.core.h.a {
                 this.mAdWebView.setWebChromeClient(new com.kwad.components.core.webview.kwai.b(this) { // from class: com.kwad.components.core.page.SimpleWebViewActivity.2
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
-                    public final /* synthetic */ SimpleWebViewActivity a;
+                    public final /* synthetic */ SimpleWebViewActivity Gc;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -137,7 +137,7 @@ public class SimpleWebViewActivity extends com.kwad.components.core.h.a {
                                 return;
                             }
                         }
-                        this.a = this;
+                        this.Gc = this;
                     }
 
                     @Override // android.webkit.WebChromeClient
@@ -145,7 +145,7 @@ public class SimpleWebViewActivity extends com.kwad.components.core.h.a {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeLL(1048576, this, webView, str) == null) {
                             super.onReceivedTitle(webView, str);
-                            this.a.mTitle.setText(str);
+                            this.Gc.mTitle.setText(str);
                         }
                     }
                 });
@@ -158,14 +158,14 @@ public class SimpleWebViewActivity extends com.kwad.components.core.h.a {
         }
     }
 
-    @Override // com.kwad.components.core.h.a
+    @Override // com.kwad.components.core.i.a
     public String getPageName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "SimpleWebViewActivity" : (String) invokeV.objValue;
     }
 
-    @Override // com.kwad.components.core.h.a, com.kwad.sdk.api.proxy.IActivityProxy
+    @Override // com.kwad.components.core.i.a, com.kwad.sdk.api.proxy.IActivityProxy
     public void onCreate(@Nullable Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {

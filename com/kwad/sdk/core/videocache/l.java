@@ -1,11 +1,11 @@
 package com.kwad.sdk.core.videocache;
 /* loaded from: classes5.dex */
 public interface l {
-    int a(byte[] bArr);
+    void I(long j);
 
-    long a();
+    void close();
 
-    void a(long j);
+    long length();
 
-    void b();
+    int read(byte[] bArr);
 }

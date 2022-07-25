@@ -10,14 +10,20 @@ public final class g {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static boolean a(com.kwad.components.ad.reward.l lVar) {
+    public static boolean r(com.kwad.components.ad.reward.k kVar) {
         InterceptResult invokeL;
         com.kwad.components.core.playable.a aVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, lVar)) == null) {
-            AdTemplate adTemplate = lVar.g;
-            AdInfo i = com.kwad.sdk.core.response.a.d.i(adTemplate);
-            return ((com.kwad.sdk.core.response.a.a.ar(i) && (aVar = lVar.l) != null && aVar.d()) || com.kwad.sdk.core.response.a.b.o(adTemplate) || com.kwad.components.ad.reward.kwai.b.d(i) || adTemplate.mXiaomiAppStoreDetailViewOpen || !com.kwad.sdk.core.response.a.a.I(i) || !com.kwad.sdk.core.response.a.a.x(i)) ? false : true;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, kVar)) == null) {
+            AdTemplate adTemplate = kVar.mAdTemplate;
+            AdInfo bQ = com.kwad.sdk.core.response.a.d.bQ(adTemplate);
+            if ((com.kwad.sdk.core.response.a.a.aY(bQ) && (aVar = kVar.mk) != null && aVar.od()) || com.kwad.sdk.core.response.a.b.bg(adTemplate) || com.kwad.components.ad.reward.kwai.b.j(bQ) || adTemplate.mXiaomiAppStoreDetailViewOpen) {
+                return false;
+            }
+            if (com.kwad.components.ad.reward.kwai.b.gh()) {
+                return true;
+            }
+            return com.kwad.sdk.core.response.a.a.am(bQ) && com.kwad.sdk.core.response.a.a.aa(bQ);
         }
         return invokeL.booleanValue;
     }

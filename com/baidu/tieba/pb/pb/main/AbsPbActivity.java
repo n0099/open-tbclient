@@ -69,29 +69,29 @@ import com.repackage.jr7;
 import com.repackage.jv7;
 import com.repackage.lg0;
 import com.repackage.mg0;
-import com.repackage.n35;
 import com.repackage.ng;
-import com.repackage.nt4;
+import com.repackage.o35;
 import com.repackage.oi;
-import com.repackage.oz4;
+import com.repackage.ot4;
 import com.repackage.pi;
+import com.repackage.pz4;
 import com.repackage.qg;
 import com.repackage.qt7;
 import com.repackage.qy7;
-import com.repackage.r65;
 import com.repackage.rw7;
+import com.repackage.s65;
 import com.repackage.tw7;
 import com.repackage.ub8;
 import com.repackage.ws7;
 import com.repackage.xd5;
-import com.repackage.y85;
 import com.repackage.z8;
+import com.repackage.z85;
 import com.repackage.zq6;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes3.dex */
-public abstract class AbsPbActivity extends BaseFragmentActivity implements ws7<PbActivity>, VoiceManager.j, nt4, lg0 {
+public abstract class AbsPbActivity extends BaseFragmentActivity implements ws7<PbActivity>, VoiceManager.j, ot4, lg0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public PbModel a;
@@ -124,13 +124,13 @@ public abstract class AbsPbActivity extends BaseFragmentActivity implements ws7<
 
         /* renamed from: com.baidu.tieba.pb.pb.main.AbsPbActivity$a$a  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        public class RunnableC0231a implements Runnable {
+        public class RunnableC0245a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ String a;
             public final /* synthetic */ a b;
 
-            public RunnableC0231a(a aVar, String str) {
+            public RunnableC0245a(a aVar, String str) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -235,9 +235,9 @@ public abstract class AbsPbActivity extends BaseFragmentActivity implements ws7<
                     }
                 } else if (!this.a.g && !this.a.a.C2()) {
                     AbsPbActivity absPbActivity3 = this.a;
-                    absPbActivity3.showNetRefreshView(absPbActivity3.f, this.a.getPageContext().getResources().getString(R.string.obfuscated_res_0x7f0f0c2a, str, Integer.valueOf(i)), null, null, true, this.a.getNetRefreshListener());
+                    absPbActivity3.showNetRefreshView(absPbActivity3.f, this.a.getPageContext().getResources().getString(R.string.obfuscated_res_0x7f0f0c16, str, Integer.valueOf(i)), null, null, true, this.a.getNetRefreshListener());
                     AbsPbActivity absPbActivity4 = this.a;
-                    absPbActivity4.setNetRefreshViewEmotionMarginTop(pi.f(absPbActivity4.getActivity(), R.dimen.obfuscated_res_0x7f0702ac));
+                    absPbActivity4.setNetRefreshViewEmotionMarginTop(pi.f(absPbActivity4.getActivity(), R.dimen.obfuscated_res_0x7f0702aa));
                 }
                 Fragment E0 = this.a.E0();
                 if (E0 == null) {
@@ -266,7 +266,7 @@ public abstract class AbsPbActivity extends BaseFragmentActivity implements ws7<
                 if (TextUtils.isEmpty(stringExtra) || this.a.p) {
                     return;
                 }
-                qg.a().postDelayed(new RunnableC0231a(this, stringExtra), 100L);
+                qg.a().postDelayed(new RunnableC0245a(this, stringExtra), 100L);
             }
         }
     }
@@ -334,15 +334,15 @@ public abstract class AbsPbActivity extends BaseFragmentActivity implements ws7<
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ View a;
-        public final /* synthetic */ n35 b;
+        public final /* synthetic */ o35 b;
         public final /* synthetic */ AbsPbActivity c;
 
-        public c(AbsPbActivity absPbActivity, View view2, n35 n35Var) {
+        public c(AbsPbActivity absPbActivity, View view2, o35 o35Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {absPbActivity, view2, n35Var};
+                Object[] objArr = {absPbActivity, view2, o35Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -354,7 +354,7 @@ public abstract class AbsPbActivity extends BaseFragmentActivity implements ws7<
             }
             this.c = absPbActivity;
             this.a = view2;
-            this.b = n35Var;
+            this.b = o35Var;
         }
 
         @Override // com.baidu.tbadk.core.dialog.WriteTipBubbleController.b
@@ -508,7 +508,7 @@ public abstract class AbsPbActivity extends BaseFragmentActivity implements ws7<
             FragmentManager supportFragmentManager = getSupportFragmentManager();
             if (supportFragmentManager.findFragmentByTag(H0) == null) {
                 this.c = C0(H0);
-                supportFragmentManager.beginTransaction().add(R.id.obfuscated_res_0x7f0906a0, this.c, H0).commitAllowingStateLoss();
+                supportFragmentManager.beginTransaction().add(R.id.obfuscated_res_0x7f09069f, this.c, H0).commitAllowingStateLoss();
             }
         }
     }
@@ -631,11 +631,11 @@ public abstract class AbsPbActivity extends BaseFragmentActivity implements ws7<
                 if (L0() == 0) {
                     this.b.v(false);
                 } else {
-                    showLoadingView(findViewById(R.id.obfuscated_res_0x7f0906a0), true);
+                    showLoadingView(findViewById(R.id.obfuscated_res_0x7f09069f), true);
                     this.b.v(true);
                 }
             } else {
-                showLoadingView(findViewById(R.id.obfuscated_res_0x7f0906a0), true);
+                showLoadingView(findViewById(R.id.obfuscated_res_0x7f09069f), true);
                 this.b.v(true);
             }
             if (pi.D() && !TbadkCoreApplication.getInst().syncHasFinish) {
@@ -677,10 +677,10 @@ public abstract class AbsPbActivity extends BaseFragmentActivity implements ws7<
         }
     }
 
-    public final void W0(View view2, n35 n35Var, String str) {
+    public final void W0(View view2, o35 o35Var, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048595, this, view2, n35Var, str) == null) {
-            new WriteTipBubbleController(getPageContext(), new c(this, view2, n35Var)).d(view2, getString(R.string.obfuscated_res_0x7f0f0cde), str, WriteTipBubbleController.ANCHOR_VIEW_FROM.FROM_PB_REPLY);
+        if (interceptable == null || interceptable.invokeLLL(1048595, this, view2, o35Var, str) == null) {
+            new WriteTipBubbleController(getPageContext(), new c(this, view2, o35Var)).d(view2, getString(R.string.obfuscated_res_0x7f0f0cca), str, WriteTipBubbleController.ANCHOR_VIEW_FROM.FROM_PB_REPLY);
         }
     }
 
@@ -827,7 +827,7 @@ public abstract class AbsPbActivity extends BaseFragmentActivity implements ws7<
         }
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.repackage.v85
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.repackage.w85
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -852,11 +852,11 @@ public abstract class AbsPbActivity extends BaseFragmentActivity implements ws7<
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
-    public y85 getPageStayDurationItem() {
+    public z85 getPageStayDurationItem() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048610, this)) == null) {
-            y85 pageStayDurationItem = super.getPageStayDurationItem();
+            z85 pageStayDurationItem = super.getPageStayDurationItem();
             if (pageStayDurationItem != null) {
                 PbModel pbModel = this.a;
                 if (pbModel != null) {
@@ -903,10 +903,10 @@ public abstract class AbsPbActivity extends BaseFragmentActivity implements ws7<
             }
             return pageStayDurationItem;
         }
-        return (y85) invokeV.objValue;
+        return (z85) invokeV.objValue;
     }
 
-    @Override // com.repackage.nt4
+    @Override // com.repackage.ot4
     public String m0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -978,7 +978,7 @@ public abstract class AbsPbActivity extends BaseFragmentActivity implements ws7<
             super.onCreate(bundle);
             Q0();
             setContentView(F0());
-            this.f = findViewById(R.id.obfuscated_res_0x7f0906a0);
+            this.f = findViewById(R.id.obfuscated_res_0x7f09069f);
             adjustResizeForSoftInput();
             addGlobalLayoutListener();
             T0(bundle);
@@ -1000,7 +1000,7 @@ public abstract class AbsPbActivity extends BaseFragmentActivity implements ws7<
                 }
             }
             getLifecycle().addObserver(this.o);
-            oz4.b(false);
+            pz4.b(false);
         }
     }
 
@@ -1022,7 +1022,7 @@ public abstract class AbsPbActivity extends BaseFragmentActivity implements ws7<
                 ep8Var.l();
             }
             TbPageExtraHelper.setPrePageKey(getCurrentPageKey());
-            r65.i(new PrePageKeyEvent(getCurrentPageKey()));
+            s65.i(new PrePageKeyEvent(getCurrentPageKey()));
             if (this.q != null) {
                 this.q = null;
             }
@@ -1237,7 +1237,7 @@ public abstract class AbsPbActivity extends BaseFragmentActivity implements ws7<
         return invokeV.booleanValue;
     }
 
-    @Override // com.repackage.nt4
+    @Override // com.repackage.ot4
     public String y() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

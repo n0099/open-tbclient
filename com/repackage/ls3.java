@@ -8,13 +8,13 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class ls3 extends ms3 {
+public class ls3 extends ns3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ls3() {
-        super("echoSync");
+        super("echo");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -30,19 +30,21 @@ public class ls3 extends ms3 {
         }
     }
 
-    @Override // com.repackage.ms3
-    public hs1 a(@NonNull JSONObject jSONObject, @NonNull ld2 ld2Var) {
+    @Override // com.repackage.ns3
+    public is1 a(@NonNull JSONObject jSONObject, @NonNull md2 md2Var) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, jSONObject, ld2Var)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, jSONObject, md2Var)) == null) {
             int optInt = jSONObject.optInt("status", 0);
             String optString = jSONObject.optString("message");
             JSONObject optJSONObject = jSONObject.optJSONObject("data");
             if (optInt == 0) {
-                return new hs1(optInt, optJSONObject);
+                md2Var.a(optJSONObject);
+                return null;
             }
-            return new hs1(optInt, optString);
+            md2Var.onFail(optInt, optString);
+            return null;
         }
-        return (hs1) invokeLL.objValue;
+        return (is1) invokeLL.objValue;
     }
 }

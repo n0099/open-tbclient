@@ -220,21 +220,21 @@ public class VideoPlatformStatic {
         if (interceptable == null || (invokeI = interceptable.invokeI(65544, null, i)) == null) {
             switch (i) {
                 case 101:
-                    return TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0ec1);
+                    return TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0eaa);
                 case 102:
-                    return TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0ec0);
+                    return TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0ea9);
                 case 103:
-                    return TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0ebd);
+                    return TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0ea6);
                 case 104:
-                    return TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0ebc);
+                    return TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0ea5);
                 case 105:
-                    return TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0ec2);
+                    return TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0eab);
                 case 106:
-                    return TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0ebe);
+                    return TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0ea7);
                 case 107:
-                    return TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0ebf);
+                    return TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0ea8);
                 default:
-                    return TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f05a2) + i;
+                    return TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f059e) + i;
             }
         }
         return (String) invokeI.objValue;

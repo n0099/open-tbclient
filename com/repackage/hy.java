@@ -21,7 +21,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.ny;
 /* loaded from: classes6.dex */
-public class hy extends qw<nn4> {
+public class hy extends qw<on4> {
     public static /* synthetic */ Interceptable $ic;
     public static final int m;
     public transient /* synthetic */ FieldHolder $fh;
@@ -29,7 +29,7 @@ public class hy extends qw<nn4> {
     public TextView g;
     public TextView h;
     public OriginalThreadCardView i;
-    public nn4 j;
+    public on4 j;
     public boolean k;
     public OriginalThreadCardView.b l;
 
@@ -114,9 +114,9 @@ public class hy extends qw<nn4> {
         } else {
             this.f = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d01ba, (ViewGroup) null, false);
         }
-        this.g = (TextView) this.f.findViewById(R.id.obfuscated_res_0x7f09202b);
-        this.h = (TextView) this.f.findViewById(R.id.obfuscated_res_0x7f09201d);
-        OriginalThreadCardView originalThreadCardView = (OriginalThreadCardView) this.f.findViewById(R.id.obfuscated_res_0x7f09168e);
+        this.g = (TextView) this.f.findViewById(R.id.obfuscated_res_0x7f09202f);
+        this.h = (TextView) this.f.findViewById(R.id.obfuscated_res_0x7f092021);
+        OriginalThreadCardView originalThreadCardView = (OriginalThreadCardView) this.f.findViewById(R.id.obfuscated_res_0x7f091669);
         this.i = originalThreadCardView;
         originalThreadCardView.setSubClickListener(this.l);
     }
@@ -129,7 +129,7 @@ public class hy extends qw<nn4> {
     }
 
     @Override // com.repackage.qw
-    public void m(jy5<nn4> jy5Var) {
+    public void m(jy5<on4> jy5Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jy5Var) == null) {
             super.m(jy5Var);
@@ -147,15 +147,15 @@ public class hy extends qw<nn4> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.repackage.gx
     /* renamed from: s */
-    public void a(nn4 nn4Var) {
+    public void a(on4 on4Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, nn4Var) == null) || nn4Var == null || nn4Var.getThreadData() == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, on4Var) == null) || on4Var == null || on4Var.getThreadData() == null) {
             return;
         }
-        this.j = nn4Var;
-        ThreadCardUtils.setTitle(this.g, nn4Var.getThreadData(), this.k);
-        ThreadCardUtils.setAbstract(this.h, this.g, nn4Var.getThreadData(), m, this.k);
-        this.i.i(nn4Var.getThreadData().originalThreadData);
+        this.j = on4Var;
+        ThreadCardUtils.setTitle(this.g, on4Var.getThreadData(), this.k);
+        ThreadCardUtils.setAbstract(this.h, this.g, on4Var.getThreadData(), m, this.k);
+        this.i.i(on4Var.getThreadData().originalThreadData);
     }
 
     public final void t(String str) {

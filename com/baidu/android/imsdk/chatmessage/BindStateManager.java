@@ -13,7 +13,6 @@ import com.baidu.android.imsdk.utils.HttpHelper;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.RequsetNetworkUtils;
 import com.baidu.android.imsdk.utils.Utility;
-import com.baidu.sofire.rp.service.Service;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -486,7 +485,7 @@ public class BindStateManager {
                     MyTimeTask myTimeTask = new MyTimeTask();
                     task = myTimeTask;
                     myTimeTask.setContext(context);
-                    timer.schedule(task, Service.TRIGGER_INTERVAL);
+                    timer.schedule(task, 180000L);
                 }
                 LogUtils.d(TAG, "bind > start binding!");
                 if (!TextUtils.isEmpty(str)) {

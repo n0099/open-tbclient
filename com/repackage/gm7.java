@@ -21,7 +21,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Date;
 /* loaded from: classes6.dex */
-public class gm7 extends e85<fm7, z75> {
+public class gm7 extends f85<fm7, a85> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public View f;
@@ -51,18 +51,18 @@ public class gm7 extends e85<fm7, z75> {
             }
         }
         this.f = view2;
-        this.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0920bc);
-        TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0906ae);
+        this.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0920be);
+        TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0906ad);
         this.h = textView;
         textView.setSingleLine();
         this.h.setEllipsize(TextUtils.TruncateAt.END);
-        this.i = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09208f);
-        this.j = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091324);
-        this.k = view2.findViewById(R.id.obfuscated_res_0x7f0912b0);
+        this.i = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092093);
+        this.j = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091300);
+        this.k = view2.findViewById(R.id.obfuscated_res_0x7f09128c);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.h85
+    @Override // com.repackage.i85
     /* renamed from: j */
     public void f(fm7 fm7Var) {
         Interceptable interceptable = $ic;
@@ -75,7 +75,7 @@ public class gm7 extends e85<fm7, z75> {
                 if (fm7Var.j() == 49) {
                     if (StringUtils.isNull(fm7Var.c())) {
                         if (StringUtils.isNull(fm7Var.m())) {
-                            this.g.setText(e(R.string.obfuscated_res_0x7f0f0dbd));
+                            this.g.setText(e(R.string.obfuscated_res_0x7f0f0da6));
                         } else {
                             this.g.setText(fm7Var.m());
                         }
@@ -84,7 +84,7 @@ public class gm7 extends e85<fm7, z75> {
                     }
                 } else if (fm7Var.i() != null) {
                     if (fm7Var.s()) {
-                        this.g.setText(String.format("%s%s", e(R.string.obfuscated_res_0x7f0f0dbf), fm7Var.i()));
+                        this.g.setText(String.format("%s%s", e(R.string.obfuscated_res_0x7f0f0da8), fm7Var.i()));
                     } else {
                         this.g.setText(fm7Var.i());
                     }
@@ -92,9 +92,9 @@ public class gm7 extends e85<fm7, z75> {
             }
             if (this.h != null) {
                 if (fm7Var.j() == 49 && !TextUtils.isEmpty(fm7Var.m())) {
-                    this.h.setText(String.format(e(R.string.obfuscated_res_0x7f0f0dc0), fm7Var.m()));
+                    this.h.setText(String.format(e(R.string.obfuscated_res_0x7f0f0da9), fm7Var.m()));
                 } else if (fm7Var.j() == 49) {
-                    this.h.setText(String.format(e(R.string.obfuscated_res_0x7f0f0dc0), e(R.string.obfuscated_res_0x7f0f0dbd)));
+                    this.h.setText(String.format(e(R.string.obfuscated_res_0x7f0f0da9), e(R.string.obfuscated_res_0x7f0f0da6)));
                 } else if (fm7Var.d() != null) {
                     this.h.setText(fm7Var.d());
                 }

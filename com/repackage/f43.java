@@ -1,113 +1,133 @@
 package com.repackage;
 
+import android.content.Context;
 import android.text.TextUtils;
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.swan.apps.core.slave.SwanAppSlaveManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.sdk.WebView;
-import com.bytedance.sdk.openadsdk.downloadnew.core.TTDownloadField;
-import java.util.ArrayList;
-import java.util.List;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.repackage.n53;
 /* loaded from: classes6.dex */
-public final class f43 extends xv1 {
+public class f43 extends h43 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String j;
-    public String k;
-    public String l;
-    public boolean m;
-    public List<String> n;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755757844, "Lcom/repackage/f43;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes6.dex */
+    public class a implements bf3<l53<n53.e>> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ CallbackHandler a;
+        public final /* synthetic */ g43 b;
+        public final /* synthetic */ om1 c;
+        public final /* synthetic */ f43 d;
+
+        public a(f43 f43Var, CallbackHandler callbackHandler, g43 g43Var, om1 om1Var) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {f43Var, callbackHandler, g43Var, om1Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755757844, "Lcom/repackage/f43;");
-                return;
+            this.d = f43Var;
+            this.a = callbackHandler;
+            this.b = g43Var;
+            this.c = om1Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.repackage.bf3
+        /* renamed from: b */
+        public void a(l53<n53.e> l53Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, l53Var) == null) {
+                if (!g53.h(l53Var)) {
+                    g53.q(l53Var, this.a, this.b.e);
+                    this.b.k = null;
+                } else {
+                    g43 g43Var = this.b;
+                    g43Var.m = false;
+                    this.d.m(this.a, (SwanAppSlaveManager) this.c, g43Var);
+                }
+                if (this.c.Y(this.b)) {
+                    return;
+                }
+                ix1.c("updateWebView", "update webview widget fail");
+                this.a.handleSchemeDispatchCallback(this.b.e, UnitedSchemeUtility.wrapCallbackParams(1001).toString());
             }
         }
-        boolean z = rg1.a;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public f43() {
-        super("webView", "viewId");
+    public f43(f13 f13Var) {
+        super(f13Var, "/swanAPI/updateWebView");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {f13Var};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr = newInitContext.callArgs;
-                super((String) objArr[0], (String) objArr[1]);
+                Object[] objArr2 = newInitContext.callArgs;
+                super((f13) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.m = true;
     }
 
-    public static f43 h(UnitedSchemeEntity unitedSchemeEntity) {
-        InterceptResult invokeL;
+    @Override // com.repackage.f23
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, i03 i03Var) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, unitedSchemeEntity)) == null) {
-            if (unitedSchemeEntity == null) {
-                return null;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, i03Var)) == null) {
+            if (f23.b) {
+                Log.d("UpdateWebViewAction", "handle entity: " + unitedSchemeEntity.toString());
             }
-            String str = unitedSchemeEntity.getParams().get("params");
-            f43 f43Var = new f43();
-            try {
-                f43Var.a(new JSONObject(str));
-                return f43Var;
-            } catch (JSONException e) {
-                hx1.d(WebView.LOGTAG, "parsing params occurs exception", e);
-                return null;
+            g43 h = g43.h(unitedSchemeEntity);
+            if (!h.isValid()) {
+                ix1.c("updateWebView", "params is invalid");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
+                return false;
+            } else if (!TextUtils.isEmpty(h.j) && l(h.j, h.n)) {
+                ix1.c("updateWebView", "params is invalid");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
+                return false;
+            } else {
+                om1 om1Var = (om1) vl2.U().A(h.c);
+                if (om1Var == null) {
+                    ix1.c("updateWebView", "viewManager is null");
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+                    return false;
+                }
+                if (TextUtils.equals(h.l, "quickPass")) {
+                    i03Var.e0().g(context, "scope_webview_extra_operation", new a(this, callbackHandler, h, om1Var));
+                } else if (!om1Var.Y(h)) {
+                    ix1.c("updateWebView", "update webview widget fail");
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+                    return false;
+                }
+                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
+                return true;
             }
         }
-        return (f43) invokeL.objValue;
-    }
-
-    @Override // com.repackage.xv1, com.repackage.gq2
-    public void a(JSONObject jSONObject) throws JSONException {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
-            return;
-        }
-        super.a(jSONObject);
-        this.j = jSONObject.optString("src");
-        this.k = jSONObject.optString(TTDownloadField.TT_USERAGENT);
-        this.l = jSONObject.optString("type");
-        JSONArray optJSONArray = jSONObject.optJSONArray("targetUrls");
-        if (optJSONArray == null || optJSONArray.length() == 0) {
-            return;
-        }
-        this.n = new ArrayList();
-        int length = optJSONArray.length();
-        for (int i = 0; i < length; i++) {
-            this.n.add(optJSONArray.optString(i));
-        }
-    }
-
-    @Override // com.repackage.xv1, com.repackage.gq2
-    public boolean isValid() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? !TextUtils.isEmpty(this.c) : invokeV.booleanValue;
+        return invokeLLLL.booleanValue;
     }
 }

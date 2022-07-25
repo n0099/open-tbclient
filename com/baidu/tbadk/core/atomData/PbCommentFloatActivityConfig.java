@@ -21,7 +21,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.zp4;
+import com.repackage.aq4;
 /* loaded from: classes3.dex */
 public class PbCommentFloatActivityConfig extends IntentConfig {
     public static /* synthetic */ Interceptable $ic = null;
@@ -768,13 +768,13 @@ public class PbCommentFloatActivityConfig extends IntentConfig {
         intent.putExtra("lego_pre_load_data", str);
     }
 
-    public void setRecomData(zp4 zp4Var) {
+    public void setRecomData(aq4 aq4Var) {
         Intent intent;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048620, this, zp4Var) == null) || (intent = getIntent()) == null || zp4Var == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048620, this, aq4Var) == null) || (intent = getIntent()) == null || aq4Var == null) {
             return;
         }
-        zp4Var.c(intent);
+        aq4Var.c(intent);
     }
 
     public void setSmartFrsPosition(int i) {

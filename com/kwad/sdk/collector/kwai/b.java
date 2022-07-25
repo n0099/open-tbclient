@@ -19,9 +19,9 @@ public final class b extends d {
     public static JSONArray a(Collection<e> collection) {
         JSONArray jSONArray = new JSONArray();
         for (e eVar : collection) {
-            JSONObject a = eVar.a();
-            if (a != null) {
-                jSONArray.put(a);
+            JSONObject rv = eVar.rv();
+            if (rv != null) {
+                jSONArray.put(rv);
             }
         }
         return jSONArray;
@@ -29,6 +29,6 @@ public final class b extends d {
 
     @Override // com.kwad.sdk.core.network.b, com.kwad.sdk.core.network.g
     public final String getUrl() {
-        return com.kwad.sdk.b.l();
+        return com.kwad.sdk.b.qT();
     }
 }

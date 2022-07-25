@@ -203,7 +203,7 @@ public class mm6 {
             vh6Var2.h0(bdTypeRecyclerView);
             jd6 jd6Var = new jd6(frsNewAreaFragment.getPageContext(), kd6.b);
             jd6Var.h0(bdTypeRecyclerView);
-            an<? extends qq4, ? extends TypeAdapter.ViewHolder> a2 = wc6.e().a(frsNewAreaFragment.getPageContext(), this.a.getUniqueId(), true);
+            an<? extends rq4, ? extends TypeAdapter.ViewHolder> a2 = wc6.e().a(frsNewAreaFragment.getPageContext(), this.a.getUniqueId(), true);
             an<? extends ThreadData, ? extends TypeAdapter.ViewHolder> d = wc6.e().d(frsNewAreaFragment.getPageContext(), ThreadData.TYPE_LOTTERY, this.a.getUniqueId());
             an<?, ?> d2 = s98.l().d(this.a, AdvertAppInfo.t);
             an<?, ?> d3 = s98.l().d(this.a, AdvertAppInfo.w);
@@ -407,10 +407,10 @@ public class mm6 {
             return;
         }
         for (nn nnVar : this.b.getData()) {
-            if (nnVar instanceof qq4) {
-                qq4 qq4Var = (qq4) nnVar;
-                if (qq4Var.s.getIs_top() != 0) {
-                    qq4Var.s.parser_title();
+            if (nnVar instanceof rq4) {
+                rq4 rq4Var = (rq4) nnVar;
+                if (rq4Var.s.getIs_top() != 0) {
+                    rq4Var.s.parser_title();
                 }
             }
         }

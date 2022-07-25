@@ -21,11 +21,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.j15;
+import com.repackage.k15;
 import com.repackage.pi;
-import com.repackage.q15;
-import com.repackage.u15;
+import com.repackage.r15;
 import com.repackage.v15;
+import com.repackage.w15;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
@@ -33,7 +33,7 @@ import java.util.List;
 public class EditorBar extends RawLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<q15> i;
+    public List<r15> i;
     public List<a> j;
     public int k;
     public Paint l;
@@ -50,15 +50,15 @@ public class EditorBar extends RawLayout {
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public v15 a;
+        public w15 a;
         public int b;
 
-        public a(v15 v15Var, int i, boolean z) {
+        public a(w15 w15Var, int i, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {v15Var, Integer.valueOf(i), Boolean.valueOf(z)};
+                Object[] objArr = {w15Var, Integer.valueOf(i), Boolean.valueOf(z)};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -70,7 +70,7 @@ public class EditorBar extends RawLayout {
             }
             this.a = null;
             this.b = 0;
-            this.a = v15Var;
+            this.a = w15Var;
             this.b = i;
         }
     }
@@ -157,24 +157,24 @@ public class EditorBar extends RawLayout {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.p : invokeV.intValue;
     }
 
-    public void i(int i, q15 q15Var) {
+    public void i(int i, r15 r15Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, q15Var) == null) {
-            this.i.add(i, q15Var);
+        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, r15Var) == null) {
+            this.i.add(i, r15Var);
         }
     }
 
-    public void j(q15 q15Var) {
+    public void j(r15 r15Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, q15Var) == null) {
-            this.i.add(q15Var);
+        if (interceptable == null || interceptable.invokeL(1048579, this, r15Var) == null) {
+            this.i.add(r15Var);
         }
     }
 
-    public void k(v15 v15Var, int i, boolean z) {
+    public void k(w15 w15Var, int i, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{v15Var, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
-            this.j.add(new a(v15Var, i, z));
+        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{w15Var, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
+            this.j.add(new a(w15Var, i, z));
         }
     }
 
@@ -187,17 +187,17 @@ public class EditorBar extends RawLayout {
                 m(true);
                 boolean z = false;
                 for (int i2 = 0; i2 < this.i.size(); i2++) {
-                    q15 q15Var = this.i.get(i2);
-                    if (q15Var instanceof BLauncher) {
-                        BLauncher bLauncher = (BLauncher) q15Var;
+                    r15 r15Var = this.i.get(i2);
+                    if (r15Var instanceof BLauncher) {
+                        BLauncher bLauncher = (BLauncher) r15Var;
                         int i3 = this.p;
                         int i4 = 2;
                         if (i3 == 2) {
-                            layoutParams = new RawLayout.LayoutParams(pi.f(getContext(), R.dimen.obfuscated_res_0x7f0702cd), pi.f(getContext(), R.dimen.obfuscated_res_0x7f0702cd), 80);
+                            layoutParams = new RawLayout.LayoutParams(pi.f(getContext(), R.dimen.obfuscated_res_0x7f0702cb), pi.f(getContext(), R.dimen.obfuscated_res_0x7f0702cb), 80);
                             ((LinearLayout.LayoutParams) layoutParams).leftMargin = pi.f(getContext(), R.dimen.obfuscated_res_0x7f070207);
                             ((LinearLayout.LayoutParams) layoutParams).rightMargin = pi.f(getContext(), R.dimen.obfuscated_res_0x7f070207);
-                            ((LinearLayout.LayoutParams) layoutParams).topMargin = pi.f(getContext(), R.dimen.obfuscated_res_0x7f070274);
-                            ((LinearLayout.LayoutParams) layoutParams).bottomMargin = pi.f(getContext(), R.dimen.obfuscated_res_0x7f070274);
+                            ((LinearLayout.LayoutParams) layoutParams).topMargin = pi.f(getContext(), R.dimen.obfuscated_res_0x7f070272);
+                            ((LinearLayout.LayoutParams) layoutParams).bottomMargin = pi.f(getContext(), R.dimen.obfuscated_res_0x7f070272);
                         } else {
                             if (i3 == 3) {
                                 layoutParams = new RawLayout.LayoutParams(0, pi.f(getContext(), R.dimen.tbds62), 48);
@@ -230,11 +230,11 @@ public class EditorBar extends RawLayout {
                                 ((LinearLayout.LayoutParams) layoutParams).topMargin = bLauncher.getContext().getResources().getDimensionPixelSize(R.dimen.M_H_X004);
                                 ((LinearLayout.LayoutParams) layoutParams).bottomMargin = bLauncher.getContext().getResources().getDimensionPixelSize(R.dimen.M_H_X004);
                             } else if (i3 == 5) {
-                                layoutParams = new RawLayout.LayoutParams(pi.f(getContext(), R.dimen.obfuscated_res_0x7f0702cd), pi.f(getContext(), R.dimen.obfuscated_res_0x7f0702cd), 80);
+                                layoutParams = new RawLayout.LayoutParams(pi.f(getContext(), R.dimen.obfuscated_res_0x7f0702cb), pi.f(getContext(), R.dimen.obfuscated_res_0x7f0702cb), 80);
                                 ((LinearLayout.LayoutParams) layoutParams).leftMargin = pi.f(getContext(), R.dimen.tbds44);
                                 ((LinearLayout.LayoutParams) layoutParams).rightMargin = pi.f(getContext(), R.dimen.tbds78);
-                                ((LinearLayout.LayoutParams) layoutParams).topMargin = pi.f(getContext(), R.dimen.obfuscated_res_0x7f070274);
-                                ((LinearLayout.LayoutParams) layoutParams).bottomMargin = pi.f(getContext(), R.dimen.obfuscated_res_0x7f070274);
+                                ((LinearLayout.LayoutParams) layoutParams).topMargin = pi.f(getContext(), R.dimen.obfuscated_res_0x7f070272);
+                                ((LinearLayout.LayoutParams) layoutParams).bottomMargin = pi.f(getContext(), R.dimen.obfuscated_res_0x7f070272);
                             } else if (i3 == 7) {
                                 int f = pi.f(getContext(), R.dimen.tbds68);
                                 RawLayout.LayoutParams layoutParams2 = new RawLayout.LayoutParams(f, f, 80);
@@ -243,11 +243,11 @@ public class EditorBar extends RawLayout {
                                 ((LinearLayout.LayoutParams) layoutParams2).topMargin = pi.f(TbadkCoreApplication.getInst(), R.dimen.tbds46);
                                 layoutParams = layoutParams2;
                             } else {
-                                layoutParams = new RawLayout.LayoutParams(pi.f(getContext(), R.dimen.obfuscated_res_0x7f0702cd), pi.f(getContext(), R.dimen.obfuscated_res_0x7f0702cd), 80);
-                                ((LinearLayout.LayoutParams) layoutParams).leftMargin = bLauncher.getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702f8);
-                                ((LinearLayout.LayoutParams) layoutParams).rightMargin = bLauncher.getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702f8);
-                                ((LinearLayout.LayoutParams) layoutParams).bottomMargin = bLauncher.getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07024e);
-                                ((LinearLayout.LayoutParams) layoutParams).topMargin = bLauncher.getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07024e);
+                                layoutParams = new RawLayout.LayoutParams(pi.f(getContext(), R.dimen.obfuscated_res_0x7f0702cb), pi.f(getContext(), R.dimen.obfuscated_res_0x7f0702cb), 80);
+                                ((LinearLayout.LayoutParams) layoutParams).leftMargin = bLauncher.getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702f6);
+                                ((LinearLayout.LayoutParams) layoutParams).rightMargin = bLauncher.getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702f6);
+                                ((LinearLayout.LayoutParams) layoutParams).bottomMargin = bLauncher.getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07024c);
+                                ((LinearLayout.LayoutParams) layoutParams).topMargin = bLauncher.getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07024c);
                             }
                             i4 = 2;
                         }
@@ -292,7 +292,7 @@ public class EditorBar extends RawLayout {
                     } else if (i == 8) {
                         layoutParams.a(2);
                     }
-                    if (((v15) view2).getToolId() == 8) {
+                    if (((w15) view2).getToolId() == 8) {
                         SkinManager.setBackgroundResource(this, R.color.common_color_10055);
                         view2.setBackgroundColor(getResources().getColor(R.color.white_alpha0));
                     }
@@ -302,30 +302,30 @@ public class EditorBar extends RawLayout {
         }
     }
 
-    public void n(u15 u15Var) {
+    public void n(v15 v15Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, u15Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048583, this, v15Var) == null) {
             int i = this.p;
             if (i == 1) {
-                if (u15Var == null) {
-                    for (q15 q15Var : this.i) {
-                        if (q15Var instanceof View) {
-                            ((View) q15Var).setSelected(false);
+                if (v15Var == null) {
+                    for (r15 r15Var : this.i) {
+                        if (r15Var instanceof View) {
+                            ((View) r15Var).setSelected(false);
                         }
                     }
                     return;
                 }
-                for (q15 q15Var2 : this.i) {
-                    if (q15Var2 instanceof View) {
-                        View view2 = (View) q15Var2;
-                        if (q15Var2.getToolId() == u15Var.c && u15Var.k) {
+                for (r15 r15Var2 : this.i) {
+                    if (r15Var2 instanceof View) {
+                        View view2 = (View) r15Var2;
+                        if (r15Var2.getToolId() == v15Var.c && v15Var.k) {
                             view2.setSelected(true);
                         } else {
                             view2.setSelected(false);
                         }
-                        int i2 = u15Var.c;
+                        int i2 = v15Var.c;
                         if (i2 == 12 || i2 == 16) {
-                            if (q15Var2.getToolId() == 2) {
+                            if (r15Var2.getToolId() == 2) {
                                 view2.setSelected(true);
                             } else {
                                 view2.setSelected(false);
@@ -337,9 +337,9 @@ public class EditorBar extends RawLayout {
                 if (i == 7) {
                     for (a aVar : this.j) {
                         if (aVar != null) {
-                            v15 v15Var = aVar.a;
-                            if (v15Var instanceof View) {
-                                View view3 = (View) v15Var;
+                            w15 w15Var = aVar.a;
+                            if (w15Var instanceof View) {
+                                View view3 = (View) w15Var;
                                 if (view3 instanceof EmotionNoLaunchView) {
                                     ((EmotionNoLaunchView) view3).r();
                                     return;
@@ -350,19 +350,19 @@ public class EditorBar extends RawLayout {
                         }
                     }
                 }
-            } else if (u15Var == null) {
-                for (q15 q15Var3 : this.i) {
-                    if (q15Var3 instanceof View) {
-                        ((View) q15Var3).setSelected(false);
+            } else if (v15Var == null) {
+                for (r15 r15Var3 : this.i) {
+                    if (r15Var3 instanceof View) {
+                        ((View) r15Var3).setSelected(false);
                     }
                 }
             } else {
-                int i3 = u15Var.c;
+                int i3 = v15Var.c;
                 if (i3 == 5 || i3 == 2 || i3 == 6) {
-                    for (q15 q15Var4 : this.i) {
-                        if (q15Var4 instanceof View) {
-                            View view4 = (View) q15Var4;
-                            if (q15Var4.getToolId() == u15Var.c && u15Var.k) {
+                    for (r15 r15Var4 : this.i) {
+                        if (r15Var4 instanceof View) {
+                            View view4 = (View) r15Var4;
+                            if (r15Var4.getToolId() == v15Var.c && v15Var.k) {
                                 view4.setSelected(true);
                             } else {
                                 view4.setSelected(false);
@@ -379,7 +379,7 @@ public class EditorBar extends RawLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
             if (i == 2 && u() && (editorTools = this.q) != null) {
-                editorTools.A(new j15(1, 3, null));
+                editorTools.A(new k15(1, 3, null));
                 return;
             }
             a r = r(i);
@@ -387,46 +387,46 @@ public class EditorBar extends RawLayout {
                 return;
             }
             if (r.b == 5) {
-                for (q15 q15Var : this.i) {
-                    if (q15Var.getToolId() != 2 && q15Var.getToolId() != 1) {
-                        q15Var.hide();
+                for (r15 r15Var : this.i) {
+                    if (r15Var.getToolId() != 2 && r15Var.getToolId() != 1) {
+                        r15Var.hide();
                     } else {
-                        q15Var.r();
+                        r15Var.r();
                     }
                 }
                 for (a aVar : this.j) {
-                    v15 v15Var = aVar.a;
-                    if (v15Var != null) {
+                    w15 w15Var = aVar.a;
+                    if (w15Var != null) {
                         int i2 = aVar.b;
                         if (i2 != 5 && i2 != 8) {
-                            v15Var.hide();
+                            w15Var.hide();
                         } else {
                             aVar.a.r();
                         }
                     }
                 }
             } else {
-                for (q15 q15Var2 : this.i) {
-                    if (q15Var2.getToolId() == 1) {
-                        q15Var2.hide();
+                for (r15 r15Var2 : this.i) {
+                    if (r15Var2.getToolId() == 1) {
+                        r15Var2.hide();
                     } else {
-                        if (q15Var2 instanceof BLauncher) {
-                            BLauncher bLauncher = (BLauncher) q15Var2;
+                        if (r15Var2 instanceof BLauncher) {
+                            BLauncher bLauncher = (BLauncher) r15Var2;
                             if (bLauncher.getVisibility() == 8 && bLauncher.getIsOutSetVisibility()) {
                                 bLauncher.hide();
                             }
                         }
-                        q15Var2.r();
+                        r15Var2.r();
                     }
                 }
                 for (a aVar2 : this.j) {
-                    v15 v15Var2 = aVar2.a;
-                    if (v15Var2 != null) {
+                    w15 w15Var2 = aVar2.a;
+                    if (w15Var2 != null) {
                         int i3 = aVar2.b;
                         if (i3 == 5) {
-                            v15Var2.hide();
+                            w15Var2.hide();
                         } else if (i3 != 8) {
-                            v15Var2.r();
+                            w15Var2.r();
                         }
                     }
                 }
@@ -507,18 +507,18 @@ public class EditorBar extends RawLayout {
         }
     }
 
-    public q15 q(int i) {
+    public r15 q(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048588, this, i)) == null) {
-            for (q15 q15Var : this.i) {
-                if (q15Var.getToolId() == i) {
-                    return q15Var;
+            for (r15 r15Var : this.i) {
+                if (r15Var.getToolId() == i) {
+                    return r15Var;
                 }
             }
             return null;
         }
-        return (q15) invokeI.objValue;
+        return (r15) invokeI.objValue;
     }
 
     public final a r(int i) {
@@ -526,8 +526,8 @@ public class EditorBar extends RawLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048589, this, i)) == null) {
             for (a aVar : this.j) {
-                v15 v15Var = aVar.a;
-                if (v15Var != null && v15Var.getToolId() == i) {
+                w15 w15Var = aVar.a;
+                if (w15Var != null && w15Var.getToolId() == i) {
                     return aVar;
                 }
             }
@@ -540,10 +540,10 @@ public class EditorBar extends RawLayout {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048590, this, i)) == null) {
-            for (q15 q15Var : this.i) {
-                if (q15Var instanceof View) {
-                    View view2 = (View) q15Var;
-                    if (q15Var.getToolId() == i) {
+            for (r15 r15Var : this.i) {
+                if (r15Var instanceof View) {
+                    View view2 = (View) r15Var;
+                    if (r15Var.getToolId() == i) {
                         return view2;
                     }
                 }
@@ -563,9 +563,9 @@ public class EditorBar extends RawLayout {
     public void setBarLauncherEnabled(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048592, this, z) == null) {
-            for (q15 q15Var : this.i) {
-                if (q15Var != null && (q15Var instanceof View)) {
-                    ((View) q15Var).setEnabled(z);
+            for (r15 r15Var : this.i) {
+                if (r15Var != null && (r15Var instanceof View)) {
+                    ((View) r15Var).setEnabled(z);
                 }
             }
         }
@@ -595,11 +595,11 @@ public class EditorBar extends RawLayout {
 
     public final boolean u() {
         InterceptResult invokeV;
-        v15 v15Var;
+        w15 w15Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
             for (a aVar : this.j) {
-                if (aVar.b == 5 && (v15Var = aVar.a) != null && (v15Var instanceof View) && ((View) v15Var).getVisibility() == 0) {
+                if (aVar.b == 5 && (w15Var = aVar.a) != null && (w15Var instanceof View) && ((View) w15Var).getVisibility() == 0) {
                     return true;
                 }
             }
@@ -613,13 +613,13 @@ public class EditorBar extends RawLayout {
         if (interceptable == null || interceptable.invokeI(1048596, this, i) == null) {
             this.k = i;
             SkinManager.setBackgroundColor(this, this.n);
-            for (q15 q15Var : this.i) {
-                q15Var.onChangeSkinType(i);
+            for (r15 r15Var : this.i) {
+                r15Var.onChangeSkinType(i);
             }
             for (a aVar : this.j) {
-                v15 v15Var = aVar.a;
-                if (v15Var != null) {
-                    v15Var.onChangeSkinType(i);
+                w15 w15Var = aVar.a;
+                if (w15Var != null) {
+                    w15Var.onChangeSkinType(i);
                 }
             }
             invalidate();
@@ -627,12 +627,12 @@ public class EditorBar extends RawLayout {
     }
 
     public void w(View.OnClickListener onClickListener) {
-        List<q15> list;
+        List<r15> list;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048597, this, onClickListener) == null) || (list = this.i) == null || list.size() == 0) {
             return;
         }
-        Iterator<q15> it = this.i.iterator();
+        Iterator<r15> it = this.i.iterator();
         while (it.hasNext()) {
             ((View) it.next()).setOnClickListener(onClickListener);
         }
@@ -642,10 +642,10 @@ public class EditorBar extends RawLayout {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048598, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i)})) == null) {
-            for (q15 q15Var : this.i) {
-                if (q15Var instanceof View) {
-                    View view2 = (View) q15Var;
-                    if (q15Var.getToolId() == i) {
+            for (r15 r15Var : this.i) {
+                if (r15Var instanceof View) {
+                    View view2 = (View) r15Var;
+                    if (r15Var.getToolId() == i) {
                         view2.setEnabled(z);
                         return true;
                     }

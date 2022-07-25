@@ -22,7 +22,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.oi;
 import com.repackage.pi;
-import com.repackage.ur4;
+import com.repackage.vr4;
 /* loaded from: classes3.dex */
 public class TopicEnterButton extends AppCompatTextView implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
@@ -105,7 +105,7 @@ public class TopicEnterButton extends AppCompatTextView implements View.OnClickL
     public void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            ur4 d2 = ur4.d(this);
+            vr4 d2 = vr4.d(this);
             d2.A(R.string.F_X01);
             d2.z(R.dimen.T_X09);
             d2.v(R.color.CAM_X0304);

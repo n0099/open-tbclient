@@ -32,7 +32,7 @@ public class BatchReportResult extends BaseResultData implements com.kwad.sdk.co
     @Override // com.kwad.sdk.core.network.BaseResultData, com.kwad.sdk.core.b
     public JSONObject toJson() {
         JSONObject json = super.toJson();
-        r.a(json, "interval", this.interval);
+        r.putValue(json, "interval", this.interval);
         return json;
     }
 }

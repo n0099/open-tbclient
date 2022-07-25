@@ -22,7 +22,7 @@ public class xx extends xw {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public RichTextLayout h;
-    public nn4 i;
+    public on4 i;
     public int j;
     public String k;
 
@@ -155,12 +155,12 @@ public class xx extends xw {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.repackage.gx
     /* renamed from: v */
-    public void a(nn4 nn4Var) {
+    public void a(on4 on4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, nn4Var) == null) {
-            this.i = nn4Var;
+        if (interceptable == null || interceptable.invokeL(1048580, this, on4Var) == null) {
+            this.i = on4Var;
             this.h.setTransmit(g().booleanValue());
-            this.h.a(nn4Var);
+            this.h.a(on4Var);
             this.h.setJumpToPbListener(new a(this));
             this.h.setFrom(this.k);
         }

@@ -33,6 +33,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.webkit.sdk.PermissionRequest;
 import java.io.File;
 /* loaded from: classes2.dex */
 public class BaseOptionActivity extends AppCompatActivity implements View.OnClickListener {
@@ -296,7 +297,7 @@ public class BaseOptionActivity extends AppCompatActivity implements View.OnClic
                             }
                             Intent intent2 = new Intent();
                             intent2.setType(BdUploadHandler.IMAGE_MIME_TYPE);
-                            intent2.setAction("android.intent.action.GET_CONTENT");
+                            intent2.setAction("android.intent.action.PICK");
                             this.a.startActivityForResult(intent2, 1002);
                         } catch (Throwable th) {
                             Log.e(th);
@@ -320,7 +321,7 @@ public class BaseOptionActivity extends AppCompatActivity implements View.OnClic
             PermissionsDTO permissionsDTO = new PermissionsDTO();
             permissionsDTO.context = this;
             permissionsDTO.isDarkMode = z;
-            permissionsDTO.permissions = new String[]{"android.permission.CAMERA"};
+            permissionsDTO.permissions = new String[]{PermissionRequest.RESOURCE_VIDEO_CAPTURE};
             permissionsDTO.dialogTitle = "权限申请";
             permissionsDTO.dialogMsg = "为了正常使用图片上传服务，请允许使用摄像头权限。你可以通过系统\"设置\"进行权限的管理";
             PassPermissions.getInstance().requestPermissions(permissionsDTO, new PermissionsCallback(this) { // from class: com.baidu.sapi2.activity.BaseOptionActivity.1
@@ -360,7 +361,7 @@ public class BaseOptionActivity extends AppCompatActivity implements View.OnClic
                     if (interceptable2 == null || interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
                         try {
                             if (!"mounted".equals(Environment.getExternalStorageState())) {
-                                Toast.makeText(this.a, (int) R.string.obfuscated_res_0x7f0f108d, 0).show();
+                                Toast.makeText(this.a, (int) R.string.obfuscated_res_0x7f0f1049, 0).show();
                                 return;
                             }
                             File file = new File(this.a.getExternalCacheDir(), "camera_temp_image.jpg");

@@ -84,31 +84,31 @@ public class f89 implements SurfaceTexture.OnFrameAvailableListener, GLSurfaceVi
     public float Y;
     public float Z;
     public Context a;
+    public float a0;
     public w79.e b;
+    public float b0;
     public w79.d c;
+    public int c0;
     public SurfaceTexture.OnFrameAvailableListener d;
+    public int d0;
     public GLSurfaceView e;
+    public volatile m89 e0;
     public int f;
+    public int f0;
     public int g;
-    public float g0;
+    public int g0;
     public int h;
-    public float h0;
+    public s89 h0;
     public int i;
-    public int i0;
+    public boolean i0;
     public int j;
-    public int j0;
+    public x79 j0;
     public boolean k;
-    public volatile m89 k0;
     public String l;
-    public int l0;
     public String m;
-    public int m0;
     public w79.b n;
-    public s89 n0;
     public boolean o;
-    public boolean o0;
     public Handler p;
-    public x79 p0;
     public boolean q;
     public boolean q0;
     public int r;
@@ -134,13 +134,13 @@ public class f89 implements SurfaceTexture.OnFrameAvailableListener, GLSurfaceVi
 
         /* renamed from: com.repackage.f89$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class RunnableC0631a implements Runnable {
+        public class RunnableC0473a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ int a;
             public final /* synthetic */ a b;
 
-            public RunnableC0631a(a aVar, int i) {
+            public RunnableC0473a(a aVar, int i) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -165,7 +165,7 @@ public class f89 implements SurfaceTexture.OnFrameAvailableListener, GLSurfaceVi
                 if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.b.a.b == null) {
                     return;
                 }
-                this.b.a.b.d(this.a);
+                this.b.a.b.c(this.a);
             }
         }
 
@@ -197,26 +197,26 @@ public class f89 implements SurfaceTexture.OnFrameAvailableListener, GLSurfaceVi
         }
 
         @Override // com.repackage.p89.l
-        public void b(SurfaceTexture surfaceTexture) {
+        public void b() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, surfaceTexture) == null) {
-            }
-        }
-
-        @Override // com.repackage.p89.l
-        public void c() {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.a.b == null) {
+            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.a.b == null) {
                 return;
             }
-            this.a.b.c();
+            this.a.b.b();
         }
 
         @Override // com.repackage.p89.l
-        public void d(int i) {
+        public void c(int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-                this.a.p.post(new RunnableC0631a(this, i));
+            if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+                this.a.p.post(new RunnableC0473a(this, i));
+            }
+        }
+
+        @Override // com.repackage.p89.l
+        public void d(SurfaceTexture surfaceTexture) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048579, this, surfaceTexture) == null) {
             }
         }
 
@@ -376,7 +376,7 @@ public class f89 implements SurfaceTexture.OnFrameAvailableListener, GLSurfaceVi
             if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.b.b == null) {
                 return;
             }
-            this.b.b.h(this.a);
+            this.b.b.g(this.a);
         }
     }
 
@@ -410,7 +410,7 @@ public class f89 implements SurfaceTexture.OnFrameAvailableListener, GLSurfaceVi
             if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.a.b == null) {
                 return;
             }
-            this.a.b.g(this.a.i, this.a.j);
+            this.a.b.f(this.a.i, this.a.j);
         }
     }
 
@@ -507,20 +507,20 @@ public class f89 implements SurfaceTexture.OnFrameAvailableListener, GLSurfaceVi
         }
 
         @Override // com.repackage.h89.b
-        public void b(long j) {
+        public void onError(int i, String str) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeJ(1048576, this, j) == null) || this.a.b == null) {
-                return;
+            if (interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) {
+                this.a.t(i, str);
             }
-            this.a.b.b(j);
         }
 
         @Override // com.repackage.h89.b
-        public void onError(int i, String str) {
+        public void onProgress(long j) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) {
-                this.a.t(i, str);
+            if (!(interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) || this.a.b == null) {
+                return;
             }
+            this.a.b.onProgress(j);
         }
 
         @Override // com.repackage.h89.b
@@ -620,7 +620,7 @@ public class f89 implements SurfaceTexture.OnFrameAvailableListener, GLSurfaceVi
                 if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.b.a.b == null) {
                     return;
                 }
-                this.b.a.b.b(this.a);
+                this.b.a.b.onProgress(this.a);
             }
         }
 
@@ -1062,8 +1062,8 @@ public class f89 implements SurfaceTexture.OnFrameAvailableListener, GLSurfaceVi
         this.W = null;
         this.Y = 0.0f;
         this.Z = 0.0f;
-        this.g0 = 0.0f;
-        this.h0 = 0.0f;
+        this.a0 = 0.0f;
+        this.b0 = 0.0f;
         this.q0 = false;
         this.s0 = true;
         this.v0 = new l(this);
@@ -1132,7 +1132,7 @@ public class f89 implements SurfaceTexture.OnFrameAvailableListener, GLSurfaceVi
             this.t = true;
             w79.e eVar = this.b;
             if (eVar != null) {
-                eVar.f();
+                eVar.e();
             }
         }
     }
@@ -1190,8 +1190,8 @@ public class f89 implements SurfaceTexture.OnFrameAvailableListener, GLSurfaceVi
     public void K(int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048583, this, i2, i3) == null) {
-            this.i0 = i2;
-            this.j0 = i3;
+            this.c0 = i2;
+            this.d0 = i3;
         }
     }
 
@@ -1354,7 +1354,7 @@ public class f89 implements SurfaceTexture.OnFrameAvailableListener, GLSurfaceVi
             this.B.t(this.I);
             this.B.h(this.A);
             this.B.s(this.U);
-            this.B.m(this.o0);
+            this.B.m(this.i0);
             this.B.p(this.q0);
             o();
             long currentTimeMillis = System.currentTimeMillis();
@@ -1490,9 +1490,9 @@ public class f89 implements SurfaceTexture.OnFrameAvailableListener, GLSurfaceVi
     public void f0(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048600, this, z) == null) {
-            this.o0 = z;
+            this.i0 = z;
             n();
-            if (this.o0) {
+            if (this.i0) {
                 return;
             }
             o();
@@ -1563,7 +1563,7 @@ public class f89 implements SurfaceTexture.OnFrameAvailableListener, GLSurfaceVi
             this.o = false;
             w79.e eVar = this.b;
             if (eVar != null) {
-                eVar.e();
+                eVar.d();
             }
             boolean k2 = this.n.k(this.C.g0(), this);
             this.p.post(new d(this, k2));
@@ -1619,22 +1619,22 @@ public class f89 implements SurfaceTexture.OnFrameAvailableListener, GLSurfaceVi
 
     public final void m() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048609, this) == null) || this.k0 == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048609, this) == null) || this.e0 == null) {
             return;
         }
         this.v.setWaitingDrawFrame(true);
-        Bitmap N = N(this.l0, this.m0);
-        int i2 = this.i0;
-        int i3 = this.j0;
+        Bitmap N = N(this.f0, this.g0);
+        int i2 = this.c0;
+        int i3 = this.d0;
         float f2 = this.r0;
         if (f2 != 0.0f && N != null) {
-            int i4 = this.m0;
-            int i5 = this.l0;
+            int i4 = this.g0;
+            int i5 = this.f0;
             N = x89.d(N, 0, (int) ((((i4 - ((int) (i5 * f2))) / 2) * 0.466f) / 0.5f), i5, (int) (i5 * f2), true);
             i3 = (int) (i2 * this.r0);
         }
-        this.k0.a(x89.g(N, i2, i3, true));
-        this.k0 = null;
+        this.e0.a(x89.g(N, i2, i3, true));
+        this.e0 = null;
     }
 
     public final void m0(boolean z) {
@@ -1660,23 +1660,23 @@ public class f89 implements SurfaceTexture.OnFrameAvailableListener, GLSurfaceVi
 
     public final void n() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048611, this) == null) && this.o0 && !h0()) {
-            if (this.p0 == null) {
+        if ((interceptable == null || interceptable.invokeV(1048611, this) == null) && this.i0 && !h0()) {
+            if (this.j0 == null) {
                 x79 x79Var = new x79();
-                this.p0 = x79Var;
+                this.j0 = x79Var;
                 x79Var.d(this.v0);
             }
-            if (this.p0.h()) {
+            if (this.j0.h()) {
                 return;
             }
-            this.p0.c();
+            this.j0.c();
         }
     }
 
     public final void o() {
         x79 x79Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048612, this) == null) || (x79Var = this.p0) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048612, this) == null) || (x79Var = this.j0) == null) {
             return;
         }
         x79Var.e();
@@ -1839,8 +1839,8 @@ public class f89 implements SurfaceTexture.OnFrameAvailableListener, GLSurfaceVi
     public void onSurfaceChanged(GL10 gl10, int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLII(1048620, this, gl10, i2, i3) == null) {
-            this.l0 = i2;
-            this.m0 = i3;
+            this.f0 = i2;
+            this.g0 = i3;
         }
     }
 
@@ -1960,7 +1960,7 @@ public class f89 implements SurfaceTexture.OnFrameAvailableListener, GLSurfaceVi
             mediaGLRenderer.setRendererListener(this);
             this.v.setOnDrawFrameFrequencyListener(this);
             this.v.setOnMediaGLRendererStatusListener(this);
-            this.v.setTextureReader(this.n0);
+            this.v.setTextureReader(this.h0);
             this.v.setGlClearColor(0.102f, 0.102f, 0.102f, 0.0f);
             this.e.setRenderer(this.v);
             this.e.setOnTouchListener(new b(this));
@@ -1998,21 +1998,21 @@ public class f89 implements SurfaceTexture.OnFrameAvailableListener, GLSurfaceVi
         }
         GLES20.glEnable(3089);
         GLES20.glScissor(0, 0, gLViewPortLocation.width, (int) (gLViewPortLocation.height * f3));
-        GLES20.glClearColor(this.Y, this.Z, this.g0, this.h0);
+        GLES20.glClearColor(this.Y, this.Z, this.a0, this.b0);
         GLES20.glClear(16640);
         int i2 = gLViewPortLocation.height;
         GLES20.glScissor(0, (int) (i2 * f5), gLViewPortLocation.width, i2);
-        GLES20.glClearColor(this.Y, this.Z, this.g0, this.h0);
+        GLES20.glClearColor(this.Y, this.Z, this.a0, this.b0);
         GLES20.glClear(16640);
         int i3 = gLViewPortLocation.height;
         float f6 = f5 - f3;
         GLES20.glScissor(0, (int) (i3 * f3), (int) (gLViewPortLocation.width * f2), (int) (i3 * f6));
-        GLES20.glClearColor(this.Y, this.Z, this.g0, this.h0);
+        GLES20.glClearColor(this.Y, this.Z, this.a0, this.b0);
         GLES20.glClear(16640);
         int i4 = gLViewPortLocation.width;
         int i5 = gLViewPortLocation.height;
         GLES20.glScissor((int) (i4 * f4), (int) (i5 * f3), (int) (i4 * (1.0f - f4)), (int) (i5 * f6));
-        GLES20.glClearColor(this.Y, this.Z, this.g0, this.h0);
+        GLES20.glClearColor(this.Y, this.Z, this.a0, this.b0);
         GLES20.glClear(16640);
         GLES20.glDisable(3089);
     }

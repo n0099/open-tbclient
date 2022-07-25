@@ -171,7 +171,7 @@ public class HotTopicTabModel extends BdBaseModel {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
             if (!ni.A()) {
-                pi.N(TbadkCoreApplication.getInst(), R.string.obfuscated_res_0x7f0f0c2b);
+                pi.N(TbadkCoreApplication.getInst(), R.string.obfuscated_res_0x7f0f0c17);
                 return false;
             } else if (this.c) {
                 return false;

@@ -81,10 +81,10 @@ public class MsgReplyCardViewItemAdapter extends MsgCommonItemAdapter<MsgReplyCa
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), view2, viewGroup, chatMessage, msgViewHolder})) == null) {
             super.S(i, view2, viewGroup, chatMessage, msgViewHolder);
-            MsgReplyCardView c = msgViewHolder.c();
-            c.W(this.i, chatMessage, viewGroup);
-            c.z(this.j);
-            c.B(i);
+            MsgReplyCardView b = msgViewHolder.b();
+            b.W(this.i, chatMessage, viewGroup);
+            b.z(this.j);
+            b.B(i);
             this.i.getLayoutMode().k(false);
             this.i.getLayoutMode().j(view2);
             return view2;

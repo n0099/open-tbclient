@@ -11,7 +11,7 @@ import com.kwad.sdk.mvp.Presenter;
 public class a extends Presenter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public com.kwad.components.ad.reward.l a;
+    public com.kwad.components.ad.reward.k nM;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -27,29 +27,29 @@ public class a extends Presenter {
         }
     }
 
-    @Override // com.kwad.sdk.mvp.Presenter
-    public void a() {
+    public final void L(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            super.a();
-            this.a = (com.kwad.components.ad.reward.l) t();
-        }
-    }
-
-    public final void a(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
             int i = z ? 1 : 153;
-            com.kwad.components.ad.reward.l lVar = this.a;
-            com.kwad.sdk.core.report.a.a(lVar.g, i, lVar.h.getTouchCoords(), this.a.e);
-            this.a.b.a();
+            com.kwad.components.ad.reward.k kVar = this.nM;
+            com.kwad.sdk.core.report.a.a(kVar.mAdTemplate, i, kVar.mRootContainer.getTouchCoords(), this.nM.mReportExtData);
+            this.nM.mAdOpenInteractionListener.bB();
         }
     }
 
-    public final void j() {
+    @Override // com.kwad.sdk.mvp.Presenter
+    public void aq() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            super.aq();
+            this.nM = (com.kwad.components.ad.reward.k) xR();
+        }
+    }
+
+    public final void gR() {
         Activity activity;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (activity = this.a.L) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (activity = this.nM.getActivity()) == null) {
             return;
         }
         activity.finish();

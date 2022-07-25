@@ -49,7 +49,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.cr4;
+import com.repackage.dr4;
 import java.util.ArrayList;
 import java.util.Iterator;
 import tbclient.VideoRedIcon.RedIcon;
@@ -100,12 +100,12 @@ public class al8 {
 
         /* renamed from: com.repackage.al8$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class RunnableC0590a implements Runnable {
+        public class RunnableC0435a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ CustomResponsedMessage a;
 
-            public RunnableC0590a(a aVar, CustomResponsedMessage customResponsedMessage) {
+            public RunnableC0435a(a aVar, CustomResponsedMessage customResponsedMessage) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -155,10 +155,10 @@ public class al8 {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, redIcon) == null) || redIcon == null) {
                 return;
             }
-            q55 q55Var = new q55();
-            q55Var.g = redIcon.image;
-            q55Var.e = 22;
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921492, q55Var));
+            r55 r55Var = new r55();
+            r55Var.g = redIcon.image;
+            r55Var.e = 22;
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921492, r55Var));
         }
 
         public final void b(int i) {
@@ -170,7 +170,7 @@ public class al8 {
                 } else {
                     prePageKey = TbPageExtraHelper.getPrePageKey();
                 }
-                qg.a().postDelayed(new RunnableC0590a(this, new CustomResponsedMessage(2921520, prePageKey)), 100L);
+                qg.a().postDelayed(new RunnableC0435a(this, new CustomResponsedMessage(2921520, prePageKey)), 100L);
             }
         }
 
@@ -208,7 +208,7 @@ public class al8 {
                                 this.a.x.m();
                             }
                         } else {
-                            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921452, new t05(0)));
+                            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921452, new u05(0)));
                             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921308, Integer.valueOf(i)));
                         }
                         return false;
@@ -350,15 +350,15 @@ public class al8 {
                             TbSingleton.getInstance().setCurrentClickTime(logWithBackTime);
                         }
                     }
-                    j65.b().c();
-                    j65.b().l(true);
+                    k65.b().c();
+                    k65.b().l(true);
                     if (this.a.b.i(this.a.b.getCurrentTabIndex()) == null || this.a.b.i(this.a.b.getCurrentTabIndex()).a != 22) {
                         if (this.a.b.getFragmentTabWidget() != null) {
                             this.a.b.getFragmentTabWidget().g(true, R.color.CAM_X0215);
                         }
                         this.a.b.q(true);
                         if (!ni.z()) {
-                            pi.L(this.a.a, this.a.a.getResources().getString(R.string.obfuscated_res_0x7f0f0c2b));
+                            pi.L(this.a.a, this.a.a.getResources().getString(R.string.obfuscated_res_0x7f0f0c17));
                         }
                         if (!TbSingleton.getInstance().isFromFeedVideoClick()) {
                             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921580, Boolean.TRUE));
@@ -376,8 +376,8 @@ public class al8 {
                         TbSingleton.getInstance().setVideoChannelRecommendRedIcon(videoChannelRecommendRedIcon);
                         a(videoChannelRecommendRedIcon);
                     }
-                    j65.b().o();
-                    j65.b().l(false);
+                    k65.b().o();
+                    k65.b().l(false);
                     if (this.a.b.getFragmentTabWidget() != null) {
                         this.a.b.getFragmentTabWidget().g(false, R.color.CAM_X0207);
                     }
@@ -449,10 +449,10 @@ public class al8 {
                 if (this.a.b.getCurrentTabType() != this.a.b.i(i).a) {
                     this.a.b.setCurrentTab(i);
                 }
-                if (this.a.b.getCurrentTabType() == 1 && !xt4.k().h("has_guide_popup_window_been_shown", false)) {
+                if (this.a.b.getCurrentTabType() == 1 && !yt4.k().h("has_guide_popup_window_been_shown", false)) {
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921474));
                 }
-                if (xt4.k().h("enter_forum_edit_mode", false)) {
+                if (yt4.k().h("enter_forum_edit_mode", false)) {
                     if (this.a.b.getCurrentTabType() != 3) {
                         if (this.a.b.getCurrentTabType() == 2) {
                             TiebaStatic.log(TbadkCoreStatisticKey.ENTER_FORUM_EDIT_RECOMMENDFRS_CLICK);
@@ -536,7 +536,7 @@ public class al8 {
             }
             FragmentTabWidget fragmentTabWidget = this.a.b.getFragmentTabWidget();
             pi.k(this.a.a.getActivity());
-            int f = pi.f(this.a.a.getActivity(), R.dimen.obfuscated_res_0x7f070260);
+            int f = pi.f(this.a.a.getActivity(), R.dimen.obfuscated_res_0x7f07025e);
             View contentView = this.a.h.getContentView();
             if (contentView == null) {
                 return;
@@ -554,7 +554,7 @@ public class al8 {
                 measuredWidth2 = pi.f(this.a.a.getActivity(), R.dimen.tbds570);
             }
             sg.l(this.a.h, fragmentTabWidget, measuredWidth2, -f);
-            xt4.k().u("show_maintab_last_message_tips", true);
+            yt4.k().u("show_maintab_last_message_tips", true);
             this.a.i = true;
             this.a.j.postDelayed(this.a.H, 5000L);
         }
@@ -594,7 +594,7 @@ public class al8 {
     }
 
     /* loaded from: classes5.dex */
-    public class f implements cr4.e {
+    public class f implements dr4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -614,20 +614,20 @@ public class al8 {
             }
         }
 
-        @Override // com.repackage.cr4.e
-        public void onClick(cr4 cr4Var) {
+        @Override // com.repackage.dr4.e
+        public void onClick(dr4 dr4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, cr4Var) == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, dr4Var) == null) {
                 StatisticItem statisticItem = new StatisticItem("c12137");
                 statisticItem.param("obj_locate", "1");
                 TiebaStatic.log(statisticItem);
-                cr4Var.dismiss();
+                dr4Var.dismiss();
             }
         }
     }
 
     /* loaded from: classes5.dex */
-    public class g implements cr4.e {
+    public class g implements dr4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -647,14 +647,14 @@ public class al8 {
             }
         }
 
-        @Override // com.repackage.cr4.e
-        public void onClick(cr4 cr4Var) {
+        @Override // com.repackage.dr4.e
+        public void onClick(dr4 dr4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, cr4Var) == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, dr4Var) == null) {
                 StatisticItem statisticItem = new StatisticItem("c12137");
                 statisticItem.param("obj_locate", "2");
                 TiebaStatic.log(statisticItem);
-                cr4Var.dismiss();
+                dr4Var.dismiss();
                 es6.d();
             }
         }
@@ -690,15 +690,15 @@ public class al8 {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            q55 q55Var;
+            r55 r55Var;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || this.a.b == null || !(customResponsedMessage.getData() instanceof q55) || (q55Var = (q55) customResponsedMessage.getData()) == null || this.a.b.j(q55Var.e) == null || this.a.b.getCurrentTabType() == q55Var.e) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || this.a.b == null || !(customResponsedMessage.getData() instanceof r55) || (r55Var = (r55) customResponsedMessage.getData()) == null || this.a.b.j(r55Var.e) == null || this.a.b.getCurrentTabType() == r55Var.e) {
                 return;
             }
-            TbFragmentTabIndicator tbFragmentTabIndicator = this.a.b.j(q55Var.e).b;
+            TbFragmentTabIndicator tbFragmentTabIndicator = this.a.b.j(r55Var.e).b;
             if (tbFragmentTabIndicator instanceof MaintabBottomIndicator) {
-                ((MaintabBottomIndicator) tbFragmentTabIndicator).setImageIconUrl(q55Var.g, q55Var.c);
-                if (TextUtils.isEmpty(q55Var.g)) {
+                ((MaintabBottomIndicator) tbFragmentTabIndicator).setImageIconUrl(r55Var.g, r55Var.c);
+                if (TextUtils.isEmpty(r55Var.g)) {
                     return;
                 }
                 this.a.s = true;
@@ -814,35 +814,35 @@ public class al8 {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            t55 c;
-            t55 c2;
-            t55 c3;
-            t55 c4;
-            t55 c5;
-            t55 c6;
+            u55 c;
+            u55 c2;
+            u55 c3;
+            u55 c4;
+            u55 c5;
+            u55 c6;
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && this.a.b != null && (customResponsedMessage.getData() instanceof Boolean) && ((Boolean) customResponsedMessage.getData()).booleanValue()) {
                 FragmentTabHost.b j = this.a.b.j(2);
-                if (j != null && (j.b instanceof MaintabBottomIndicator) && (c6 = v55.d().c("homePage")) != null) {
+                if (j != null && (j.b instanceof MaintabBottomIndicator) && (c6 = w55.d().c("homePage")) != null) {
                     ((MaintabBottomIndicator) j.b).setDynamicIconData(c6);
                 }
                 FragmentTabHost.b j2 = this.a.b.j(1);
-                if (j2 != null && (j2.b instanceof MaintabBottomIndicator) && (c5 = v55.d().c("enterForum")) != null) {
+                if (j2 != null && (j2.b instanceof MaintabBottomIndicator) && (c5 = w55.d().c("enterForum")) != null) {
                     ((MaintabBottomIndicator) j2.b).setDynamicIconData(c5);
                 }
                 FragmentTabHost.b j3 = this.a.b.j(22);
-                if (j3 != null && (j3.b instanceof MaintabBottomIndicator) && (c4 = v55.d().c("channel")) != null) {
+                if (j3 != null && (j3.b instanceof MaintabBottomIndicator) && (c4 = w55.d().c("channel")) != null) {
                     ((MaintabBottomIndicator) j3.b).setDynamicIconData(c4);
                 }
                 FragmentTabHost.b j4 = this.a.b.j(3);
-                if (j4 != null && (j4.b instanceof MaintabBottomIndicator) && (c3 = v55.d().c("message")) != null) {
+                if (j4 != null && (j4.b instanceof MaintabBottomIndicator) && (c3 = w55.d().c("message")) != null) {
                     ((MaintabBottomIndicator) j4.b).setDynamicIconData(c3);
                 }
                 FragmentTabHost.b j5 = this.a.b.j(8);
-                if (j5 != null && (j5.b instanceof MaintabBottomIndicator) && (c2 = v55.d().c("person")) != null) {
+                if (j5 != null && (j5.b instanceof MaintabBottomIndicator) && (c2 = w55.d().c("person")) != null) {
                     ((MaintabBottomIndicator) j5.b).setDynamicIconData(c2);
                 }
-                if (this.a.f == null || this.a.f.getVisibility() != 0 || (c = v55.d().c(AlbumActivityConfig.FROM_WRITE)) == null) {
+                if (this.a.f == null || this.a.f.getVisibility() != 0 || (c = w55.d().c(AlbumActivityConfig.FROM_WRITE)) == null) {
                     return;
                 }
                 this.a.f.setVisibility(8);
@@ -966,7 +966,7 @@ public class al8 {
                 if (this.a.z() != null) {
                     this.a.z().w = this.a.p;
                 }
-                xt4.k().u("key_member_auto_ban_renewal_show", false);
+                yt4.k().u("key_member_auto_ban_renewal_show", false);
                 TbSingleton.getInstance().hasPerformInterestPanelShow = false;
             }
         }
@@ -1088,13 +1088,13 @@ public class al8 {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : (FragmentTabHost) invokeV.objValue;
     }
 
-    public void C(ArrayList<p55> arrayList) {
+    public void C(ArrayList<q55> arrayList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, arrayList) == null) {
             this.b.u();
-            Iterator<p55> it = arrayList.iterator();
+            Iterator<q55> it = arrayList.iterator();
             while (it.hasNext()) {
-                p55 next = it.next();
+                q55 next = it.next();
                 if (next != null && next.d()) {
                     x(next, next.b(), next.c(this.a.getPageContext().getPageActivity()));
                 }
@@ -1212,7 +1212,7 @@ public class al8 {
     public void K(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
-            FragmentTabHost fragmentTabHost = (FragmentTabHost) this.a.findViewById(R.id.obfuscated_res_0x7f091ec6);
+            FragmentTabHost fragmentTabHost = (FragmentTabHost) this.a.findViewById(R.id.obfuscated_res_0x7f091eca);
             this.b = fragmentTabHost;
             fragmentTabHost.setVisibility(8);
             vk8.b(new n(this), 1);
@@ -1226,9 +1226,9 @@ public class al8 {
                 this.b.setShouldDrawTopLine(true);
             }
             this.b.setOnPageChangeListener(new b(this));
-            this.f = (TbImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090d40);
-            this.g = (TbImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090d3f);
-            this.d = xt4.k().h("has_show_message_tab_tips", false);
+            this.f = (TbImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090d39);
+            this.g = (TbImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090d38);
+            this.d = yt4.k().h("has_show_message_tab_tips", false);
             this.c = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f090073);
             this.b.setUIType(0);
             this.b.setTabContainerShadowShow(false);
@@ -1276,7 +1276,7 @@ public class al8 {
     public void N() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
-            xt4.k().u("has_show_message_tab_tips", this.d);
+            yt4.k().u("has_show_message_tab_tips", this.d);
         }
     }
 
@@ -1336,11 +1336,11 @@ public class al8 {
     public void R(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048593, this, str) == null) {
-            cr4 cr4Var = new cr4(this.a.getActivity());
-            cr4Var.setMessage(str);
-            cr4Var.setPositiveButton(R.string.obfuscated_res_0x7f0f03e8, new f(this));
-            cr4Var.setNegativeButton(R.string.obfuscated_res_0x7f0f03a6, new g(this));
-            cr4Var.create(this.a.getPageContext()).show();
+            dr4 dr4Var = new dr4(this.a.getActivity());
+            dr4Var.setMessage(str);
+            dr4Var.setPositiveButton(R.string.obfuscated_res_0x7f0f03e8, new f(this));
+            dr4Var.setNegativeButton(R.string.obfuscated_res_0x7f0f03a6, new g(this));
+            dr4Var.create(this.a.getPageContext()).show();
         }
     }
 
@@ -1360,7 +1360,7 @@ public class al8 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048595, this, postWriteCallBackData) == null) {
             if (this.k == null) {
-                this.k = new a06(this.a.getPageContext(), (NavigationBarCoverTip) this.a.findViewById(R.id.obfuscated_res_0x7f091598));
+                this.k = new a06(this.a.getPageContext(), (NavigationBarCoverTip) this.a.findViewById(R.id.obfuscated_res_0x7f091573));
             }
             this.k.l(postWriteCallBackData);
         }
@@ -1373,7 +1373,7 @@ public class al8 {
             if (z) {
                 return;
             }
-            xt4.k().u("enter_forum_edit_mode", false);
+            yt4.k().u("enter_forum_edit_mode", false);
         }
     }
 
@@ -1384,7 +1384,7 @@ public class al8 {
             if (postWriteCallBackData == null || postWriteCallBackData.getVideoEasterEggData() == null || oi.isEmpty(postWriteCallBackData.getVideoEasterEggData().getVideoUrl())) {
                 return false;
             }
-            if (xt4.k().h(xt4.o(postWriteCallBackData.getVideoEasterEggData().getActivityID()), true)) {
+            if (yt4.k().h(yt4.o(postWriteCallBackData.getVideoEasterEggData().getActivityID()), true)) {
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new VideoEasterEggActivityConfig(this.a).createNormalConfig("from_maintab", postWriteCallBackData.getVideoEasterEggData())));
                 return true;
             }
@@ -1393,42 +1393,42 @@ public class al8 {
         return invokeL.booleanValue;
     }
 
-    public final void x(p55 p55Var, q55 q55Var, TbFragmentTabIndicator tbFragmentTabIndicator) {
+    public final void x(q55 q55Var, r55 r55Var, TbFragmentTabIndicator tbFragmentTabIndicator) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(1048598, this, p55Var, q55Var, tbFragmentTabIndicator) == null) && q55Var != null && (tbFragmentTabIndicator instanceof MaintabBottomIndicator)) {
+        if ((interceptable == null || interceptable.invokeLLL(1048598, this, q55Var, r55Var, tbFragmentTabIndicator) == null) && r55Var != null && (tbFragmentTabIndicator instanceof MaintabBottomIndicator)) {
             MaintabBottomIndicator maintabBottomIndicator = (MaintabBottomIndicator) tbFragmentTabIndicator;
             FragmentTabHost.b bVar = new FragmentTabHost.b();
-            bVar.c = q55Var.a;
-            bVar.a = q55Var.e;
-            maintabBottomIndicator.setShowIconType(q55Var.i);
-            int i2 = q55Var.i;
+            bVar.c = r55Var.a;
+            bVar.a = r55Var.e;
+            maintabBottomIndicator.setShowIconType(r55Var.i);
+            int i2 = r55Var.i;
             boolean z = false;
-            if (i2 == q55.j) {
+            if (i2 == r55.j) {
                 maintabBottomIndicator.setWriteIconView();
-                t55 t55Var = q55Var.h;
-                if (t55Var != null && !TextUtils.isEmpty(t55Var.k())) {
+                u55 u55Var = r55Var.h;
+                if (u55Var != null && !TextUtils.isEmpty(u55Var.k())) {
                     this.f.setVisibility(8);
                     this.g.setVisibility(0);
-                    this.g.J(q55Var.h.k(), q55Var.h.j(), false);
+                    this.g.J(r55Var.h.k(), r55Var.h.j(), false);
                 } else {
                     this.f.setVisibility(0);
-                    this.f.setImageResource(q55Var.d);
+                    this.f.setImageResource(r55Var.d);
                 }
                 z = true;
-            } else if (i2 == q55.m) {
-                maintabBottomIndicator.setText(q55Var.b);
-                maintabBottomIndicator.setAnimationResId(q55Var.f);
+            } else if (i2 == r55.m) {
+                maintabBottomIndicator.setText(r55Var.b);
+                maintabBottomIndicator.setAnimationResId(r55Var.f);
                 this.m = maintabBottomIndicator;
             } else {
-                maintabBottomIndicator.setText(q55Var.b);
-                maintabBottomIndicator.setAnimationResId(q55Var.f);
+                maintabBottomIndicator.setText(r55Var.b);
+                maintabBottomIndicator.setAnimationResId(r55Var.f);
             }
-            if (!oi.isEmpty(q55Var.g)) {
-                maintabBottomIndicator.setImageIconUrl(q55Var.g, q55Var.c);
+            if (!oi.isEmpty(r55Var.g)) {
+                maintabBottomIndicator.setImageIconUrl(r55Var.g, r55Var.c);
             }
-            t55 t55Var2 = q55Var.h;
-            if (t55Var2 != null) {
-                maintabBottomIndicator.setDynamicIconData(t55Var2);
+            u55 u55Var2 = r55Var.h;
+            if (u55Var2 != null) {
+                maintabBottomIndicator.setDynamicIconData(u55Var2);
             }
             if (bVar.a == 2) {
                 maintabBottomIndicator.z = true;
@@ -1437,7 +1437,7 @@ public class al8 {
             tbFragmentTabIndicator.e(TbadkCoreApplication.getInst().getSkinType());
             tbFragmentTabIndicator.setTipPosType(1);
             bVar.b = maintabBottomIndicator;
-            bVar.d = p55Var;
+            bVar.d = q55Var;
             this.b.e(bVar, -1, z);
         }
     }

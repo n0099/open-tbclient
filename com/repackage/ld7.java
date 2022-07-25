@@ -374,7 +374,7 @@ public class ld7 {
         this.m = new a(this);
         this.n = new g(this);
         this.a = tbPageContext;
-        View findViewById = view2.findViewById(R.id.obfuscated_res_0x7f0906f0);
+        View findViewById = view2.findViewById(R.id.obfuscated_res_0x7f0906ef);
         this.b = findViewById;
         findViewById.setOnClickListener(this.m);
         this.c = AnimationUtils.loadAnimation(this.a.getPageActivity(), R.anim.obfuscated_res_0x7f01002b);

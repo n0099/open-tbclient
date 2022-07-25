@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class xe7 extends u15 {
+public class xe7 extends v15 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -61,11 +61,11 @@ public class xe7 extends u15 {
         this.o = false;
         this.n = 3;
         this.m = new PbLocationInfoContainer(context);
-        RawLayout.LayoutParams layoutParams = new RawLayout.LayoutParams(-2, pi.f(getContext(), R.dimen.obfuscated_res_0x7f0702cd));
+        RawLayout.LayoutParams layoutParams = new RawLayout.LayoutParams(-2, pi.f(getContext(), R.dimen.obfuscated_res_0x7f0702cb));
         ((LinearLayout.LayoutParams) layoutParams).leftMargin = pi.f(getContext(), R.dimen.obfuscated_res_0x7f070207);
         ((LinearLayout.LayoutParams) layoutParams).rightMargin = pi.f(getContext(), R.dimen.obfuscated_res_0x7f070207);
-        ((LinearLayout.LayoutParams) layoutParams).bottomMargin = pi.f(getContext(), R.dimen.obfuscated_res_0x7f070274);
-        ((LinearLayout.LayoutParams) layoutParams).topMargin = pi.f(getContext(), R.dimen.obfuscated_res_0x7f070274);
+        ((LinearLayout.LayoutParams) layoutParams).bottomMargin = pi.f(getContext(), R.dimen.obfuscated_res_0x7f070272);
+        ((LinearLayout.LayoutParams) layoutParams).topMargin = pi.f(getContext(), R.dimen.obfuscated_res_0x7f070272);
         ((PbLocationInfoContainer) this.m).setLayoutParams(layoutParams);
         this.p = new int[]{20, 19};
     }

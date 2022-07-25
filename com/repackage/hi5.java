@@ -51,18 +51,18 @@ public class hi5 {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Lifecycle.Event event;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && (customResponsedMessage.getData() instanceof pq4)) {
-                pq4 pq4Var = (pq4) customResponsedMessage.getData();
-                if (pq4Var.a == null || (event = pq4Var.c) == null) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && (customResponsedMessage.getData() instanceof qq4)) {
+                qq4 qq4Var = (qq4) customResponsedMessage.getData();
+                if (qq4Var.a == null || (event = qq4Var.c) == null) {
                     return;
                 }
                 if (event.equals(Lifecycle.Event.ON_PAUSE)) {
                     if (this.a.b != null) {
-                        this.a.b.a(pq4Var.a);
+                        this.a.b.a(qq4Var.a);
                     }
-                } else if (!pq4Var.c.equals(Lifecycle.Event.ON_RESUME) || this.a.b == null) {
+                } else if (!qq4Var.c.equals(Lifecycle.Event.ON_RESUME) || this.a.b == null) {
                 } else {
-                    this.a.b.b(pq4Var.a);
+                    this.a.b.b(qq4Var.a);
                 }
             }
         }

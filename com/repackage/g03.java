@@ -1,417 +1,167 @@
 package com.repackage;
 
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Looper;
-import android.util.Log;
-import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.process.SwanAppProcessInfo;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.swan.apps.SwanAppActivity;
+import com.baidu.swan.apps.extcore.cores.SwanAppCores;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.kl2;
-import com.repackage.l03;
-import java.util.ArrayDeque;
-import java.util.HashSet;
-import java.util.Queue;
-import java.util.Set;
 /* loaded from: classes6.dex */
-public abstract class g03 extends d03 {
+public class g03 extends h03 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean i;
-    public static volatile g03 j;
-    public static Handler k;
     public transient /* synthetic */ FieldHolder $fh;
-    public kh1 a;
-    public final Set<af3<l03.a>> b;
-    public volatile int c;
-    public final Queue<Runnable> d;
-    public Runnable e;
-    public o94 f;
-    public r23 g;
-    public boolean h;
-
-    /* loaded from: classes6.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ l03.a a;
-        public final /* synthetic */ g03 b;
-
-        /* renamed from: com.repackage.g03$a$a  reason: collision with other inner class name */
-        /* loaded from: classes6.dex */
-        public class RunnableC0643a implements Runnable {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ af3 a;
-            public final /* synthetic */ a b;
-
-            public RunnableC0643a(a aVar, af3 af3Var) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar, af3Var};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.b = aVar;
-                this.a = af3Var;
-            }
-
-            @Override // java.lang.Runnable
-            public void run() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.a.a(this.b.a);
-                }
-            }
-        }
-
-        public a(g03 g03Var, l03.a aVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {g03Var, aVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = g03Var;
-            this.a = aVar;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                boolean z = Looper.getMainLooper() == Looper.myLooper();
-                for (af3 af3Var : this.b.b) {
-                    if (z && !this.a.e("event_flag_force_post", false)) {
-                        af3Var.a(this.a);
-                    } else {
-                        g03.M().post(new RunnableC0643a(this, af3Var));
-                    }
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class b implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ af3 a;
-        public final /* synthetic */ g03 b;
-
-        public b(g03 g03Var, af3 af3Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {g03Var, af3Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = g03Var;
-            this.a = af3Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.b.b.add(this.a);
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class c implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ af3 a;
-        public final /* synthetic */ g03 b;
-
-        public c(g03 g03Var, af3 af3Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {g03Var, af3Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = g03Var;
-            this.a = af3Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.b.b.remove(this.a);
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755731897, "Lcom/repackage/g03;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755731897, "Lcom/repackage/g03;");
-                return;
-            }
-        }
-        i = rg1.a;
-    }
+    public final i03 l;
 
     public g03() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        new kl2.a();
-        this.b = new HashSet();
-        this.c = 0;
-        this.d = new ArrayDeque();
-        this.e = null;
-        this.h = false;
+        this.l = new i03(this, "");
     }
 
-    public static g03 K() {
+    @Override // com.repackage.l03
+    public boolean E() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            g03 L = L();
-            if (!L.h) {
-                L.O();
-            }
-            return L;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return false;
         }
-        return (g03) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
-    public static g03 L() {
+    @Override // com.repackage.l03
+    public void G() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+        }
+    }
+
+    @Override // com.repackage.h03
+    public p94 I() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            if (j instanceof m03) {
-                return j;
-            }
-            synchronized (g03.class) {
-                if (j instanceof m03) {
-                    return j;
-                }
-                SwanAppProcessInfo current = SwanAppProcessInfo.current();
-                if (current.isSwanClient) {
-                    if (i && j != null) {
-                        throw new IllegalStateException("When convinced current process is swan client，but Swan instance already init with: " + j);
-                    }
-                    j = new m03();
-                    return j;
-                } else if (current.isSwanService) {
-                    if (!(j instanceof o03)) {
-                        if (i && j != null) {
-                            throw new IllegalStateException("When convinced current process is swan service，but Swan instance already init with: " + j);
-                        }
-                        j = new o03();
-                    }
-                    return j;
-                } else {
-                    if (j == null) {
-                        j = new f03();
-                    }
-                    return j;
-                }
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return null;
         }
-        return (g03) invokeV.objValue;
+        return (p94) invokeV.objValue;
     }
 
-    public static Handler M() {
+    @Override // com.repackage.h03
+    public s23 J() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            if (k == null) {
-                k = new Handler(Looper.getMainLooper());
-            }
-            return k;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return null;
         }
-        return (Handler) invokeV.objValue;
+        return (s23) invokeV.objValue;
     }
 
-    @Override // com.repackage.k03
-    public void A(l03.a aVar) {
+    @Override // com.repackage.h03
+    public void Q() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-            if (i) {
-                Log.i("SwanImpl", "SwanEvent dispatchEvent: " + aVar + " mEventCallbacks:" + this.b.size());
-            }
-            if (aVar != null) {
-                R(new a(this, aVar));
-            }
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
         }
     }
 
-    @Override // com.repackage.k03
-    public r23 B() {
+    @Override // com.repackage.l03
+    public String getAppId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (this.g == null) {
-                this.g = J();
-            }
-            return this.g;
-        }
-        return (r23) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? "" : (String) invokeV.objValue;
     }
 
-    public abstract o94 I();
-
-    public abstract r23 J();
-
-    public o94 N() {
+    @Override // com.repackage.l03
+    public int k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (this.f == null) {
-                this.f = I();
-            }
-            return this.f;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return -1;
         }
-        return (o94) invokeV.objValue;
+        return invokeV.intValue;
     }
 
-    public final void O() {
+    @Override // com.repackage.l03
+    public void l(Bundle bundle, String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || this.h) {
-            return;
-        }
-        P();
-        N();
-        tw2.S();
-        Q();
-        this.h = true;
-    }
-
-    public final void P() {
-        r23 B;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (B = B()) == null) {
-            return;
-        }
-        B.J();
-    }
-
-    public abstract void Q();
-
-    public final synchronized void R(@NonNull Runnable runnable) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, runnable) == null) {
-            synchronized (this) {
-                this.d.offer(runnable);
-                if (this.e == null) {
-                    while (!this.d.isEmpty()) {
-                        Runnable poll = this.d.poll();
-                        this.e = poll;
-                        if (poll != null) {
-                            poll.run();
-                        }
-                        this.e = null;
-                    }
-                }
-            }
+        if (interceptable == null || interceptable.invokeLL(1048583, this, bundle, str) == null) {
         }
     }
 
-    @Override // com.repackage.k03
-    public void o(af3<l03.a> af3Var) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048585, this, af3Var) == null) || af3Var == null) {
-            return;
-        }
-        R(new c(this, af3Var));
-    }
-
-    @Override // com.repackage.k03
-    public void p(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
-            v(str, null);
-        }
-    }
-
-    @Override // com.repackage.k03
-    public void u(af3<l03.a> af3Var) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048587, this, af3Var) == null) || af3Var == null) {
-            return;
-        }
-        R(new b(this, af3Var));
-    }
-
-    @Override // com.repackage.k03
-    public void v(String str, Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048588, this, str, bundle) == null) {
-            A(new l03.a(str, bundle));
-        }
-    }
-
-    @Override // com.repackage.k03
-    public kh1 x() {
+    @Override // com.repackage.l03
+    public SwanAppCores m() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            if (this.a == null) {
-                this.a = new kh1();
-            }
-            return this.a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return null;
         }
-        return (kh1) invokeV.objValue;
+        return (SwanAppCores) invokeV.objValue;
+    }
+
+    @Override // com.repackage.l03
+    public String n(String... strArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, strArr)) == null) ? "" : (String) invokeL.objValue;
+    }
+
+    @Override // com.repackage.l03
+    public i03 q() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.l : (i03) invokeV.objValue;
+    }
+
+    @Override // com.repackage.l03
+    public void r(SwanAppActivity swanAppActivity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048587, this, swanAppActivity) == null) {
+        }
+    }
+
+    @Override // com.repackage.l03
+    public void s() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
+        }
+    }
+
+    @Override // com.repackage.l03
+    public void t(SwanAppActivity swanAppActivity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048589, this, swanAppActivity) == null) {
+        }
+    }
+
+    @Override // com.repackage.l03
+    public SwanAppActivity w() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            return null;
+        }
+        return (SwanAppActivity) invokeV.objValue;
+    }
+
+    @Override // com.repackage.l03
+    public dx2 y() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+            return null;
+        }
+        return (dx2) invokeV.objValue;
     }
 }

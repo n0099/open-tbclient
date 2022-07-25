@@ -13,7 +13,7 @@ public class b {
     public String e;
     public boolean f;
     public Drawable g;
-    public InterfaceC0793b h;
+    public InterfaceC0642b h;
     public View i;
     public int j;
 
@@ -28,7 +28,7 @@ public class b {
         public String g;
         public boolean h;
         public Drawable i;
-        public InterfaceC0793b j;
+        public InterfaceC0642b j;
 
         public a(Context context) {
             this.c = context;
@@ -64,8 +64,8 @@ public class b {
             return this;
         }
 
-        public a a(InterfaceC0793b interfaceC0793b) {
-            this.j = interfaceC0793b;
+        public a a(InterfaceC0642b interfaceC0642b) {
+            this.j = interfaceC0642b;
             return this;
         }
 
@@ -81,7 +81,7 @@ public class b {
 
     /* renamed from: com.ss.android.download.api.model.b$b  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public interface InterfaceC0793b {
+    public interface InterfaceC0642b {
         void a(DialogInterface dialogInterface);
 
         void b(DialogInterface dialogInterface);

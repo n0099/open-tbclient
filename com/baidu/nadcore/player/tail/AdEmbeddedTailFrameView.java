@@ -39,7 +39,7 @@ public class AdEmbeddedTailFrameView extends AdBaseTailFrameView {
     public int f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d05d6 : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d05e0 : invokeV.intValue;
     }
 
     @Override // com.baidu.nadcore.player.tail.AdBaseTailFrameView

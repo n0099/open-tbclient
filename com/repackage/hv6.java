@@ -42,7 +42,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.fu4;
+import com.repackage.gu4;
 import com.repackage.ny;
 import com.repackage.v36;
 import java.util.ArrayList;
@@ -57,8 +57,8 @@ public class hv6 {
     public v36 C;
     public NEGFeedBackView.b D;
     public iu6 E;
-    public fu4.h F;
-    public fu4.f G;
+    public gu4.h F;
+    public gu4.f G;
     public CustomMessageListener H;
     public View.OnTouchListener I;
     public v36.b J;
@@ -72,13 +72,13 @@ public class hv6 {
     public BigdaySwipeRefreshLayout e;
     public ky6 f;
     public PbListView g;
-    public j55 h;
+    public k55 h;
     public ImageView i;
     public TextView j;
     public tu6 k;
     public View l;
     public FrameLayout m;
-    public k55 n;
+    public l55 n;
     public GameVideoTitleBar o;
     public AlphaAnimation p;
     public AlphaAnimation q;
@@ -191,7 +191,7 @@ public class hv6 {
     }
 
     /* loaded from: classes6.dex */
-    public class c implements fu4.h {
+    public class c implements gu4.h {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ hv6 a;
@@ -214,7 +214,7 @@ public class hv6 {
             this.a = hv6Var;
         }
 
-        @Override // com.repackage.fu4.h
+        @Override // com.repackage.gu4.h
         public void a(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
@@ -224,7 +224,7 @@ public class hv6 {
     }
 
     /* loaded from: classes6.dex */
-    public class d implements fu4.f {
+    public class d implements gu4.f {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ hv6 a;
@@ -247,7 +247,7 @@ public class hv6 {
             this.a = hv6Var;
         }
 
-        @Override // com.repackage.fu4.f
+        @Override // com.repackage.gu4.f
         public void a(View view2, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLZ(1048576, this, view2, z) == null) {
@@ -463,10 +463,10 @@ public class hv6 {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof KeyEvent)) {
                 KeyEvent keyEvent = (KeyEvent) customResponsedMessage.getData();
-                if (keyEvent.getAction() != 0 || keyEvent.getKeyCode() != 24 || (w = this.a.w()) == null || w.c() == null) {
+                if (keyEvent.getAction() != 0 || keyEvent.getKeyCode() != 24 || (w = this.a.w()) == null || w.b() == null) {
                     return;
                 }
-                w.c().o(new ny.a(3));
+                w.b().o(new ny.a(3));
             }
         }
     }
@@ -506,7 +506,7 @@ public class hv6 {
                 this.a.w.k(view2);
             }
             if (view2.getTag() instanceof HomePageCardVideoViewHolder) {
-                ((HomePageCardVideoViewHolder) view2.getTag()).c().stopPlay();
+                ((HomePageCardVideoViewHolder) view2.getTag()).b().stopPlay();
             }
         }
     }
@@ -695,21 +695,21 @@ public class hv6 {
     }
 
     public void B() {
-        j55 j55Var;
+        k55 k55Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (j55Var = this.h) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (k55Var = this.h) == null) {
             return;
         }
-        j55Var.dettachView(this.c);
+        k55Var.dettachView(this.c);
     }
 
     public void C() {
-        k55 k55Var;
+        l55 l55Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (k55Var = this.n) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (l55Var = this.n) == null) {
             return;
         }
-        k55Var.dettachView(this.m);
+        l55Var.dettachView(this.m);
         this.n = null;
     }
 
@@ -733,9 +733,9 @@ public class hv6 {
             View inflate = LayoutInflater.from(this.b.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0374, (ViewGroup) null);
             this.c = inflate;
             inflate.setPadding(0, 0, 0, TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
-            this.o = (GameVideoTitleBar) this.c.findViewById(R.id.obfuscated_res_0x7f090c36);
-            this.m = (FrameLayout) this.c.findViewById(R.id.obfuscated_res_0x7f090c31);
-            BdTypeRecyclerView bdTypeRecyclerView = (BdTypeRecyclerView) this.c.findViewById(R.id.obfuscated_res_0x7f090c33);
+            this.o = (GameVideoTitleBar) this.c.findViewById(R.id.obfuscated_res_0x7f090c2f);
+            this.m = (FrameLayout) this.c.findViewById(R.id.obfuscated_res_0x7f090c2a);
+            BdTypeRecyclerView bdTypeRecyclerView = (BdTypeRecyclerView) this.c.findViewById(R.id.obfuscated_res_0x7f090c2c);
             this.d = bdTypeRecyclerView;
             bdTypeRecyclerView.setLayoutManager(new LinearLayoutManager(this.b.getPageActivity()));
             int dimenPixelSize = UtilHelper.getDimenPixelSize(R.dimen.M_W_X004);
@@ -750,7 +750,7 @@ public class hv6 {
             this.w = i68Var;
             i68Var.v(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
             this.w.u(this.B);
-            this.e = (BigdaySwipeRefreshLayout) this.c.findViewById(R.id.obfuscated_res_0x7f090c34);
+            this.e = (BigdaySwipeRefreshLayout) this.c.findViewById(R.id.obfuscated_res_0x7f090c2d);
             ky6 ky6Var = new ky6(this.b);
             this.f = ky6Var;
             this.e.setProgressView(ky6Var);
@@ -770,11 +770,11 @@ public class hv6 {
             this.k = tu6Var;
             tu6Var.h(this.D);
             this.k.i(this.B);
-            this.l = this.c.findViewById(R.id.obfuscated_res_0x7f090c30);
-            this.i = (ImageView) this.c.findViewById(R.id.obfuscated_res_0x7f090c35);
-            TextView textView = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f090c32);
+            this.l = this.c.findViewById(R.id.obfuscated_res_0x7f090c29);
+            this.i = (ImageView) this.c.findViewById(R.id.obfuscated_res_0x7f090c2e);
+            TextView textView = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f090c2b);
             this.j = textView;
-            textView.setText(xt4.k().q("key_game_video_tab_has_choosed_sub_class_name", ""));
+            textView.setText(yt4.k().q("key_game_video_tab_has_choosed_sub_class_name", ""));
             s();
         }
     }
@@ -789,11 +789,11 @@ public class hv6 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            j55 j55Var = this.h;
-            if (j55Var == null) {
+            k55 k55Var = this.h;
+            if (k55Var == null) {
                 return false;
             }
-            return j55Var.isViewAttached();
+            return k55Var.isViewAttached();
         }
         return invokeV.booleanValue;
     }
@@ -828,8 +828,8 @@ public class hv6 {
             i68Var.r(!z);
             ThreadCardViewHolder w = w();
             boolean z2 = false;
-            if (w != null && w.c() != null) {
-                z2 = w.c().o(new ny.a(8, Boolean.valueOf(z)));
+            if (w != null && w.b() != null) {
+                z2 = w.b().o(new ny.a(8, Boolean.valueOf(z)));
             }
             if (z2) {
                 return;
@@ -845,9 +845,9 @@ public class hv6 {
     public void K() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            j55 j55Var = this.h;
-            if (j55Var != null) {
-                j55Var.n();
+            k55 k55Var = this.h;
+            if (k55Var != null) {
+                k55Var.n();
             }
             AlphaAnimation alphaAnimation = this.p;
             if (alphaAnimation != null) {
@@ -1001,7 +1001,7 @@ public class hv6 {
         tu6Var.g(i2);
     }
 
-    public void X(fu4.g gVar) {
+    public void X(gu4.g gVar) {
         ky6 ky6Var;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048599, this, gVar) == null) || (ky6Var = this.f) == null) {
@@ -1059,7 +1059,7 @@ public class hv6 {
             this.d.setNextPage(this.g);
         }
         this.g.t(pi.f(this.b.getPageActivity(), R.dimen.tbds178));
-        this.g.C(this.b.getResources().getString(R.string.obfuscated_res_0x7f0f079c));
+        this.g.C(this.b.getResources().getString(R.string.obfuscated_res_0x7f0f0798));
         this.g.B(onClickListener);
         this.g.f();
     }
@@ -1113,7 +1113,7 @@ public class hv6 {
             this.d.setNextPage(this.g);
         }
         this.g.t(pi.f(this.b.getPageActivity(), R.dimen.tbds178));
-        this.g.C(this.b.getResources().getString(R.string.obfuscated_res_0x7f0f0a2c));
+        this.g.C(this.b.getResources().getString(R.string.obfuscated_res_0x7f0f0a18));
         this.g.B(null);
         this.g.Q();
     }
@@ -1124,9 +1124,9 @@ public class hv6 {
             return;
         }
         if (this.h == null) {
-            j55 j55Var = new j55(this.b.getPageActivity());
-            this.h = j55Var;
-            j55Var.i();
+            k55 k55Var = new k55(this.b.getPageActivity());
+            this.h = k55Var;
+            k55Var.i();
             this.h.s((((this.c.getHeight() - TbadkCoreApplication.getInst().getMainTabBottomBarHeight()) - pi.f(this.b.getPageActivity(), R.dimen.tbds304)) / 2) - (TbadkCoreApplication.getInst().getMainTabBottomBarHeight() / 2));
             this.h.onChangeSkinType();
         }
@@ -1137,11 +1137,11 @@ public class hv6 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048611, this, onClickListener) == null) {
             if (this.n == null) {
-                this.n = new k55(this.b.getPageActivity(), onClickListener);
+                this.n = new l55(this.b.getPageActivity(), onClickListener);
             }
             this.n.p();
             this.n.m(null);
-            this.n.n(this.b.getResources().getString(R.string.obfuscated_res_0x7f0f0f9b));
+            this.n.n(this.b.getResources().getString(R.string.obfuscated_res_0x7f0f0f84));
             this.n.i(R.drawable.new_pic_emotion_08);
             this.n.l(0);
             this.n.attachView(this.m, false);
@@ -1152,11 +1152,11 @@ public class hv6 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048612, this) == null) {
             if (this.n == null) {
-                this.n = new k55(this.b.getPageActivity(), null);
+                this.n = new l55(this.b.getPageActivity(), null);
             }
             this.n.e();
             this.n.i(R.drawable.new_pic_emotion_03);
-            this.n.o(this.b.getString(R.string.obfuscated_res_0x7f0f0c44));
+            this.n.o(this.b.getString(R.string.obfuscated_res_0x7f0f0c30));
             this.n.attachView(this.m, false);
         }
     }
@@ -1171,7 +1171,7 @@ public class hv6 {
             this.d.setNextPage(this.g);
         }
         this.g.t(pi.f(this.b.getPageActivity(), R.dimen.tbds178));
-        this.g.C(this.b.getResources().getString(R.string.obfuscated_res_0x7f0f079d));
+        this.g.C(this.b.getResources().getString(R.string.obfuscated_res_0x7f0f0799));
         this.g.B(null);
         this.g.f();
     }
@@ -1208,7 +1208,7 @@ public class hv6 {
         i68Var.x();
     }
 
-    public void p0(fu4.i iVar) {
+    public void p0(gu4.i iVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048617, this, iVar) == null) {
             this.e.z(iVar);
@@ -1222,14 +1222,14 @@ public class hv6 {
             if (this.i != null) {
                 SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.i, R.drawable.obfuscated_res_0x7f080936, R.color.CAM_X0101, SvgManager.SvgResourceStateType.NORMAL);
             }
-            j55 j55Var = this.h;
-            if (j55Var != null) {
-                j55Var.r(TbadkCoreApplication.getInst().getSkinType());
+            k55 k55Var = this.h;
+            if (k55Var != null) {
+                k55Var.r(TbadkCoreApplication.getInst().getSkinType());
                 this.h.onChangeSkinType();
             }
-            k55 k55Var = this.n;
-            if (k55Var != null) {
-                k55Var.onChangeSkinType();
+            l55 l55Var = this.n;
+            if (l55Var != null) {
+                l55Var.onChangeSkinType();
             }
             TextView textView = this.j;
             if (textView != null) {
@@ -1322,7 +1322,7 @@ public class hv6 {
     public View y() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048624, this)) == null) ? this.c.findViewById(R.id.obfuscated_res_0x7f090c36) : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048624, this)) == null) ? this.c.findViewById(R.id.obfuscated_res_0x7f090c2f) : (View) invokeV.objValue;
     }
 
     public View z() {

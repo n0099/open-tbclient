@@ -61,9 +61,9 @@ public class HotForumModel extends BdBaseModel {
             if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
                 boolean z = responsedMessage instanceof HotForumSocketResponseMessage;
                 if (!z && !(responsedMessage instanceof HotForumHttpResponseMessage)) {
-                    this.a.b.F(this.a.a.getString(R.string.obfuscated_res_0x7f0f0c2b));
+                    this.a.b.F(this.a.a.getString(R.string.obfuscated_res_0x7f0f0c17));
                 } else if (responsedMessage.getOrginalMessage() == null || !(responsedMessage.getOrginalMessage().getExtra() instanceof HotForumNetMessage)) {
-                    this.a.b.F(this.a.a.getString(R.string.obfuscated_res_0x7f0f0c2b));
+                    this.a.b.F(this.a.a.getString(R.string.obfuscated_res_0x7f0f0c17));
                 } else if (!responsedMessage.hasError() && responsedMessage.getError() == 0) {
                     if (responsedMessage instanceof HotForumHttpResponseMessage) {
                         HotForumHttpResponseMessage hotForumHttpResponseMessage = (HotForumHttpResponseMessage) responsedMessage;
@@ -84,7 +84,7 @@ public class HotForumModel extends BdBaseModel {
                 } else if (!TextUtils.isEmpty(responsedMessage.getErrorString())) {
                     this.a.b.F(responsedMessage.getErrorString());
                 } else {
-                    this.a.b.F(this.a.a.getString(R.string.obfuscated_res_0x7f0f0c2b));
+                    this.a.b.F(this.a.a.getString(R.string.obfuscated_res_0x7f0f0c17));
                 }
             }
         }

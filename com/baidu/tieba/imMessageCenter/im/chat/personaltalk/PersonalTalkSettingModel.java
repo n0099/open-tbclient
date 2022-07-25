@@ -36,11 +36,11 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.b67;
 import com.repackage.bb;
 import com.repackage.de5;
-import com.repackage.dm4;
+import com.repackage.em4;
 import com.repackage.he5;
-import com.repackage.jd5;
+import com.repackage.kd5;
 import com.repackage.t77;
-import com.repackage.ty4;
+import com.repackage.uy4;
 import java.util.ArrayList;
 import protobuf.QueryUserInfos.DataRes;
 import tbclient.PermissionList;
@@ -48,7 +48,7 @@ import tbclient.PermissionList;
 public class PersonalTalkSettingModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ty4 a;
+    public uy4 a;
     public DataRes b;
     public boolean c;
     public boolean d;
@@ -101,7 +101,7 @@ public class PersonalTalkSettingModel extends BdBaseModel {
     }
 
     /* loaded from: classes3.dex */
-    public class b implements jd5<PersonalSettingItemData> {
+    public class b implements kd5<PersonalSettingItemData> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ long a;
@@ -129,7 +129,7 @@ public class PersonalTalkSettingModel extends BdBaseModel {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.jd5
+        @Override // com.repackage.kd5
         /* renamed from: a */
         public void onReturnDataInUI(PersonalSettingItemData personalSettingItemData) {
             Interceptable interceptable = $ic;
@@ -145,7 +145,7 @@ public class PersonalTalkSettingModel extends BdBaseModel {
     }
 
     /* loaded from: classes3.dex */
-    public class c implements dm4 {
+    public class c implements em4 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PersonalTalkSettingModel a;
@@ -168,7 +168,7 @@ public class PersonalTalkSettingModel extends BdBaseModel {
             this.a = personalTalkSettingModel;
         }
 
-        @Override // com.repackage.dm4
+        @Override // com.repackage.em4
         public void onError(int i, String str) {
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) || this.a.m == null) {
@@ -177,7 +177,7 @@ public class PersonalTalkSettingModel extends BdBaseModel {
             this.a.m.showToast(str);
         }
 
-        @Override // com.repackage.dm4
+        @Override // com.repackage.em4
         public void onSuccess(Object obj) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) == null) && (obj instanceof tbclient.GetUserBlackInfo.DataRes)) {
@@ -311,7 +311,7 @@ public class PersonalTalkSettingModel extends BdBaseModel {
                     if (this.a.c) {
                         this.a.m.showToast(R.string.obfuscated_res_0x7f0f00d2);
                     } else {
-                        this.a.m.showToast(R.string.obfuscated_res_0x7f0f0fb6);
+                        this.a.m.showToast(R.string.obfuscated_res_0x7f0f0f9f);
                     }
                 }
                 if (this.a.n != null) {
@@ -394,7 +394,7 @@ public class PersonalTalkSettingModel extends BdBaseModel {
         this.q = new f(this, CmdConfigHttp.CMD_GET_USER_LIST);
         this.m = personalTalkSettingActivity;
         this.n = gVar;
-        this.a = new ty4(personalTalkSettingActivity.getPageContext());
+        this.a = new uy4(personalTalkSettingActivity.getPageContext());
         this.g = new BlackListModel(personalTalkSettingActivity.getPageContext());
         personalTalkSettingActivity.showProgressBar();
         Q();
@@ -434,9 +434,9 @@ public class PersonalTalkSettingModel extends BdBaseModel {
     public void P() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            ty4 ty4Var = this.a;
-            if (ty4Var != null) {
-                ty4Var.g();
+            uy4 uy4Var = this.a;
+            if (uy4Var != null) {
+                uy4Var.g();
             }
             BlackListModel blackListModel = this.g;
             if (blackListModel != null) {

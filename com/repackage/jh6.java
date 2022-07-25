@@ -20,7 +20,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class jh6 extends cd6<qq4, CardViewHolder<ey5>> implements hy5, go6, ck5 {
+public class jh6 extends cd6<rq4, CardViewHolder<ey5>> implements hy5, go6, ck5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext t;
@@ -308,31 +308,31 @@ public class jh6 extends cd6<qq4, CardViewHolder<ey5>> implements hy5, go6, ck5 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.repackage.cd6, com.repackage.an
     /* renamed from: u0 */
-    public View S(int i, View view2, ViewGroup viewGroup, qq4 qq4Var, CardViewHolder<ey5> cardViewHolder) {
+    public View S(int i, View view2, ViewGroup viewGroup, rq4 rq4Var, CardViewHolder<ey5> cardViewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048583, this, new Object[]{Integer.valueOf(i), view2, viewGroup, qq4Var, cardViewHolder})) == null) {
-            if (cardViewHolder == null || cardViewHolder.c() == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048583, this, new Object[]{Integer.valueOf(i), view2, viewGroup, rq4Var, cardViewHolder})) == null) {
+            if (cardViewHolder == null || cardViewHolder.b() == null) {
                 return null;
             }
-            if (cardViewHolder.c() instanceof bk5) {
-                cardViewHolder.c().b(this.u);
+            if (cardViewHolder.b() instanceof bk5) {
+                cardViewHolder.b().b(this.u);
             }
-            super.S(i, view2, viewGroup, qq4Var, cardViewHolder);
+            super.S(i, view2, viewGroup, rq4Var, cardViewHolder);
             if (this.v != null) {
                 FrsViewData frsViewData = this.j;
-                qq4Var.s.statFloor = (qq4Var.position + 1) - (frsViewData != null ? frsViewData.getTopThreadSize() : 0);
+                rq4Var.s.statFloor = (rq4Var.position + 1) - (frsViewData != null ? frsViewData.getTopThreadSize() : 0);
             }
-            do6.o(qq4Var.s, this.e, this.v, a0());
+            do6.o(rq4Var.s, this.e, this.v, a0());
             FrsViewData frsViewData2 = this.j;
             if (frsViewData2 != null && frsViewData2.getForum() != null) {
-                do6.m(qq4Var.s, a0());
-                do6.n(qq4Var.s, this.j.getForum().getId());
+                do6.m(rq4Var.s, a0());
+                do6.n(rq4Var.s, this.j.getForum().getId());
             }
-            fo6.k().c(this.v, qq4Var.s);
-            cardViewHolder.c().n(this.w);
-            cardViewHolder.c().i(qq4Var.s);
-            return cardViewHolder.b();
+            fo6.k().c(this.v, rq4Var.s);
+            cardViewHolder.b().n(this.w);
+            cardViewHolder.b().i(rq4Var.s);
+            return cardViewHolder.a();
         }
         return (View) invokeCommon.objValue;
     }

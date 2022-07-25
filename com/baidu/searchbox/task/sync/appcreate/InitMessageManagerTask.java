@@ -34,21 +34,21 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.aa5;
 import com.repackage.ba5;
 import com.repackage.ca5;
 import com.repackage.da5;
 import com.repackage.ea5;
 import com.repackage.fa5;
-import com.repackage.fl4;
 import com.repackage.fp8;
 import com.repackage.fs6;
+import com.repackage.ga5;
+import com.repackage.gl4;
 import com.repackage.gs6;
 import com.repackage.ij8;
-import com.repackage.la5;
-import com.repackage.mp4;
+import com.repackage.ma5;
+import com.repackage.np4;
 import com.repackage.ra;
-import com.repackage.ud5;
+import com.repackage.vd5;
 import com.repackage.ya;
 import com.repackage.z8;
 /* loaded from: classes2.dex */
@@ -159,14 +159,14 @@ public class InitMessageManagerTask extends LaunchTask {
         if (interceptable == null || interceptable.invokeV(65537, this) == null) {
             ReloginManager.g().k();
             MessageManager messageManager = MessageManager.getInstance();
-            messageManager.addMessageRule(new fa5(0));
-            messageManager.addMessageRule(new ca5(0));
-            messageManager.addResponsedMessageRule(new ea5(0));
-            messageManager.addRemovedMessageRule(new da5(0));
+            messageManager.addMessageRule(new ga5(0));
+            messageManager.addMessageRule(new da5(0));
+            messageManager.addResponsedMessageRule(new fa5(0));
+            messageManager.addRemovedMessageRule(new ea5(0));
             messageManager.addResponsedMessageRule(new gs6());
             messageManager.addResponsedMessageRule(new fs6());
-            messageManager.addResponsedMessageRule(new aa5());
             messageManager.addResponsedMessageRule(new ba5());
+            messageManager.addResponsedMessageRule(new ca5());
             messageManager.addResponsedMessageRule(new fp8());
         }
     }
@@ -260,7 +260,7 @@ public class InitMessageManagerTask extends LaunchTask {
     private void registeDealIntentTask() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
-            la5 la5Var = new la5(2012000, new CustomMessageTask.CustomRunnable<Intent>(this) { // from class: com.baidu.searchbox.task.sync.appcreate.InitMessageManagerTask.5
+            ma5 ma5Var = new ma5(2012000, new CustomMessageTask.CustomRunnable<Intent>(this) { // from class: com.baidu.searchbox.task.sync.appcreate.InitMessageManagerTask.5
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ InitMessageManagerTask this$0;
@@ -294,15 +294,15 @@ public class InitMessageManagerTask extends LaunchTask {
                     return (CustomResponsedMessage) invokeL.objValue;
                 }
             });
-            la5Var.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
-            MessageManager.getInstance().registerTask(la5Var);
+            ma5Var.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
+            MessageManager.getInstance().registerTask(ma5Var);
         }
     }
 
     private void registeYYNotificationTask() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
-            la5 la5Var = new la5(2012100, new CustomMessageTask.CustomRunnable<mp4>(this) { // from class: com.baidu.searchbox.task.sync.appcreate.InitMessageManagerTask.4
+            ma5 ma5Var = new ma5(2012100, new CustomMessageTask.CustomRunnable<np4>(this) { // from class: com.baidu.searchbox.task.sync.appcreate.InitMessageManagerTask.4
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ InitMessageManagerTask this$0;
@@ -326,7 +326,7 @@ public class InitMessageManagerTask extends LaunchTask {
                 }
 
                 @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-                public CustomResponsedMessage<?> run(CustomMessage<mp4> customMessage) {
+                public CustomResponsedMessage<?> run(CustomMessage<np4> customMessage) {
                     InterceptResult invokeL;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, customMessage)) == null) {
@@ -336,8 +336,8 @@ public class InitMessageManagerTask extends LaunchTask {
                     return (CustomResponsedMessage) invokeL.objValue;
                 }
             });
-            la5Var.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
-            MessageManager.getInstance().registerTask(la5Var);
+            ma5Var.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
+            MessageManager.getInstance().registerTask(ma5Var);
         }
     }
 
@@ -405,9 +405,9 @@ public class InitMessageManagerTask extends LaunchTask {
         if (interceptable == null || interceptable.invokeV(65542, this) == null) {
             MessageManager.getInstance().registerListener(this.mDescriptionTableFixListener);
             try {
-                ud5.b().e();
+                vd5.b().e();
                 if (TbadkCoreApplication.getInst().isMainProcess(false, AppRuntime.getAppContext())) {
-                    fl4.d().f();
+                    gl4.d().f();
                 }
             } catch (Exception e) {
                 BdLog.e(e.getMessage());

@@ -70,10 +70,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.cr4;
+import com.repackage.dr4;
 import com.repackage.lj5;
-import com.repackage.nr4;
 import com.repackage.oj5;
+import com.repackage.or4;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
@@ -88,11 +88,11 @@ public class it7 {
     public TbRichTextView.y E;
     public ls7 F;
     public View.OnLongClickListener G;
-    public lr4 H;
-    public cr4 I;
+    public mr4 H;
+    public dr4 I;
     public int J;
     public PbFragment.f3 K;
-    public au4 L;
+    public bu4 L;
     public lj5 M;
     public oj5 N;
     public String O;
@@ -165,22 +165,22 @@ public class it7 {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || (sparseArray = (SparseArray) view2.getTag()) == null) {
                 return;
             }
-            boolean booleanValue = sparseArray.get(R.id.obfuscated_res_0x7f091f30) instanceof Boolean ? ((Boolean) sparseArray.get(R.id.obfuscated_res_0x7f091f30)).booleanValue() : false;
-            boolean booleanValue2 = sparseArray.get(R.id.obfuscated_res_0x7f091f44) instanceof Boolean ? ((Boolean) sparseArray.get(R.id.obfuscated_res_0x7f091f44)).booleanValue() : false;
-            boolean booleanValue3 = sparseArray.get(R.id.obfuscated_res_0x7f091f2e) instanceof Boolean ? ((Boolean) sparseArray.get(R.id.obfuscated_res_0x7f091f2e)).booleanValue() : false;
+            boolean booleanValue = sparseArray.get(R.id.obfuscated_res_0x7f091f34) instanceof Boolean ? ((Boolean) sparseArray.get(R.id.obfuscated_res_0x7f091f34)).booleanValue() : false;
+            boolean booleanValue2 = sparseArray.get(R.id.obfuscated_res_0x7f091f48) instanceof Boolean ? ((Boolean) sparseArray.get(R.id.obfuscated_res_0x7f091f48)).booleanValue() : false;
+            boolean booleanValue3 = sparseArray.get(R.id.obfuscated_res_0x7f091f32) instanceof Boolean ? ((Boolean) sparseArray.get(R.id.obfuscated_res_0x7f091f32)).booleanValue() : false;
             if (booleanValue) {
                 if (booleanValue2) {
-                    sparseArray.put(R.id.obfuscated_res_0x7f091f00, 1);
+                    sparseArray.put(R.id.obfuscated_res_0x7f091f04, 1);
                     this.a.a.y1(sparseArray);
                     return;
                 }
                 this.a.P(view2);
             } else if (booleanValue2) {
-                sparseArray.put(R.id.obfuscated_res_0x7f091f00, 0);
-                sparseArray.put(R.id.obfuscated_res_0x7f091ee9, 1);
+                sparseArray.put(R.id.obfuscated_res_0x7f091f04, 0);
+                sparseArray.put(R.id.obfuscated_res_0x7f091eed, 1);
                 this.a.a.y1(sparseArray);
             } else if (booleanValue3) {
-                this.a.L(((Integer) sparseArray.get(R.id.obfuscated_res_0x7f091ef1)).intValue(), (String) sparseArray.get(R.id.obfuscated_res_0x7f091eef), ((Integer) sparseArray.get(R.id.obfuscated_res_0x7f091f0c)).intValue(), ((Boolean) sparseArray.get(R.id.obfuscated_res_0x7f091ef0)).booleanValue());
+                this.a.L(((Integer) sparseArray.get(R.id.obfuscated_res_0x7f091ef5)).intValue(), (String) sparseArray.get(R.id.obfuscated_res_0x7f091ef3), ((Integer) sparseArray.get(R.id.obfuscated_res_0x7f091f10)).intValue(), ((Boolean) sparseArray.get(R.id.obfuscated_res_0x7f091ef4)).booleanValue());
             }
         }
     }
@@ -220,7 +220,7 @@ public class it7 {
     }
 
     /* loaded from: classes6.dex */
-    public class c implements nr4.e {
+    public class c implements or4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ boolean a;
@@ -245,10 +245,10 @@ public class it7 {
             this.a = z;
         }
 
-        @Override // com.repackage.nr4.e
-        public void N(nr4 nr4Var, int i, View view2) {
+        @Override // com.repackage.or4.e
+        public void N(or4 or4Var, int i, View view2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLIL(1048576, this, nr4Var, i, view2) == null) {
+            if (interceptable == null || interceptable.invokeLIL(1048576, this, or4Var, i, view2) == null) {
                 this.b.H.dismiss();
                 SparseArray<Object> sparseArray = (SparseArray) view2.getTag();
                 if (sparseArray == null) {
@@ -256,16 +256,16 @@ public class it7 {
                 }
                 switch (i) {
                     case 10:
-                        this.b.L(((Integer) sparseArray.get(R.id.obfuscated_res_0x7f091ef1)).intValue(), (String) sparseArray.get(R.id.obfuscated_res_0x7f091eef), ((Integer) sparseArray.get(R.id.obfuscated_res_0x7f091f0c)).intValue(), ((Boolean) sparseArray.get(R.id.obfuscated_res_0x7f091ef0)).booleanValue());
+                        this.b.L(((Integer) sparseArray.get(R.id.obfuscated_res_0x7f091ef5)).intValue(), (String) sparseArray.get(R.id.obfuscated_res_0x7f091ef3), ((Integer) sparseArray.get(R.id.obfuscated_res_0x7f091f10)).intValue(), ((Boolean) sparseArray.get(R.id.obfuscated_res_0x7f091ef4)).booleanValue());
                         return;
                     case 11:
                         if (this.b.K != null) {
-                            this.b.K.a(new Object[]{sparseArray.get(R.id.obfuscated_res_0x7f091f0c), sparseArray.get(R.id.obfuscated_res_0x7f091efa), sparseArray.get(R.id.obfuscated_res_0x7f091efd), sparseArray.get(R.id.obfuscated_res_0x7f091efb), sparseArray.get(R.id.obfuscated_res_0x7f091efc)});
+                            this.b.K.a(new Object[]{sparseArray.get(R.id.obfuscated_res_0x7f091f10), sparseArray.get(R.id.obfuscated_res_0x7f091efe), sparseArray.get(R.id.obfuscated_res_0x7f091f01), sparseArray.get(R.id.obfuscated_res_0x7f091eff), sparseArray.get(R.id.obfuscated_res_0x7f091f00)});
                             return;
                         }
                         return;
                     case 12:
-                        this.b.a.W1(this.a, (String) sparseArray.get(R.id.obfuscated_res_0x7f091f40), sparseArray);
+                        this.b.a.W1(this.a, (String) sparseArray.get(R.id.obfuscated_res_0x7f091f44), sparseArray);
                         return;
                     default:
                         return;
@@ -275,7 +275,7 @@ public class it7 {
     }
 
     /* loaded from: classes6.dex */
-    public class d implements cr4.e {
+    public class d implements dr4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -295,11 +295,11 @@ public class it7 {
             }
         }
 
-        @Override // com.repackage.cr4.e
-        public void onClick(cr4 cr4Var) {
+        @Override // com.repackage.dr4.e
+        public void onClick(dr4 dr4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, cr4Var) == null) {
-                cr4Var.dismiss();
+            if (interceptable == null || interceptable.invokeL(1048576, this, dr4Var) == null) {
+                dr4Var.dismiss();
             }
         }
     }
@@ -341,7 +341,7 @@ public class it7 {
                     alertDialog.dismiss();
                 }
                 if (!ni.A()) {
-                    pi.N(this.c.a, R.string.obfuscated_res_0x7f0f0c2b);
+                    pi.N(this.c.a, R.string.obfuscated_res_0x7f0f0c17);
                 } else {
                     this.c.a.F1(this.b, null);
                 }
@@ -423,15 +423,15 @@ public class it7 {
     public class h implements lj5.g {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ cr4 a;
+        public final /* synthetic */ dr4 a;
         public final /* synthetic */ it7 b;
 
-        public h(it7 it7Var, cr4 cr4Var) {
+        public h(it7 it7Var, dr4 dr4Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {it7Var, cr4Var};
+                Object[] objArr = {it7Var, dr4Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -442,7 +442,7 @@ public class it7 {
                 }
             }
             this.b = it7Var;
-            this.a = cr4Var;
+            this.a = dr4Var;
         }
 
         @Override // com.repackage.lj5.g
@@ -488,7 +488,7 @@ public class it7 {
     }
 
     /* loaded from: classes6.dex */
-    public class j implements k15 {
+    public class j implements l15 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ it7 a;
@@ -511,12 +511,12 @@ public class it7 {
             this.a = it7Var;
         }
 
-        @Override // com.repackage.k15
-        public void C(j15 j15Var) {
+        @Override // com.repackage.l15
+        public void C(k15 k15Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, j15Var) == null) {
-                Object obj = j15Var.c;
-                if ((obj instanceof lx4) && EmotionGroupType.isSendAsPic(((lx4) obj).getType())) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, k15Var) == null) {
+                Object obj = k15Var.c;
+                if ((obj instanceof mx4) && EmotionGroupType.isSendAsPic(((mx4) obj).getType())) {
                     if (this.a.P == null) {
                         this.a.P = new PermissionJudgePolicy();
                     }
@@ -525,7 +525,7 @@ public class it7 {
                     if (this.a.P.startRequestPermission(this.a.a)) {
                         return;
                     }
-                    this.a.a.S1().h((lx4) j15Var.c);
+                    this.a.a.S1().h((mx4) k15Var.c);
                     this.a.a.S1().z(false, null);
                 }
             }
@@ -981,11 +981,11 @@ public class it7 {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                SpannableString spannableString = new SpannableString(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0400));
+                SpannableString spannableString = new SpannableString(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f03ff));
                 if (this.a.s != null) {
                     TiebaStatic.log(new StatisticItem("c14444").param("tid", this.a.s.Q()).param("fname", this.a.s.n()).param("fid", this.a.s.m()).param("uid", TbadkCoreApplication.getCurrentAccountId()));
                 }
-                TBAlertConfig.a aVar = new TBAlertConfig.a((int) R.string.obfuscated_res_0x7f0f099e, TBAlertConfig.OperateBtnStyle.MAIN);
+                TBAlertConfig.a aVar = new TBAlertConfig.a((int) R.string.obfuscated_res_0x7f0f0989, TBAlertConfig.OperateBtnStyle.MAIN);
                 aVar.a(new a(this));
                 LinearLayout linearLayout = new LinearLayout(this.a.a);
                 linearLayout.setOrientation(0);
@@ -993,7 +993,7 @@ public class it7 {
                 linearLayout.setPadding(0, UtilHelper.getDimenPixelSize(R.dimen.M_H_X008), 0, 0);
                 linearLayout.setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
                 TextView textView = new TextView(this.a.a);
-                textView.setText(R.string.obfuscated_res_0x7f0f1552);
+                textView.setText(R.string.obfuscated_res_0x7f0f1501);
                 textView.setTextSize(0, UtilHelper.getDimenPixelSize(R.dimen.T_X07));
                 textView.setTextColor(SkinManager.getColor(R.color.CAM_X0304));
                 textView.setOnClickListener(new b(this));
@@ -1004,7 +1004,7 @@ public class it7 {
                 linearLayout.addView(imageView, new LinearLayout.LayoutParams(pi.f(this.a.a, R.dimen.tbds36), pi.f(this.a.a, R.dimen.tbds36)));
                 it7 it7Var = this.a;
                 TBAlertBuilder tBAlertBuilder = new TBAlertBuilder(it7Var.a);
-                tBAlertBuilder.t(R.string.obfuscated_res_0x7f0f03ff);
+                tBAlertBuilder.t(R.string.obfuscated_res_0x7f0f03fe);
                 tBAlertBuilder.p(spannableString);
                 tBAlertBuilder.m(3);
                 tBAlertBuilder.j(linearLayout);
@@ -1047,19 +1047,19 @@ public class it7 {
         this.E = yVar;
         this.F = ls7Var;
         this.G = onLongClickListener;
-        SubPbView subPbView = (SubPbView) LayoutInflater.from(foldCommentActivity.getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0492, (ViewGroup) null);
+        SubPbView subPbView = (SubPbView) LayoutInflater.from(foldCommentActivity.getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0491, (ViewGroup) null);
         this.e = subPbView;
-        this.f = (LinearLayout) subPbView.findViewById(R.id.obfuscated_res_0x7f091590);
-        RelativeLayout relativeLayout = (RelativeLayout) this.e.findViewById(R.id.obfuscated_res_0x7f0909d0);
+        this.f = (LinearLayout) subPbView.findViewById(R.id.obfuscated_res_0x7f09156b);
+        RelativeLayout relativeLayout = (RelativeLayout) this.e.findViewById(R.id.obfuscated_res_0x7f0909c9);
         this.y = relativeLayout;
         relativeLayout.setVisibility(8);
-        this.v = (TextView) this.e.findViewById(R.id.obfuscated_res_0x7f0909d1);
-        this.w = (ImageView) this.e.findViewById(R.id.obfuscated_res_0x7f0909d4);
-        this.x = (ImageView) this.e.findViewById(R.id.obfuscated_res_0x7f0909d3);
-        this.c = (NoNetworkView) this.e.findViewById(R.id.obfuscated_res_0x7f092439);
+        this.v = (TextView) this.e.findViewById(R.id.obfuscated_res_0x7f0909ca);
+        this.w = (ImageView) this.e.findViewById(R.id.obfuscated_res_0x7f0909cd);
+        this.x = (ImageView) this.e.findViewById(R.id.obfuscated_res_0x7f0909cc);
+        this.c = (NoNetworkView) this.e.findViewById(R.id.obfuscated_res_0x7f09243b);
         G();
-        this.n = (RelativeLayout) this.e.findViewById(R.id.obfuscated_res_0x7f0909ce);
-        this.o = (BdTypeListView) this.e.findViewById(R.id.obfuscated_res_0x7f0909d5);
+        this.n = (RelativeLayout) this.e.findViewById(R.id.obfuscated_res_0x7f0909c7);
+        this.o = (BdTypeListView) this.e.findViewById(R.id.obfuscated_res_0x7f0909ce);
         View view2 = new View(foldCommentActivity.getActivity());
         view2.setLayoutParams(new AbsListView.LayoutParams(-1, 16));
         this.o.x(view2, 0);
@@ -1073,13 +1073,13 @@ public class it7 {
         qx7Var.x();
         this.p.B(new n(this));
         this.o.setNextPage(this.p);
-        this.q = (ProgressBar) this.e.findViewById(R.id.obfuscated_res_0x7f0919c7);
-        this.u = (MaskView) this.e.findViewById(R.id.obfuscated_res_0x7f09141d);
-        this.B = this.e.findViewById(R.id.obfuscated_res_0x7f09241f);
-        LinearLayout linearLayout = (LinearLayout) this.e.findViewById(R.id.obfuscated_res_0x7f0909cf);
+        this.q = (ProgressBar) this.e.findViewById(R.id.obfuscated_res_0x7f0919a2);
+        this.u = (MaskView) this.e.findViewById(R.id.obfuscated_res_0x7f0913f9);
+        this.B = this.e.findViewById(R.id.obfuscated_res_0x7f092421);
+        LinearLayout linearLayout = (LinearLayout) this.e.findViewById(R.id.obfuscated_res_0x7f0909c8);
         this.z = linearLayout;
         linearLayout.setOnClickListener(new o(this));
-        HeadImageView headImageView = (HeadImageView) this.e.findViewById(R.id.obfuscated_res_0x7f0909d2);
+        HeadImageView headImageView = (HeadImageView) this.e.findViewById(R.id.obfuscated_res_0x7f0909cb);
         this.A = headImageView;
         headImageView.setVisibility(0);
         this.A.setIsRound(true);
@@ -1183,15 +1183,15 @@ public class it7 {
     public final void G() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            int f2 = pi.f(this.a.getPageContext().getPageActivity(), R.dimen.obfuscated_res_0x7f070308);
+            int f2 = pi.f(this.a.getPageContext().getPageActivity(), R.dimen.obfuscated_res_0x7f070306);
             int f3 = pi.f(this.a.getPageContext().getPageActivity(), R.dimen.obfuscated_res_0x7f0701d4);
-            NavigationBar navigationBar = (NavigationBar) this.e.findViewById(R.id.obfuscated_res_0x7f092437);
+            NavigationBar navigationBar = (NavigationBar) this.e.findViewById(R.id.obfuscated_res_0x7f092439);
             this.g = navigationBar;
-            navigationBar.setCenterTextTitle(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0637));
+            navigationBar.setCenterTextTitle(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0633));
             this.i = this.g.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new s(this));
-            LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0493, (ViewGroup) null);
+            LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0492, (ViewGroup) null);
             this.j = linearLayout;
-            ImageView imageView = (ImageView) linearLayout.findViewById(R.id.obfuscated_res_0x7f091599);
+            ImageView imageView = (ImageView) linearLayout.findViewById(R.id.obfuscated_res_0x7f091574);
             this.k = imageView;
             imageView.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080912, SkinManager.getColor(R.color.CAM_X0105), WebPManager.ResourceStateType.NORMAL_PRESS));
             this.g.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, this.j, new t(this));
@@ -1222,10 +1222,10 @@ public class it7 {
     public final void H(NoDataViewFactory.e eVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, eVar) == null) {
-            NoDataViewFactory.c a2 = NoDataViewFactory.c.a(new NoDataViewFactory.b(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f0f9a), new b(this)));
+            NoDataViewFactory.c a2 = NoDataViewFactory.c.a(new NoDataViewFactory.b(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f0f83), new b(this)));
             if (this.d == null) {
                 Activity pageActivity = this.a.getPageContext().getPageActivity();
-                this.d = NoDataViewFactory.a(pageActivity, this.n, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NETERROR, pi.f(pageActivity, R.dimen.obfuscated_res_0x7f07028a)), eVar, a2);
+                this.d = NoDataViewFactory.a(pageActivity, this.n, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NETERROR, pi.f(pageActivity, R.dimen.obfuscated_res_0x7f070288)), eVar, a2);
             }
             this.o.setVisibility(8);
             this.q.setVisibility(8);
@@ -1297,7 +1297,7 @@ public class it7 {
             SkinManager.setBackgroundColor(this.B, R.color.CAM_X0203);
             this.A.setBorderColor(SkinManager.getColor(R.color.CAM_X0401));
             this.z.setBackgroundDrawable(SkinManager.createShapeDrawableFromColor(pi.f(this.a, R.dimen.tbds47), SkinManager.getColor(R.color.CAM_X0209)));
-            ur4.d(this.y).f(R.color.CAM_X0208);
+            vr4.d(this.y).f(R.color.CAM_X0208);
         }
     }
 
@@ -1319,22 +1319,22 @@ public class it7 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048589, this, new Object[]{Integer.valueOf(i2), str, Integer.valueOf(i3), Boolean.valueOf(z), str2, Boolean.valueOf(z2)}) == null) {
             SparseArray<Object> sparseArray = new SparseArray<>();
-            sparseArray.put(R.id.obfuscated_res_0x7f091eef, str);
-            sparseArray.put(R.id.obfuscated_res_0x7f091ef1, Integer.valueOf(i2));
-            sparseArray.put(R.id.obfuscated_res_0x7f091f0c, Integer.valueOf(i3));
-            sparseArray.put(R.id.obfuscated_res_0x7f091ef0, Boolean.valueOf(z));
+            sparseArray.put(R.id.obfuscated_res_0x7f091ef3, str);
+            sparseArray.put(R.id.obfuscated_res_0x7f091ef5, Integer.valueOf(i2));
+            sparseArray.put(R.id.obfuscated_res_0x7f091f10, Integer.valueOf(i3));
+            sparseArray.put(R.id.obfuscated_res_0x7f091ef4, Boolean.valueOf(z));
             sparseArray.put(0, 3);
-            int i4 = (i3 != 1002 || z) ? R.string.obfuscated_res_0x7f0f0494 : R.string.obfuscated_res_0x7f0f0fd3;
-            int i5 = R.string.obfuscated_res_0x7f0f042f;
+            int i4 = (i3 != 1002 || z) ? R.string.obfuscated_res_0x7f0f0493 : R.string.obfuscated_res_0x7f0f0fbc;
+            int i5 = R.string.obfuscated_res_0x7f0f042e;
             if (i2 == 0) {
                 if (i3 != 1002 || z) {
-                    i5 = R.string.obfuscated_res_0x7f0f0498;
-                    i4 = R.string.obfuscated_res_0x7f0f0499;
+                    i5 = R.string.obfuscated_res_0x7f0f0497;
+                    i4 = R.string.obfuscated_res_0x7f0f0498;
                 } else {
-                    i4 = R.string.obfuscated_res_0x7f0f0fd7;
+                    i4 = R.string.obfuscated_res_0x7f0f0fc0;
                 }
             }
-            this.I = new cr4(this.a);
+            this.I = new dr4(this.a);
             if (StringUtils.isNull(str2)) {
                 this.I.setMessageId(i4);
             } else {
@@ -1342,8 +1342,8 @@ public class it7 {
                 this.I.setMessage(str2);
             }
             this.I.setYesButtonTag(sparseArray);
-            this.I.setPositiveButton(R.string.obfuscated_res_0x7f0f04e5, this.a);
-            this.I.setNegativeButton(R.string.obfuscated_res_0x7f0f04e0, new d(this));
+            this.I.setPositiveButton(R.string.obfuscated_res_0x7f0f04e1, this.a);
+            this.I.setNegativeButton(R.string.obfuscated_res_0x7f0f04dc, new d(this));
             this.I.setCancelable(true);
             this.I.create(this.a.getPageContext());
             if (z2) {
@@ -1363,66 +1363,66 @@ public class it7 {
     }
 
     public void O(SparseArray<Object> sparseArray, boolean z) {
-        jr4 jr4Var;
-        jr4 jr4Var2;
+        kr4 kr4Var;
+        kr4 kr4Var2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(1048590, this, sparseArray, z) == null) {
-            nr4 nr4Var = new nr4(this.a);
-            nr4Var.q(this.a.getString(R.string.obfuscated_res_0x7f0f02df));
-            nr4Var.n(new c(this, z));
+            or4 or4Var = new or4(this.a);
+            or4Var.q(this.a.getString(R.string.obfuscated_res_0x7f0f02df));
+            or4Var.n(new c(this, z));
             ArrayList arrayList = new ArrayList();
-            int intValue = sparseArray.get(R.id.obfuscated_res_0x7f091ee9) instanceof Integer ? ((Integer) sparseArray.get(R.id.obfuscated_res_0x7f091ee9)).intValue() : -1;
-            if (!"".equals(sparseArray.get(R.id.obfuscated_res_0x7f091eef)) && intValue != 2) {
-                if ((sparseArray.get(R.id.obfuscated_res_0x7f091ef1) instanceof Integer ? ((Integer) sparseArray.get(R.id.obfuscated_res_0x7f091ef1)).intValue() : -1) == 0) {
-                    jr4Var2 = new jr4(10, this.a.getString(R.string.obfuscated_res_0x7f0f04aa), nr4Var);
+            int intValue = sparseArray.get(R.id.obfuscated_res_0x7f091eed) instanceof Integer ? ((Integer) sparseArray.get(R.id.obfuscated_res_0x7f091eed)).intValue() : -1;
+            if (!"".equals(sparseArray.get(R.id.obfuscated_res_0x7f091ef3)) && intValue != 2) {
+                if ((sparseArray.get(R.id.obfuscated_res_0x7f091ef5) instanceof Integer ? ((Integer) sparseArray.get(R.id.obfuscated_res_0x7f091ef5)).intValue() : -1) == 0) {
+                    kr4Var2 = new kr4(10, this.a.getString(R.string.obfuscated_res_0x7f0f04a9), or4Var);
                 } else {
-                    jr4Var2 = new jr4(10, this.a.getString(R.string.obfuscated_res_0x7f0f049f), nr4Var);
+                    kr4Var2 = new kr4(10, this.a.getString(R.string.obfuscated_res_0x7f0f049e), or4Var);
                 }
                 SparseArray sparseArray2 = new SparseArray();
-                sparseArray2.put(R.id.obfuscated_res_0x7f091eef, sparseArray.get(R.id.obfuscated_res_0x7f091eef));
-                sparseArray2.put(R.id.obfuscated_res_0x7f091ef1, sparseArray.get(R.id.obfuscated_res_0x7f091ef1));
-                sparseArray2.put(R.id.obfuscated_res_0x7f091ef0, sparseArray.get(R.id.obfuscated_res_0x7f091ef0));
-                sparseArray2.put(R.id.obfuscated_res_0x7f091f0c, sparseArray.get(R.id.obfuscated_res_0x7f091f0c));
-                jr4Var2.d.setTag(sparseArray2);
-                arrayList.add(jr4Var2);
+                sparseArray2.put(R.id.obfuscated_res_0x7f091ef3, sparseArray.get(R.id.obfuscated_res_0x7f091ef3));
+                sparseArray2.put(R.id.obfuscated_res_0x7f091ef5, sparseArray.get(R.id.obfuscated_res_0x7f091ef5));
+                sparseArray2.put(R.id.obfuscated_res_0x7f091ef4, sparseArray.get(R.id.obfuscated_res_0x7f091ef4));
+                sparseArray2.put(R.id.obfuscated_res_0x7f091f10, sparseArray.get(R.id.obfuscated_res_0x7f091f10));
+                kr4Var2.d.setTag(sparseArray2);
+                arrayList.add(kr4Var2);
             }
-            if (!"".equals(sparseArray.get(R.id.obfuscated_res_0x7f091efa)) || !"".equals(sparseArray.get(R.id.obfuscated_res_0x7f091efb))) {
+            if (!"".equals(sparseArray.get(R.id.obfuscated_res_0x7f091efe)) || !"".equals(sparseArray.get(R.id.obfuscated_res_0x7f091eff))) {
                 SparseArray sparseArray3 = new SparseArray();
-                sparseArray3.put(R.id.obfuscated_res_0x7f091efa, sparseArray.get(R.id.obfuscated_res_0x7f091efa));
-                sparseArray3.put(R.id.obfuscated_res_0x7f091efb, sparseArray.get(R.id.obfuscated_res_0x7f091efb));
-                sparseArray3.put(R.id.obfuscated_res_0x7f091efc, sparseArray.get(R.id.obfuscated_res_0x7f091efc));
-                sparseArray3.put(R.id.obfuscated_res_0x7f091f0c, sparseArray.get(R.id.obfuscated_res_0x7f091f0c));
-                sparseArray3.put(R.id.obfuscated_res_0x7f091efd, sparseArray.get(R.id.obfuscated_res_0x7f091efd));
-                jr4 jr4Var3 = new jr4(11, this.a.getString(R.string.obfuscated_res_0x7f0f064a), nr4Var);
-                jr4Var3.d.setTag(sparseArray3);
-                arrayList.add(jr4Var3);
+                sparseArray3.put(R.id.obfuscated_res_0x7f091efe, sparseArray.get(R.id.obfuscated_res_0x7f091efe));
+                sparseArray3.put(R.id.obfuscated_res_0x7f091eff, sparseArray.get(R.id.obfuscated_res_0x7f091eff));
+                sparseArray3.put(R.id.obfuscated_res_0x7f091f00, sparseArray.get(R.id.obfuscated_res_0x7f091f00));
+                sparseArray3.put(R.id.obfuscated_res_0x7f091f10, sparseArray.get(R.id.obfuscated_res_0x7f091f10));
+                sparseArray3.put(R.id.obfuscated_res_0x7f091f01, sparseArray.get(R.id.obfuscated_res_0x7f091f01));
+                kr4 kr4Var3 = new kr4(11, this.a.getString(R.string.obfuscated_res_0x7f0f0646), or4Var);
+                kr4Var3.d.setTag(sparseArray3);
+                arrayList.add(kr4Var3);
             }
-            if ((sparseArray.get(R.id.obfuscated_res_0x7f091f44) instanceof Boolean) && ((Boolean) sparseArray.get(R.id.obfuscated_res_0x7f091f44)).booleanValue()) {
+            if ((sparseArray.get(R.id.obfuscated_res_0x7f091f48) instanceof Boolean) && ((Boolean) sparseArray.get(R.id.obfuscated_res_0x7f091f48)).booleanValue()) {
                 SparseArray sparseArray4 = new SparseArray();
-                sparseArray4.put(R.id.obfuscated_res_0x7f091f04, sparseArray.get(R.id.obfuscated_res_0x7f091f04));
-                sparseArray4.put(R.id.obfuscated_res_0x7f091f40, sparseArray.get(R.id.obfuscated_res_0x7f091f40));
-                sparseArray4.put(R.id.obfuscated_res_0x7f091f41, sparseArray.get(R.id.obfuscated_res_0x7f091f41));
-                sparseArray4.put(R.id.obfuscated_res_0x7f091f3f, sparseArray.get(R.id.obfuscated_res_0x7f091f3f));
-                sparseArray4.put(R.id.obfuscated_res_0x7f091f42, sparseArray.get(R.id.obfuscated_res_0x7f091f42));
+                sparseArray4.put(R.id.obfuscated_res_0x7f091f08, sparseArray.get(R.id.obfuscated_res_0x7f091f08));
+                sparseArray4.put(R.id.obfuscated_res_0x7f091f44, sparseArray.get(R.id.obfuscated_res_0x7f091f44));
+                sparseArray4.put(R.id.obfuscated_res_0x7f091f45, sparseArray.get(R.id.obfuscated_res_0x7f091f45));
                 sparseArray4.put(R.id.obfuscated_res_0x7f091f43, sparseArray.get(R.id.obfuscated_res_0x7f091f43));
-                sparseArray4.put(R.id.obfuscated_res_0x7f091f3e, sparseArray.get(R.id.obfuscated_res_0x7f091f3e));
+                sparseArray4.put(R.id.obfuscated_res_0x7f091f46, sparseArray.get(R.id.obfuscated_res_0x7f091f46));
+                sparseArray4.put(R.id.obfuscated_res_0x7f091f47, sparseArray.get(R.id.obfuscated_res_0x7f091f47));
+                sparseArray4.put(R.id.obfuscated_res_0x7f091f42, sparseArray.get(R.id.obfuscated_res_0x7f091f42));
                 if (z) {
-                    jr4Var = new jr4(12, this.a.getString(R.string.obfuscated_res_0x7f0f14aa), nr4Var);
+                    kr4Var = new kr4(12, this.a.getString(R.string.obfuscated_res_0x7f0f1459), or4Var);
                 } else {
-                    jr4Var = new jr4(12, this.a.getString(R.string.obfuscated_res_0x7f0f0b1f), nr4Var);
+                    kr4Var = new kr4(12, this.a.getString(R.string.obfuscated_res_0x7f0f0b0b), or4Var);
                 }
-                jr4Var.d.setTag(sparseArray4);
-                arrayList.add(jr4Var);
+                kr4Var.d.setTag(sparseArray4);
+                arrayList.add(kr4Var);
             }
             fx7.e(arrayList);
             if (UbsABTestHelper.isPBPlanA()) {
-                nr4Var.k(arrayList, false);
+                or4Var.k(arrayList, false);
             } else {
-                nr4Var.k(arrayList, true);
+                or4Var.k(arrayList, true);
             }
-            lr4 lr4Var = new lr4(this.a.getPageContext(), nr4Var);
-            this.H = lr4Var;
-            lr4Var.m();
+            mr4 mr4Var = new mr4(this.a.getPageContext(), or4Var);
+            this.H = mr4Var;
+            mr4Var.m();
         }
     }
 
@@ -1441,8 +1441,8 @@ public class it7 {
         if (!(interceptable == null || interceptable.invokeV(1048592, this) == null) || (foldCommentActivity = this.a) == null || foldCommentActivity.S1() == null || this.T == null) {
             return;
         }
-        j35.a().c(0);
-        n35 S1 = this.a.S1();
+        k35.a().c(0);
+        o35 S1 = this.a.S1();
         S1.U();
         S1.S();
         if (S1.y() != null) {
@@ -1450,9 +1450,9 @@ public class it7 {
         }
         S1.n0(SendView.h);
         S1.j(SendView.h);
-        q15 m2 = this.T.m(23);
-        q15 m3 = this.T.m(2);
-        q15 m4 = this.T.m(5);
+        r15 m2 = this.T.m(23);
+        r15 m3 = this.T.m(2);
+        r15 m4 = this.T.m(5);
         if (m3 != null) {
             m3.r();
         }
@@ -1502,7 +1502,7 @@ public class it7 {
         if (interceptable == null || interceptable.invokeL(1048595, this, editorTools) == null) {
             this.T = editorTools;
             editorTools.setOnCancelClickListener(new i(this));
-            this.T.setId(R.id.obfuscated_res_0x7f091715);
+            this.T.setId(R.id.obfuscated_res_0x7f0916f0);
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, -2);
             layoutParams.addRule(12);
             if (this.T.getParent() == null) {
@@ -1578,7 +1578,7 @@ public class it7 {
         if (!(interceptable == null || interceptable.invokeLII(1048603, this, sparseArray, i2, i3) == null) || this.a == null) {
             return;
         }
-        TBAlertConfig.a aVar = new TBAlertConfig.a((int) R.string.obfuscated_res_0x7f0f049f, TBAlertConfig.OperateBtnStyle.MAIN);
+        TBAlertConfig.a aVar = new TBAlertConfig.a((int) R.string.obfuscated_res_0x7f0f049e, TBAlertConfig.OperateBtnStyle.MAIN);
         TBAlertConfig.a aVar2 = new TBAlertConfig.a((int) R.string.obfuscated_res_0x7f0f036a, TBAlertConfig.OperateBtnStyle.SECONDARY);
         TBAlertBuilder tBAlertBuilder = new TBAlertBuilder(this.a);
         tBAlertBuilder.t(i2);
@@ -1597,7 +1597,7 @@ public class it7 {
         if (!(interceptable == null || interceptable.invokeZ(1048604, this, z) == null) || this.y == null || (textView = this.R) == null) {
             return;
         }
-        textView.setText(R.string.obfuscated_res_0x7f0f0510);
+        textView.setText(R.string.obfuscated_res_0x7f0f050c);
         if (z) {
             AlphaAnimation alphaAnimation = new AlphaAnimation(0.0f, 1.0f);
             alphaAnimation.setDuration(400L);
@@ -1609,7 +1609,7 @@ public class it7 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048605, this) == null) {
             if (this.L == null) {
-                this.L = new au4(this.a.getPageContext());
+                this.L = new bu4(this.a.getPageContext());
             }
             this.L.h(true);
         }
@@ -1635,10 +1635,10 @@ public class it7 {
                 }
             }
         }
-        kp4 kp4Var = new kp4();
-        kp4Var.j(sparseArray2);
-        this.N.E(new String[]{this.a.getString(R.string.obfuscated_res_0x7f0f04b3), this.a.getString(R.string.obfuscated_res_0x7f0f04b4), this.a.getString(R.string.obfuscated_res_0x7f0f04b5), this.a.getString(R.string.obfuscated_res_0x7f0f04b6), this.a.getString(R.string.obfuscated_res_0x7f0f04b7)});
-        this.N.D(kp4Var);
+        lp4 lp4Var = new lp4();
+        lp4Var.j(sparseArray2);
+        this.N.E(new String[]{this.a.getString(R.string.obfuscated_res_0x7f0f04b2), this.a.getString(R.string.obfuscated_res_0x7f0f04b3), this.a.getString(R.string.obfuscated_res_0x7f0f04b4), this.a.getString(R.string.obfuscated_res_0x7f0f04b5), this.a.getString(R.string.obfuscated_res_0x7f0f04b6)});
+        this.N.D(lp4Var);
         this.N.G((i2 == 1 || i2 == 2) ? "4" : "3");
         this.N.F(new g(this, sparseArray));
     }
@@ -1646,7 +1646,7 @@ public class it7 {
     public void f0(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048607, this, i2) == null) {
-            H(NoDataViewFactory.e.d(null, this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0f9b)));
+            H(NoDataViewFactory.e.d(null, this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0f84)));
             this.y.setVisibility(8);
         }
     }
@@ -1657,16 +1657,16 @@ public class it7 {
             if (z) {
                 H(NoDataViewFactory.e.d("", str));
             } else {
-                H(NoDataViewFactory.e.d(str, this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f0f9b)));
+                H(NoDataViewFactory.e.d(str, this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f0f84)));
             }
             this.y.setVisibility(8);
         }
     }
 
-    public final void h0(cr4 cr4Var, int i2) {
+    public final void h0(dr4 dr4Var, int i2) {
         FoldCommentActivity foldCommentActivity;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(1048609, this, cr4Var, i2) == null) || (foldCommentActivity = this.a) == null || cr4Var == null) {
+        if (!(interceptable == null || interceptable.invokeLI(1048609, this, dr4Var, i2) == null) || (foldCommentActivity = this.a) == null || dr4Var == null) {
             return;
         }
         if (this.M == null) {
@@ -1682,12 +1682,12 @@ public class it7 {
                 }
             }
         }
-        kp4 kp4Var = new kp4();
-        kp4Var.j(sparseArray);
-        this.M.y(new String[]{this.a.getString(R.string.obfuscated_res_0x7f0f04b3), this.a.getString(R.string.obfuscated_res_0x7f0f04b4), this.a.getString(R.string.obfuscated_res_0x7f0f04b5), this.a.getString(R.string.obfuscated_res_0x7f0f04b6), this.a.getString(R.string.obfuscated_res_0x7f0f04b7)});
-        this.M.x(kp4Var);
+        lp4 lp4Var = new lp4();
+        lp4Var.j(sparseArray);
+        this.M.y(new String[]{this.a.getString(R.string.obfuscated_res_0x7f0f04b2), this.a.getString(R.string.obfuscated_res_0x7f0f04b3), this.a.getString(R.string.obfuscated_res_0x7f0f04b4), this.a.getString(R.string.obfuscated_res_0x7f0f04b5), this.a.getString(R.string.obfuscated_res_0x7f0f04b6)});
+        this.M.x(lp4Var);
         this.M.A((i2 == 1 || i2 == 2) ? "4" : "3");
-        this.M.z(new h(this, cr4Var));
+        this.M.z(new h(this, dr4Var));
     }
 
     public void s() {
@@ -1698,7 +1698,7 @@ public class it7 {
             if (pbModel != null && (pbModel.z2() || this.b.y2())) {
                 this.J = pi.f(TbadkCoreApplication.getInst(), R.dimen.tbds562) + UtilHelper.getStatusBarHeight();
             } else {
-                this.J = pi.f(TbadkCoreApplication.getInst(), R.dimen.obfuscated_res_0x7f070255);
+                this.J = pi.f(TbadkCoreApplication.getInst(), R.dimen.obfuscated_res_0x7f070252);
             }
             this.f.addView(this.m, 0, new LinearLayout.LayoutParams(-1, this.J));
             this.m.setVisibility(0);
@@ -1710,7 +1710,7 @@ public class it7 {
     public void t() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048611, this) == null) && this.a.checkUpIsLogin() && this.a.A1()) {
-            n35 S1 = this.a.S1();
+            o35 S1 = this.a.S1();
             if (S1 != null && (S1.B() || S1.D())) {
                 this.a.S1().z(false, null);
                 return;
@@ -1735,10 +1735,10 @@ public class it7 {
             this.a.hideProgressBar();
             if (z && z2) {
                 FoldCommentActivity foldCommentActivity = this.a;
-                foldCommentActivity.showToast(foldCommentActivity.getPageContext().getString(R.string.obfuscated_res_0x7f0f122f));
+                foldCommentActivity.showToast(foldCommentActivity.getPageContext().getString(R.string.obfuscated_res_0x7f0f11de));
             } else if (z2) {
                 if (oi.isEmpty(str)) {
-                    str = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0c2b);
+                    str = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0c17);
                 }
                 this.a.showToast(str);
             }

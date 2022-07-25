@@ -658,9 +658,9 @@ public class b67 {
             if (TextUtils.isEmpty(optString)) {
                 return;
             }
-            cp4 cp4Var = new cp4();
-            cp4Var.a(optString);
-            imMessageCenterPojo.setImUserExtraData(cp4Var);
+            dp4 dp4Var = new dp4();
+            dp4Var.a(optString);
+            imMessageCenterPojo.setImUserExtraData(dp4Var);
         } catch (JSONException e) {
             e.printStackTrace();
         }

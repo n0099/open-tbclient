@@ -18,8 +18,8 @@ import com.kwad.sdk.core.response.model.AdTemplate;
 public final class c extends com.kwad.components.ad.reward.presenter.a implements b.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public AdTemplate b;
-    public boolean c;
+    public AdTemplate mAdTemplate;
+    public boolean oB;
 
     public c() {
         Interceptable interceptable = $ic;
@@ -34,45 +34,45 @@ public final class c extends com.kwad.components.ad.reward.presenter.a implement
                 return;
             }
         }
-        this.c = false;
+        this.oB = false;
     }
 
-    public static boolean a(AdInfo adInfo) {
+    public static boolean k(AdInfo adInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, adInfo)) == null) {
-            AdProductInfo bd = com.kwad.sdk.core.response.a.a.bd(adInfo);
-            return (!com.kwad.components.ad.reward.kwai.b.b(adInfo) || bd == null || bd.isCouponListEmpty()) ? false : true;
+            AdProductInfo bN = com.kwad.sdk.core.response.a.a.bN(adInfo);
+            return (!com.kwad.components.ad.reward.kwai.b.h(adInfo) || bN == null || bN.isCouponListEmpty()) ? false : true;
         }
         return invokeL.booleanValue;
     }
 
     @Override // com.kwad.components.ad.reward.presenter.a, com.kwad.sdk.mvp.Presenter
-    public final void a() {
+    public final void aq() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            super.a();
-            this.b = ((com.kwad.components.ad.reward.presenter.a) this).a.g;
+            super.aq();
+            this.mAdTemplate = this.nM.mAdTemplate;
         }
     }
 
     @Override // com.kwad.components.ad.reward.a.b.a
-    public final void b() {
+    public final void gn() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            ((com.kwad.components.ad.reward.presenter.a) this).a.a(u(), 29, 1);
+            this.nM.a(getContext(), 29, 1);
         }
     }
 
-    public final void d() {
+    public final void showDialog() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            com.kwad.sdk.core.d.b.a("RewardCouponDialogPresenter", "onBind hasShown : " + this.c);
-            if (this.c) {
+            com.kwad.sdk.core.e.b.d("RewardCouponDialogPresenter", "onBind hasShown : " + this.oB);
+            if (this.oB) {
                 return;
             }
-            AdInfo i = d.i(this.b);
-            ViewGroup viewGroup = (ViewGroup) ((com.kwad.components.ad.reward.presenter.a) this).a.h.findViewById(R.id.obfuscated_res_0x7f09114b);
+            AdInfo bQ = d.bQ(this.mAdTemplate);
+            ViewGroup viewGroup = (ViewGroup) this.nM.mRootContainer.findViewById(R.id.obfuscated_res_0x7f091129);
             if (viewGroup == null) {
                 return;
             }
@@ -81,42 +81,42 @@ public final class c extends com.kwad.components.ad.reward.presenter.a implement
             if (childCount > 0) {
                 view2 = viewGroup.getChildAt(0);
             }
-            int[] b = com.kwad.sdk.b.kwai.a.b(view2);
-            if (!a(i) || b == null) {
+            int[] z = com.kwad.sdk.b.kwai.a.z(view2);
+            if (!k(bQ) || z == null) {
                 return;
             }
-            view2.post(new Runnable(this, b) { // from class: com.kwad.components.ad.reward.a.c.1
+            view2.post(new Runnable(this, z) { // from class: com.kwad.components.ad.reward.a.c.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ int[] a;
-                public final /* synthetic */ c b;
+                public final /* synthetic */ int[] oC;
+                public final /* synthetic */ c oD;
 
                 {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {this, b};
+                        Object[] objArr = {this, z};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
                         }
                     }
-                    this.b = this;
-                    this.a = b;
+                    this.oD = this;
+                    this.oC = z;
                 }
 
                 @Override // java.lang.Runnable
                 public final void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        com.kwad.sdk.core.d.b.a("RewardCouponDialogPresenter", "targetView x: " + this.a[0] + ", y: " + this.a[1]);
-                        b.a(this.b.s(), this.b.b, this.b, this.a);
-                        this.b.c = true;
+                        com.kwad.sdk.core.e.b.d("RewardCouponDialogPresenter", "targetView x: " + this.oC[0] + ", y: " + this.oC[1]);
+                        b.a(this.oD.getActivity(), this.oD.mAdTemplate, this.oD, this.oC);
+                        this.oD.oB = true;
                     }
                 }
             });

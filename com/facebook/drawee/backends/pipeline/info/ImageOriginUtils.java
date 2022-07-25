@@ -1,6 +1,5 @@
 package com.facebook.drawee.backends.pipeline.info;
 
-import com.baidu.sofire.core.ForHostApp;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -150,6 +149,6 @@ public class ImageOriginUtils {
     public static String toString(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) ? i != 2 ? i != 3 ? i != 4 ? i != 5 ? i != 6 ? "unknown" : ForHostApp.KEY_NAME_LOCAL : "memory_bitmap" : "memory_encoded" : "disk" : "network" : (String) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) ? i != 2 ? i != 3 ? i != 4 ? i != 5 ? i != 6 ? "unknown" : "local" : "memory_bitmap" : "memory_encoded" : "disk" : "network" : (String) invokeI.objValue;
     }
 }

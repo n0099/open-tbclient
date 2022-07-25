@@ -1,59 +1,52 @@
 package com.kwad.components.ad.reward.f;
 
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
+import android.content.Context;
+import androidx.annotation.Nullable;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.kwad.components.core.webview.b.kwai.d;
+import com.kwad.components.ad.reward.d.j;
+import com.kwad.sdk.utils.t;
 /* loaded from: classes5.dex */
-public final class a implements com.kwad.sdk.core.webview.kwai.a {
+public final class a implements j {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
+    @Nullable
+    public Context mContext;
 
-    public a(int i) {
+    public a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i)};
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = i;
+        this.mContext = context;
     }
 
-    @Override // com.kwad.sdk.core.webview.kwai.a
-    @NonNull
-    public final String a() {
+    @Override // com.kwad.components.ad.reward.d.j
+    public final boolean gv() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "getCloseDelaySeconds" : (String) invokeV.objValue;
-    }
-
-    @Override // com.kwad.sdk.core.webview.kwai.a
-    public final void a(String str, @NonNull com.kwad.sdk.core.webview.kwai.c cVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, cVar) == null) {
-            d dVar = new d();
-            dVar.a = this.a;
-            cVar.a(dVar);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            Context context = this.mContext;
+            if (context != null) {
+                t.b(this.mContext, context.getResources().getString(R.string.obfuscated_res_0x7f0f09a5), 0L);
+                return true;
+            }
+            return true;
         }
-    }
-
-    @Override // com.kwad.sdk.core.webview.kwai.a
-    public final void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-        }
+        return invokeV.booleanValue;
     }
 }

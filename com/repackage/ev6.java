@@ -152,8 +152,8 @@ public class ev6 {
             byte[] bArr;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                br4.f();
-                te<byte[]> e = br4.e("tb.game_video", TbadkCoreApplication.getCurrentAccount());
+                cr4.f();
+                te<byte[]> e = cr4.e("tb.game_video", TbadkCoreApplication.getCurrentAccount());
                 if (e != null && (bArr = e.get(String.valueOf(this.a.h))) != null && bArr.length != 0) {
                     try {
                         return (DataRes) new Wire(new Class[0]).parseFrom(bArr, DataRes.class);
@@ -168,7 +168,7 @@ public class ev6 {
     }
 
     /* loaded from: classes6.dex */
-    public class c implements jd5<DataRes> {
+    public class c implements kd5<DataRes> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ev6 a;
@@ -192,7 +192,7 @@ public class ev6 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.jd5
+        @Override // com.repackage.kd5
         /* renamed from: a */
         public void onReturnDataInUI(DataRes dataRes) {
             Interceptable interceptable = $ic;
@@ -243,9 +243,9 @@ public class ev6 {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
                 DataRes.Builder builder = new DataRes.Builder(this.a.build(true));
-                br4.f();
+                cr4.f();
                 try {
-                    br4.e("tb.game_video", TbadkCoreApplication.getCurrentAccount()).g(String.valueOf(this.b.h), builder.build(true).toByteArray());
+                    cr4.e("tb.game_video", TbadkCoreApplication.getCurrentAccount()).g(String.valueOf(this.b.h), builder.build(true).toByteArray());
                     return null;
                 } catch (Exception e) {
                     BdLog.e(e);

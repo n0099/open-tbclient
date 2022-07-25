@@ -12,7 +12,7 @@ import tbclient.ZoneRight.DataRes;
 import tbclient.ZoneRight.Toast;
 import tbclient.ZoneRight.ZoneRightResIdl;
 /* loaded from: classes7.dex */
-public class wm6 implements u75 {
+public class wm6 implements v75 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean a;
@@ -35,14 +35,14 @@ public class wm6 implements u75 {
         }
     }
 
-    @Override // com.repackage.u75
+    @Override // com.repackage.v75
     public void initByJson(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
         }
     }
 
-    @Override // com.repackage.u75
+    @Override // com.repackage.v75
     public void initByProtobuf(Message message) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, message) == null) && (message instanceof ZoneRightResIdl)) {

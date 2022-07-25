@@ -37,7 +37,7 @@ public class KSAdVideoPlayConfigImpl implements KsAdVideoPlayConfig, Serializabl
         }
         this.videoSoundValue = 0;
         this.dataFlowAutoStartValue = 0;
-        this.dataFlowAutoStart = d.K();
+        this.dataFlowAutoStart = d.sd();
     }
 
     public int getDataFlowAutoStartValue() {

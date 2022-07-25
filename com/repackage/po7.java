@@ -109,11 +109,11 @@ public class po7 extends oo7 {
                     return;
                 }
             }
-            this.a = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090ef3);
-            this.b = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f090ee9);
-            this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090ef5);
-            this.d = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091d0c);
-            this.e = view2.findViewById(R.id.obfuscated_res_0x7f090eea);
+            this.a = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090eec);
+            this.b = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f090ee2);
+            this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090eee);
+            this.d = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091d12);
+            this.e = view2.findViewById(R.id.obfuscated_res_0x7f090ee3);
             int k = pi.k(TbadkCoreApplication.getInst()) / 5;
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(k, k);
             this.b.setLayoutParams(layoutParams);
@@ -123,7 +123,7 @@ public class po7 extends oo7 {
         public void a(Context context) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-                ur4 d = ur4.d(this.c);
+                vr4 d = vr4.d(this.c);
                 d.v(R.color.CAM_X0105);
                 d.z(R.dimen.T_X06);
                 this.b.setConrers(15);
@@ -177,7 +177,7 @@ public class po7 extends oo7 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeILL = interceptable.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, view2, viewGroup)) == null) {
             if (view2 == null) {
-                view2 = LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d0500, viewGroup, false);
+                view2 = LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d050a, viewGroup, false);
                 bVar = new b(view2);
                 view2.setTag(bVar);
             } else {

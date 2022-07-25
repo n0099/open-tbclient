@@ -188,11 +188,11 @@ public class oa7 extends BaseCardInfo {
             if (feedData.getQuote_user() == null) {
                 str = "";
             } else if (StringHelper.equals(feedData.getQuote_user().getUserId(), TbadkCoreApplication.getCurrentAccount())) {
-                str = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0a99);
+                str = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0a85);
             } else {
                 str = feedData.getQuote_user().getName_show();
             }
-            this.g.g = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0fc1, new Object[]{str, feedData.getQuote_content()});
+            this.g.g = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0faa, new Object[]{str, feedData.getQuote_content()});
             if (TextUtils.isGraphic(this.g.g)) {
                 OriginalThreadInfo originalThreadInfo3 = this.g;
                 originalThreadInfo3.g = originalThreadInfo3.g.replace("\n", " ");
@@ -205,7 +205,7 @@ public class oa7 extends BaseCardInfo {
         } else {
             this.g.n = "0";
             if (feedData.isShareThread() && feedData.getOriginalThreadInfo() != null) {
-                this.g.g = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1163, new Object[]{feedData.getOriginalThreadInfo().b});
+                this.g.g = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1112, new Object[]{feedData.getOriginalThreadInfo().b});
             } else {
                 this.g.g = feedData.getTitle();
             }
@@ -261,7 +261,7 @@ public class oa7 extends BaseCardInfo {
             this.x = str2;
             OriginalThreadInfo originalThreadInfo = this.g;
             originalThreadInfo.c = str2;
-            originalThreadInfo.b = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0b46);
+            originalThreadInfo.b = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0b32);
             OriginalThreadInfo originalThreadInfo2 = this.g;
             originalThreadInfo2.a = 5;
             originalThreadInfo2.k = 70;

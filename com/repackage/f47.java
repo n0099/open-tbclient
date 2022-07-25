@@ -83,7 +83,7 @@ public class f47 extends a9<MsglistActivity<?>> {
     }
 
     /* loaded from: classes6.dex */
-    public class b extends md5 {
+    public class b extends nd5 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ChatMessage a;
@@ -132,7 +132,7 @@ public class f47 extends a9<MsglistActivity<?>> {
     }
 
     /* loaded from: classes6.dex */
-    public class c extends md5 {
+    public class c extends nd5 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -174,7 +174,7 @@ public class f47 extends a9<MsglistActivity<?>> {
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public f47(TbPageContext<MsglistActivity<?>> tbPageContext) {
-        super(tbPageContext, R.layout.obfuscated_res_0x7f0d055e);
+        super(tbPageContext, R.layout.obfuscated_res_0x7f0d0568);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -198,12 +198,12 @@ public class f47 extends a9<MsglistActivity<?>> {
     public final void m() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            TextView textView = (TextView) a(R.id.obfuscated_res_0x7f091fa3);
+            TextView textView = (TextView) a(R.id.obfuscated_res_0x7f091fa7);
             this.b = textView;
             textView.setMovementMethod(LinkMovementMethod.getInstance());
-            this.c = (LinearLayout) a(R.id.obfuscated_res_0x7f09120b);
+            this.c = (LinearLayout) a(R.id.obfuscated_res_0x7f0911e7);
             this.d = (TextView) a(R.id.obfuscated_res_0x7f090402);
-            this.e = (TextView) a(R.id.obfuscated_res_0x7f091fb2);
+            this.e = (TextView) a(R.id.obfuscated_res_0x7f091fb6);
             this.c.setVisibility(8);
         }
     }
@@ -263,11 +263,11 @@ public class f47 extends a9<MsglistActivity<?>> {
                         this.c.setVisibility(8);
                         this.b.setVisibility(0);
                         SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
-                        String string = TbadkApplication.getInst().getString(R.string.obfuscated_res_0x7f0f08b5);
-                        SpannableString spannableString = new SpannableString(TbadkApplication.getInst().getString(R.string.obfuscated_res_0x7f0f08b9));
-                        String string2 = TbadkApplication.getInst().getString(R.string.obfuscated_res_0x7f0f08b6);
-                        SpannableString spannableString2 = new SpannableString(TbadkApplication.getInst().getString(R.string.obfuscated_res_0x7f0f08b8));
-                        String string3 = TbadkApplication.getInst().getString(R.string.obfuscated_res_0x7f0f08b7);
+                        String string = TbadkApplication.getInst().getString(R.string.obfuscated_res_0x7f0f08a0);
+                        SpannableString spannableString = new SpannableString(TbadkApplication.getInst().getString(R.string.obfuscated_res_0x7f0f08a4));
+                        String string2 = TbadkApplication.getInst().getString(R.string.obfuscated_res_0x7f0f08a1);
+                        SpannableString spannableString2 = new SpannableString(TbadkApplication.getInst().getString(R.string.obfuscated_res_0x7f0f08a3));
+                        String string3 = TbadkApplication.getInst().getString(R.string.obfuscated_res_0x7f0f08a2);
                         b bVar = new b(this, chatMessage);
                         c cVar = new c(this);
                         spannableString.setSpan(bVar, 0, spannableString.length(), 33);

@@ -10,21 +10,21 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.components.ad.reward.widget.KsToastView;
 import com.kwad.components.core.playable.PlayableSource;
-import com.kwad.sdk.utils.az;
+import com.kwad.sdk.utils.bd;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public final class m extends a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public KsToastView b;
-    public boolean c;
-    public boolean d;
-    public float e;
-    public Runnable f;
-    public boolean g;
-    public n h;
-    public boolean i;
-    public com.kwad.components.ad.reward.c.f j;
+    public com.kwad.components.ad.reward.d.e mPlayEndPageListener;
+    public float pY;
+    public n qa;
+    public boolean qb;
+    public KsToastView qh;
+    public boolean qi;
+    public boolean qj;
+    public Runnable qk;
+    public boolean ql;
 
     public m(n nVar) {
         Interceptable interceptable = $ic;
@@ -41,14 +41,14 @@ public final class m extends a {
                 return;
             }
         }
-        this.c = false;
-        this.d = false;
-        this.g = false;
-        this.i = false;
-        this.j = new com.kwad.components.ad.reward.c.f(this) { // from class: com.kwad.components.ad.reward.presenter.m.1
+        this.qi = false;
+        this.qj = false;
+        this.ql = false;
+        this.qb = false;
+        this.mPlayEndPageListener = new com.kwad.components.ad.reward.d.e(this) { // from class: com.kwad.components.ad.reward.presenter.m.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ m a;
+            public final /* synthetic */ m qm;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -65,40 +65,40 @@ public final class m extends a {
                         return;
                     }
                 }
-                this.a = this;
+                this.qm = this;
             }
 
-            @Override // com.kwad.components.ad.reward.c.f
-            public final void d_() {
+            @Override // com.kwad.components.ad.reward.d.e
+            public final void bA() {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                    this.a.b.setVisibility(8);
+                    this.qm.qh.setVisibility(8);
                 }
             }
         };
-        this.h = nVar;
+        this.qa = nVar;
     }
 
-    private synchronized void g() {
+    private synchronized void gY() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
             synchronized (this) {
-                if (this.i) {
+                if (this.qb) {
                     return;
                 }
-                com.kwad.sdk.core.report.a.c(((a) this).a.g, (JSONObject) null, new com.kwad.sdk.core.report.f().c(192).a(((a) this).a.j.i()));
-                this.i = true;
+                com.kwad.sdk.core.report.a.d(this.nM.mAdTemplate, (JSONObject) null, new com.kwad.sdk.core.report.f().aK(192).F(this.nM.eF.getPlayDuration()));
+                this.qb = true;
             }
         }
     }
 
-    private void h() {
+    private void hd() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65541, this) == null) {
-            this.f = new Runnable(this) { // from class: com.kwad.components.ad.reward.presenter.m.3
+            this.qk = new Runnable(this) { // from class: com.kwad.components.ad.reward.presenter.m.3
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ m a;
+                public final /* synthetic */ m qm;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -115,73 +115,73 @@ public final class m extends a {
                             return;
                         }
                     }
-                    this.a = this;
+                    this.qm = this;
                 }
 
                 @Override // java.lang.Runnable
                 public final void run() {
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.a.g) {
+                    if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.qm.ql) {
                         return;
                     }
-                    if (this.a.b != null) {
-                        this.a.b.setVisibility(8);
+                    if (this.qm.qh != null) {
+                        this.qm.qh.setVisibility(8);
                     }
-                    com.kwad.components.ad.reward.b.a().a(PlayableSource.PENDANT_AUTO);
+                    com.kwad.components.ad.reward.b.eV().a(PlayableSource.PENDANT_AUTO);
                 }
             };
         }
     }
 
-    private void i() {
+    private void he() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65542, this) == null) {
-            az.b(this.f);
-            this.f = null;
+            bd.c(this.qk);
+            this.qk = null;
         }
     }
 
     @Override // com.kwad.components.ad.reward.presenter.a, com.kwad.sdk.mvp.Presenter
-    public final void a() {
+    public final void aq() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            super.a();
-            ((a) this).a.a(this.j);
+            super.aq();
+            this.nM.a(this.mPlayEndPageListener);
         }
     }
 
-    public final void d() {
+    public final void hb() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.d) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.qj) {
             return;
         }
-        g();
-        this.d = true;
-        this.b.setVisibility(0);
-        this.b.a(3);
-        h();
-        az.a(this.f, null, 3000L);
+        gY();
+        this.qj = true;
+        this.qh.setVisibility(0);
+        this.qh.U(3);
+        hd();
+        bd.a(this.qk, null, 3000L);
     }
 
-    public final void e() {
+    public final void hc() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.d = false;
-            this.b.setVisibility(8);
+            this.qj = false;
+            this.qh.setVisibility(8);
         }
     }
 
     @Override // com.kwad.sdk.mvp.Presenter
-    public final void i_() {
+    public final void onCreate() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            super.i_();
-            KsToastView ksToastView = (KsToastView) b(R.id.obfuscated_res_0x7f0911ba);
-            this.b = ksToastView;
+            super.onCreate();
+            KsToastView ksToastView = (KsToastView) findViewById(R.id.obfuscated_res_0x7f091196);
+            this.qh = ksToastView;
             ksToastView.setOnClickListener(new View.OnClickListener(this) { // from class: com.kwad.components.ad.reward.presenter.m.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ m a;
+                public final /* synthetic */ m qm;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -198,31 +198,31 @@ public final class m extends a {
                             return;
                         }
                     }
-                    this.a = this;
+                    this.qm = this;
                 }
 
                 @Override // android.view.View.OnClickListener
                 public final void onClick(View view2) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
-                        this.a.g = true;
-                        this.a.b.setVisibility(8);
-                        com.kwad.components.ad.reward.b.a().a(PlayableSource.PENDANT_CLICK_AUTO);
+                        this.qm.ql = true;
+                        this.qm.qh.setVisibility(8);
+                        com.kwad.components.ad.reward.b.eV().a(PlayableSource.PENDANT_CLICK_AUTO);
                     }
                 }
             });
-            this.e = com.kwad.components.ad.reward.kwai.b.h();
-            this.c = com.kwad.components.ad.reward.kwai.b.i() && com.kwad.components.ad.reward.kwai.b.j();
+            this.pY = com.kwad.components.ad.reward.kwai.b.gb();
+            this.qi = com.kwad.components.ad.reward.kwai.b.gc() && com.kwad.components.ad.reward.kwai.b.gd();
         }
     }
 
     @Override // com.kwad.sdk.mvp.Presenter
-    public final void k_() {
+    public final void onUnbind() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            super.k_();
-            i();
-            ((a) this).a.b(this.j);
+            super.onUnbind();
+            he();
+            this.nM.b(this.mPlayEndPageListener);
         }
     }
 }

@@ -1,15 +1,34 @@
 package com.repackage;
 
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
 public class yo4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
+    public int a;
     public String b;
+    public long c;
+    public String d;
+    public String e;
+    public int f;
+    public String g;
+    public long h;
+    public long i;
+    public long j;
+    public int k;
+    public int l;
+    public long m;
+    public long n;
+    public String o;
+    public long p;
+    public int q;
+    public int r;
+    public int s;
 
     public yo4() {
         Interceptable interceptable = $ic;
@@ -23,5 +42,17 @@ public class yo4 {
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
+    }
+
+    public long a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.j : invokeV.longValue;
+    }
+
+    public long b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.c : invokeV.longValue;
     }
 }

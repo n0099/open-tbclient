@@ -16,7 +16,7 @@ public class ll5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
-    public List<az4> b;
+    public List<bz4> b;
 
     public ll5() {
         Interceptable interceptable = $ic;
@@ -32,7 +32,7 @@ public class ll5 {
         }
     }
 
-    public List<az4> a() {
+    public List<bz4> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -59,10 +59,10 @@ public class ll5 {
         if (listdata.friend_list != null) {
             this.b = new ArrayList();
             for (friendList friendlist : listdata.friend_list) {
-                az4 az4Var = new az4();
-                az4Var.i(friendlist);
-                az4Var.j(this.a);
-                this.b.add(az4Var);
+                bz4 bz4Var = new bz4();
+                bz4Var.i(friendlist);
+                bz4Var.j(this.a);
+                this.b.add(bz4Var);
             }
         }
     }
@@ -76,10 +76,10 @@ public class ll5 {
         if (robotslist.friend_list != null) {
             this.b = new ArrayList();
             for (friendList friendlist : robotslist.friend_list) {
-                az4 az4Var = new az4();
-                az4Var.i(friendlist);
-                az4Var.j(this.a);
-                this.b.add(az4Var);
+                bz4 bz4Var = new bz4();
+                bz4Var.i(friendlist);
+                bz4Var.j(this.a);
+                this.b.add(bz4Var);
             }
         }
     }

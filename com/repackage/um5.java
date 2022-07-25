@@ -40,27 +40,27 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.kh3;
-import com.repackage.lz2;
-import com.repackage.oh3;
-import com.repackage.sg3;
-import com.repackage.zi3;
+import com.repackage.aj3;
+import com.repackage.lh3;
+import com.repackage.mz2;
+import com.repackage.ph3;
+import com.repackage.tg3;
 import java.util.ArrayList;
 import java.util.List;
 @Service
 /* loaded from: classes7.dex */
-public class um5 implements jh3 {
+public class um5 implements kh3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public gz2 a;
+    public hz2 a;
 
     /* loaded from: classes7.dex */
     public class a extends GetTplStokenCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ sg3.a a;
+        public final /* synthetic */ tg3.a a;
 
-        public a(um5 um5Var, sg3.a aVar) {
+        public a(um5 um5Var, tg3.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -80,7 +80,7 @@ public class um5 implements jh3 {
 
         @Override // com.baidu.sapi2.callback.SapiCallback
         public void onFinish() {
-            sg3.a aVar;
+            tg3.a aVar;
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (aVar = this.a) == null) {
                 return;
@@ -90,7 +90,7 @@ public class um5 implements jh3 {
 
         @Override // com.baidu.sapi2.callback.SapiCallback
         public void onStart() {
-            sg3.a aVar;
+            tg3.a aVar;
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (aVar = this.a) == null) {
                 return;
@@ -105,17 +105,17 @@ public class um5 implements jh3 {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, getTplStokenResult) == null) || this.a == null) {
                 return;
             }
-            sg3 sg3Var = new sg3();
+            tg3 tg3Var = new tg3();
             if (getTplStokenResult != null) {
-                sg3Var.b = getTplStokenResult.tplStokenMap;
-                sg3Var.a = getTplStokenResult.getResultCode();
+                tg3Var.b = getTplStokenResult.tplStokenMap;
+                tg3Var.a = getTplStokenResult.getResultCode();
                 getTplStokenResult.getResultMsg();
                 GetTplStokenResult.FailureType failureType = getTplStokenResult.failureType;
                 if (failureType != null) {
                     failureType.name();
                 }
             }
-            this.a.a(sg3Var);
+            this.a.a(tg3Var);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -125,17 +125,17 @@ public class um5 implements jh3 {
             if (!(interceptable == null || interceptable.invokeL(1048580, this, getTplStokenResult) == null) || this.a == null) {
                 return;
             }
-            sg3 sg3Var = new sg3();
+            tg3 tg3Var = new tg3();
             if (getTplStokenResult != null) {
-                sg3Var.b = getTplStokenResult.tplStokenMap;
-                sg3Var.a = getTplStokenResult.getResultCode();
+                tg3Var.b = getTplStokenResult.tplStokenMap;
+                tg3Var.a = getTplStokenResult.getResultCode();
                 getTplStokenResult.getResultMsg();
                 GetTplStokenResult.FailureType failureType = getTplStokenResult.failureType;
                 if (failureType != null) {
                     failureType.name();
                 }
             }
-            this.a.b(sg3Var);
+            this.a.b(tg3Var);
         }
     }
 
@@ -177,24 +177,24 @@ public class um5 implements jh3 {
 
         /* renamed from: com.repackage.um5$b$b  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public class DialogInterface$OnClickListenerC0741b implements DialogInterface.OnClickListener {
+        public class DialogInterface$OnClickListenerC0589b implements DialogInterface.OnClickListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ b a;
 
             /* renamed from: com.repackage.um5$b$b$a */
             /* loaded from: classes7.dex */
-            public class a implements tg1 {
+            public class a implements ug1 {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ DialogInterface$OnClickListenerC0741b a;
+                public final /* synthetic */ DialogInterface$OnClickListenerC0589b a;
 
-                public a(DialogInterface$OnClickListenerC0741b dialogInterface$OnClickListenerC0741b) {
+                public a(DialogInterface$OnClickListenerC0589b dialogInterface$OnClickListenerC0589b) {
                     Interceptable interceptable = $ic;
                     if (interceptable != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {dialogInterface$OnClickListenerC0741b};
+                        Object[] objArr = {dialogInterface$OnClickListenerC0589b};
                         interceptable.invokeUnInit(65536, newInitContext);
                         int i = newInitContext.flag;
                         if ((i & 1) != 0) {
@@ -204,10 +204,10 @@ public class um5 implements jh3 {
                             return;
                         }
                     }
-                    this.a = dialogInterface$OnClickListenerC0741b;
+                    this.a = dialogInterface$OnClickListenerC0589b;
                 }
 
-                @Override // com.repackage.tg1
+                @Override // com.repackage.ug1
                 public void onResult(int i) {
                     Interceptable interceptable = $ic;
                     if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
@@ -220,7 +220,7 @@ public class um5 implements jh3 {
                 }
             }
 
-            public DialogInterface$OnClickListenerC0741b(b bVar) {
+            public DialogInterface$OnClickListenerC0589b(b bVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -242,13 +242,13 @@ public class um5 implements jh3 {
             public void onClick(DialogInterface dialogInterface, int i) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeLI(1048576, this, dialogInterface, i) == null) {
-                    hg3.M((FragmentActivity) this.a.b, false, null, new a(this));
+                    ig3.M((FragmentActivity) this.a.b, false, null, new a(this));
                 }
             }
         }
 
         /* loaded from: classes7.dex */
-        public class c implements tg1 {
+        public class c implements ug1 {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ b a;
@@ -271,7 +271,7 @@ public class um5 implements jh3 {
                 this.a = bVar;
             }
 
-            @Override // com.repackage.tg1
+            @Override // com.repackage.ug1
             public void onResult(int i) {
                 SwanAppPhoneLoginDialog.g gVar;
                 Interceptable interceptable = $ic;
@@ -326,17 +326,17 @@ public class um5 implements jh3 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048580, this, webAuthResult) == null) {
                 Context context = this.b;
-                id3.a(context, ((FragmentActivity) context).getWindow().getDecorView().getWindowToken());
+                jd3.a(context, ((FragmentActivity) context).getWindow().getDecorView().getWindowToken());
                 String string = this.b.getResources().getString(R.string.obfuscated_res_0x7f0f0074);
                 String string2 = this.b.getResources().getString(R.string.obfuscated_res_0x7f0f0076);
                 if (webAuthResult.getResultCode() == 12) {
                     string = this.b.getResources().getString(R.string.obfuscated_res_0x7f0f0075);
                     string2 = this.b.getResources().getString(R.string.obfuscated_res_0x7f0f0077);
                 }
-                lz2.a aVar = new lz2.a(this.b);
+                mz2.a aVar = new mz2.a(this.b);
                 aVar.V(this.b.getResources().getString(R.string.obfuscated_res_0x7f0f0078));
                 aVar.x(string);
-                aVar.P(string2, new DialogInterface$OnClickListenerC0741b(this));
+                aVar.P(string2, new DialogInterface$OnClickListenerC0589b(this));
                 aVar.C(this.b.getResources().getString(R.string.obfuscated_res_0x7f0f0073), new a(this));
                 aVar.X();
             }
@@ -365,12 +365,12 @@ public class um5 implements jh3 {
     public class c extends OneKeyLoginCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ oi3 a;
+        public final /* synthetic */ pi3 a;
         public final /* synthetic */ Activity b;
         public final /* synthetic */ um5 c;
 
         /* loaded from: classes7.dex */
-        public class a implements tg1 {
+        public class a implements ug1 {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ c a;
@@ -393,7 +393,7 @@ public class um5 implements jh3 {
                 this.a = cVar;
             }
 
-            @Override // com.repackage.tg1
+            @Override // com.repackage.ug1
             public void onResult(int i) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
@@ -408,12 +408,12 @@ public class um5 implements jh3 {
             }
         }
 
-        public c(um5 um5Var, oi3 oi3Var, Activity activity) {
+        public c(um5 um5Var, pi3 pi3Var, Activity activity) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {um5Var, oi3Var, activity};
+                Object[] objArr = {um5Var, pi3Var, activity};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -424,7 +424,7 @@ public class um5 implements jh3 {
                 }
             }
             this.c = um5Var;
-            this.a = oi3Var;
+            this.a = pi3Var;
             this.b = activity;
         }
 
@@ -459,14 +459,14 @@ public class um5 implements jh3 {
     public class d extends VerifyUserFaceIDCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ih3 a;
+        public final /* synthetic */ jh3 a;
 
-        public d(um5 um5Var, ih3 ih3Var) {
+        public d(um5 um5Var, jh3 jh3Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {um5Var, ih3Var};
+                Object[] objArr = {um5Var, jh3Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -476,7 +476,7 @@ public class um5 implements jh3 {
                     return;
                 }
             }
-            this.a = ih3Var;
+            this.a = jh3Var;
         }
 
         @Override // com.baidu.sapi2.callback.FaceIDCallback
@@ -491,13 +491,13 @@ public class um5 implements jh3 {
         public void onSuccess(SapiResult sapiResult) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sapiResult) == null) {
-                gh3 gh3Var = new gh3();
+                hh3 hh3Var = new hh3();
                 if (sapiResult instanceof RealNameFaceIDResult) {
-                    gh3Var.a = ((RealNameFaceIDResult) sapiResult).callBackKey;
-                    this.a.a(gh3Var);
+                    hh3Var.a = ((RealNameFaceIDResult) sapiResult).callBackKey;
+                    this.a.a(hh3Var);
                 } else if (sapiResult instanceof UnRealNameFaceIDResult) {
-                    gh3Var.a = ((UnRealNameFaceIDResult) sapiResult).registerResult;
-                    this.a.a(gh3Var);
+                    hh3Var.a = ((UnRealNameFaceIDResult) sapiResult).registerResult;
+                    this.a.a(hh3Var);
                 }
             }
         }
@@ -507,14 +507,14 @@ public class um5 implements jh3 {
     public class e extends AccountRealNameCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ih3 a;
+        public final /* synthetic */ jh3 a;
 
-        public e(um5 um5Var, ih3 ih3Var) {
+        public e(um5 um5Var, jh3 jh3Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {um5Var, ih3Var};
+                Object[] objArr = {um5Var, jh3Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -524,7 +524,7 @@ public class um5 implements jh3 {
                     return;
                 }
             }
-            this.a = ih3Var;
+            this.a = jh3Var;
         }
 
         @Override // com.baidu.sapi2.callback.AccountRealNameCallback
@@ -533,10 +533,10 @@ public class um5 implements jh3 {
             if (interceptable == null || interceptable.invokeL(1048576, this, accountRealNameResult) == null) {
                 super.onFinish(accountRealNameResult);
                 if (accountRealNameResult.getResultCode() == 0) {
-                    gh3 gh3Var = new gh3();
+                    hh3 hh3Var = new hh3();
                     if (accountRealNameResult.seniorRealNameSuc) {
-                        gh3Var.a = accountRealNameResult.callbackkey;
-                        this.a.a(gh3Var);
+                        hh3Var.a = accountRealNameResult.callbackkey;
+                        this.a.a(hh3Var);
                         return;
                     }
                 }
@@ -575,97 +575,97 @@ public class um5 implements jh3 {
             String substring = str.substring(0, 8);
             String substring2 = str.substring(8, str.length());
             String upperCase = SapiUtils.getClientId(context).toUpperCase();
-            return substring + lg4.d((substring2 + lg4.d(upperCase.getBytes(), false)).getBytes(), false);
+            return substring + mg4.d((substring2 + mg4.d(upperCase.getBytes(), false)).getBytes(), false);
         }
         return (String) invokeLL.objValue;
     }
 
-    @Override // com.repackage.jh3
+    @Override // com.repackage.kh3
     public String a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) ? v83.a().getString("bd_box_ptoken", "") : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) ? w83.a().getString("bd_box_ptoken", "") : (String) invokeL.objValue;
     }
 
-    @Override // com.repackage.jh3
+    @Override // com.repackage.kh3
     public String b(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) ? sm5.l().p() : (String) invokeL.objValue;
     }
 
-    @Override // com.repackage.jh3
-    public void c(Context context, Bundle bundle, tg1 tg1Var) {
+    @Override // com.repackage.kh3
+    public void c(Context context, Bundle bundle, ug1 ug1Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, context, bundle, tg1Var) == null) {
-            sm5.l().t(context, bundle, tg1Var);
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, context, bundle, ug1Var) == null) {
+            sm5.l().t(context, bundle, ug1Var);
         }
     }
 
-    @Override // com.repackage.jh3
-    public hh3 d(Context context) {
+    @Override // com.repackage.kh3
+    public ih3 d(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, context)) == null) {
-            hh3 hh3Var = new hh3();
-            hh3Var.a = sm5.l().k();
-            hh3Var.b = sm5.l().i();
-            return hh3Var;
+            ih3 ih3Var = new ih3();
+            ih3Var.a = sm5.l().k();
+            ih3Var.b = sm5.l().i();
+            return ih3Var;
         }
-        return (hh3) invokeL.objValue;
+        return (ih3) invokeL.objValue;
     }
 
-    @Override // com.repackage.jh3
-    public void e(Activity activity, String str, String str2, ih3 ih3Var) {
+    @Override // com.repackage.kh3
+    public void e(Activity activity, String str, String str2, jh3 jh3Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(1048580, this, activity, str, str2, ih3Var) == null) {
+        if (interceptable == null || interceptable.invokeLLLL(1048580, this, activity, str, str2, jh3Var) == null) {
             RealNameDTO realNameDTO = new RealNameDTO();
             realNameDTO.bduss = SapiAccountManager.getInstance().getSession().bduss;
             realNameDTO.scene = str;
             realNameDTO.needCbKey = true;
-            PassportSDK.getInstance().loadAccountRealName(activity, new e(this, ih3Var), realNameDTO);
+            PassportSDK.getInstance().loadAccountRealName(activity, new e(this, jh3Var), realNameDTO);
         }
     }
 
-    @Override // com.repackage.jh3
-    public void f(Context context, zi3.d dVar) {
+    @Override // com.repackage.kh3
+    public void f(Context context, aj3.d dVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048581, this, context, dVar) == null) {
             sm5.l().h(context, "1", dVar);
         }
     }
 
-    @Override // com.repackage.jh3
+    @Override // com.repackage.kh3
     public boolean g(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, context)) == null) ? sm5.l().s() : invokeL.booleanValue;
     }
 
-    @Override // com.repackage.jh3
+    @Override // com.repackage.kh3
     public String getBduss(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, context)) == null) ? sm5.l().j() : (String) invokeL.objValue;
     }
 
-    @Override // com.repackage.jh3
-    public void h(vg1 vg1Var) {
+    @Override // com.repackage.kh3
+    public void h(wg1 wg1Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, vg1Var) == null) {
-            sm5.l().f(vg1Var);
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, wg1Var) == null) {
+            sm5.l().f(wg1Var);
         }
     }
 
-    @Override // com.repackage.jh3
-    public void i(Context context, kh3.d dVar) {
+    @Override // com.repackage.kh3
+    public void i(Context context, lh3.d dVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048585, this, context, dVar) == null) {
             sm5.l().g(context, "1", dVar);
         }
     }
 
-    @Override // com.repackage.jh3
+    @Override // com.repackage.kh3
     public void j(Context context, SwanAppPhoneLoginDialog.g gVar, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048586, this, context, gVar, str) == null) {
@@ -673,7 +673,7 @@ public class um5 implements jh3 {
         }
     }
 
-    @Override // com.repackage.jh3
+    @Override // com.repackage.kh3
     public String k(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -692,36 +692,36 @@ public class um5 implements jh3 {
         return (String) invokeL.objValue;
     }
 
-    @Override // com.repackage.jh3
-    public void l(Activity activity, String str, String str2, ih3 ih3Var) {
+    @Override // com.repackage.kh3
+    public void l(Activity activity, String str, String str2, jh3 jh3Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(1048588, this, activity, str, str2, ih3Var) == null) {
+        if (interceptable == null || interceptable.invokeLLLL(1048588, this, activity, str, str2, jh3Var) == null) {
             FaceIDVerifyDTO faceIDVerifyDTO = new FaceIDVerifyDTO();
             faceIDVerifyDTO.businessSence = str;
             faceIDVerifyDTO.bduss = str2;
-            PassportSDK.getInstance().verifyUserFaceId(activity, new d(this, ih3Var), faceIDVerifyDTO);
+            PassportSDK.getInstance().verifyUserFaceId(activity, new d(this, jh3Var), faceIDVerifyDTO);
         }
     }
 
-    @Override // com.repackage.jh3
-    public void m(Activity activity, String str, oi3 oi3Var) {
+    @Override // com.repackage.kh3
+    public void m(Activity activity, String str, pi3 pi3Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048589, this, activity, str, oi3Var) == null) {
+        if (interceptable == null || interceptable.invokeLLL(1048589, this, activity, str, pi3Var) == null) {
             s(activity);
-            PassportSDK.getInstance().loadOneKeyLogin(activity, r(activity, str), new c(this, oi3Var, activity));
+            PassportSDK.getInstance().loadOneKeyLogin(activity, r(activity, str), new c(this, pi3Var, activity));
         }
     }
 
-    @Override // com.repackage.jh3
-    public void n(String str, ArrayList<String> arrayList, oh3.c cVar) {
+    @Override // com.repackage.kh3
+    public void n(String str, ArrayList<String> arrayList, ph3.c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048590, this, str, arrayList, cVar) == null) {
             sm5.l().n(str, arrayList, cVar);
         }
     }
 
-    @Override // com.repackage.jh3
-    public void o(sg3.a aVar, String str, List<String> list) {
+    @Override // com.repackage.kh3
+    public void o(tg3.a aVar, String str, List<String> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048591, this, aVar, str, list) == null) {
             SapiAccountManager.getInstance().getAccountService().getTplStoken(new a(this, aVar), str, list);
@@ -729,20 +729,20 @@ public class um5 implements jh3 {
     }
 
     public void q(Context context) {
-        gz2 gz2Var;
+        hz2 hz2Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048592, this, context) == null) || !(context instanceof Activity) || ((Activity) context).isFinishing() || (gz2Var = this.a) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048592, this, context) == null) || !(context instanceof Activity) || ((Activity) context).isFinishing() || (hz2Var = this.a) == null) {
             return;
         }
-        gz2Var.dismiss();
+        hz2Var.dismiss();
     }
 
     public final void s(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048593, this, context) == null) {
-            gz2 gz2Var = new gz2(context, 16973833);
-            this.a = gz2Var;
-            Window window = gz2Var.getWindow();
+            hz2 hz2Var = new hz2(context, 16973833);
+            this.a = hz2Var;
+            Window window = hz2Var.getWindow();
             if (window != null) {
                 window.setBackgroundDrawableResource(17170445);
                 window.setDimAmount(0.0f);
@@ -754,10 +754,10 @@ public class um5 implements jh3 {
             this.a.setCanceledOnTouchOutside(false);
             this.a.setCancelable(false);
             this.a.a(true);
-            this.a.setContentView(R.layout.obfuscated_res_0x7f0d0527);
-            View findViewById = this.a.findViewById(R.id.obfuscated_res_0x7f091b64);
-            ProgressBar progressBar = (ProgressBar) this.a.findViewById(R.id.obfuscated_res_0x7f091370);
-            TextView textView = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f091468);
+            this.a.setContentView(R.layout.obfuscated_res_0x7f0d0531);
+            View findViewById = this.a.findViewById(R.id.obfuscated_res_0x7f091b3e);
+            ProgressBar progressBar = (ProgressBar) this.a.findViewById(R.id.obfuscated_res_0x7f09134c);
+            TextView textView = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f091444);
             if (findViewById != null) {
                 findViewById.setBackground(findViewById.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080df1));
             }

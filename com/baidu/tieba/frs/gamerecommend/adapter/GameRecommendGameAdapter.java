@@ -62,14 +62,14 @@ public class GameRecommendGameAdapter extends cd6<d36, CardFrsGameRecommendGameH
                 }
             }
             this.a = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f09050a);
-            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090c20);
-            this.c = (FlexibleHorizontalScrollView) view2.findViewById(R.id.obfuscated_res_0x7f090c1f);
-            CardFrsGameRecommendGameLayout cardFrsGameRecommendGameLayout = (CardFrsGameRecommendGameLayout) view2.findViewById(R.id.obfuscated_res_0x7f090c1e);
+            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090c19);
+            this.c = (FlexibleHorizontalScrollView) view2.findViewById(R.id.obfuscated_res_0x7f090c18);
+            CardFrsGameRecommendGameLayout cardFrsGameRecommendGameLayout = (CardFrsGameRecommendGameLayout) view2.findViewById(R.id.obfuscated_res_0x7f090c17);
             this.d = cardFrsGameRecommendGameLayout;
             cardFrsGameRecommendGameLayout.setItemSpace(pi.f(view2.getContext(), R.dimen.tbds27));
             this.d.setItemWidth(pi.f(view2.getContext(), R.dimen.tbds192));
-            this.e = view2.findViewById(R.id.obfuscated_res_0x7f0907cb);
-            this.f = view2.findViewById(R.id.obfuscated_res_0x7f0907cc);
+            this.e = view2.findViewById(R.id.obfuscated_res_0x7f0907c9);
+            this.f = view2.findViewById(R.id.obfuscated_res_0x7f0907ca);
         }
     }
 
@@ -206,7 +206,7 @@ public class GameRecommendGameAdapter extends cd6<d36, CardFrsGameRecommendGameH
                 SkinManager.setBackgroundResource(cardFrsGameRecommendGameHolder.e, R.color.CAM_X0205);
                 SkinManager.setBackgroundResource(cardFrsGameRecommendGameHolder.f, R.color.CAM_X0205);
             }
-            return cardFrsGameRecommendGameHolder.b();
+            return cardFrsGameRecommendGameHolder.a();
         }
         return (View) invokeCommon.objValue;
     }

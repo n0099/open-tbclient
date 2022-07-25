@@ -14,7 +14,7 @@ import java.util.List;
 public class ce6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final List<p55> a;
+    public final List<q55> a;
     public Context b;
     public String c;
     public String d;
@@ -39,17 +39,17 @@ public class ce6 {
         this.b = context;
     }
 
-    public void a(p55 p55Var) {
+    public void a(q55 q55Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, p55Var) == null) || p55Var == null || p55Var.b() == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, q55Var) == null) || q55Var == null || q55Var.b() == null) {
             return;
         }
-        for (p55 p55Var2 : this.a) {
-            if (p55Var2 != null && p55Var2.b() != null && p55Var2.b().e == p55Var.b().e) {
+        for (q55 q55Var2 : this.a) {
+            if (q55Var2 != null && q55Var2.b() != null && q55Var2.b().e == q55Var.b().e) {
                 return;
             }
         }
-        this.a.add(p55Var);
+        this.a.add(q55Var);
     }
 
     public String b() {
@@ -70,7 +70,7 @@ public class ce6 {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.d : (String) invokeV.objValue;
     }
 
-    public List<p55> e() {
+    public List<q55> e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.a : (List) invokeV.objValue;

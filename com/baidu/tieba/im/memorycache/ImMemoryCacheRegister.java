@@ -63,9 +63,9 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.a97;
 import com.repackage.b67;
 import com.repackage.bb;
-import com.repackage.cp4;
 import com.repackage.d57;
 import com.repackage.d67;
+import com.repackage.dp4;
 import com.repackage.e57;
 import com.repackage.f57;
 import com.repackage.f67;
@@ -75,13 +75,13 @@ import com.repackage.i57;
 import com.repackage.i77;
 import com.repackage.j57;
 import com.repackage.l77;
-import com.repackage.mt4;
 import com.repackage.ng;
-import com.repackage.ny4;
+import com.repackage.nt4;
 import com.repackage.o67;
 import com.repackage.oy4;
 import com.repackage.p67;
 import com.repackage.pi;
+import com.repackage.py4;
 import com.repackage.q57;
 import com.repackage.q77;
 import com.repackage.qg;
@@ -187,14 +187,14 @@ public class ImMemoryCacheRegister {
 
         /* renamed from: com.baidu.tieba.im.memorycache.ImMemoryCacheRegister$a$a  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        public class C0206a implements CustomMessageTask.CustomRunnable<String> {
+        public class C0220a implements CustomMessageTask.CustomRunnable<String> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ ImMessageCenterPojo a;
             public final /* synthetic */ ChatMessage b;
             public final /* synthetic */ SocketResponsedMessage c;
 
-            public C0206a(a aVar, ImMessageCenterPojo imMessageCenterPojo, ChatMessage chatMessage, SocketResponsedMessage socketResponsedMessage) {
+            public C0220a(a aVar, ImMessageCenterPojo imMessageCenterPojo, ChatMessage chatMessage, SocketResponsedMessage socketResponsedMessage) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -283,9 +283,9 @@ public class ImMemoryCacheRegister {
                     chatMessage.setMsgId(msgId);
                     chatMessage.setRecordId(recordId);
                 }
-                mt4.a("im", chatMessage.getClientLogID(), chatMessage.getCmd(), IMTrackDatabase.AckEnum.TABLE_NAME, socketResponsedMessage.getError(), socketResponsedMessage.getErrorString(), new Object[0]);
+                nt4.a("im", chatMessage.getClientLogID(), chatMessage.getCmd(), IMTrackDatabase.AckEnum.TABLE_NAME, socketResponsedMessage.getError(), socketResponsedMessage.getErrorString(), new Object[0]);
                 s67.o().W(chatMessage.getCustomGroupType(), chatMessage, chatMessage.getGroupId(), 3);
-                CustomMessageTask customMessageTask = new CustomMessageTask(2001000, new C0206a(this, s67.o().i(chatMessage.getGroupId(), chatMessage.getCustomGroupType()), chatMessage, socketResponsedMessage));
+                CustomMessageTask customMessageTask = new CustomMessageTask(2001000, new C0220a(this, s67.o().i(chatMessage.getGroupId(), chatMessage.getCustomGroupType()), chatMessage, socketResponsedMessage));
                 customMessageTask.setParallel(TiebaIMConfig.getParallel());
                 customMessageTask.setType(CustomMessageTask.TASK_TYPE.ASYNCHRONIZED);
                 customMessageTask.setPriority(4);
@@ -435,7 +435,7 @@ public class ImMemoryCacheRegister {
                 l77.z(0L);
                 l77.y(0L);
                 s67.o().w();
-                oy4.k().l();
+                py4.k().l();
             }
         }
     }
@@ -890,13 +890,13 @@ public class ImMemoryCacheRegister {
                 }
                 int i3 = data.b;
                 if (i3 == 2) {
-                    ny4.f0().r(data.a);
+                    oy4.f0().r(data.a);
                 } else if (i3 == 4) {
-                    ny4.f0().q(ng.e(data.a, 0));
+                    oy4.f0().q(ng.e(data.a, 0));
                 } else if (i3 == -4) {
-                    ny4.f0().f(1);
+                    oy4.f0().f(1);
                 } else {
-                    ny4.f0().d(data.a);
+                    oy4.f0().d(data.a);
                 }
                 s67.o().A(data.a, data.b, data.c);
                 i.setIs_hidden(i2);
@@ -977,7 +977,7 @@ public class ImMemoryCacheRegister {
                             }
                         }
                     } catch (Exception e) {
-                        mt4.a("im", -1L, 0, "im_check: BASE_CUSTOM_CMD error: " + e.getMessage(), -1, "", new Object[0]);
+                        nt4.a("im", -1L, 0, "im_check: BASE_CUSTOM_CMD error: " + e.getMessage(), -1, "", new Object[0]);
                         BdLog.e(e.getMessage());
                     }
                     return null;
@@ -1311,7 +1311,7 @@ public class ImMemoryCacheRegister {
                                 metaData.setUserId(imMessageCenterPojo.getGid());
                                 metaData.setUserName(imMessageCenterPojo.getGroup_name());
                                 metaData.setName_show(imMessageCenterPojo.getNameShow());
-                                cp4 imUserExtraData = imMessageCenterPojo.getImUserExtraData();
+                                dp4 imUserExtraData = imMessageCenterPojo.getImUserExtraData();
                                 if (imUserExtraData != null) {
                                     metaData.setIsBusinessAccount(imUserExtraData.a);
                                     metaData.setAuthDesc(imUserExtraData.b);
@@ -1845,13 +1845,13 @@ public class ImMemoryCacheRegister {
                         l77.y(ng.g(responseCommitPersonalMessage.getGroupId(), 0L));
                     }
                     x87.c(msgId, chatMessage.getMsgType(), chatMessage.getLogTime());
-                    this.a.s(chatMessage, TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f08c9), true);
+                    this.a.s(chatMessage, TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f08b4), true);
                 }
                 long clientLogID = chatMessage.getClientLogID();
                 int cmd = chatMessage.getCmd();
                 int error = socketResponsedMessage.getError();
                 String errorString = socketResponsedMessage.getErrorString();
-                mt4.a("im", clientLogID, cmd, IMTrackDatabase.AckEnum.TABLE_NAME, error, errorString, "comment", "uType " + toUserType, "touid", Long.valueOf(chatMessage.getToUserId()), "content", chatMessage.getContent());
+                nt4.a("im", clientLogID, cmd, IMTrackDatabase.AckEnum.TABLE_NAME, error, errorString, "comment", "uType " + toUserType, "touid", Long.valueOf(chatMessage.getToUserId()), "content", chatMessage.getContent());
                 boolean z = chatMessage instanceof PersonalChatMessage;
                 if (z) {
                     s67.o().W(2, chatMessage, String.valueOf(chatMessage.getToUserId()), 3);
@@ -2982,7 +2982,7 @@ public class ImMemoryCacheRegister {
         Object[] objArr = new Object[2];
         objArr[0] = "comment";
         objArr[1] = sb == null ? "" : sb.toString();
-        mt4.a("im", clientLogID, cmd, IMTrackDatabase.AckEnum.TABLE_NAME, error, errorString, objArr);
+        nt4.a("im", clientLogID, cmd, IMTrackDatabase.AckEnum.TABLE_NAME, error, errorString, objArr);
         ArrayList arrayList = null;
         ArrayList arrayList2 = null;
         ArrayList arrayList3 = null;
@@ -3063,8 +3063,8 @@ public class ImMemoryCacheRegister {
             return;
         }
         s67.o().F(str, 1);
-        if (ny4.f0().D() != null && (a2 = ny4.f0().D().a()) != null && a2.size() == 1 && a2.containsKey(str)) {
-            ny4.f0().d(str);
+        if (oy4.f0().D() != null && (a2 = oy4.f0().D().a()) != null && a2.size() == 1 && a2.containsKey(str)) {
+            oy4.f0().d(str);
         }
         q77.k().j(TbadkCoreApplication.getCurrentAccount(), str, null);
         CustomMessageTask customMessageTask = new CustomMessageTask(2001000, new x(this, str));

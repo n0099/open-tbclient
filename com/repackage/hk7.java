@@ -51,11 +51,11 @@ public class hk7 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
             this.c = context;
-            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d080c, (ViewGroup) null);
+            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0816, (ViewGroup) null);
             this.a = inflate;
             inflate.setTag(this);
-            this.d = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f091f69);
-            this.b = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f091f68);
+            this.d = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f091f6d);
+            this.b = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f091f6c);
             return this.a;
         }
         return (View) invokeL.objValue;
@@ -71,7 +71,7 @@ public class hk7 {
     public void d(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            this.d.setText(String.format(this.c.getString(R.string.obfuscated_res_0x7f0f1376), Integer.valueOf(i)));
+            this.d.setText(String.format(this.c.getString(R.string.obfuscated_res_0x7f0f1325), Integer.valueOf(i)));
         }
     }
 }

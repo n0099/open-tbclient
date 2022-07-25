@@ -44,9 +44,9 @@ public class l97 {
             return;
         }
         if (Build.VERSION.SDK_INT <= 10) {
-            baseFragmentActivity.showToast(R.string.obfuscated_res_0x7f0f0e96);
+            baseFragmentActivity.showToast(R.string.obfuscated_res_0x7f0f0e7f);
         } else {
-            baseFragmentActivity.showToast(R.string.obfuscated_res_0x7f0f0e95);
+            baseFragmentActivity.showToast(R.string.obfuscated_res_0x7f0f0e7e);
         }
     }
 }

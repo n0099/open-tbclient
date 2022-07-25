@@ -1,44 +1,42 @@
 package com.repackage;
 
+import android.content.Context;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
 public class h95 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Long a;
+    public Context a;
     public int b;
-    public Long c;
-    public int d;
-    public String e;
-    public String f;
-    public int g;
-    public Long h;
-    public int i;
+    public String c;
+    public Long d;
+    public e95 e;
+    public int f;
+    public boolean g;
 
-    public h95() {
+    public h95(Context context, int i, String str, Long l, e95 e95Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, Integer.valueOf(i), str, l, e95Var};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "YYPayResult{amount=" + this.a + ", appid=" + this.b + ", currencyAmount=" + this.c + ", currencyType=" + this.d + ", expand='" + this.e + "', orderId='" + this.f + "', status=" + this.g + ", uid=" + this.h + ", usedChannel=" + this.i + '}';
-        }
-        return (String) invokeV.objValue;
+        this.g = false;
+        this.a = context;
+        this.b = i;
+        this.c = str;
+        this.d = l;
+        this.e = e95Var;
     }
 }

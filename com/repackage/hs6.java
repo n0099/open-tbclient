@@ -54,7 +54,7 @@ public class hs6 {
                 return;
             }
             if (date.getTime() > System.currentTimeMillis()) {
-                this.a.a.showToast(R.string.obfuscated_res_0x7f0f0e04);
+                this.a.a.showToast(R.string.obfuscated_res_0x7f0f0ded);
                 return;
             }
             long time = date.getTime() / 1000;
@@ -106,12 +106,12 @@ public class hs6 {
 
         /* renamed from: com.repackage.hs6$b$b  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class View$OnClickListenerC0653b implements View.OnClickListener {
+        public class View$OnClickListenerC0500b implements View.OnClickListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ b a;
 
-            public View$OnClickListenerC0653b(b bVar) {
+            public View$OnClickListenerC0500b(b bVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -163,12 +163,12 @@ public class hs6 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 SkinManager.setBackgroundResource(view2, R.drawable.person_birthday_select_top_bg);
-                TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091837);
+                TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091812);
                 textView.setOnClickListener(new a(this));
                 SkinManager.setViewTextColor(textView, R.color.CAM_X0105, 1, TbadkCoreApplication.getInst().getSkinType());
-                TextView textView2 = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091836);
+                TextView textView2 = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091811);
                 SkinManager.setViewTextColor(textView2, R.color.CAM_X0302, 1, TbadkCoreApplication.getInst().getSkinType());
-                textView2.setOnClickListener(new View$OnClickListenerC0653b(this));
+                textView2.setOnClickListener(new View$OnClickListenerC0500b(this));
             }
         }
     }
@@ -212,9 +212,9 @@ public class hs6 {
         this.c = cVar;
         if (this.b == null) {
             dh5 dh5Var = new dh5(this.a, this.d);
-            dh5Var.k(R.layout.obfuscated_res_0x7f0d06aa, d());
+            dh5Var.k(R.layout.obfuscated_res_0x7f0d06b4, d());
             dh5Var.p(new boolean[]{true, true, true, false, false, false});
-            dh5Var.j(this.a.getString(R.string.obfuscated_res_0x7f0f0e6c), this.a.getString(R.string.obfuscated_res_0x7f0f0e69), this.a.getString(R.string.obfuscated_res_0x7f0f0e66), this.a.getString(R.string.obfuscated_res_0x7f0f0e67), this.a.getString(R.string.obfuscated_res_0x7f0f0e68), this.a.getString(R.string.obfuscated_res_0x7f0f0e6a));
+            dh5Var.j(this.a.getString(R.string.obfuscated_res_0x7f0f0e55), this.a.getString(R.string.obfuscated_res_0x7f0f0e52), this.a.getString(R.string.obfuscated_res_0x7f0f0e4f), this.a.getString(R.string.obfuscated_res_0x7f0f0e50), this.a.getString(R.string.obfuscated_res_0x7f0f0e51), this.a.getString(R.string.obfuscated_res_0x7f0f0e53));
             dh5Var.l(2.0f);
             dh5Var.b(false);
             dh5Var.i(SkinManager.getColor(R.color.CAM_X0206));

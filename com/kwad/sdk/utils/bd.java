@@ -1,36 +1,67 @@
 package com.kwad.sdk.utils;
 
+import android.annotation.SuppressLint;
+import android.content.Context;
 import android.os.Build;
 import android.os.Handler;
 import android.os.Looper;
-import android.webkit.ValueCallback;
-import android.webkit.WebView;
-import com.baidu.tbadk.core.data.SmallTailInfo;
-import org.json.JSONObject;
+import android.os.Message;
+import android.os.VibrationEffect;
+import android.os.Vibrator;
+import java.io.Closeable;
 /* loaded from: classes5.dex */
 public final class bd {
-    public static void a(final WebView webView, final String str, ValueCallback<String> valueCallback) {
-        if (Build.VERSION.SDK_INT >= 19) {
-            a(new Runnable() { // from class: com.kwad.sdk.utils.bd.1
-                @Override // java.lang.Runnable
-                public final void run() {
-                    webView.evaluateJavascript(str, r3);
-                }
-            });
+    public static final Handler apf = new Handler(Looper.getMainLooper());
+    public static long gO = 400;
+
+    @SuppressLint({"MissingPermission"})
+    public static void a(Context context, Vibrator vibrator) {
+        if (vibrator == null || aj.Y(context, "android.permission.VIBRATE") != 0) {
+            return;
+        }
+        if (Build.VERSION.SDK_INT >= 26) {
+            vibrator.vibrate(VibrationEffect.createOneShot(gO, -1));
         } else {
-            webView.loadUrl(str);
+            vibrator.vibrate(gO);
         }
     }
 
-    public static void a(WebView webView, String str, String str2) {
-        a(webView, "javascript:" + str + "(" + JSONObject.quote(str2) + SmallTailInfo.EMOTION_SUFFIX, (ValueCallback<String>) null);
+    public static void a(Runnable runnable, Object obj, long j) {
+        Message obtain = Message.obtain(apf, runnable);
+        obtain.obj = null;
+        apf.sendMessageDelayed(obtain, j);
     }
 
-    public static void a(Runnable runnable) {
+    @SuppressLint({"MissingPermission"})
+    public static void b(Context context, Vibrator vibrator) {
+        if (vibrator == null || aj.Y(context, "android.permission.VIBRATE") != 0) {
+            return;
+        }
+        vibrator.cancel();
+    }
+
+    public static void b(Closeable closeable) {
+        if (closeable != null) {
+            try {
+                closeable.close();
+            } catch (Throwable unused) {
+            }
+        }
+    }
+
+    public static void c(Runnable runnable) {
+        apf.removeCallbacks(runnable);
+    }
+
+    public static void runOnUiThread(Runnable runnable) {
         if (Looper.getMainLooper() == Looper.myLooper()) {
             runnable.run();
         } else {
-            new Handler(Looper.getMainLooper()).post(runnable);
+            apf.post(runnable);
         }
+    }
+
+    public static void runOnUiThreadDelay(Runnable runnable, long j) {
+        apf.postDelayed(runnable, j);
     }
 }

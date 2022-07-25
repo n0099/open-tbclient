@@ -32,10 +32,10 @@ import com.repackage.gr6;
 import com.repackage.jm6;
 import com.repackage.ng;
 import com.repackage.nn;
-import com.repackage.p95;
+import com.repackage.q95;
 import com.repackage.qi5;
-import com.repackage.qq4;
 import com.repackage.rm6;
+import com.repackage.rq4;
 import com.repackage.s98;
 import com.repackage.ti5;
 import com.repackage.za;
@@ -108,12 +108,12 @@ public class FrsLoadMoreModel extends BdBaseModel<BaseFragmentActivity> {
             FrsLoadMoreModel frsLoadMoreModel = this.a;
             frsLoadMoreModel.isLoading = false;
             if (responsedMessage == null) {
-                frsLoadMoreModel.a.onFailed(this.a.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f0c2b));
+                frsLoadMoreModel.a.onFailed(this.a.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f0c17));
             } else if (responsedMessage.getError() != 0) {
                 if (!TextUtils.isEmpty(responsedMessage.getErrorString())) {
                     this.a.a.onFailed(responsedMessage.getErrorString());
                 } else {
-                    this.a.a.onFailed(this.a.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f0c2b));
+                    this.a.a.onFailed(this.a.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f0c17));
                 }
             } else {
                 long currentTimeMillis = System.currentTimeMillis();
@@ -276,8 +276,8 @@ public class FrsLoadMoreModel extends BdBaseModel<BaseFragmentActivity> {
             Iterator<nn> it = this.d.iterator();
             while (it.hasNext()) {
                 nn next = it.next();
-                if (next instanceof qq4) {
-                    ThreadData threadData = ((qq4) next).s;
+                if (next instanceof rq4) {
+                    ThreadData threadData = ((rq4) next).s;
                     if (threadData.getTid() != null) {
                         hashSet.add(threadData.getTid());
                     }
@@ -294,9 +294,9 @@ public class FrsLoadMoreModel extends BdBaseModel<BaseFragmentActivity> {
                 Iterator<nn> it2 = arrayList.iterator();
                 while (it2.hasNext()) {
                     nn next2 = it2.next();
-                    if (next2 instanceof qq4) {
-                        qq4 qq4Var = (qq4) next2;
-                        ThreadData threadData3 = qq4Var.s;
+                    if (next2 instanceof rq4) {
+                        rq4 rq4Var = (rq4) next2;
+                        ThreadData threadData3 = rq4Var.s;
                         threadData3.setForum_name(this.a.c());
                         gm6 gm6Var5 = this.a;
                         if (gm6Var5 != null && gm6Var5.Q0() != null && this.a.Q0().getForum() != null) {
@@ -310,14 +310,14 @@ public class FrsLoadMoreModel extends BdBaseModel<BaseFragmentActivity> {
                         if (threadData3.isNeedCheckRepeat()) {
                             if (!hashSet.contains(threadData3.getTid())) {
                                 arrayList2.add(next2);
-                                if (!arrayList3.contains(qq4Var.s.tid)) {
-                                    arrayList3.add(qq4Var.s.tid);
+                                if (!arrayList3.contains(rq4Var.s.tid)) {
+                                    arrayList3.add(rq4Var.s.tid);
                                 }
                             }
                         } else {
                             arrayList2.add(next2);
-                            if (!arrayList3.contains(qq4Var.s.tid)) {
-                                arrayList3.add(qq4Var.s.tid);
+                            if (!arrayList3.contains(rq4Var.s.tid)) {
+                                arrayList3.add(rq4Var.s.tid);
                             }
                         }
                     } else if (next2 instanceof ThreadData) {
@@ -491,7 +491,7 @@ public class FrsLoadMoreModel extends BdBaseModel<BaseFragmentActivity> {
         }
         this.b = true;
         if (PerformanceLoggerHelper.getInstance().isSmallFlow()) {
-            new p95(1000, true, loadMoreHttpResponseMessage, 0L, 0L, 0L, true, 0L, 0L, System.currentTimeMillis() - this.c).c();
+            new q95(1000, true, loadMoreHttpResponseMessage, 0L, 0L, 0L, true, 0L, 0L, System.currentTimeMillis() - this.c).c();
         }
     }
 
@@ -499,9 +499,9 @@ public class FrsLoadMoreModel extends BdBaseModel<BaseFragmentActivity> {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeZL(InputDeviceCompat.SOURCE_TOUCHPAD, this, z, responsedMessage) == null) && PerformanceLoggerHelper.getInstance().isSmallFlow() && (this.a instanceof FrsFragment)) {
             long currentTimeMillis = System.currentTimeMillis() - this.c;
-            p95 p95Var = new p95(1000, z, responsedMessage, 0L, 0L, ((FrsFragment) this.a).D, false, 0L, 0L, currentTimeMillis);
-            p95Var.B = currentTimeMillis;
-            p95Var.e(true);
+            q95 q95Var = new q95(1000, z, responsedMessage, 0L, 0L, ((FrsFragment) this.a).D, false, 0L, 0L, currentTimeMillis);
+            q95Var.B = currentTimeMillis;
+            q95Var.e(true);
         }
     }
 
@@ -512,7 +512,7 @@ public class FrsLoadMoreModel extends BdBaseModel<BaseFragmentActivity> {
         }
         this.b = true;
         if (PerformanceLoggerHelper.getInstance().isSmallFlow()) {
-            new p95(1000, false, loadMoreResponseSocketMessage, 0L, 0L, 0L, true, 0L, 0L, System.currentTimeMillis() - this.c).c();
+            new q95(1000, false, loadMoreResponseSocketMessage, 0L, 0L, 0L, true, 0L, 0L, System.currentTimeMillis() - this.c).c();
         }
     }
 

@@ -231,38 +231,38 @@ public class sx8 extends BaseAdapter {
                 if (view2 != null && (view2.getTag() instanceof c)) {
                     cVar = (c) view2.getTag();
                 } else {
-                    view2 = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0770, (ViewGroup) null);
+                    view2 = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d077a, (ViewGroup) null);
                     cVar = new c(this);
-                    cVar.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091d3d);
+                    cVar.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091d43);
                     cVar.b = view2.findViewById(R.id.obfuscated_res_0x7f0902f3);
                     view2.setTag(cVar);
                 }
                 cVar.a.setText(((ShareFriendTitleData) getItem(i)).getTitle());
-                ur4 d = ur4.d(cVar.a);
+                vr4 d = vr4.d(cVar.a);
                 d.A(R.string.F_X01);
                 d.z(R.dimen.T_X08);
                 d.v(R.color.CAM_X0107);
-                ur4.d(cVar.b).f(R.color.CAM_X0201);
+                vr4.d(cVar.b).f(R.color.CAM_X0201);
             } else if (getItemViewType(i) != 3 && getItemViewType(i) != 1) {
                 if (view2 != null && (view2.getTag() instanceof a)) {
                     aVar = (a) view2.getTag();
                 } else {
-                    view2 = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d076e, (ViewGroup) null);
+                    view2 = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0778, (ViewGroup) null);
                     aVar = new a(this);
-                    aVar.a = view2.findViewById(R.id.obfuscated_res_0x7f090cbf);
+                    aVar.a = view2.findViewById(R.id.obfuscated_res_0x7f090cb8);
                     view2.setTag(aVar);
                 }
-                ur4.d(aVar.a).f(R.color.CAM_X0204);
+                vr4.d(aVar.a).f(R.color.CAM_X0204);
             } else {
                 MetaData item = getItem(i);
                 if (view2 != null && (view2.getTag() instanceof b)) {
                     bVar = (b) view2.getTag();
                 } else {
-                    view2 = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d076d, (ViewGroup) null);
+                    view2 = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0777, (ViewGroup) null);
                     b bVar2 = new b(this);
-                    bVar2.a = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091d46);
-                    bVar2.b = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f091d54);
-                    bVar2.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091d3d);
+                    bVar2.a = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091d4c);
+                    bVar2.b = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f091d5a);
+                    bVar2.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091d43);
                     view2.setTag(bVar2);
                     bVar = bVar2;
                 }
@@ -276,10 +276,10 @@ public class sx8 extends BaseAdapter {
                 bVar.c.setText(item.getName_show());
                 bVar.b.setTag(avater);
                 bVar.b.J(avater, 12, false);
-                ur4 d2 = ur4.d(bVar.a);
+                vr4 d2 = vr4.d(bVar.a);
                 d2.n(R.string.J_X02);
                 d2.f(R.color.CAM_X0201);
-                ur4 d3 = ur4.d(bVar.c);
+                vr4 d3 = vr4.d(bVar.c);
                 d3.z(R.dimen.T_X07);
                 d3.A(R.string.F_X01);
                 d3.v(R.color.CAM_X0107);

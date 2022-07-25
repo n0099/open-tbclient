@@ -123,7 +123,7 @@ public class nf7 extends an<sf7, SearchSuggestForumViewHolder> {
     public SearchSuggestForumViewHolder M(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, viewGroup)) == null) ? new SearchSuggestForumViewHolder(LayoutInflater.from(this.i).inflate(R.layout.obfuscated_res_0x7f0d0753, viewGroup, false)) : (SearchSuggestForumViewHolder) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, viewGroup)) == null) ? new SearchSuggestForumViewHolder(LayoutInflater.from(this.i).inflate(R.layout.obfuscated_res_0x7f0d075d, viewGroup, false)) : (SearchSuggestForumViewHolder) invokeL.objValue;
     }
 
     public View d0(int i, View view2, ViewGroup viewGroup, sf7 sf7Var, SearchSuggestForumViewHolder searchSuggestForumViewHolder) {
@@ -137,15 +137,15 @@ public class nf7 extends an<sf7, SearchSuggestForumViewHolder> {
             searchSuggestForumViewHolder.b.setConrers(15);
             searchSuggestForumViewHolder.b.setRadiusById(R.string.J_X06);
             searchSuggestForumViewHolder.b.J(sf7Var.a(), 10, false);
-            searchSuggestForumViewHolder.c.setText(sf7Var.c() + this.i.getString(R.string.obfuscated_res_0x7f0f0650));
+            searchSuggestForumViewHolder.c.setText(sf7Var.c() + this.i.getString(R.string.obfuscated_res_0x7f0f064c));
             if (!StringUtils.isNull(sf7Var.g())) {
-                searchSuggestForumViewHolder.d.setText(this.i.getString(R.string.obfuscated_res_0x7f0f10c4, sf7Var.g()));
+                searchSuggestForumViewHolder.d.setText(this.i.getString(R.string.obfuscated_res_0x7f0f1080, sf7Var.g()));
             } else {
                 Context context = this.i;
-                searchSuggestForumViewHolder.d.setText(context.getString(R.string.obfuscated_res_0x7f0f10c4, context.getString(R.string.obfuscated_res_0x7f0f10c5)));
+                searchSuggestForumViewHolder.d.setText(context.getString(R.string.obfuscated_res_0x7f0f1080, context.getString(R.string.obfuscated_res_0x7f0f1081)));
             }
-            searchSuggestForumViewHolder.e.setText(String.format(this.i.getString(R.string.obfuscated_res_0x7f0f041a), StringHelper.numberUniformFormatExtraWithRoundInt(sf7Var.d().intValue())));
-            searchSuggestForumViewHolder.f.setText(String.format(this.i.getString(R.string.obfuscated_res_0x7f0f06b9), StringHelper.numberUniformFormatExtraWithRoundInt(sf7Var.h().intValue())));
+            searchSuggestForumViewHolder.e.setText(String.format(this.i.getString(R.string.obfuscated_res_0x7f0f0419), StringHelper.numberUniformFormatExtraWithRoundInt(sf7Var.d().intValue())));
+            searchSuggestForumViewHolder.f.setText(String.format(this.i.getString(R.string.obfuscated_res_0x7f0f06b5), StringHelper.numberUniformFormatExtraWithRoundInt(sf7Var.h().intValue())));
             f0(sf7Var);
             return view2;
         }
@@ -155,21 +155,21 @@ public class nf7 extends an<sf7, SearchSuggestForumViewHolder> {
     public final void e0(SearchSuggestForumViewHolder searchSuggestForumViewHolder) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, searchSuggestForumViewHolder) == null) {
-            ur4 d = ur4.d(searchSuggestForumViewHolder.c);
+            vr4 d = vr4.d(searchSuggestForumViewHolder.c);
             d.A(R.string.F_X02);
             d.z(R.dimen.T_X06);
             d.v(R.color.CAM_X0105);
-            ur4 d2 = ur4.d(searchSuggestForumViewHolder.d);
+            vr4 d2 = vr4.d(searchSuggestForumViewHolder.d);
             d2.z(R.dimen.T_X09);
             d2.v(R.color.CAM_X0108);
-            ur4 d3 = ur4.d(searchSuggestForumViewHolder.e);
+            vr4 d3 = vr4.d(searchSuggestForumViewHolder.e);
             d3.z(R.dimen.T_X09);
             d3.v(R.color.CAM_X0108);
-            ur4 d4 = ur4.d(searchSuggestForumViewHolder.f);
+            vr4 d4 = vr4.d(searchSuggestForumViewHolder.f);
             d4.z(R.dimen.T_X09);
             d4.v(R.color.CAM_X0108);
             SkinManager.setBackgroundResource(searchSuggestForumViewHolder.a, R.drawable.addresslist_item_bg);
-            ur4.d(searchSuggestForumViewHolder.g).f(R.color.CAM_X0203);
+            vr4.d(searchSuggestForumViewHolder.g).f(R.color.CAM_X0203);
         }
     }
 

@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class kf8 extends sm4 {
+public class kf8 extends tm4 {
     public static /* synthetic */ Interceptable $ic;
     public static final String c;
     public transient /* synthetic */ FieldHolder $fh;

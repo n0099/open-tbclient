@@ -41,7 +41,7 @@ public class jd6 extends cd6<kd6, FrsNoListItemViewHolder> {
                 return;
             }
         }
-        this.t = (pi.i(TbadkCoreApplication.getInst()) - TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07019a)) - TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07030a);
+        this.t = (pi.i(TbadkCoreApplication.getInst()) - TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07019a)) - TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070308);
     }
 
     @Override // com.repackage.cd6, com.repackage.an
@@ -75,7 +75,7 @@ public class jd6 extends cd6<kd6, FrsNoListItemViewHolder> {
             if (kd6Var.a() == 6) {
                 frsNoListItemViewHolder.d.setText(R.string.obfuscated_res_0x7f0f02b2);
             } else {
-                frsNoListItemViewHolder.d.setText(R.string.obfuscated_res_0x7f0f0c44);
+                frsNoListItemViewHolder.d.setText(R.string.obfuscated_res_0x7f0f0c30);
             }
             SkinManager.setViewTextColor(frsNoListItemViewHolder.d, R.color.CAM_X0107, 1);
             SkinManager.setImageResource(frsNoListItemViewHolder.e, R.drawable.new_pic_emotion_06);

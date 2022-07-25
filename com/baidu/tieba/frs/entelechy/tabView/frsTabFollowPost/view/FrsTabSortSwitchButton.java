@@ -298,7 +298,7 @@ public class FrsTabSortSwitchButton extends View implements View.OnTouchListener
     public final void A(Context context, AttributeSet attributeSet) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, context, attributeSet) == null) {
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f0400b5, R.attr.obfuscated_res_0x7f040584, R.attr.obfuscated_res_0x7f0405a6, R.attr.obfuscated_res_0x7f0405a7, R.attr.obfuscated_res_0x7f0405a8, R.attr.obfuscated_res_0x7f0405a9, R.attr.obfuscated_res_0x7f040667, R.attr.obfuscated_res_0x7f040669, R.attr.obfuscated_res_0x7f0406b4});
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f0400b5, R.attr.obfuscated_res_0x7f040586, R.attr.obfuscated_res_0x7f0405a8, R.attr.obfuscated_res_0x7f0405a9, R.attr.obfuscated_res_0x7f0405aa, R.attr.obfuscated_res_0x7f0405ab, R.attr.obfuscated_res_0x7f040669, R.attr.obfuscated_res_0x7f04066b, R.attr.obfuscated_res_0x7f0406b6});
             this.d = obtainStyledAttributes.getResourceId(0, R.color.CAM_X0107);
             this.e = obtainStyledAttributes.getResourceId(4, R.color.CAM_X0101);
             this.f = obtainStyledAttributes.getResourceId(8, R.color.CAM_X0105);
@@ -728,8 +728,8 @@ public class FrsTabSortSwitchButton extends View implements View.OnTouchListener
             this.B = new ArrayList();
             this.u = 0;
             this.C = new GestureDetector(context, this.D);
-            this.l = getResources().getString(R.string.obfuscated_res_0x7f0f0fc7);
-            this.m = getResources().getString(R.string.obfuscated_res_0x7f0f1115);
+            this.l = getResources().getString(R.string.obfuscated_res_0x7f0f0fb0);
+            this.m = getResources().getString(R.string.obfuscated_res_0x7f0f10d1);
             z();
         }
     }

@@ -103,8 +103,8 @@ public class cw6 implements TabLayout.OnTabSelectedListener {
             return;
         }
         TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) tab.getCustomView();
-        if (tBSpecificationBtn.getStyleConfig() instanceof uu4) {
-            ((uu4) tBSpecificationBtn.getStyleConfig()).u(R.color.CAM_X0304);
+        if (tBSpecificationBtn.getStyleConfig() instanceof vu4) {
+            ((vu4) tBSpecificationBtn.getStyleConfig()).u(R.color.CAM_X0304);
         }
     }
 
@@ -114,8 +114,8 @@ public class cw6 implements TabLayout.OnTabSelectedListener {
             return;
         }
         TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) tab.getCustomView();
-        if (tBSpecificationBtn.getStyleConfig() instanceof uu4) {
-            ((uu4) tBSpecificationBtn.getStyleConfig()).u(R.color.CAM_X0108);
+        if (tBSpecificationBtn.getStyleConfig() instanceof vu4) {
+            ((vu4) tBSpecificationBtn.getStyleConfig()).u(R.color.CAM_X0108);
         }
     }
 
@@ -164,16 +164,16 @@ public class cw6 implements TabLayout.OnTabSelectedListener {
                 tabAt.setTag(frsTabItemData);
                 if (!(tabAt.getCustomView() instanceof TBSpecificationBtn)) {
                     TBSpecificationBtn tBSpecificationBtn = new TBSpecificationBtn(getContext());
-                    uu4 uu4Var = new uu4();
-                    uu4Var.u(R.color.CAM_X0108);
-                    tBSpecificationBtn.setConfig(uu4Var);
+                    vu4 vu4Var = new vu4();
+                    vu4Var.u(R.color.CAM_X0108);
+                    tBSpecificationBtn.setConfig(vu4Var);
                     LinearLayout.LayoutParams layoutParams3 = new LinearLayout.LayoutParams(UtilHelper.getDimenPixelSize(R.dimen.tbds177), UtilHelper.getDimenPixelSize(R.dimen.tbds75));
                     layoutParams3.setMargins(f, f2, f, f3);
                     tBSpecificationBtn.setLayoutParams(layoutParams3);
                     tabAt.setCustomView(tBSpecificationBtn);
                 }
                 ((TBSpecificationBtn) tabAt.getCustomView()).setText(StringHelper.cutForumNameWithSuffix(frsTabItemData.name, 10, StringHelper.STRING_MORE));
-                tabAt.f1792view.setBackgroundColor(0);
+                tabAt.f1072view.setBackgroundColor(0);
                 if (!tabAt.isSelected() && i == frsTabItemData.tabId) {
                     tabAt.select();
                 }

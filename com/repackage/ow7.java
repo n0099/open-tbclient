@@ -145,7 +145,7 @@ public class ow7 extends BaseAdapter {
                 if (this.a.e != null) {
                     for (String str : this.a.e) {
                         if (!TextUtils.isEmpty(str)) {
-                            l45.k().h(str);
+                            m45.k().h(str);
                         }
                     }
                     return Boolean.TRUE;
@@ -264,13 +264,13 @@ public class ow7 extends BaseAdapter {
         if (interceptable == null || (invokeILL = interceptable.invokeILL(1048583, this, i, view2, viewGroup)) == null) {
             if (view2 == null) {
                 dVar = new d();
-                view3 = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0502, (ViewGroup) null);
-                EmotionView emotionView = (EmotionView) view3.findViewById(R.id.obfuscated_res_0x7f090f9b);
+                view3 = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d050c, (ViewGroup) null);
+                EmotionView emotionView = (EmotionView) view3.findViewById(R.id.obfuscated_res_0x7f090f94);
                 dVar.a = emotionView;
                 emotionView.k0();
                 dVar.a.setController(this.c);
                 dVar.a.setOnClickListener(new a(this));
-                TextView textView = (TextView) view3.findViewById(R.id.obfuscated_res_0x7f092255);
+                TextView textView = (TextView) view3.findViewById(R.id.obfuscated_res_0x7f092257);
                 dVar.b = textView;
                 SkinManager.setViewTextColor(textView, (int) R.color.CAM_X0109);
                 dVar.b.setOnClickListener(new b(this));
@@ -284,7 +284,7 @@ public class ow7 extends BaseAdapter {
                     dVar.a.getLayoutParams().width = this.b;
                     dVar.a.getLayoutParams().height = this.b;
                     dVar.a.F();
-                    dVar.a.setTag(R.id.obfuscated_res_0x7f090f9b, null);
+                    dVar.a.setTag(R.id.obfuscated_res_0x7f090f94, null);
                     EmotionImageData emotionImageData = this.a.get(i);
                     if (emotionImageData != null) {
                         dVar.a.m0(emotionImageData);

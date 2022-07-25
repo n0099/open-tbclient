@@ -2,6 +2,7 @@ package com.kwai.sodler.lib.d;
 
 import android.os.Build;
 import android.os.Process;
+import com.baidu.android.util.devices.IDevices;
 import com.baidu.pass.biometrics.base.utils.PassBiometricUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -14,9 +15,9 @@ import java.util.Map;
 /* loaded from: classes5.dex */
 public final class a {
     public static /* synthetic */ Interceptable $ic;
-    public static String a;
-    public static String b;
-    public static final Map<String, String> c;
+    public static String ayJ;
+    public static String ayK;
+    public static final Map<String, String> ayL;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -33,21 +34,21 @@ public final class a {
             }
         }
         HashMap hashMap = new HashMap();
-        c = hashMap;
-        hashMap.put("mips", "mips");
-        c.put("mips64", "mips64");
-        c.put("x86", "x86");
-        c.put("x86_64", "x86_64");
-        c.put("arm64", "arm64-v8a");
+        ayL = hashMap;
+        hashMap.put(IDevices.ABI_MIPS, IDevices.ABI_MIPS);
+        ayL.put("mips64", "mips64");
+        ayL.put("x86", "x86");
+        ayL.put("x86_64", "x86_64");
+        ayL.put("arm64", "arm64-v8a");
     }
 
-    public static String a() {
+    public static String FH() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? b() ? "arm64-v8a" : PassBiometricUtil.CPU_TYPE_ARMEABI_V7A : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? is64Bit() ? "arm64-v8a" : PassBiometricUtil.CPU_TYPE_ARMEABI_V7A : (String) invokeV.objValue;
     }
 
-    public static boolean b() {
+    public static boolean is64Bit() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {

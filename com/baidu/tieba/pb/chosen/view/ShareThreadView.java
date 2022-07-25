@@ -61,10 +61,10 @@ public final class ShareThreadView extends LinearLayout {
     public final void b(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0839, this);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0843, this);
             setOrientation(1);
-            this.a = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091d3a);
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f091d6b);
+            this.a = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091d40);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f091d71);
             this.e = textView;
             SkinManager.setViewTextColor(textView, R.color.CAM_X0105, 1);
             this.b = (EditText) findViewById(R.id.obfuscated_res_0x7f0905da);

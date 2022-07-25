@@ -12,9 +12,9 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ou4;
 import com.repackage.pi;
-import com.repackage.ur4;
+import com.repackage.pu4;
+import com.repackage.vr4;
 /* loaded from: classes3.dex */
 public class BreatheTipView extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
@@ -60,31 +60,31 @@ public class BreatheTipView extends FrameLayout {
             layoutParams2.leftMargin = f;
             layoutParams2.rightMargin = f;
             addView(this.b, layoutParams2);
-            ur4 d = ur4.d(this.a);
+            vr4 d = vr4.d(this.a);
             d.z(R.dimen.T_X08);
             d.A(R.string.F_X02);
-            ur4 d2 = ur4.d(this.b);
+            vr4 d2 = vr4.d(this.b);
             d2.z(R.dimen.T_X09);
             d2.A(R.string.F_X01);
         }
     }
 
-    public void setData(ou4 ou4Var) {
+    public void setData(pu4 pu4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ou4Var) == null) {
-            int i = ou4Var.g;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pu4Var) == null) {
+            int i = pu4Var.g;
             if (i < 0) {
                 i = -2;
             }
-            int i2 = ou4Var.h;
+            int i2 = pu4Var.h;
             setLayoutParams(new LinearLayout.LayoutParams(i, i2 >= 0 ? i2 : -2));
-            this.a.setText(ou4Var.a);
-            SkinManager.setViewTextColor(this.a, ou4Var.c);
-            ((FrameLayout.LayoutParams) this.a.getLayoutParams()).topMargin = ou4Var.f;
-            this.b.setText(ou4Var.b);
-            SkinManager.setViewTextColor(this.b, ou4Var.d);
-            ((FrameLayout.LayoutParams) this.b.getLayoutParams()).topMargin = ou4Var.f + pi.f(getContext(), R.dimen.M_H_X002) + ((int) this.a.getTextSize());
-            SkinManager.setBackgroundResource(this, ou4Var.e);
+            this.a.setText(pu4Var.a);
+            SkinManager.setViewTextColor(this.a, pu4Var.c);
+            ((FrameLayout.LayoutParams) this.a.getLayoutParams()).topMargin = pu4Var.f;
+            this.b.setText(pu4Var.b);
+            SkinManager.setViewTextColor(this.b, pu4Var.d);
+            ((FrameLayout.LayoutParams) this.b.getLayoutParams()).topMargin = pu4Var.f + pi.f(getContext(), R.dimen.M_H_X002) + ((int) this.a.getTextSize());
+            SkinManager.setBackgroundResource(this, pu4Var.e);
         }
     }
 

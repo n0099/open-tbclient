@@ -22,13 +22,13 @@ public class x80 {
             }
             long j = i;
             if (j < 10000) {
-                return i + context.getString(R.string.obfuscated_res_0x7f0f09ff);
+                return i + context.getString(R.string.obfuscated_res_0x7f0f09eb);
             }
             if (j < 100000000) {
-                string = context.getString(R.string.obfuscated_res_0x7f0f09fd);
+                string = context.getString(R.string.obfuscated_res_0x7f0f09e9);
                 valueOf = Float.valueOf(i / 10000.0f);
             } else {
-                string = context.getString(R.string.obfuscated_res_0x7f0f09f7);
+                string = context.getString(R.string.obfuscated_res_0x7f0f09e3);
                 valueOf = Float.valueOf(i / 1.0E8f);
             }
             DecimalFormat decimalFormat = new DecimalFormat("####.#");

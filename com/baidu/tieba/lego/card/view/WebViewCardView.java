@@ -301,9 +301,9 @@ public class WebViewCardView extends BaseCardView<WebViewCard> {
             int i = pi.i(getContext());
             int container = webViewCard.getContainer();
             if (container == 1) {
-                setWebviewHeight(i - pi.f(getContext(), R.dimen.obfuscated_res_0x7f070284));
+                setWebviewHeight(i - pi.f(getContext(), R.dimen.obfuscated_res_0x7f070280));
             } else if (container == 2) {
-                setWebviewHeight(i - pi.f(getContext(), R.dimen.obfuscated_res_0x7f0702a0));
+                setWebviewHeight(i - pi.f(getContext(), R.dimen.obfuscated_res_0x7f07029e));
             }
         }
         if (TextUtils.isEmpty(webViewCard.getPageUrl())) {

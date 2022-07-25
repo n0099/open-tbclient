@@ -44,8 +44,8 @@ public abstract class h extends MessageSnapshot {
     public static class b extends h {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final boolean b;
-        public final int c;
+        public final boolean avN;
+        public final int awc;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(int i, boolean z, int i2) {
@@ -65,8 +65,8 @@ public abstract class h extends MessageSnapshot {
                     return;
                 }
             }
-            this.b = z;
-            this.c = i2;
+            this.avN = z;
+            this.awc = i2;
         }
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -87,12 +87,12 @@ public abstract class h extends MessageSnapshot {
                     return;
                 }
             }
-            this.b = parcel.readByte() != 0;
-            this.c = parcel.readInt();
+            this.avN = parcel.readByte() != 0;
+            this.awc = parcel.readInt();
         }
 
         @Override // com.kwai.filedownloader.message.c
-        public final byte b() {
+        public final byte Ca() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -102,27 +102,27 @@ public abstract class h extends MessageSnapshot {
         }
 
         @Override // com.kwai.filedownloader.message.MessageSnapshot
-        public final int c() {
+        public final int Ea() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.c : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.awc : invokeV.intValue;
+        }
+
+        @Override // com.kwai.filedownloader.message.MessageSnapshot
+        public final boolean Ec() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.avN : invokeV.booleanValue;
         }
 
         @Override // com.kwai.filedownloader.message.MessageSnapshot, android.os.Parcelable
         public int describeContents() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
                 return 0;
             }
             return invokeV.intValue;
-        }
-
-        @Override // com.kwai.filedownloader.message.MessageSnapshot
-        public final boolean e() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.b : invokeV.booleanValue;
         }
 
         @Override // com.kwai.filedownloader.message.MessageSnapshot, android.os.Parcelable
@@ -130,8 +130,8 @@ public abstract class h extends MessageSnapshot {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048580, this, parcel, i) == null) {
                 super.writeToParcel(parcel, i);
-                parcel.writeByte(this.b ? (byte) 1 : (byte) 0);
-                parcel.writeInt(this.c);
+                parcel.writeByte(this.avN ? (byte) 1 : (byte) 0);
+                parcel.writeInt(this.awc);
             }
         }
     }
@@ -140,10 +140,10 @@ public abstract class h extends MessageSnapshot {
     public static class c extends h {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final boolean b;
-        public final int c;
-        public final String d;
-        public final String e;
+        public final String aul;
+        public final boolean avO;
+        public final String avP;
+        public final int awc;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public c(int i, boolean z, int i2, String str, String str2) {
@@ -163,10 +163,10 @@ public abstract class h extends MessageSnapshot {
                     return;
                 }
             }
-            this.b = z;
-            this.c = i2;
-            this.d = str;
-            this.e = str2;
+            this.avO = z;
+            this.awc = i2;
+            this.aul = str;
+            this.avP = str2;
         }
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -187,14 +187,14 @@ public abstract class h extends MessageSnapshot {
                     return;
                 }
             }
-            this.b = parcel.readByte() != 0;
-            this.c = parcel.readInt();
-            this.d = parcel.readString();
-            this.e = parcel.readString();
+            this.avO = parcel.readByte() != 0;
+            this.awc = parcel.readInt();
+            this.aul = parcel.readString();
+            this.avP = parcel.readString();
         }
 
         @Override // com.kwai.filedownloader.message.c
-        public final byte b() {
+        public final byte Ca() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -204,41 +204,41 @@ public abstract class h extends MessageSnapshot {
         }
 
         @Override // com.kwai.filedownloader.message.MessageSnapshot
-        public final int c() {
+        public final boolean DR() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.c : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.avO : invokeV.booleanValue;
+        }
+
+        @Override // com.kwai.filedownloader.message.MessageSnapshot
+        public final int Ea() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.awc : invokeV.intValue;
         }
 
         @Override // com.kwai.filedownloader.message.MessageSnapshot, android.os.Parcelable
         public final int describeContents() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
                 return 0;
             }
             return invokeV.intValue;
         }
 
         @Override // com.kwai.filedownloader.message.MessageSnapshot
-        public final String f() {
+        public final String getEtag() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.e : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.aul : (String) invokeV.objValue;
         }
 
         @Override // com.kwai.filedownloader.message.MessageSnapshot
-        public final boolean g() {
+        public final String getFileName() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.b : invokeV.booleanValue;
-        }
-
-        @Override // com.kwai.filedownloader.message.MessageSnapshot
-        public final String h() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.d : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.avP : (String) invokeV.objValue;
         }
 
         @Override // com.kwai.filedownloader.message.MessageSnapshot, android.os.Parcelable
@@ -246,10 +246,10 @@ public abstract class h extends MessageSnapshot {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048582, this, parcel, i) == null) {
                 super.writeToParcel(parcel, i);
-                parcel.writeByte(this.b ? (byte) 1 : (byte) 0);
-                parcel.writeInt(this.c);
-                parcel.writeString(this.d);
-                parcel.writeString(this.e);
+                parcel.writeByte(this.avO ? (byte) 1 : (byte) 0);
+                parcel.writeInt(this.awc);
+                parcel.writeString(this.aul);
+                parcel.writeString(this.avP);
             }
         }
     }
@@ -258,8 +258,8 @@ public abstract class h extends MessageSnapshot {
     public static class d extends h {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final int b;
-        public final Throwable c;
+        public final Throwable avR;
+        public final int awd;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public d(int i, int i2, Throwable th) {
@@ -279,8 +279,8 @@ public abstract class h extends MessageSnapshot {
                     return;
                 }
             }
-            this.b = i2;
-            this.c = th;
+            this.awd = i2;
+            this.avR = th;
         }
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -301,42 +301,42 @@ public abstract class h extends MessageSnapshot {
                     return;
                 }
             }
-            this.b = parcel.readInt();
-            this.c = (Throwable) parcel.readSerializable();
-        }
-
-        @Override // com.kwai.filedownloader.message.MessageSnapshot
-        public final int a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : invokeV.intValue;
+            this.awd = parcel.readInt();
+            this.avR = (Throwable) parcel.readSerializable();
         }
 
         @Override // com.kwai.filedownloader.message.c
-        public byte b() {
+        public byte Ca() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
                 return (byte) -1;
             }
             return invokeV.byteValue;
+        }
+
+        @Override // com.kwai.filedownloader.message.MessageSnapshot
+        public final int DZ() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.awd : invokeV.intValue;
+        }
+
+        @Override // com.kwai.filedownloader.message.MessageSnapshot
+        public final Throwable Ee() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.avR : (Throwable) invokeV.objValue;
         }
 
         @Override // com.kwai.filedownloader.message.MessageSnapshot, android.os.Parcelable
         public int describeContents() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
                 return 0;
             }
             return invokeV.intValue;
-        }
-
-        @Override // com.kwai.filedownloader.message.MessageSnapshot
-        public final Throwable j() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.c : (Throwable) invokeV.objValue;
         }
 
         @Override // com.kwai.filedownloader.message.MessageSnapshot, android.os.Parcelable
@@ -344,8 +344,8 @@ public abstract class h extends MessageSnapshot {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048580, this, parcel, i) == null) {
                 super.writeToParcel(parcel, i);
-                parcel.writeInt(this.b);
-                parcel.writeSerializable(this.c);
+                parcel.writeInt(this.awd);
+                parcel.writeSerializable(this.avR);
             }
         }
     }
@@ -377,7 +377,7 @@ public abstract class h extends MessageSnapshot {
         }
 
         @Override // com.kwai.filedownloader.message.h.f, com.kwai.filedownloader.message.c
-        public final byte b() {
+        public final byte Ca() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -391,8 +391,8 @@ public abstract class h extends MessageSnapshot {
     public static class f extends h {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final int b;
-        public final int c;
+        public final int awc;
+        public final int awd;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public f(int i, int i2, int i3) {
@@ -412,8 +412,8 @@ public abstract class h extends MessageSnapshot {
                     return;
                 }
             }
-            this.b = i2;
-            this.c = i3;
+            this.awd = i2;
+            this.awc = i3;
         }
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -434,13 +434,13 @@ public abstract class h extends MessageSnapshot {
                     return;
                 }
             }
-            this.b = parcel.readInt();
-            this.c = parcel.readInt();
+            this.awd = parcel.readInt();
+            this.awc = parcel.readInt();
         }
 
         /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
         public f(f fVar) {
-            this(fVar.m(), fVar.a(), fVar.c());
+            this(fVar.getId(), fVar.DZ(), fVar.Ea());
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -459,27 +459,27 @@ public abstract class h extends MessageSnapshot {
             }
         }
 
-        @Override // com.kwai.filedownloader.message.MessageSnapshot
-        public final int a() {
+        public byte Ca() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : invokeV.intValue;
-        }
-
-        public byte b() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
                 return (byte) 1;
             }
             return invokeV.byteValue;
         }
 
         @Override // com.kwai.filedownloader.message.MessageSnapshot
-        public final int c() {
+        public final int DZ() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.c : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.awd : invokeV.intValue;
+        }
+
+        @Override // com.kwai.filedownloader.message.MessageSnapshot
+        public final int Ea() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.awc : invokeV.intValue;
         }
 
         @Override // com.kwai.filedownloader.message.MessageSnapshot, android.os.Parcelable
@@ -487,8 +487,8 @@ public abstract class h extends MessageSnapshot {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048579, this, parcel, i) == null) {
                 super.writeToParcel(parcel, i);
-                parcel.writeInt(this.b);
-                parcel.writeInt(this.c);
+                parcel.writeInt(this.awd);
+                parcel.writeInt(this.awc);
             }
         }
     }
@@ -497,7 +497,7 @@ public abstract class h extends MessageSnapshot {
     public static class g extends h {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final int b;
+        public final int awd;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public g(int i, int i2) {
@@ -517,7 +517,7 @@ public abstract class h extends MessageSnapshot {
                     return;
                 }
             }
-            this.b = i2;
+            this.awd = i2;
         }
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -538,24 +538,24 @@ public abstract class h extends MessageSnapshot {
                     return;
                 }
             }
-            this.b = parcel.readInt();
-        }
-
-        @Override // com.kwai.filedownloader.message.MessageSnapshot
-        public final int a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : invokeV.intValue;
+            this.awd = parcel.readInt();
         }
 
         @Override // com.kwai.filedownloader.message.c
-        public final byte b() {
+        public final byte Ca() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
                 return (byte) 3;
             }
             return invokeV.byteValue;
+        }
+
+        @Override // com.kwai.filedownloader.message.MessageSnapshot
+        public final int DZ() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.awd : invokeV.intValue;
         }
 
         @Override // com.kwai.filedownloader.message.MessageSnapshot, android.os.Parcelable
@@ -573,20 +573,20 @@ public abstract class h extends MessageSnapshot {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048579, this, parcel, i) == null) {
                 super.writeToParcel(parcel, i);
-                parcel.writeInt(this.b);
+                parcel.writeInt(this.awd);
             }
         }
     }
 
     /* renamed from: com.kwai.filedownloader.message.h$h  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public static class C0564h extends d {
+    public static class C0412h extends d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final int b;
+        public final int avw;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public C0564h(int i, int i2, Throwable th, int i3) {
+        public C0412h(int i, int i2, Throwable th, int i3) {
             super(i, i2, th);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -604,11 +604,11 @@ public abstract class h extends MessageSnapshot {
                     return;
                 }
             }
-            this.b = i3;
+            this.avw = i3;
         }
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public C0564h(Parcel parcel) {
+        public C0412h(Parcel parcel) {
             super(parcel);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -625,11 +625,11 @@ public abstract class h extends MessageSnapshot {
                     return;
                 }
             }
-            this.b = parcel.readInt();
+            this.avw = parcel.readInt();
         }
 
         @Override // com.kwai.filedownloader.message.h.d, com.kwai.filedownloader.message.c
-        public final byte b() {
+        public final byte Ca() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -638,21 +638,21 @@ public abstract class h extends MessageSnapshot {
             return invokeV.byteValue;
         }
 
+        @Override // com.kwai.filedownloader.message.MessageSnapshot
+        public final int Ce() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.avw : invokeV.intValue;
+        }
+
         @Override // com.kwai.filedownloader.message.h.d, com.kwai.filedownloader.message.MessageSnapshot, android.os.Parcelable
         public final int describeContents() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
                 return 0;
             }
             return invokeV.intValue;
-        }
-
-        @Override // com.kwai.filedownloader.message.MessageSnapshot
-        public final int k() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.b : invokeV.intValue;
         }
 
         @Override // com.kwai.filedownloader.message.h.d, com.kwai.filedownloader.message.MessageSnapshot, android.os.Parcelable
@@ -660,7 +660,7 @@ public abstract class h extends MessageSnapshot {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048579, this, parcel, i) == null) {
                 super.writeToParcel(parcel, i);
-                parcel.writeInt(this.b);
+                parcel.writeInt(this.avw);
             }
         }
     }
@@ -739,7 +739,7 @@ public abstract class h extends MessageSnapshot {
         }
 
         @Override // com.kwai.filedownloader.message.h.f, com.kwai.filedownloader.message.c
-        public final byte b() {
+        public final byte Ca() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -749,7 +749,7 @@ public abstract class h extends MessageSnapshot {
         }
 
         @Override // com.kwai.filedownloader.message.MessageSnapshot.a
-        public final MessageSnapshot l() {
+        public final MessageSnapshot Ef() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new f(this) : (MessageSnapshot) invokeV.objValue;
@@ -774,7 +774,7 @@ public abstract class h extends MessageSnapshot {
                 return;
             }
         }
-        this.a = false;
+        this.avS = false;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -798,16 +798,16 @@ public abstract class h extends MessageSnapshot {
     }
 
     @Override // com.kwai.filedownloader.message.MessageSnapshot
-    public final long d() {
+    public final long Eb() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? c() : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? Ea() : invokeV.longValue;
     }
 
     @Override // com.kwai.filedownloader.message.MessageSnapshot
-    public final long i() {
+    public final long Ed() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? a() : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? DZ() : invokeV.longValue;
     }
 }

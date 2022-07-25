@@ -41,13 +41,13 @@ public class n41 extends m41 {
 
         /* renamed from: com.repackage.n41$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class View$OnClickListenerC0685a implements View.OnClickListener {
+        public class View$OnClickListenerC0529a implements View.OnClickListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ DialogInterface.OnClickListener a;
             public final /* synthetic */ a b;
 
-            public View$OnClickListenerC0685a(a aVar, DialogInterface.OnClickListener onClickListener) {
+            public View$OnClickListenerC0529a(a aVar, DialogInterface.OnClickListener onClickListener) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -156,7 +156,7 @@ public class n41 extends m41 {
             f.d(this);
             this.a = new b((ViewGroup) this.b.getWindow().getDecorView());
             this.c = context;
-            this.e = context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070521);
+            this.e = context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07051f);
         }
 
         public n41 a() {
@@ -297,7 +297,7 @@ public class n41 extends m41 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
                 RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, this.e);
-                layoutParams.addRule(3, R.id.obfuscated_res_0x7f09151a);
+                layoutParams.addRule(3, R.id.obfuscated_res_0x7f0914f5);
                 this.a.u.setLayoutParams(layoutParams);
             }
         }
@@ -370,7 +370,7 @@ public class n41 extends m41 {
                     this.a.i.setVisibility(0);
                 }
                 this.a.e.setText(charSequence);
-                this.a.e.setOnClickListener(new View$OnClickListenerC0685a(this, onClickListener));
+                this.a.e.setOnClickListener(new View$OnClickListenerC0529a(this, onClickListener));
                 return this;
             }
             return (a) invokeLL.objValue;
@@ -407,7 +407,7 @@ public class n41 extends m41 {
                 this.a.p.removeAllViews();
                 this.a.p.addView(view2);
                 RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, this.e);
-                layoutParams.addRule(3, R.id.obfuscated_res_0x7f09077e);
+                layoutParams.addRule(3, R.id.obfuscated_res_0x7f09077d);
                 this.a.u.setLayoutParams(layoutParams);
                 return this;
             }
@@ -520,22 +520,22 @@ public class n41 extends m41 {
             this.w = -1;
             this.x = -1;
             this.v = viewGroup;
-            this.a = (LinearLayout) viewGroup.findViewById(R.id.obfuscated_res_0x7f091556);
-            this.b = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f090792);
-            this.c = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f090788);
-            this.d = (LinearLayout) viewGroup.findViewById(R.id.obfuscated_res_0x7f09151a);
-            this.e = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f09194a);
-            this.f = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f0915a8);
-            this.g = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f0915b4);
-            this.i = viewGroup.findViewById(R.id.obfuscated_res_0x7f0907ba);
-            this.j = viewGroup.findViewById(R.id.obfuscated_res_0x7f0907bb);
-            this.o = viewGroup.findViewById(R.id.obfuscated_res_0x7f09077e);
-            this.p = (FrameLayout) viewGroup.findViewById(R.id.obfuscated_res_0x7f09077f);
-            this.r = (ImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f090782);
-            this.s = (RelativeLayout) viewGroup.findViewById(R.id.obfuscated_res_0x7f091cd7);
-            this.h = viewGroup.findViewById(R.id.obfuscated_res_0x7f0907b9);
-            this.t = (BoxScrollView) viewGroup.findViewById(R.id.obfuscated_res_0x7f09147a);
-            this.u = (LinearLayout) viewGroup.findViewById(R.id.obfuscated_res_0x7f091516);
+            this.a = (LinearLayout) viewGroup.findViewById(R.id.obfuscated_res_0x7f091531);
+            this.b = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f090790);
+            this.c = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f090786);
+            this.d = (LinearLayout) viewGroup.findViewById(R.id.obfuscated_res_0x7f0914f5);
+            this.e = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091925);
+            this.f = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091583);
+            this.g = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f09158f);
+            this.i = viewGroup.findViewById(R.id.obfuscated_res_0x7f0907b8);
+            this.j = viewGroup.findViewById(R.id.obfuscated_res_0x7f0907b9);
+            this.o = viewGroup.findViewById(R.id.obfuscated_res_0x7f09077d);
+            this.p = (FrameLayout) viewGroup.findViewById(R.id.obfuscated_res_0x7f09077e);
+            this.r = (ImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f090781);
+            this.s = (RelativeLayout) viewGroup.findViewById(R.id.obfuscated_res_0x7f091cdd);
+            this.h = viewGroup.findViewById(R.id.obfuscated_res_0x7f0907b7);
+            this.t = (BoxScrollView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091456);
+            this.u = (LinearLayout) viewGroup.findViewById(R.id.obfuscated_res_0x7f0914f1);
         }
     }
 
@@ -575,7 +575,7 @@ public class n41 extends m41 {
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            setContentView(R.layout.obfuscated_res_0x7f0d05a5);
+            setContentView(R.layout.obfuscated_res_0x7f0d05af);
             getWindow().setLayout(-1, -1);
         }
     }

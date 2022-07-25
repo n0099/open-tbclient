@@ -94,7 +94,7 @@ public abstract class BaseLegoCardView<T extends BaseLegoCardInfo> extends Linea
             SkinManager.setBackgroundResource(textView, R.drawable.btn_focus_border_bg);
             textView.setCompoundDrawablesWithIntrinsicBounds(SkinManager.getDrawable(R.drawable.btn_focus_cross_bg), (Drawable) null, (Drawable) null, (Drawable) null);
             textView.setEnabled(true);
-            textView.setPadding(getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070262), 0, getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070232), 0);
+            textView.setPadding(getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07025f), 0, getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070230), 0);
         }
     }
 

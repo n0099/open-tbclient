@@ -38,7 +38,7 @@ public final class ah {
             Cif cif = new Cif();
             try {
                 it.a(cif, bArr);
-                return a(u.m1618a((Context) xMPushService), xMPushService, cif);
+                return a(u.m680a((Context) xMPushService), xMPushService, cif);
             } catch (iz e) {
                 com.xiaomi.channel.commonutils.logger.b.a(e);
                 return null;
@@ -54,15 +54,15 @@ public final class ah {
             try {
                 fl flVar = new fl();
                 flVar.a(5);
-                flVar.c(tVar.f1724a);
+                flVar.c(tVar.f1004a);
                 flVar.b(a(cif));
                 flVar.a("SECMSG", "message");
-                String str = tVar.f1724a;
-                cif.f1347a.f1274a = str.substring(0, str.indexOf("@"));
-                cif.f1347a.f1278c = str.substring(str.indexOf("/") + 1);
+                String str = tVar.f1004a;
+                cif.f627a.f554a = str.substring(0, str.indexOf("@"));
+                cif.f627a.f558c = str.substring(str.indexOf("/") + 1);
                 flVar.a(it.a(cif), tVar.c);
                 flVar.a((short) 1);
-                com.xiaomi.channel.commonutils.logger.b.m1027a("try send mi push message. packagename:" + cif.f1352b + " action:" + cif.f1345a);
+                com.xiaomi.channel.commonutils.logger.b.m89a("try send mi push message. packagename:" + cif.f632b + " action:" + cif.f625a);
                 return flVar;
             } catch (NullPointerException e) {
                 com.xiaomi.channel.commonutils.logger.b.a(e);
@@ -99,8 +99,8 @@ public final class ah {
             byte[] a = it.a(t);
             Cif cif = new Cif();
             hy hyVar = new hy();
-            hyVar.f1273a = 5L;
-            hyVar.f1274a = "fakeid";
+            hyVar.f553a = 5L;
+            hyVar.f554a = "fakeid";
             cif.a(hyVar);
             cif.a(ByteBuffer.wrap(a));
             cif.a(hjVar);
@@ -118,14 +118,14 @@ public final class ah {
         Map<String, String> map;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, cif)) == null) {
-            hw hwVar = cif.f1346a;
-            if (hwVar != null && (map = hwVar.f1264b) != null) {
+            hw hwVar = cif.f626a;
+            if (hwVar != null && (map = hwVar.f544b) != null) {
                 String str = map.get("ext_traffic_source_pkg");
                 if (!TextUtils.isEmpty(str)) {
                     return str;
                 }
             }
-            return cif.f1352b;
+            return cif.f632b;
         }
         return (String) invokeL.objValue;
     }
@@ -140,33 +140,33 @@ public final class ah {
     }
 
     public static void a(XMPushService xMPushService) {
-        t m1618a;
+        t m680a;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65543, null, xMPushService) == null) || (m1618a = u.m1618a(xMPushService.getApplicationContext())) == null) {
+        if (!(interceptable == null || interceptable.invokeL(65543, null, xMPushService) == null) || (m680a = u.m680a(xMPushService.getApplicationContext())) == null) {
             return;
         }
-        bg.b a = u.m1618a(xMPushService.getApplicationContext()).a(xMPushService);
-        com.xiaomi.channel.commonutils.logger.b.m1027a("prepare account. " + a.f1653a);
+        bg.b a = u.m680a(xMPushService.getApplicationContext()).a(xMPushService);
+        com.xiaomi.channel.commonutils.logger.b.m89a("prepare account. " + a.f933a);
         a(xMPushService, a);
         bg.a().a(a);
-        bx.a(xMPushService).a(new ai("GAID", ChatMessageDBManager.CAST_RELIABLE_MSG_EXPIRED_TIME, xMPushService, m1618a));
-        a(xMPushService, m1618a, 172800);
+        bx.a(xMPushService).a(new ai("GAID", ChatMessageDBManager.CAST_RELIABLE_MSG_EXPIRED_TIME, xMPushService, m680a));
+        a(xMPushService, m680a, 172800);
     }
 
     public static void a(XMPushService xMPushService, Cif cif) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65544, null, xMPushService, cif) == null) {
             db.a(cif.b(), xMPushService.getApplicationContext(), cif, -1);
-            fw m1527a = xMPushService.m1527a();
-            if (m1527a == null) {
+            fw m589a = xMPushService.m589a();
+            if (m589a == null) {
                 throw new gh("try send msg while connection is null.");
             }
-            if (!m1527a.m1294a()) {
+            if (!m589a.m356a()) {
                 throw new gh("Don't support XMPP connection.");
             }
-            fl a = a(u.m1618a((Context) xMPushService), xMPushService, cif);
+            fl a = a(u.m680a((Context) xMPushService), xMPushService, cif);
             if (a != null) {
-                m1527a.b(a);
+                m589a.b(a);
             }
         }
     }
@@ -190,16 +190,16 @@ public final class ah {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65547, null, xMPushService, str, bArr) == null) {
             db.a(str, xMPushService.getApplicationContext(), bArr);
-            fw m1527a = xMPushService.m1527a();
-            if (m1527a == null) {
+            fw m589a = xMPushService.m589a();
+            if (m589a == null) {
                 throw new gh("try send msg while connection is null.");
             }
-            if (!m1527a.m1294a()) {
+            if (!m589a.m356a()) {
                 throw new gh("Don't support XMPP connection.");
             }
             fl a = a(xMPushService, bArr);
             if (a != null) {
-                m1527a.b(a);
+                m589a.b(a);
             } else {
                 x.a(xMPushService, str, bArr, ErrorCode.ERROR_INVALID_PAYLOAD, "not a valid message");
             }
@@ -212,7 +212,7 @@ public final class ah {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65548, null, str, str2)) == null) {
             ii iiVar = new ii();
             iiVar.b(str2);
-            iiVar.c(ht.ac.f1225a);
+            iiVar.c(ht.ac.f505a);
             iiVar.a(bd.a());
             iiVar.a(false);
             return a(str, str2, iiVar, hj.i);

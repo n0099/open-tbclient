@@ -7,7 +7,7 @@ import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tieba.lego.card.model.ICardInfo;
 /* loaded from: classes6.dex */
 public interface fe6 {
-    an<? extends qq4, ? extends TypeAdapter.ViewHolder> a(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, boolean z);
+    an<? extends rq4, ? extends TypeAdapter.ViewHolder> a(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, boolean z);
 
     cd6<ICardInfo, ? extends TypeAdapter.ViewHolder> b(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2);
 

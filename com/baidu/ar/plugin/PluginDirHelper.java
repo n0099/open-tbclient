@@ -3,7 +3,6 @@ package com.baidu.ar.plugin;
 import android.content.Context;
 import android.os.Environment;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.sofire.d.D;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -101,7 +100,7 @@ public class PluginDirHelper {
     public static String getPluginApkDir(Context context, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, context, str)) == null) ? enforceDirExists(new File(makePluginBaseDir(context, str), D.COLUMU_PLUGIN_DEX_PATH)) : (String) invokeLL.objValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, context, str)) == null) ? enforceDirExists(new File(makePluginBaseDir(context, str), "apk")) : (String) invokeLL.objValue;
     }
 
     public static String getPluginApkFile(Context context, String str) {

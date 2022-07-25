@@ -6,23 +6,17 @@ public interface a {
 
     /* renamed from: com.kwai.filedownloader.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public interface InterfaceC0556a extends Iterable<com.kwai.filedownloader.c.c> {
-        void a();
+    public interface InterfaceC0404a extends Iterable<com.kwai.filedownloader.c.c> {
+        void Di();
 
         void a(int i, com.kwai.filedownloader.c.c cVar);
 
-        void a(com.kwai.filedownloader.c.c cVar);
+        void c(com.kwai.filedownloader.c.c cVar);
     }
 
-    void a();
-
-    void a(int i);
-
-    void a(int i, int i2);
+    InterfaceC0404a Dh();
 
     void a(int i, int i2, long j);
-
-    void a(int i, long j);
 
     void a(int i, long j, String str, String str2);
 
@@ -34,21 +28,27 @@ public interface a {
 
     void a(com.kwai.filedownloader.c.a aVar);
 
-    void a(com.kwai.filedownloader.c.c cVar);
-
-    InterfaceC0556a b();
-
-    com.kwai.filedownloader.c.c b(int i);
-
-    void b(int i, long j);
-
-    List<com.kwai.filedownloader.c.a> c(int i);
+    void b(com.kwai.filedownloader.c.c cVar);
 
     void c(int i, long j);
 
-    void d(int i);
+    void cc(int i);
 
-    boolean e(int i);
+    com.kwai.filedownloader.c.c cd(int i);
 
-    void f(int i);
+    List<com.kwai.filedownloader.c.a> ce(int i);
+
+    void cf(int i);
+
+    boolean cg(int i);
+
+    void ch(int i);
+
+    void clear();
+
+    void d(int i, long j);
+
+    void e(int i, long j);
+
+    void x(int i, int i2);
 }

@@ -45,9 +45,9 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.ng;
 import com.repackage.q76;
-import com.repackage.rl4;
+import com.repackage.sl4;
 import com.repackage.v48;
-import com.repackage.x05;
+import com.repackage.y05;
 import com.repackage.z38;
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -103,17 +103,17 @@ public class PersonPolymericEventController extends v48 {
                     if (userData == null) {
                         return;
                     }
-                    x05 x05Var = new x05();
+                    y05 y05Var = new y05();
                     if (!StringUtils.isNull(userData.getPortrait()) && userData.getPortrait().startsWith("http")) {
-                        x05Var.d(userData.getPortrait());
+                        y05Var.d(userData.getPortrait());
                     } else {
-                        x05Var.d(userData.getPortraitH());
+                        y05Var.d(userData.getPortraitH());
                     }
-                    x05Var.h(userData.getPortrait());
-                    x05Var.g(true);
+                    y05Var.h(userData.getPortrait());
+                    y05Var.g(true);
                     ArrayList arrayList = new ArrayList();
-                    arrayList.add(x05Var);
-                    this.e.p().s(x05Var, arrayList, 0);
+                    arrayList.add(y05Var);
+                    this.e.p().s(y05Var, arrayList, 0);
                     return;
                 case 2:
                 case 3:
@@ -303,7 +303,7 @@ public class PersonPolymericEventController extends v48 {
                     StringBuilder sb = new StringBuilder();
                     sb.append("https://tieba.baidu.com/mo/q/hybrid-main-service/uegServiceCenter?is_yy_user=");
                     sb.append(TbSingleton.getInstance().getSyncYYSwitch() ? "1" : "0");
-                    rl4.o(this.a.getPageActivity(), sb.toString());
+                    sl4.o(this.a.getPageActivity(), sb.toString());
                     return;
                 case 40:
                     if (userData == null || !ViewHelper.checkUpIsLogin(this.a.getPageActivity()) || userData == null || userData.getUserId() == null || userData.getUserName() == null || userData.getUserId().equals(TbadkCoreApplication.getCurrentAccount())) {
@@ -321,14 +321,14 @@ public class PersonPolymericEventController extends v48 {
                     if (userData == null || userData.getBaijiahaoInfo() == null) {
                         return;
                     }
-                    x05 x05Var2 = new x05();
-                    x05Var2.d(userData.getBaijiahaoInfo().avatar_h);
-                    x05Var2.h(userData.getBaijiahaoInfo().avatar);
-                    x05Var2.g(false);
+                    y05 y05Var2 = new y05();
+                    y05Var2.d(userData.getBaijiahaoInfo().avatar_h);
+                    y05Var2.h(userData.getBaijiahaoInfo().avatar);
+                    y05Var2.g(false);
                     ArrayList arrayList2 = new ArrayList();
-                    arrayList2.add(x05Var2);
+                    arrayList2.add(y05Var2);
                     if (this.e.p() != null) {
-                        this.e.p().t(x05Var2, arrayList2, 0, true);
+                        this.e.p().t(y05Var2, arrayList2, 0, true);
                         return;
                     }
                     return;

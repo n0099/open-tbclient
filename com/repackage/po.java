@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class po extends u15 {
+public class po extends v15 {
     public static /* synthetic */ Interceptable $ic;
     public static final int t;
     public transient /* synthetic */ FieldHolder $fh;
@@ -55,7 +55,7 @@ public class po extends u15 {
                 return;
             }
         }
-        this.b = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f134f);
+        this.b = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f12fe);
         this.d = R.drawable.obfuscated_res_0x7f080993;
         this.f = R.color.CAM_X0105;
         this.i = false;

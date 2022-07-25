@@ -1,10 +1,8 @@
 package com.repackage;
 
-import android.util.Log;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.performance.HybridUbcFlow;
-import com.baidu.swan.apps.performance.UbcFlowEvent;
-import com.baidu.swan.pms.model.PMSAppInfo;
+import android.os.Bundle;
+import com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,25 +11,24 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class it2 implements af3<HybridUbcFlow> {
-    public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
+public class it2 extends ProviderDelegation {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static long a = -1;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755606998, "Lcom/repackage/it2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755606998, "Lcom/repackage/it2;");
-                return;
-            }
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755606998, "Lcom/repackage/it2;")) == null) {
+            return;
         }
-        a = rg1.a;
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-755606998, "Lcom/repackage/it2;");
+        }
     }
 
     public it2() {
@@ -48,22 +45,31 @@ public class it2 implements af3<HybridUbcFlow> {
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.af3
-    /* renamed from: b */
-    public void a(HybridUbcFlow hybridUbcFlow) {
-        PMSAppInfo u;
+    public static long c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hybridUbcFlow) == null) {
-            if (a) {
-                Log.i("LaunchCounter", "report: flow=" + hybridUbcFlow);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            long j = a;
+            if (j >= 0) {
+                return j;
             }
-            if (hybridUbcFlow == null || (u = c84.i().u(g03.K().getAppId())) == null) {
-                return;
-            }
-            UbcFlowEvent g = hybridUbcFlow.g("naStart");
-            u.countLaunch(g == null ? System.currentTimeMillis() : g.g());
-            c84.i().y(u);
+            Bundle b = vw2.b(it2.class, null);
+            long j2 = b != null ? b.getLong(TiebaStatic.LogFields.RESULT, 0L) : 0L;
+            a = j2;
+            return j2;
         }
+        return invokeV.longValue;
+    }
+
+    @Override // com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation
+    public Bundle execCall(Bundle bundle) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bundle)) == null) {
+            Bundle bundle2 = new Bundle();
+            bundle2.putLong(TiebaStatic.LogFields.RESULT, pj2.o().E());
+            return bundle2;
+        }
+        return (Bundle) invokeL.objValue;
     }
 }

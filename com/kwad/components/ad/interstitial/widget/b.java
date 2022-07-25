@@ -16,7 +16,8 @@ import com.kwad.sdk.core.response.model.AdTemplate;
 public abstract class b extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public g a;
+    @NonNull
+    public Context mContext;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public b(Context context, AttributeSet attributeSet) {
@@ -37,20 +38,14 @@ public abstract class b extends FrameLayout {
                 return;
             }
         }
+        this.mContext = context;
     }
-
-    public abstract void a();
 
     public abstract void a(@NonNull AdTemplate adTemplate, Dialog dialog, @NonNull KsAdVideoPlayConfig ksAdVideoPlayConfig, KsInterstitialAd.AdInteractionListener adInteractionListener);
 
-    public abstract void b();
+    public abstract void dM();
+
+    public abstract void dN();
 
     public abstract void setAdInteractionListener(KsInterstitialAd.AdInteractionListener adInteractionListener);
-
-    public void setOrientationChangeListener(g gVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, gVar) == null) {
-            this.a = gVar;
-        }
-    }
 }

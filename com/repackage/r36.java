@@ -10,7 +10,7 @@ import java.util.HashMap;
 import tbclient.ItemManage.DataReq;
 import tbclient.ItemManage.ItemManageReqIdl;
 /* loaded from: classes7.dex */
-public class r36 implements t75 {
+public class r36 implements u75 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
@@ -55,7 +55,7 @@ public class r36 implements t75 {
         }
     }
 
-    @Override // com.repackage.v75
+    @Override // com.repackage.w75
     public Object h(boolean z) {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
@@ -67,13 +67,13 @@ public class r36 implements t75 {
             ItemManageReqIdl.Builder builder2 = new ItemManageReqIdl.Builder();
             DataReq build = builder.build(false);
             builder2.data = build;
-            td5.a(build, false);
+            ud5.a(build, false);
             return builder2.build(false);
         }
         return invokeZ.objValue;
     }
 
-    @Override // com.repackage.s75
+    @Override // com.repackage.t75
     public HashMap<String, Object> w() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -83,7 +83,7 @@ public class r36 implements t75 {
         return (HashMap) invokeV.objValue;
     }
 
-    @Override // com.repackage.s75
+    @Override // com.repackage.t75
     public HashMap<String, String> y() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

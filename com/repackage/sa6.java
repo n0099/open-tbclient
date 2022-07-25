@@ -279,11 +279,11 @@ public class sa6 extends BaseAdapter {
                 } else {
                     view2 = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0141, viewGroup, false);
                     fVar = new f(this);
-                    fVar.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091fee);
+                    fVar.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091ff2);
                     view2.setTag(fVar);
                 }
                 fVar.a.setText(((na6) getItem(i)).b());
-                ur4.d(view2).f(R.color.CAM_X0204);
+                vr4.d(view2).f(R.color.CAM_X0204);
                 this.a.getLayoutMode().j(view2);
             } else if (getItemViewType(i) == 1) {
                 if (view2 != null && (view2.getTag() instanceof e)) {
@@ -296,10 +296,10 @@ public class sa6 extends BaseAdapter {
                     view2 = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0140, viewGroup, false);
                     eVar = new e(this);
                     eVar.a = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f090330);
-                    eVar.b = (BawuMemberInfoView) view2.findViewById(R.id.obfuscated_res_0x7f09127f);
-                    eVar.c = (BawuMemberInfoView) view2.findViewById(R.id.obfuscated_res_0x7f091b39);
-                    eVar.d = (BawuManagerApplyInfoView) view2.findViewById(R.id.obfuscated_res_0x7f09127e);
-                    eVar.e = (BawuManagerApplyInfoView) view2.findViewById(R.id.obfuscated_res_0x7f091b38);
+                    eVar.b = (BawuMemberInfoView) view2.findViewById(R.id.obfuscated_res_0x7f09125b);
+                    eVar.c = (BawuMemberInfoView) view2.findViewById(R.id.obfuscated_res_0x7f091b13);
+                    eVar.d = (BawuManagerApplyInfoView) view2.findViewById(R.id.obfuscated_res_0x7f09125a);
+                    eVar.e = (BawuManagerApplyInfoView) view2.findViewById(R.id.obfuscated_res_0x7f091b12);
                     view2.setTag(eVar);
                 }
                 ma6 ma6Var = (ma6) getItem(i);
@@ -317,7 +317,7 @@ public class sa6 extends BaseAdapter {
                                 } else if (ma6Var.d().equals(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f02f7))) {
                                     eVar.e.setVisibility(8);
                                     eVar.d.setVisibility(0);
-                                    eVar.d.a(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f140e), this.c.b());
+                                    eVar.d.a(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f13bd), this.c.b());
                                     eVar.d.setOnClickListener(new a(this));
                                 }
                             } else if (ma6Var.d().equals(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f02f6))) {
@@ -328,7 +328,7 @@ public class sa6 extends BaseAdapter {
                                 eVar.c.setVisibility(8);
                                 eVar.e.setVisibility(0);
                                 eVar.d.setVisibility(8);
-                                eVar.e.a(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f140e), this.c.b());
+                                eVar.e.a(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f13bd), this.c.b());
                                 eVar.e.setOnClickListener(new b(this));
                             }
                         }
@@ -346,7 +346,7 @@ public class sa6 extends BaseAdapter {
                     } else {
                         eVar.c.setVisibility(8);
                     }
-                    ur4.d(view2).f(R.color.CAM_X0201);
+                    vr4.d(view2).f(R.color.CAM_X0201);
                     this.a.getLayoutMode().j(view2);
                 }
             } else if (getItemViewType(i) == 2) {
@@ -355,10 +355,10 @@ public class sa6 extends BaseAdapter {
                 } else {
                     view2 = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d013f, viewGroup, false);
                     c cVar2 = new c(this);
-                    cVar2.a = view2.findViewById(R.id.obfuscated_res_0x7f0907df);
+                    cVar2.a = view2.findViewById(R.id.obfuscated_res_0x7f0907dd);
                     view2.setTag(cVar2);
                 }
-                ur4.d(view2).f(R.color.CAM_X0204);
+                vr4.d(view2).f(R.color.CAM_X0204);
                 this.a.getLayoutMode().j(view2);
             }
             return view2;

@@ -29,7 +29,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.fun.ad.sdk.FunNativeAd2;
 import com.repackage.hr6;
 import com.repackage.mi8;
-import com.repackage.ur4;
+import com.repackage.vr4;
 import com.repackage.zq6;
 import java.util.Arrays;
 import java.util.List;
@@ -116,13 +116,13 @@ public class FunAdNativeCommentView extends FunAdNativePbView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, context) == null) {
             super.g(context);
-            this.s = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090be9);
-            this.t = (RoundTbImageView) findViewById(R.id.obfuscated_res_0x7f09212c);
-            this.v = (TextView) findViewById(R.id.obfuscated_res_0x7f09212d);
-            this.u = (TextView) findViewById(R.id.obfuscated_res_0x7f09212b);
-            this.w = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f091226);
-            this.x = (ImageView) findViewById(R.id.obfuscated_res_0x7f090be7);
-            this.y = findViewById(R.id.obfuscated_res_0x7f090be2);
+            this.s = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090be2);
+            this.t = (RoundTbImageView) findViewById(R.id.obfuscated_res_0x7f09212e);
+            this.v = (TextView) findViewById(R.id.obfuscated_res_0x7f09212f);
+            this.u = (TextView) findViewById(R.id.obfuscated_res_0x7f09212d);
+            this.w = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f091202);
+            this.x = (ImageView) findViewById(R.id.obfuscated_res_0x7f090be0);
+            this.y = findViewById(R.id.obfuscated_res_0x7f090bdb);
             this.e.setVisibility(8);
             l(this.t);
             RelativeLayout relativeLayout = this.d;
@@ -176,12 +176,12 @@ public class FunAdNativeCommentView extends FunAdNativePbView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
             super.h();
-            ur4.d(this).f(R.color.CAM_X0205);
-            ur4 d = ur4.d(this);
+            vr4.d(this).f(R.color.CAM_X0205);
+            vr4 d = vr4.d(this);
             d.n(R.string.J_X06);
             d.i(R.color.CAM_X0205, R.color.CAM_X0206);
-            ur4.d(this.u).v(R.color.CAM_X0109);
-            ur4.d(this.v).v(R.color.CAM_X0107);
+            vr4.d(this.u).v(R.color.CAM_X0109);
+            vr4.d(this.v).v(R.color.CAM_X0107);
             WebPManager.setPureDrawable(this.x, R.drawable.icon_pure_card_close22, R.color.CAM_X0111, null);
             this.t.setBorderColor(SkinManager.getColor(R.color.CAM_X0401));
             SkinManager.setBackgroundColor(this.y, R.color.CAM_X0203);

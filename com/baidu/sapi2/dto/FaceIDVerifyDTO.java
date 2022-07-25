@@ -9,6 +9,7 @@ public class FaceIDVerifyDTO extends FaceBaseDTO {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String bduss;
+    public boolean isCurrentProcessShowAgreement;
     public String livingUname;
     public String uid;
 

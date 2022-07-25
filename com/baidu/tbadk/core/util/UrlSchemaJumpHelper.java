@@ -18,6 +18,7 @@ import com.baidu.tbadk.BdToken.BdUniDispatchSchemeController;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.task.TbHttpMessageTask;
+import com.baidu.tbadk.util.PersonalChatUtil;
 import com.baidu.tieba.tbadkCore.data.FlutterOpenData;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -28,9 +29,8 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.ng;
 import com.repackage.qg;
-import com.repackage.tm4;
-import com.repackage.wd5;
-import com.repackage.xt4;
+import com.repackage.um4;
+import com.repackage.yt4;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -82,7 +82,7 @@ public class UrlSchemaJumpHelper {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, null, checkSchemeFlutterCallBack) == null) {
             MessageTask findTask = MessageManager.getInstance().findTask(2002015);
-            if (tm4.c().contains("-Flutter") && findTask == null) {
+            if (um4.c().contains("-Flutter") && findTask == null) {
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921674, null));
                 qg.a().postDelayed(new Runnable(checkSchemeFlutterCallBack) { // from class: com.baidu.tbadk.core.util.UrlSchemaJumpHelper.6
                     public static /* synthetic */ Interceptable $ic;
@@ -126,7 +126,7 @@ public class UrlSchemaJumpHelper {
     public static void ensureBlackList() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(65539, null) == null) && ListUtils.isEmpty(SCHEMA_BLACK_LIST)) {
-            String q = xt4.k().q(KEY_APP_JUMP_BLACK_LIST, null);
+            String q = yt4.k().q(KEY_APP_JUMP_BLACK_LIST, null);
             if (TextUtils.isEmpty(q)) {
                 return;
             }
@@ -395,7 +395,7 @@ public class UrlSchemaJumpHelper {
                 httpMessage.addParam(BdUniDispatchSchemeController.PARAM_GAME_ID, queryParameter6);
                 MessageManager.getInstance().sendMessage(httpMessage);
             }
-            wd5.a(context, ng.g(queryParameter, 0L), queryParameter3, queryParameter4, queryParameter7);
+            PersonalChatUtil.a(context, ng.g(queryParameter, 0L), queryParameter3, queryParameter4, queryParameter7);
         }
     }
 
@@ -439,10 +439,10 @@ public class UrlSchemaJumpHelper {
                     SCHEMA_BLACK_LIST.clear();
                     SCHEMA_BLACK_LIST.addAll(arrayList);
                 }
-                xt4.k().y(KEY_APP_JUMP_BLACK_LIST, jSONArray.toString());
+                yt4.k().y(KEY_APP_JUMP_BLACK_LIST, jSONArray.toString());
                 return;
             }
-            xt4.k().D(KEY_APP_JUMP_BLACK_LIST);
+            yt4.k().D(KEY_APP_JUMP_BLACK_LIST);
             SCHEMA_BLACK_LIST.clear();
         }
     }

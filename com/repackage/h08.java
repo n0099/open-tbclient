@@ -92,26 +92,26 @@ public class h08 extends b9 {
     public final void n(TbPageContext tbPageContext, View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048582, this, tbPageContext, onClickListener) == null) {
-            RoundLinearLayout roundLinearLayout = (RoundLinearLayout) LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d06c9, (ViewGroup) null);
+            RoundLinearLayout roundLinearLayout = (RoundLinearLayout) LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d06d3, (ViewGroup) null);
             this.a = roundLinearLayout;
             roundLinearLayout.setRadius(TbadkApplication.getInst().getResources().getDimension(R.dimen.tbds31));
-            TextView textView = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f09187a);
+            TextView textView = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f091855);
             this.b = textView;
             textView.setOnClickListener(onClickListener);
-            TextView textView2 = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f09187c);
+            TextView textView2 = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f091857);
             this.c = textView2;
             textView2.setOnClickListener(onClickListener);
-            TextView textView3 = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f091878);
+            TextView textView3 = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f091853);
             this.d = textView3;
             textView3.setOnClickListener(onClickListener);
-            TextView textView4 = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f09187b);
+            TextView textView4 = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f091856);
             this.e = textView4;
             textView4.setOnClickListener(onClickListener);
-            TextView textView5 = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f091879);
+            TextView textView5 = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f091854);
             this.g = textView5;
             textView5.setOnClickListener(onClickListener);
-            this.h = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f09187d);
-            TextView textView6 = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f091876);
+            this.h = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f091858);
+            TextView textView6 = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f091851);
             this.i = textView6;
             textView6.setOnClickListener(onClickListener);
         }
@@ -136,9 +136,9 @@ public class h08 extends b9 {
         if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
             this.e.setVisibility(0);
             if (i == 0) {
-                this.e.setText(this.f.getResources().getString(R.string.obfuscated_res_0x7f0f0b1f));
+                this.e.setText(this.f.getResources().getString(R.string.obfuscated_res_0x7f0f0b0b));
             } else if (i == 1) {
-                this.e.setText(this.f.getResources().getString(R.string.obfuscated_res_0x7f0f14aa));
+                this.e.setText(this.f.getResources().getString(R.string.obfuscated_res_0x7f0f1459));
             }
         }
     }
@@ -147,12 +147,12 @@ public class h08 extends b9 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3)}) == null) {
             if (z) {
-                this.b.setText(R.string.obfuscated_res_0x7f0f0fb2);
+                this.b.setText(R.string.obfuscated_res_0x7f0f0f9b);
             } else {
-                this.b.setText(R.string.obfuscated_res_0x7f0f0735);
+                this.b.setText(R.string.obfuscated_res_0x7f0f0731);
             }
             if (z2) {
-                this.d.setText(R.string.obfuscated_res_0x7f0f0fac);
+                this.d.setText(R.string.obfuscated_res_0x7f0f0f95);
             } else {
                 this.d.setText(R.string.obfuscated_res_0x7f0f0314);
             }
@@ -172,7 +172,7 @@ public class h08 extends b9 {
                 return;
             }
             this.h.setVisibility(0);
-            this.h.setText(String.format(this.f.getResources().getString(R.string.obfuscated_res_0x7f0f0ada), str));
+            this.h.setText(String.format(this.f.getResources().getString(R.string.obfuscated_res_0x7f0f0ac6), str));
         }
     }
 }

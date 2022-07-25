@@ -55,7 +55,7 @@ public final class mv7 extends du7<yr7, PbVideoDetailBrowseModeEmotionHolder> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) {
-            View view2 = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0877, viewGroup, false);
+            View view2 = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0881, viewGroup, false);
             Intrinsics.checkNotNullExpressionValue(view2, "view");
             return new PbVideoDetailBrowseModeEmotionHolder(view2);
         }
@@ -72,8 +72,8 @@ public final class mv7 extends du7<yr7, PbVideoDetailBrowseModeEmotionHolder> {
             if (pbVideoDetailBrowseModeEmotionHolder == null) {
                 return;
             }
-            pbVideoDetailBrowseModeEmotionHolder.c();
-            pbVideoDetailBrowseModeEmotionHolder.d(b0());
+            pbVideoDetailBrowseModeEmotionHolder.b();
+            pbVideoDetailBrowseModeEmotionHolder.c(b0());
         }
     }
 

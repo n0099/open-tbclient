@@ -19,11 +19,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.fu4;
+import com.repackage.gu4;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes6.dex */
-public class nm7 implements mm7, fu4.g {
+public class nm7 implements mm7, gu4.g {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public NearbyFriendsActivity a;
@@ -32,7 +32,7 @@ public class nm7 implements mm7, fu4.g {
     public FrameLayout d;
     public BdSwipeRefreshLayout e;
     public BdTypeRecyclerView f;
-    public gu4 g;
+    public hu4 g;
     public PbListView h;
     public im7 i;
 
@@ -139,9 +139,9 @@ public class nm7 implements mm7, fu4.g {
         if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (nearbyFriendsActivity = this.a) == null || this.e == null) {
             return;
         }
-        gu4 gu4Var = new gu4(nearbyFriendsActivity.getPageContext());
-        this.g = gu4Var;
-        gu4Var.f(this);
+        hu4 hu4Var = new hu4(nearbyFriendsActivity.getPageContext());
+        this.g = hu4Var;
+        hu4Var.f(this);
         this.e.setProgressView(this.g);
     }
 
@@ -157,7 +157,7 @@ public class nm7 implements mm7, fu4.g {
         this.f.setOverScrollMode(2);
         this.f.setOnSrollToBottomListener(x());
         ArrayList arrayList = new ArrayList();
-        im7 im7Var = new im7(this.a, p05.l, 2);
+        im7 im7Var = new im7(this.a, q05.l, 2);
         this.i = im7Var;
         arrayList.add(im7Var);
         this.f.a(arrayList);
@@ -182,7 +182,7 @@ public class nm7 implements mm7, fu4.g {
             return;
         }
         this.h.q(true);
-        this.h.C(this.a.getString(R.string.obfuscated_res_0x7f0f0c21));
+        this.h.C(this.a.getString(R.string.obfuscated_res_0x7f0f0c0d));
         this.h.f();
     }
 
@@ -217,7 +217,7 @@ public class nm7 implements mm7, fu4.g {
         lm7Var.reload();
     }
 
-    @Override // com.repackage.fu4.g
+    @Override // com.repackage.gu4.g
     public void e(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
@@ -260,9 +260,9 @@ public class nm7 implements mm7, fu4.g {
         if (navigationBar != null) {
             navigationBar.onChangeSkinType(nearbyFriendsActivity.getPageContext(), i);
         }
-        gu4 gu4Var = this.g;
-        if (gu4Var != null) {
-            gu4Var.H(i);
+        hu4 hu4Var = this.g;
+        if (hu4Var != null) {
+            hu4Var.H(i);
         }
         PbListView pbListView = this.h;
         if (pbListView != null) {
@@ -325,10 +325,10 @@ public class nm7 implements mm7, fu4.g {
         if (!(interceptable == null || interceptable.invokeV(1048591, this) == null) || (nearbyFriendsActivity = this.a) == null) {
             return;
         }
-        this.c = (NavigationBar) nearbyFriendsActivity.findViewById(R.id.obfuscated_res_0x7f09158d);
-        this.d = (FrameLayout) this.a.findViewById(R.id.obfuscated_res_0x7f0906a4);
-        this.e = (BdSwipeRefreshLayout) this.a.findViewById(R.id.obfuscated_res_0x7f091ac1);
-        this.f = (BdTypeRecyclerView) this.a.findViewById(R.id.obfuscated_res_0x7f0915a3);
+        this.c = (NavigationBar) nearbyFriendsActivity.findViewById(R.id.obfuscated_res_0x7f091568);
+        this.d = (FrameLayout) this.a.findViewById(R.id.obfuscated_res_0x7f0906a3);
+        this.e = (BdSwipeRefreshLayout) this.a.findViewById(R.id.obfuscated_res_0x7f091a9b);
+        this.f = (BdTypeRecyclerView) this.a.findViewById(R.id.obfuscated_res_0x7f09157e);
         z();
         B();
         A();
@@ -340,9 +340,9 @@ public class nm7 implements mm7, fu4.g {
     public void onDestroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
-            gu4 gu4Var = this.g;
-            if (gu4Var != null) {
-                gu4Var.f(null);
+            hu4 hu4Var = this.g;
+            if (hu4Var != null) {
+                hu4Var.f(null);
             }
             PbListView pbListView = this.h;
             if (pbListView != null) {
@@ -411,7 +411,7 @@ public class nm7 implements mm7, fu4.g {
         if (!(interceptable == null || interceptable.invokeV(1048598, this) == null) || (nearbyFriendsActivity = this.a) == null || (navigationBar = this.c) == null) {
             return;
         }
-        navigationBar.setCenterTextTitle(nearbyFriendsActivity.getString(R.string.obfuscated_res_0x7f0f0c1c));
+        navigationBar.setCenterTextTitle(nearbyFriendsActivity.getString(R.string.obfuscated_res_0x7f0f0c08));
         this.c.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
     }
 }

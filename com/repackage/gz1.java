@@ -1,14 +1,24 @@
 package com.repackage;
 
-import android.view.KeyEvent;
-import android.view.MotionEvent;
+import android.webkit.ValueCallback;
+import androidx.annotation.NonNull;
 /* loaded from: classes6.dex */
 public interface gz1 {
-    boolean dispatchTouchEvent(MotionEvent motionEvent);
+    void addJavascriptInterface(@NonNull Object obj, @NonNull String str);
 
-    boolean onKeyDown(int i, KeyEvent keyEvent);
+    void continueTimer();
 
-    void onScrollChanged(int i, int i2, int i3, int i4);
+    void evaluateJavascript(String str, ValueCallback<String> valueCallback);
 
-    boolean onTouchEvent(MotionEvent motionEvent);
+    String getContainerId();
+
+    String getUrl();
+
+    boolean isDestroyed();
+
+    boolean isWebView();
+
+    void onJSLoaded();
+
+    void suspendTimer();
 }

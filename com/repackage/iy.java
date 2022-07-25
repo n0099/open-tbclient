@@ -58,7 +58,7 @@ public class iy extends sw implements gx<ThreadData>, hx {
         h(-1);
         UnfollowedDecorView unfollowedDecorView = new UnfollowedDecorView(tbPageContext.getPageActivity());
         this.e = unfollowedDecorView;
-        unfollowedDecorView.setId(R.id.obfuscated_res_0x7f090740);
+        unfollowedDecorView.setId(R.id.obfuscated_res_0x7f09073f);
         g(this.e);
         k(align);
     }
@@ -108,12 +108,12 @@ public class iy extends sw implements gx<ThreadData>, hx {
         this.f = align;
     }
 
-    public void l(nn4 nn4Var) {
+    public void l(on4 on4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, nn4Var) == null) {
-            if (nn4Var.isSupportTop()) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, on4Var) == null) {
+            if (on4Var.isSupportTop()) {
                 k(Align.ALIGN_RIGHT_TOP);
-            } else if (nn4Var.isSupportBottom()) {
+            } else if (on4Var.isSupportBottom()) {
                 cy cyVar = this.d;
                 if (cyVar != null) {
                     cyVar.n(this);

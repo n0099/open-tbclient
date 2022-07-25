@@ -35,8 +35,8 @@ public class b<P extends g> extends f<P> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.kwai.sodler.lib.a.f
-    /* renamed from: h */
-    public P g(String str) {
+    /* renamed from: fe */
+    public P fb(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) ? (P) new g(str) : (P) invokeL.objValue;

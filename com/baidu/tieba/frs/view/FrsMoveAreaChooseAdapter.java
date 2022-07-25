@@ -18,7 +18,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.sc6;
-import com.repackage.vu4;
+import com.repackage.wu4;
 import java.util.List;
 import tbclient.FrsTabInfo;
 /* loaded from: classes3.dex */
@@ -124,21 +124,21 @@ public class FrsMoveAreaChooseAdapter extends RecyclerView.Adapter<a> implements
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048579, this, tBSpecificationBtn, i) == null) {
             if (i == this.d) {
-                vu4 vu4Var = new vu4();
-                vu4Var.p(R.color.CAM_X0304);
-                tBSpecificationBtn.setConfig(vu4Var);
+                wu4 wu4Var = new wu4();
+                wu4Var.p(R.color.CAM_X0304);
+                tBSpecificationBtn.setConfig(wu4Var);
                 tBSpecificationBtn.k();
                 tBSpecificationBtn.setUseDisableState(false);
             } else if (this.e.get(i) != null) {
-                vu4 vu4Var2 = new vu4();
-                vu4Var2.r(R.color.CAM_X0105);
-                tBSpecificationBtn.setConfig(vu4Var2);
+                wu4 wu4Var2 = new wu4();
+                wu4Var2.r(R.color.CAM_X0105);
+                tBSpecificationBtn.setConfig(wu4Var2);
                 tBSpecificationBtn.k();
                 tBSpecificationBtn.setUseDisableState(true);
             } else {
-                vu4 vu4Var3 = new vu4();
-                vu4Var3.r(R.color.CAM_X0105);
-                tBSpecificationBtn.setConfig(vu4Var3);
+                wu4 wu4Var3 = new wu4();
+                wu4Var3.r(R.color.CAM_X0105);
+                tBSpecificationBtn.setConfig(wu4Var3);
                 tBSpecificationBtn.k();
                 tBSpecificationBtn.setUseDisableState(false);
             }
@@ -175,13 +175,13 @@ public class FrsMoveAreaChooseAdapter extends RecyclerView.Adapter<a> implements
                 if (intValue == this.c) {
                     BdTopToast bdTopToast = new BdTopToast(this.a.getContext());
                     bdTopToast.i(false);
-                    bdTopToast.h(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f071a));
+                    bdTopToast.h(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0716));
                     bdTopToast.j((ViewGroup) this.a.getParent());
                     return;
                 }
                 BdTopToast bdTopToast2 = new BdTopToast(this.a.getContext());
                 bdTopToast2.i(false);
-                bdTopToast2.h(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f071b));
+                bdTopToast2.h(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0717));
                 bdTopToast2.j((ViewGroup) this.a.getParent());
                 return;
             }

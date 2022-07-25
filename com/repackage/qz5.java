@@ -13,14 +13,14 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.cr4;
+import com.repackage.dr4;
 /* loaded from: classes7.dex */
 public class qz5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes7.dex */
-    public static class a implements cr4.e {
+    public static class a implements dr4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ TbPageContext a;
@@ -45,18 +45,18 @@ public class qz5 {
             this.b = i;
         }
 
-        @Override // com.repackage.cr4.e
-        public void onClick(cr4 cr4Var) {
+        @Override // com.repackage.dr4.e
+        public void onClick(dr4 dr4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, cr4Var) == null) {
-                cr4Var.dismiss();
+            if (interceptable == null || interceptable.invokeL(1048576, this, dr4Var) == null) {
+                dr4Var.dismiss();
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new LoginActivityConfig(this.a.getPageActivity(), true, this.b)));
             }
         }
     }
 
     /* loaded from: classes7.dex */
-    public static class b implements cr4.e {
+    public static class b implements dr4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -74,11 +74,11 @@ public class qz5 {
             }
         }
 
-        @Override // com.repackage.cr4.e
-        public void onClick(cr4 cr4Var) {
+        @Override // com.repackage.dr4.e
+        public void onClick(dr4 dr4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, cr4Var) == null) {
-                cr4Var.dismiss();
+            if (interceptable == null || interceptable.invokeL(1048576, this, dr4Var) == null) {
+                dr4Var.dismiss();
             }
         }
     }
@@ -93,11 +93,11 @@ public class qz5 {
         if (TbadkCoreApplication.getCurrentPortrait() == null || queryParameter == null || TbadkCoreApplication.getCurrentPortrait().contains(queryParameter)) {
             return;
         }
-        cr4 cr4Var = new cr4(tbPageContext.getPageActivity());
-        cr4Var.setContentViewSize(1);
-        cr4Var.setMessage(tbPageContext.getString(R.string.obfuscated_res_0x7f0f007b));
-        cr4Var.setPositiveButton(R.string.obfuscated_res_0x7f0f0387, new a(tbPageContext, i));
-        cr4Var.setNegativeButton(R.string.obfuscated_res_0x7f0f0c86, new b());
-        cr4Var.create(tbPageContext).show();
+        dr4 dr4Var = new dr4(tbPageContext.getPageActivity());
+        dr4Var.setContentViewSize(1);
+        dr4Var.setMessage(tbPageContext.getString(R.string.obfuscated_res_0x7f0f007b));
+        dr4Var.setPositiveButton(R.string.obfuscated_res_0x7f0f0387, new a(tbPageContext, i));
+        dr4Var.setNegativeButton(R.string.obfuscated_res_0x7f0f0c72, new b());
+        dr4Var.create(tbPageContext).show();
     }
 }

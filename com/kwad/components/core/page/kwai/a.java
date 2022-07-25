@@ -15,7 +15,7 @@ import com.kwad.sdk.mvp.Presenter;
 public final class a extends Presenter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
+    public int Gd;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -32,21 +32,21 @@ public final class a extends Presenter {
     }
 
     @Override // com.kwad.sdk.mvp.Presenter
-    public final void a() {
+    public final void aq() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            super.a();
-            com.kwad.components.core.page.recycle.e eVar = (com.kwad.components.core.page.recycle.e) t();
+            super.aq();
+            com.kwad.components.core.page.recycle.e eVar = (com.kwad.components.core.page.recycle.e) xR();
             KsAdVideoPlayConfig build = new KsAdVideoPlayConfig.Builder().videoSoundEnable(true).build();
-            com.kwad.components.core.widget.d dVar = (com.kwad.components.core.widget.d) q();
-            dVar.a(eVar.c);
-            dVar.a(build, eVar.a);
+            com.kwad.components.core.widget.d dVar = (com.kwad.components.core.widget.d) getRootView();
+            dVar.c(eVar.adTemplate);
+            dVar.a(build, eVar.DV);
             dVar.setVisibility(0);
             dVar.setOnEndBtnClickListener(new View.OnClickListener(this, eVar) { // from class: com.kwad.components.core.page.kwai.a.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ com.kwad.components.core.page.recycle.e a;
-                public final /* synthetic */ a b;
+                public final /* synthetic */ com.kwad.components.core.page.recycle.e Ge;
+                public final /* synthetic */ a Gf;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -63,34 +63,34 @@ public final class a extends Presenter {
                             return;
                         }
                     }
-                    this.b = this;
-                    this.a = eVar;
+                    this.Gf = this;
+                    this.Ge = eVar;
                 }
 
                 @Override // android.view.View.OnClickListener
                 public final void onClick(View view2) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
-                        if (com.kwad.sdk.core.response.a.a.I(com.kwad.sdk.core.response.a.d.i(this.a.c))) {
-                            if (this.a.a != null) {
-                                this.a.a.a(new a.C0507a(this.b.s()).a(false).b(false).a(this.a.c).d(false));
+                        if (com.kwad.sdk.core.response.a.a.am(com.kwad.sdk.core.response.a.d.bQ(this.Ge.adTemplate))) {
+                            if (this.Ge.DV != null) {
+                                this.Ge.DV.m(new a.C0352a(this.Gf.getActivity()).aj(false).ak(false).L(this.Ge.adTemplate).am(false));
                                 return;
                             }
                             return;
                         }
-                        RecyclerView recyclerView = this.a.b;
-                        if (recyclerView == null || recyclerView.getAdapter() == null || this.a.b.getAdapter().getItemCount() <= 1) {
+                        RecyclerView recyclerView = this.Ge.GU;
+                        if (recyclerView == null || recyclerView.getAdapter() == null || this.Ge.GU.getAdapter().getItemCount() <= 1) {
                             return;
                         }
-                        this.a.b.scrollToPosition(1);
+                        this.Ge.GU.scrollToPosition(1);
                     }
                 }
             });
             dVar.setWindowFullScreenListener(new d.a(this, eVar) { // from class: com.kwad.components.core.page.kwai.a.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ com.kwad.components.core.page.recycle.e a;
-                public final /* synthetic */ a b;
+                public final /* synthetic */ com.kwad.components.core.page.recycle.e Ge;
+                public final /* synthetic */ a Gf;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -107,23 +107,23 @@ public final class a extends Presenter {
                             return;
                         }
                     }
-                    this.b = this;
-                    this.a = eVar;
+                    this.Gf = this;
+                    this.Ge = eVar;
                 }
 
                 @Override // com.kwad.components.core.widget.d.a
-                public final void a() {
+                public final void nL() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.b.a = this.a.b.computeVerticalScrollOffset();
+                        this.Gf.Gd = this.Ge.GU.computeVerticalScrollOffset();
                     }
                 }
 
                 @Override // com.kwad.components.core.widget.d.a
-                public final void b() {
+                public final void nM() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                        this.a.b.scrollToPosition(this.b.a);
+                        this.Ge.GU.scrollToPosition(this.Gf.Gd);
                     }
                 }
             });
@@ -131,10 +131,10 @@ public final class a extends Presenter {
     }
 
     @Override // com.kwad.sdk.mvp.Presenter
-    public final void i_() {
+    public final void onCreate() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            super.i_();
+            super.onCreate();
         }
     }
 }

@@ -461,7 +461,7 @@ public class lm6 {
             TbPageTag tbPageTag = null;
             sm6 sm6Var = this.a;
             if (sm6Var != null && sm6Var.l1() != null) {
-                tbPageTag = u85.k(this.a.l1().getContext());
+                tbPageTag = v85.k(this.a.l1().getContext());
             }
             do6.l(this.b, tbPageTag);
         }
@@ -573,8 +573,8 @@ public class lm6 {
         }
         ArrayList arrayList = new ArrayList();
         for (nn nnVar : list) {
-            if (nnVar instanceof qq4) {
-                ThreadData threadData = ((qq4) nnVar).s;
+            if (nnVar instanceof rq4) {
+                ThreadData threadData = ((rq4) nnVar).s;
                 if (threadData.getTid() != null && threadData.getTid().equals(str)) {
                     arrayList.add(nnVar);
                 }
@@ -598,8 +598,8 @@ public class lm6 {
                 if (nnVar instanceof xg8) {
                     arrayList.add((xg8) nnVar);
                 }
-            } else if (str.equals("ala_frs_demo_hell_live_feed_back_type") && (nnVar instanceof qq4)) {
-                ThreadData threadData = ((qq4) nnVar).s;
+            } else if (str.equals("ala_frs_demo_hell_live_feed_back_type") && (nnVar instanceof rq4)) {
+                ThreadData threadData = ((rq4) nnVar).s;
                 if (threadData.getTid() != null && threadData.getTid().equals(str2)) {
                     arrayList.add(threadData);
                 }
@@ -621,8 +621,8 @@ public class lm6 {
             int i = 0;
             for (int i2 = 0; i2 < bdTypeRecyclerView.getAdapter().getItemCount(); i2++) {
                 nn B = bdTypeRecyclerView.B(i2);
-                if (B instanceof qq4) {
-                    ThreadData threadData = ((qq4) B).s;
+                if (B instanceof rq4) {
+                    ThreadData threadData = ((rq4) B).s;
                     if (threadData.getTid() != null && threadData.getTid().equals(str)) {
                         this.b = threadData;
                         i = i2;
@@ -655,8 +655,8 @@ public class lm6 {
                     i = 0;
                     while (i2 < bdTypeRecyclerView.getAdapter().getItemCount()) {
                         nn B = bdTypeRecyclerView.B(i2);
-                        if (B instanceof qq4) {
-                            ThreadData threadData = ((qq4) B).s;
+                        if (B instanceof rq4) {
+                            ThreadData threadData = ((rq4) B).s;
                             if (threadData.getTid() != null && threadData.getTid().equals(str2)) {
                                 i = i2;
                             }

@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.j45;
+import com.repackage.k45;
 import tbclient.ExcPbPage.ExcContent;
 /* loaded from: classes7.dex */
 public class yx7 implements ay7 {
@@ -57,7 +57,7 @@ public class yx7 implements ay7 {
 
     public final SpannableString c(ExcContent excContent) {
         InterceptResult invokeL;
-        j45.a f;
+        k45.a f;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, excContent)) == null) {
             if (this.b == null) {

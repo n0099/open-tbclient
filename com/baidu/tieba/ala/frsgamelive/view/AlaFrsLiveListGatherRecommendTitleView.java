@@ -71,9 +71,9 @@ public class AlaFrsLiveListGatherRecommendTitleView extends jx5<zs5> {
         }
         this.m = 3;
         View h = h();
-        this.i = h.findViewById(R.id.obfuscated_res_0x7f090adc);
-        this.j = (TextView) h.findViewById(R.id.obfuscated_res_0x7f090adb);
-        this.k = h.findViewById(R.id.obfuscated_res_0x7f090add);
+        this.i = h.findViewById(R.id.obfuscated_res_0x7f090ad5);
+        this.j = (TextView) h.findViewById(R.id.obfuscated_res_0x7f090ad4);
+        this.k = h.findViewById(R.id.obfuscated_res_0x7f090ad6);
         j(tbPageContext, TbadkCoreApplication.getInst().getSkinType());
     }
 

@@ -23,12 +23,12 @@ public class c21 {
 
         /* renamed from: com.repackage.c21$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class RunnableC0604a implements Runnable {
+        public class RunnableC0448a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public RunnableC0604a(a aVar) {
+            public RunnableC0448a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -80,7 +80,7 @@ public class c21 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 int unused = c21.a = 3;
-                uh0.b(new RunnableC0604a(this));
+                uh0.b(new RunnableC0448a(this));
             }
         }
     }

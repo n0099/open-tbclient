@@ -490,7 +490,7 @@ public class DigitalWalletVerifyView extends LinearLayout implements Verificatio
         if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, channelListView, bundle, str, payChannelEntity) == null) {
             this.i = channelListView;
             setVisibility(0);
-            startAnimation(AnimationUtils.loadAnimation(getContext(), R.anim.obfuscated_res_0x7f010125));
+            startAnimation(AnimationUtils.loadAnimation(getContext(), R.anim.obfuscated_res_0x7f010123));
             this.c.g();
             if ((System.currentTimeMillis() / 1000) - this.f >= 60) {
                 v(bundle, str, payChannelEntity);
@@ -518,10 +518,10 @@ public class DigitalWalletVerifyView extends LinearLayout implements Verificatio
     public void onClick(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, view2) == null) {
-            if (view2.getId() == R.id.obfuscated_res_0x7f091920) {
+            if (view2.getId() == R.id.obfuscated_res_0x7f0918fb) {
                 w();
             }
-            if (view2.getId() == R.id.obfuscated_res_0x7f09192b) {
+            if (view2.getId() == R.id.obfuscated_res_0x7f091906) {
                 t();
             }
         }
@@ -576,7 +576,7 @@ public class DigitalWalletVerifyView extends LinearLayout implements Verificatio
     public void w() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            Animation loadAnimation = AnimationUtils.loadAnimation(getContext(), R.anim.obfuscated_res_0x7f010123);
+            Animation loadAnimation = AnimationUtils.loadAnimation(getContext(), R.anim.obfuscated_res_0x7f010121);
             loadAnimation.setAnimationListener(new c(this));
             startAnimation(loadAnimation);
         }
@@ -585,12 +585,12 @@ public class DigitalWalletVerifyView extends LinearLayout implements Verificatio
     public final void x(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, context) == null) {
-            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d04ae, this);
-            this.a = inflate.findViewById(R.id.obfuscated_res_0x7f091920);
-            this.b = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091930);
-            this.c = (VerificationCodeView) inflate.findViewById(R.id.obfuscated_res_0x7f09192f);
-            this.d = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09192e);
-            this.e = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09192b);
+            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d04ac, this);
+            this.a = inflate.findViewById(R.id.obfuscated_res_0x7f0918fb);
+            this.b = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09190b);
+            this.c = (VerificationCodeView) inflate.findViewById(R.id.obfuscated_res_0x7f09190a);
+            this.d = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091909);
+            this.e = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091906);
             s(60L);
             this.c.setOnCodeFinishListener(this);
             this.a.setOnClickListener(this);

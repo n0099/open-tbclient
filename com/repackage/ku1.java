@@ -8,10 +8,11 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONArray;
 /* loaded from: classes6.dex */
-public class ku1 extends nt1 {
+public class ku1 extends ot1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public vt1 a;
+    public float a;
+    public float b;
 
     public ku1() {
         Interceptable interceptable = $ic;
@@ -27,27 +28,24 @@ public class ku1 extends nt1 {
         }
     }
 
-    @Override // com.repackage.nt1
-    public void a(ot1 ot1Var, Canvas canvas) {
-        vt1 vt1Var;
+    @Override // com.repackage.ot1
+    public void a(pt1 pt1Var, Canvas canvas) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048576, this, ot1Var, canvas) == null) && (vt1Var = this.a) != null && vt1Var.d()) {
-            if (this.a.c()) {
-                ot1Var.b.setShader(this.a.b());
-                return;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, pt1Var, canvas) == null) {
+            if (pt1Var.a() == 0) {
+                pt1Var.b(canvas.save());
             }
-            ot1Var.e.setColor(this.a.a());
-            ot1Var.b.setColor(this.a.a());
-            ot1Var.b.setShader(null);
+            canvas.scale(this.a, this.b);
         }
     }
 
-    @Override // com.repackage.nt1
+    @Override // com.repackage.ot1
     public void b(JSONArray jSONArray) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) || jSONArray.length() <= 0) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) || jSONArray.length() <= 1) {
             return;
         }
-        this.a = new vt1(jSONArray);
+        this.a = (float) jSONArray.optDouble(0);
+        this.b = (float) jSONArray.optDouble(1);
     }
 }

@@ -56,10 +56,10 @@ public class ep6 {
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             if (a(this.a, this.b)) {
                 String b = b();
-                Date date = new Date(xt4.k().m(b, 0L));
+                Date date = new Date(yt4.k().m(b, 0L));
                 long currentTimeMillis = System.currentTimeMillis();
                 if (TimeHelper.getDayDifference(new Date(currentTimeMillis), date) >= 2) {
-                    xt4.k().x(b, currentTimeMillis);
+                    yt4.k().x(b, currentTimeMillis);
                     return true;
                 }
                 return false;

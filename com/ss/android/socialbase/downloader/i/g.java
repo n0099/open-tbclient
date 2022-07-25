@@ -50,7 +50,7 @@ public class g {
         if (downloadTask == null) {
             return null;
         }
-        return new a.AbstractBinderC0835a() { // from class: com.ss.android.socialbase.downloader.i.g.1
+        return new a.AbstractBinderC0684a() { // from class: com.ss.android.socialbase.downloader.i.g.1
             @Override // com.ss.android.socialbase.downloader.model.a
             public DownloadInfo a() throws RemoteException {
                 return DownloadTask.this.getDownloadInfo();

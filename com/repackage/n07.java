@@ -64,10 +64,10 @@ public class n07 extends an<SpecialColumnListData, AdapterViewHolder<SpecialTopi
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, specialColumnListData, adapterViewHolder})) == null) {
-            SpecialTopicLayout c = adapterViewHolder.c();
-            c.setTabCode(this.j);
-            c.a(specialColumnListData);
-            return adapterViewHolder.b();
+            SpecialTopicLayout b = adapterViewHolder.b();
+            b.setTabCode(this.j);
+            b.a(specialColumnListData);
+            return adapterViewHolder.a();
         }
         return (View) invokeCommon.objValue;
     }

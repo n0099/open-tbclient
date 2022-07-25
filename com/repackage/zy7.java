@@ -74,7 +74,7 @@ public class zy7 extends an<ds7, VideoPbEnterForumAndTopicViewHolder> {
             if (ds7Var != null) {
                 videoPbEnterForumAndTopicViewHolder.setData(ds7Var.a);
             }
-            videoPbEnterForumAndTopicViewHolder.c();
+            videoPbEnterForumAndTopicViewHolder.b();
             return view2;
         }
         return (View) invokeCommon.objValue;

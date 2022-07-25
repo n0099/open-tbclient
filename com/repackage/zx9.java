@@ -688,7 +688,7 @@ public class zx9 implements qx9, sx9 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048599, this, activity, iYYPayAmountView, absViewEventHandler, viewParams)) == null) {
             RLog.info(this.a, "createPayAmountDialog");
-            String string = activity.getString(R.string.obfuscated_res_0x7f0f0d64);
+            String string = activity.getString(R.string.obfuscated_res_0x7f0f0d4d);
             if (viewParams != null && !TextUtils.isEmpty(viewParams.payAmountDialogTitle)) {
                 string = viewParams.payAmountDialogTitle;
             }
@@ -706,7 +706,7 @@ public class zx9 implements qx9, sx9 {
             RLog.info(this.a, "createPayResultDialog");
             AbsViewEventHandler absViewEventHandler = cVar != null ? cVar.b : null;
             h(absViewEventHandler, PayDialogType.PAY_RESULT_DIALOG);
-            return a0a.b.d(activity, activity.getString(R.string.obfuscated_res_0x7f0f0d63), iYYPayResultView.getContentView(), new ky9(absViewEventHandler, this, activity, iYYPayResultView), absViewEventHandler, PayDialogType.PAY_RESULT_DIALOG, this.k);
+            return a0a.b.d(activity, activity.getString(R.string.obfuscated_res_0x7f0f0d4c), iYYPayResultView.getContentView(), new ky9(absViewEventHandler, this, activity, iYYPayResultView), absViewEventHandler, PayDialogType.PAY_RESULT_DIALOG, this.k);
         }
         return (Dialog) invokeLLL.objValue;
     }
@@ -717,7 +717,7 @@ public class zx9 implements qx9, sx9 {
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048601, this, activity, iYYPayWayView, iAppPayService, absViewEventHandler)) == null) {
             RLog.info(this.a, "createPayWayDialog");
             h(absViewEventHandler, PayDialogType.PAY_WAY_DIALOG);
-            return a0a.b.d(activity, activity.getString(R.string.obfuscated_res_0x7f0f0d63), iYYPayWayView.getContentView(), new my9(this.i, this.j, activity, iYYPayWayView, absViewEventHandler, this), absViewEventHandler, PayDialogType.PAY_WAY_DIALOG, this.k);
+            return a0a.b.d(activity, activity.getString(R.string.obfuscated_res_0x7f0f0d4c), iYYPayWayView.getContentView(), new my9(this.i, this.j, activity, iYYPayWayView, absViewEventHandler, this), absViewEventHandler, PayDialogType.PAY_WAY_DIALOG, this.k);
         }
         return (Dialog) invokeLLLL.objValue;
     }

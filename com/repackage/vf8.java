@@ -7,17 +7,17 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class vf8 implements zr4 {
+public class vf8 implements as4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public nq4 a;
+    public oq4 a;
 
-    public vf8(nq4 nq4Var) {
+    public vf8(oq4 oq4Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {nq4Var};
+            Object[] objArr = {oq4Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -27,33 +27,33 @@ public class vf8 implements zr4 {
                 return;
             }
         }
-        this.a = nq4Var;
+        this.a = oq4Var;
     }
 
-    @Override // com.repackage.zr4
+    @Override // com.repackage.as4
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            nq4 nq4Var = this.a;
-            if (nq4Var == null) {
+            oq4 oq4Var = this.a;
+            if (oq4Var == null) {
                 return null;
             }
-            return nq4Var.a();
+            return oq4Var.a();
         }
         return (String) invokeV.objValue;
     }
 
-    @Override // com.repackage.zr4
+    @Override // com.repackage.as4
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            nq4 nq4Var = this.a;
-            if (nq4Var == null) {
+            oq4 oq4Var = this.a;
+            if (oq4Var == null) {
                 return null;
             }
-            return nq4Var.b();
+            return oq4Var.b();
         }
         return (String) invokeV.objValue;
     }
@@ -62,11 +62,11 @@ public class vf8 implements zr4 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            nq4 nq4Var = this.a;
-            if (nq4Var == null) {
+            oq4 oq4Var = this.a;
+            if (oq4Var == null) {
                 return null;
             }
-            return nq4Var.c();
+            return oq4Var.c();
         }
         return (String) invokeV.objValue;
     }

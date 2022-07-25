@@ -1,38 +1,37 @@
 package com.kwad.sdk.core.b.kwai;
 
-import com.kwad.components.core.webview.jshandler.a;
+import com.kwad.sdk.core.response.model.AdMatrixInfo;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public final class cg implements com.kwad.sdk.core.d<a.C0521a> {
+public final class cg implements com.kwad.sdk.core.d<AdMatrixInfo.FullScreenInfo> {
     /* renamed from: a  reason: avoid collision after fix types in other method */
-    public static void a2(a.C0521a c0521a, JSONObject jSONObject) {
+    public static void a2(AdMatrixInfo.FullScreenInfo fullScreenInfo, JSONObject jSONObject) {
         if (jSONObject == null) {
             return;
         }
-        c0521a.a = jSONObject.optString("target");
-        if (jSONObject.opt("target") == JSONObject.NULL) {
-            c0521a.a = "";
-        }
+        AdMatrixInfo.AdInteractionInfo adInteractionInfo = new AdMatrixInfo.AdInteractionInfo();
+        fullScreenInfo.interactionInfo = adInteractionInfo;
+        adInteractionInfo.parseJson(jSONObject.optJSONObject("interactionInfo"));
     }
 
     /* renamed from: b  reason: avoid collision after fix types in other method */
-    public static JSONObject b2(a.C0521a c0521a, JSONObject jSONObject) {
+    public static JSONObject b2(AdMatrixInfo.FullScreenInfo fullScreenInfo, JSONObject jSONObject) {
         if (jSONObject == null) {
             jSONObject = new JSONObject();
         }
-        com.kwad.sdk.utils.r.a(jSONObject, "target", c0521a.a);
+        com.kwad.sdk.utils.r.a(jSONObject, "interactionInfo", fullScreenInfo.interactionInfo);
         return jSONObject;
     }
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.kwad.sdk.core.b, org.json.JSONObject] */
     @Override // com.kwad.sdk.core.d
-    public final /* bridge */ /* synthetic */ void a(a.C0521a c0521a, JSONObject jSONObject) {
-        a2(c0521a, jSONObject);
+    public final /* bridge */ /* synthetic */ void a(AdMatrixInfo.FullScreenInfo fullScreenInfo, JSONObject jSONObject) {
+        a2(fullScreenInfo, jSONObject);
     }
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.kwad.sdk.core.b, org.json.JSONObject] */
     @Override // com.kwad.sdk.core.d
-    public final /* bridge */ /* synthetic */ JSONObject b(a.C0521a c0521a, JSONObject jSONObject) {
-        return b2(c0521a, jSONObject);
+    public final /* bridge */ /* synthetic */ JSONObject b(AdMatrixInfo.FullScreenInfo fullScreenInfo, JSONObject jSONObject) {
+        return b2(fullScreenInfo, jSONObject);
     }
 }

@@ -23,7 +23,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.c9;
 import com.repackage.oi;
 import com.repackage.pi;
-import com.repackage.uu4;
+import com.repackage.vu4;
 import com.repackage.yh8;
 /* loaded from: classes4.dex */
 public class NewFollowButton extends TBSpecificationBtn implements View.OnClickListener {
@@ -32,8 +32,8 @@ public class NewFollowButton extends TBSpecificationBtn implements View.OnClickL
     public boolean A;
     public int B;
     public boolean C;
-    public uu4 D;
-    public uu4 E;
+    public vu4 D;
+    public vu4 E;
     public LikeModel F;
     public yh8 G;
     public b H;
@@ -154,7 +154,7 @@ public class NewFollowButton extends TBSpecificationBtn implements View.OnClickL
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj) == null) {
                 if (this.a.F.getErrorCode() == 22) {
-                    pi.O(this.a.q.getPageActivity(), this.a.q.getString(R.string.obfuscated_res_0x7f0f0819));
+                    pi.O(this.a.q.getPageActivity(), this.a.q.getString(R.string.obfuscated_res_0x7f0f0815));
                     this.a.I = false;
                 } else if (obj == null) {
                     this.a.I = false;
@@ -204,7 +204,7 @@ public class NewFollowButton extends TBSpecificationBtn implements View.OnClickL
             return;
         }
         if (!pi.D()) {
-            UtilHelper.showToast(this.q.getPageActivity(), this.q.getString(R.string.obfuscated_res_0x7f0f0c2b));
+            UtilHelper.showToast(this.q.getPageActivity(), this.q.getString(R.string.obfuscated_res_0x7f0f0c17));
         } else if (StringUtils.isNull(this.o) || this.p <= 0 || !ViewHelper.checkUpIsLogin(this.q.getPageActivity())) {
         } else {
             if (this.H == null) {
@@ -227,9 +227,9 @@ public class NewFollowButton extends TBSpecificationBtn implements View.OnClickL
                 TBSpecificationButtonConfig tBSpecificationButtonConfig = this.s;
                 if (tBSpecificationButtonConfig == null) {
                     if (this.E == null) {
-                        uu4 uu4Var = new uu4();
-                        this.E = uu4Var;
-                        uu4Var.t(R.color.CAM_X0109);
+                        vu4 vu4Var = new vu4();
+                        this.E = vu4Var;
+                        vu4Var.t(R.color.CAM_X0109);
                         this.E.i(0, 0, TBSpecificationButtonConfig.IconType.SVG);
                     }
                     setConfig(this.E);
@@ -237,14 +237,14 @@ public class NewFollowButton extends TBSpecificationBtn implements View.OnClickL
                     setConfig(tBSpecificationButtonConfig);
                 }
                 setClickable(this.v);
-                setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0f9e));
+                setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0f87));
             } else {
                 TBSpecificationButtonConfig tBSpecificationButtonConfig2 = this.r;
                 if (tBSpecificationButtonConfig2 == null) {
                     if (this.D == null) {
-                        uu4 uu4Var2 = new uu4();
-                        this.D = uu4Var2;
-                        uu4Var2.r(R.color.CAM_X0302);
+                        vu4 vu4Var2 = new vu4();
+                        this.D = vu4Var2;
+                        vu4Var2.r(R.color.CAM_X0302);
                         if (this.y) {
                             this.D.g(this.x);
                             this.D.i(this.z, 0, TBSpecificationButtonConfig.IconType.SVG);
@@ -298,7 +298,7 @@ public class NewFollowButton extends TBSpecificationBtn implements View.OnClickL
             return;
         }
         if (!pi.D()) {
-            UtilHelper.showToast(this.q.getPageActivity(), this.q.getString(R.string.obfuscated_res_0x7f0f0c2b));
+            UtilHelper.showToast(this.q.getPageActivity(), this.q.getString(R.string.obfuscated_res_0x7f0f0c17));
         } else if (StringUtils.isNull(this.o) || this.p <= 0 || !ViewHelper.checkUpIsLogin(this.q.getPageActivity())) {
         } else {
             if (this.H == null) {

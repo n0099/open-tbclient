@@ -23,10 +23,16 @@ public final class v implements com.kwad.sdk.core.d<AdInfo.AdPreloadInfo> {
         if (jSONObject == null) {
             jSONObject = new JSONObject();
         }
-        com.kwad.sdk.utils.r.a(jSONObject, "preloadId", adPreloadInfo.preloadId);
-        com.kwad.sdk.utils.r.a(jSONObject, "preloadType", adPreloadInfo.preloadType);
-        com.kwad.sdk.utils.r.a(jSONObject, "preloadTips", adPreloadInfo.preloadTips);
-        com.kwad.sdk.utils.r.a(jSONObject, "validityPeriod", adPreloadInfo.validityPeriod);
+        String str = adPreloadInfo.preloadId;
+        if (str != null && !str.equals("")) {
+            com.kwad.sdk.utils.r.putValue(jSONObject, "preloadId", adPreloadInfo.preloadId);
+        }
+        int i = adPreloadInfo.preloadType;
+        if (i != 0) {
+            com.kwad.sdk.utils.r.putValue(jSONObject, "preloadType", i);
+        }
+        com.kwad.sdk.utils.r.putValue(jSONObject, "preloadTips", adPreloadInfo.preloadTips);
+        com.kwad.sdk.utils.r.putValue(jSONObject, "validityPeriod", adPreloadInfo.validityPeriod);
         return jSONObject;
     }
 

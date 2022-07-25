@@ -5,9 +5,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public interface rb4 {
-    @Nullable
-    JSONObject a(@Nullable pb4<JSONObject> pb4Var);
+    void a(JSONArray jSONArray, b84 b84Var, @Nullable b84 b84Var2, @Nullable b84 b84Var3);
 
-    @Nullable
-    JSONArray b(@Nullable pb4<JSONArray> pb4Var);
+    void b(JSONObject jSONObject, b84 b84Var, @Nullable b84 b84Var2, @Nullable b84 b84Var3);
 }

@@ -19,7 +19,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.nn4;
+import com.repackage.on4;
 import com.repackage.pi;
 import com.repackage.x68;
 /* loaded from: classes2.dex */
@@ -234,10 +234,10 @@ public final class HomeGroupUbsUIHelper {
         return invokeCommon.booleanValue;
     }
 
-    public static boolean isFromHotRankTab(nn4 nn4Var) {
+    public static boolean isFromHotRankTab(on4 on4Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65553, null, nn4Var)) == null) ? (nn4Var == null || nn4Var.getThreadData() == null || !nn4Var.getThreadData().isFromHotRankTab) ? false : true : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65553, null, on4Var)) == null) ? (on4Var == null || on4Var.getThreadData() == null || !on4Var.getThreadData().isFromHotRankTab) ? false : true : invokeL.booleanValue;
     }
 
     public static int[] handleSinglePicSize(MediaData mediaData) {

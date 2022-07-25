@@ -22,9 +22,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.br4;
+import com.repackage.cr4;
 import com.repackage.d9;
-import com.repackage.f45;
+import com.repackage.g45;
 import com.repackage.ng;
 import com.repackage.te;
 import com.repackage.ui8;
@@ -219,8 +219,8 @@ public class MoreDiscoveryModel extends BdBaseModel<MoreActivity> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            br4.f();
-            return br4.e("tb_user_profile", TbadkCoreApplication.getCurrentAccountName());
+            cr4.f();
+            return cr4.e("tb_user_profile", TbadkCoreApplication.getCurrentAccountName());
         }
         return (te) invokeV.objValue;
     }
@@ -303,7 +303,7 @@ public class MoreDiscoveryModel extends BdBaseModel<MoreActivity> {
                 if (user != null) {
                     setUser(user);
                 }
-                f45.d().i(getUser());
+                g45.d().i(getUser());
                 this.mLoadDataMode = 1;
                 this.mLoadDataCallBack.c(Boolean.TRUE);
                 return;
@@ -311,7 +311,7 @@ public class MoreDiscoveryModel extends BdBaseModel<MoreActivity> {
             if (z3) {
                 setErrorString(str);
             } else {
-                setErrorString(this.c.getString(R.string.obfuscated_res_0x7f0f0c2b));
+                setErrorString(this.c.getString(R.string.obfuscated_res_0x7f0f0c17));
             }
             this.mLoadDataMode = 1;
             this.mLoadDataCallBack.c(Boolean.FALSE);

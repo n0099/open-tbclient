@@ -47,10 +47,10 @@ public class ux7 extends an<vx7, a> {
                 }
             }
             this.b = 3;
-            this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09160c);
+            this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0915e7);
         }
 
-        public void c() {
+        public void b() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 if (this.b != TbadkApplication.getInst().getSkinType()) {
@@ -88,7 +88,7 @@ public class ux7 extends an<vx7, a> {
     public a M(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) ? new a(LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d07b6, viewGroup, false)) : (a) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) ? new a(LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d07c0, viewGroup, false)) : (a) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -98,8 +98,8 @@ public class ux7 extends an<vx7, a> {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, vx7Var, aVar})) == null) {
-            aVar.c();
-            return aVar.b();
+            aVar.b();
+            return aVar.a();
         }
         return (View) invokeCommon.objValue;
     }

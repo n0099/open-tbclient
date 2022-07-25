@@ -5,6 +5,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.sapi2.PassportSDK;
 import com.baidu.sapi2.callback.OneKeyLoginCallback;
 import com.baidu.sapi2.result.OneKeyLoginResult;
+import com.baidu.sapi2.views.logindialog.view.AgreementView;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.atomData.TbWebViewActivityConfig;
@@ -49,7 +50,7 @@ public class tp7 extends qp7 {
             if (interceptable == null || interceptable.invokeL(1048576, this, oneKeyLoginResult) == null) {
                 this.a.b.closeLoadingDialog();
                 BaseActivity baseActivity = this.a.b;
-                baseActivity.showToast(String.format(baseActivity.getString(R.string.obfuscated_res_0x7f0f0cda), Integer.valueOf(oneKeyLoginResult.getResultCode()), oneKeyLoginResult.getResultMsg()));
+                baseActivity.showToast(String.format(baseActivity.getString(R.string.obfuscated_res_0x7f0f0cc6), Integer.valueOf(oneKeyLoginResult.getResultCode()), oneKeyLoginResult.getResultMsg()));
             }
         }
 
@@ -104,13 +105,13 @@ public class tp7 extends qp7 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) {
             super.n(view2);
-            if (view2.getId() == R.id.obfuscated_res_0x7f091399) {
+            if (view2.getId() == R.id.obfuscated_res_0x7f091375) {
                 s();
-            } else if (view2.getId() == R.id.obfuscated_res_0x7f09166f) {
+            } else if (view2.getId() == R.id.obfuscated_res_0x7f09164a) {
                 t();
             } else if (view2.getId() == R.id.obfuscated_res_0x7f090163) {
                 r();
-            } else if (view2.getId() == R.id.obfuscated_res_0x7f091992) {
+            } else if (view2.getId() == R.id.obfuscated_res_0x7f09196d) {
                 u();
             }
         }
@@ -120,7 +121,7 @@ public class tp7 extends qp7 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             BaseActivity baseActivity = this.b;
-            new TbWebViewActivityConfig(baseActivity, baseActivity.getResources().getString(R.string.obfuscated_res_0x7f0f0cd1), "https://passport.baidu.com/static/passpc-account/html/protocal.html", false).start();
+            new TbWebViewActivityConfig(baseActivity, baseActivity.getResources().getString(R.string.obfuscated_res_0x7f0f0cbd), "https://passport.baidu.com/static/passpc-account/html/protocal.html", false).start();
         }
     }
 
@@ -143,14 +144,14 @@ public class tp7 extends qp7 {
         int a2 = sp7Var.a();
         if (a2 == 1) {
             BaseActivity baseActivity = this.b;
-            new TbWebViewActivityConfig(baseActivity, baseActivity.getResources().getString(R.string.obfuscated_res_0x7f0f0cd2), "https://ms.zzx9.cn/html/oauth/protocol2.html", false).start();
+            new TbWebViewActivityConfig(baseActivity, baseActivity.getResources().getString(R.string.obfuscated_res_0x7f0f0cbe), AgreementView.s, false).start();
         } else if (a2 == 2) {
             BaseActivity baseActivity2 = this.b;
-            new TbWebViewActivityConfig(baseActivity2, baseActivity2.getResources().getString(R.string.obfuscated_res_0x7f0f0cd3), "https://e.189.cn/sdk/agreement/detail.do?hidetop=true", false).start();
+            new TbWebViewActivityConfig(baseActivity2, baseActivity2.getResources().getString(R.string.obfuscated_res_0x7f0f0cbf), "https://e.189.cn/sdk/agreement/detail.do?hidetop=true", false).start();
         } else if (a2 != 3) {
         } else {
             BaseActivity baseActivity3 = this.b;
-            new TbWebViewActivityConfig(baseActivity3, baseActivity3.getResources().getString(R.string.obfuscated_res_0x7f0f0cd4), "https://wap.cmpassport.com/resources/html/contract.html", false).start();
+            new TbWebViewActivityConfig(baseActivity3, baseActivity3.getResources().getString(R.string.obfuscated_res_0x7f0f0cc0), "https://wap.cmpassport.com/resources/html/contract.html", false).start();
         }
     }
 
@@ -158,7 +159,7 @@ public class tp7 extends qp7 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             BaseActivity baseActivity = this.b;
-            new TbWebViewActivityConfig(baseActivity, baseActivity.getResources().getString(R.string.obfuscated_res_0x7f0f0cd5), "http://privacy.baidu.com/mdetail?id=288", false).start();
+            new TbWebViewActivityConfig(baseActivity, baseActivity.getResources().getString(R.string.obfuscated_res_0x7f0f0cc1), "http://privacy.baidu.com/mdetail?id=288", false).start();
         }
     }
 }

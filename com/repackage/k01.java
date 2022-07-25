@@ -93,13 +93,13 @@ public final class k01 {
                 return true;
             } catch (ActivityNotFoundException unused) {
                 if (z2) {
-                    Toast.makeText(context, (int) R.string.obfuscated_res_0x7f0f0b4d, 0).show();
+                    Toast.makeText(context, (int) R.string.obfuscated_res_0x7f0f0b39, 0).show();
                     return false;
                 }
                 return false;
             } catch (SecurityException unused2) {
                 if (z2) {
-                    Toast.makeText(context, (int) R.string.obfuscated_res_0x7f0f0b4d, 0).show();
+                    Toast.makeText(context, (int) R.string.obfuscated_res_0x7f0f0b39, 0).show();
                     return false;
                 }
                 return false;

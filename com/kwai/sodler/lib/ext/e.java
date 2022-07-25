@@ -11,29 +11,10 @@ public final class e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static Field a(Object obj, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, obj, str)) == null) {
-            for (Class<?> cls = obj.getClass(); cls != null; cls = cls.getSuperclass()) {
-                try {
-                    Field declaredField = cls.getDeclaredField(str);
-                    if (!declaredField.isAccessible()) {
-                        declaredField.setAccessible(true);
-                    }
-                    return declaredField;
-                } catch (Exception unused) {
-                }
-            }
-            throw new NoSuchFieldException("Field " + str + " not found in " + obj.getClass());
-        }
-        return (Field) invokeLL.objValue;
-    }
-
-    public static Method a(Object obj, String str, Class<?>... clsArr) {
+    public static Method b(Object obj, String str, Class<?>... clsArr) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, obj, str, clsArr)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65536, null, obj, str, clsArr)) == null) {
             for (Class<?> cls = obj.getClass(); cls != null; cls = cls.getSuperclass()) {
                 try {
                     Method declaredMethod = cls.getDeclaredMethod(str, clsArr);
@@ -49,7 +30,26 @@ public final class e {
         return (Method) invokeLLL.objValue;
     }
 
-    public static Field b(Object obj, String str) {
+    public static Field f(Object obj, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, obj, str)) == null) {
+            for (Class<?> cls = obj.getClass(); cls != null; cls = cls.getSuperclass()) {
+                try {
+                    Field declaredField = cls.getDeclaredField(str);
+                    if (!declaredField.isAccessible()) {
+                        declaredField.setAccessible(true);
+                    }
+                    return declaredField;
+                } catch (Exception unused) {
+                }
+            }
+            throw new NoSuchFieldException("Field " + str + " not found in " + obj.getClass());
+        }
+        return (Field) invokeLL.objValue;
+    }
+
+    public static Field g(Object obj, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, obj, str)) == null) {

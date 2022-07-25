@@ -19,8 +19,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.g45;
-import com.repackage.ur4;
+import com.repackage.h45;
+import com.repackage.vr4;
 /* loaded from: classes3.dex */
 public class ChatImageWithTailView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
@@ -34,7 +34,7 @@ public class ChatImageWithTailView extends LinearLayout {
     public TextView g;
 
     /* loaded from: classes3.dex */
-    public class a implements g45 {
+    public class a implements h45 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ChatImageWithTailView a;
@@ -57,14 +57,14 @@ public class ChatImageWithTailView extends LinearLayout {
             this.a = chatImageWithTailView;
         }
 
-        @Override // com.repackage.g45
+        @Override // com.repackage.h45
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             }
         }
 
-        @Override // com.repackage.g45
+        @Override // com.repackage.h45
         public void onLoadFail() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -73,7 +73,7 @@ public class ChatImageWithTailView extends LinearLayout {
             }
         }
 
-        @Override // com.repackage.g45
+        @Override // com.repackage.h45
         public void onLoadSuccess() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
@@ -108,9 +108,9 @@ public class ChatImageWithTailView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d01cd, this);
-            GifView gifView = (GifView) findViewById(R.id.obfuscated_res_0x7f090e91);
+            GifView gifView = (GifView) findViewById(R.id.obfuscated_res_0x7f090e8a);
             this.a = gifView;
-            gifView.setContentDescription(getContext().getString(R.string.obfuscated_res_0x7f0f052d));
+            gifView.setContentDescription(getContext().getString(R.string.obfuscated_res_0x7f0f0529));
             this.a.setDrawerType(1);
             this.a.setDefaultResource(SkinManager.getResourceId(R.drawable.icon_pic_im_image_default));
             this.a.setBorderColor(SkinManager.getColor(R.color.CAM_X0203));
@@ -120,16 +120,16 @@ public class ChatImageWithTailView extends LinearLayout {
             this.a.setRadiusById(R.string.J_X05);
             this.a.setShowStaticDrawable(false);
             this.a.setLoadCallback(new a(this));
-            this.b = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091dbd);
-            TbImageView tbImageView = (TbImageView) findViewById(R.id.obfuscated_res_0x7f091f63);
+            this.b = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091dc3);
+            TbImageView tbImageView = (TbImageView) findViewById(R.id.obfuscated_res_0x7f091f67);
             this.c = tbImageView;
             tbImageView.setDefaultResource(R.drawable.obfuscated_res_0x7f081833);
             this.c.setAutoChangeStyle(false);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f091f62);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f091f66);
             this.e = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0905d6);
-            this.f = (ImageView) findViewById(R.id.obfuscated_res_0x7f090dbe);
-            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f092210);
-            ur4 d = ur4.d(this.e);
+            this.f = (ImageView) findViewById(R.id.obfuscated_res_0x7f090db7);
+            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f092212);
+            vr4 d = vr4.d(this.e);
             d.n(R.string.J_X05);
             d.f(R.color.CAM_X0205);
             WebPManager.setPureDrawable(this.f, R.drawable.obfuscated_res_0x7f080926, R.color.CAM_X0203, null);

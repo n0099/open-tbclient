@@ -271,7 +271,7 @@ public class FragmentTabWidget extends LinearLayout {
             this.k = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070198);
             this.l = pi.d(getContext(), 1.0f);
             this.m = pi.d(getContext(), 2.0f);
-            this.x = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070232);
+            this.x = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070230);
             setWillNotDraw(false);
             this.e = R.color.common_color_10274;
         }

@@ -39,10 +39,10 @@ public class an extends al.b {
         Map map;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            obj = this.a.f816a;
+            obj = this.a.f96a;
             synchronized (obj) {
-                map = this.a.f817a;
-                map.remove(super.a.mo1145a());
+                map = this.a.f97a;
+                map.remove(super.a.mo207a());
             }
         }
     }

@@ -11,14 +11,14 @@ public interface a {
 
     /* renamed from: com.kwai.filedownloader.message.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public static class C0562a extends MessageSnapshot implements a {
+    public static class C0410a extends MessageSnapshot implements a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final MessageSnapshot b;
+        public final MessageSnapshot avM;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public C0562a(MessageSnapshot messageSnapshot) {
-            super(messageSnapshot.m());
+        public C0410a(MessageSnapshot messageSnapshot) {
+            super(messageSnapshot.getId());
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -34,14 +34,14 @@ public interface a {
                     return;
                 }
             }
-            if (messageSnapshot.b() != -3) {
-                throw new IllegalArgumentException(com.kwai.filedownloader.e.f.a("can't create the block complete message for id[%d], status[%d]", Integer.valueOf(messageSnapshot.m()), Byte.valueOf(messageSnapshot.b())));
+            if (messageSnapshot.Ca() != -3) {
+                throw new IllegalArgumentException(com.kwai.filedownloader.e.f.h("can't create the block complete message for id[%d], status[%d]", Integer.valueOf(messageSnapshot.getId()), Byte.valueOf(messageSnapshot.Ca())));
             }
-            this.b = messageSnapshot;
+            this.avM = messageSnapshot;
         }
 
         @Override // com.kwai.filedownloader.message.c
-        public final byte b() {
+        public final byte Ca() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -51,12 +51,12 @@ public interface a {
         }
 
         @Override // com.kwai.filedownloader.message.a
-        public final MessageSnapshot o_() {
+        public final MessageSnapshot DY() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : (MessageSnapshot) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.avM : (MessageSnapshot) invokeV.objValue;
         }
     }
 
-    MessageSnapshot o_();
+    MessageSnapshot DY();
 }

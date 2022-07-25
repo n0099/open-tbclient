@@ -109,7 +109,7 @@ public class as5 extends an<cs5, AlaSubListGameDoubleViewHolder> {
             Z(cs5Var);
             alaSubListGameDoubleViewHolder.a.i(cs5Var);
             alaSubListGameDoubleViewHolder.a.s(this.j);
-            return alaSubListGameDoubleViewHolder.b();
+            return alaSubListGameDoubleViewHolder.a();
         }
         return (View) invokeCommon.objValue;
     }

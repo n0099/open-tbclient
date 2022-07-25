@@ -124,10 +124,10 @@ public class cz7 extends an<ds7, VideoTabPbFloatEnterForumViewHolder> {
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, ds7Var, videoTabPbFloatEnterForumViewHolder})) == null) {
             if (ds7Var != null) {
                 videoTabPbFloatEnterForumViewHolder.setData(ds7Var.a);
-                videoTabPbFloatEnterForumViewHolder.d(new a(this));
+                videoTabPbFloatEnterForumViewHolder.c(new a(this));
             }
             SkinManager.setBackgroundColor(view2, R.color.CAM_X0204);
-            videoTabPbFloatEnterForumViewHolder.c();
+            videoTabPbFloatEnterForumViewHolder.b();
             return view2;
         }
         return (View) invokeCommon.objValue;

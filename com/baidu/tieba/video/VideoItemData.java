@@ -35,10 +35,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.c65;
-import com.repackage.kp4;
+import com.repackage.d65;
+import com.repackage.lp4;
 import com.repackage.ng;
-import com.repackage.pp4;
+import com.repackage.qp4;
 import com.repackage.rg5;
 import java.io.Serializable;
 import java.util.List;
@@ -232,7 +232,7 @@ public class VideoItemData implements Serializable, Parcelable {
                 try {
                     Object obj2 = map.get("rich_abstract");
                     if (obj2 != null) {
-                        this.mRichAbstractList = pp4.a(new JSONArray(DataExt.toJson(obj2)));
+                        this.mRichAbstractList = qp4.a(new JSONArray(DataExt.toJson(obj2)));
                     }
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -473,7 +473,7 @@ public class VideoItemData implements Serializable, Parcelable {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.channel_mid_request_video_num : invokeV.intValue;
     }
 
-    public kp4 getNegFeedBackData() {
+    public lp4 getNegFeedBackData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
@@ -481,19 +481,19 @@ public class VideoItemData implements Serializable, Parcelable {
             if (sparseArray == null || sparseArray.size() <= 0) {
                 return null;
             }
-            kp4 kp4Var = new kp4();
-            kp4Var.n(this.nid);
-            kp4Var.o(this.thread_id);
-            kp4Var.l(this.forum_id);
-            kp4Var.j(this.feedBackReasonMap);
-            kp4Var.g = this.feedBackExtraMap;
-            kp4Var.p = this.mRecomAbTag;
-            kp4Var.k = this.mRecomWeight;
-            kp4Var.m = this.mRecomExtra;
-            kp4Var.l = this.mRecomSource;
-            return kp4Var;
+            lp4 lp4Var = new lp4();
+            lp4Var.n(this.nid);
+            lp4Var.o(this.thread_id);
+            lp4Var.l(this.forum_id);
+            lp4Var.j(this.feedBackReasonMap);
+            lp4Var.g = this.feedBackExtraMap;
+            lp4Var.p = this.mRecomAbTag;
+            lp4Var.k = this.mRecomWeight;
+            lp4Var.m = this.mRecomExtra;
+            lp4Var.l = this.mRecomSource;
+            return lp4Var;
         }
-        return (kp4) invokeV.objValue;
+        return (lp4) invokeV.objValue;
     }
 
     public String getThreadId() {
@@ -593,7 +593,7 @@ public class VideoItemData implements Serializable, Parcelable {
             this.title = jSONObject.optString("title");
             JSONArray optJSONArray = jSONObject.optJSONArray("rich_abstract");
             if (optJSONArray != null) {
-                this.mRichAbstractList = pp4.a(optJSONArray);
+                this.mRichAbstractList = qp4.a(optJSONArray);
             }
             JSONArray optJSONArray2 = jSONObject.optJSONArray("rich_title");
             if (optJSONArray2 != null) {
@@ -732,7 +732,7 @@ public class VideoItemData implements Serializable, Parcelable {
             }
             JSONArray optJSONArray2 = jSONObject.optJSONArray("rich_abstract");
             if (optJSONArray2 != null) {
-                this.mRichAbstractList = pp4.a(optJSONArray2);
+                this.mRichAbstractList = qp4.a(optJSONArray2);
             }
             StringBuilder sb = new StringBuilder();
             JSONArray optJSONArray3 = jSONObject.optJSONArray("abstract");
@@ -887,7 +887,7 @@ public class VideoItemData implements Serializable, Parcelable {
             if (this.threadData != null && (list = this.richTitle) != null && !list.isEmpty()) {
                 for (PbContent pbContent : this.richTitle) {
                     if (pbContent.type.intValue() == 18) {
-                        c65 f = c65.f(this.threadData, pbContent);
+                        d65 f = d65.f(this.threadData, pbContent);
                         f.d(R.color.CAM_X0101);
                         f.e(R.color.CAM_X0113);
                         f.b(HotTopicStat.Locate.VIDEO_MIDDLE);

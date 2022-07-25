@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.components.core.g.a;
 import com.kwad.sdk.mvp.Presenter;
 /* loaded from: classes5.dex */
-public abstract class b<T extends a> extends com.kwad.components.core.h.a {
+public abstract class b<T extends a> extends com.kwad.components.core.i.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public T mCallerContext;
@@ -37,8 +37,8 @@ public abstract class b<T extends a> extends com.kwad.components.core.h.a {
         if (!(interceptable == null || interceptable.invokeV(65537, this) == null) || (t = this.mCallerContext) == null) {
             return;
         }
-        for (com.kwad.components.core.g.kwai.a aVar : t.J) {
-            aVar.g();
+        for (com.kwad.components.core.g.kwai.a aVar : t.EF) {
+            aVar.iK();
         }
     }
 
@@ -48,8 +48,8 @@ public abstract class b<T extends a> extends com.kwad.components.core.h.a {
         if (!(interceptable == null || interceptable.invokeV(65538, this) == null) || (t = this.mCallerContext) == null) {
             return;
         }
-        for (com.kwad.components.core.g.kwai.a aVar : t.J) {
-            aVar.k();
+        for (com.kwad.components.core.g.kwai.a aVar : t.EF) {
+            aVar.iN();
         }
     }
 
@@ -59,8 +59,8 @@ public abstract class b<T extends a> extends com.kwad.components.core.h.a {
         if (!(interceptable == null || interceptable.invokeV(65539, this) == null) || (t = this.mCallerContext) == null) {
             return;
         }
-        for (com.kwad.components.core.g.kwai.a aVar : t.J) {
-            aVar.j();
+        for (com.kwad.components.core.g.kwai.a aVar : t.EF) {
+            aVar.iM();
         }
     }
 
@@ -70,8 +70,8 @@ public abstract class b<T extends a> extends com.kwad.components.core.h.a {
         if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) || (t = this.mCallerContext) == null) {
             return;
         }
-        for (com.kwad.components.core.g.kwai.a aVar : t.J) {
-            aVar.h();
+        for (com.kwad.components.core.g.kwai.a aVar : t.EF) {
+            aVar.iL();
         }
     }
 
@@ -83,9 +83,9 @@ public abstract class b<T extends a> extends com.kwad.components.core.h.a {
             if (this.mPresenter == null) {
                 Presenter onCreatePresenter = onCreatePresenter();
                 this.mPresenter = onCreatePresenter;
-                onCreatePresenter.c(this.mRootView);
+                onCreatePresenter.B(this.mRootView);
             }
-            this.mPresenter.a(this.mCallerContext);
+            this.mPresenter.e(this.mCallerContext);
             notifyOnCreate();
         }
     }
@@ -94,18 +94,18 @@ public abstract class b<T extends a> extends com.kwad.components.core.h.a {
 
     public abstract Presenter onCreatePresenter();
 
-    @Override // com.kwad.components.core.h.a, com.kwad.sdk.api.proxy.IActivityProxy
+    @Override // com.kwad.components.core.i.a, com.kwad.sdk.api.proxy.IActivityProxy
     public void onDestroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             notifyOnDestroy();
             T t = this.mCallerContext;
             if (t != null) {
-                t.a();
+                t.release();
             }
             Presenter presenter = this.mPresenter;
             if (presenter != null) {
-                presenter.p();
+                presenter.destroy();
             }
         }
     }
@@ -118,7 +118,7 @@ public abstract class b<T extends a> extends com.kwad.components.core.h.a {
         }
     }
 
-    @Override // com.kwad.components.core.h.a, com.kwad.sdk.api.proxy.IActivityProxy
+    @Override // com.kwad.components.core.i.a, com.kwad.sdk.api.proxy.IActivityProxy
     public void onResume() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {

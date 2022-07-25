@@ -1,7 +1,7 @@
 package com.kwad.sdk.crash.utils;
 /* loaded from: classes5.dex */
 public final class i {
-    public static String a(long j) {
+    public static String M(long j) {
         String valueOf;
         String valueOf2;
         long j2 = j / 60000;

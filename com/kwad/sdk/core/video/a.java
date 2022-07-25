@@ -5,19 +5,19 @@ import android.view.TextureView;
 import android.view.View;
 /* loaded from: classes5.dex */
 public final class a extends TextureView {
-    public int a;
-    public int b;
+    public int videoHeight;
+    public int videoWidth;
 
     public a(Context context) {
         super(context);
     }
 
-    public final void a(int i, int i2) {
-        if (this.b == i || this.a == i2) {
+    public final void adaptVideoSize(int i, int i2) {
+        if (this.videoWidth == i || this.videoHeight == i2) {
             return;
         }
-        this.b = i;
-        this.a = i2;
+        this.videoWidth = i;
+        this.videoHeight = i2;
         requestLayout();
     }
 
@@ -29,17 +29,17 @@ public final class a extends TextureView {
             i2 = i;
             i = i2;
         }
-        int defaultSize = TextureView.getDefaultSize(this.b, i);
-        int defaultSize2 = TextureView.getDefaultSize(this.a, i2);
-        if (this.b > 0 && this.a > 0) {
+        int defaultSize = TextureView.getDefaultSize(this.videoWidth, i);
+        int defaultSize2 = TextureView.getDefaultSize(this.videoHeight, i2);
+        if (this.videoWidth > 0 && this.videoHeight > 0) {
             int mode = View.MeasureSpec.getMode(i);
             int size = View.MeasureSpec.getSize(i);
             int mode2 = View.MeasureSpec.getMode(i2);
             int size2 = View.MeasureSpec.getSize(i2);
             if (mode == 1073741824 && mode2 == 1073741824) {
-                int i4 = this.b;
+                int i4 = this.videoWidth;
                 int i5 = i4 * size2;
-                int i6 = this.a;
+                int i6 = this.videoHeight;
                 if (i5 < size * i6) {
                     defaultSize = (i4 * size2) / i6;
                 } else if (i4 * size2 > size * i6) {
@@ -50,8 +50,8 @@ public final class a extends TextureView {
                 }
                 defaultSize2 = size2;
             } else if (mode == 1073741824) {
-                int i7 = this.a;
-                int i8 = this.b;
+                int i7 = this.videoHeight;
+                int i8 = this.videoWidth;
                 int i9 = (size * i7) / i8;
                 if (mode2 != Integer.MIN_VALUE || i9 <= size2) {
                     defaultSize = size;
@@ -61,8 +61,8 @@ public final class a extends TextureView {
                     defaultSize2 = size2;
                 }
             } else if (mode2 == 1073741824) {
-                int i10 = this.b;
-                int i11 = this.a;
+                int i10 = this.videoWidth;
+                int i11 = this.videoHeight;
                 i3 = (size2 * i10) / i11;
                 if (mode != Integer.MIN_VALUE || i3 <= size) {
                     defaultSize2 = size2;
@@ -72,8 +72,8 @@ public final class a extends TextureView {
                     defaultSize = size;
                 }
             } else {
-                i3 = this.b;
-                int i12 = this.a;
+                i3 = this.videoWidth;
+                int i12 = this.videoHeight;
                 if (mode2 != Integer.MIN_VALUE || i12 <= size2) {
                     defaultSize2 = i12;
                 } else {
@@ -81,7 +81,7 @@ public final class a extends TextureView {
                     defaultSize2 = size2;
                 }
                 if (mode == Integer.MIN_VALUE && i3 > size) {
-                    defaultSize2 = (this.a * size) / this.b;
+                    defaultSize2 = (this.videoHeight * size) / this.videoWidth;
                     defaultSize = size;
                 }
                 defaultSize = i3;

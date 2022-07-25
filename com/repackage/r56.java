@@ -59,7 +59,7 @@ public class r56 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 if (TextUtils.isEmpty(this.a.f)) {
-                    this.a.a.showToast(R.string.obfuscated_res_0x7f0f0a27);
+                    this.a.a.showToast(R.string.obfuscated_res_0x7f0f0a13);
                     return;
                 }
                 UrlManager.getInstance().dealOneLink(this.a.a, new String[]{this.a.f});
@@ -101,11 +101,11 @@ public class r56 {
         this.h = new a(this);
         this.a = tbPageContext;
         this.b = view2;
-        RankListViewController.RankListViewHolder rankListViewHolder = new RankListViewController.RankListViewHolder(view2.findViewById(R.id.obfuscated_res_0x7f092351));
+        RankListViewController.RankListViewHolder rankListViewHolder = new RankListViewController.RankListViewHolder(view2.findViewById(R.id.obfuscated_res_0x7f092353));
         this.c = rankListViewHolder;
         rankListViewHolder.i(1);
-        this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090c46);
-        TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091a54);
+        this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090c3f);
+        TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091a2e);
         this.e = textView;
         textView.setTextSize(0, pi.f(this.a.getPageActivity(), R.dimen.tbfontsize46));
         this.d.setOnClickListener(this.h);

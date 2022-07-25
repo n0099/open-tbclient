@@ -262,7 +262,7 @@ public class o18 implements d08 {
     public final void l() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            r18 j = j(R.drawable.icon_mask_wo_list_serve24_svg, R.string.obfuscated_res_0x7f0f0e4e, 31);
+            r18 j = j(R.drawable.icon_mask_wo_list_serve24_svg, R.string.obfuscated_res_0x7f0f0e37, 31);
             this.j = j;
             j.c = true;
             this.a.add(j);
@@ -281,7 +281,7 @@ public class o18 implements d08 {
             if (this.l == null) {
                 this.l = new PersonMoreData();
             }
-            r18 j3 = j(R.drawable.obfuscated_res_0x7f08083b, R.string.obfuscated_res_0x7f0f0e0e, 33);
+            r18 j3 = j(R.drawable.obfuscated_res_0x7f08083b, R.string.obfuscated_res_0x7f0f0df7, 33);
             j3.j = OrmObject.bundleWithObject(this.l);
             j3.i = new t18();
             this.a.add(j3);
@@ -293,14 +293,14 @@ public class o18 implements d08 {
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
             u18 u18Var = new u18();
             ArrayList arrayList = new ArrayList();
-            r18 j = j(R.drawable.obfuscated_res_0x7f080828, R.string.obfuscated_res_0x7f0f0aa1, 12);
+            r18 j = j(R.drawable.obfuscated_res_0x7f080828, R.string.obfuscated_res_0x7f0f0a8d, 12);
             j.c = true;
             arrayList.add(j);
             HashMap hashMap = new HashMap();
             hashMap.put("uid", this.b.getUserId());
             hashMap.put("entryType", "1");
             arrayList.add(j(R.drawable.obfuscated_res_0x7f0807b2, R.string.obfuscated_res_0x7f0f0385, 53));
-            r18 j2 = j(R.drawable.obfuscated_res_0x7f080821, R.string.obfuscated_res_0x7f0f045e, 56);
+            r18 j2 = j(R.drawable.obfuscated_res_0x7f080821, R.string.obfuscated_res_0x7f0f045d, 56);
             j2.g = TbConfig.CREATE_BA;
             arrayList.add(j2);
             if (MessageManager.getInstance().findTask(2921431) != null) {
@@ -309,16 +309,16 @@ public class o18 implements d08 {
                 j3.f = true;
                 arrayList.add(j3);
             }
-            arrayList.add(j(R.drawable.obfuscated_res_0x7f08082d, R.string.obfuscated_res_0x7f0f0791, 58));
+            arrayList.add(j(R.drawable.obfuscated_res_0x7f08082d, R.string.obfuscated_res_0x7f0f078d, 58));
             if (TbSingleton.getInstance().isBusinessAccount()) {
-                r18 j4 = j(R.drawable.obfuscated_res_0x7f080820, R.string.obfuscated_res_0x7f0f0cb9, 15);
+                r18 j4 = j(R.drawable.obfuscated_res_0x7f080820, R.string.obfuscated_res_0x7f0f0ca5, 15);
                 j4.c = true;
                 arrayList.add(j4);
             }
             r18 j5 = j(R.drawable.obfuscated_res_0x7f080826, R.string.obfuscated_res_0x7f0f006b, 50);
             j5.g = "https://wappass.baidu.com/v6/safetyInspection?adapter=3";
             arrayList.add(j5);
-            r18 j6 = j(R.drawable.obfuscated_res_0x7f080823, R.string.obfuscated_res_0x7f0f0b36, 10);
+            r18 j6 = j(R.drawable.obfuscated_res_0x7f080823, R.string.obfuscated_res_0x7f0f0b22, 10);
             this.h = j6;
             j6.i = new t18();
             this.h.c = true;
@@ -333,17 +333,17 @@ public class o18 implements d08 {
             r18 j7 = j(R.drawable.obfuscated_res_0x7f080829, R.string.obfuscated_res_0x7f0f037c, 18);
             j7.c = true;
             arrayList.add(j7);
-            r18 j8 = j(R.drawable.obfuscated_res_0x7f08082c, R.string.obfuscated_res_0x7f0f0a81, 51);
+            r18 j8 = j(R.drawable.obfuscated_res_0x7f08082c, R.string.obfuscated_res_0x7f0f0a6d, 51);
             j8.g = "https://tieba.baidu.com/mo/q/icon/panelIcon?opacity=0&opacitybtnhex=ffffff&user_id=" + this.b.getUserId();
             arrayList.add(j8);
-            arrayList.add(j(R.drawable.obfuscated_res_0x7f08082b, R.string.obfuscated_res_0x7f0f122d, 52));
-            r18 j9 = j(R.drawable.obfuscated_res_0x7f080824, R.string.obfuscated_res_0x7f0f0cad, 54);
-            j9.g = l85.g("https://boxnovel.baidu.com/boxnovel/tbvipright?data={\"fromaction\": \"tieba\"}");
+            arrayList.add(j(R.drawable.obfuscated_res_0x7f08082b, R.string.obfuscated_res_0x7f0f11dc, 52));
+            r18 j9 = j(R.drawable.obfuscated_res_0x7f080824, R.string.obfuscated_res_0x7f0f0c99, 54);
+            j9.g = m85.g("https://boxnovel.baidu.com/boxnovel/tbvipright?data={\"fromaction\": \"tieba\"}");
             arrayList.add(j9);
-            r18 j10 = j(R.drawable.obfuscated_res_0x7f080836, R.string.obfuscated_res_0x7f0f0412, 55);
+            r18 j10 = j(R.drawable.obfuscated_res_0x7f080836, R.string.obfuscated_res_0x7f0f0411, 55);
             j10.g = TbConfig.COMMUNITY_CONVENTION;
             arrayList.add(j10);
-            arrayList.add(j(R.drawable.obfuscated_res_0x7f080825, R.string.obfuscated_res_0x7f0f0519, 57));
+            arrayList.add(j(R.drawable.obfuscated_res_0x7f080825, R.string.obfuscated_res_0x7f0f0515, 57));
             u18Var.d(arrayList);
             this.a.add(u18Var);
         }

@@ -107,7 +107,7 @@ public class mf7 extends an<rf7, SearchSuggestCommonViewHolder> {
     public SearchSuggestCommonViewHolder M(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) ? new SearchSuggestCommonViewHolder(LayoutInflater.from(this.i).inflate(R.layout.obfuscated_res_0x7f0d0752, viewGroup, false)) : (SearchSuggestCommonViewHolder) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) ? new SearchSuggestCommonViewHolder(LayoutInflater.from(this.i).inflate(R.layout.obfuscated_res_0x7f0d075c, viewGroup, false)) : (SearchSuggestCommonViewHolder) invokeL.objValue;
     }
 
     public View a0(int i, View view2, ViewGroup viewGroup, rf7 rf7Var, SearchSuggestCommonViewHolder searchSuggestCommonViewHolder) {
@@ -128,11 +128,11 @@ public class mf7 extends an<rf7, SearchSuggestCommonViewHolder> {
     public final void b0(SearchSuggestCommonViewHolder searchSuggestCommonViewHolder) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, searchSuggestCommonViewHolder) == null) {
-            ur4 d = ur4.d(searchSuggestCommonViewHolder.b);
+            vr4 d = vr4.d(searchSuggestCommonViewHolder.b);
             d.v(R.color.CAM_X0105);
             d.z(R.dimen.T_X06);
             SkinManager.setBackgroundResource(searchSuggestCommonViewHolder.a, R.drawable.addresslist_item_bg);
-            ur4.d(searchSuggestCommonViewHolder.d).f(R.color.CAM_X0203);
+            vr4.d(searchSuggestCommonViewHolder.d).f(R.color.CAM_X0203);
         }
     }
 }

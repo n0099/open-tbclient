@@ -24,46 +24,46 @@ public final class InstallActivateReminderConfigItem extends b<InstallActivateRe
     }
 
     @Override // com.kwad.sdk.core.config.item.b
-    public final void a(@NonNull SharedPreferences.Editor editor) {
-        String a;
-        String str;
-        if (b() == null || b().toJson() == null) {
-            a = a();
-            str = "";
-        } else {
-            a = a();
-            str = b().toJson().toString();
-        }
-        editor.putString(a, str);
-    }
-
-    @Override // com.kwad.sdk.core.config.item.b
     public final void a(@NonNull SharedPreferences sharedPreferences) {
-        InstallActivateReminderConfig b = b();
-        if (b == null) {
-            b = new InstallActivateReminderConfig();
+        InstallActivateReminderConfig value = getValue();
+        if (value == null) {
+            value = new InstallActivateReminderConfig();
         }
         JSONObject jSONObject = null;
         try {
-            jSONObject = new JSONObject(sharedPreferences.getString(a(), ""));
+            jSONObject = new JSONObject(sharedPreferences.getString(getKey(), ""));
         } catch (JSONException e) {
-            com.kwad.sdk.core.d.b.b(e);
+            com.kwad.sdk.core.e.b.printStackTraceOnly(e);
         }
         if (jSONObject != null) {
-            b.parseJson(jSONObject);
+            value.parseJson(jSONObject);
         }
-        a((InstallActivateReminderConfigItem) b);
+        setValue(value);
     }
 
     @Override // com.kwad.sdk.core.config.item.b
-    public final void a(JSONObject jSONObject) {
+    public final void b(@NonNull SharedPreferences.Editor editor) {
+        String key;
+        String str;
+        if (getValue() == null || getValue().toJson() == null) {
+            key = getKey();
+            str = "";
+        } else {
+            key = getKey();
+            str = getValue().toJson().toString();
+        }
+        editor.putString(key, str);
+    }
+
+    @Override // com.kwad.sdk.core.config.item.b
+    public final void e(JSONObject jSONObject) {
         JSONObject optJSONObject;
-        if (jSONObject == null || (optJSONObject = jSONObject.optJSONObject(a())) == null) {
-            a((InstallActivateReminderConfigItem) c());
+        if (jSONObject == null || (optJSONObject = jSONObject.optJSONObject(getKey())) == null) {
+            setValue(sx());
             return;
         }
         InstallActivateReminderConfig installActivateReminderConfig = new InstallActivateReminderConfig();
         installActivateReminderConfig.parseJson(optJSONObject);
-        a((InstallActivateReminderConfigItem) installActivateReminderConfig);
+        setValue(installActivateReminderConfig);
     }
 }

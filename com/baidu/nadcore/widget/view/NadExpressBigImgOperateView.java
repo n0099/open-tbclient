@@ -49,7 +49,7 @@ public class NadExpressBigImgOperateView extends NadExpressNaBaseView {
     public void j(LayoutInflater layoutInflater, pn0 pn0Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, layoutInflater, pn0Var) == null) {
-            layoutInflater.inflate((pn0Var == null || pn0Var.a(AdBaseModel.STYLE.BIG_IMAGE) == 0) ? R.layout.obfuscated_res_0x7f0d05ae : pn0Var.a(AdBaseModel.STYLE.BIG_IMAGE), this);
+            layoutInflater.inflate((pn0Var == null || pn0Var.a(AdBaseModel.STYLE.BIG_IMAGE) == 0) ? R.layout.obfuscated_res_0x7f0d05b8 : pn0Var.a(AdBaseModel.STYLE.BIG_IMAGE), this);
         }
     }
 
@@ -57,7 +57,7 @@ public class NadExpressBigImgOperateView extends NadExpressNaBaseView {
     public void k(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
-            this.m = (AdImageView) findViewById(R.id.obfuscated_res_0x7f091531);
+            this.m = (AdImageView) findViewById(R.id.obfuscated_res_0x7f09150c);
         }
     }
 

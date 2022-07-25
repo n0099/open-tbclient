@@ -9,7 +9,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 /* loaded from: classes5.dex */
 public class RatioFrameLayout extends FrameLayout {
-    public float a;
+    public float aqZ;
 
     public RatioFrameLayout(@NonNull Context context) {
         this(context, null);
@@ -21,24 +21,24 @@ public class RatioFrameLayout extends FrameLayout {
 
     public RatioFrameLayout(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.a = 0.0f;
+        this.aqZ = 0.0f;
     }
 
     public float getRatio() {
-        return this.a;
+        return this.aqZ;
     }
 
     @Override // android.widget.FrameLayout, android.view.View
     public void onMeasure(int i, int i2) {
-        if (this.a != 0.0f) {
+        if (this.aqZ != 0.0f) {
             int size = View.MeasureSpec.getSize(i);
             Log.d("RatioFrameLayout", "widthSize:" + size);
-            i2 = View.MeasureSpec.makeMeasureSpec((int) (((float) size) * this.a), 1073741824);
+            i2 = View.MeasureSpec.makeMeasureSpec((int) (((float) size) * this.aqZ), 1073741824);
         }
         super.onMeasure(i, i2);
     }
 
     public void setRatio(float f) {
-        this.a = f;
+        this.aqZ = f;
     }
 }

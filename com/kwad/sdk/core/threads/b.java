@@ -16,56 +16,56 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
 /* loaded from: classes5.dex */
 public final class b {
-    public static final int a;
-    public static final int b;
-    public static final int c;
-    public static String d;
-    public static Map<String, WeakReference<ExecutorService>> e;
+    public static String TAG;
+    public static final int adA;
+    public static Map<String, WeakReference<ExecutorService>> adB;
+    public static final int ady;
+    public static final int adz;
 
     /* loaded from: classes5.dex */
     public interface a {
         @NonNull
-        ExecutorService a();
+        ExecutorService vu();
     }
 
     /* renamed from: com.kwad.sdk.core.threads.b$b  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public static class C0546b implements a {
-        public C0546b() {
+    public static class C0392b implements a {
+        public C0392b() {
         }
 
-        public /* synthetic */ C0546b(byte b) {
+        public /* synthetic */ C0392b(byte b) {
             this();
         }
 
         @Override // com.kwad.sdk.core.threads.b.a
         @NonNull
-        public final ExecutorService a() {
-            return new ThreadPoolExecutor(b.b, b.c, 60L, TimeUnit.SECONDS, new LinkedBlockingQueue(), new c(5, "diskAndHttp"));
+        public final ExecutorService vu() {
+            return new ThreadPoolExecutor(b.adz, b.adA, 60L, TimeUnit.SECONDS, new LinkedBlockingQueue(), new c(5, "diskAndHttp"));
         }
     }
 
     /* loaded from: classes5.dex */
     public static class c implements ThreadFactory {
-        public static final AtomicInteger a = new AtomicInteger(1);
-        public final String d;
-        public final int e;
-        public final AtomicInteger c = new AtomicInteger(1);
-        public final ThreadGroup b = Thread.currentThread().getThreadGroup();
+        public static final AtomicInteger poolNumber = new AtomicInteger(1);
+        public final String namePrefix;
+        public final int threadPriority;
+        public final AtomicInteger threadNumber = new AtomicInteger(1);
+        public final ThreadGroup group = Thread.currentThread().getThreadGroup();
 
         public c(int i, String str) {
-            this.e = i;
-            this.d = "ksad-" + str + a.getAndIncrement() + "-thread-";
+            this.threadPriority = i;
+            this.namePrefix = "ksad-" + str + poolNumber.getAndIncrement() + "-thread-";
         }
 
         @Override // java.util.concurrent.ThreadFactory
         public final Thread newThread(Runnable runnable) {
-            ThreadGroup threadGroup = this.b;
-            Thread thread = new Thread(threadGroup, runnable, this.d + this.c.getAndIncrement(), 0L);
+            ThreadGroup threadGroup = this.group;
+            Thread thread = new Thread(threadGroup, runnable, this.namePrefix + this.threadNumber.getAndIncrement(), 0L);
             if (thread.isDaemon()) {
                 thread.setDaemon(false);
             }
-            thread.setPriority(this.e);
+            thread.setPriority(this.threadPriority);
             return thread;
         }
     }
@@ -81,7 +81,7 @@ public final class b {
 
         @Override // com.kwad.sdk.core.threads.b.a
         @NonNull
-        public final ExecutorService a() {
+        public final ExecutorService vu() {
             return new ThreadPoolExecutor(1, 3, 60L, TimeUnit.SECONDS, new LinkedBlockingQueue(), new c(3, "uil-pool-"));
         }
     }
@@ -97,7 +97,7 @@ public final class b {
 
         @Override // com.kwad.sdk.core.threads.b.a
         @NonNull
-        public final ExecutorService a() {
+        public final ExecutorService vu() {
             return new ThreadPoolExecutor(0, 1, 60L, TimeUnit.SECONDS, new LinkedBlockingQueue(), new c(5, "lruDiskCache"));
         }
     }
@@ -113,7 +113,7 @@ public final class b {
 
         @Override // com.kwad.sdk.core.threads.b.a
         @NonNull
-        public final ExecutorService a() {
+        public final ExecutorService vu() {
             return Executors.newSingleThreadExecutor(new c(3, "report-"));
         }
     }
@@ -129,89 +129,89 @@ public final class b {
 
         @Override // com.kwad.sdk.core.threads.b.a
         @NonNull
-        public final ExecutorService a() {
+        public final ExecutorService vu() {
             return new ThreadPoolExecutor(3, 3, 60L, TimeUnit.SECONDS, new LinkedBlockingQueue(), new c(5, "videoCache"));
         }
     }
 
     static {
         int availableProcessors = Runtime.getRuntime().availableProcessors();
-        a = availableProcessors;
+        ady = availableProcessors;
         int i = availableProcessors > 0 ? availableProcessors + 4 : 9;
-        b = i;
-        c = i;
-        d = "GlobalThreadPools";
-        e = new ConcurrentHashMap();
-    }
-
-    public static ExecutorService a() {
-        return a("lruDiskCache", new e((byte) 0));
+        adz = i;
+        adA = i;
+        TAG = "GlobalThreadPools";
+        adB = new ConcurrentHashMap();
     }
 
     @NonNull
     public static ExecutorService a(@GlobalThreadPools.PoolNames String str, @NonNull a aVar) {
-        WeakReference<ExecutorService> weakReference = e.get(str);
+        WeakReference<ExecutorService> weakReference = adB.get(str);
         if (weakReference == null || weakReference.get() == null) {
-            ExecutorService a2 = aVar.a();
-            e.put(str, new WeakReference<>(a2));
-            return a2;
+            ExecutorService vu = aVar.vu();
+            adB.put(str, new WeakReference<>(vu));
+            return vu;
         }
         return weakReference.get();
     }
 
-    public static synchronized ExecutorService b() {
+    public static ExecutorService vh() {
+        return a("lruDiskCache", new e((byte) 0));
+    }
+
+    public static synchronized ExecutorService vi() {
         ExecutorService a2;
         synchronized (b.class) {
-            com.kwad.sdk.core.d.b.a(d, "forKsImageLoaderTask");
+            com.kwad.sdk.core.e.b.d(TAG, "forKsImageLoaderTask");
             a2 = a("ksImageLoaderTask", new d((byte) 0));
         }
         return a2;
     }
 
-    public static synchronized ExecutorService c() {
+    public static synchronized ExecutorService vj() {
         ExecutorService a2;
         synchronized (b.class) {
-            com.kwad.sdk.core.d.b.a(d, "forKsImageLoaderCachedImages");
+            com.kwad.sdk.core.e.b.d(TAG, "forKsImageLoaderCachedImages");
             a2 = a("ksImageLoaderTask", new d((byte) 0));
         }
         return a2;
     }
 
-    public static ExecutorService d() {
-        com.kwad.sdk.core.d.b.a(d, "forKsImageLoaderTaskDistributor");
+    public static ExecutorService vk() {
+        com.kwad.sdk.core.e.b.d(TAG, "forKsImageLoaderTaskDistributor");
         return a("ksImageLoaderTask", new d((byte) 0));
     }
 
-    public static synchronized ExecutorService e() {
+    public static synchronized ExecutorService vl() {
         ExecutorService a2;
         synchronized (b.class) {
-            com.kwad.sdk.core.d.b.a(d, "forBaseBatchReporter");
+            com.kwad.sdk.core.e.b.d(TAG, "forBaseBatchReporter");
             a2 = a("report", new f((byte) 0));
         }
         return a2;
     }
 
-    public static synchronized ExecutorService f() {
+    public static synchronized ExecutorService vm() {
         ExecutorService a2;
         synchronized (b.class) {
-            com.kwad.sdk.core.d.b.a(d, "forAdReportManager");
+            com.kwad.sdk.core.e.b.d(TAG, "forAdReportManager");
             a2 = a("report", new f((byte) 0));
         }
         return a2;
     }
 
-    public static ExecutorService g() {
-        com.kwad.sdk.core.d.b.a(d, "forBaseNetwork");
-        return a("httpIO", new C0546b((byte) 0));
+    public static ExecutorService vn() {
+        com.kwad.sdk.core.e.b.d(TAG, "forBaseNetwork");
+        return a("httpIO", new C0392b((byte) 0));
     }
 
-    public static ExecutorService h() {
-        com.kwad.sdk.core.d.b.a(d, "forHttpCacheServer");
+    public static ExecutorService vo() {
+        com.kwad.sdk.core.e.b.d(TAG, "forHttpCacheServer");
         return a("videoCache", new g((byte) 0));
     }
 
-    public static ExecutorService i() {
-        com.kwad.sdk.core.d.b.a(d, "forAppStatusHelper");
+    public static ExecutorService vp() {
+        com.kwad.sdk.core.e.b.d(TAG, "forAppStatusHelper");
         return Executors.newSingleThreadExecutor(new ThreadFactory() { // from class: com.kwad.sdk.core.threads.b.1
             @Override // java.util.concurrent.ThreadFactory
             public final Thread newThread(Runnable runnable) {
@@ -222,23 +222,23 @@ public final class b {
         });
     }
 
-    public static ExecutorService j() {
-        com.kwad.sdk.core.d.b.a(d, "forAsync");
+    public static ExecutorService vq() {
+        com.kwad.sdk.core.e.b.d(TAG, "forAsync");
         return a("async", new a() { // from class: com.kwad.sdk.core.threads.b.2
             @Override // com.kwad.sdk.core.threads.b.a
             @NonNull
-            public final ExecutorService a() {
+            public final ExecutorService vu() {
                 return new ThreadPoolExecutor(3, 3, 60L, TimeUnit.SECONDS, new LinkedBlockingQueue(), new c(5, "async"));
             }
         });
     }
 
-    public static ScheduledExecutorService k() {
-        com.kwad.sdk.core.d.b.a(d, "forAsyncSchedule");
+    public static ScheduledExecutorService vr() {
+        com.kwad.sdk.core.e.b.d(TAG, "forAsyncSchedule");
         ExecutorService a2 = a("async-schedule", new a() { // from class: com.kwad.sdk.core.threads.b.3
             @Override // com.kwad.sdk.core.threads.b.a
             @NonNull
-            public final ExecutorService a() {
+            public final ExecutorService vu() {
                 return new ScheduledThreadPoolExecutor(1, new c(5, "async-schedule"));
             }
         });

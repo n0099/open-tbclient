@@ -1,254 +1,195 @@
 package com.repackage;
 
-import android.animation.Animator;
-import android.animation.AnimatorListenerAdapter;
-import android.animation.AnimatorSet;
-import android.animation.ObjectAnimator;
-import android.app.Activity;
 import android.content.Context;
-import android.graphics.drawable.ColorDrawable;
-import android.os.Build;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.FrameLayout;
-import androidx.annotation.Nullable;
+import android.graphics.drawable.Drawable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.menu.BaseMenuView;
-import com.baidu.swan.menu.MainMenuView;
-import com.baidu.swan.menu.PopupWindow;
-import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
 /* loaded from: classes6.dex */
-public class o64 extends PopupWindow implements View.OnClickListener {
+public class o64 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public View Q;
-    public BaseMenuView R;
-    public Context S;
-    public View T;
-    public MainMenuView U;
-    public FrameLayout V;
-    public h64 W;
-    public boolean X;
-    public int Y;
+    public int a;
+    public int b;
+    public int c;
+    public String d;
+    public Drawable e;
+    public boolean f;
+    public boolean g;
+    public int h;
+    public int i;
+    public long j;
+    public m64 k;
+    public s64 l;
 
-    /* loaded from: classes6.dex */
-    public class a extends AnimatorListenerAdapter {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ o64 a;
-
-        public a(o64 o64Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {o64Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = o64Var;
-        }
-
-        @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
-        public void onAnimationEnd(Animator animator) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, animator) == null) {
-                Context context = this.a.S;
-                if ((context instanceof Activity) && ((Activity) context).isFinishing()) {
-                    return;
-                }
-                o64.super.r();
-                o64 o64Var = this.a;
-                BaseMenuView baseMenuView = o64Var.R;
-                if (baseMenuView != o64Var.U) {
-                    baseMenuView.setVisibility(8);
-                }
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public o64(Context context, View view2, @Nullable h64 h64Var) {
-        super(context);
+    public o64(int i, int i2, int i3, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, view2, h64Var};
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((Context) newInitContext.callArgs[0]);
+            int i4 = newInitContext.flag;
+            if ((i4 & 1) != 0) {
+                int i5 = i4 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.X = true;
-        this.Y = 0;
-        this.S = context;
-        this.T = view2;
-        this.W = h64Var;
-        D(false);
-        F(true);
-        J(true);
-        C(new ColorDrawable(0));
-        M(-1);
-        G(-1);
-        if (Build.VERSION.SDK_INT > 29) {
-            H(true);
-        }
-        U();
+        this.b = -1;
+        this.c = -1;
+        this.f = true;
+        this.g = true;
+        this.h = 0;
+        this.i = 0;
+        this.j = 0L;
+        this.a = i;
+        this.b = i2;
+        this.c = i3;
+        this.g = z;
     }
 
-    public void S() {
-        h64 h64Var;
+    public static o64 k(o64 o64Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (h64Var = this.W) == null) {
-            return;
-        }
-        h64Var.a(this.U);
-    }
-
-    public void T(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            if (!z) {
-                super.r();
-            } else if (x()) {
-                ObjectAnimator c = j64.c(this.Q);
-                ObjectAnimator e = j64.e(this.R);
-                AnimatorSet animatorSet = new AnimatorSet();
-                animatorSet.addListener(new a(this));
-                animatorSet.playTogether(c, e);
-                animatorSet.start();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, o64Var)) == null) {
+            if (o64Var == null) {
+                return null;
             }
+            return new o64(o64Var.a, o64Var.b, o64Var.c, o64Var.g);
         }
+        return (o64) invokeL.objValue;
     }
 
-    public final void U() {
-        int b;
+    public static o64 l(o64 o64Var, boolean z) {
+        InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            FrameLayout frameLayout = (FrameLayout) LayoutInflater.from(this.S).inflate(R.layout.obfuscated_res_0x7f0d008b, (ViewGroup) null);
-            this.V = frameLayout;
-            this.Q = frameLayout.findViewById(R.id.obfuscated_res_0x7f091418);
-            this.U = (MainMenuView) this.V.findViewById(R.id.obfuscated_res_0x7f090187);
-            if (kg4.d() && (this.S instanceof Activity)) {
-                FrameLayout frameLayout2 = (FrameLayout) this.V.findViewById(R.id.obfuscated_res_0x7f09145c);
-                if (kg4.e((Activity) this.S)) {
-                    b = kg4.a((Activity) this.S);
-                } else {
-                    b = (int) kg4.b((Activity) this.S);
-                }
-                FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(b, -1);
-                layoutParams.gravity = 17;
-                if (frameLayout2 != null) {
-                    frameLayout2.setLayoutParams(layoutParams);
-                }
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65538, null, o64Var, z)) == null) {
+            if (o64Var == null) {
+                return null;
             }
-            this.Q.setOnClickListener(this);
-            this.U.setClickListener(this);
-            this.U.setFitsSystemWindows(true);
-            this.V.measure(0, 0);
-            E(this.V);
+            return new o64(o64Var.a, o64Var.b, o64Var.c, z);
         }
+        return (o64) invokeLZ.objValue;
     }
 
-    public void V() {
+    public Drawable a(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.U.e();
-        }
-    }
-
-    public void W(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
-            this.Y = i;
-        }
-    }
-
-    public void X(List<List<n64>> list, View view2, boolean z, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{list, view2, Boolean.valueOf(z), Integer.valueOf(i)}) == null) {
-            this.U.update(list, view2, z, i);
-            Z();
-        }
-    }
-
-    public void Y() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.Q.setAlpha(0.0f);
-            MainMenuView mainMenuView = this.U;
-            mainMenuView.setTranslationY(mainMenuView.getHeight());
-            ObjectAnimator d = j64.d(this.Q, this.U);
-            ObjectAnimator b = j64.b(this.U);
-            ArrayList arrayList = new ArrayList();
-            arrayList.add(d);
-            arrayList.add(b);
-            AnimatorSet animatorSet = new AnimatorSet();
-            animatorSet.playTogether(arrayList);
-            animatorSet.start();
-        }
-    }
-
-    public final void Z() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || x()) {
-            return;
-        }
-        S();
-        this.U.f();
-        this.R = this.U;
-        if (this.X) {
-            F(false);
-        }
-        Activity activity = (Activity) this.S;
-        if (activity == null || activity.isFinishing() || activity.isDestroyed()) {
-            return;
-        }
-        O(this.T, 81, 0, 0);
-        if (this.X) {
-            v().setSystemUiVisibility(this.Y | 1024 | 4096);
-            F(true);
-            update();
-        }
-        Y();
-    }
-
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, view2) == null) {
-            int id = view2.getId();
-            if (id == R.id.obfuscated_res_0x7f09046d || id == R.id.obfuscated_res_0x7f091418) {
-                T(true);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
+            Drawable drawable = this.e;
+            if (drawable != null) {
+                return drawable;
             }
+            if (this.c <= 0) {
+                return null;
+            }
+            return context.getResources().getDrawable(this.c);
+        }
+        return (Drawable) invokeL.objValue;
+    }
+
+    public int b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.h : invokeV.intValue;
+    }
+
+    public int c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : invokeV.intValue;
+    }
+
+    public s64 d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.l : (s64) invokeV.objValue;
+    }
+
+    public long e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.j : invokeV.longValue;
+    }
+
+    public int f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.i : invokeV.intValue;
+    }
+
+    public m64 g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.k : (m64) invokeV.objValue;
+    }
+
+    public String h(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, context)) == null) {
+            String str = this.d;
+            if (str != null) {
+                return str;
+            }
+            if (this.b <= 0) {
+                return null;
+            }
+            return context.getResources().getString(this.b);
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public boolean i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.g : invokeV.booleanValue;
+    }
+
+    public boolean j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f : invokeV.booleanValue;
+    }
+
+    public void m(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
+            this.c = i;
         }
     }
 
-    @Override // com.baidu.swan.menu.PopupWindow
-    public void r() {
+    public void n(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            T(true);
+        if (interceptable == null || interceptable.invokeJ(1048587, this, j) == null) {
+            this.j = j;
+        }
+    }
+
+    public void o(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
+            this.i = i;
+        }
+    }
+
+    public void p(m64 m64Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048589, this, m64Var) == null) {
+            this.k = m64Var;
+        }
+    }
+
+    public void q(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
+            this.b = i;
         }
     }
 }

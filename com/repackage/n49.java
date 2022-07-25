@@ -35,11 +35,11 @@ public final class n49 implements b49.a {
 
         /* renamed from: com.repackage.n49$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class C0686a extends q49 {
+        public class C0530a extends q49 {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
-            public C0686a(a aVar) {
+            public C0530a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -94,7 +94,7 @@ public final class n49 implements b49.a {
                     this.a.m(currentTimeMillis);
                 }
                 if (n39.h().g()) {
-                    p49.a(new C0686a(this));
+                    p49.a(new C0530a(this));
                 }
             }
         }
@@ -279,23 +279,21 @@ public final class n49 implements b49.a {
     }
 
     @Override // com.repackage.b49.a
-    public final void a() {
+    public final void U() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.b = false;
-            boolean z = !this.a;
-            this.a = true;
+            this.b = true;
             Runnable runnable = this.d;
             if (runnable != null) {
                 this.c.removeCallbacks(runnable);
+                this.d = null;
             }
-            if (z) {
-                try {
-                    this.e.a();
-                } catch (Exception e2) {
-                    w49.b("Listener threw exception!:" + e2.toString());
-                }
-            }
+            h = System.currentTimeMillis();
+            p49.c(new c(this));
+            Handler handler = this.c;
+            b bVar = new b(this);
+            this.d = bVar;
+            handler.postDelayed(bVar, 1000L);
         }
     }
 
@@ -310,18 +308,20 @@ public final class n49 implements b49.a {
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.b = true;
+            this.b = false;
+            boolean z = !this.a;
+            this.a = true;
             Runnable runnable = this.d;
             if (runnable != null) {
                 this.c.removeCallbacks(runnable);
-                this.d = null;
             }
-            h = System.currentTimeMillis();
-            p49.c(new c(this));
-            Handler handler = this.c;
-            b bVar = new b(this);
-            this.d = bVar;
-            handler.postDelayed(bVar, 1000L);
+            if (z) {
+                try {
+                    this.e.a();
+                } catch (Exception e2) {
+                    w49.b("Listener threw exception!:" + e2.toString());
+                }
+            }
         }
     }
 

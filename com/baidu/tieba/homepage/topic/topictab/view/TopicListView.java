@@ -19,10 +19,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.fu4;
 import com.repackage.gu4;
-import com.repackage.j55;
+import com.repackage.hu4;
 import com.repackage.k55;
+import com.repackage.l55;
 import com.repackage.ni;
 import com.repackage.nn;
 import com.repackage.pi;
@@ -39,9 +39,9 @@ public class TopicListView extends FrameLayout {
     public BdSwipeRefreshLayout d;
     public BdTypeRecyclerView e;
     public t17 f;
-    public gu4 g;
-    public j55 h;
-    public k55 i;
+    public hu4 g;
+    public k55 h;
+    public l55 i;
     public ScrollFragmentTabHost j;
     public PbListView k;
     public RecyclerView.OnScrollListener l;
@@ -96,22 +96,22 @@ public class TopicListView extends FrameLayout {
     }
 
     public void d() {
-        j55 j55Var;
+        k55 k55Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (j55Var = this.h) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (k55Var = this.h) == null) {
             return;
         }
-        j55Var.dettachView(this);
+        k55Var.dettachView(this);
         this.h = null;
     }
 
     public void e() {
-        k55 k55Var;
+        l55 l55Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (k55Var = this.i) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (l55Var = this.i) == null) {
             return;
         }
-        k55Var.dettachView(this);
+        l55Var.dettachView(this);
         this.i = null;
     }
 
@@ -127,9 +127,9 @@ public class TopicListView extends FrameLayout {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            j55 j55Var = this.h;
-            if (j55Var != null) {
-                return j55Var.isViewAttached();
+            k55 k55Var = this.h;
+            if (k55Var != null) {
+                return k55Var.isViewAttached();
             }
             return false;
         }
@@ -140,9 +140,9 @@ public class TopicListView extends FrameLayout {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            k55 k55Var = this.i;
-            if (k55Var != null) {
-                return k55Var.isViewAttached();
+            l55 l55Var = this.i;
+            if (l55Var != null) {
+                return l55Var.isViewAttached();
             }
             return false;
         }
@@ -156,17 +156,17 @@ public class TopicListView extends FrameLayout {
             return;
         }
         this.a = skinType;
-        gu4 gu4Var = this.g;
-        if (gu4Var != null) {
-            gu4Var.H(skinType);
+        hu4 hu4Var = this.g;
+        if (hu4Var != null) {
+            hu4Var.H(skinType);
         }
-        j55 j55Var = this.h;
-        if (j55Var != null) {
-            j55Var.onChangeSkinType();
-        }
-        k55 k55Var = this.i;
+        k55 k55Var = this.h;
         if (k55Var != null) {
             k55Var.onChangeSkinType();
+        }
+        l55 l55Var = this.i;
+        if (l55Var != null) {
+            l55Var.onChangeSkinType();
         }
         t17 t17Var = this.f;
         if (t17Var != null) {
@@ -206,7 +206,7 @@ public class TopicListView extends FrameLayout {
             return;
         }
         if (this.h == null) {
-            this.h = new j55(getContext());
+            this.h = new k55(getContext());
             int height = (((getHeight() - TbadkCoreApplication.getInst().getMainTabBottomBarHeight()) - pi.f(getContext(), R.dimen.tbds304)) / 2) - (TbadkCoreApplication.getInst().getMainTabBottomBarHeight() / 2);
             this.h.i();
             this.h.s(height);
@@ -221,7 +221,7 @@ public class TopicListView extends FrameLayout {
             return;
         }
         if (this.i == null) {
-            this.i = new k55(getContext(), new a(this));
+            this.i = new l55(getContext(), new a(this));
         }
         this.i.attachView(this, z);
         this.i.p();
@@ -235,7 +235,7 @@ public class TopicListView extends FrameLayout {
             this.k.f();
             this.k.L(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
             this.k.t(pi.f(this.b.getPageActivity(), R.dimen.tbds150));
-            this.k.C(getResources().getString(R.string.obfuscated_res_0x7f0f0f62));
+            this.k.C(getResources().getString(R.string.obfuscated_res_0x7f0f0f4b));
         }
     }
 
@@ -270,13 +270,13 @@ public class TopicListView extends FrameLayout {
         this.f.b(list);
     }
 
-    public void setListPullRefreshListener(fu4.g gVar) {
-        gu4 gu4Var;
+    public void setListPullRefreshListener(gu4.g gVar) {
+        hu4 hu4Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048592, this, gVar) == null) || (gu4Var = this.g) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048592, this, gVar) == null) || (hu4Var = this.g) == null) {
             return;
         }
-        gu4Var.f(gVar);
+        hu4Var.f(gVar);
     }
 
     public void setPageUniqueId(BdUniqueId bdUniqueId) {
@@ -286,9 +286,9 @@ public class TopicListView extends FrameLayout {
             if (t17Var != null) {
                 t17Var.c(bdUniqueId);
             }
-            gu4 gu4Var = this.g;
-            if (gu4Var != null) {
-                gu4Var.b0(bdUniqueId);
+            hu4 hu4Var = this.g;
+            if (hu4Var != null) {
+                hu4Var.b0(bdUniqueId);
             }
         }
     }

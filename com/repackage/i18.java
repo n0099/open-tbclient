@@ -38,12 +38,12 @@ public class i18 implements b28.c {
 
         /* renamed from: com.repackage.i18$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class RunnableC0655a implements Runnable {
+        public class RunnableC0502a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public RunnableC0655a(a aVar) {
+            public RunnableC0502a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -96,7 +96,7 @@ public class i18 implements b28.c {
                 this.a.b.e();
                 this.a.b.k(o18Var);
                 if (o18Var != null && o18Var.q() != null) {
-                    fn4.b(o18Var.q().getPersonPrivate());
+                    gn4.b(o18Var.q().getPersonPrivate());
                 }
                 y08.d().i(System.currentTimeMillis() - currentTimeMillis);
                 long e = y08.d().e();
@@ -104,7 +104,7 @@ public class i18 implements b28.c {
                     y08.d().k(System.currentTimeMillis() - e);
                     y08.d().j(0L);
                 }
-                qg.a().postDelayed(new RunnableC0655a(this), 100L);
+                qg.a().postDelayed(new RunnableC0502a(this), 100L);
             }
         }
 

@@ -1,75 +1,50 @@
 package com.repackage;
 
+import android.graphics.Color;
 import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class vm2 extends tm2 {
+public class vm2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String A;
-    public ArrayList<String> B;
-    public String z;
 
-    public vm2() {
+    public static int a(String str, int i) {
+        InterceptResult invokeLI;
+        long parseLong;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65536, null, str, i)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                ix1.o("map", "color string is empty, use default " + Integer.toHexString(i));
+                return i;
+            }
+            try {
+                if (str.charAt(0) == '#') {
+                    String substring = str.substring(1);
+                    if (substring.length() != 6 && substring.length() != 8) {
+                        throw new IllegalArgumentException("char count not right");
+                    }
+                    if (substring.length() == 6) {
+                        parseLong = Long.parseLong(substring, 16) | (-16777216);
+                    } else {
+                        parseLong = Long.parseLong(substring.substring(6) + substring.substring(0, 6), 16);
+                    }
+                    return (int) parseLong;
+                }
+                return Color.parseColor(str);
+            } catch (IllegalArgumentException unused) {
+                ix1.o("map", "parse color error, use default " + Integer.toHexString(i));
+                return i;
             }
         }
-        this.z = "";
-        this.A = "";
+        return invokeLI.intValue;
     }
 
-    @Override // com.repackage.tm2, com.repackage.xv1, com.repackage.gq2
-    public void a(JSONObject jSONObject) throws JSONException {
-        JSONArray optJSONArray;
+    public static float b(double d) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
-            return;
-        }
-        super.a(jSONObject);
-        if (jSONObject.has("scale")) {
-            this.k = jSONObject.optDouble("scale", 18.0d);
-        }
-        if (jSONObject.has("name")) {
-            this.z = jSONObject.optString("name");
-        }
-        if (jSONObject.has("address")) {
-            this.A = jSONObject.optString("address");
-        }
-        if (jSONObject.has("ignoredApps") && (optJSONArray = jSONObject.optJSONArray("ignoredApps")) != null) {
-            int length = optJSONArray.length();
-            this.B = new ArrayList<>();
-            for (int i = 0; i < length; i++) {
-                this.B.add(optJSONArray.optString(i));
-            }
-        }
-        if (jSONObject.has("naviPreference")) {
-            jSONObject.optInt("naviPreference", -1);
-        }
-    }
-
-    @Override // com.repackage.xv1, com.repackage.gq2
-    public boolean isValid() {
-        InterceptResult invokeV;
-        an2 an2Var;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? (TextUtils.isEmpty(this.c) || (an2Var = this.j) == null || !an2Var.isValid()) ? false : true : invokeV.booleanValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Double.valueOf(d)})) == null) ? (float) (d * zd3.l(AppRuntime.getAppContext())) : invokeCommon.floatValue;
     }
 }

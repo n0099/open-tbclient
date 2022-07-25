@@ -22,7 +22,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.fu4;
+import com.repackage.gu4;
 import java.util.ArrayList;
 import java.util.List;
 @SuppressLint({"ResourceAsColor"})
@@ -36,7 +36,7 @@ public class wn8 {
     public NavigationBar d;
     public MemberRecommendView e;
     public BdListView f;
-    public gu4 g;
+    public hu4 g;
     public TextView h;
     public vn8 i;
     public int j;
@@ -59,22 +59,22 @@ public class wn8 {
         this.g = null;
         this.j = 0;
         this.a = backgroundListActivity;
-        this.j = pi.f(backgroundListActivity.getPageContext().getPageActivity(), R.dimen.obfuscated_res_0x7f07023e);
+        this.j = pi.f(backgroundListActivity.getPageContext().getPageActivity(), R.dimen.obfuscated_res_0x7f07023c);
         View inflate = LayoutInflater.from(this.a.getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d012a, (ViewGroup) null);
         this.b = inflate;
         this.a.setContentView(inflate);
         this.c = this.b.findViewById(R.id.obfuscated_res_0x7f090394);
-        NavigationBar navigationBar = (NavigationBar) this.b.findViewById(R.id.obfuscated_res_0x7f092437);
+        NavigationBar navigationBar = (NavigationBar) this.b.findViewById(R.id.obfuscated_res_0x7f092439);
         this.d = navigationBar;
         navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.d.setTitleText(R.string.obfuscated_res_0x7f0f0e58);
-        MemberRecommendView memberRecommendView = (MemberRecommendView) this.b.findViewById(R.id.obfuscated_res_0x7f092436);
+        this.d.setTitleText(R.string.obfuscated_res_0x7f0f0e41);
+        MemberRecommendView memberRecommendView = (MemberRecommendView) this.b.findViewById(R.id.obfuscated_res_0x7f092438);
         this.e = memberRecommendView;
         memberRecommendView.setFromType(5);
-        this.f = (BdListView) this.b.findViewById(R.id.obfuscated_res_0x7f0912e0);
-        gu4 gu4Var = new gu4(this.a.getPageContext());
-        this.g = gu4Var;
-        this.f.setPullRefresh(gu4Var);
+        this.f = (BdListView) this.b.findViewById(R.id.obfuscated_res_0x7f0912bc);
+        hu4 hu4Var = new hu4(this.a.getPageContext());
+        this.g = hu4Var;
+        this.f.setPullRefresh(hu4Var);
         TextView textView = new TextView(this.a.getActivity());
         this.h = textView;
         textView.setHeight(pi.f(this.a.getActivity(), R.dimen.obfuscated_res_0x7f07019c));
@@ -123,7 +123,7 @@ public class wn8 {
         vn8 vn8Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            ga5.a(this.a.getPageContext(), this.b);
+            ha5.a(this.a.getPageContext(), this.b);
             NavigationBar navigationBar = this.d;
             if (navigationBar != null) {
                 navigationBar.onChangeSkinType(this.a.getPageContext(), TbadkApplication.getInst().getSkinType());
@@ -132,9 +132,9 @@ public class wn8 {
             if (bdListView != null && bdListView.getVisibility() == 0 && (vn8Var = this.i) != null) {
                 vn8Var.notifyDataSetChanged();
             }
-            gu4 gu4Var = this.g;
-            if (gu4Var != null) {
-                gu4Var.H(TbadkApplication.getInst().getSkinType());
+            hu4 hu4Var = this.g;
+            if (hu4Var != null) {
+                hu4Var.H(TbadkApplication.getInst().getSkinType());
             }
             this.e.d();
             SkinManager.setBackgroundColor(this.h, R.color.CAM_X0204);
@@ -169,7 +169,7 @@ public class wn8 {
         return invokeL.booleanValue;
     }
 
-    public void g(BdListView.p pVar, fu4.g gVar) {
+    public void g(BdListView.p pVar, gu4.g gVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048582, this, pVar, gVar) == null) {
             this.f.setOnSrollToBottomListener(pVar);
@@ -182,7 +182,7 @@ public class wn8 {
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             this.c.setVisibility(8);
             SkinManager.setBackgroundColor(this.b, R.color.CAM_X0201);
-            String string = this.a.getPageContext().getResources().getString(R.string.obfuscated_res_0x7f0f0c45);
+            String string = this.a.getPageContext().getResources().getString(R.string.obfuscated_res_0x7f0f0c31);
             this.a.setNetRefreshViewTopMargin(this.j);
             this.a.showNetRefreshView(this.b, string, false);
         }

@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.td5;
+import com.repackage.ud5;
 import tbclient.ForumGuide.DataReq;
 import tbclient.ForumGuide.ForumGuideReqIdl;
 /* loaded from: classes3.dex */
@@ -47,7 +47,7 @@ public class ForumGuideRequestMessage extends NetMessage {
                 builder.sort_type = this.sortType;
                 builder.call_from = this.callFrom;
                 if (z) {
-                    td5.a(builder, true);
+                    ud5.a(builder, true);
                 }
                 ForumGuideReqIdl.Builder builder2 = new ForumGuideReqIdl.Builder();
                 builder2.data = builder.build(false);

@@ -85,10 +85,10 @@ public class wx extends xw {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.repackage.gx
     /* renamed from: u */
-    public void a(nn4 nn4Var) {
+    public void a(on4 on4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, nn4Var) == null) {
-            this.h.setData(nn4Var);
+        if (interceptable == null || interceptable.invokeL(1048580, this, on4Var) == null) {
+            this.h.setData(on4Var);
         }
     }
 

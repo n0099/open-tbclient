@@ -31,11 +31,11 @@ import com.repackage.e75;
 import com.repackage.f75;
 import com.repackage.g75;
 import com.repackage.h75;
-import com.repackage.j75;
+import com.repackage.i75;
 import com.repackage.k75;
 import com.repackage.l75;
-import com.repackage.r65;
-import com.repackage.v65;
+import com.repackage.m75;
+import com.repackage.s65;
 import com.repackage.w65;
 import com.repackage.x65;
 import com.repackage.y65;
@@ -79,23 +79,23 @@ public class MutiProcessStatic {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, null) == null) {
             try {
-                r65 f = r65.f();
-                f.l(AgreeEvent.class, new v65());
-                f.l(MissionEvent.class, new d75());
-                f.l(CompeteTaskEvent.class, new x65());
-                f.l(ShareEvent.class, new g75());
-                f.l(HistoryEvent.class, new b75());
-                f.l(BackBaiduBoxViewEvent.class, new w65());
-                f.l(SyncDataEvent.class, new k75());
-                f.l(ShowReplyInPbEvent.class, new h75());
-                f.l(LocationEvent.class, new c75());
-                f.l(PrePageKeyEvent.class, new e75());
-                f.l(CurrentPageTypeEvent.class, new y65());
-                f.l(ImageFpsEvent.class, new a75());
-                f.l(SoLoaderEvent.class, new j75());
-                f.l(PushRecevierEvent.class, new f75());
-                f.l(ThirdPartyActivityLifecycleEvent.class, new l75());
-                f.l(EmotionReloadEvent.class, new z65());
+                s65 f = s65.f();
+                f.l(AgreeEvent.class, new w65());
+                f.l(MissionEvent.class, new e75());
+                f.l(CompeteTaskEvent.class, new y65());
+                f.l(ShareEvent.class, new h75());
+                f.l(HistoryEvent.class, new c75());
+                f.l(BackBaiduBoxViewEvent.class, new x65());
+                f.l(SyncDataEvent.class, new l75());
+                f.l(ShowReplyInPbEvent.class, new i75());
+                f.l(LocationEvent.class, new d75());
+                f.l(PrePageKeyEvent.class, new f75());
+                f.l(CurrentPageTypeEvent.class, new z65());
+                f.l(ImageFpsEvent.class, new b75());
+                f.l(SoLoaderEvent.class, new k75());
+                f.l(PushRecevierEvent.class, new g75());
+                f.l(ThirdPartyActivityLifecycleEvent.class, new m75());
+                f.l(EmotionReloadEvent.class, new a75());
             } catch (Exception e) {
                 e.printStackTrace();
             }

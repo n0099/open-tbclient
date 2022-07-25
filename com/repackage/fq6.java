@@ -51,11 +51,11 @@ public class fq6 {
         }
         this.d = i + 1;
         if (str.length() < 20) {
-            str2 = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f06bd) + "\n" + str;
+            str2 = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f06b9) + "\n" + str;
         } else if (str.length() < 34) {
-            str2 = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f06bd) + str;
+            str2 = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f06b9) + str;
         } else {
-            str2 = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f06bd) + str.substring(0, 34);
+            str2 = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f06b9) + str.substring(0, 34);
         }
         this.c.setText(str2);
         SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0101);

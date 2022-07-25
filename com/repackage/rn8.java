@@ -135,7 +135,7 @@ public class rn8 extends BaseAdapter {
             } else if (getItemViewType(i) == 0) {
                 view2 = LayoutInflater.from(this.b.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0128, viewGroup, false);
                 aVar = new a();
-                aVar.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090ca8);
+                aVar.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090ca1);
                 view2.setTag(aVar);
             } else {
                 view2 = LayoutInflater.from(this.b.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d012e, viewGroup, false);
@@ -143,7 +143,7 @@ public class rn8 extends BaseAdapter {
                 aVar.b = (BackgroundItemView) view2.findViewById(R.id.obfuscated_res_0x7f090368);
                 aVar.c = (BackgroundItemView) view2.findViewById(R.id.obfuscated_res_0x7f090369);
                 aVar.d = (BackgroundItemView) view2.findViewById(R.id.obfuscated_res_0x7f09036a);
-                aVar.e = view2.findViewById(R.id.obfuscated_res_0x7f0907ca);
+                aVar.e = view2.findViewById(R.id.obfuscated_res_0x7f0907c8);
                 view2.setTag(aVar);
             }
             if (item != null) {

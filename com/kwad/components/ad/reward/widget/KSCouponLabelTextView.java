@@ -27,21 +27,21 @@ import com.kwad.components.core.widget.f;
 public class KSCouponLabelTextView extends TextView implements e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public float a;
-    public float b;
+    public final Paint mPaint;
     @ColorInt
-    public int c;
-    public float d;
-    public final Paint e;
-    public final Rect f;
-    public final RectF g;
-    public final RectF h;
-    public final RectF i;
-    public final Path j;
-    public Path k;
-    public Path l;
-    public final RectF m;
-    public boolean n;
+    public int strokeColor;
+    public Path wA;
+    public boolean wB;
+    public final Rect wn;
+    public final RectF wo;
+    public final RectF wr;
+    public float wt;
+    public float wu;
+    public float wv;
+    public final RectF ww;
+    public final RectF wx;
+    public final Path wy;
+    public Path wz;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public KSCouponLabelTextView(Context context) {
@@ -61,14 +61,14 @@ public class KSCouponLabelTextView extends TextView implements e {
                 return;
             }
         }
-        this.e = new Paint();
-        this.f = new Rect();
-        this.g = new RectF();
-        this.h = new RectF();
-        this.i = new RectF();
-        this.j = new Path();
-        this.m = new RectF();
-        this.n = true;
+        this.mPaint = new Paint();
+        this.wn = new Rect();
+        this.wo = new RectF();
+        this.ww = new RectF();
+        this.wx = new RectF();
+        this.wy = new Path();
+        this.wr = new RectF();
+        this.wB = true;
         a(context, null, 0);
     }
 
@@ -91,14 +91,14 @@ public class KSCouponLabelTextView extends TextView implements e {
                 return;
             }
         }
-        this.e = new Paint();
-        this.f = new Rect();
-        this.g = new RectF();
-        this.h = new RectF();
-        this.i = new RectF();
-        this.j = new Path();
-        this.m = new RectF();
-        this.n = true;
+        this.mPaint = new Paint();
+        this.wn = new Rect();
+        this.wo = new RectF();
+        this.ww = new RectF();
+        this.wx = new RectF();
+        this.wy = new Path();
+        this.wr = new RectF();
+        this.wB = true;
         a(context, attributeSet, 0);
     }
 
@@ -121,91 +121,98 @@ public class KSCouponLabelTextView extends TextView implements e {
                 return;
             }
         }
-        this.e = new Paint();
-        this.f = new Rect();
-        this.g = new RectF();
-        this.h = new RectF();
-        this.i = new RectF();
-        this.j = new Path();
-        this.m = new RectF();
-        this.n = true;
+        this.mPaint = new Paint();
+        this.wn = new Rect();
+        this.wo = new RectF();
+        this.ww = new RectF();
+        this.wx = new RectF();
+        this.wy = new Path();
+        this.wr = new RectF();
+        this.wB = true;
         a(context, attributeSet, i);
-    }
-
-    private void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65539, this) == null) {
-            this.e.setColor(this.c);
-            this.e.setStrokeWidth(this.b);
-            this.e.setStyle(Paint.Style.STROKE);
-            this.e.setAntiAlias(true);
-        }
     }
 
     @SuppressLint({"CustomViewStyleable"})
     private void a(Context context, AttributeSet attributeSet, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(InputDeviceCompat.SOURCE_TRACKBALL, this, context, attributeSet, i) == null) {
+        if (interceptable == null || interceptable.invokeLLI(65539, this, context, attributeSet, i) == null) {
             TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f04036d, R.attr.obfuscated_res_0x7f04037c, R.attr.obfuscated_res_0x7f040385, R.attr.obfuscated_res_0x7f040386}, i, 0);
             int color = context.getResources().getColor(R.color.obfuscated_res_0x7f06075f);
-            this.a = obtainStyledAttributes.getDimension(0, 8.0f);
-            this.b = obtainStyledAttributes.getDimension(3, 2.0f);
-            this.c = obtainStyledAttributes.getColor(2, color);
-            this.d = obtainStyledAttributes.getDimension(1, 16.0f);
+            this.wt = obtainStyledAttributes.getDimension(0, 8.0f);
+            this.wu = obtainStyledAttributes.getDimension(3, 2.0f);
+            this.strokeColor = obtainStyledAttributes.getColor(2, color);
+            this.wv = obtainStyledAttributes.getDimension(1, 16.0f);
             obtainStyledAttributes.recycle();
-            a();
+            jd();
         }
     }
 
     @RequiresApi(api = 19)
     private void a(Path path, Path path2, Path path3, RectF rectF, RectF rectF2, RectF rectF3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65541, this, new Object[]{path, path2, path3, rectF, rectF2, rectF3}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, this, new Object[]{path, path2, path3, rectF, rectF2, rectF3}) == null) {
             path.reset();
-            float f = this.a;
+            float f = this.wt;
             path.addRoundRect(rectF, f, f, Path.Direction.CW);
             path2.addArc(rectF2, 90.0f, -180.0f);
             path3.addArc(rectF3, 90.0f, 180.0f);
-            path.op(this.k, Path.Op.DIFFERENCE);
-            path.op(this.l, Path.Op.DIFFERENCE);
+            path.op(this.wz, Path.Op.DIFFERENCE);
+            path.op(this.wA, Path.Op.DIFFERENCE);
         }
     }
 
-    private void a(Path path, RectF rectF, RectF rectF2, RectF rectF3) {
+    private void a(RectF rectF, RectF rectF2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65541, this, rectF, rectF2) == null) {
+            rectF2.set(rectF);
+            float f = rectF2.left;
+            float f2 = this.wv;
+            float f3 = f - f2;
+            rectF2.left = f3;
+            rectF2.right = f3 + (f2 * 2.0f);
+            float height = rectF.height();
+            float f4 = this.wv;
+            float f5 = rectF2.top + ((height - (f4 * 2.0f)) / 2.0f);
+            rectF2.top = f5;
+            rectF2.bottom = f5 + (f4 * 2.0f);
+        }
+    }
+
+    private void b(Path path, RectF rectF, RectF rectF2, RectF rectF3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(65542, this, path, rectF, rectF2, rectF3) == null) {
             path.reset();
-            path.moveTo(rectF.left, rectF.top + this.a);
-            this.m.set(rectF);
-            RectF rectF4 = this.m;
+            path.moveTo(rectF.left, rectF.top + this.wt);
+            this.wr.set(rectF);
+            RectF rectF4 = this.wr;
             float f = rectF4.top;
-            float f2 = this.a;
+            float f2 = this.wt;
             rectF4.bottom = f + (f2 * 2.0f);
             rectF4.right = rectF4.left + (f2 * 2.0f);
             path.arcTo(rectF4, 180.0f, 90.0f);
-            path.lineTo(rectF.width() - this.a, rectF.top);
-            this.m.set(rectF);
-            RectF rectF5 = this.m;
+            path.lineTo(rectF.width() - this.wt, rectF.top);
+            this.wr.set(rectF);
+            RectF rectF5 = this.wr;
             float f3 = rectF5.right;
-            float f4 = this.a;
+            float f4 = this.wt;
             rectF5.left = f3 - (f4 * 2.0f);
             rectF5.bottom = rectF5.top + (f4 * 2.0f);
             path.arcTo(rectF5, 270.0f, 90.0f);
             path.lineTo(rectF.right, rectF3.top);
             path.arcTo(rectF3, 270.0f, -180.0f);
-            path.lineTo(rectF.right, rectF.bottom - this.a);
-            this.m.set(rectF);
-            RectF rectF6 = this.m;
+            path.lineTo(rectF.right, rectF.bottom - this.wt);
+            this.wr.set(rectF);
+            RectF rectF6 = this.wr;
             float f5 = rectF6.right;
-            float f6 = this.a;
+            float f6 = this.wt;
             rectF6.left = f5 - (f6 * 2.0f);
             rectF6.top = rectF6.bottom - (f6 * 2.0f);
             path.arcTo(rectF6, 0.0f, 90.0f);
-            path.lineTo(rectF.left + this.a, rectF.bottom);
-            this.m.set(rectF);
-            RectF rectF7 = this.m;
+            path.lineTo(rectF.left + this.wt, rectF.bottom);
+            this.wr.set(rectF);
+            RectF rectF7 = this.wr;
             float f7 = rectF7.left;
-            float f8 = this.a;
+            float f8 = this.wt;
             rectF7.right = f7 + (f8 * 2.0f);
             rectF7.top = rectF7.bottom - (f8 * 2.0f);
             path.arcTo(rectF7, 90.0f, 90.0f);
@@ -215,37 +222,30 @@ public class KSCouponLabelTextView extends TextView implements e {
         }
     }
 
-    private void a(RectF rectF, RectF rectF2) {
+    private void b(RectF rectF, RectF rectF2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65543, this, rectF, rectF2) == null) {
             rectF2.set(rectF);
-            float f = rectF2.left;
-            float f2 = this.d;
-            float f3 = f - f2;
-            rectF2.left = f3;
-            rectF2.right = f3 + (f2 * 2.0f);
+            float f = rectF2.right;
+            float f2 = this.wv;
+            float f3 = f + f2;
+            rectF2.right = f3;
+            rectF2.left = f3 - (f2 * 2.0f);
             float height = rectF.height();
-            float f4 = this.d;
+            float f4 = this.wv;
             float f5 = rectF2.top + ((height - (f4 * 2.0f)) / 2.0f);
             rectF2.top = f5;
             rectF2.bottom = f5 + (f4 * 2.0f);
         }
     }
 
-    private void b(RectF rectF, RectF rectF2) {
+    private void jd() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65544, this, rectF, rectF2) == null) {
-            rectF2.set(rectF);
-            float f = rectF2.right;
-            float f2 = this.d;
-            float f3 = f + f2;
-            rectF2.right = f3;
-            rectF2.left = f3 - (f2 * 2.0f);
-            float height = rectF.height();
-            float f4 = this.d;
-            float f5 = rectF2.top + ((height - (f4 * 2.0f)) / 2.0f);
-            rectF2.top = f5;
-            rectF2.bottom = f5 + (f4 * 2.0f);
+        if (interceptable == null || interceptable.invokeV(65544, this) == null) {
+            this.mPaint.setColor(this.strokeColor);
+            this.mPaint.setStrokeWidth(this.wu);
+            this.mPaint.setStyle(Paint.Style.STROKE);
+            this.mPaint.setAntiAlias(true);
         }
     }
 
@@ -254,9 +254,9 @@ public class KSCouponLabelTextView extends TextView implements e {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, fVar) == null) {
             int color = getResources().getColor(R.color.obfuscated_res_0x7f06075f);
-            this.c = color;
+            this.strokeColor = color;
             setTextColor(color);
-            a();
+            jd();
             invalidate();
         }
     }
@@ -266,35 +266,35 @@ public class KSCouponLabelTextView extends TextView implements e {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas) == null) {
             super.onDraw(canvas);
-            this.f.setEmpty();
-            getDrawingRect(this.f);
-            float f = this.b / 2.0f;
-            this.g.set(this.f);
-            RectF rectF = this.g;
+            this.wn.setEmpty();
+            getDrawingRect(this.wn);
+            float f = this.wu / 2.0f;
+            this.wo.set(this.wn);
+            RectF rectF = this.wo;
             rectF.left += f;
             rectF.top += f;
             rectF.right -= f;
             rectF.bottom -= f;
-            a(rectF, this.h);
-            b(this.g, this.i);
+            a(rectF, this.ww);
+            b(this.wo, this.wx);
             if (Build.VERSION.SDK_INT >= 19) {
-                Path path = this.k;
+                Path path = this.wz;
                 if (path == null) {
-                    this.k = new Path();
+                    this.wz = new Path();
                 } else {
                     path.reset();
                 }
-                Path path2 = this.l;
+                Path path2 = this.wA;
                 if (path2 == null) {
-                    this.l = new Path();
+                    this.wA = new Path();
                 } else {
                     path2.reset();
                 }
-                a(this.j, this.k, this.l, this.g, this.h, this.i);
+                a(this.wy, this.wz, this.wA, this.wo, this.ww, this.wx);
             } else {
-                a(this.j, this.g, this.h, this.i);
+                b(this.wy, this.wo, this.ww, this.wx);
             }
-            canvas.drawPath(this.j, this.e);
+            canvas.drawPath(this.wy, this.mPaint);
         }
     }
 
@@ -303,7 +303,7 @@ public class KSCouponLabelTextView extends TextView implements e {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i, i2) == null) {
             super.onMeasure(i, i2);
-            if (this.n) {
+            if (this.wB) {
                 if (((float) (getPaddingLeft() + getPaddingRight())) + getPaint().measureText(getText().toString()) <= ((float) getMeasuredWidth())) {
                     return;
                 }

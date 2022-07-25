@@ -20,7 +20,7 @@ public class hv implements iu<hv, Object>, Serializable, Cloneable {
     public static final jc a;
 
     /* renamed from: a  reason: collision with other field name */
-    public static final jk f1235a;
+    public static final jk f515a;
     public static final jc b;
     public static final jc c;
     public static final jc d;
@@ -41,61 +41,61 @@ public class hv implements iu<hv, Object>, Serializable, Cloneable {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
-    public long f1236a;
+    public long f516a;
 
     /* renamed from: a  reason: collision with other field name */
-    public hw f1237a;
+    public hw f517a;
 
     /* renamed from: a  reason: collision with other field name */
-    public hy f1238a;
+    public hy f518a;
 
     /* renamed from: a  reason: collision with other field name */
-    public String f1239a;
+    public String f519a;
 
     /* renamed from: a  reason: collision with other field name */
-    public BitSet f1240a;
+    public BitSet f520a;
 
     /* renamed from: a  reason: collision with other field name */
-    public boolean f1241a;
+    public boolean f521a;
 
     /* renamed from: b  reason: collision with other field name */
-    public long f1242b;
+    public long f522b;
 
     /* renamed from: b  reason: collision with other field name */
-    public String f1243b;
+    public String f523b;
 
     /* renamed from: c  reason: collision with other field name */
-    public long f1244c;
+    public long f524c;
 
     /* renamed from: c  reason: collision with other field name */
-    public String f1245c;
+    public String f525c;
 
     /* renamed from: d  reason: collision with other field name */
-    public String f1246d;
+    public String f526d;
 
     /* renamed from: e  reason: collision with other field name */
-    public String f1247e;
+    public String f527e;
 
     /* renamed from: f  reason: collision with other field name */
-    public String f1248f;
+    public String f528f;
 
     /* renamed from: g  reason: collision with other field name */
-    public String f1249g;
+    public String f529g;
 
     /* renamed from: h  reason: collision with other field name */
-    public String f1250h;
+    public String f530h;
 
     /* renamed from: i  reason: collision with other field name */
-    public String f1251i;
+    public String f531i;
 
     /* renamed from: j  reason: collision with other field name */
-    public String f1252j;
+    public String f532j;
 
     /* renamed from: k  reason: collision with other field name */
-    public String f1253k;
+    public String f533k;
 
     /* renamed from: l  reason: collision with other field name */
-    public String f1254l;
+    public String f534l;
 
     static {
         InterceptResult invokeClinit;
@@ -110,7 +110,7 @@ public class hv implements iu<hv, Object>, Serializable, Cloneable {
                 return;
             }
         }
-        f1235a = new jk("PushMessage");
+        f515a = new jk("PushMessage");
         a = new jc("", (byte) 12, (short) 1);
         b = new jc("", Constants.GZIP_CAST_TYPE, (short) 2);
         c = new jc("", Constants.GZIP_CAST_TYPE, (short) 3);
@@ -144,8 +144,8 @@ public class hv implements iu<hv, Object>, Serializable, Cloneable {
                 return;
             }
         }
-        this.f1240a = new BitSet(4);
-        this.f1241a = false;
+        this.f520a = new BitSet(4);
+        this.f521a = false;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -174,96 +174,96 @@ public class hv implements iu<hv, Object>, Serializable, Cloneable {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, hvVar)) == null) {
             if (hv.class.equals(hvVar.getClass())) {
-                int compareTo = Boolean.valueOf(m1363a()).compareTo(Boolean.valueOf(hvVar.m1363a()));
+                int compareTo = Boolean.valueOf(m425a()).compareTo(Boolean.valueOf(hvVar.m425a()));
                 if (compareTo != 0) {
                     return compareTo;
                 }
-                if (!m1363a() || (a19 = iv.a(this.f1238a, hvVar.f1238a)) == 0) {
-                    int compareTo2 = Boolean.valueOf(m1365b()).compareTo(Boolean.valueOf(hvVar.m1365b()));
+                if (!m425a() || (a19 = iv.a(this.f518a, hvVar.f518a)) == 0) {
+                    int compareTo2 = Boolean.valueOf(m427b()).compareTo(Boolean.valueOf(hvVar.m427b()));
                     if (compareTo2 != 0) {
                         return compareTo2;
                     }
-                    if (!m1365b() || (a18 = iv.a(this.f1239a, hvVar.f1239a)) == 0) {
-                        int compareTo3 = Boolean.valueOf(m1366c()).compareTo(Boolean.valueOf(hvVar.m1366c()));
+                    if (!m427b() || (a18 = iv.a(this.f519a, hvVar.f519a)) == 0) {
+                        int compareTo3 = Boolean.valueOf(m428c()).compareTo(Boolean.valueOf(hvVar.m428c()));
                         if (compareTo3 != 0) {
                             return compareTo3;
                         }
-                        if (!m1366c() || (a17 = iv.a(this.f1243b, hvVar.f1243b)) == 0) {
+                        if (!m428c() || (a17 = iv.a(this.f523b, hvVar.f523b)) == 0) {
                             int compareTo4 = Boolean.valueOf(d()).compareTo(Boolean.valueOf(hvVar.d()));
                             if (compareTo4 != 0) {
                                 return compareTo4;
                             }
-                            if (!d() || (a16 = iv.a(this.f1245c, hvVar.f1245c)) == 0) {
+                            if (!d() || (a16 = iv.a(this.f525c, hvVar.f525c)) == 0) {
                                 int compareTo5 = Boolean.valueOf(e()).compareTo(Boolean.valueOf(hvVar.e()));
                                 if (compareTo5 != 0) {
                                     return compareTo5;
                                 }
-                                if (!e() || (a15 = iv.a(this.f1236a, hvVar.f1236a)) == 0) {
+                                if (!e() || (a15 = iv.a(this.f516a, hvVar.f516a)) == 0) {
                                     int compareTo6 = Boolean.valueOf(f()).compareTo(Boolean.valueOf(hvVar.f()));
                                     if (compareTo6 != 0) {
                                         return compareTo6;
                                     }
-                                    if (!f() || (a14 = iv.a(this.f1242b, hvVar.f1242b)) == 0) {
+                                    if (!f() || (a14 = iv.a(this.f522b, hvVar.f522b)) == 0) {
                                         int compareTo7 = Boolean.valueOf(g()).compareTo(Boolean.valueOf(hvVar.g()));
                                         if (compareTo7 != 0) {
                                             return compareTo7;
                                         }
-                                        if (!g() || (a13 = iv.a(this.f1246d, hvVar.f1246d)) == 0) {
+                                        if (!g() || (a13 = iv.a(this.f526d, hvVar.f526d)) == 0) {
                                             int compareTo8 = Boolean.valueOf(h()).compareTo(Boolean.valueOf(hvVar.h()));
                                             if (compareTo8 != 0) {
                                                 return compareTo8;
                                             }
-                                            if (!h() || (a12 = iv.a(this.f1247e, hvVar.f1247e)) == 0) {
+                                            if (!h() || (a12 = iv.a(this.f527e, hvVar.f527e)) == 0) {
                                                 int compareTo9 = Boolean.valueOf(i()).compareTo(Boolean.valueOf(hvVar.i()));
                                                 if (compareTo9 != 0) {
                                                     return compareTo9;
                                                 }
-                                                if (!i() || (a11 = iv.a(this.f1248f, hvVar.f1248f)) == 0) {
+                                                if (!i() || (a11 = iv.a(this.f528f, hvVar.f528f)) == 0) {
                                                     int compareTo10 = Boolean.valueOf(j()).compareTo(Boolean.valueOf(hvVar.j()));
                                                     if (compareTo10 != 0) {
                                                         return compareTo10;
                                                     }
-                                                    if (!j() || (a10 = iv.a(this.f1249g, hvVar.f1249g)) == 0) {
+                                                    if (!j() || (a10 = iv.a(this.f529g, hvVar.f529g)) == 0) {
                                                         int compareTo11 = Boolean.valueOf(k()).compareTo(Boolean.valueOf(hvVar.k()));
                                                         if (compareTo11 != 0) {
                                                             return compareTo11;
                                                         }
-                                                        if (!k() || (a9 = iv.a(this.f1250h, hvVar.f1250h)) == 0) {
+                                                        if (!k() || (a9 = iv.a(this.f530h, hvVar.f530h)) == 0) {
                                                             int compareTo12 = Boolean.valueOf(l()).compareTo(Boolean.valueOf(hvVar.l()));
                                                             if (compareTo12 != 0) {
                                                                 return compareTo12;
                                                             }
-                                                            if (!l() || (a8 = iv.a(this.f1237a, hvVar.f1237a)) == 0) {
+                                                            if (!l() || (a8 = iv.a(this.f517a, hvVar.f517a)) == 0) {
                                                                 int compareTo13 = Boolean.valueOf(m()).compareTo(Boolean.valueOf(hvVar.m()));
                                                                 if (compareTo13 != 0) {
                                                                     return compareTo13;
                                                                 }
-                                                                if (!m() || (a7 = iv.a(this.f1251i, hvVar.f1251i)) == 0) {
+                                                                if (!m() || (a7 = iv.a(this.f531i, hvVar.f531i)) == 0) {
                                                                     int compareTo14 = Boolean.valueOf(n()).compareTo(Boolean.valueOf(hvVar.n()));
                                                                     if (compareTo14 != 0) {
                                                                         return compareTo14;
                                                                     }
-                                                                    if (!n() || (a6 = iv.a(this.f1241a, hvVar.f1241a)) == 0) {
+                                                                    if (!n() || (a6 = iv.a(this.f521a, hvVar.f521a)) == 0) {
                                                                         int compareTo15 = Boolean.valueOf(o()).compareTo(Boolean.valueOf(hvVar.o()));
                                                                         if (compareTo15 != 0) {
                                                                             return compareTo15;
                                                                         }
-                                                                        if (!o() || (a5 = iv.a(this.f1252j, hvVar.f1252j)) == 0) {
+                                                                        if (!o() || (a5 = iv.a(this.f532j, hvVar.f532j)) == 0) {
                                                                             int compareTo16 = Boolean.valueOf(p()).compareTo(Boolean.valueOf(hvVar.p()));
                                                                             if (compareTo16 != 0) {
                                                                                 return compareTo16;
                                                                             }
-                                                                            if (!p() || (a4 = iv.a(this.f1244c, hvVar.f1244c)) == 0) {
+                                                                            if (!p() || (a4 = iv.a(this.f524c, hvVar.f524c)) == 0) {
                                                                                 int compareTo17 = Boolean.valueOf(q()).compareTo(Boolean.valueOf(hvVar.q()));
                                                                                 if (compareTo17 != 0) {
                                                                                     return compareTo17;
                                                                                 }
-                                                                                if (!q() || (a3 = iv.a(this.f1253k, hvVar.f1253k)) == 0) {
+                                                                                if (!q() || (a3 = iv.a(this.f533k, hvVar.f533k)) == 0) {
                                                                                     int compareTo18 = Boolean.valueOf(r()).compareTo(Boolean.valueOf(hvVar.r()));
                                                                                     if (compareTo18 != 0) {
                                                                                         return compareTo18;
                                                                                     }
-                                                                                    if (!r() || (a2 = iv.a(this.f1254l, hvVar.f1254l)) == 0) {
+                                                                                    if (!r() || (a2 = iv.a(this.f534l, hvVar.f534l)) == 0) {
                                                                                         return 0;
                                                                                     }
                                                                                     return a2;
@@ -310,25 +310,25 @@ public class hv implements iu<hv, Object>, Serializable, Cloneable {
     public long a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f1236a : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f516a : invokeV.longValue;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public String m1361a() {
+    public String m423a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f1239a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f519a : (String) invokeV.objValue;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m1362a() {
+    public void m424a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            if (this.f1239a == null) {
+            if (this.f519a == null) {
                 throw new jg("Required field 'id' was not present! Struct: " + toString());
-            } else if (this.f1243b == null) {
+            } else if (this.f523b == null) {
                 throw new jg("Required field 'appId' was not present! Struct: " + toString());
-            } else if (this.f1245c != null) {
+            } else if (this.f525c != null) {
             } else {
                 throw new jg("Required field 'payload' was not present! Struct: " + toString());
             }
@@ -342,19 +342,19 @@ public class hv implements iu<hv, Object>, Serializable, Cloneable {
         if (interceptable != null && interceptable.invokeL(1048580, this, jfVar) != null) {
             return;
         }
-        jfVar.m1487a();
+        jfVar.m549a();
         while (true) {
-            jc m1483a = jfVar.m1483a();
-            byte b2 = m1483a.a;
+            jc m545a = jfVar.m545a();
+            byte b2 = m545a.a;
             if (b2 == 0) {
                 jfVar.f();
-                m1362a();
+                m424a();
                 return;
             }
-            short s = m1483a.f1529a;
+            short s = m545a.f809a;
             if (s == 20) {
                 if (b2 == 11) {
-                    this.f1253k = jfVar.m1488a();
+                    this.f533k = jfVar.m550a();
                     jfVar.g();
                 }
                 ji.a(jfVar, b2);
@@ -364,7 +364,7 @@ public class hv implements iu<hv, Object>, Serializable, Cloneable {
                     case 1:
                         if (b2 == 12) {
                             hy hyVar = new hy();
-                            this.f1238a = hyVar;
+                            this.f518a = hyVar;
                             hyVar.a(jfVar);
                             break;
                         }
@@ -372,28 +372,28 @@ public class hv implements iu<hv, Object>, Serializable, Cloneable {
                         break;
                     case 2:
                         if (b2 == 11) {
-                            this.f1239a = jfVar.m1488a();
+                            this.f519a = jfVar.m550a();
                             break;
                         }
                         ji.a(jfVar, b2);
                         break;
                     case 3:
                         if (b2 == 11) {
-                            this.f1243b = jfVar.m1488a();
+                            this.f523b = jfVar.m550a();
                             break;
                         }
                         ji.a(jfVar, b2);
                         break;
                     case 4:
                         if (b2 == 11) {
-                            this.f1245c = jfVar.m1488a();
+                            this.f525c = jfVar.m550a();
                             break;
                         }
                         ji.a(jfVar, b2);
                         break;
                     case 5:
                         if (b2 == 10) {
-                            this.f1236a = jfVar.m1482a();
+                            this.f516a = jfVar.m544a();
                             a(true);
                             break;
                         }
@@ -401,7 +401,7 @@ public class hv implements iu<hv, Object>, Serializable, Cloneable {
                         break;
                     case 6:
                         if (b2 == 10) {
-                            this.f1242b = jfVar.m1482a();
+                            this.f522b = jfVar.m544a();
                             b(true);
                             break;
                         }
@@ -409,35 +409,35 @@ public class hv implements iu<hv, Object>, Serializable, Cloneable {
                         break;
                     case 7:
                         if (b2 == 11) {
-                            this.f1246d = jfVar.m1488a();
+                            this.f526d = jfVar.m550a();
                             break;
                         }
                         ji.a(jfVar, b2);
                         break;
                     case 8:
                         if (b2 == 11) {
-                            this.f1247e = jfVar.m1488a();
+                            this.f527e = jfVar.m550a();
                             break;
                         }
                         ji.a(jfVar, b2);
                         break;
                     case 9:
                         if (b2 == 11) {
-                            this.f1248f = jfVar.m1488a();
+                            this.f528f = jfVar.m550a();
                             break;
                         }
                         ji.a(jfVar, b2);
                         break;
                     case 10:
                         if (b2 == 11) {
-                            this.f1249g = jfVar.m1488a();
+                            this.f529g = jfVar.m550a();
                             break;
                         }
                         ji.a(jfVar, b2);
                         break;
                     case 11:
                         if (b2 == 11) {
-                            this.f1250h = jfVar.m1488a();
+                            this.f530h = jfVar.m550a();
                             break;
                         }
                         ji.a(jfVar, b2);
@@ -445,7 +445,7 @@ public class hv implements iu<hv, Object>, Serializable, Cloneable {
                     case 12:
                         if (b2 == 12) {
                             hw hwVar = new hw();
-                            this.f1237a = hwVar;
+                            this.f517a = hwVar;
                             hwVar.a(jfVar);
                             break;
                         }
@@ -453,14 +453,14 @@ public class hv implements iu<hv, Object>, Serializable, Cloneable {
                         break;
                     case 13:
                         if (b2 == 11) {
-                            this.f1251i = jfVar.m1488a();
+                            this.f531i = jfVar.m550a();
                             break;
                         }
                         ji.a(jfVar, b2);
                         break;
                     case 14:
                         if (b2 == 2) {
-                            this.f1241a = jfVar.m1492a();
+                            this.f521a = jfVar.m554a();
                             c(true);
                             break;
                         }
@@ -468,14 +468,14 @@ public class hv implements iu<hv, Object>, Serializable, Cloneable {
                         break;
                     case 15:
                         if (b2 == 11) {
-                            this.f1252j = jfVar.m1488a();
+                            this.f532j = jfVar.m550a();
                             break;
                         }
                         ji.a(jfVar, b2);
                         break;
                     case 16:
                         if (b2 == 10) {
-                            this.f1244c = jfVar.m1482a();
+                            this.f524c = jfVar.m544a();
                             d(true);
                             break;
                         }
@@ -488,7 +488,7 @@ public class hv implements iu<hv, Object>, Serializable, Cloneable {
                 jfVar.g();
             } else {
                 if (b2 == 11) {
-                    this.f1254l = jfVar.m1488a();
+                    this.f534l = jfVar.m550a();
                     jfVar.g();
                 }
                 ji.a(jfVar, b2);
@@ -500,114 +500,114 @@ public class hv implements iu<hv, Object>, Serializable, Cloneable {
     public void a(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-            this.f1240a.set(0, z);
+            this.f520a.set(0, z);
         }
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m1363a() {
+    public boolean m425a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f1238a != null : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f518a != null : invokeV.booleanValue;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m1364a(hv hvVar) {
+    public boolean m426a(hv hvVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, hvVar)) == null) {
             if (hvVar == null) {
                 return false;
             }
-            boolean m1363a = m1363a();
-            boolean m1363a2 = hvVar.m1363a();
-            if ((m1363a || m1363a2) && !(m1363a && m1363a2 && this.f1238a.m1381a(hvVar.f1238a))) {
+            boolean m425a = m425a();
+            boolean m425a2 = hvVar.m425a();
+            if ((m425a || m425a2) && !(m425a && m425a2 && this.f518a.m443a(hvVar.f518a))) {
                 return false;
             }
-            boolean m1365b = m1365b();
-            boolean m1365b2 = hvVar.m1365b();
-            if ((m1365b || m1365b2) && !(m1365b && m1365b2 && this.f1239a.equals(hvVar.f1239a))) {
+            boolean m427b = m427b();
+            boolean m427b2 = hvVar.m427b();
+            if ((m427b || m427b2) && !(m427b && m427b2 && this.f519a.equals(hvVar.f519a))) {
                 return false;
             }
-            boolean m1366c = m1366c();
-            boolean m1366c2 = hvVar.m1366c();
-            if ((m1366c || m1366c2) && !(m1366c && m1366c2 && this.f1243b.equals(hvVar.f1243b))) {
+            boolean m428c = m428c();
+            boolean m428c2 = hvVar.m428c();
+            if ((m428c || m428c2) && !(m428c && m428c2 && this.f523b.equals(hvVar.f523b))) {
                 return false;
             }
             boolean d2 = d();
             boolean d3 = hvVar.d();
-            if ((d2 || d3) && !(d2 && d3 && this.f1245c.equals(hvVar.f1245c))) {
+            if ((d2 || d3) && !(d2 && d3 && this.f525c.equals(hvVar.f525c))) {
                 return false;
             }
             boolean e2 = e();
             boolean e3 = hvVar.e();
-            if ((e2 || e3) && !(e2 && e3 && this.f1236a == hvVar.f1236a)) {
+            if ((e2 || e3) && !(e2 && e3 && this.f516a == hvVar.f516a)) {
                 return false;
             }
             boolean f2 = f();
             boolean f3 = hvVar.f();
-            if ((f2 || f3) && !(f2 && f3 && this.f1242b == hvVar.f1242b)) {
+            if ((f2 || f3) && !(f2 && f3 && this.f522b == hvVar.f522b)) {
                 return false;
             }
             boolean g2 = g();
             boolean g3 = hvVar.g();
-            if ((g2 || g3) && !(g2 && g3 && this.f1246d.equals(hvVar.f1246d))) {
+            if ((g2 || g3) && !(g2 && g3 && this.f526d.equals(hvVar.f526d))) {
                 return false;
             }
             boolean h2 = h();
             boolean h3 = hvVar.h();
-            if ((h2 || h3) && !(h2 && h3 && this.f1247e.equals(hvVar.f1247e))) {
+            if ((h2 || h3) && !(h2 && h3 && this.f527e.equals(hvVar.f527e))) {
                 return false;
             }
             boolean i2 = i();
             boolean i3 = hvVar.i();
-            if ((i2 || i3) && !(i2 && i3 && this.f1248f.equals(hvVar.f1248f))) {
+            if ((i2 || i3) && !(i2 && i3 && this.f528f.equals(hvVar.f528f))) {
                 return false;
             }
             boolean j2 = j();
             boolean j3 = hvVar.j();
-            if ((j2 || j3) && !(j2 && j3 && this.f1249g.equals(hvVar.f1249g))) {
+            if ((j2 || j3) && !(j2 && j3 && this.f529g.equals(hvVar.f529g))) {
                 return false;
             }
             boolean k2 = k();
             boolean k3 = hvVar.k();
-            if ((k2 || k3) && !(k2 && k3 && this.f1250h.equals(hvVar.f1250h))) {
+            if ((k2 || k3) && !(k2 && k3 && this.f530h.equals(hvVar.f530h))) {
                 return false;
             }
             boolean l2 = l();
             boolean l3 = hvVar.l();
-            if ((l2 || l3) && !(l2 && l3 && this.f1237a.m1373a(hvVar.f1237a))) {
+            if ((l2 || l3) && !(l2 && l3 && this.f517a.m435a(hvVar.f517a))) {
                 return false;
             }
             boolean m2 = m();
             boolean m3 = hvVar.m();
-            if ((m2 || m3) && !(m2 && m3 && this.f1251i.equals(hvVar.f1251i))) {
+            if ((m2 || m3) && !(m2 && m3 && this.f531i.equals(hvVar.f531i))) {
                 return false;
             }
             boolean n2 = n();
             boolean n3 = hvVar.n();
-            if ((n2 || n3) && !(n2 && n3 && this.f1241a == hvVar.f1241a)) {
+            if ((n2 || n3) && !(n2 && n3 && this.f521a == hvVar.f521a)) {
                 return false;
             }
             boolean o2 = o();
             boolean o3 = hvVar.o();
-            if ((o2 || o3) && !(o2 && o3 && this.f1252j.equals(hvVar.f1252j))) {
+            if ((o2 || o3) && !(o2 && o3 && this.f532j.equals(hvVar.f532j))) {
                 return false;
             }
             boolean p2 = p();
             boolean p3 = hvVar.p();
-            if ((p2 || p3) && !(p2 && p3 && this.f1244c == hvVar.f1244c)) {
+            if ((p2 || p3) && !(p2 && p3 && this.f524c == hvVar.f524c)) {
                 return false;
             }
             boolean q2 = q();
             boolean q3 = hvVar.q();
-            if ((q2 || q3) && !(q2 && q3 && this.f1253k.equals(hvVar.f1253k))) {
+            if ((q2 || q3) && !(q2 && q3 && this.f533k.equals(hvVar.f533k))) {
                 return false;
             }
             boolean r2 = r();
             boolean r3 = hvVar.r();
             if (r2 || r3) {
-                return r2 && r3 && this.f1254l.equals(hvVar.f1254l);
+                return r2 && r3 && this.f534l.equals(hvVar.f534l);
             }
             return true;
         }
@@ -617,161 +617,161 @@ public class hv implements iu<hv, Object>, Serializable, Cloneable {
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f1243b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f523b : (String) invokeV.objValue;
     }
 
     @Override // com.xiaomi.push.iu
     public void b(jf jfVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, jfVar) == null) {
-            m1362a();
-            jfVar.a(f1235a);
-            if (this.f1238a != null && m1363a()) {
+            m424a();
+            jfVar.a(f515a);
+            if (this.f518a != null && m425a()) {
                 jfVar.a(a);
-                this.f1238a.b(jfVar);
+                this.f518a.b(jfVar);
                 jfVar.b();
             }
-            if (this.f1239a != null) {
+            if (this.f519a != null) {
                 jfVar.a(b);
-                jfVar.a(this.f1239a);
+                jfVar.a(this.f519a);
                 jfVar.b();
             }
-            if (this.f1243b != null) {
+            if (this.f523b != null) {
                 jfVar.a(c);
-                jfVar.a(this.f1243b);
+                jfVar.a(this.f523b);
                 jfVar.b();
             }
-            if (this.f1245c != null) {
+            if (this.f525c != null) {
                 jfVar.a(d);
-                jfVar.a(this.f1245c);
+                jfVar.a(this.f525c);
                 jfVar.b();
             }
             if (e()) {
                 jfVar.a(e);
-                jfVar.a(this.f1236a);
+                jfVar.a(this.f516a);
                 jfVar.b();
             }
             if (f()) {
                 jfVar.a(f);
-                jfVar.a(this.f1242b);
+                jfVar.a(this.f522b);
                 jfVar.b();
             }
-            if (this.f1246d != null && g()) {
+            if (this.f526d != null && g()) {
                 jfVar.a(g);
-                jfVar.a(this.f1246d);
+                jfVar.a(this.f526d);
                 jfVar.b();
             }
-            if (this.f1247e != null && h()) {
+            if (this.f527e != null && h()) {
                 jfVar.a(h);
-                jfVar.a(this.f1247e);
+                jfVar.a(this.f527e);
                 jfVar.b();
             }
-            if (this.f1248f != null && i()) {
+            if (this.f528f != null && i()) {
                 jfVar.a(i);
-                jfVar.a(this.f1248f);
+                jfVar.a(this.f528f);
                 jfVar.b();
             }
-            if (this.f1249g != null && j()) {
+            if (this.f529g != null && j()) {
                 jfVar.a(j);
-                jfVar.a(this.f1249g);
+                jfVar.a(this.f529g);
                 jfVar.b();
             }
-            if (this.f1250h != null && k()) {
+            if (this.f530h != null && k()) {
                 jfVar.a(k);
-                jfVar.a(this.f1250h);
+                jfVar.a(this.f530h);
                 jfVar.b();
             }
-            if (this.f1237a != null && l()) {
+            if (this.f517a != null && l()) {
                 jfVar.a(l);
-                this.f1237a.b(jfVar);
+                this.f517a.b(jfVar);
                 jfVar.b();
             }
-            if (this.f1251i != null && m()) {
+            if (this.f531i != null && m()) {
                 jfVar.a(m);
-                jfVar.a(this.f1251i);
+                jfVar.a(this.f531i);
                 jfVar.b();
             }
             if (n()) {
                 jfVar.a(n);
-                jfVar.a(this.f1241a);
+                jfVar.a(this.f521a);
                 jfVar.b();
             }
-            if (this.f1252j != null && o()) {
+            if (this.f532j != null && o()) {
                 jfVar.a(o);
-                jfVar.a(this.f1252j);
+                jfVar.a(this.f532j);
                 jfVar.b();
             }
             if (p()) {
                 jfVar.a(p);
-                jfVar.a(this.f1244c);
+                jfVar.a(this.f524c);
                 jfVar.b();
             }
-            if (this.f1253k != null && q()) {
+            if (this.f533k != null && q()) {
                 jfVar.a(q);
-                jfVar.a(this.f1253k);
+                jfVar.a(this.f533k);
                 jfVar.b();
             }
-            if (this.f1254l != null && r()) {
+            if (this.f534l != null && r()) {
                 jfVar.a(r);
-                jfVar.a(this.f1254l);
+                jfVar.a(this.f534l);
                 jfVar.b();
             }
             jfVar.c();
-            jfVar.m1491a();
+            jfVar.m553a();
         }
     }
 
     public void b(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
-            this.f1240a.set(1, z);
+            this.f520a.set(1, z);
         }
     }
 
     /* renamed from: b  reason: collision with other method in class */
-    public boolean m1365b() {
+    public boolean m427b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f1239a != null : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f519a != null : invokeV.booleanValue;
     }
 
     public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f1245c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f525c : (String) invokeV.objValue;
     }
 
     public void c(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048589, this, z) == null) {
-            this.f1240a.set(2, z);
+            this.f520a.set(2, z);
         }
     }
 
     /* renamed from: c  reason: collision with other method in class */
-    public boolean m1366c() {
+    public boolean m428c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.f1243b != null : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.f523b != null : invokeV.booleanValue;
     }
 
     public void d(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048592, this, z) == null) {
-            this.f1240a.set(3, z);
+            this.f520a.set(3, z);
         }
     }
 
     public boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.f1245c != null : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.f525c != null : invokeV.booleanValue;
     }
 
     public boolean e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this.f1240a.get(0) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this.f520a.get(0) : invokeV.booleanValue;
     }
 
     public boolean equals(Object obj) {
@@ -779,7 +779,7 @@ public class hv implements iu<hv, Object>, Serializable, Cloneable {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048595, this, obj)) == null) {
             if (obj != null && (obj instanceof hv)) {
-                return m1364a((hv) obj);
+                return m426a((hv) obj);
             }
             return false;
         }
@@ -789,19 +789,19 @@ public class hv implements iu<hv, Object>, Serializable, Cloneable {
     public boolean f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? this.f1240a.get(1) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? this.f520a.get(1) : invokeV.booleanValue;
     }
 
     public boolean g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? this.f1246d != null : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? this.f526d != null : invokeV.booleanValue;
     }
 
     public boolean h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) ? this.f1247e != null : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) ? this.f527e != null : invokeV.booleanValue;
     }
 
     public int hashCode() {
@@ -816,61 +816,61 @@ public class hv implements iu<hv, Object>, Serializable, Cloneable {
     public boolean i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) ? this.f1248f != null : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) ? this.f528f != null : invokeV.booleanValue;
     }
 
     public boolean j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) ? this.f1249g != null : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) ? this.f529g != null : invokeV.booleanValue;
     }
 
     public boolean k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) ? this.f1250h != null : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) ? this.f530h != null : invokeV.booleanValue;
     }
 
     public boolean l() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) ? this.f1237a != null : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) ? this.f517a != null : invokeV.booleanValue;
     }
 
     public boolean m() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) ? this.f1251i != null : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) ? this.f531i != null : invokeV.booleanValue;
     }
 
     public boolean n() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) ? this.f1240a.get(2) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) ? this.f520a.get(2) : invokeV.booleanValue;
     }
 
     public boolean o() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) ? this.f1252j != null : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) ? this.f532j != null : invokeV.booleanValue;
     }
 
     public boolean p() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048607, this)) == null) ? this.f1240a.get(3) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048607, this)) == null) ? this.f520a.get(3) : invokeV.booleanValue;
     }
 
     public boolean q() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048608, this)) == null) ? this.f1253k != null : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048608, this)) == null) ? this.f533k != null : invokeV.booleanValue;
     }
 
     public boolean r() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048609, this)) == null) ? this.f1254l != null : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048609, this)) == null) ? this.f534l != null : invokeV.booleanValue;
     }
 
     public String toString() {
@@ -879,9 +879,9 @@ public class hv implements iu<hv, Object>, Serializable, Cloneable {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048610, this)) == null) {
             StringBuilder sb = new StringBuilder("PushMessage(");
-            if (m1363a()) {
+            if (m425a()) {
                 sb.append("to:");
-                hy hyVar = this.f1238a;
+                hy hyVar = this.f518a;
                 if (hyVar == null) {
                     sb.append(StringUtil.NULL_STRING);
                 } else {
@@ -895,7 +895,7 @@ public class hv implements iu<hv, Object>, Serializable, Cloneable {
                 sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
             }
             sb.append("id:");
-            String str = this.f1239a;
+            String str = this.f519a;
             if (str == null) {
                 sb.append(StringUtil.NULL_STRING);
             } else {
@@ -903,7 +903,7 @@ public class hv implements iu<hv, Object>, Serializable, Cloneable {
             }
             sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
             sb.append("appId:");
-            String str2 = this.f1243b;
+            String str2 = this.f523b;
             if (str2 == null) {
                 sb.append(StringUtil.NULL_STRING);
             } else {
@@ -911,7 +911,7 @@ public class hv implements iu<hv, Object>, Serializable, Cloneable {
             }
             sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
             sb.append("payload:");
-            String str3 = this.f1245c;
+            String str3 = this.f525c;
             if (str3 == null) {
                 sb.append(StringUtil.NULL_STRING);
             } else {
@@ -920,17 +920,17 @@ public class hv implements iu<hv, Object>, Serializable, Cloneable {
             if (e()) {
                 sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
                 sb.append("createAt:");
-                sb.append(this.f1236a);
+                sb.append(this.f516a);
             }
             if (f()) {
                 sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
                 sb.append("ttl:");
-                sb.append(this.f1242b);
+                sb.append(this.f522b);
             }
             if (g()) {
                 sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
                 sb.append("collapseKey:");
-                String str4 = this.f1246d;
+                String str4 = this.f526d;
                 if (str4 == null) {
                     sb.append(StringUtil.NULL_STRING);
                 } else {
@@ -940,7 +940,7 @@ public class hv implements iu<hv, Object>, Serializable, Cloneable {
             if (h()) {
                 sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
                 sb.append("packageName:");
-                String str5 = this.f1247e;
+                String str5 = this.f527e;
                 if (str5 == null) {
                     sb.append(StringUtil.NULL_STRING);
                 } else {
@@ -950,7 +950,7 @@ public class hv implements iu<hv, Object>, Serializable, Cloneable {
             if (i()) {
                 sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
                 sb.append("regId:");
-                String str6 = this.f1248f;
+                String str6 = this.f528f;
                 if (str6 == null) {
                     sb.append(StringUtil.NULL_STRING);
                 } else {
@@ -960,7 +960,7 @@ public class hv implements iu<hv, Object>, Serializable, Cloneable {
             if (j()) {
                 sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
                 sb.append("category:");
-                String str7 = this.f1249g;
+                String str7 = this.f529g;
                 if (str7 == null) {
                     sb.append(StringUtil.NULL_STRING);
                 } else {
@@ -970,7 +970,7 @@ public class hv implements iu<hv, Object>, Serializable, Cloneable {
             if (k()) {
                 sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
                 sb.append(UrlSchemaHelper.SCHEMA_TYPE_TOPIC);
-                String str8 = this.f1250h;
+                String str8 = this.f530h;
                 if (str8 == null) {
                     sb.append(StringUtil.NULL_STRING);
                 } else {
@@ -980,7 +980,7 @@ public class hv implements iu<hv, Object>, Serializable, Cloneable {
             if (l()) {
                 sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
                 sb.append("metaInfo:");
-                hw hwVar = this.f1237a;
+                hw hwVar = this.f517a;
                 if (hwVar == null) {
                     sb.append(StringUtil.NULL_STRING);
                 } else {
@@ -990,7 +990,7 @@ public class hv implements iu<hv, Object>, Serializable, Cloneable {
             if (m()) {
                 sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
                 sb.append("aliasName:");
-                String str9 = this.f1251i;
+                String str9 = this.f531i;
                 if (str9 == null) {
                     sb.append(StringUtil.NULL_STRING);
                 } else {
@@ -1000,12 +1000,12 @@ public class hv implements iu<hv, Object>, Serializable, Cloneable {
             if (n()) {
                 sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
                 sb.append("isOnline:");
-                sb.append(this.f1241a);
+                sb.append(this.f521a);
             }
             if (o()) {
                 sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
                 sb.append("userAccount:");
-                String str10 = this.f1252j;
+                String str10 = this.f532j;
                 if (str10 == null) {
                     sb.append(StringUtil.NULL_STRING);
                 } else {
@@ -1015,12 +1015,12 @@ public class hv implements iu<hv, Object>, Serializable, Cloneable {
             if (p()) {
                 sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
                 sb.append("miid:");
-                sb.append(this.f1244c);
+                sb.append(this.f524c);
             }
             if (q()) {
                 sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
                 sb.append("imeiMd5:");
-                String str11 = this.f1253k;
+                String str11 = this.f533k;
                 if (str11 == null) {
                     sb.append(StringUtil.NULL_STRING);
                 } else {
@@ -1030,7 +1030,7 @@ public class hv implements iu<hv, Object>, Serializable, Cloneable {
             if (r()) {
                 sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
                 sb.append("deviceId:");
-                String str12 = this.f1254l;
+                String str12 = this.f534l;
                 if (str12 == null) {
                     sb.append(StringUtil.NULL_STRING);
                 } else {

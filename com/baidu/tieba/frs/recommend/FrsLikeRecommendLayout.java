@@ -34,7 +34,7 @@ import com.repackage.en6;
 import com.repackage.fn6;
 import com.repackage.hx;
 import com.repackage.nn;
-import com.repackage.ur4;
+import com.repackage.vr4;
 import com.repackage.xn;
 import java.util.ArrayList;
 import tbclient.ThemeColorInfo;
@@ -213,10 +213,10 @@ public class FrsLikeRecommendLayout extends ConstraintLayout implements hx {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) {
             LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d032a, this);
-            this.b = findViewById(R.id.obfuscated_res_0x7f091b5c);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f090b37);
-            this.e = (BdTypeRecyclerView) findViewById(R.id.obfuscated_res_0x7f090b36);
-            this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f090b33);
+            this.b = findViewById(R.id.obfuscated_res_0x7f091b36);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f090b30);
+            this.e = (BdTypeRecyclerView) findViewById(R.id.obfuscated_res_0x7f090b2f);
+            this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f090b2c);
             cn6 cn6Var = new cn6(getContext());
             this.f = cn6Var;
             cn6Var.V(getItemClickListener());
@@ -240,12 +240,12 @@ public class FrsLikeRecommendLayout extends ConstraintLayout implements hx {
     public /* synthetic */ void h(View view2, nn nnVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, final int i, long j) {
         dn6 dn6Var;
         if (nnVar instanceof ch8) {
-            if (view2.getId() == R.id.obfuscated_res_0x7f090b34) {
+            if (view2.getId() == R.id.obfuscated_res_0x7f090b2d) {
                 dn6 dn6Var2 = this.g;
                 if (dn6Var2 != null) {
                     dn6Var2.b((ch8) nnVar);
                 }
-            } else if (view2.getId() != R.id.obfuscated_res_0x7f090a31 || (dn6Var = this.g) == null) {
+            } else if (view2.getId() != R.id.obfuscated_res_0x7f090a2a || (dn6Var = this.g) == null) {
             } else {
                 dn6Var.c((ch8) nnVar, i, new fn6() { // from class: com.repackage.bn6
                     public static /* synthetic */ Interceptable $ic;
@@ -281,7 +281,7 @@ public class FrsLikeRecommendLayout extends ConstraintLayout implements hx {
         if (interceptable == null || interceptable.invokeLI(1048583, this, tbPageContext, i) == null) {
             TextView textView = this.c;
             if (textView != null) {
-                ur4 d = ur4.d(textView);
+                vr4 d = vr4.d(textView);
                 d.A(R.string.F_X02);
                 d.v(R.color.CAM_X0101);
             }

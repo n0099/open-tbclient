@@ -15,7 +15,7 @@ import java.util.List;
 public abstract class d extends RecyclerView.Adapter<c> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<Presenter> a;
+    public List<Presenter> GT;
 
     public d() {
         Interceptable interceptable = $ic;
@@ -30,7 +30,7 @@ public abstract class d extends RecyclerView.Adapter<c> {
                 return;
             }
         }
-        this.a = new ArrayList();
+        this.GT = new ArrayList();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -41,7 +41,7 @@ public abstract class d extends RecyclerView.Adapter<c> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65537, this, cVar) == null) {
             super.onViewRecycled(cVar);
-            cVar.a.o();
+            cVar.mPresenter.bt();
         }
     }
 
@@ -54,7 +54,7 @@ public abstract class d extends RecyclerView.Adapter<c> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, this, viewGroup, i)) == null) {
             c a = a(viewGroup, i);
-            this.a.add(a.a);
+            this.GT.add(a.mPresenter);
             return a;
         }
         return (c) invokeLI.objValue;
@@ -62,22 +62,22 @@ public abstract class d extends RecyclerView.Adapter<c> {
 
     public abstract c a(ViewGroup viewGroup, int i);
 
-    public final void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            for (Presenter presenter : this.a) {
-                presenter.p();
-            }
-        }
-    }
-
     /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     /* renamed from: a */
     public void onBindViewHolder(c cVar, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, cVar, i) == null) {
-            cVar.a.a(cVar.b);
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar, i) == null) {
+            cVar.mPresenter.e(cVar.Fz);
+        }
+    }
+
+    public final void nY() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            for (Presenter presenter : this.GT) {
+                presenter.destroy();
+            }
         }
     }
 
@@ -86,7 +86,7 @@ public abstract class d extends RecyclerView.Adapter<c> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, recyclerView) == null) {
             super.onDetachedFromRecyclerView(recyclerView);
-            a();
+            nY();
         }
     }
 }

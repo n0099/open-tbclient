@@ -1,32 +1,45 @@
 package com.repackage;
 
-import android.content.Context;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.core.atomData.PersonalChatActivityConfig;
-import com.baidu.tbadk.core.util.NetWork;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.diskCache.ImagesInvalidService;
+import com.baidu.tbadk.coreExtra.data.NewGodData;
+import com.baidu.tieba.tbadkCore.data.FlutterOpenData;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
 /* loaded from: classes7.dex */
 public class wd5 {
     public static /* synthetic */ Interceptable $ic;
+    public static wd5 g;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public String b;
+    public String c;
+    public int d;
+    public String e;
+    public Runnable f;
 
     /* loaded from: classes7.dex */
-    public static class a extends de5<Boolean> {
+    public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ long a;
+        public final /* synthetic */ wd5 a;
 
-        public a(long j) {
+        public a(wd5 wd5Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Long.valueOf(j)};
+                Object[] objArr = {wd5Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -36,72 +49,126 @@ public class wd5 {
                     return;
                 }
             }
-            this.a = j;
+            this.a = wd5Var;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        /* JADX WARN: Can't rename method to resolve collision */
-        @Override // com.repackage.de5
-        public Boolean doInBackground() {
-            InterceptResult invokeV;
+        @Override // java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                NetWork netWork = new NetWork("https://peiwan.baidu.com/peiwan/api/user/letter/ses");
-                netWork.addPostData("to_uid", String.valueOf(this.a));
-                netWork.postNetData();
-                return Boolean.valueOf(netWork.getNetContext().getResponse().isRequestSuccess());
-            }
-            return (Boolean) invokeV.objValue;
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public static class b implements jd5<Boolean> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Context a;
-        public final /* synthetic */ long b;
-        public final /* synthetic */ String c;
-        public final /* synthetic */ String d;
-        public final /* synthetic */ String e;
-
-        public b(Context context, long j, String str, String str2, String str3) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {context, Long.valueOf(j), str, str2, str3};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                HashMap hashMap = new HashMap();
+                hashMap.put("from", String.valueOf(this.a.a));
+                hashMap.put("field_id", this.a.b);
+                hashMap.put("type", Integer.valueOf(this.a.d));
+                hashMap.put("type_name", this.a.e);
+                if (this.a.a == 2) {
+                    hashMap.put("fid", this.a.c);
+                }
+                hashMap.put("animated", Boolean.FALSE);
+                hashMap.put("transparent", Boolean.TRUE);
+                hashMap.put("swipeback", Boolean.FALSE);
+                if (MessageManager.getInstance().findTask(2002015) == null) {
+                    qg.a().postDelayed(this.a.f, 0L);
                     return;
                 }
-            }
-            this.a = context;
-            this.b = j;
-            this.c = str;
-            this.d = str2;
-            this.e = str3;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.jd5
-        /* renamed from: a */
-        public void onReturnDataInUI(Boolean bool) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, bool) == null) {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002005, new PersonalChatActivityConfig(this.a, this.b, this.c, this.d, this.e)));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002015, new FlutterOpenData(TbadkApplication.getInst().getApplicationContext(), "GodInvitePage", hashMap)));
+                yt4.k().x("key_new_god_dialog_showed_time", System.currentTimeMillis());
             }
         }
     }
 
-    public static void a(Context context, long j, String str, String str2, String str3) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755205207, "Lcom/repackage/wd5;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-755205207, "Lcom/repackage/wd5;");
+        }
+    }
+
+    public wd5() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65536, null, new Object[]{context, Long.valueOf(j), str, str2, str3}) == null) {
-            he5.b(new a(j), new b(context, j, str, str2, str3));
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.f = new a(this);
+    }
+
+    public static synchronized wd5 g() {
+        InterceptResult invokeV;
+        wd5 wd5Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
+            synchronized (wd5.class) {
+                if (g == null) {
+                    g = new wd5();
+                }
+                wd5Var = g;
+            }
+            return wd5Var;
+        }
+        return (wd5) invokeV.objValue;
+    }
+
+    public final boolean h(int i, NewGodData newGodData) {
+        InterceptResult invokeIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i, newGodData)) == null) {
+            if (i != 5) {
+                return (((((System.currentTimeMillis() - yt4.k().m("key_new_god_dialog_showed_time", 0L)) + 3000) > ImagesInvalidService.FILE_VALID_TIME ? 1 : (((System.currentTimeMillis() - yt4.k().m("key_new_god_dialog_showed_time", 0L)) + 3000) == ImagesInvalidService.FILE_VALID_TIME ? 0 : -1)) < 0) || newGodData == null || !newGodData.isNewGodInvited()) ? false : true;
+            }
+            return true;
+        }
+        return invokeIL.booleanValue;
+    }
+
+    public void i() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            qg.a().removeCallbacks(this.f);
+        }
+    }
+
+    public void j(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+            this.c = str;
+        }
+    }
+
+    public void k(int i, NewGodData newGodData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(1048579, this, i, newGodData) == null) {
+            l(i, newGodData, true);
+        }
+    }
+
+    public void l(int i, NewGodData newGodData, boolean z) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), newGodData, Boolean.valueOf(z)}) == null) && h(i, newGodData)) {
+            i();
+            this.a = i;
+            this.b = newGodData.getFieldId();
+            this.d = newGodData.getType();
+            this.e = newGodData.getTypeName();
+            qg.a().postDelayed(this.f, z ? 3000L : 0L);
+            if (i == 5 || i == 1) {
+                TbSingleton.getInstance().setExceptInsertAdDiaShow(true);
+            }
         }
     }
 }

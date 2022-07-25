@@ -76,10 +76,10 @@ public abstract class BaseInterestSelectionFragment extends BaseFragment impleme
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
             if (i > 0 && !this.b.isEnabled()) {
                 this.b.setEnabled(true);
-                this.b.setText(getString(R.string.obfuscated_res_0x7f0f0c36));
+                this.b.setText(getString(R.string.obfuscated_res_0x7f0f0c22));
             } else if (i == 0) {
                 this.b.setEnabled(false);
-                this.b.setText(getResources().getString(R.string.obfuscated_res_0x7f0f10fa));
+                this.b.setText(getResources().getString(R.string.obfuscated_res_0x7f0f10b6));
             }
         }
     }

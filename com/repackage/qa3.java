@@ -1,42 +1,43 @@
 package com.repackage;
 
-import android.content.Context;
-import android.text.TextUtils;
-import android.util.Log;
+import android.hardware.Sensor;
+import android.hardware.SensorEvent;
+import android.hardware.SensorEventListener;
+import android.hardware.SensorManager;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.pa3;
-import java.util.Arrays;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class qa3 extends e23 {
+public class qa3 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile qa3 i;
     public transient /* synthetic */ FieldHolder $fh;
+    public SensorManager a;
+    public SensorEventListener b;
+    public Sensor c;
+    public Sensor d;
+    public b e;
+    public float[] f;
+    public float[] g;
+    public boolean h;
 
     /* loaded from: classes7.dex */
-    public class a implements pa3.b {
+    public class a implements SensorEventListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ UnitedSchemeEntity a;
-        public final /* synthetic */ CallbackHandler b;
-        public final /* synthetic */ zq1 c;
-        public final /* synthetic */ qa3 d;
+        public final /* synthetic */ qa3 a;
 
-        public a(qa3 qa3Var, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, zq1 zq1Var) {
+        public a(qa3 qa3Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {qa3Var, unitedSchemeEntity, callbackHandler, zq1Var};
+                Object[] objArr = {qa3Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -46,114 +47,189 @@ public class qa3 extends e23 {
                     return;
                 }
             }
-            this.d = qa3Var;
-            this.a = unitedSchemeEntity;
-            this.b = callbackHandler;
-            this.c = zq1Var;
+            this.a = qa3Var;
         }
 
-        @Override // com.repackage.pa3.b
-        public void a(float[] fArr) {
+        @Override // android.hardware.SensorEventListener
+        public void onAccuracyChanged(Sensor sensor, int i) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, fArr) == null) && fArr != null && fArr.length == 3) {
-                this.d.k(this.a, this.b, this.c, fArr);
+            if (interceptable == null || interceptable.invokeLI(1048576, this, sensor, i) == null) {
+            }
+        }
+
+        @Override // android.hardware.SensorEventListener
+        public void onSensorChanged(SensorEvent sensorEvent) {
+            Sensor sensor;
+            float[] g;
+            Sensor sensor2;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sensorEvent) == null) {
+                if (sensorEvent != null && (sensor2 = sensorEvent.sensor) != null && sensor2.getType() == 1) {
+                    float[] fArr = sensorEvent.values;
+                    if (fArr == null || fArr.length != 3) {
+                        return;
+                    }
+                    this.a.f = (float[]) fArr.clone();
+                } else if (sensorEvent == null || (sensor = sensorEvent.sensor) == null || sensor.getType() != 2) {
+                } else {
+                    float[] fArr2 = sensorEvent.values;
+                    if (fArr2 != null && fArr2.length == 3) {
+                        this.a.g = (float[]) fArr2.clone();
+                    }
+                    if (this.a.e == null || this.a.f == null || this.a.g == null || (g = this.a.g()) == null) {
+                        return;
+                    }
+                    this.a.e.a(g);
+                }
             }
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public qa3(e13 e13Var) {
-        super(e13Var, "/swanAPI/startDeviceMotion");
+    /* loaded from: classes7.dex */
+    public interface b {
+        void a(float[] fArr);
+    }
+
+    public qa3() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {e13Var};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.h = false;
     }
 
-    @Override // com.repackage.e23
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, h03 h03Var) {
-        InterceptResult invokeLLLL;
-        int i;
+    public static qa3 h() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, h03Var)) == null) {
-            if (h03Var == null) {
-                hx1.c("StartDeviceMotionAction", "none swanApp");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "illegal swanApp");
-                return false;
-            } else if (context == null) {
-                hx1.c("StartDeviceMotionAction", "none context");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "illegal context");
-                return false;
-            } else {
-                JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
-                if (optParamsAsJo == null) {
-                    hx1.c("StartDeviceMotionAction", "none params");
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
-                    return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
+            if (i == null) {
+                synchronized (qa3.class) {
+                    if (i == null) {
+                        i = new qa3();
+                    }
                 }
-                String optString = optParamsAsJo.optString("cb");
-                if (TextUtils.isEmpty(optString)) {
-                    hx1.c("StartDeviceMotionAction", "cb is empty");
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
-                    return false;
-                }
-                String optString2 = optParamsAsJo.optString("interval");
-                if ("ui".equals(optString2)) {
-                    i = 2;
-                } else {
-                    i = "game".equals(optString2) ? 1 : 3;
-                }
-                hx1.i("StartDeviceMotionAction", "startSensor===");
-                zq1 zq1Var = new zq1("deviceMotionChange", optParamsAsJo, optString);
-                if (!pa3.h().l(i, new a(this, unitedSchemeEntity, callbackHandler, zq1Var))) {
-                    hx1.c("StartDeviceMotionAction", "start system sensor fail");
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "start system sensor fail");
-                    return false;
-                }
-                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
-                zq1Var.a(unitedSchemeEntity, callbackHandler);
+            }
+            return i;
+        }
+        return (qa3) invokeV.objValue;
+    }
+
+    public static void k() {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(65544, null) == null) || i == null) {
+            return;
+        }
+        i.j();
+    }
+
+    @Nullable
+    public final float[] g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            float[] fArr = new float[9];
+            float[] fArr2 = new float[9];
+            float[] fArr3 = new float[3];
+            if (SensorManager.getRotationMatrix(fArr, null, this.f, this.g) && SensorManager.remapCoordinateSystem(fArr, 2, 129, fArr2)) {
+                SensorManager.getOrientation(fArr2, fArr3);
+                return fArr3;
+            }
+            return null;
+        }
+        return (float[]) invokeV.objValue;
+    }
+
+    public final SensorEventListener i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            ix1.i("SwanAppOrientationManager", "get System Sensor listener");
+            SensorEventListener sensorEventListener = this.b;
+            if (sensorEventListener != null) {
+                return sensorEventListener;
+            }
+            a aVar = new a(this);
+            this.b = aVar;
+            return aVar;
+        }
+        return (SensorEventListener) invokeV.objValue;
+    }
+
+    public final void j() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            ix1.i("SwanAppOrientationManager", "release");
+            if (this.h) {
+                m();
+            }
+            this.a = null;
+            this.c = null;
+            this.d = null;
+            this.b = null;
+            this.f = null;
+            this.g = null;
+            i = null;
+        }
+    }
+
+    public boolean l(int i2, @NonNull b bVar) {
+        InterceptResult invokeIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048579, this, i2, bVar)) == null) {
+            if (this.h) {
+                ix1.o("SwanAppOrientationManager", "has already start, change new listener");
+                this.e = bVar;
                 return true;
             }
+            SensorManager sensorManager = (SensorManager) pj2.c().getSystemService("sensor");
+            this.a = sensorManager;
+            if (sensorManager != null) {
+                this.e = bVar;
+                this.c = sensorManager.getDefaultSensor(1);
+                Sensor defaultSensor = this.a.getDefaultSensor(2);
+                this.d = defaultSensor;
+                if (this.c != null && defaultSensor != null) {
+                    this.a.registerListener(i(), this.c, i2);
+                    this.a.registerListener(i(), this.d, i2);
+                    this.h = true;
+                    ix1.i("SwanAppOrientationManager", "start listen");
+                    return true;
+                }
+                ix1.c("SwanAppOrientationManager", "Accelerometer || Magnetic is null");
+                return false;
+            }
+            ix1.c("SwanAppOrientationManager", "none sensorManager");
+            return false;
         }
-        return invokeLLLL.booleanValue;
+        return invokeIL.booleanValue;
     }
 
-    public final void k(UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, zq1 zq1Var, float[] fArr) {
+    public void m() {
+        SensorManager sensorManager;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, unitedSchemeEntity, callbackHandler, zq1Var, fArr) == null) {
-            JSONObject jSONObject = new JSONObject();
-            double[] dArr = new double[3];
-            double d = fArr[0] - 1.5707963267948966d;
-            if (d < 0.0d) {
-                d += 6.283185307179586d;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            if (!this.h) {
+                ix1.o("SwanAppOrientationManager", "has already stop");
+                return;
             }
-            dArr[0] = Math.toDegrees(d);
-            dArr[1] = Math.toDegrees(-fArr[2]);
-            dArr[2] = Math.toDegrees(-fArr[1]);
-            if (e23.b) {
-                Log.i("SwanAppAction", "deviceMotionChange: " + Arrays.toString(dArr));
+            this.h = false;
+            SensorEventListener sensorEventListener = this.b;
+            if (sensorEventListener != null && (sensorManager = this.a) != null) {
+                sensorManager.unregisterListener(sensorEventListener);
+                this.b = null;
             }
-            try {
-                jSONObject.put("alpha", (float) dArr[0]);
-                jSONObject.put("beta", (float) dArr[1]);
-                jSONObject.put("gamma", (float) dArr[2]);
-                zq1Var.c(unitedSchemeEntity, callbackHandler, jSONObject);
-            } catch (JSONException e) {
-                hx1.c("StartDeviceMotionAction", "handle orientation,json error，" + e.toString());
-                zq1Var.e(unitedSchemeEntity, callbackHandler, "Json error");
-            }
+            this.e = null;
+            this.a = null;
+            this.c = null;
+            this.d = null;
         }
     }
 }

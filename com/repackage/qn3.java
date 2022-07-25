@@ -1,23 +1,55 @@
 package com.repackage;
 
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+import java.util.Map;
 /* loaded from: classes7.dex */
-public class qn3 implements Cloneable {
+public class qn3<ContenT> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    public int c;
-    public int d;
-    public boolean e;
-    public boolean f;
-    public boolean g;
+    public final Map<String, qn3<ContenT>.a> a;
+
+    /* loaded from: classes7.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final String a;
+        public final ContenT b;
+        public final /* synthetic */ qn3 c;
+
+        public a(qn3 qn3Var, String str, ContenT content) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {qn3Var, str, content};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.c = qn3Var;
+            this.a = str;
+            this.b = content;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.c.d(this.a);
+            }
+        }
+    }
 
     public qn3() {
         Interceptable interceptable = $ic;
@@ -32,127 +64,69 @@ public class qn3 implements Cloneable {
                 return;
             }
         }
-        this.e = false;
-        this.f = false;
+        this.a = new HashMap();
     }
 
-    public static qn3 a() {
-        InterceptResult invokeV;
+    public synchronized ContenT a(String str, ContenT content, long j) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            qn3 qn3Var = new qn3();
-            qn3Var.i(true);
-            qn3Var.g(true);
-            qn3Var.h(-1);
-            qn3Var.f(-1);
-            return qn3Var;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{str, content, Long.valueOf(j)})) == null) {
+            synchronized (this) {
+                d(str);
+                if (content == null) {
+                    return null;
+                }
+                qn3<ContenT>.a aVar = new a(this, str, content);
+                this.a.put(str, aVar);
+                if (j > 0) {
+                    h03.M().postDelayed(aVar, j);
+                }
+                return content;
+            }
         }
-        return (qn3) invokeV.objValue;
+        return (ContenT) invokeCommon.objValue;
     }
 
-    public int b() {
-        InterceptResult invokeV;
+    public synchronized void b() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.d : invokeV.intValue;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            synchronized (this) {
+                for (qn3<ContenT>.a aVar : this.a.values()) {
+                    if (aVar != null) {
+                        h03.M().removeCallbacks(aVar);
+                    }
+                }
+                this.a.clear();
+            }
+        }
     }
 
-    public int c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : invokeV.intValue;
-    }
-
-    public Object clone() throws CloneNotSupportedException {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? super.clone() : invokeV.objValue;
-    }
-
-    public int d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.b : invokeV.intValue;
-    }
-
-    public int e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.c : invokeV.intValue;
-    }
-
-    public boolean equals(Object obj) {
+    public ContenT c(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, obj)) == null) {
-            if (this == obj) {
-                return true;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            qn3<ContenT>.a aVar = this.a.get(str);
+            if (aVar == null) {
+                return null;
             }
-            if (obj instanceof qn3) {
-                qn3 qn3Var = (qn3) obj;
-                return this.a == qn3Var.a && this.b == qn3Var.b && this.d == qn3Var.d && this.c == qn3Var.c && this.g == qn3Var.g;
-            }
-            return false;
+            return aVar.b;
         }
-        return invokeL.booleanValue;
+        return (ContenT) invokeL.objValue;
     }
 
-    public void f(int i) {
+    public synchronized ContenT d(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
-            this.d = i;
-        }
-    }
-
-    public void g(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
-            this.f = z;
-        }
-    }
-
-    public void h(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
-            this.c = i;
-        }
-    }
-
-    public void i(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
-            this.e = z;
-        }
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return "Position{l=" + this.a + ", t=" + this.b + ", w=" + this.c + ", h=" + this.d + ", WAuto=" + this.e + ", HAuto=" + this.f + ", fixed=" + this.g + '}';
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public qn3(int i, int i2, int i3, int i4) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i5 = newInitContext.flag;
-            if ((i5 & 1) != 0) {
-                int i6 = i5 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            synchronized (this) {
+                qn3<ContenT>.a remove = this.a.remove(str);
+                if (remove != null) {
+                    h03.M().removeCallbacks(remove);
+                    return remove.b;
+                }
+                return null;
             }
         }
-        this.e = false;
-        this.f = false;
-        this.a = i;
-        this.b = i2;
-        this.c = i3;
-        this.d = i4;
+        return (ContenT) invokeL.objValue;
     }
 }

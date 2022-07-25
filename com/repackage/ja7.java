@@ -10,7 +10,7 @@ import com.squareup.wire.Wire;
 import java.io.IOException;
 import tbclient.ReplyMe.ReplyMeResIdl;
 /* loaded from: classes6.dex */
-public class ja7 extends ha7 implements o75, u75 {
+public class ja7 extends ha7 implements p75, v75 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -28,14 +28,14 @@ public class ja7 extends ha7 implements o75, u75 {
         }
     }
 
-    @Override // com.repackage.p75
+    @Override // com.repackage.q75
     public String getCacheKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "replyme_cache" : (String) invokeV.objValue;
     }
 
-    @Override // com.repackage.o75
+    @Override // com.repackage.p75
     public boolean initByByteArray(byte[] bArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -51,7 +51,7 @@ public class ja7 extends ha7 implements o75, u75 {
         return invokeL.booleanValue;
     }
 
-    @Override // com.repackage.o75
+    @Override // com.repackage.p75
     public byte[] toCacheByteArray() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

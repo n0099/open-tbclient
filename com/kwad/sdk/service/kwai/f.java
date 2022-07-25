@@ -4,45 +4,49 @@ import android.content.Context;
 import java.util.List;
 /* loaded from: classes5.dex */
 public interface f {
-    int a(Context context);
+    boolean ae(String str);
 
-    boolean a();
+    int af(Context context);
 
-    boolean a(long j);
+    String getAppId();
 
-    boolean a(String str);
+    String getUserAgent();
 
-    boolean b();
+    boolean i(long j);
 
-    boolean c();
+    boolean lA();
 
-    boolean d();
+    String lB();
 
-    String e();
+    String lC();
 
-    String f();
+    List<String> lD();
 
-    List<String> g();
+    boolean lE();
 
-    String h();
+    boolean lF();
 
-    boolean i();
+    boolean lG();
 
-    boolean j();
+    boolean lH();
 
-    boolean k();
+    float lI();
 
-    String l();
+    float lJ();
 
-    boolean m();
+    boolean lK();
 
-    float n();
+    boolean lL();
 
-    float o();
+    int lM();
 
-    boolean p();
+    int lN();
 
-    boolean q();
+    float lO();
 
-    int r();
+    boolean lx();
+
+    boolean ly();
+
+    boolean lz();
 }

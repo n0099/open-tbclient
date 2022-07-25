@@ -1,30 +1,68 @@
 package com.kwad.sdk.core.config.item;
 
 import android.content.SharedPreferences;
+import android.text.TextUtils;
+import com.ksad.json.annotation.KsJson;
+import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public final class g extends b<com.kwad.sdk.core.network.idc.kwai.a> {
-    public g() {
-        super("idc", new com.kwad.sdk.core.network.idc.kwai.a());
+public final class g extends b<a> {
+
+    @KsJson
+    /* loaded from: classes5.dex */
+    public static final class a extends com.kwad.sdk.core.response.kwai.a {
+        public String VB = "";
+        public String VC = "";
     }
 
-    @Override // com.kwad.sdk.core.config.item.b
-    public final void a(SharedPreferences.Editor editor) {
+    public g() {
+        super("idMapping", new a());
     }
 
     @Override // com.kwad.sdk.core.config.item.b
     public final void a(SharedPreferences sharedPreferences) {
+        a value = getValue();
+        if (value == null) {
+            value = new a();
+        }
+        String string = sharedPreferences.getString(getKey(), "");
+        if (!TextUtils.isEmpty(string)) {
+            try {
+                value.parseJson(new JSONObject(b.bu(string)));
+            } catch (JSONException e) {
+                com.kwad.sdk.core.e.b.printStackTraceOnly(e);
+            }
+        }
+        setValue(value);
     }
 
     @Override // com.kwad.sdk.core.config.item.b
-    public final void a(JSONObject jSONObject) {
-        JSONObject optJSONObject;
-        if (jSONObject == null || (optJSONObject = jSONObject.optJSONObject(a())) == null) {
-            a((g) c());
+    public final void b(SharedPreferences.Editor editor) {
+        if (getValue() == null || getValue().toJson() == null) {
+            editor.putString(getKey(), "");
             return;
         }
-        com.kwad.sdk.core.network.idc.kwai.a aVar = new com.kwad.sdk.core.network.idc.kwai.a();
+        editor.putString(getKey(), b.bt(getValue().toJson().toString()));
+    }
+
+    @Override // com.kwad.sdk.core.config.item.b
+    public final void e(JSONObject jSONObject) {
+        JSONObject optJSONObject = jSONObject.optJSONObject(getKey());
+        if (optJSONObject == null) {
+            return;
+        }
+        a aVar = new a();
         aVar.parseJson(optJSONObject);
-        a((g) aVar);
+        setValue(aVar);
+    }
+
+    public final String getImei() {
+        a value = getValue();
+        return (value == null || TextUtils.isEmpty(value.VB)) ? "" : value.VB;
+    }
+
+    public final String getOaid() {
+        a value = getValue();
+        return (value == null || TextUtils.isEmpty(value.VC)) ? "" : value.VC;
     }
 }

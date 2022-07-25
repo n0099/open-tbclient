@@ -21,7 +21,7 @@ public class a {
 
     /* renamed from: com.baidu.pass.common.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public static class C0122a {
+    public static class C0123a {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String a = "UTF-8";
         public static final String b = "AES/CBC/NoPadding";
@@ -32,7 +32,7 @@ public class a {
         public String f;
 
         /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-        public C0122a() {
+        public C0123a() {
             this("AES", "AES/CBC/NoPadding", "UTF-8");
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -74,7 +74,7 @@ public class a {
             return (byte[]) invokeLLL.objValue;
         }
 
-        public C0122a(String str, String str2, String str3) {
+        public C0123a(String str, String str2, String str3) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -205,17 +205,22 @@ public class a {
             byte b = 0;
             do {
                 if (i2 > 0 && i3 > 0) {
-                    int i6 = (bArr[i4] & 255) << i3;
-                    int i7 = 8 - i3;
-                    b = (byte) (((byte) (i6 | ((bArr[i4 + 1] & 255) >> i7))) & 63);
-                    i3 = 6 - i7;
-                    i2 = i7;
+                    if (i4 >= 0 && i4 < bArr.length - 1) {
+                        b = (byte) (((bArr[i4] & 255) << i3) | ((bArr[i4 + 1] & 255) >> (8 - i3)));
+                    }
+                    b = (byte) (b & 63);
+                    i2 = 8 - i3;
+                    i3 = 6 - i2;
                 } else if (i2 == 0) {
-                    b = (byte) ((bArr[i4] & 255) >> (8 - i3));
+                    if (i4 >= 0 && i4 < bArr.length) {
+                        b = (byte) ((bArr[i4] & 255) >> (8 - i3));
+                    }
                     i2 = 2;
                     i3 = 4;
                 } else if (i3 == 0) {
-                    b = (byte) (bArr[i4] & 63);
+                    if (i4 >= 0 && i4 < bArr.length) {
+                        b = (byte) (bArr[i4] & 63);
+                    }
                     i2 = 0;
                     i3 = 6;
                 }
@@ -227,8 +232,8 @@ public class a {
             if (i > 0) {
                 sb.append("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/".charAt((byte) ((bArr[bArr.length - 1] << (6 - i)) & 63)));
             }
-            int i8 = length % 3;
-            for (int i9 = 0; i9 < i8; i9++) {
+            int i6 = length % 3;
+            for (int i7 = 0; i7 < i6; i7++) {
                 sb.append("=");
             }
             return sb.toString();

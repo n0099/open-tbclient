@@ -58,7 +58,7 @@ public class RecordLayout extends RelativeLayout {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             this.c = ViewConfiguration.getMaximumFlingVelocity();
             this.b = ViewConfiguration.getMinimumFlingVelocity();
-            this.d = pi.f(getContext(), R.dimen.obfuscated_res_0x7f07024f);
+            this.d = pi.f(getContext(), R.dimen.obfuscated_res_0x7f07024d);
         }
     }
 

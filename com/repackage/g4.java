@@ -85,25 +85,25 @@ public class g4 implements h7 {
             f4 f4Var = new f4();
             f4Var.d = modelMaterial.a;
             if (modelMaterial.b != null) {
-                f4Var.i(new i4(i4.g, modelMaterial.b));
+                f4Var.h(new i4(i4.g, modelMaterial.b));
             }
             if (modelMaterial.c != null) {
-                f4Var.i(new i4(i4.e, modelMaterial.c));
+                f4Var.h(new i4(i4.e, modelMaterial.c));
             }
             if (modelMaterial.d != null) {
-                f4Var.i(new i4(i4.f, modelMaterial.d));
+                f4Var.h(new i4(i4.f, modelMaterial.d));
             }
             if (modelMaterial.e != null) {
-                f4Var.i(new i4(i4.h, modelMaterial.e));
+                f4Var.h(new i4(i4.h, modelMaterial.e));
             }
             if (modelMaterial.f != null) {
-                f4Var.i(new i4(i4.i, modelMaterial.f));
+                f4Var.h(new i4(i4.i, modelMaterial.f));
             }
             if (modelMaterial.g > 0.0f) {
-                f4Var.i(new j4(j4.e, modelMaterial.g));
+                f4Var.h(new j4(j4.e, modelMaterial.g));
             }
             if (modelMaterial.h != 1.0f) {
-                f4Var.i(new h4(770, 771, modelMaterial.h));
+                f4Var.h(new h4(770, 771, modelMaterial.h));
             }
             w7 w7Var = new w7();
             a7<c5> a7Var = modelMaterial.i;
@@ -133,19 +133,19 @@ public class g4 implements h7 {
                     float f4 = vector24 == null ? 1.0f : vector24.y;
                     int i = next.d;
                     if (i == 2) {
-                        f4Var.i(new k4(k4.j, n5Var, f, f2, f3, f4));
+                        f4Var.h(new k4(k4.j, n5Var, f, f2, f3, f4));
                     } else if (i == 3) {
-                        f4Var.i(new k4(k4.o, n5Var, f, f2, f3, f4));
+                        f4Var.h(new k4(k4.o, n5Var, f, f2, f3, f4));
                     } else if (i == 4) {
-                        f4Var.i(new k4(k4.n, n5Var, f, f2, f3, f4));
+                        f4Var.h(new k4(k4.n, n5Var, f, f2, f3, f4));
                     } else if (i == 5) {
-                        f4Var.i(new k4(k4.k, n5Var, f, f2, f3, f4));
+                        f4Var.h(new k4(k4.k, n5Var, f, f2, f3, f4));
                     } else if (i == 7) {
-                        f4Var.i(new k4(k4.m, n5Var, f, f2, f3, f4));
+                        f4Var.h(new k4(k4.m, n5Var, f, f2, f3, f4));
                     } else if (i == 8) {
-                        f4Var.i(new k4(k4.l, n5Var, f, f2, f3, f4));
+                        f4Var.h(new k4(k4.l, n5Var, f, f2, f3, f4));
                     } else if (i == 10) {
-                        f4Var.i(new k4(k4.p, n5Var, f, f2, f3, f4));
+                        f4Var.h(new k4(k4.p, n5Var, f, f2, f3, f4));
                     }
                 }
             }
@@ -400,7 +400,7 @@ public class g4 implements h7 {
                 this.b.a(p(y4Var));
             }
             w7.a<t4, b7<String, Matrix4>> b = this.g.b();
-            b.d();
+            b.c();
             while (b.hasNext()) {
                 w7.b next = b.next();
                 K k = next.a;
@@ -408,11 +408,11 @@ public class g4 implements h7 {
                     ((t4) k).a = new b7<>(q4.class, Matrix4.class);
                 }
                 ((t4) next.a).a.clear();
-                b7.a b2 = ((b7) next.b).b();
-                b2.iterator();
-                while (b2.hasNext()) {
-                    w7.b next2 = b2.next();
-                    ((t4) next.a).a.f(i((String) next2.a), new Matrix4((Matrix4) next2.b).inv());
+                b7.a a = ((b7) next.b).a();
+                a.iterator();
+                while (a.hasNext()) {
+                    w7.b next2 = a.next();
+                    ((t4) next.a).a.e(i((String) next2.a), new Matrix4((Matrix4) next2.b).inv());
                 }
             }
         }

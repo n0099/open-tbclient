@@ -5,11 +5,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ae2;
-import com.repackage.ey3;
-import com.repackage.i43;
+import com.repackage.be2;
+import com.repackage.fy3;
 import com.repackage.j43;
 import com.repackage.k43;
+import com.repackage.l43;
 import com.repackage.nb1;
 import java.util.ArrayList;
 /* loaded from: classes2.dex */
@@ -37,11 +37,11 @@ public class UnitedSchemeBaseInterceptor_UnitedSchemeRuntime_ListProvider implem
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             ArrayList arrayList = new ArrayList();
-            arrayList.add(new ae2());
-            arrayList.add(new i43());
+            arrayList.add(new be2());
             arrayList.add(new j43());
             arrayList.add(new k43());
-            arrayList.add(new ey3());
+            arrayList.add(new l43());
+            arrayList.add(new fy3());
             return arrayList;
         }
         return invokeV.objValue;

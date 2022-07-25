@@ -24,7 +24,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.eo4;
+import com.repackage.fo4;
 import com.repackage.oi;
 import com.repackage.pi;
 import java.util.ArrayList;
@@ -35,7 +35,7 @@ public class PbBjhRecommendViewHolder extends TypeAdapter.ViewHolder {
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
     public AbsPbActivity b;
-    public eo4 c;
+    public fo4 c;
     public String d;
     public boolean e;
     public int f;
@@ -94,7 +94,7 @@ public class PbBjhRecommendViewHolder extends TypeAdapter.ViewHolder {
                     return;
                 }
                 int i = 3;
-                if (id == R.id.obfuscated_res_0x7f091f6b) {
+                if (id == R.id.obfuscated_res_0x7f091f6f) {
                     VideoInfo threadVideoInfo = this.a.c.getThreadVideoInfo();
                     if (threadVideoInfo != null) {
                         if (threadVideoInfo.is_vertical.intValue() == 1) {
@@ -135,7 +135,7 @@ public class PbBjhRecommendViewHolder extends TypeAdapter.ViewHolder {
                             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, videoPlayActivityConfig2));
                         }
                     }
-                } else if (id == R.id.obfuscated_res_0x7f0913e8 || id == R.id.obfuscated_res_0x7f090377 || id == R.id.obfuscated_res_0x7f090376) {
+                } else if (id == R.id.obfuscated_res_0x7f0913c4 || id == R.id.obfuscated_res_0x7f090377 || id == R.id.obfuscated_res_0x7f090376) {
                     String tid = this.a.c.getTid();
                     if (this.a.f == 2) {
                         i = 1;
@@ -210,8 +210,8 @@ public class PbBjhRecommendViewHolder extends TypeAdapter.ViewHolder {
         this.a = 3;
         this.y = new a(this);
         this.b = absPbActivity;
-        this.h = view2.findViewById(R.id.obfuscated_res_0x7f0913e8);
-        this.i = view2.findViewById(R.id.obfuscated_res_0x7f09097d);
+        this.h = view2.findViewById(R.id.obfuscated_res_0x7f0913c4);
+        this.i = view2.findViewById(R.id.obfuscated_res_0x7f090976);
         this.j = view2.findViewById(R.id.obfuscated_res_0x7f090379);
         this.k = view2.findViewById(R.id.obfuscated_res_0x7f090374);
         this.l = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090377);
@@ -220,23 +220,23 @@ public class PbBjhRecommendViewHolder extends TypeAdapter.ViewHolder {
         this.o = view2.findViewById(R.id.obfuscated_res_0x7f09037b);
         this.p = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f09037e);
         this.q = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09037c);
-        this.r = view2.findViewById(R.id.obfuscated_res_0x7f091209);
-        this.u = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091f6b);
-        this.s = view2.findViewById(R.id.obfuscated_res_0x7f091207);
-        this.t = view2.findViewById(R.id.obfuscated_res_0x7f091208);
+        this.r = view2.findViewById(R.id.obfuscated_res_0x7f0911e5);
+        this.u = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091f6f);
+        this.s = view2.findViewById(R.id.obfuscated_res_0x7f0911e3);
+        this.t = view2.findViewById(R.id.obfuscated_res_0x7f0911e4);
         this.v = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09037a);
         this.w = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09037d);
         this.x = view2.findViewById(R.id.obfuscated_res_0x7f090378);
     }
 
-    public void i(eo4 eo4Var) {
+    public void h(fo4 fo4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, eo4Var) == null) {
-            this.c = eo4Var;
-            this.i.setVisibility(eo4Var.d() ? 0 : 8);
-            this.t.setVisibility(eo4Var.i() ? 0 : 8);
-            this.j.setVisibility(eo4Var.g() ? 8 : 0);
-            this.r.setVisibility(eo4Var.g() ? 0 : 8);
+        if (interceptable == null || interceptable.invokeL(1048576, this, fo4Var) == null) {
+            this.c = fo4Var;
+            this.i.setVisibility(fo4Var.d() ? 0 : 8);
+            this.t.setVisibility(fo4Var.i() ? 0 : 8);
+            this.j.setVisibility(fo4Var.g() ? 8 : 0);
+            this.r.setVisibility(fo4Var.g() ? 0 : 8);
             this.u.setOnClickListener(this.y);
             this.m.setOnClickListener(this.y);
             this.l.setOnClickListener(this.y);
@@ -244,16 +244,16 @@ public class PbBjhRecommendViewHolder extends TypeAdapter.ViewHolder {
             this.l.setRadius(pi.f(TbadkCoreApplication.getInst(), R.dimen.tbds21));
             this.l.setDrawCorner(true);
             this.l.setPlaceHolder(2);
-            if (eo4Var.getThreadVideoInfo() != null) {
-                this.n.setText(eo4Var.getTitle());
-                this.l.J(eo4Var.getThreadVideoInfo().thumbnail_url, 10, false);
+            if (fo4Var.getThreadVideoInfo() != null) {
+                this.n.setText(fo4Var.getTitle());
+                this.l.J(fo4Var.getThreadVideoInfo().thumbnail_url, 10, false);
                 this.m.setVisibility(0);
                 this.m.setAlpha(0.5f);
                 this.o.setVisibility(0);
-                this.q.setText(StringUtils.translateSecondsToString(eo4Var.getThreadVideoInfo().video_duration.intValue()));
+                this.q.setText(StringUtils.translateSecondsToString(fo4Var.getThreadVideoInfo().video_duration.intValue()));
                 LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.w.getLayoutParams();
-                if (eo4Var.getAuthor() != null && !oi.isEmpty(eo4Var.getAuthor().getName_show())) {
-                    this.v.setText(eo4Var.getAuthor().getName_show());
+                if (fo4Var.getAuthor() != null && !oi.isEmpty(fo4Var.getAuthor().getName_show())) {
+                    this.v.setText(fo4Var.getAuthor().getName_show());
                     this.v.setVisibility(0);
                     layoutParams.leftMargin = pi.f(TbadkCoreApplication.getInst(), R.dimen.M_W_X004);
                 } else {
@@ -261,45 +261,45 @@ public class PbBjhRecommendViewHolder extends TypeAdapter.ViewHolder {
                     layoutParams.leftMargin = 0;
                 }
                 this.w.setLayoutParams(layoutParams);
-                this.w.setText(String.format(this.b.getResources().getString(R.string.obfuscated_res_0x7f0f030c), StringHelper.numFormatOverWan(eo4Var.getThreadVideoInfo().play_count.intValue())));
+                this.w.setText(String.format(this.b.getResources().getString(R.string.obfuscated_res_0x7f0f030c), StringHelper.numFormatOverWan(fo4Var.getThreadVideoInfo().play_count.intValue())));
             } else {
                 this.o.setVisibility(8);
                 this.m.setVisibility(8);
-                this.l.J(eo4Var.getArticeCover(), 10, false);
-                this.n.setText(eo4Var.getTitle());
+                this.l.J(fo4Var.getArticeCover(), 10, false);
+                this.n.setText(fo4Var.getTitle());
             }
             this.h.setOnClickListener(this.y);
         }
     }
 
-    public void j(int i) {
+    public void i(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
             this.f = i;
         }
     }
 
-    public void k(String str) {
+    public void j(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
         }
     }
 
-    public void l(boolean z) {
+    public void k(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
             this.e = z;
         }
     }
 
-    public void m(String str) {
+    public void l(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
             this.d = str;
         }
     }
 
-    public void n(boolean z) {
+    public void m(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
             this.g = z;

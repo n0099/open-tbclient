@@ -1,21 +1,39 @@
 package com.kwad.sdk.api.loader;
 
-import android.os.Build;
-import android.os.Process;
+import android.annotation.SuppressLint;
+import android.content.Context;
 /* loaded from: classes5.dex */
 public final class t {
-    public static boolean a() {
-        int i = Build.VERSION.SDK_INT;
-        if (i >= 23) {
-            return Process.is64Bit();
-        }
-        if (i >= 21) {
-            try {
-                return ((Boolean) Reflect.a(Reflect.c("dalvik.system.VMRuntime")).b("getRuntime").b("is64Bit").a).booleanValue();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
-        return false;
+    public static String a = "kssdk_api_pref";
+
+    public static String a(Context context, String str) {
+        return d(context, str, "");
+    }
+
+    @SuppressLint({"ApplySharedPref"})
+    public static void a(Context context, String str, long j) {
+        context.getSharedPreferences(a, 0).edit().putLong(str, j).commit();
+    }
+
+    @SuppressLint({"ApplySharedPref"})
+    public static void a(Context context, String str, boolean z) {
+        context.getSharedPreferences(a, 0).edit().putBoolean(str, z).commit();
+    }
+
+    @SuppressLint({"ApplySharedPref"})
+    public static void c(Context context, String str, String str2) {
+        context.getSharedPreferences(a, 0).edit().putString(str, str2).commit();
+    }
+
+    public static String d(Context context, String str, String str2) {
+        return context.getSharedPreferences(a, 0).getString(str, str2);
+    }
+
+    public static boolean q(Context context, String str) {
+        return context.getSharedPreferences(a, 0).getBoolean(str, false);
+    }
+
+    public static long r(Context context, String str) {
+        return context.getSharedPreferences(a, 0).getLong(str, 0L);
     }
 }

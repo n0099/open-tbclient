@@ -19,9 +19,9 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.ge;
-import com.repackage.kd5;
-import com.repackage.l45;
+import com.repackage.ld5;
 import com.repackage.lh;
+import com.repackage.m45;
 import com.repackage.mg;
 import com.repackage.ni;
 import com.repackage.of;
@@ -227,7 +227,7 @@ public class ImageLogger {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeCommon(65545, null, new Object[]{str, Boolean.valueOf(z), str2, bool, qfVar, str3, Long.valueOf(j), Boolean.valueOf(z2), Integer.valueOf(i)}) == null) && pi.D() && qfVar != null) {
             String str4 = "";
-            boolean a = kd5.a(str2);
+            boolean a = ld5.a(str2);
             if (ICDNIPDirectConnect.getInstance() != null) {
                 if (!ICDNIPDirectConnect.getInstance().isAlreadyInit) {
                     ICDNIPDirectConnect.getInstance().init();
@@ -278,7 +278,7 @@ public class ImageLogger {
             String dnsIp = TextUtils.isEmpty("") ? getDnsIp() : "";
             logItem.b("url", str);
             logItem.b("act", "dl");
-            logItem.b("result", z ? "1" : "0");
+            logItem.b(TiebaStatic.LogFields.RESULT, z ? "1" : "0");
             logItem.b("requrl", str2);
             logItem.b("netlib", qfVar.v == 0 ? "Apache" : "HttpManager");
             logItem.b(TiebaStatic.LogFields.COST_TIME, String.valueOf(j));
@@ -354,7 +354,7 @@ public class ImageLogger {
     public static String memoryUsage() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) ? l45.k().v() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) ? m45.k().v() : (String) invokeV.objValue;
     }
 
     public static void mobileTachometerLoger(ArrayList<String> arrayList, long j) {

@@ -3,15 +3,15 @@ package com.kwad.sdk.pngencrypt.chunk;
 import com.kwad.sdk.pngencrypt.PngjException;
 /* loaded from: classes5.dex */
 public final class j extends t {
-    public boolean j;
-    public String k;
-    public String l;
+    public boolean alV;
+    public String alW;
+    public String alX;
 
     public j(com.kwad.sdk.pngencrypt.k kVar) {
         super("iTXt", kVar);
-        this.j = false;
-        this.k = "";
-        this.l = "";
+        this.alV = false;
+        this.alW = "";
+        this.alX = "";
     }
 
     @Override // com.kwad.sdk.pngencrypt.chunk.PngChunk
@@ -20,7 +20,7 @@ public final class j extends t {
         int i = 0;
         int i2 = 0;
         while (true) {
-            byte[] bArr = dVar.d;
+            byte[] bArr = dVar.data;
             if (i >= bArr.length) {
                 break;
             }
@@ -37,21 +37,21 @@ public final class j extends t {
             i++;
         }
         if (i2 != 3) {
-            com.kwad.sdk.core.d.b.a(new PngjException("Bad formed PngChunkITXT chunk"));
+            com.kwad.sdk.core.e.b.printStackTrace(new PngjException("Bad formed PngChunkITXT chunk"));
         }
-        ((t) this).h = b.a(dVar.d, 0, iArr[0]);
+        this.key = b.d(dVar.data, 0, iArr[0]);
         int i3 = iArr[0] + 1;
-        boolean z = dVar.d[i3] != 0;
-        this.j = z;
+        boolean z = dVar.data[i3] != 0;
+        this.alV = z;
         int i4 = i3 + 1;
-        if (z && dVar.d[i4] != 0) {
-            com.kwad.sdk.core.d.b.a(new PngjException("Bad formed PngChunkITXT chunk - bad compression method "));
+        if (z && dVar.data[i4] != 0) {
+            com.kwad.sdk.core.e.b.printStackTrace(new PngjException("Bad formed PngChunkITXT chunk - bad compression method "));
         }
-        this.k = b.a(dVar.d, i4, iArr[1] - i4);
-        this.l = b.b(dVar.d, iArr[1] + 1, (iArr[2] - iArr[1]) - 1);
+        this.alW = b.d(dVar.data, i4, iArr[1] - i4);
+        this.alX = b.e(dVar.data, iArr[1] + 1, (iArr[2] - iArr[1]) - 1);
         int i5 = iArr[2] + 1;
-        boolean z2 = this.j;
-        byte[] bArr2 = dVar.d;
-        this.i = z2 ? b.b(b.a(bArr2, i5, bArr2.length - i5, false)) : b.b(bArr2, i5, bArr2.length - i5);
+        boolean z2 = this.alV;
+        byte[] bArr2 = dVar.data;
+        this.amp = z2 ? b.j(b.b(bArr2, i5, bArr2.length - i5, false)) : b.e(bArr2, i5, bArr2.length - i5);
     }
 }

@@ -14,7 +14,7 @@ public class hh7 implements YYPayService {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes6.dex */
-    public class a implements d95 {
+    public class a implements e95 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ YYPayService.YYPayResultCallback a;
@@ -37,7 +37,7 @@ public class hh7 implements YYPayService {
             this.a = yYPayResultCallback;
         }
 
-        @Override // com.repackage.d95
+        @Override // com.repackage.e95
         public void onFail(int i, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) {
@@ -45,21 +45,21 @@ public class hh7 implements YYPayService {
             }
         }
 
-        @Override // com.repackage.d95
-        public void onSuccess(h95 h95Var) {
+        @Override // com.repackage.e95
+        public void onSuccess(i95 i95Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, h95Var) == null) {
-                if (h95Var != null) {
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i95Var) == null) {
+                if (i95Var != null) {
                     YYPayService.YYPayResultMessage yYPayResultMessage = new YYPayService.YYPayResultMessage();
-                    yYPayResultMessage.setStatus(h95Var.g);
-                    yYPayResultMessage.setAppid(h95Var.b);
-                    yYPayResultMessage.setUid(h95Var.h.longValue());
-                    yYPayResultMessage.setUsedChannel(h95Var.i);
-                    yYPayResultMessage.setCurrencyType(h95Var.d);
-                    yYPayResultMessage.setAmount(h95Var.a.longValue());
-                    yYPayResultMessage.setCurrencyAmount(h95Var.c.longValue());
-                    yYPayResultMessage.setOrderId(h95Var.f);
-                    yYPayResultMessage.setExpand(h95Var.e);
+                    yYPayResultMessage.setStatus(i95Var.g);
+                    yYPayResultMessage.setAppid(i95Var.b);
+                    yYPayResultMessage.setUid(i95Var.h.longValue());
+                    yYPayResultMessage.setUsedChannel(i95Var.i);
+                    yYPayResultMessage.setCurrencyType(i95Var.d);
+                    yYPayResultMessage.setAmount(i95Var.a.longValue());
+                    yYPayResultMessage.setCurrencyAmount(i95Var.c.longValue());
+                    yYPayResultMessage.setOrderId(i95Var.f);
+                    yYPayResultMessage.setExpand(i95Var.e);
                     this.a.onSuccess(yYPayResultMessage);
                     return;
                 }
@@ -102,7 +102,7 @@ public class hh7 implements YYPayService {
     public void startPayment(Context context, String str, Long l, YYPayService.YYPayResultCallback yYPayResultCallback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, context, str, l, yYPayResultCallback) == null) {
-            MessageManager.getInstance().runTask(2921546, String.class, new g95(context, 1, str, l, new a(this, yYPayResultCallback)));
+            MessageManager.getInstance().runTask(2921546, String.class, new h95(context, 1, str, l, new a(this, yYPayResultCallback)));
         }
     }
 }

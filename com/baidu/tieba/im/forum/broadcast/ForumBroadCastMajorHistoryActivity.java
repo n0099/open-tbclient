@@ -87,7 +87,7 @@ public class ForumBroadCastMajorHistoryActivity extends BaseActivity<ForumBroadC
         if (interceptable == null || interceptable.invokeL(1048579, this, k67Var) == null) {
             ForumBroadCastMajorHistoryModel forumBroadCastMajorHistoryModel = this.a;
             if (forumBroadCastMajorHistoryModel != null && !forumBroadCastMajorHistoryModel.c()) {
-                this.b.r(getString(R.string.obfuscated_res_0x7f0f08bb), false);
+                this.b.r(getString(R.string.obfuscated_res_0x7f0f08a6), false);
                 return;
             }
             m67 m67Var = this.b;
@@ -97,7 +97,7 @@ public class ForumBroadCastMajorHistoryActivity extends BaseActivity<ForumBroadC
         }
     }
 
-    @Override // com.repackage.fu4.g
+    @Override // com.repackage.gu4.g
     public void e(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
@@ -113,14 +113,14 @@ public class ForumBroadCastMajorHistoryActivity extends BaseActivity<ForumBroadC
                 if (!StringUtils.isNull(errorData.error_msg)) {
                     showToast(errorData.error_msg);
                 } else {
-                    showToast(R.string.obfuscated_res_0x7f0f08bb);
+                    showToast(R.string.obfuscated_res_0x7f0f08a6);
                 }
             }
             ForumBroadCastMajorHistoryModel forumBroadCastMajorHistoryModel = this.a;
             if (forumBroadCastMajorHistoryModel == null || forumBroadCastMajorHistoryModel.c()) {
                 return;
             }
-            this.b.r(errorData != null ? getString(R.string.obfuscated_res_0x7f0f0c2a, new Object[]{errorData.error_msg, Integer.valueOf(errorData.error_code)}) : null, false);
+            this.b.r(errorData != null ? getString(R.string.obfuscated_res_0x7f0f0c16, new Object[]{errorData.error_msg, Integer.valueOf(errorData.error_code)}) : null, false);
         }
     }
 

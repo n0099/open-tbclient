@@ -23,7 +23,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.pi;
-import com.repackage.uu4;
+import com.repackage.vu4;
 /* loaded from: classes3.dex */
 public class TBSpecificationBtn extends View {
     public static /* synthetic */ Interceptable $ic;
@@ -222,9 +222,9 @@ public class TBSpecificationBtn extends View {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             this.l = TbadkCoreApplication.getInst().getSkinType();
-            uu4 uu4Var = new uu4();
-            this.b = uu4Var;
-            uu4Var.t = this.n;
+            vu4 vu4Var = new vu4();
+            this.b = vu4Var;
+            vu4Var.t = this.n;
             Paint paint = new Paint();
             this.d = paint;
             paint.setTextSize(pi.f(getContext(), R.dimen.T_X08));

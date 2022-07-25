@@ -1,24 +1,22 @@
 package com.repackage;
 
-import android.annotation.SuppressLint;
-import android.text.TextUtils;
+import android.content.Context;
+import android.media.AudioManager;
 import android.util.Log;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.plugin.ZeusPlugin;
-import java.util.HashMap;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class ii2 extends be2<si2> {
+public class ii2 extends ce2<ti2> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int b;
-    public int c;
+    public AudioManager b;
 
     public ii2() {
         Interceptable interceptable = $ic;
@@ -30,69 +28,75 @@ public class ii2 extends be2<si2> {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.b = 1;
-        this.c = 3;
     }
 
-    @Override // com.repackage.be2
+    @Override // com.repackage.ce2
     @NonNull
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "setZeusVideoExt" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "setVolume" : (String) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.be2
-    @SuppressLint({"BDThrowableCheck"})
+    @Override // com.repackage.ce2
     /* renamed from: e */
-    public void a(@NonNull ZeusPlugin.Command command, @NonNull si2 si2Var) {
+    public void a(@NonNull ZeusPlugin.Command command, @NonNull ti2 ti2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, si2Var) == null) {
-            Object obj = command.obj;
-            if (!(obj instanceof String)) {
-                if (be2.a) {
-                    StringBuilder sb = new StringBuilder();
-                    sb.append("setZeusVideoExt with a illegal obj ");
-                    sb.append(obj == null);
-                    throw new RuntimeException(sb.toString());
+        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, ti2Var) == null) || command.obj == null) {
+            return;
+        }
+        if (!ti2Var.P()) {
+            d(ti2Var, command.what, "Not Set!! Volume: " + command.obj, false);
+            return;
+        }
+        Object obj = command.obj;
+        if (obj instanceof Double) {
+            try {
+                double doubleValue = ((Double) obj).doubleValue();
+                d(ti2Var, command.what, "Volume: " + command.obj, false);
+                if (doubleValue > 1.0d) {
+                    doubleValue = 1.0d;
+                }
+                if (doubleValue < 0.0d) {
+                    doubleValue = 0.0d;
+                }
+                f(doubleValue, ti2Var.getContext());
+            } catch (Exception unused) {
+                if (ce2.a) {
+                    Log.e(b(), "setVolume param type error");
+                }
+            }
+        }
+    }
+
+    public final void f(double d, Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Double.valueOf(d), context}) == null) {
+            if (this.b == null) {
+                this.b = (AudioManager) context.getSystemService("audio");
+            }
+            AudioManager audioManager = this.b;
+            if (audioManager == null) {
+                return;
+            }
+            int round = (int) Math.round(audioManager.getStreamMaxVolume(3) * d);
+            if (round == this.b.getStreamVolume(3)) {
+                if (ce2.a) {
+                    Log.d("【InlineCommand】", "Setting same volume level, ignore : (" + round + SmallTailInfo.EMOTION_SUFFIX);
+                    return;
                 }
                 return;
             }
-            String str = command.what;
-            d(si2Var, str, "setZeusVideoExt:" + obj, false);
-            try {
-                JSONObject jSONObject = new JSONObject((String) obj);
-                if (jSONObject.has("instance-error")) {
-                    HashMap hashMap = new HashMap();
-                    hashMap.put("instance-error", jSONObject.optString("instance-error"));
-                    si2Var.T(hashMap);
-                }
-                String optString = jSONObject.optString("firstPlayStatus");
-                if (!TextUtils.isEmpty(optString)) {
-                    si2Var.b0(optString);
-                }
-                this.b = jSONObject.optInt("min-cache", this.b);
-                int optInt = jSONObject.optInt("max-cache", this.c);
-                this.c = optInt;
-                if (this.b <= optInt) {
-                    if (jSONObject.has("min-cache")) {
-                        si2Var.G(this.b);
-                    }
-                    if (jSONObject.has("max-cache")) {
-                        si2Var.g0(this.c);
-                    }
-                } else if (be2.a) {
-                    Log.w("【InlineCommand】", "setZeusVideoExt: minCache " + this.b + " > maxCache " + this.c);
-                }
-            } catch (Exception e) {
-                if (be2.a) {
-                    throw new RuntimeException("setZeusVideoExt with a illegal str", e);
-                }
+            if (d > 0.0d && round == 0) {
+                round = 1;
             }
+            if (ce2.a) {
+                Log.d("【InlineCommand】", "setVolumeInt" + round);
+            }
+            this.b.setStreamVolume(3, round, 0);
         }
     }
 }

@@ -52,7 +52,7 @@ public class am8 extends CustomMessageListener {
                 dl.e();
                 dl.h();
                 this.a.V = UtilHelper.getCurrentDay();
-                xt4.k().x("last_resume_time", TbSingleton.getInstance().getLastResumeTime());
+                yt4.k().x("last_resume_time", TbSingleton.getInstance().getLastResumeTime());
                 MainTabActivity mainTabActivity = this.a;
                 if (!mainTabActivity.G) {
                     nl8 nl8Var = this.b;

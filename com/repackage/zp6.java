@@ -143,23 +143,23 @@ public class zp6 {
                         z2 = true;
                         if (z2 || !this.a.h) {
                             if (!this.a.l() && signData.contDays > 0) {
-                                sy4.c().j(signData.userInfoJson);
+                                ty4.c().j(signData.userInfoJson);
                                 TbPageContext<?> o = this.a.a.o();
                                 TbWebViewActivityConfig tbWebViewActivityConfig = new TbWebViewActivityConfig(this.a.a.getActivity(), "", this.a.c, false, true, true);
                                 tbWebViewActivityConfig.setPageTranslucent(TbWebViewActivityConfig.PAGE_TYPE_BLACK_TRANSLUCENT);
                                 o.sendMessage(new CustomMessage(2002001, tbWebViewActivityConfig));
-                                zi4.f().j().b();
+                                aj4.f().j().b();
                                 return;
                             }
-                            sy4.c().j(null);
+                            ty4.c().j(null);
                             if (p0 != null || p0.x()) {
-                                this.a.a.showToast(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0740, new Object[]{Integer.valueOf(signData.sign_bonus_point), Integer.valueOf(signData.user_sign_rank)}));
+                                this.a.a.showToast(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f073c, new Object[]{Integer.valueOf(signData.sign_bonus_point), Integer.valueOf(signData.user_sign_rank)}));
                             } else {
-                                this.a.a.showToast(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0741, new Object[]{Integer.valueOf(signData.user_sign_rank)}));
+                                this.a.a.showToast(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f073d, new Object[]{Integer.valueOf(signData.user_sign_rank)}));
                             }
                             l1 = this.a.a.l1();
                             if (l1 == null) {
-                                sy4.c().a(1, this.a.a.o(), l1.o0());
+                                ty4.c().a(1, this.a.a.o(), l1.o0());
                                 return;
                             }
                             return;
@@ -177,7 +177,7 @@ public class zp6 {
                                 jSONObject.put("icon_lifecycle", this.a.i.icon_lifecycle);
                                 jSONObject.put("activity_name", this.a.i.activity_name);
                                 jSONObject.put("image_url", this.a.i.image_url);
-                                sy4.c().j(jSONObject.toString());
+                                ty4.c().j(jSONObject.toString());
                             } catch (Exception unused) {
                             }
                         }
@@ -185,7 +185,7 @@ public class zp6 {
                         TbWebViewActivityConfig tbWebViewActivityConfig2 = new TbWebViewActivityConfig(this.a.a.getActivity(), "", this.a.j, false, true, true);
                         tbWebViewActivityConfig2.setPageTranslucent(TbWebViewActivityConfig.PAGE_TYPE_BLACK_TRANSLUCENT);
                         o2.sendMessage(new CustomMessage(2002001, tbWebViewActivityConfig2));
-                        zi4.f().j().b();
+                        aj4.f().j().b();
                         return;
                     }
                     z2 = false;
@@ -193,10 +193,10 @@ public class zp6 {
                     }
                     if (!this.a.l()) {
                     }
-                    sy4.c().j(null);
+                    ty4.c().j(null);
                     if (p0 != null) {
                     }
-                    this.a.a.showToast(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0740, new Object[]{Integer.valueOf(signData.sign_bonus_point), Integer.valueOf(signData.user_sign_rank)}));
+                    this.a.a.showToast(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f073c, new Object[]{Integer.valueOf(signData.sign_bonus_point), Integer.valueOf(signData.user_sign_rank)}));
                     l1 = this.a.a.l1();
                     if (l1 == null) {
                     }
@@ -239,17 +239,17 @@ public class zp6 {
         }
 
         @Override // com.baidu.tieba.tbadkCore.util.AntiHelper.k
-        public void onNavigationButtonClick(cr4 cr4Var) {
+        public void onNavigationButtonClick(dr4 dr4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, cr4Var) == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, dr4Var) == null) {
                 TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_ANTI_DIALOG_NEG_CLICK).param("obj_locate", TbadkCoreStatisticKey.AntiLocateValue.LOCATE_SIGN));
             }
         }
 
         @Override // com.baidu.tieba.tbadkCore.util.AntiHelper.k
-        public void onPositiveButtonClick(cr4 cr4Var) {
+        public void onPositiveButtonClick(dr4 dr4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cr4Var) == null) {
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dr4Var) == null) {
                 TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_ANTI_DIALOG_POS_CLICK).param("obj_locate", TbadkCoreStatisticKey.AntiLocateValue.LOCATE_SIGN));
             }
         }
@@ -427,17 +427,17 @@ public class zp6 {
                 TBSpecificationButtonConfig styleConfig = next.getStyleConfig();
                 styleConfig.g(dimenPixelSize);
                 if (i > 0) {
-                    next.setText(String.format(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0ac6), Integer.valueOf(i)));
+                    next.setText(String.format(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0ab2), Integer.valueOf(i)));
                     styleConfig.i(R.drawable.obfuscated_res_0x7f08091c, 0, TBSpecificationButtonConfig.IconType.WEBP);
                 } else {
-                    next.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f11b0));
+                    next.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f115f));
                     styleConfig.i(R.drawable.obfuscated_res_0x7f08091b, 0, TBSpecificationButtonConfig.IconType.WEBP);
                 }
                 styleConfig.o(TBSpecificationButtonConfig.WebpType.PURE);
                 next.setTextSize(R.dimen.T_X08);
                 next.k();
                 next.setVisibility(0);
-                next.setTag(R.id.obfuscated_res_0x7f090f73, Boolean.TRUE);
+                next.setTag(R.id.obfuscated_res_0x7f090f6c, Boolean.TRUE);
             }
         }
     }
@@ -452,7 +452,7 @@ public class zp6 {
                 next.getLayoutParams().width = -2;
                 next.setPadding(0, 0, 0, 0);
                 next.setTextSize(R.dimen.T_X08);
-                next.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1191));
+                next.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1140));
                 TBSpecificationButtonConfig styleConfig = next.getStyleConfig();
                 styleConfig.g(dimenPixelSize);
                 styleConfig.f(pi.f(TbadkCoreApplication.getInst().getContext(), R.dimen.M_W_X002));
@@ -486,7 +486,7 @@ public class zp6 {
                 next.getLayoutParams().width = UtilHelper.getDimenPixelSize(R.dimen.tbds158);
                 next.setPadding(0, 0, 0, 0);
                 next.setTextSize(R.dimen.T_X08);
-                next.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1191));
+                next.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1140));
                 TBSpecificationButtonConfig styleConfig = next.getStyleConfig();
                 styleConfig.g(dimenPixelSize);
                 styleConfig.i(R.drawable.obfuscated_res_0x7f08091b, 0, TBSpecificationButtonConfig.IconType.WEBP);
@@ -506,7 +506,7 @@ public class zp6 {
                 next.getLayoutParams().width = -2;
                 next.setPadding(0, 0, 0, 0);
                 next.setTextSize(R.dimen.T_X08);
-                next.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1191));
+                next.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1140));
                 TBSpecificationButtonConfig styleConfig = next.getStyleConfig();
                 styleConfig.g(dimenPixelSize);
                 styleConfig.f(pi.f(TbadkCoreApplication.getInst().getContext(), R.dimen.M_W_X002));

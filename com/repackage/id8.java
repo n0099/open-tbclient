@@ -21,14 +21,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.nr4;
+import com.repackage.or4;
 import java.util.List;
 /* loaded from: classes6.dex */
 public class id8 extends kd8 {
     public static /* synthetic */ Interceptable $ic;
-    public static final int l0;
-    public static final int m0;
-    public static final int n0;
+    public static final int f0;
+    public static final int g0;
+    public static final int h0;
     public transient /* synthetic */ FieldHolder $fh;
     public Context R;
     public LinearLayout S;
@@ -38,12 +38,12 @@ public class id8 extends kd8 {
     public String W;
     public boolean X;
     public boolean Y;
-    public nr4.d Z;
-    public nr4.d g0;
-    public nr4.d h0;
-    public nr4.d i0;
-    public nr4.d j0;
-    public View.OnClickListener k0;
+    public or4.d Z;
+    public or4.d a0;
+    public or4.d b0;
+    public or4.d c0;
+    public or4.d d0;
+    public View.OnClickListener e0;
 
     /* loaded from: classes6.dex */
     public class a extends ShareDialogItemView {
@@ -126,13 +126,13 @@ public class id8 extends kd8 {
                 return;
             }
         }
-        l0 = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds187);
-        m0 = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds239);
-        n0 = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds34);
+        f0 = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds187);
+        g0 = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds239);
+        h0 = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds34);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public id8(Context context, String str, boolean z, boolean z2, nr4.d dVar, nr4.d dVar2, nr4.d dVar3, nr4.d dVar4, nr4.d dVar5, View.OnClickListener onClickListener) {
+    public id8(Context context, String str, boolean z, boolean z2, or4.d dVar, or4.d dVar2, or4.d dVar3, or4.d dVar4, or4.d dVar5, View.OnClickListener onClickListener) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -154,13 +154,13 @@ public class id8 extends kd8 {
         this.X = z;
         this.Y = z2;
         this.Z = dVar;
-        this.g0 = dVar2;
-        this.h0 = dVar3;
-        this.i0 = dVar4;
-        this.j0 = dVar5;
-        this.k0 = onClickListener;
-        this.S = (LinearLayout) this.b.findViewById(R.id.obfuscated_res_0x7f090982);
-        this.T = (LinearLayout) this.b.findViewById(R.id.obfuscated_res_0x7f091cdf);
+        this.a0 = dVar2;
+        this.b0 = dVar3;
+        this.c0 = dVar4;
+        this.d0 = dVar5;
+        this.e0 = onClickListener;
+        this.S = (LinearLayout) this.b.findViewById(R.id.obfuscated_res_0x7f09097b);
+        this.T = (LinearLayout) this.b.findViewById(R.id.obfuscated_res_0x7f091ce5);
         x0();
     }
 
@@ -187,31 +187,31 @@ public class id8 extends kd8 {
             super.onClick(view2);
             int intValue = view2.getTag() != null ? ((Integer) view2.getTag()).intValue() : -1;
             if (intValue == R.drawable.obfuscated_res_0x7f0809ac) {
-                nr4.d dVar = this.h0;
+                or4.d dVar = this.b0;
                 if (dVar != null) {
                     dVar.onClick();
                 }
-            } else if (intValue == -32040384) {
-                nr4.d dVar2 = this.Z;
+            } else if (intValue == -32040452) {
+                or4.d dVar2 = this.Z;
                 if (dVar2 != null) {
                     dVar2.onClick();
                 }
             } else if (intValue == R.drawable.obfuscated_res_0x7f080a36) {
-                nr4.d dVar3 = this.g0;
+                or4.d dVar3 = this.a0;
                 if (dVar3 != null) {
                     dVar3.onClick();
                 }
             } else if (intValue == R.drawable.obfuscated_res_0x7f080a38) {
-                nr4.d dVar4 = this.i0;
+                or4.d dVar4 = this.c0;
                 if (dVar4 != null) {
                     dVar4.onClick();
                 }
             } else if (intValue == R.drawable.obfuscated_res_0x7f080a37) {
-                nr4.d dVar5 = this.j0;
+                or4.d dVar5 = this.d0;
                 if (dVar5 != null) {
                     dVar5.onClick();
                 }
-            } else if (intValue != R.drawable.obfuscated_res_0x7f080a44 || (onClickListener = this.k0) == null) {
+            } else if (intValue != R.drawable.obfuscated_res_0x7f080a44 || (onClickListener = this.e0) == null) {
             } else {
                 onClickListener.onClick(view2);
             }
@@ -231,14 +231,14 @@ public class id8 extends kd8 {
                 if (i2 >= Math.min(6, this.h.size())) {
                     break;
                 }
-                this.S.addView(this.h.get(i2), new ViewGroup.LayoutParams(l0, m0));
+                this.S.addView(this.h.get(i2), new ViewGroup.LayoutParams(f0, g0));
                 i2++;
             }
-            this.S.addView(this.U, new ViewGroup.LayoutParams(n0, -1));
+            this.S.addView(this.U, new ViewGroup.LayoutParams(h0, -1));
             for (i = 6; i < this.h.size(); i++) {
-                this.T.addView(this.h.get(i), new ViewGroup.LayoutParams(l0, m0));
+                this.T.addView(this.h.get(i), new ViewGroup.LayoutParams(f0, g0));
             }
-            this.T.addView(this.V, new ViewGroup.LayoutParams(n0, -1));
+            this.T.addView(this.V, new ViewGroup.LayoutParams(h0, -1));
             return true;
         }
         return invokeV.booleanValue;
@@ -248,32 +248,32 @@ public class id8 extends kd8 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             this.h.clear();
-            l(R.string.obfuscated_res_0x7f0f115e, new SvgMaskType(R.drawable.obfuscated_res_0x7f080801));
-            l(R.string.obfuscated_res_0x7f0f1162, new SvgMaskType(R.drawable.obfuscated_res_0x7f080802));
-            l(R.string.obfuscated_res_0x7f0f117f, new SvgMaskType(R.drawable.obfuscated_res_0x7f080804));
+            l(R.string.obfuscated_res_0x7f0f110d, new SvgMaskType(R.drawable.obfuscated_res_0x7f080801));
+            l(R.string.obfuscated_res_0x7f0f1111, new SvgMaskType(R.drawable.obfuscated_res_0x7f080802));
+            l(R.string.obfuscated_res_0x7f0f112e, new SvgMaskType(R.drawable.obfuscated_res_0x7f080804));
             a aVar = new a(this, this.R);
             aVar.d(R.drawable.obfuscated_res_0x7f080a44);
-            aVar.setItemName(R.string.obfuscated_res_0x7f0f1180);
-            aVar.e(R.string.obfuscated_res_0x7f0f1181);
+            aVar.setItemName(R.string.obfuscated_res_0x7f0f112f);
+            aVar.e(R.string.obfuscated_res_0x7f0f1130);
             aVar.setOnClickListener(this);
             List<View> list = this.h;
             aVar.a();
             list.add(aVar);
-            l(R.string.obfuscated_res_0x7f0f1186, new SvgMaskType(R.drawable.obfuscated_res_0x7f080800));
-            l(R.string.obfuscated_res_0x7f0f116d, new SvgMaskType(R.drawable.obfuscated_res_0x7f080805));
+            l(R.string.obfuscated_res_0x7f0f1135, new SvgMaskType(R.drawable.obfuscated_res_0x7f080800));
+            l(R.string.obfuscated_res_0x7f0f111c, new SvgMaskType(R.drawable.obfuscated_res_0x7f080805));
             if (this.W != null) {
-                i(R.string.obfuscated_res_0x7f0f0cfe, R.drawable.obfuscated_res_0x7f0809ac);
+                i(R.string.obfuscated_res_0x7f0f0cea, R.drawable.obfuscated_res_0x7f0809ac);
             }
-            LinearLayout F = F(R.string.obfuscated_res_0x7f0f1099, R.drawable.obfuscated_res_0x7f0809a7);
+            LinearLayout F = F(R.string.obfuscated_res_0x7f0f1055, R.drawable.obfuscated_res_0x7f0809a7);
             F.setOnClickListener(this);
-            F.setTag(-32040384);
+            F.setTag(-32040452);
             this.h.add(F);
             if (this.X) {
-                i(R.string.obfuscated_res_0x7f0f1098, R.drawable.obfuscated_res_0x7f080a36);
+                i(R.string.obfuscated_res_0x7f0f1054, R.drawable.obfuscated_res_0x7f080a36);
             }
-            i(R.string.obfuscated_res_0x7f0f08ae, R.drawable.obfuscated_res_0x7f080a38);
+            i(R.string.obfuscated_res_0x7f0f0899, R.drawable.obfuscated_res_0x7f080a38);
             if (this.Y) {
-                i(R.string.obfuscated_res_0x7f0f08d4, R.drawable.obfuscated_res_0x7f080a37);
+                i(R.string.obfuscated_res_0x7f0f08bf, R.drawable.obfuscated_res_0x7f080a37);
             }
             this.U = new View(this.R);
             this.V = new View(this.R);

@@ -33,7 +33,7 @@ import com.repackage.cj8;
 import com.repackage.ej8;
 import com.repackage.f46;
 import com.repackage.g46;
-import com.repackage.mt4;
+import com.repackage.nt4;
 import com.repackage.oi;
 import com.repackage.z36;
 import java.util.HashMap;
@@ -367,7 +367,7 @@ public class EasterEggH5Service extends Service {
                 this.jsBridge.a(easterEggBridge);
                 this.mWebView.setOnJsPromptCallback(new f(this));
             } catch (Throwable th) {
-                mt4.a("img", -1L, 0, "easteregg_error", 0, th.getClass().getName(), "", "");
+                nt4.a("img", -1L, 0, "easteregg_error", 0, th.getClass().getName(), "", "");
                 TbadkCoreApplication.getInst().onLowMemory();
                 stopSelf();
             }

@@ -92,20 +92,20 @@ public class gv7 extends du7<wr7, PbReplyTitleViewHolder> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, viewGroup)) == null) {
-            View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d069f, viewGroup, false);
+            View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d06a9, viewGroup, false);
             this.u = inflate;
             PbReplyTitleViewHolder pbReplyTitleViewHolder = new PbReplyTitleViewHolder(this.i.getPageContext(), inflate);
             PbFragment pbFragment = this.j;
             if (pbFragment != null) {
-                pbReplyTitleViewHolder.r(pbFragment.k0);
+                pbReplyTitleViewHolder.q(pbFragment.e0);
             }
             pbReplyTitleViewHolder.u = false;
-            pbReplyTitleViewHolder.q(this.o);
-            pbReplyTitleViewHolder.p(this.p);
+            pbReplyTitleViewHolder.p(this.o);
+            pbReplyTitleViewHolder.o(this.p);
             if (getType() == wr7.h) {
-                pbReplyTitleViewHolder.o(this.q);
+                pbReplyTitleViewHolder.n(this.q);
             } else if (getType() == wr7.i) {
-                pbReplyTitleViewHolder.n(this.r);
+                pbReplyTitleViewHolder.m(this.r);
             }
             return pbReplyTitleViewHolder;
         }
@@ -127,7 +127,7 @@ public class gv7 extends du7<wr7, PbReplyTitleViewHolder> {
             if (pbReplyTitleViewHolder != null) {
                 b0();
                 wr7Var.g = this.t.f;
-                pbReplyTitleViewHolder.i(wr7Var);
+                pbReplyTitleViewHolder.h(wr7Var);
             }
             return view2;
         }

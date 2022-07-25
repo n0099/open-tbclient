@@ -20,7 +20,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.rl4;
+import com.repackage.sl4;
 /* loaded from: classes3.dex */
 public class CardFrsGameRecommendGameItemView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
@@ -60,7 +60,7 @@ public class CardFrsGameRecommendGameItemView extends LinearLayout {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && (view2.getTag() instanceof String)) {
                 TiebaStatic.log(new StatisticItem("c13047").param("obj_locate", 10).param("fid", this.a.e));
-                rl4.o(this.a.getContext(), (String) view2.getTag());
+                sl4.o(this.a.getContext(), (String) view2.getTag());
             }
         }
     }

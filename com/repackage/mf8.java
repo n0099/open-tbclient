@@ -105,7 +105,7 @@ public class mf8 extends BaseAdapter implements View.OnClickListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
             if (i >= 100000) {
-                return String.valueOf(i / 10000) + this.a.getString(R.string.obfuscated_res_0x7f0f0aa4);
+                return String.valueOf(i / 10000) + this.a.getString(R.string.obfuscated_res_0x7f0f0a90);
             }
             return String.valueOf(i);
         }
@@ -200,16 +200,16 @@ public class mf8 extends BaseAdapter implements View.OnClickListener {
             if (view2 == null || view2.getTag() == null) {
                 view2 = View.inflate(this.a.getContext(), R.layout.obfuscated_res_0x7f0d02af, null);
                 a aVar = new a(this);
-                BarImageView barImageView = (BarImageView) view2.findViewById(R.id.obfuscated_res_0x7f0909fc);
+                BarImageView barImageView = (BarImageView) view2.findViewById(R.id.obfuscated_res_0x7f0909f5);
                 aVar.a = barImageView;
                 barImageView.setGifIconSupport(false);
-                aVar.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09155e);
-                aVar.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09143f);
-                aVar.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092036);
-                aVar.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091dbb);
-                aVar.h = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0912a7);
-                aVar.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091a4c);
-                aVar.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091b45);
+                aVar.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091539);
+                aVar.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09141b);
+                aVar.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09203a);
+                aVar.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091dc1);
+                aVar.h = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091283);
+                aVar.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091a26);
+                aVar.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091b1f);
                 view2.setTag(aVar);
             }
             View findViewById = view2.findViewById(R.id.obfuscated_res_0x7f090341);
@@ -236,7 +236,7 @@ public class mf8 extends BaseAdapter implements View.OnClickListener {
             TextView textView = aVar2.e;
             textView.setText(this.a.getString(R.string.obfuscated_res_0x7f0f02a7) + " " + b(forumInfoData.member_count));
             TextView textView2 = aVar2.f;
-            textView2.setText(this.a.getString(R.string.obfuscated_res_0x7f0f13c6) + " " + b(forumInfoData.thread_count));
+            textView2.setText(this.a.getString(R.string.obfuscated_res_0x7f0f1375) + " " + b(forumInfoData.thread_count));
             aVar2.g.setText(forumInfoData.slogan);
             if (this.e == 0) {
                 aVar2.c.setVisibility(8);
@@ -262,7 +262,7 @@ public class mf8 extends BaseAdapter implements View.OnClickListener {
                 aVar2.c.setText((CharSequence) null);
                 aVar2.c.setCompoundDrawablesWithIntrinsicBounds(SkinManager.getDrawable(R.drawable.icon_rise), (Drawable) null, (Drawable) null, (Drawable) null);
                 TextView textView3 = aVar2.c;
-                textView3.setText(this.a.getString(R.string.obfuscated_res_0x7f0f0fef) + String.valueOf(forumInfoData.mbr_inter_rank) + this.a.getString(R.string.obfuscated_res_0x7f0f0cb5));
+                textView3.setText(this.a.getString(R.string.obfuscated_res_0x7f0f0fd8) + String.valueOf(forumInfoData.mbr_inter_rank) + this.a.getString(R.string.obfuscated_res_0x7f0f0ca1));
             }
             aVar2.h.setOnClickListener(this);
             view2.setOnClickListener(this);
@@ -311,7 +311,7 @@ public class mf8 extends BaseAdapter implements View.OnClickListener {
     public void onClick(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048591, this, view2) == null) {
-            if (view2.getId() == R.id.obfuscated_res_0x7f0912a7) {
+            if (view2.getId() == R.id.obfuscated_res_0x7f091283) {
                 TiebaStatic.eventStat(this.a.getContext(), "forumlist_to_frs", "tofrsclick", 1, new Object[0]);
                 this.a.sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.a.getPageActivity()).createNormalCfg((String) view2.getTag(), null).setCallFrom(5)));
                 return;

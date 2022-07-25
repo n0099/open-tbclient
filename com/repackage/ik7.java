@@ -56,11 +56,11 @@ public class ik7 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
             this.e = context;
-            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d080d, (ViewGroup) null);
+            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0817, (ViewGroup) null);
             this.a = inflate;
             inflate.setTag(this);
-            this.c = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f091f65);
-            TextView textView = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f091f64);
+            this.c = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f091f69);
+            TextView textView = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f091f68);
             this.d = textView;
             textView.setTag(this);
             return this.a;

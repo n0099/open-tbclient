@@ -1,6 +1,5 @@
 package com.baidu.pass.biometrics.face.liveness.view.face;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapShader;
@@ -24,11 +23,6 @@ import android.view.ViewOutlineProvider;
 import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
 import android.widget.ImageView;
-import androidx.annotation.ColorInt;
-import androidx.annotation.ColorRes;
-import androidx.annotation.DrawableRes;
-import androidx.annotation.NonNull;
-import androidx.annotation.RequiresApi;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -38,7 +32,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@SuppressLint({"AppCompatCustomView"})
 /* loaded from: classes2.dex */
 public class CircleImageView extends ImageView {
     public static /* synthetic */ Interceptable $ic = null;
@@ -120,7 +113,6 @@ public class CircleImageView extends ImageView {
         }
     }
 
-    @RequiresApi(api = 21)
     /* loaded from: classes2.dex */
     public class b extends ViewOutlineProvider {
         public static /* synthetic */ Interceptable $ic;
@@ -150,12 +142,17 @@ public class CircleImageView extends ImageView {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, view2, outline) == null) {
                 if (this.a.t) {
-                    ViewOutlineProvider.BACKGROUND.getOutline(view2, outline);
+                    if (Build.VERSION.SDK_INT >= 21) {
+                        ViewOutlineProvider.BACKGROUND.getOutline(view2, outline);
+                        return;
+                    }
                     return;
                 }
                 Rect rect = new Rect();
                 this.a.b.roundOut(rect);
-                outline.setRoundRect(rect, rect.width() / 2.0f);
+                if (Build.VERSION.SDK_INT >= 21) {
+                    outline.setRoundRect(rect, rect.width() / 2.0f);
+                }
             }
         }
 
@@ -357,7 +354,7 @@ public class CircleImageView extends ImageView {
     }
 
     @Override // android.widget.ImageView, android.view.View, android.graphics.drawable.Drawable.Callback
-    public void invalidateDrawable(@NonNull Drawable drawable) {
+    public void invalidateDrawable(Drawable drawable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, drawable) == null) {
             this.r = true;
@@ -366,7 +363,6 @@ public class CircleImageView extends ImageView {
     }
 
     @Override // android.widget.ImageView, android.view.View
-    @SuppressLint({"CanvasSize"})
     public void onDraw(Canvas canvas) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, canvas) == null) {
@@ -411,7 +407,6 @@ public class CircleImageView extends ImageView {
     }
 
     @Override // android.view.View
-    @SuppressLint({"ClickableViewAccessibility"})
     public boolean onTouchEvent(MotionEvent motionEvent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -432,7 +427,7 @@ public class CircleImageView extends ImageView {
         }
     }
 
-    public void setBorderColor(@ColorInt int i) {
+    public void setBorderColor(int i) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeI(1048589, this, i) == null) || i == this.g) {
             return;
@@ -463,7 +458,7 @@ public class CircleImageView extends ImageView {
         invalidate();
     }
 
-    public void setCircleBackgroundColor(@ColorInt int i) {
+    public void setCircleBackgroundColor(int i) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeI(1048592, this, i) == null) || i == this.i) {
             return;
@@ -474,7 +469,7 @@ public class CircleImageView extends ImageView {
     }
 
     @Deprecated
-    public void setCircleBackgroundColorResource(@ColorRes int i) {
+    public void setCircleBackgroundColorResource(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048593, this, i) == null) {
             setCircleBackgroundColor(getContext().getResources().getColor(i));
@@ -545,7 +540,7 @@ public class CircleImageView extends ImageView {
     }
 
     @Override // android.widget.ImageView
-    public void setImageResource(@DrawableRes int i) {
+    public void setImageResource(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048599, this, i) == null) {
             super.setImageResource(i);

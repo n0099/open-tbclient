@@ -129,13 +129,13 @@ public class nn7 {
 
         /* renamed from: com.repackage.nn7$b$b  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class RunnableC0691b implements Runnable {
+        public class RunnableC0537b implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ GetCloudFaceGroupMessage a;
             public final /* synthetic */ b b;
 
-            public RunnableC0691b(b bVar, GetCloudFaceGroupMessage getCloudFaceGroupMessage) {
+            public RunnableC0537b(b bVar, GetCloudFaceGroupMessage getCloudFaceGroupMessage) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -213,7 +213,7 @@ public class nn7 {
                 } else if (getCloudFaceGroupMessage.getDiyEmotionList() == null) {
                     this.a.g = false;
                 } else {
-                    jn7.b().a(new RunnableC0691b(this, getCloudFaceGroupMessage));
+                    jn7.b().a(new RunnableC0537b(this, getCloudFaceGroupMessage));
                 }
                 if (getCloudFaceGroupMessage.getFaceGroupUpdateTime() <= nn7.n()) {
                     this.a.f = false;
@@ -391,7 +391,7 @@ public class nn7 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) {
-            xt4 k = xt4.k();
+            yt4 k = yt4.k();
             return k.m("face_collect_update_time" + k(), 0L);
         }
         return invokeV.longValue;
@@ -401,7 +401,7 @@ public class nn7 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) {
-            xt4 k = xt4.k();
+            yt4 k = yt4.k();
             return k.m("face_diy_update_time" + k(), 0L);
         }
         return invokeV.longValue;
@@ -411,7 +411,7 @@ public class nn7 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) {
-            xt4 k = xt4.k();
+            yt4 k = yt4.k();
             return k.m("face_group_update_time" + k(), 0L);
         }
         return invokeV.longValue;
@@ -436,7 +436,7 @@ public class nn7 {
     public static void u(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(65550, null, j) == null) {
-            xt4 k = xt4.k();
+            yt4 k = yt4.k();
             k.x("face_collect_update_time" + k(), j);
         }
     }
@@ -444,7 +444,7 @@ public class nn7 {
     public static void v(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(65551, null, j) == null) {
-            xt4 k = xt4.k();
+            yt4 k = yt4.k();
             k.x("face_diy_update_time" + k(), j);
         }
     }
@@ -452,7 +452,7 @@ public class nn7 {
     public static void w(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(65552, null, j) == null) {
-            xt4 k = xt4.k();
+            yt4 k = yt4.k();
             k.x("face_group_update_time" + k(), j);
         }
     }

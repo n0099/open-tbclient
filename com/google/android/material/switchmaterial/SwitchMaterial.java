@@ -27,7 +27,7 @@ public class SwitchMaterial extends SwitchCompat {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: DEF_STYLE_RES */
-    public static final int obfuscated_res_0x7f10035c = 2131755868;
+    public static final int obfuscated_res_0x7f10035f = 2131755871;
     public static final int[][] ENABLED_CHECKED_STATES;
     public transient /* synthetic */ FieldHolder $fh;
     @NonNull
@@ -82,7 +82,7 @@ public class SwitchMaterial extends SwitchCompat {
             if (this.materialThemeColorsThumbTintList == null) {
                 int color = MaterialColors.getColor(this, R.attr.obfuscated_res_0x7f040171);
                 int color2 = MaterialColors.getColor(this, R.attr.colorControlActivated);
-                float dimension = getResources().getDimension(R.dimen.obfuscated_res_0x7f0704d4);
+                float dimension = getResources().getDimension(R.dimen.obfuscated_res_0x7f0704d2);
                 if (this.elevationOverlayProvider.isThemeElevationOverlayEnabled()) {
                     dimension += ViewUtils.getParentAbsoluteElevation(this);
                 }
@@ -155,7 +155,7 @@ public class SwitchMaterial extends SwitchCompat {
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public SwitchMaterial(@NonNull Context context, @Nullable AttributeSet attributeSet) {
-        this(context, attributeSet, R.attr.obfuscated_res_0x7f0405f0);
+        this(context, attributeSet, R.attr.obfuscated_res_0x7f0405f2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -176,7 +176,7 @@ public class SwitchMaterial extends SwitchCompat {
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public SwitchMaterial(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
-        super(MaterialThemeOverlay.wrap(context, attributeSet, i, obfuscated_res_0x7f10035c), attributeSet, i);
+        super(MaterialThemeOverlay.wrap(context, attributeSet, i, obfuscated_res_0x7f10035f), attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -195,7 +195,7 @@ public class SwitchMaterial extends SwitchCompat {
         }
         Context context2 = getContext();
         this.elevationOverlayProvider = new ElevationOverlayProvider(context2);
-        TypedArray obtainStyledAttributes = ThemeEnforcement.obtainStyledAttributes(context2, attributeSet, new int[]{R.attr.obfuscated_res_0x7f0406b8}, i, obfuscated_res_0x7f10035c, new int[0]);
+        TypedArray obtainStyledAttributes = ThemeEnforcement.obtainStyledAttributes(context2, attributeSet, new int[]{R.attr.obfuscated_res_0x7f0406ba}, i, obfuscated_res_0x7f10035f, new int[0]);
         this.useMaterialThemeColors = obtainStyledAttributes.getBoolean(0, false);
         obtainStyledAttributes.recycle();
     }

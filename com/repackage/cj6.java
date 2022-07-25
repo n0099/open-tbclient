@@ -49,7 +49,7 @@ public class cj6 extends b9<ForumRulesShowActivity> implements View.OnClickListe
     public BdTypeRecyclerView m;
     public List<nn> n;
     public View o;
-    public k55 p;
+    public l55 p;
     public int q;
     public int r;
     public ui6 s;
@@ -85,7 +85,7 @@ public class cj6 extends b9<ForumRulesShowActivity> implements View.OnClickListe
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 ei.a(this.a.w);
-                pi.O(this.b.a, this.b.a.getResources().getString(R.string.obfuscated_res_0x7f0f0446));
+                pi.O(this.b.a, this.b.a.getResources().getString(R.string.obfuscated_res_0x7f0f0445));
             }
         }
     }
@@ -117,7 +117,7 @@ public class cj6 extends b9<ForumRulesShowActivity> implements View.OnClickListe
         forumRulesShowActivity.setContentView(R.layout.obfuscated_res_0x7f0d0037);
         this.k = new yi6(forumRulesShowActivity);
         this.l = new xi6(forumRulesShowActivity);
-        this.q = pi.f(TbadkCoreApplication.getInst(), R.dimen.obfuscated_res_0x7f070308);
+        this.q = pi.f(TbadkCoreApplication.getInst(), R.dimen.obfuscated_res_0x7f070306);
         this.r = pi.f(TbadkCoreApplication.getInst(), R.dimen.obfuscated_res_0x7f0701b2);
         u(forumRulesShowActivity);
     }
@@ -222,7 +222,7 @@ public class cj6 extends b9<ForumRulesShowActivity> implements View.OnClickListe
         if (!(interceptable == null || interceptable.invokeL(1048587, this, view2) == null) || this.a == null) {
             return;
         }
-        if (view2.getId() == R.id.obfuscated_res_0x7f091b6e) {
+        if (view2.getId() == R.id.obfuscated_res_0x7f091b48) {
             int i = -1;
             ui6 ui6Var = this.s;
             if (ui6Var == null || ui6Var.g() == null) {
@@ -236,7 +236,7 @@ public class cj6 extends b9<ForumRulesShowActivity> implements View.OnClickListe
             String str2 = "https://tieba.baidu.com/mo/q/wise-bawu-core/forumRuleShare?fid=" + i;
             ShareItem shareItem = new ShareItem();
             shareItem.u = m;
-            shareItem.v = String.format(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f06ad), str);
+            shareItem.v = String.format(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f06a9), str);
             shareItem.w = str2;
             shareItem.m0 = false;
             ui6 ui6Var3 = this.s;
@@ -250,7 +250,7 @@ public class cj6 extends b9<ForumRulesShowActivity> implements View.OnClickListe
             shareDialogConfig.setIsCopyLink(true);
             shareDialogConfig.setCopyLinkListener(new a(this, shareItem));
             this.a.sendMessage(new CustomMessage(2001276, shareDialogConfig));
-        } else if (view2.getId() == R.id.obfuscated_res_0x7f091585) {
+        } else if (view2.getId() == R.id.obfuscated_res_0x7f091560) {
             this.a.finish();
         } else if (this.p == null || view2.getId() != this.p.c().getId()) {
         } else {
@@ -311,10 +311,10 @@ public class cj6 extends b9<ForumRulesShowActivity> implements View.OnClickListe
             View addSystemImageButton = this.e.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, this);
             this.f = addSystemImageButton;
             this.g = (ImageView) addSystemImageButton.findViewById(R.id.obfuscated_res_0x7f0924ef);
-            this.e.setCenterTextTitle(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f06aa));
-            View addCustomView = navigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.obfuscated_res_0x7f0d05eb, this);
+            this.e.setCenterTextTitle(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f06a6));
+            View addCustomView = navigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.obfuscated_res_0x7f0d05f5, this);
             this.h = addCustomView;
-            this.i = (ImageView) addCustomView.findViewById(R.id.obfuscated_res_0x7f091583);
+            this.i = (ImageView) addCustomView.findViewById(R.id.obfuscated_res_0x7f09155e);
             int i = this.q;
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(i, i);
             layoutParams.rightMargin = this.r;
@@ -327,15 +327,15 @@ public class cj6 extends b9<ForumRulesShowActivity> implements View.OnClickListe
     public final void u(ForumRulesShowActivity forumRulesShowActivity) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048594, this, forumRulesShowActivity) == null) {
-            this.d = (ViewGroup) forumRulesShowActivity.findViewById(R.id.obfuscated_res_0x7f090a4b);
-            NavigationBar navigationBar = (NavigationBar) forumRulesShowActivity.findViewById(R.id.obfuscated_res_0x7f0915a0);
+            this.d = (ViewGroup) forumRulesShowActivity.findViewById(R.id.obfuscated_res_0x7f090a44);
+            NavigationBar navigationBar = (NavigationBar) forumRulesShowActivity.findViewById(R.id.obfuscated_res_0x7f09157b);
             this.e = navigationBar;
             t(navigationBar);
-            BdTypeRecyclerView bdTypeRecyclerView = (BdTypeRecyclerView) forumRulesShowActivity.findViewById(R.id.obfuscated_res_0x7f090a58);
+            BdTypeRecyclerView bdTypeRecyclerView = (BdTypeRecyclerView) forumRulesShowActivity.findViewById(R.id.obfuscated_res_0x7f090a51);
             this.m = bdTypeRecyclerView;
             bdTypeRecyclerView.setLayoutManager(new LinearLayoutManager(forumRulesShowActivity));
             this.j = new ni6(forumRulesShowActivity, this.m);
-            this.o = forumRulesShowActivity.findViewById(R.id.obfuscated_res_0x7f090a59);
+            this.o = forumRulesShowActivity.findViewById(R.id.obfuscated_res_0x7f090a52);
             onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         }
     }
@@ -357,11 +357,11 @@ public class cj6 extends b9<ForumRulesShowActivity> implements View.OnClickListe
         ni6Var.c(this.n);
     }
 
-    public void x(k55 k55Var) {
+    public void x(l55 l55Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048597, this, k55Var) == null) {
-            this.p = k55Var;
-            k55Var.c().setOnClickListener(this);
+        if (interceptable == null || interceptable.invokeL(1048597, this, l55Var) == null) {
+            this.p = l55Var;
+            l55Var.c().setOnClickListener(this);
         }
     }
 

@@ -26,20 +26,20 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.m53;
+import com.repackage.n53;
 import java.util.HashMap;
 import java.util.Iterator;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class pn5 extends e23 {
+public class pn5 extends f23 {
     public static /* synthetic */ Interceptable $ic = null;
     public static String d = "com.baidu.tieba://";
     public transient /* synthetic */ FieldHolder $fh;
     public String c;
 
     /* loaded from: classes6.dex */
-    public class a implements af3<k53<m53.e>> {
+    public class a implements bf3<l53<n53.e>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ CallbackHandler a;
@@ -77,18 +77,18 @@ public class pn5 extends e23 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.af3
+        @Override // com.repackage.bf3
         /* renamed from: b */
-        public void a(k53<m53.e> k53Var) {
+        public void a(l53<n53.e> l53Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, k53Var) == null) {
-                if (!f53.h(k53Var)) {
-                    f53.q(k53Var, this.a, this.h.c);
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, l53Var) == null) {
+                if (!g53.h(l53Var)) {
+                    g53.q(l53Var, this.a, this.h.c);
                 } else if (!this.h.l(this.b, this.c, this.d, this.e, this.f, this.g)) {
-                    hx1.c("PageTransitionAction", "page transition fail");
+                    ix1.c("PageTransitionAction", "page transition fail");
                     this.a.handleSchemeDispatchCallback(this.h.c, UnitedSchemeUtility.wrapCallbackParams(1001).toString());
                 } else {
-                    hx1.i("PageTransitionAction", "page transition success");
+                    ix1.i("PageTransitionAction", "page transition success");
                     this.a.handleSchemeDispatchCallback(this.h.c, UnitedSchemeUtility.wrapCallbackParams(0).toString());
                 }
             }
@@ -146,13 +146,13 @@ public class pn5 extends e23 {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public pn5(e13 e13Var) {
-        super(e13Var, "/swanAPI/pageTransition");
+    public pn5(f13 f13Var) {
+        super(f13Var, "/swanAPI/pageTransition");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {e13Var};
+            Object[] objArr = {f13Var};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -214,12 +214,12 @@ public class pn5 extends e23 {
                 }
                 StringBuilder sb2 = new StringBuilder(sb.substring(0, sb.length() - 1));
                 String str9 = str8 + "?" + ((Object) sb2);
-                if (e23.b) {
+                if (f23.b) {
                     Log.i("PageTransitionAction", "encodeParams: " + ((Object) sb2));
                 }
                 return str9;
             } catch (JSONException e) {
-                if (e23.b) {
+                if (f23.b) {
                     e.printStackTrace();
                 }
                 return null;
@@ -249,7 +249,7 @@ public class pn5 extends e23 {
             if (!TextUtils.isEmpty(str) && str.contains("com.baidu.tieba")) {
                 Uri parse2 = Uri.parse(str);
                 if ("miniapp".equals(parse2.getAuthority()) && "/goods".equals(parse2.getPath())) {
-                    r65.i(new GoodsEvent(parse2.getQueryParameter("goodsList")));
+                    s65.i(new GoodsEvent(parse2.getQueryParameter("goodsList")));
                     return true;
                 }
             }
@@ -258,12 +258,12 @@ public class pn5 extends e23 {
         return invokeLL.booleanValue;
     }
 
-    @Override // com.repackage.e23
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, h03 h03Var) {
+    @Override // com.repackage.f23
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, i03 i03Var) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, h03Var)) == null) {
-            if (h03Var == null) {
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, i03Var)) == null) {
+            if (i03Var == null) {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "null swanApp");
                 return false;
             }
@@ -272,7 +272,7 @@ public class pn5 extends e23 {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "params is null");
                 return false;
             }
-            JSONObject d2 = hd3.d(param);
+            JSONObject d2 = id3.d(param);
             String optString = d2.optString("cb");
             this.c = optString;
             if (TextUtils.isEmpty(optString)) {
@@ -287,12 +287,12 @@ public class pn5 extends e23 {
             try {
                 optJSONObject.put("launchMode", "standard");
             } catch (JSONException e) {
-                if (e23.b) {
+                if (f23.b) {
                     e.printStackTrace();
                 }
             }
-            h03Var.e0().g((Activity) context, "mapp_i_baiduapp_page_trans", new a(this, callbackHandler, context, optString2, optString3, optString4, optString5, optJSONObject.toString()));
-            hx1.i("PageTransitionAction", "callback success");
+            i03Var.e0().g((Activity) context, "mapp_i_baiduapp_page_trans", new a(this, callbackHandler, context, optString2, optString3, optString4, optString5, optJSONObject.toString()));
+            ix1.i("PageTransitionAction", "callback success");
             UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
             return true;
         }
@@ -324,7 +324,7 @@ public class pn5 extends e23 {
                     str6 = m(str, str2, str3, str4, str5);
                     z = n(context, str6);
                 }
-                if (e23.b) {
+                if (f23.b) {
                     Log.i("PageTransitionAction", "result = " + z + "\n拼接后的uri is: " + str6);
                 }
             }
@@ -334,10 +334,10 @@ public class pn5 extends e23 {
     }
 
     public final void o(String str) {
-        h03 M;
-        cx2 y;
+        i03 M;
+        dx2 y;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) || (M = h03.M()) == null || (y = M.y()) == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) || (M = i03.M()) == null || (y = M.y()) == null) {
             return;
         }
         Bundle bundle = new Bundle();

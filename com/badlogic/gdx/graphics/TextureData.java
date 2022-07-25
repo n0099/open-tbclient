@@ -105,13 +105,13 @@ public interface TextureData {
 
     boolean a();
 
-    boolean b();
+    void b(int i);
 
-    void c(int i);
+    Pixmap c();
 
-    Pixmap d();
+    Pixmap.Format d();
 
-    Pixmap.Format e();
+    boolean f();
 
     boolean g();
 
@@ -121,7 +121,7 @@ public interface TextureData {
 
     int getWidth();
 
-    boolean h();
+    boolean isPrepared();
 
     void prepare();
 }
